@@ -1,4 +1,4 @@
-import 'styles/globals.css';
+import '~/styles/globals.css';
 
 // @ts-ignore
 function MyApp({ Component, pageProps }) {
