@@ -1,5 +1,6 @@
 import React from 'react';
 import MyLinkCard from '@components/Card/MyLinkCard';
+import Head from 'next/head';
 
 const myLinks = [
   {
@@ -46,7 +47,11 @@ const myLinks = [
 
 export default function Home() {
   return (
-    <div className={'w-full h-screen dark:bg-black'}>
+    <div className={'w-full min-h-screen dark:bg-black'}>
+      <Head>
+        <title>developer okdohyuk</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
       <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
         <h1
           className="inline-block
@@ -76,8 +81,8 @@ export default function Home() {
           up
         </p>
       </div>
-      <div className={'px-4 lg:max-w-screen-lg md:mx-auto'}>
-        <h2 className={'text-3xl dark:text-white'}>my links</h2>
+      <div className={'px-4 lg:max-w-screen-lg md:mx-auto pb-8'}>
+        <h2 className={'text-xl md:text-3xl dark:text-white'}>my links</h2>
         <div className={'mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3'}>
           {myLinks.map((item, idx) => (
             <MyLinkCard {...item} key={idx} />
