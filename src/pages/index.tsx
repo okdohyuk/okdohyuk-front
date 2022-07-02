@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MyLinkCard from '@components/Card/MyLinkCard';
 
 const myLinks = [
@@ -44,9 +44,51 @@ const myLinks = [
   },
 ];
 
+interface BeforeInstallPromptEvent extends Event {
+  readonly platforms: string[];
+  readonly userChoice: Promise<{
+    outcome: 'accepted' | 'dismissed';
+    platform: string;
+  }>;
+  prompt(): Promise<void>;
+}
+
+declare global {
+  interface WindowEventMap {
+    beforeinstallprompt: BeforeInstallPromptEvent;
+  }
+}
+
 export default function Home() {
+  const [deferredPrompt, setDeferredPrompt] = useState<null | BeforeInstallPromptEvent>(null);
+
+  useEffect(() => {
+    window.addEventListener('beforeinstallprompt', (e: BeforeInstallPromptEvent) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    });
+  }, []);
+
+  const installApp = () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        setDeferredPrompt(null);
+      }
+    });
+  };
+
   return (
     <div className={'w-full min-h-screen dark:bg-black'}>
+      {!!deferredPrompt ? (
+        <button
+          className={'absolute top-[16px] right-[16px] underline dark:text-white'}
+          onClick={installApp}
+        >
+          Downloads
+        </button>
+      ) : null}
       <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
         <h1
           className="inline-block
