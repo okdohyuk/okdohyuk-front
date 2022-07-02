@@ -1,6 +1,5 @@
 import React from 'react';
 import MyLinkCard from '@components/Card/MyLinkCard';
-import Head from 'next/head';
 
 const myLinks = [
   {
@@ -48,10 +47,6 @@ const myLinks = [
 export default function Home() {
   return (
     <div className={'w-full min-h-screen dark:bg-black'}>
-      <Head>
-        <title>developer okdohyuk</title>
-        <link rel="shortcut icon" href="/favicon.ico" />
-      </Head>
       <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
         <h1
           className="inline-block
