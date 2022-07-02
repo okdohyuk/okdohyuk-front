@@ -1,6 +1,5 @@
 import React from 'react';
 import { Html, Main, NextScript, Head } from 'next/document';
-import Script from 'next/script';
 
 function Document() {
   return (
