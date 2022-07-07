@@ -16,6 +16,7 @@ const TodoApp = inject('todoStore')(
 
     const handleSubmitTodo = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+      if (!value) return;
 
       addTodo(value);
       reset();
@@ -34,7 +35,7 @@ const TodoApp = inject('todoStore')(
           <form onSubmit={handleSubmitTodo}>
             <input
               className={
-                'w-xl py-1 px-1.5 bg-gray-200 rounded rounded-2xl border border-gray-800 focus:border-black'
+                'flex min-w-full md:min-w-[300px] lg:min-w-[400px] placeholder-black py-1 px-1.5 bg-rose-500 rounded rounded-2xl border border-gray-800 focus:border-black focus:ring-2 focus:ring-offset-2 focus:ring-red-500 focus:outline-none'
               }
               placeholder={'typing new todo'}
               value={value}
@@ -46,14 +47,31 @@ const TodoApp = inject('todoStore')(
               <div
                 key={todo.id}
                 className={
-                  'max-w-full flex space-x-1 bg-zinc-300 dark:bg-zinc-800 rounded px-1.5 py-2 shadow-xl dark:shadow-lg'
+                  'w-full md:max-w-lg lg:max-w-3xl lg:min-w-[400px] flex space-x-1 overflow-hidden bg-zinc-300 dark:bg-zinc-800 rounded px-1.5 py-2 shadow-xl dark:shadow-lg items-center'
                 }
               >
                 <div onClick={() => toggleTodoCheck(todo.id)}>
-                  {todo.isChecked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+                  {todo.isChecked ? (
+                    <MdCheckBox
+                      className={'text-lg md:text-xl lg:text-2xl dark:text-white cursor-pointer'}
+                    />
+                  ) : (
+                    <MdCheckBoxOutlineBlank
+                      className={'text-lg md:text-xl lg:text-2xl dark:text-white cursor-pointer'}
+                    />
+                  )}
                 </div>
-                <div className={'flex flex-1'}>{todo.title}</div>
-                <MdDeleteForever onClick={() => removeTodo(todo.id)} />
+                <div
+                  className={
+                    'text-lg md:text-xl lg:text-2xl flex flex-1 dark:text-white break-all text-left'
+                  }
+                >
+                  {todo.title}
+                </div>
+                <MdDeleteForever
+                  className={'text-lg md:text-xl lg:text-2xl dark:text-white cursor-pointer'}
+                  onClick={() => removeTodo(todo.id)}
+                />
               </div>
             ))}
           </div>
