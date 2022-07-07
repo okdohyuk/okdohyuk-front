@@ -1,4 +1,5 @@
-import { observable, makeObservable, action } from 'mobx';
+import { observable, makeObservable, action, reaction } from 'mobx';
+import Cookies from 'js-cookie';
 
 export interface Todo {
   id: string;
@@ -15,11 +16,24 @@ export interface TodoStoreState {
 }
 
 class TodoStore implements TodoStoreState {
+  @observable public todos: Array<Todo> = [];
+
   constructor() {
     makeObservable(this);
-  }
 
-  @observable public todos: Array<Todo> = [];
+    reaction(
+      () => this.todos.map((todo) => todo.isChecked),
+      () => {
+        Cookies.set('TODO-LIST', JSON.stringify(this.todos));
+      },
+    );
+
+    const getTodo = Cookies.get('TODO-LIST');
+
+    if (getTodo !== undefined) {
+      this.todos = JSON.parse(getTodo);
+    }
+  }
 
   @action public addTodo = (title: string) => {
     this.todos = [...this.todos, { id: new Date().getTime().toString(), title, isChecked: false }];
