@@ -1,6 +1,5 @@
 import React from 'react';
 import NextLink from 'next/link';
-import PropTypes from 'prop-types';
 
 type LinkType = {
   children: React.ReactNode;
