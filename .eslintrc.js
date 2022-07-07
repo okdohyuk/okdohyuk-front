@@ -19,6 +19,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/display-name': 'off',
+    'react/no-unknown-property': 'off',
     'no-console': ['warn'],
   },
   settings: {

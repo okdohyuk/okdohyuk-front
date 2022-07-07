@@ -114,8 +114,8 @@ export default function Home() {
           className="text opacity-90 max-w-sm
             lg:text-xl lg:max-w-2xl dark:text-white"
         >
-          type-safe, does not tolerate even a one pixel, one who enjoys, and have a not don't give
-          up
+          {`type - safe, does not tolerate even a one pixel, one who enjoys, and have a not don't give
+            up`}
         </p>
       </div>
       <div className={'px-4 lg:max-w-screen-lg md:mx-auto pb-8'}>
