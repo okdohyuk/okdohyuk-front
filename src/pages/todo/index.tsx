@@ -7,7 +7,7 @@ type TodoApp = {
   todo: TodoStoreState;
 };
 
-const TodoApp = inject('Todo')(
+const TodoApp = inject('todoStore')(
   observer(({ todo }: TodoApp) => {
     console.log('=>(index.tsx:8) props', toJS(todo));
 

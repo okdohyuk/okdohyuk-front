@@ -5,5 +5,5 @@ import TodoStore from './TodoStore';
 enableStaticRendering(typeof window === 'undefined');
 
 export default {
-  TodoStore,
+  todoStore: new TodoStore(),
 };

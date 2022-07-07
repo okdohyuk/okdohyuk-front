@@ -36,4 +36,4 @@ class TodoStore implements TodoStoreState {
   };
 }
 
-export default new TodoStore();
+export default TodoStore;
