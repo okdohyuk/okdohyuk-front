@@ -7,8 +7,9 @@ export interface Todo {
 }
 
 export interface TodoStoreState {
-  todo: Todo[];
+  todos: Todo[];
   addTodo: (title: string) => void;
+  toggleTodoCheck: (id: string) => void;
   updateTodo: (newTodo: Todo) => void;
   removeTodo: (id: string) => void;
 }
@@ -18,21 +19,28 @@ class TodoStore implements TodoStoreState {
     makeObservable(this);
   }
 
-  @observable todo: Array<Todo> = [{ id: new Date().toString(), title: 'title', isChecked: false }];
+  @observable public todos: Array<Todo> = [];
 
-  @action addTodo = (title: string) => {
-    this.todo = [...this.todo, { id: new Date().toString(), title, isChecked: false }];
+  @action public addTodo = (title: string) => {
+    this.todos = [...this.todos, { id: new Date().getTime().toString(), title, isChecked: false }];
   };
 
-  @action updateTodo = (newTodo: Todo) => {
-    const idx = this.todo.findIndex((todo) => todo.id === newTodo.id);
-    const tempTodo = this.todo;
+  @action public toggleTodoCheck = (id: string) => {
+    const idx = this.todos.findIndex((todo) => todo.id === id);
+    const tempTodo = this.todos;
+    tempTodo[idx].isChecked = !tempTodo[idx].isChecked;
+    this.todos = tempTodo;
+  };
+
+  @action public updateTodo = (newTodo: Todo) => {
+    const idx = this.todos.findIndex((todo) => todo.id === newTodo.id);
+    const tempTodo = this.todos;
     tempTodo[idx] = newTodo;
-    this.todo = tempTodo;
+    this.todos = tempTodo;
   };
 
-  @action removeTodo = (id: string) => {
-    this.todo = this.todo.filter((todo) => todo.id !== id);
+  @action public removeTodo = (id: string) => {
+    this.todos = this.todos.filter((todo) => todo.id !== id);
   };
 }
 
