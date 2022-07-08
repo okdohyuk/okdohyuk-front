@@ -9,7 +9,7 @@ type LinkType = {
 };
 
 export default function Link({ children, href, hasTargetBlank, ...rest }: LinkType) {
-  if (!href) return children;
+  if (!href) return <>{children}</>;
   return (
     <NextLink href={href} {...rest}>
       <a onClick={(e) => e.stopPropagation()} target={hasTargetBlank ? '_blank' : '_self'}>
