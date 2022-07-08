@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react';
 import { TodoStoreState } from '~/stores/TodoStore';
 import useInput from '@hooks/useInput';
 import { MdCheckBoxOutlineBlank, MdCheckBox, MdDeleteForever } from 'react-icons/md';
+import Head from 'next/head';
 
 type TodoApp = {
   todoStore: TodoStoreState;
@@ -24,6 +25,9 @@ const TodoApp = inject('todoStore')(
 
     return (
       <div className={'w-full min-h-screen dark:bg-black'}>
+        <Head>
+          <title>{'todo app with okdohyuk'}</title>
+        </Head>
         <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
           <h1
             className={

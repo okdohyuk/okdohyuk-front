@@ -8,8 +8,8 @@ type LinkType = {
   [key: string]: any;
 };
 
-export default function Link({ children, href, hasTargetBlank, ...rest }: LinkType): any {
-  if (!href) return children;
+export default function Link({ children, href, hasTargetBlank, ...rest }: LinkType) {
+  if (!href) return <>{children}</>;
   return (
     <NextLink href={href} {...rest}>
       <a onClick={(e) => e.stopPropagation()} target={hasTargetBlank ? '_blank' : '_self'}>

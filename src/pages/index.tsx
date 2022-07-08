@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MyLinkCard from '@components/Card/MyLinkCard';
+import Head from 'next/head';
 
 const myLinks = [
   {
@@ -81,6 +82,9 @@ export default function Home() {
 
   return (
     <div className={'w-full min-h-screen dark:bg-black'}>
+      <Head>
+        <title>developer okdohyuk</title>
+      </Head>
       {!!deferredPrompt ? (
         <button
           className={'absolute top-[16px] right-[16px] underline dark:text-white'}

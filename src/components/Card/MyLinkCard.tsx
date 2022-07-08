@@ -7,7 +7,7 @@ type LinkCard = {
   link: string;
 };
 
-function MyLinkCard(props: LinkCard): any {
+function MyLinkCard(props: LinkCard) {
   return (
     <Link href={props.link} hasTargetBlank>
       <article className="rounded-lg p-4 md:p-8 transition-all bg-zinc-300 dark:bg-zinc-800 shadow-xl dark:shadow-lg text-cyan-500 border-2 border-transparent hover:border-current">
