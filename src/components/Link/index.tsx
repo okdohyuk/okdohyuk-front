@@ -8,7 +8,7 @@ type LinkType = {
   [key: string]: any;
 };
 
-export default function Link({ children, href, hasTargetBlank, ...rest }: LinkType): any {
+export default function Link({ children, href, hasTargetBlank, ...rest }: LinkType) {
   if (!href) return children;
   return (
     <NextLink href={href} {...rest}>
