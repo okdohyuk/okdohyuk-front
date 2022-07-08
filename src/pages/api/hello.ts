@@ -1,14 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default function handler(
-  req: any,
-  res: {
-    status: (arg0: number) => {
-      (): any;
-      new (): any;
-      json: { (arg0: { name: string }): void; new (): any };
-    };
-  },
-) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   res.status(200).json({ name: 'okdohyuk' });
 }
