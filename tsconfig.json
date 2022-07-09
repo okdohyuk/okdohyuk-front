@@ -27,6 +27,12 @@
       ],
       "@utils/*": [
         "./utils/*"
+      ],
+      "@stores": [
+        "./stores"
+      ],
+      "@stores/*": [
+        "./stores/*"
       ]
     },
     "allowJs": true,
