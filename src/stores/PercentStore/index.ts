@@ -51,8 +51,26 @@ class PercentStore implements PercentStoreState {
     if (isNaN(+this[props.target].primaryNumber) || isNaN(+this[props.target].secondaryNumber))
       return;
 
-    this[props.target].result =
-      (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100;
+    switch (props.target) {
+      case 'percentageOfTotal':
+        return (this[props.target].result =
+          (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100);
+      case 'partOfTotal':
+        return (this[props.target].result =
+          (+this[props.target].secondaryNumber * 100) / +this[props.target].primaryNumber);
+      case 'findPercentage':
+        return (this[props.target].result =
+          (+this[props.target].secondaryNumber - +this[props.target].primaryNumber) /
+          (+this[props.target].primaryNumber * 100));
+      case 'percentageUpDown':
+        return this.percentageUpDown.isIncrease
+          ? +this[props.target].primaryNumber +
+              (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100
+          : +this[props.target].primaryNumber -
+              (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100;
+      case 'findPercentageValue':
+        return (+this[props.target].secondaryNumber * 100) / +this[props.target].primaryNumber;
+    }
   };
 }
 
