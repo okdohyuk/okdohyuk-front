@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react';
 import { TodoStoreState } from '~/stores/TodoStore';
 import useInput from '@hooks/useInput';
 import { MdCheckBoxOutlineBlank, MdCheckBox, MdDeleteForever } from 'react-icons/md';
-import Head from 'next/head';
+import Opengraph from '@components/opengraph';
 
 type TodoApp = {
   todoStore: TodoStoreState;
@@ -25,9 +25,11 @@ const TodoApp = inject('todoStore')(
 
     return (
       <div className={'w-full min-h-screen dark:bg-black'}>
-        <Head>
-          <title>{'todo app with okdohyuk'}</title>
-        </Head>
+        <Opengraph
+          title={'todo app'}
+          ogTitle={'투두앱'}
+          description={'투두앱으로 자신의 할 일을 관리해보세요'}
+        />
         <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
           <h1
             className={

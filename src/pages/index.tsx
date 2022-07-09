@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MyLinkCard from '@components/Card/MyLinkCard';
-import Head from 'next/head';
+import Opengraph from '@components/opengraph';
 
 const myLinks = [
   {
@@ -82,9 +82,12 @@ export default function Home() {
 
   return (
     <div className={'w-full min-h-screen dark:bg-black'}>
-      <Head>
-        <title>developer okdohyuk</title>
-      </Head>
+      <Opengraph
+        isMainPage
+        title={'developer okdohyuk'}
+        ogTitle={'개발자 유도혁'}
+        description={'안녕하세요! 디테일을 중요시하는 개발자 유도혁입니다.'}
+      />
       {!!deferredPrompt ? (
         <button
           className={'absolute top-[16px] right-[16px] underline dark:text-white'}

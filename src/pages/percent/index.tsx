@@ -1,9 +1,9 @@
 import React from 'react';
-import Head from 'next/head';
 import { inject, observer } from 'mobx-react';
 import { PercentStoreState } from '@stores/PercentStore';
 import PercentCalculatorCard from '@components/Card/PercentCalculatorCard';
 import { toJS } from 'mobx';
+import Opengraph from '@components/opengraph';
 
 type PercentPage = {
   percentStore: PercentStoreState;
@@ -22,29 +22,11 @@ const PercentPage = inject('percentStore')(
 
     return (
       <div className={'w-full min-h-screen dark:bg-black'}>
-        <Head>
-          <title>percent calculator with okdohyuk</title>
-          <meta name="description" content="퍼센트 계산기를 이용해보세요 with okdohyuk" />
-
-          <meta property="og:url" content="https://okdohyuk.dev/percent" />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="퍼센트 계산기 with okdohyuk" />
-          <meta property="og:description" content="퍼센트 계산기를 이용해보세요 with okdohyuk" />
-          {/*<meta
-            property="og:image"
-            content="https://s.pstatic.net/static/www/mobile/edit/2016/0705/mobile_212852414260.png"
-          />*/}
-
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta property="twitter:domain" content="okdohyuk.dev" />
-          <meta property="twitter:url" content="https://okdohyuk.dev/percent" />
-          <meta name="twitter:title" content="퍼센트 계산기 with okdohyuk" />
-          <meta name="twitter:description" content="퍼센트 계산기를 이용해보세요 with okdohyuk" />
-          {/*<meta
-            name="twitter:image"
-            content="https://s.pstatic.net/static/www/mobile/edit/2016/0705/mobile_212852414260.png"
-          />*/}
-        </Head>
+        <Opengraph
+          title={'percent calculator'}
+          ogTitle={'퍼센트 계산기'}
+          description={'퍼센트 계산기를 이용해보세요'}
+        />
         <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
           <h1
             className={
