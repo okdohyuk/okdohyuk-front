@@ -1,15 +1,24 @@
 import React from 'react';
 import Head from 'next/head';
 import { inject, observer } from 'mobx-react';
-import PercentStore from '@stores/PercentStore';
+import { PercentStoreState } from '@stores/PercentStore';
+import PercentCalculatorCard from '@components/Card/PercentCalculatorCard';
+import { toJS } from 'mobx';
 
 type PercentPage = {
-  percentStore: PercentStore;
+  percentStore: PercentStoreState;
 };
 
 const PercentPage = inject('percentStore')(
   observer(({ percentStore }: PercentPage) => {
-    const { percentageOfTotal, valueChange } = percentStore;
+    const {
+      percentageOfTotal,
+      partOfTotal,
+      findPercentage,
+      percentageUpDown,
+      findPercentageValue,
+    } = toJS(percentStore);
+    const { valueChange } = percentStore;
 
     return (
       <div className={'w-full min-h-screen dark:bg-black'}>
@@ -25,60 +34,46 @@ const PercentPage = inject('percentStore')(
             {'Percent Calculator'}
           </h1>
           <section className={'w-full md:max-w-[800px] flex flex-col space-y-10'}>
-            <div
-              className={
-                'w-full flex flex-col space-y-4 rounded-xl bg-zinc-300 dark:bg-zinc-800 p-5'
-              }
-            >
-              <div className={'flex'}>
-                <h3 className={'dark:text-white'}>전체값의 몇 퍼센트는 얼마인가 계산</h3>
-              </div>
-              <div className={'w-full flex justify-between'}>
-                <div className={'w-2/3 flex items-center space-x-1'}>
-                  <input
-                    dir="rtl"
-                    type={'text'}
-                    className={'w-1/3 h-[50px] rounded-2xl p-2'}
-                    placeholder={'10,000'}
-                    value={percentageOfTotal.primaryNumber}
-                    onChange={(e) =>
-                      valueChange({
-                        target: 'percentageOfTotal',
-                        targetValue: 'primaryNumber',
-                        value: e,
-                      })
-                    }
-                  />
-                  <span className={'dark:text-white'}>의</span>
-                  <input
-                    dir="rtl"
-                    type={'text'}
-                    className={'w-1/3 h-[50px] rounded-2xl p-2'}
-                    placeholder={'20'}
-                    value={percentageOfTotal.secondaryNumber}
-                    onChange={(e) =>
-                      valueChange({
-                        target: 'percentageOfTotal',
-                        targetValue: 'secondaryNumber',
-                        value: e,
-                      })
-                    }
-                  />
-                  <span className={'dark:text-white'}>%</span>
-                </div>
-                <div className={'w-1/4 flex items-center space-x-1'}>
-                  <span className={'dark:text-white'}>=</span>
-                  <input
-                    dir="rtl"
-                    type={'text'}
-                    className={'w-full h-[50px] rounded-2xl p-2'}
-                    placeholder={'2,000'}
-                    value={percentageOfTotal.result}
-                    disabled
-                  />
-                </div>
-              </div>
-            </div>
+            <PercentCalculatorCard
+              title={'전체값의 몇 퍼센트는 얼마인가 계산'}
+              calculator={percentageOfTotal}
+              placeholder={['10,000', '20', '2,000']}
+              calculatorName={'percentageOfTotal'}
+              text={['의', '%', '=']}
+              valueChange={valueChange}
+            />
+            <PercentCalculatorCard
+              title={'전체값에서 일부값은 몇 퍼센트인지 계산'}
+              calculator={partOfTotal}
+              calculatorName={'partOfTotal'}
+              placeholder={['10,000', '2,000', '20']}
+              text={['에서', '는', '=', '%']}
+              valueChange={valueChange}
+            />
+            <PercentCalculatorCard
+              title={'어떤 값이 다른 값으로 변동되면, 퍼센트의 변동값 계산'}
+              calculator={findPercentage}
+              calculatorName={'findPercentage'}
+              placeholder={['80,000', '50,000', '-37.5']}
+              text={['에서', '가 되면?', '=', '%']}
+              valueChange={valueChange}
+            />
+            <PercentCalculatorCard
+              title={'퍼센트의 증가 감소 계산'}
+              calculator={percentageUpDown}
+              calculatorName={'percentageUpDown'}
+              placeholder={['10', '200', '2,000']}
+              text={['에서', '%', '=']}
+              valueChange={valueChange}
+            />
+            <PercentCalculatorCard
+              title={'어떤 값이 다른 값으로 변동되면, 퍼센트의 변동값 계산'}
+              calculator={findPercentageValue}
+              calculatorName={'findPercentageValue'}
+              placeholder={['10', '200', '2,000']}
+              text={['%가', '라면?', '=']}
+              valueChange={valueChange}
+            />
           </section>
         </div>
       </div>

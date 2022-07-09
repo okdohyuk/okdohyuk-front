@@ -1,17 +1,16 @@
 import { observable, action, makeObservable } from 'mobx';
-import React from 'react';
 
-interface PercentCalculator {
+export interface PercentCalculator {
   primaryNumber: number | string;
   secondaryNumber: number | string;
   result: number | string;
 }
 
-interface PercentageUpDown extends PercentCalculator {
+export interface PercentageUpDown extends PercentCalculator {
   isIncrease: boolean;
 }
 
-interface PercentStoreState {
+export interface PercentStoreState {
   percentageOfTotal: PercentCalculator;
   partOfTotal: PercentCalculator;
   findPercentage: PercentCalculator;
@@ -20,11 +19,11 @@ interface PercentStoreState {
   valueChange: (props: ValueChange) => void;
 }
 
-type ValueChange = {
+export interface ValueChange {
   target: keyof PercentStoreState;
-  targetValue: keyof PercentCalculator;
-  value: React.ChangeEvent<HTMLInputElement>;
-};
+  targetValue: keyof PercentCalculator | keyof PercentageUpDown;
+  value: string;
+}
 
 const initialValue: PercentCalculator = {
   primaryNumber: '',
@@ -45,8 +44,13 @@ class PercentStore implements PercentStoreState {
 
   @action public valueChange = (props: ValueChange) => {
     if (props.target === 'valueChange') return;
-    if (isNaN(+props.value.target.value)) return;
-    this[props.target][props.targetValue] = +props.value.target.value;
+
+    if (props.targetValue === 'isIncrease') {
+      this.percentageUpDown.isIncrease = props.value === 'true';
+    } else {
+      if (isNaN(+props.value)) return;
+      this[props.target][props.targetValue] = +props.value;
+    }
 
     if (isNaN(+this[props.target].primaryNumber) || isNaN(+this[props.target].secondaryNumber))
       return;
@@ -60,16 +64,20 @@ class PercentStore implements PercentStoreState {
           (+this[props.target].secondaryNumber * 100) / +this[props.target].primaryNumber);
       case 'findPercentage':
         return (this[props.target].result =
-          (+this[props.target].secondaryNumber - +this[props.target].primaryNumber) /
-          (+this[props.target].primaryNumber * 100));
+          ((+this[props.target].secondaryNumber - +this[props.target].primaryNumber) /
+            +this[props.target].primaryNumber) *
+          100);
       case 'percentageUpDown':
         return this.percentageUpDown.isIncrease
-          ? +this[props.target].primaryNumber +
-              (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100
-          : +this[props.target].primaryNumber -
-              (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100;
+          ? (this[props.target].result =
+              +this[props.target].primaryNumber +
+              (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100)
+          : (this[props.target].result =
+              +this[props.target].primaryNumber -
+              (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100);
       case 'findPercentageValue':
-        return (+this[props.target].secondaryNumber * 100) / +this[props.target].primaryNumber;
+        return (this[props.target].result =
+          (+this[props.target].secondaryNumber * 100) / +this[props.target].primaryNumber);
     }
   };
 }
