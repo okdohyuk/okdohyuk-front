@@ -33,7 +33,7 @@ const PercentPage = inject('percentStore')(
           >
             {'Percent Calculator'}
           </h1>
-          <section className={'w-full md:max-w-[800px] flex flex-col space-y-10'}>
+          <section className={'w-full md:max-w-[600px] lg:max-w-[800px] flex flex-col space-y-10'}>
             <PercentCalculatorCard
               title={'전체값의 몇 퍼센트는 얼마인가 계산'}
               calculator={percentageOfTotal}
