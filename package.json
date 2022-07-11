@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,6 +14,7 @@
     "mobx-react": "^7.5.1",
     "next": "^12.2.0",
     "next-pwa": "^5.5.4",
+    "next-sitemap": "^3.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.4.0",
