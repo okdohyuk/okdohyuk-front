@@ -1,5 +1,7 @@
 import React from 'react';
 import { Html, Main, NextScript, Head } from 'next/document';
+import Script from 'next/script';
+import { GA_TRACKING_ID } from '~/lib/gtag';
 
 function Document() {
   return (
@@ -43,6 +45,20 @@ function Document() {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/icons/app/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
+
+        <Script
+          src={'https://www.googletagmanager.com/gtag/js?id=' + GA_TRACKING_ID}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${GA_TRACKING_ID}', {page_path: window.location.pathname});
+        `}
+        </Script>
       </Head>
       <body>
         <Main />
