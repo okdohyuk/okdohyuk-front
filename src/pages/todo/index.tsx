@@ -24,7 +24,7 @@ const TodoApp = inject('todoStore')(
     };
 
     return (
-      <div className={'w-full min-h-screen dark:bg-black'}>
+      <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
         <Opengraph
           title={'todo app'}
           ogTitle={'투두앱'}

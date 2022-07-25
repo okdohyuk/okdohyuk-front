@@ -5,6 +5,7 @@ import { Provider } from 'mobx-react';
 import stores from '~/stores';
 import { useRouter } from 'next/router';
 import * as gtag from '~/lib/gtag';
+import Nav from '@components/Nav';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -22,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider {...stores}>
       <Component {...pageProps} />
+      <Nav />
     </Provider>
   );
 }

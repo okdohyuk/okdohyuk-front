@@ -12,12 +12,13 @@
     "js-cookie": "^3.0.1",
     "mobx": "^6.6.1",
     "mobx-react": "^7.5.1",
-    "next": "^12.2.0",
+    "next": "^12.2.2",
     "next-pwa": "^5.5.4",
     "next-sitemap": "^3.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.4.0",
+    "tailwindcss-safe-area": "^0.2.2",
     "typescript": "^4.7.4"
   },
   "devDependencies": {
