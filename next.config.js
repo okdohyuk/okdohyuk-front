@@ -8,6 +8,14 @@ const nextConfig = {
     disable: process.env.NODE_ENV === 'development',
   },
   reactStrictMode: true,
+  /*swcMinify: true,*/
+  /*experimental: {
+    concurrentFeatures: true,
+    serverComponents: true,
+  },*/
+  /*images: {
+    formats: ['image/avif', 'image/webp'],
+  },*/
 };
 
 module.exports = withPWA(nextConfig);
