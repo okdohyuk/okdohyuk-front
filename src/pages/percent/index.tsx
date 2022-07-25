@@ -21,7 +21,7 @@ const PercentPage = inject('percentStore')(
     const { valueChange } = percentStore;
 
     return (
-      <div className={'w-full min-h-screen dark:bg-black'}>
+      <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
         <Opengraph
           title={'percent calculator'}
           ogTitle={'퍼센트 계산기'}
