@@ -45,6 +45,11 @@ function Document() {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/icons/app/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
+        <link
+          rel="stylesheet"
+          as="style"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css"
+        />
 
         <Script
           src={'https://www.googletagmanager.com/gtag/js?id=' + GA_TRACKING_ID}
