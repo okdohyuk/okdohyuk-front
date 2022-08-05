@@ -34,6 +34,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# public
+/public/sw.js
+/public/workbox-*.js
+/public/robots.txt
+/public/sitemap.xml
+/public/sitemap-*.xml
+
 .idea
 
 yarn.lock
