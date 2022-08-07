@@ -84,7 +84,7 @@ export default function Home() {
     <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
       <Opengraph
         isMainPage
-        title={'developer okdohyuk'}
+        title={'개발자 유도혁'}
         ogTitle={'개발자 유도혁'}
         description={'안녕하세요! 디테일을 중요시하는 개발자 유도혁입니다.'}
       />
