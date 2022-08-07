@@ -23,7 +23,7 @@ const PercentPage = inject('percentStore')(
     return (
       <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
         <Opengraph
-          title={'percent calculator'}
+          title={'퍼센트 계산기'}
           ogTitle={'퍼센트 계산기'}
           description={'퍼센트 계산기를 이용해보세요'}
         />
