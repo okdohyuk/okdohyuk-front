@@ -1,19 +1,6 @@
 import { observable, makeObservable, action, reaction } from 'mobx';
 import Cookies from 'js-cookie';
-
-export interface Todo {
-  id: string;
-  title: string;
-  isChecked: boolean;
-}
-
-export interface TodoStoreState {
-  todos: Todo[];
-  addTodo: (title: string) => void;
-  toggleTodoCheck: (id: string) => void;
-  updateTodo: (newTodo: Todo) => void;
-  removeTodo: (id: string) => void;
-}
+import { Todo, TodoStoreState } from '@stores/TodoStore/type';
 
 class TodoStore implements TodoStoreState {
   @observable public todos: Array<Todo> = [];

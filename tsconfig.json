@@ -1,40 +1,8 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "experimentalDecorators": true,
     "useDefineForClassFields": true,
-    "baseUrl": "./src",
-    "paths": {
-      "~": [
-        "./"
-      ],
-      "~/*": [
-        "./*"
-      ],
-      "@components": [
-        "./components"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-      "@hooks": [
-        "./hooks"
-      ],
-      "@hooks/*": [
-        "./hooks/*"
-      ],
-      "@utils": [
-        "./utils"
-      ],
-      "@utils/*": [
-        "./utils/*"
-      ],
-      "@stores": [
-        "./stores"
-      ],
-      "@stores/*": [
-        "./stores/*"
-      ]
-    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
