@@ -1,15 +1,11 @@
-import React from 'react';
-import {
-  PercentCalculator,
-  PercentageUpDown,
-  PercentStoreState,
-  ValueChange,
-} from '@stores/PercentStore';
+import React, { useMemo } from 'react';
+import { PercentCalculators } from '@stores/PercentStore/type';
+import { toJS } from 'mobx';
+import useStore from '@hooks/useStore';
+import { observer } from 'mobx-react';
 
 type PercentCalculatorCard = {
-  calculator: PercentCalculator | PercentageUpDown;
-  calculatorName: keyof PercentStoreState;
-  valueChange: (props: ValueChange) => void;
+  calculatorName: keyof PercentCalculators;
   title: string;
   placeholder: string[];
   text: string[];
@@ -17,12 +13,18 @@ type PercentCalculatorCard = {
 
 function PercentCalculatorCard({
   calculatorName,
-  calculator,
   title,
-  valueChange,
   placeholder,
   text,
 }: PercentCalculatorCard) {
+  const percentStore = useStore('percentStore');
+  const { valueChange } = percentStore;
+  const { calculators } = toJS(percentStore);
+
+  const calculator = useMemo(() => {
+    return calculators[calculatorName];
+  }, [calculatorName, calculators]);
+
   return (
     <div className={'w-full flex flex-col space-y-4 rounded-xl bg-zinc-300 dark:bg-zinc-800 p-5'}>
       <div className={'flex'}>
@@ -98,4 +100,4 @@ function PercentCalculatorCard({
   );
 }
 
-export default PercentCalculatorCard;
+export default observer(PercentCalculatorCard);

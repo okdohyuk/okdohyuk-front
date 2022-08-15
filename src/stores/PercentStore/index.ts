@@ -1,29 +1,10 @@
-import { observable, action, makeObservable } from 'mobx';
-
-export interface PercentCalculator {
-  primaryNumber: number | string;
-  secondaryNumber: number | string;
-  result: number | string;
-}
-
-export interface PercentageUpDown extends PercentCalculator {
-  isIncrease: boolean;
-}
-
-export interface PercentStoreState {
-  percentageOfTotal: PercentCalculator;
-  partOfTotal: PercentCalculator;
-  findPercentage: PercentCalculator;
-  percentageUpDown: PercentageUpDown;
-  findPercentageValue: PercentCalculator;
-  valueChange: (props: ValueChange) => void;
-}
-
-export interface ValueChange {
-  target: keyof PercentStoreState;
-  targetValue: keyof PercentCalculator | keyof PercentageUpDown;
-  value: string;
-}
+import { observable, action, makeObservable, autorun } from 'mobx';
+import {
+  PercentCalculator,
+  PercentCalculators,
+  PercentStoreState,
+  ValueChange,
+} from '@stores/PercentStore/type';
 
 const initialValue: PercentCalculator = {
   primaryNumber: '',
@@ -32,52 +13,60 @@ const initialValue: PercentCalculator = {
 };
 
 class PercentStore implements PercentStoreState {
-  @observable public percentageOfTotal: PercentCalculator = initialValue;
-  @observable public partOfTotal: PercentCalculator = initialValue;
-  @observable public findPercentage: PercentCalculator = initialValue;
-  @observable public percentageUpDown: PercentageUpDown = { ...initialValue, isIncrease: true };
-  @observable public findPercentageValue: PercentCalculator = initialValue;
+  @observable public calculators: PercentCalculators = {
+    percentageOfTotal: initialValue,
+    partOfTotal: initialValue,
+    findPercentage: initialValue,
+    percentageUpDown: { ...initialValue, isIncrease: true },
+    findPercentageValue: initialValue,
+  };
 
   constructor() {
     makeObservable(this);
   }
 
   @action public valueChange = (props: ValueChange) => {
-    if (props.target === 'valueChange') return;
+    const { calculators } = this;
 
     if (props.targetValue === 'isIncrease') {
-      this.percentageUpDown.isIncrease = props.value === 'true';
+      calculators.percentageUpDown.isIncrease = props.value === 'true';
     } else {
       if (isNaN(+props.value)) return;
-      this[props.target][props.targetValue] = +props.value;
+      calculators[props.target][props.targetValue] = props.value;
     }
 
-    if (isNaN(+this[props.target].primaryNumber) || isNaN(+this[props.target].secondaryNumber))
+    autorun(() => this.handleResultCalculator(props.target));
+  };
+
+  @action public handleResultCalculator = (target: keyof PercentCalculators) => {
+    const { calculators } = this;
+
+    if (isNaN(+calculators[target].primaryNumber) || isNaN(+calculators[target].secondaryNumber))
       return;
 
-    switch (props.target) {
+    switch (target) {
       case 'percentageOfTotal':
-        return (this[props.target].result =
-          (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100);
+        return (calculators[target].result =
+          (+calculators[target].primaryNumber * +calculators[target].secondaryNumber) / 100);
       case 'partOfTotal':
-        return (this[props.target].result =
-          (+this[props.target].secondaryNumber * 100) / +this[props.target].primaryNumber);
+        return (calculators[target].result =
+          (+calculators[target].secondaryNumber * 100) / +calculators[target].primaryNumber);
       case 'findPercentage':
-        return (this[props.target].result =
-          ((+this[props.target].secondaryNumber - +this[props.target].primaryNumber) /
-            +this[props.target].primaryNumber) *
+        return (calculators[target].result =
+          ((+calculators[target].secondaryNumber - +calculators[target].primaryNumber) /
+            +calculators[target].primaryNumber) *
           100);
       case 'percentageUpDown':
-        return this.percentageUpDown.isIncrease
-          ? (this[props.target].result =
-              +this[props.target].primaryNumber +
-              (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100)
-          : (this[props.target].result =
-              +this[props.target].primaryNumber -
-              (+this[props.target].primaryNumber * +this[props.target].secondaryNumber) / 100);
+        return calculators.percentageUpDown.isIncrease
+          ? (calculators[target].result =
+              +calculators[target].primaryNumber +
+              (+calculators[target].primaryNumber * +calculators[target].secondaryNumber) / 100)
+          : (calculators[target].result =
+              +calculators[target].primaryNumber -
+              (+calculators[target].primaryNumber * +calculators[target].secondaryNumber) / 100);
       case 'findPercentageValue':
-        return (this[props.target].result =
-          (+this[props.target].secondaryNumber * 100) / +this[props.target].primaryNumber);
+        return (calculators[target].result =
+          (+calculators[target].secondaryNumber * 100) / +calculators[target].primaryNumber);
     }
   };
 }
