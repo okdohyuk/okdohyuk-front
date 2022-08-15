@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
-import { PercentStoreState, PercentCalculators } from '@stores/PercentStore/type';
-import { inject, observer } from 'mobx-react';
+import { PercentCalculators } from '@stores/PercentStore/type';
 import { toJS } from 'mobx';
+import useStore from '@hooks/useStore';
+import { observer } from 'mobx-react';
 
 type PercentCalculatorCard = {
-  percentStore: PercentStoreState;
   calculatorName: keyof PercentCalculators;
   title: string;
   placeholder: string[];
@@ -12,12 +12,12 @@ type PercentCalculatorCard = {
 };
 
 function PercentCalculatorCard({
-  percentStore,
   calculatorName,
   title,
   placeholder,
   text,
 }: PercentCalculatorCard) {
+  const percentStore = useStore('percentStore');
   const { valueChange } = percentStore;
   const { calculators } = toJS(percentStore);
 
@@ -100,4 +100,4 @@ function PercentCalculatorCard({
   );
 }
 
-export default inject('percentStore')(observer(PercentCalculatorCard));
+export default observer(PercentCalculatorCard);
