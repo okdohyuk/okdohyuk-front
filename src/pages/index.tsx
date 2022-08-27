@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'next-i18next';
 import MyLinkCard from '@components/Card/MyLinkCard';
 import Opengraph from '@components/opengraph';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticPropsContext } from 'next';
 
 const myLinks = [
   {
@@ -60,8 +63,11 @@ declare global {
   }
 }
 
-export default function Home() {
+function Home() {
   const [deferredPrompt, setDeferredPrompt] = useState<null | BeforeInstallPromptEvent>(null);
+  const { t } = useTranslation('index');
+
+  console.log('-> t', t('name'));
 
   useEffect(() => {
     window.addEventListener('beforeinstallprompt', (e: BeforeInstallPromptEvent) => {
@@ -104,7 +110,7 @@ export default function Home() {
             lg:text-7xl"
         >
           <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-white-500 to-lime-500">
-            okdohyuk
+            {t('nickname')}
           </span>
         </h1>
         <h2
@@ -136,3 +142,11 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps = async ({ locale }: GetStaticPropsContext) => ({
+  props: {
+    ...(await serverSideTranslations(locale ? locale : '', ['index'])),
+  },
+});
+
+export default Home;

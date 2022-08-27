@@ -6,6 +6,7 @@ import stores from '~/stores';
 import { useRouter } from 'next/router';
 import * as gtag from '~/lib/gtag';
 import Nav from '@components/Nav';
+import { appWithTranslation } from 'next-i18next';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -28,4 +29,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
