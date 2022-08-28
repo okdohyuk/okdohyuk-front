@@ -22,6 +22,7 @@ exports[`<PercentCalculatorCard /> matches snapshot 1`] = `
       >
         <input
           class="w-1/4 h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right"
+          inputmode="numeric"
           placeholder="10000"
           type="text"
           value=""
@@ -33,6 +34,7 @@ exports[`<PercentCalculatorCard /> matches snapshot 1`] = `
         </span>
         <input
           class="w-1/4 h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right"
+          inputmode="numeric"
           placeholder="20"
           type="text"
           value=""
@@ -53,6 +55,7 @@ exports[`<PercentCalculatorCard /> matches snapshot 1`] = `
         </span>
         <input
           class="w-full h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right"
+          inputmode="none"
           placeholder="2,000"
           type="text"
           value=""
