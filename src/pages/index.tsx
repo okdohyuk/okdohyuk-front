@@ -62,7 +62,7 @@ function Home() {
           className={'absolute top-[16px] right-[16px] underline dark:text-white'}
           onClick={installApp}
         >
-          Downloads
+          {t('downloads')}
         </button>
       ) : null}
       <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
