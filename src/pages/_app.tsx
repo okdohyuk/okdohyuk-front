@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import * as gtag from '~/lib/gtag';
 import Nav from '@components/Nav';
 import { appWithTranslation } from 'next-i18next';
+import LocalesNav from '@components/Nav/LocalesNav';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider {...stores}>
       <Component {...pageProps} />
+      <LocalesNav />
       <Nav />
     </Provider>
   );
