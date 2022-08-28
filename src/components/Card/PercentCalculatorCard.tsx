@@ -3,6 +3,7 @@ import { PercentCalculators } from '@stores/PercentStore/type';
 import { toJS } from 'mobx';
 import useStore from '@hooks/useStore';
 import { observer } from 'mobx-react';
+import { useTranslation } from 'next-i18next';
 
 type PercentCalculatorCard = {
   calculatorName: keyof PercentCalculators;
@@ -20,6 +21,7 @@ function PercentCalculatorCard({
   const percentStore = useStore('percentStore');
   const { valueChange } = percentStore;
   const { calculators } = toJS(percentStore);
+  const { t } = useTranslation('percent');
 
   const calculator = useMemo(() => {
     return calculators[calculatorName];
@@ -75,10 +77,10 @@ function PercentCalculatorCard({
                   })
                 }
               >
-                <option value={'true'}>증가</option>
-                <option value={'false'}>감소</option>
+                <option value={'true'}>{t('increase')}</option>
+                <option value={'false'}>{t('decrease')}</option>
               </select>
-              <span className={'text-xs md:text-base dark:text-white'}>{'하면?'}</span>
+              <span className={'text-xs md:text-base dark:text-white'}>{t('to')}</span>
             </>
           ) : null}
         </div>
