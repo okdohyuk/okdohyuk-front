@@ -1,6 +1,9 @@
 const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
+const { i18n } = require('./next-i18next.config');
+
 console.log('=>(next.config.js:4) process.env.NODE_ENV', process.env.NODE_ENV);
+
 const nextConfig = {
   pwa: {
     dest: 'public',
@@ -16,6 +19,7 @@ const nextConfig = {
   /*images: {
     formats: ['image/avif', 'image/webp'],
   },*/
+  i18n,
 };
 
 module.exports = withPWA(nextConfig);

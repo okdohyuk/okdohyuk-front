@@ -7,7 +7,7 @@ exports[`<MyLinkCard /> matches snapshot 1`] = `
     target="_blank"
   >
     <article
-      class="rounded-lg p-4 md:p-8 transition-all bg-zinc-300 dark:bg-zinc-800 shadow-xl dark:shadow-lg text-cyan-500 border-2 border-transparent hover:border-current"
+      class="rounded-lg p-4 md:p-8 lg:min-h-[144px] transition-all bg-zinc-300 dark:bg-zinc-800 shadow-xl dark:shadow-lg text-cyan-500 border-2 border-transparent hover:border-current"
     >
       <div
         class="flex gap-2 justify-between items-center"

@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 type Opengraph = {
   isMainPage?: boolean;
@@ -11,7 +12,8 @@ type Opengraph = {
 
 function Opengraph({ title, ogTitle, description, isMainPage = false }: Opengraph) {
   const router = useRouter();
-  const withMe = ' with okdohyuk';
+  const { t } = useTranslation('common');
+  const withMe = t('openGraph.withMe');
   const URL = 'https://okdohyuk.dev';
 
   return (
