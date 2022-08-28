@@ -1,6 +1,8 @@
 import React from 'react';
 import PercentCalculatorCard from '@components/Card/PercentCalculatorCard';
 import Opengraph from '@components/opengraph';
+import { GetStaticPropsContext } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const PercentPage = () => {
   return (
@@ -54,5 +56,11 @@ const PercentPage = () => {
     </div>
   );
 };
+
+export const getStaticProps = async ({ locale }: GetStaticPropsContext) => ({
+  props: {
+    ...(await serverSideTranslations(locale ? locale : '', ['common'])),
+  },
+});
 
 export default PercentPage;
