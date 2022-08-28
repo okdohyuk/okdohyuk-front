@@ -36,6 +36,7 @@ function PercentCalculatorCard({
         <div className={'w-full md:w-3/4 flex items-center space-x-1'}>
           <input
             type={'text'}
+            inputMode={'numeric'}
             className={'w-1/4 h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right'}
             placeholder={placeholder[0]}
             value={calculator.primaryNumber}
@@ -50,6 +51,7 @@ function PercentCalculatorCard({
           <span className={'text-xs md:text-base dark:text-white'}>{text[0]}</span>
           <input
             type={'text'}
+            inputMode={'numeric'}
             className={'w-1/4 h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right'}
             placeholder={placeholder[1]}
             value={calculator.secondaryNumber}
@@ -88,6 +90,7 @@ function PercentCalculatorCard({
           <span className={'text-xs md:text-base dark:text-white'}>{text[2]}</span>
           <input
             type={'text'}
+            inputMode={'none'}
             className={
               'w-full h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right'
             }
