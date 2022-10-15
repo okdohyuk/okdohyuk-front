@@ -4,6 +4,7 @@
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
+  output          = "../src/assets/type"
 }
 
 datasource db {
@@ -13,11 +14,12 @@ datasource db {
 }
 
 model Blog {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  isPublic  Boolean
-  title     String
-  contents  String
-  category  String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  isPublic       Boolean
+  title          String
+  contents       String
+  thumbnailImage String?
+  category       String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }

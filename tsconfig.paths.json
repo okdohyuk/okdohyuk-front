@@ -13,7 +13,9 @@
       "@stores": ["./stores"],
       "@stores/*": ["./stores/*"],
       "@libs": ["./libs"],
-      "@libs/*": ["./libs/*"]
+      "@libs/*": ["./libs/*"],
+      "@assets": ["./assets"],
+      "@assets/*": ["./assets/*"]
     }
   }
 }
