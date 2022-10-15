@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { MdHome, MdViewList, MdCalculate } from 'react-icons/md';
+import { MdHome, MdViewList, MdArticle, MdCalculate } from 'react-icons/md';
 import Link from '@components/Link';
 import Icon from '@components/Icon';
 import ClassName from '@utils/classNameUtils';
@@ -17,6 +17,7 @@ const navList: NavItem[] = [
     icon: <MdHome />,
     link: '/',
   },
+  { name: 'Blog', icon: <MdArticle />, link: '/blog.json' },
   { name: 'Todo', icon: <MdViewList />, link: '/todo' },
   {
     name: 'Percent',
