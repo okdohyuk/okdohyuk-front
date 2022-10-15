@@ -13,7 +13,7 @@ datasource db {
 }
 
 model Blog {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId()
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   isPublic  Boolean
   title     String
   contents  String
