@@ -23,7 +23,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
     const blog = await findBlog(req.query.id + '');
     if (blog === null) return res.status(404).json({ ok: false });
 
-    res.status(200).json({ ok: true, data: blog });
+    res.status(200).json({ ok: true, blog });
   } catch (e) {
     console.error('-> e', e);
     res.status(500).json({ ok: false });
