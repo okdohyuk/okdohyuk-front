@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import NextCors from 'nextjs-cors';
 
 export interface ResponseType {
   ok: boolean;
@@ -14,6 +15,12 @@ export default function withHandler(
       return res.status(405).end();
     }
     try {
+      await NextCors(req, res, {
+        // Options
+        methods: method,
+        origin: '*',
+        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+      });
       await fn(req, res);
     } catch (e) {
       console.error(e);
