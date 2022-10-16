@@ -3,7 +3,7 @@ import NextCors from 'nextjs-cors';
 
 async function findImage(paths: string) {
   try {
-    const image = await fetch(`${process.env.WORKER_URL}/image/${paths.replace(',', '/')}`);
+    const image = await fetch(`${process.env.WORKER_URL}/image/${paths.replaceAll(',', '/')}`);
     if (image.status !== 200) throw 'not found image';
     return image.body;
   } catch (e) {
