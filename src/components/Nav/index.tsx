@@ -17,7 +17,7 @@ const navList: NavItem[] = [
     icon: <MdHome />,
     link: '/',
   },
-  { name: 'Blog', icon: <MdArticle />, link: '/blog.json' },
+  { name: 'Blog', icon: <MdArticle />, link: '/blog' },
   { name: 'Todo', icon: <MdViewList />, link: '/todo' },
   {
     name: 'Percent',
