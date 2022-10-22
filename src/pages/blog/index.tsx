@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Opengraph from '@components/opengraph';
 import { useTranslation } from 'next-i18next';
-import { NextPageContext } from 'next';
+import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { Blog } from '@assets/type';
-import axios from 'axios';
 import BlogCard from '@components/Card/BlogCard';
 import useStore from '@hooks/useStore';
 import BlogStore from '@stores/BlogStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 
-type BlogPageProps = {
-  initialBlogs: Blog[];
-};
-
-function BlogPage({ initialBlogs }: BlogPageProps) {
+function BlogPage() {
   const { t } = useTranslation('blog');
-  const { blogs, setBlogs, getBlogsPage, status, isLastPage } = useStore<BlogStore>('blogStore');
+  const { blogs, getBlogsPage, status, isLastPage } = useStore<BlogStore>('blogStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (!isFetching) return;
@@ -33,10 +27,6 @@ function BlogPage({ initialBlogs }: BlogPageProps) {
       setPage((page) => page + 1);
     }
   }, [status, isLastPage]);
-
-  useEffect(() => {
-    setBlogs(initialBlogs);
-  }, [initialBlogs]);
 
   return (
     <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
@@ -63,25 +53,10 @@ function BlogPage({ initialBlogs }: BlogPageProps) {
   );
 }
 
-export async function getServerSideProps({ req, locale }: NextPageContext) {
-  if (!req) return { notFound: true };
-  const protocol = req.headers['x-forwarded-proto'] || 'http';
-  try {
-    const { data } = await axios.get(
-      `${protocol}://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/blog/list?page=1&limit=10`,
-    );
-    if (!data) throw 'body is null';
-    const translations = await serverSideTranslations(locale as string, ['common', 'blog']);
-    return {
-      props: {
-        ...translations,
-        initialBlogs: data.blogs,
-      },
-    };
-  } catch (e) {
-    console.error('-> e', e);
-    return { notFound: true };
-  }
-}
+export const getStaticProps = async ({ locale }: GetStaticPropsContext) => ({
+  props: {
+    ...(await serverSideTranslations(locale as string, ['common', 'blog'])),
+  },
+});
 
 export default observer(BlogPage);
