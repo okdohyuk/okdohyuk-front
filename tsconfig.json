@@ -8,6 +8,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "downlevelIteration": true,
@@ -18,7 +19,7 @@
     "noEmit": true,
     "jsx": "preserve",
     "incremental": true,
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,9 +27,9 @@
     ]
   },
   "include": [
-    "src",
-    "src/custom.d.ts",
-    "src/module"
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
   ],
   "exclude": [
     "node_modules"

@@ -1,9 +1,0 @@
-{
-  "openGraph": {
-    "title": "TODO APP",
-    "ogTitle": "Today, tomorrow, calendar management todo app",
-    "description": "Manage your to-dos with the To-Do app!"
-  },
-  "title": "Todo List",
-  "inputPlaceholder": "Enter today, tomorrow, and schedule!"
-}

@@ -8,6 +8,7 @@ import markdownUtils from '@utils/markdownUtils';
 import { format } from 'date-fns';
 import Markdown from 'markdown-to-jsx';
 import AutoHeightImage from '@components/Image/AutoHeightImage';
+import { withTranslation } from 'next-i18next';
 
 type BlogPageProps = {
   blog: Blog;
@@ -73,7 +74,7 @@ const MarkDownImg = ({ ...props }: MarkdownItem) => (
   </div>
 );
 
-function BlogPage({ blog }: BlogPageProps) {
+function BlogDetailPage({ blog }: BlogPageProps) {
   const { title, contents, createdAt, thumbnailImage } = blog;
   return (
     <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
@@ -138,9 +139,10 @@ export async function getServerSideProps({ req, query, locale }: NextPageContext
       `${protocol}://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/blog/${urlSlug}`,
     );
     if (!data) throw 'body is null';
+    const translations = await serverSideTranslations(locale as string, ['common', 'blog']);
     return {
       props: {
-        ...(await serverSideTranslations(locale as string, ['common', 'blog'])),
+        ...translations,
         blog: data.blog,
       },
     };
@@ -150,4 +152,4 @@ export async function getServerSideProps({ req, query, locale }: NextPageContext
   }
 }
 
-export default BlogPage;
+export default withTranslation(['common', 'blog'])(BlogDetailPage);
