@@ -34,6 +34,11 @@ function Opengraph({ title, ogTitle, description, isMainPage = false, image }: O
       <meta name="twitter:title" content={isMainPage ? ogTitle : ogTitle + withMe} />
       <meta name="twitter:description" content={isMainPage ? description : description + withMe} />
       <meta name="twitter:image" content={image ? image : '/opengraph_image.png'} />
+
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+      />
     </Head>
   );
 }
