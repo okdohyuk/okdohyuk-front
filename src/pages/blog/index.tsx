@@ -28,6 +28,10 @@ function BlogPage() {
     }
   }, [status, isLastPage]);
 
+  useEffect(() => {
+    setIsFetching(true);
+  }, []);
+
   return (
     <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
       <Opengraph
