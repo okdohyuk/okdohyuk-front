@@ -63,7 +63,7 @@ function BlogPage({ initialBlogs }: BlogPageProps) {
   );
 }
 
-export async function getServerSideProps({ locale, req }: NextPageContext) {
+export async function getServerSideProps({ req }: NextPageContext) {
   if (!req) return { notFound: true };
   const protocol = req.headers['x-forwarded-proto'] || 'http';
   const baseUrl = req ? `${protocol}://${req.headers.host}` : '';
@@ -72,7 +72,7 @@ export async function getServerSideProps({ locale, req }: NextPageContext) {
     if (!data) throw 'body is null';
     return {
       props: {
-        ...(await serverSideTranslations(locale ? locale : '', ['common', 'blog'])),
+        ...(await serverSideTranslations('ko', ['common', 'blog'])),
         initialBlogs: data.blogs,
       },
     };
