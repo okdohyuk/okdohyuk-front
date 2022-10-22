@@ -2,15 +2,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "postbuild": "next-sitemap",
+    "vercel-build": "",
     "start": "next start",
     "test": "jest --watch"
   },
   "dependencies": {
     "@prisma/client": "^4.4.0",
     "@tailwindcss/line-clamp": "^0.4.2",
-    "@tanstack/react-query": "^4.12.0",
     "@types/js-cookie": "^3.0.2",
     "axios": "^1.1.3",
     "bson": "^4.7.0",

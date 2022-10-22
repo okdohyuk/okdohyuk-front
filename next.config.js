@@ -12,7 +12,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: [process.env.NEXT_PUBLIC_VERCEL_URL],
+    domains: [`${process.env.NEXT_PUBLIC_VERCEL_URL}`, 'localhost'],
   },
   /*swcMinify: true,*/
   /*experimental: {
