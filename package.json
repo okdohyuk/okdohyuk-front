@@ -2,9 +2,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "next build",
+    "vercel-build": "prisma generate && next build",
     "postbuild": "next-sitemap",
-    "vercel-build": "",
     "start": "next start",
     "test": "jest --watch"
   },
