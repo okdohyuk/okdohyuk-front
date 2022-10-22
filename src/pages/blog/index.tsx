@@ -63,16 +63,17 @@ function BlogPage({ initialBlogs }: BlogPageProps) {
   );
 }
 
-export async function getServerSideProps({ req }: NextPageContext) {
+export async function getServerSideProps({ req, locale }: NextPageContext) {
   if (!req) return { notFound: true };
   const protocol = req.headers['x-forwarded-proto'] || 'http';
-  const baseUrl = req ? `${protocol}://${req.headers.host}` : '';
   try {
-    const { data } = await axios.get(baseUrl + '/api/blog/list?page=1&limit=10');
+    const { data } = await axios.get(
+      `${protocol}://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/blog/list?page=1&limit=10`,
+    );
     if (!data) throw 'body is null';
     return {
       props: {
-        ...(await serverSideTranslations('ko', ['common', 'blog'])),
+        ...(await serverSideTranslations(locale as string, ['common', 'blog'])),
         initialBlogs: data.blogs,
       },
     };

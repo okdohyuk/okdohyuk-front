@@ -2,7 +2,6 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { MdHome, MdViewList, MdArticle, MdCalculate } from 'react-icons/md';
 import Link from '@components/Link';
-import Icon from '@components/Icon';
 import ClassName from '@utils/classNameUtils';
 
 type NavItem = {
@@ -15,15 +14,20 @@ type NavItem = {
 const navList: NavItem[] = [
   {
     name: 'Home',
-    icon: <MdHome />,
+    icon: <MdHome size={24} />,
     link: '/',
     pathname: ['/'],
   },
-  { name: 'Blog', icon: <MdArticle />, link: '/blog', pathname: ['/blog', '/blog/[urlSlug]'] },
-  { name: 'Todo', icon: <MdViewList />, link: '/todo', pathname: ['/todo'] },
+  {
+    name: 'Blog',
+    icon: <MdArticle size={24} />,
+    link: '/blog',
+    pathname: ['/blog', '/blog/[urlSlug]'],
+  },
+  { name: 'Todo', icon: <MdViewList size={24} />, link: '/todo', pathname: ['/todo'] },
   {
     name: 'Percent',
-    icon: <MdCalculate />,
+    icon: <MdCalculate size={24} />,
     link: '/percent',
     pathname: ['/percent'],
   },
@@ -50,7 +54,17 @@ function Nav() {
               href={navItem.link}
               className={'w-full h-full flex align-center justify-center text-center'}
             >
-              <Icon
+              <div
+                className={cls(
+                  navItem.pathname.findIndex((value) => value === router.pathname) !== -1
+                    ? 'text-black dark:text-white'
+                    : 'text-gray-500 hover:text-black hover:dark:text-white',
+                  'm-auto',
+                )}
+              >
+                {navItem.icon}
+              </div>
+              {/*<Icon
                 icon={navItem.icon}
                 className={cls(
                   navItem.pathname.findIndex((value) => value === router.pathname) !== -1
@@ -58,7 +72,7 @@ function Nav() {
                     : 'text-gray-500 hover:text-black hover:dark:text-white',
                   'm-auto',
                 )}
-              />
+              />*/}
             </Link>
           </li>
         ))}

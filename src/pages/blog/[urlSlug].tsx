@@ -133,13 +133,14 @@ export async function getServerSideProps({ req, query, locale }: NextPageContext
   if (!(query && query.urlSlug)) return { notFound: true };
   const { urlSlug } = query;
   const protocol = req.headers['x-forwarded-proto'] || 'http';
-  const baseUrl = req ? `${protocol}://${req.headers.host}` : '';
   try {
-    const { data } = await axios.get(baseUrl + '/api/blog/' + urlSlug);
+    const { data } = await axios.get(
+      `${protocol}://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/blog/${urlSlug}`,
+    );
     if (!data) throw 'body is null';
     return {
       props: {
-        ...(await serverSideTranslations(locale ? locale : '', ['common', 'blog'])),
+        ...(await serverSideTranslations(locale as string, ['common', 'blog'])),
         blog: data.blog,
       },
     };
