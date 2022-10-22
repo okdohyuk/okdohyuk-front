@@ -10,7 +10,7 @@ const nextConfig = {
     runtimeCaching,
     disable: process.env.NODE_ENV === 'development',
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: [`${process.env.NEXT_PUBLIC_VERCEL_URL}`, 'localhost'],
   },
