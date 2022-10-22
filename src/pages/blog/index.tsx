@@ -63,7 +63,7 @@ function BlogPage({ initialBlogs }: BlogPageProps) {
   );
 }
 
-export async function getServerSideProps({ req, locale, defaultLocale }: NextPageContext) {
+export async function getServerSideProps({ req, locale }: NextPageContext) {
   if (!req) return { notFound: true };
   const protocol = req.headers['x-forwarded-proto'] || 'http';
   try {
@@ -71,10 +71,7 @@ export async function getServerSideProps({ req, locale, defaultLocale }: NextPag
       `${protocol}://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/blog/list?page=1&limit=10`,
     );
     if (!data) throw 'body is null';
-    const translations = await serverSideTranslations(locale ?? (defaultLocale as string), [
-      'common',
-      'blog',
-    ]);
+    const translations = await serverSideTranslations(locale as string, ['common', 'blog']);
     return {
       props: {
         ...translations,

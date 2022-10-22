@@ -128,7 +128,7 @@ function BlogPage({ blog }: BlogPageProps) {
   );
 }
 
-export async function getServerSideProps({ req, query, locale, defaultLocale }: NextPageContext) {
+export async function getServerSideProps({ req, query, locale }: NextPageContext) {
   if (!req) return { notFound: true };
   if (!(query && query.urlSlug)) return { notFound: true };
   const { urlSlug } = query;
@@ -138,10 +138,7 @@ export async function getServerSideProps({ req, query, locale, defaultLocale }: 
       `${protocol}://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/blog/${urlSlug}`,
     );
     if (!data) throw 'body is null';
-    const translations = await serverSideTranslations(locale ?? (defaultLocale as string), [
-      'common',
-      'blog',
-    ]);
+    const translations = await serverSideTranslations(locale as string, ['common', 'blog']);
     return {
       props: {
         ...translations,
