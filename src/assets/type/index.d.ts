@@ -18,6 +18,7 @@ type UnwrapTuple<Tuple extends readonly unknown[]> = {
  */
 export type Blog = {
   id: string
+  urlSlug: string
   isPublic: boolean
   title: string
   contents: string
@@ -797,6 +798,7 @@ export namespace Prisma {
 
   export type BlogMinAggregateOutputType = {
     id: string | null
+    urlSlug: string | null
     isPublic: boolean | null
     title: string | null
     contents: string | null
@@ -808,6 +810,7 @@ export namespace Prisma {
 
   export type BlogMaxAggregateOutputType = {
     id: string | null
+    urlSlug: string | null
     isPublic: boolean | null
     title: string | null
     contents: string | null
@@ -819,6 +822,7 @@ export namespace Prisma {
 
   export type BlogCountAggregateOutputType = {
     id: number
+    urlSlug: number
     isPublic: number
     title: number
     contents: number
@@ -832,6 +836,7 @@ export namespace Prisma {
 
   export type BlogMinAggregateInputType = {
     id?: true
+    urlSlug?: true
     isPublic?: true
     title?: true
     contents?: true
@@ -843,6 +848,7 @@ export namespace Prisma {
 
   export type BlogMaxAggregateInputType = {
     id?: true
+    urlSlug?: true
     isPublic?: true
     title?: true
     contents?: true
@@ -854,6 +860,7 @@ export namespace Prisma {
 
   export type BlogCountAggregateInputType = {
     id?: true
+    urlSlug?: true
     isPublic?: true
     title?: true
     contents?: true
@@ -944,6 +951,7 @@ export namespace Prisma {
 
   export type BlogGroupByOutputType = {
     id: string
+    urlSlug: string
     isPublic: boolean
     title: string
     contents: string
@@ -972,6 +980,7 @@ export namespace Prisma {
 
   export type BlogSelect = {
     id?: boolean
+    urlSlug?: boolean
     isPublic?: boolean
     title?: boolean
     contents?: boolean
@@ -1753,6 +1762,7 @@ export namespace Prisma {
 
   export const BlogScalarFieldEnum: {
     id: 'id',
+    urlSlug: 'urlSlug',
     isPublic: 'isPublic',
     title: 'title',
     contents: 'contents',
@@ -1791,6 +1801,7 @@ export namespace Prisma {
     OR?: Enumerable<BlogWhereInput>
     NOT?: Enumerable<BlogWhereInput>
     id?: StringFilter | string
+    urlSlug?: StringFilter | string
     isPublic?: BoolFilter | boolean
     title?: StringFilter | string
     contents?: StringFilter | string
@@ -1802,6 +1813,7 @@ export namespace Prisma {
 
   export type BlogOrderByWithRelationInput = {
     id?: SortOrder
+    urlSlug?: SortOrder
     isPublic?: SortOrder
     title?: SortOrder
     contents?: SortOrder
@@ -1813,10 +1825,12 @@ export namespace Prisma {
 
   export type BlogWhereUniqueInput = {
     id?: string
+    urlSlug?: string
   }
 
   export type BlogOrderByWithAggregationInput = {
     id?: SortOrder
+    urlSlug?: SortOrder
     isPublic?: SortOrder
     title?: SortOrder
     contents?: SortOrder
@@ -1834,6 +1848,7 @@ export namespace Prisma {
     OR?: Enumerable<BlogScalarWhereWithAggregatesInput>
     NOT?: Enumerable<BlogScalarWhereWithAggregatesInput>
     id?: StringWithAggregatesFilter | string
+    urlSlug?: StringWithAggregatesFilter | string
     isPublic?: BoolWithAggregatesFilter | boolean
     title?: StringWithAggregatesFilter | string
     contents?: StringWithAggregatesFilter | string
@@ -1845,6 +1860,7 @@ export namespace Prisma {
 
   export type BlogCreateInput = {
     id?: string
+    urlSlug: string
     isPublic: boolean
     title: string
     contents: string
@@ -1856,6 +1872,7 @@ export namespace Prisma {
 
   export type BlogUncheckedCreateInput = {
     id?: string
+    urlSlug: string
     isPublic: boolean
     title: string
     contents: string
@@ -1866,6 +1883,7 @@ export namespace Prisma {
   }
 
   export type BlogUpdateInput = {
+    urlSlug?: StringFieldUpdateOperationsInput | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     contents?: StringFieldUpdateOperationsInput | string
@@ -1876,6 +1894,7 @@ export namespace Prisma {
   }
 
   export type BlogUncheckedUpdateInput = {
+    urlSlug?: StringFieldUpdateOperationsInput | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     contents?: StringFieldUpdateOperationsInput | string
@@ -1887,6 +1906,7 @@ export namespace Prisma {
 
   export type BlogCreateManyInput = {
     id?: string
+    urlSlug: string
     isPublic: boolean
     title: string
     contents: string
@@ -1897,6 +1917,7 @@ export namespace Prisma {
   }
 
   export type BlogUpdateManyMutationInput = {
+    urlSlug?: StringFieldUpdateOperationsInput | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     contents?: StringFieldUpdateOperationsInput | string
@@ -1907,6 +1928,7 @@ export namespace Prisma {
   }
 
   export type BlogUncheckedUpdateManyInput = {
+    urlSlug?: StringFieldUpdateOperationsInput | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     title?: StringFieldUpdateOperationsInput | string
     contents?: StringFieldUpdateOperationsInput | string
@@ -1965,6 +1987,7 @@ export namespace Prisma {
 
   export type BlogCountOrderByAggregateInput = {
     id?: SortOrder
+    urlSlug?: SortOrder
     isPublic?: SortOrder
     title?: SortOrder
     contents?: SortOrder
@@ -1976,6 +1999,7 @@ export namespace Prisma {
 
   export type BlogMaxOrderByAggregateInput = {
     id?: SortOrder
+    urlSlug?: SortOrder
     isPublic?: SortOrder
     title?: SortOrder
     contents?: SortOrder
@@ -1987,6 +2011,7 @@ export namespace Prisma {
 
   export type BlogMinOrderByAggregateInput = {
     id?: SortOrder
+    urlSlug?: SortOrder
     isPublic?: SortOrder
     title?: SortOrder
     contents?: SortOrder
@@ -2055,12 +2080,12 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NullableStringFieldUpdateOperationsInput = {

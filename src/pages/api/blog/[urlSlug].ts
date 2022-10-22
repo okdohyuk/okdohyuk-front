@@ -2,11 +2,11 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import withHandler, { ResponseType } from '@libs/server/withHandler';
 import client from '@libs/server/client';
 
-async function findBlog(id: string) {
+async function findBlog(urlSlug: string) {
   try {
     const blog = await client.blog.findUnique({
       where: {
-        id,
+        urlSlug,
       },
     });
     if (!blog || !blog.isPublic) return null;
@@ -19,8 +19,8 @@ async function findBlog(id: string) {
 
 async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) {
   try {
-    if (!req.query.id) return res.status(400).json({ ok: false });
-    const blog = await findBlog(req.query.id + '');
+    if (!req.query.urlSlug) return res.status(400).json({ ok: false });
+    const blog = await findBlog(req.query.urlSlug + '');
     if (blog === null) return res.status(404).json({ ok: false });
 
     res.status(200).json({ ok: true, blog });

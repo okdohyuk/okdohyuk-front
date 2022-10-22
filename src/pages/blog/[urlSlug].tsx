@@ -2,21 +2,21 @@ import React from 'react';
 import { NextPageContext } from 'next';
 
 type BlogPageProps = {
-  postId: string;
+  urlSlug: string;
 };
 
-function BlogPage({ postId }: BlogPageProps) {
-  return <div>{postId}</div>;
+function BlogPage({ urlSlug }: BlogPageProps) {
+  return <div>{urlSlug}</div>;
 }
 
 export async function getServerSideProps({ res, query }: NextPageContext) {
-  if (!query || !query.id) return { notFound: true };
+  if (!query || !query.urlSlug) return { notFound: true };
   if (!res) return { notFound: true };
-  const { id } = query;
+  const { urlSlug } = query;
 
   return {
     props: {
-      postId: id,
+      urlSlug: urlSlug,
     },
   };
 }

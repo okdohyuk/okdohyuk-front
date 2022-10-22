@@ -90,6 +90,7 @@ function makeEnum(x) { return x; }
 
 exports.Prisma.BlogScalarFieldEnum = makeEnum({
   id: 'id',
+  urlSlug: 'urlSlug',
   isPublic: 'isPublic',
   title: 'title',
   contents: 'contents',

@@ -15,6 +15,7 @@ datasource db {
 
 model Blog {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  urlSlug        String   @unique
   isPublic       Boolean
   title          String
   contents       String
