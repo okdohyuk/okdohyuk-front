@@ -4,6 +4,6 @@ module.exports = {
     locales: ['ko', 'en'],
     defaultLanguage: 'ko',
     fallbackLng: ['ko'],
-    localePath: './src/assets/locales',
   },
+  localePath: './src/assets/locales',
 };

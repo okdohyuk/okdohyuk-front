@@ -12,6 +12,7 @@ const nextConfig = {
     disable: process.env.NODE_ENV === 'development',
   },
   reactStrictMode: false,
+  swcMinify: true,
   images: {
     domains: [`${process.env.NEXT_PUBLIC_VERCEL_URL}`, 'localhost'],
   },
