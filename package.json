@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "vercel-build": "prisma generate && next build",
+    "vercel-build": "prisma generate && next build && next-sitemap",
     "postbuild": "next-sitemap",
     "start": "next start",
     "test": "jest --watch"
