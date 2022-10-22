@@ -4,5 +4,5 @@ module.exports = {
     extend: {},
   },
   darkMode: 'media',
-  plugins: [require('tailwindcss-safe-area')],
+  plugins: [require('tailwindcss-safe-area'), require('@tailwindcss/line-clamp')],
 };
