@@ -1,7 +1,7 @@
 import React from 'react';
 import Document, { Html, Main, NextScript, Head } from 'next/document';
 import Script from 'next/script';
-import { GA_TRACKING_ID } from '~/lib/gtag';
+import { GA_TRACKING_ID } from '@libs/client/gtag';
 import i18nextConfig from '../../next-i18next.config';
 
 class MyDocument extends Document {

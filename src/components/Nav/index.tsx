@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { MdHome, MdViewList, MdCalculate } from 'react-icons/md';
+import { MdHome, MdViewList, MdArticle, MdCalculate } from 'react-icons/md';
 import Link from '@components/Link';
 import Icon from '@components/Icon';
 import ClassName from '@utils/classNameUtils';
@@ -9,6 +9,7 @@ type NavItem = {
   name: string;
   icon: React.ReactNode;
   link: string;
+  pathname: string[];
 };
 
 const navList: NavItem[] = [
@@ -16,12 +17,15 @@ const navList: NavItem[] = [
     name: 'Home',
     icon: <MdHome />,
     link: '/',
+    pathname: ['/'],
   },
-  { name: 'Todo', icon: <MdViewList />, link: '/todo' },
+  { name: 'Blog', icon: <MdArticle />, link: '/blog', pathname: ['/blog', '/blog/[urlSlug]'] },
+  { name: 'Todo', icon: <MdViewList />, link: '/todo', pathname: ['/todo'] },
   {
     name: 'Percent',
     icon: <MdCalculate />,
     link: '/percent',
+    pathname: ['/percent'],
   },
 ];
 
@@ -49,7 +53,7 @@ function Nav() {
               <Icon
                 icon={navItem.icon}
                 className={cls(
-                  router.asPath === navItem.link
+                  navItem.pathname.findIndex((value) => value === router.pathname) !== -1
                     ? 'text-black dark:text-white'
                     : 'text-gray-500 hover:text-black hover:dark:text-white',
                   'm-auto',

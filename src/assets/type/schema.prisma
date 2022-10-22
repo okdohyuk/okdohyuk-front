@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+  output          = "../src/assets/type"
+}
+
+datasource db {
+  provider             = "mongodb"
+  url                  = env("MONGODB_URI")
+  referentialIntegrity = "prisma"
+}
+
+model Blog {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  urlSlug        String   @unique
+  isPublic       Boolean
+  title          String
+  contents       String
+  thumbnailImage String?
+  category       String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
