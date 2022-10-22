@@ -11,6 +11,7 @@ import LocalesNav from '@components/Nav/LocalesNav';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  console.log('-> ', `${process.env.NEXT_PUBLIC_VERCEL_URL}`);
 
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
