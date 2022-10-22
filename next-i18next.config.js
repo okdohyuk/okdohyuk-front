@@ -4,5 +4,5 @@ module.exports = {
     defaultLocale: 'ko',
     locales: ['ko', 'en'],
   },
-  reloadOnPrerender: process.env.NODE_ENV === 'development',
+  localePath: './src/assets/locales',
 };
