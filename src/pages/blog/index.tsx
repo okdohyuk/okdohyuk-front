@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Opengraph from '@components/opengraph';
 import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
@@ -13,23 +13,21 @@ function BlogPage() {
   const { t } = useTranslation('blog');
   const { blogs, getBlogsPage, status, isLastPage } = useStore<BlogStore>('blogStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
-  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (!isFetching) return;
-    getBlogsPage(page, 10);
-  }, [isFetching, page]);
+    getBlogsPage(10);
+  }, [isFetching]);
 
   useEffect(() => {
     if (isLastPage) return;
     if (status === 'success') {
       setIsFetching(false);
-      setPage((page) => page + 1);
     }
   }, [status, isLastPage]);
 
   useEffect(() => {
-    setIsFetching(true);
+    if (status === 'idle') setIsFetching(true);
   }, []);
 
   return (
