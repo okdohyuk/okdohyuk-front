@@ -6,6 +6,7 @@ type BlogStoreState = {
   blogs: Blog[] | null;
   status: Status;
   isLastPage: boolean;
+  page: number;
 };
 
 export type { BlogStoreState, Status };
