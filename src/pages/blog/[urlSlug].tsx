@@ -129,15 +129,11 @@ function BlogDetailPage({ blog }: BlogPageProps) {
   );
 }
 
-export async function getServerSideProps({ req, query, locale }: NextPageContext) {
-  if (!req) return { notFound: true };
+export async function getServerSideProps({ query, locale }: NextPageContext) {
   if (!(query && query.urlSlug)) return { notFound: true };
   const { urlSlug } = query;
-  const protocol = req.headers['x-forwarded-proto'] || 'http';
   try {
-    const { data } = await axios.get(
-      `${protocol}://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/blog/${urlSlug}`,
-    );
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/blog/${urlSlug}`);
     if (!data) throw 'body is null';
     const translations = await serverSideTranslations(locale as string, ['common', 'blog']);
     return {

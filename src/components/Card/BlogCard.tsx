@@ -22,7 +22,7 @@ function BlogCard({ blog }: BlogCardProps) {
           {thumbnailImage ? (
             <div className={'w-[100px] h-[100px] md:w-[200px] md:h-[200px] relative'}>
               <Image
-                src={`http://${process.env.NEXT_PUBLIC_VERCEL_URL}${thumbnailImage}`}
+                src={`${process.env.NEXT_PUBLIC_URL}${thumbnailImage}`}
                 layout={'fill'}
                 objectFit={'cover'}
               />

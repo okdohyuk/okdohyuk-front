@@ -8,6 +8,7 @@ import useStore from '@hooks/useStore';
 import BlogStore from '@stores/BlogStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
+import { MdAutorenew } from 'react-icons/md';
 
 function BlogPage() {
   const { t } = useTranslation('blog');
@@ -49,6 +50,11 @@ function BlogPage() {
           {blogs?.map((blog) => (
             <BlogCard key={blog.urlSlug} blog={blog} />
           ))}
+          {status === 'loading' ? (
+            <div className={'flex justify-center'}>
+              <MdAutorenew className={'text-black dark:text-white animate-spin'} size={24} />
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
