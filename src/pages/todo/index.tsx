@@ -2,7 +2,6 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 import useInput from '@hooks/useInput';
 import { MdCheckBoxOutlineBlank, MdCheckBox, MdDeleteForever } from 'react-icons/md';
-import Opengraph from '@components/Basic/Opengraph';
 import { TodoStoreState } from '@stores/TodoStore/type';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -27,12 +26,11 @@ const TodoApp = ({ todoStore }: TodoApp) => {
   };
 
   return (
-    <CommonLayout>
-      <Opengraph
-        title={t('openGraph.title')}
-        ogTitle={t('openGraph.ogTitle')}
-        description={t('openGraph.description')}
-      />
+    <CommonLayout
+      title={t('openGraph.title')}
+      ogTitle={t('openGraph.ogTitle')}
+      description={t('openGraph.description')}
+    >
       <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
         <h1
           className={

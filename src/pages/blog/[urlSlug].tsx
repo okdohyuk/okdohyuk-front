@@ -3,7 +3,6 @@ import { NextPageContext } from 'next';
 import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Blog } from '@assets/type';
-import Opengraph from '@components/Basic/Opengraph';
 import markdownUtils from '@utils/markdownUtils';
 import { format } from 'date-fns';
 import Markdown from 'markdown-to-jsx';
@@ -78,13 +77,12 @@ const MarkDownImg = ({ ...props }: MarkdownItem) => (
 function BlogDetailPage({ blog }: BlogPageProps) {
   const { title, contents, createdAt, thumbnailImage } = blog;
   return (
-    <CommonLayout>
-      <Opengraph
-        title={title}
-        ogTitle={title}
-        description={markdownUtils.removeMarkdown(contents).slice(0, 200) + '...'}
-        image={thumbnailImage ? thumbnailImage : undefined}
-      />
+    <CommonLayout
+      title={title}
+      ogTitle={title}
+      description={markdownUtils.removeMarkdown(contents).slice(0, 200) + '...'}
+      image={thumbnailImage ? thumbnailImage : undefined}
+    >
       <div className="flex flex-col gap-6 text-black dark:text-white">
         <article className={'w-full md:w-[750px] p-4 pt-10 md:p-0 md:pt-10 mx-auto'}>
           <div
