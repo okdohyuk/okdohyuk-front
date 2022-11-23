@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next';
-import MyLinkCard from '@components/Card/MyLinkCard';
-import Opengraph from '@components/opengraph';
+import MyLinkCard from '@components/Complex/Card/MyLinkCard';
+import Opengraph from '@components/Basic/Opengraph';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticPropsContext } from 'next';
+import CommonLayout from '@components/Complex/Layouts/CommonLayout';
 
 type MyLinks = {
   title: string;
@@ -50,7 +51,7 @@ function Home() {
   };
 
   return (
-    <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
+    <CommonLayout>
       <Opengraph
         isMainPage
         title={t('openGraph.title')}
@@ -103,7 +104,7 @@ function Home() {
           ))}
         </div>
       </div>
-    </div>
+    </CommonLayout>
   );
 }
 

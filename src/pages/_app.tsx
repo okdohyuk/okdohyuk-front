@@ -5,9 +5,9 @@ import { Provider } from 'mobx-react';
 import stores from '@stores';
 import { useRouter } from 'next/router';
 import * as gtag from '@libs/client/gtag';
-import Nav from '@components/Nav';
+import Nav from '@components/Complex/Nav';
 import { appWithTranslation } from 'next-i18next';
-import LocalesNav from '@components/Nav/LocalesNav';
+import LocalesNav from '@components/Complex/Nav/LocalesNav';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

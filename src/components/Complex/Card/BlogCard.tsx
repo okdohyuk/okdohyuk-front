@@ -1,7 +1,7 @@
 import React from 'react';
 import { Blog } from '@assets/type';
 import Image from 'next/image';
-import Link from '@components/Link';
+import Link from '@components/Basic/Link';
 import markdownUtils from '@utils/markdownUtils';
 
 type BlogCardProps = {

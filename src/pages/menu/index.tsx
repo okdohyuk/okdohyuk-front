@@ -1,9 +1,8 @@
 import React from 'react';
+import CommonLayout from '@components/Complex/Layouts/CommonLayout';
 
 function MenuPage() {
-    return (
-        <div></div>
-    );
+  return <CommonLayout>{''}</CommonLayout>;
 }
 
 export default MenuPage;

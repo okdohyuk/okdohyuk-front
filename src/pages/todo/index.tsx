@@ -2,11 +2,12 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 import useInput from '@hooks/useInput';
 import { MdCheckBoxOutlineBlank, MdCheckBox, MdDeleteForever } from 'react-icons/md';
-import Opengraph from '@components/opengraph';
+import Opengraph from '@components/Basic/Opengraph';
 import { TodoStoreState } from '@stores/TodoStore/type';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import CommonLayout from '@components/Complex/Layouts/CommonLayout';
 
 type TodoApp = {
   todoStore: TodoStoreState;
@@ -26,7 +27,7 @@ const TodoApp = ({ todoStore }: TodoApp) => {
   };
 
   return (
-    <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
+    <CommonLayout>
       <Opengraph
         title={t('openGraph.title')}
         ogTitle={t('openGraph.ogTitle')}
@@ -86,7 +87,7 @@ const TodoApp = ({ todoStore }: TodoApp) => {
             : null}
         </div>
       </div>
-    </div>
+    </CommonLayout>
   );
 };
 
