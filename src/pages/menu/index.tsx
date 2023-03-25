@@ -1,19 +1,20 @@
 import React from 'react';
-import CommonLayout from '@components/Complex/Layouts/CommonLayout';
 import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Opengraph from '@components/Basic/Opengraph';
 
 function MenuPage() {
   const { t } = useTranslation('menu');
   return (
-    <CommonLayout
-      title={t('openGraph.title')}
-      ogTitle={t('openGraph.ogTitle')}
-      description={t('openGraph.description')}
-    >
-      {''}
-    </CommonLayout>
+    <>
+      <Opengraph
+        title={t('openGraph.title')}
+        ogTitle={t('openGraph.ogTitle')}
+        description={t('openGraph.description')}
+      />
+      {'123'}
+    </>
   );
 }
 

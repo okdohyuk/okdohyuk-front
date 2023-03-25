@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 import Markdown from 'markdown-to-jsx';
 import AutoHeightImage from '@components/Basic/Image/AutoHeightImage';
 import { withTranslation } from 'next-i18next';
-import CommonLayout from '@components/Complex/Layouts/CommonLayout';
+import Opengraph from '@components/Basic/Opengraph';
 
 type BlogPageProps = {
   blog: Blog;
@@ -77,12 +77,13 @@ const MarkDownImg = ({ ...props }: MarkdownItem) => (
 function BlogDetailPage({ blog }: BlogPageProps) {
   const { title, contents, createdAt, thumbnailImage } = blog;
   return (
-    <CommonLayout
-      title={title}
-      ogTitle={title}
-      description={markdownUtils.removeMarkdown(contents).slice(0, 200) + '...'}
-      image={thumbnailImage ? thumbnailImage : undefined}
-    >
+    <>
+      <Opengraph
+        title={title}
+        ogTitle={title}
+        description={markdownUtils.removeMarkdown(contents).slice(0, 200) + '...'}
+        image={thumbnailImage ? thumbnailImage : undefined}
+      />
       <div className="flex flex-col gap-6 text-black dark:text-white">
         <article className={'w-full md:w-[750px] p-4 pt-10 md:p-0 md:pt-10 mx-auto'}>
           <div
@@ -124,7 +125,7 @@ function BlogDetailPage({ blog }: BlogPageProps) {
           </Markdown>
         </article>
       </div>
-    </CommonLayout>
+    </>
   );
 }
 

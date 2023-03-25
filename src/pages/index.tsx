@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import MyLinkCard from '@components/Complex/Card/MyLinkCard';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticPropsContext } from 'next';
-import CommonLayout from '@components/Complex/Layouts/CommonLayout';
+import Opengraph from '@components/Basic/Opengraph';
 
 type MyLinks = {
   title: string;
@@ -50,12 +50,13 @@ function Home() {
   };
 
   return (
-    <CommonLayout
-      isMainPage
-      title={t('openGraph.title')}
-      ogTitle={t('openGraph.ogTitle')}
-      description={t('openGraph.description')}
-    >
+    <>
+      <Opengraph
+        isMainPage
+        title={t('openGraph.title')}
+        ogTitle={t('openGraph.ogTitle')}
+        description={t('openGraph.description')}
+      />
       {!!deferredPrompt ? (
         <button
           className={'absolute top-[16px] right-[16px] underline dark:text-white'}
@@ -102,7 +103,7 @@ function Home() {
           ))}
         </div>
       </div>
-    </CommonLayout>
+    </>
   );
 }
 

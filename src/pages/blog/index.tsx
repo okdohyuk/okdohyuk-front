@@ -8,7 +8,7 @@ import BlogStore from '@stores/BlogStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
-import CommonLayout from '@components/Complex/Layouts/CommonLayout';
+import Opengraph from '@components/Basic/Opengraph';
 
 function BlogPage() {
   const { t } = useTranslation('blog');
@@ -32,11 +32,12 @@ function BlogPage() {
   }, []);
 
   return (
-    <CommonLayout
-      title={t('openGraph.title')}
-      ogTitle={t('openGraph.ogTitle')}
-      description={t('openGraph.description')}
-    >
+    <>
+      <Opengraph
+        title={t('openGraph.title')}
+        ogTitle={t('openGraph.ogTitle')}
+        description={t('openGraph.description')}
+      />
       <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
         <h1
           className={
@@ -56,7 +57,7 @@ function BlogPage() {
           ) : null}
         </div>
       </div>
-    </CommonLayout>
+    </>
   );
 }
 

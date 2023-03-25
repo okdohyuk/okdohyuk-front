@@ -3,17 +3,18 @@ import PercentCalculatorCard from '@components/Complex/Card/PercentCalculatorCar
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import CommonLayout from '@components/Complex/Layouts/CommonLayout';
+import Opengraph from '@components/Basic/Opengraph';
 
 const PercentPage = () => {
   const { t } = useTranslation('percent');
 
   return (
-    <CommonLayout
-      title={t('openGraph.title')}
-      ogTitle={t('openGraph.ogTitle')}
-      description={t('openGraph.description')}
-    >
+    <>
+      <Opengraph
+        title={t('openGraph.title')}
+        ogTitle={t('openGraph.ogTitle')}
+        description={t('openGraph.description')}
+      />
       <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
         <h1
           className={
@@ -55,7 +56,7 @@ const PercentPage = () => {
           />
         </section>
       </div>
-    </CommonLayout>
+    </>
   );
 };
 
