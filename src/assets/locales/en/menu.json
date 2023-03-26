@@ -3,5 +3,8 @@
     "title": "Menu",
     "ogTitle": "Menu",
     "description": "You can check all services."
-  }
+  },
+  "title": "Menu",
+  "service": "service",
+  "out": "out"
 }

@@ -2,53 +2,9 @@
   "openGraph": {
     "title": "메뉴서랍",
     "ogTitle": "메뉴서랍",
-    "description": "모든 서비스를 확인하실 수 있습니다.",
-    "menus": {
-      "service" : [
-        {
-          "title": "퍼센트계산기",
-          "icon": "",
-          "link": "/percent"
-        },
-        {
-          "title": "할일",
-          "icon": "",
-          "link": "/todo"
-        }
-      ],
-      "out": [
-        {
-          "title": "프로필",
-          "icon": "",
-          "link": "https://okdohyuk.notion.site/"
-        },
-        {
-          "title": "블로그",
-          "icon": "",
-          "link": "https://blog.okdohyuk.dev/"
-        },
-        {
-          "title": "깃허브",
-          "icon": "",
-          "link": "https://github.com/okdohyuk"
-        },
-        {
-          "title": "로켓펀치",
-          "icon": "",
-          "link": "https://www.rocketpunch.com/@okdohyuk"
-        },
-        {
-          "title": "링크드인",
-          "icon": "",
-          "link": "https://www.linkedin.com/in/okdohyuk/"
-        },
-        {
-          "title": "유튜브",
-          "icon": "",
-          "link": "https://www.youtube.com/@okdohyuk"
-        },
-        { "title": "후원하기", "explanation": "🙏", "link": "https://toss.me/guksu" }
-      ]
-    }
-  }
+    "description": "모든 서비스를 확인하실 수 있습니다."
+  },
+  "title": "메뉴서랍",
+  "service": "서비스",
+  "out": "외부"
 }
