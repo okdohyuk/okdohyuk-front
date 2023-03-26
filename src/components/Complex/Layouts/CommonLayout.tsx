@@ -13,9 +13,10 @@ function CommonLayout({ children }: CommonLayoutProps) {
   const { asPath } = useRouter();
 
   const isLocalesNavShown = useMemo(() => {
-    return searchArray.some((searchStr) => asPath.includes(searchStr));
+    return !searchArray.some((searchStr) => asPath.includes(searchStr));
   }, [asPath]);
 
+  console.log(isLocalesNavShown);
   return (
     <div className={'w-full min-h-screen dark:bg-black pb-[57px] lg:pb-0'}>
       {children}
