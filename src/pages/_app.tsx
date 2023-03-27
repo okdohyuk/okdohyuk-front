@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import * as gtag from '@libs/client/gtag';
 import { appWithTranslation } from 'next-i18next';
 import CommonLayout from '~/components/Complex/Layouts/CommonLayout';
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider {...stores}>
       <CommonLayout>
         <Component {...pageProps} />
+        <Analytics />
       </CommonLayout>
     </Provider>
   );
