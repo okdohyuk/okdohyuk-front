@@ -3,12 +3,12 @@ import { NextPageContext } from 'next';
 import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Blog } from '@assets/type';
-import Opengraph from '@components/opengraph';
 import markdownUtils from '@utils/markdownUtils';
 import { format } from 'date-fns';
 import Markdown from 'markdown-to-jsx';
-import AutoHeightImage from '@components/Image/AutoHeightImage';
+import AutoHeightImage from '@components/Basic/Image/AutoHeightImage';
 import { withTranslation } from 'next-i18next';
+import Opengraph from '@components/Basic/Opengraph';
 
 type BlogPageProps = {
   blog: Blog;
@@ -77,7 +77,7 @@ const MarkDownImg = ({ ...props }: MarkdownItem) => (
 function BlogDetailPage({ blog }: BlogPageProps) {
   const { title, contents, createdAt, thumbnailImage } = blog;
   return (
-    <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
+    <>
       <Opengraph
         title={title}
         ogTitle={title}
@@ -125,7 +125,7 @@ function BlogDetailPage({ blog }: BlogPageProps) {
           </Markdown>
         </article>
       </div>
-    </div>
+    </>
   );
 }
 

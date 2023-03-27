@@ -1,7 +1,7 @@
 import React from 'react';
 import { Blog } from '@assets/type';
 import Image from 'next/image';
-import Link from '@components/Link';
+import Link from '@components/Basic/Link';
 import markdownUtils from '@utils/markdownUtils';
 
 type BlogCardProps = {
@@ -23,6 +23,7 @@ function BlogCard({ blog }: BlogCardProps) {
             <div className={'w-[100px] h-[100px] md:w-[200px] md:h-[200px] relative'}>
               <Image
                 src={`${process.env.NEXT_PUBLIC_URL}${thumbnailImage}`}
+                alt={title}
                 layout={'fill'}
                 objectFit={'cover'}
               />

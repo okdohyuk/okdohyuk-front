@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import MyLinkCard from '@components/Card/MyLinkCard';
+import MyLinkCard from '@components/Complex/Card/MyLinkCard';
 
 describe('<MyLinkCard />', () => {
   it('matches snapshot', () => {

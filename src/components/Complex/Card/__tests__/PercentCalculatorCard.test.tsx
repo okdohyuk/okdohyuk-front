@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import PercentCalculatorCard from '@components/Card/PercentCalculatorCard';
+import PercentCalculatorCard from '@components/Complex/Card/PercentCalculatorCard';
 import PercentStore from '@stores/PercentStore';
 import { Provider } from 'mobx-react';
 

@@ -5,9 +5,8 @@ import { Provider } from 'mobx-react';
 import stores from '@stores';
 import { useRouter } from 'next/router';
 import * as gtag from '@libs/client/gtag';
-import Nav from '@components/Nav';
 import { appWithTranslation } from 'next-i18next';
-import LocalesNav from '@components/Nav/LocalesNav';
+import CommonLayout from '~/components/Complex/Layouts/CommonLayout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -24,9 +23,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Provider {...stores}>
-      <Component {...pageProps} />
-      <LocalesNav />
-      <Nav />
+      <CommonLayout>
+        <Component {...pageProps} />
+      </CommonLayout>
     </Provider>
   );
 }
