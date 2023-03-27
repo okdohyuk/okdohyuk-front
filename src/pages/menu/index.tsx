@@ -87,7 +87,7 @@ function MenuPage() {
   const renderMenuList = (menuList: MenuItem[]) => {
     return menuList.map((menu) => (
       <li key={menu.title} className="list-none">
-        <Link href={menu.link}>
+        <Link href={menu.link} hasTargetBlank={menu.link.includes('http')}>
           <button className="flex items-center gap-2 w-full bg-transparent hover:bg-zinc-400 active:bg-zinc-500 dark:hover:bg-zinc-700 dark:active:bg-zinc-600 outline-none transition ease-in duration-[40ms] rounded-md p-3 text-left text-lg md:text-xl lg:text-1xl dark:text-white">
             {menu.icon}
             {locale === 'ko' ? menu.title : menu.titlen}
