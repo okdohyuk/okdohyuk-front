@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { MdHome, MdViewList, MdArticle, MdCalculate } from 'react-icons/md';
-import Link from '@components/Link';
+import { MdHome, MdArticle, MdMenu } from 'react-icons/md';
+import Link from '@components/Basic/Link';
 import ClassName from '@utils/classNameUtils';
 
 type NavItem = {
@@ -24,12 +24,18 @@ const navList: NavItem[] = [
     link: '/blog',
     pathname: ['/blog', '/blog/[urlSlug]'],
   },
-  { name: 'Todo', icon: <MdViewList size={24} />, link: '/todo', pathname: ['/todo'] },
+  /*  { name: 'Todo', icon: <MdViewList size={24} />, link: '/todo', pathname: ['/todo'] },
   {
     name: 'Percent',
     icon: <MdCalculate size={24} />,
     link: '/percent',
     pathname: ['/percent'],
+  },*/
+  {
+    name: 'Menu',
+    icon: <MdMenu size={24} />,
+    link: '/menu',
+    pathname: ['/menu'],
   },
 ];
 

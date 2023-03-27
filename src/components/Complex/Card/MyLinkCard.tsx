@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@components/Link';
+import Link from '@components/Basic/Link';
 
 type LinkCard = {
   title: string;

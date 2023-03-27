@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
-type Opengraph = {
+export type OpengraphProps = {
   isMainPage?: boolean;
   title: string;
   ogTitle: string;
@@ -11,7 +11,7 @@ type Opengraph = {
   image?: string;
 };
 
-function Opengraph({ title, ogTitle, description, isMainPage = false, image }: Opengraph) {
+function Opengraph({ title, ogTitle, description, isMainPage = false, image }: OpengraphProps) {
   const router = useRouter();
   const { t } = useTranslation('common');
   const withMe = t('openGraph.withMe');

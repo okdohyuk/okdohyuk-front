@@ -1,15 +1,15 @@
 import React from 'react';
-import PercentCalculatorCard from '@components/Card/PercentCalculatorCard';
-import Opengraph from '@components/opengraph';
+import PercentCalculatorCard from '@components/Complex/Card/PercentCalculatorCard';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import Opengraph from '@components/Basic/Opengraph';
 
 const PercentPage = () => {
   const { t } = useTranslation('percent');
 
   return (
-    <div className={'w-full min-h-screen dark:bg-black pb-[70px] lg:pb-auto'}>
+    <>
       <Opengraph
         title={t('openGraph.title')}
         ogTitle={t('openGraph.ogTitle')}
@@ -56,7 +56,7 @@ const PercentPage = () => {
           />
         </section>
       </div>
-    </div>
+    </>
   );
 };
 
