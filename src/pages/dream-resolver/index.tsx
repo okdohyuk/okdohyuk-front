@@ -5,19 +5,57 @@ import React, { useEffect } from 'react';
 import Opengraph from '@components/Basic/Opengraph';
 import Cookies from 'js-cookie';
 import { AiOutlineLoading } from 'react-icons/ai';
+import { useRouter } from 'next/router';
+import axios from 'axios';
 
 function DreamResolver() {
+  const { locale } = useRouter();
   const { t } = useTranslation('dream-resolver');
   const [dreamContent, setDreamContent] = React.useState<string>('');
   const [dreamResult, setDreamResult] = React.useState<string>('');
   const [loading, setLoading] = React.useState<boolean>(true);
   const [isTodayResolved, setIsTodayResolved] = React.useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
+
+    try {
+      const {
+        data: { dreamResult },
+      } = await axios.get(
+        `/api/openai/dream-resolver?locale=${locale}&dreamContent=${dreamContent}`,
+      );
+
+      setDreamResult(dreamResult.content);
+      setIsTodayResolved(true);
+
+      const date = new Date();
+      const midnight = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59);
+
+      Cookies.set(
+        'dream-resolver',
+        JSON.stringify({ dreamContent, dreamResult: dreamResult.content }),
+        {
+          expires: midnight,
+        },
+      );
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const { dreamContent, dreamResult } = JSON.parse(Cookies.get('dream-resolver') || '{}');
+    if (dreamContent.length > 0 && dreamResult.length > 0) {
+      setDreamContent(dreamContent);
+      setDreamResult(dreamResult);
+      setIsTodayResolved(true);
+    }
+    setLoading(false);
+  }, []);
 
   return (
     <>
@@ -39,13 +77,23 @@ function DreamResolver() {
             </div>
           </>
         )}
-        {dreamContent.length <= 0 && dreamResult.length <= 0 && isTodayResolved && (
-          <div>
-            <h2>{t('question')}</h2>
-            <span></span>
-            <h2>{t('answer')}</h2>
-            <span></span>
-          </div>
+        {dreamContent.length > 0 && dreamResult.length > 0 && isTodayResolved && (
+          <>
+            <div className="flex flex-col p-2 rounded-sm border-lime-400 border-2 border-solid">
+              <h2 className="text-lg lg:text-xl font-bold mb-2 text-black dark:text-white">
+                {t('question')}
+              </h2>
+              <span className="whitespace-pre-line text-base text-black dark:text-white">
+                {dreamContent}
+              </span>
+              <h2 className="text-lg lg:text-xl font-bold mb-2 text-black dark:text-white">
+                {t('answer')}
+              </h2>
+              <span className="whitespace-pre-line text-base text-black dark:text-white">
+                {dreamResult}
+              </span>
+            </div>
+          </>
         )}
         {!loading && !isTodayResolved && (
           <form onSubmit={handleSubmit}>
