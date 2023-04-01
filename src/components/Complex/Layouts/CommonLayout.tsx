@@ -17,7 +17,7 @@ function CommonLayout({ children }: CommonLayoutProps) {
   }, [asPath]);
 
   return (
-    <div className={'w-full min-h-screen dark:bg-black pb-[57px] lg:pb-0'}>
+    <div className={'w-full min-h-screen flex flex-col dark:bg-black pb-[57px] lg:pb-0'}>
       {children}
       {isLocalesNavShown && <LocalesNav />}
       <Nav />
