@@ -5,6 +5,7 @@ import {
   MdTagFaces,
   MdOutlinePersonalVideo,
   MdPayment,
+  MdOutlineAutoAwesome,
 } from 'react-icons/md';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
 
@@ -32,6 +33,12 @@ const menus: Menus = {
       titlen: 'Todo',
       icon: <MdViewList />,
       link: '/todo',
+    },
+    {
+      title: '해몽',
+      titlen: 'Dream Resorlver',
+      icon: <MdOutlineAutoAwesome />,
+      link: '/dream-resolver',
     },
   ],
   out: [
