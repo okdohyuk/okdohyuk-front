@@ -30,6 +30,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
+    "react-share": "^4.4.1",
     "sharp": "^0.31.1",
     "tailwindcss-safe-area": "^0.2.2",
     "typescript": "^4.8.4"

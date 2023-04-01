@@ -8,5 +8,10 @@
   "submit": "interpretation",
   "processing": "Processing...",
   "question": "User Question",
-  "answer": "AI Answer"
+  "answer": "AI Answer",
+  "tryAgain": "Retry Tomorrow",
+  "donate": "Donate",
+  "copyed": "Copied to clipboard",
+  "failShare": "This is an environment where sharing is not supported.",
+  "error": "An error occurred. Please try again later."
 }

@@ -8,5 +8,10 @@
   "submit": "해석하기",
   "processing": "처리중입니다...",
   "question": "사용자 질문",
-  "answer": "AI 답변"
+  "answer": "AI 답변",
+  "tryAgain": "내일 다시 시도해주세요.",
+  "donate": "후원하기",
+  "copyed": "링크가 복사되었습니다.",
+  "failShare": "공유하기가 지원되지 않는 환경 입니다.",
+  "error": "에러가 발생했습니다. 다시 시도해주세요."
 }
