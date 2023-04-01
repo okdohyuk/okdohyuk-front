@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 개발자 유도혁
 
-## Getting Started
+## 기본
 
-First, run the development server:
+### 스크립트
 
-```bash
-npm run dev
-# or
-yarn dev
+```jsx
+"scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "vercel-build": "prisma generate && next build && next-sitemap",
+    "postbuild": "next-sitemap",
+    "start": "next start",
+    "test": "jest --watch"
+  }
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 노드 버전
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+v16.X.X
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 데이터베이스
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[https://cloud.mongodb.com/v2/634a86a82bd7d424132fc34c#/clusters/detail/okdohyuk-dev](https://cloud.mongodb.com/v2/634a86a82bd7d424132fc34c#/clusters/detail/okdohyuk-dev)
 
-## Learn More
+### ORM
 
-To learn more about Next.js, take a look at the following resources:
+[https://www.prisma.io/](https://www.prisma.io/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 테이블 위치
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`./pisma/schema.prisma`
 
-## Deploy on Vercel
+## 테스트 & 빌드
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[https://vercel.com/okdohyuk/okdohyuk-dev](https://vercel.com/okdohyuk/okdohyuk-dev)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 관련 페이지
+
+[https://www.notion.so/okdohyuk/www-okdohyuk-dev-0c29ce3cae2f4dd6a870d81fd3866c6f](https://www.notion.so/www-okdohyuk-dev-0c29ce3cae2f4dd6a870d81fd3866c6f)
