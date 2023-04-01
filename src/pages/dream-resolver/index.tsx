@@ -94,7 +94,7 @@ function DreamResolver() {
         description={t('openGraph.description')}
         image={'/dream-resolver.jpg'}
       />
-      <main className="flex flex-col items-center w-full min-h-screen lg:h-auto lg:mx-auto lg:w-96 bg-zinc-100 dark:bg-zinc-800 lg:my-auto lg:rounded-lg p-4">
+      <main className="flex flex-col items-center w-full min-h-screen lg:min-h-0 lg:h-auto lg:mx-auto lg:w-96 bg-zinc-100 dark:bg-zinc-800 lg:my-auto lg:rounded-lg p-4">
         <h1 className="text-xl lg:text-2xl font-bold mb-6 text-black dark:text-white">
           {t('openGraph.title')}
         </h1>
