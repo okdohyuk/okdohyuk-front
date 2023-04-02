@@ -62,7 +62,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
     });
     const dreamResult = data.choices[0].message;
 
-    notion.pages.create({
+    await notion.pages.create({
       parent: { database_id: '236221d9329d4600a98e72e89d88638d' },
       properties: {},
       children: [
