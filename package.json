@@ -9,6 +9,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.3",
     "@prisma/client": "^4.5.0",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@types/js-cookie": "^3.0.2",
