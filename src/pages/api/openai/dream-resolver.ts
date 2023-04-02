@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import withHandler, { ResponseType } from '@libs/server/withHandler';
-import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from 'openai';
+import { ChatCompletionRequestMessage } from 'openai';
+import openai from '@libs/server/openAI';
+import notion from '@libs/server/notion';
 
 const makeMessages = (locale: string, dreamContent: string): ChatCompletionRequestMessage[] => {
   switch (locale) {
@@ -54,17 +56,48 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
     )
       throw new Error('Invalid query');
 
-    const configuration = new Configuration({
-      apiKey: process.env.OPENAI_KEY,
-    });
-    const openai = new OpenAIApi(configuration);
-
     const { data } = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
       messages: makeMessages(locale, dreamContent),
     });
+    const dreamResult = data.choices[0].message;
 
-    res.status(200).json({ ok: true, dreamResult: data.choices[0].message });
+    notion.pages.create({
+      parent: { database_id: '236221d9329d4600a98e72e89d88638d' },
+      properties: {},
+      children: [
+        {
+          object: 'block',
+          type: 'paragraph',
+          paragraph: {
+            rich_text: [
+              {
+                type: 'text',
+                text: {
+                  content: dreamContent,
+                },
+              },
+            ],
+          },
+        },
+        {
+          object: 'block',
+          type: 'paragraph',
+          paragraph: {
+            rich_text: [
+              {
+                type: 'text',
+                text: {
+                  content: dreamResult?.content,
+                },
+              },
+            ],
+          },
+        },
+      ],
+    });
+
+    res.status(200).json({ ok: true, dreamResult });
   } catch (e) {
     console.error('-> e', e);
     res.status(500).json({ ok: false });
