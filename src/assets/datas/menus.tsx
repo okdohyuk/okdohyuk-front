@@ -5,7 +5,8 @@ import {
   MdTagFaces,
   MdOutlinePersonalVideo,
   MdPayment,
-  MdOutlineAutoAwesome,
+  // MdOutlineAutoAwesome,
+  MdCode,
 } from 'react-icons/md';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
 
@@ -34,11 +35,17 @@ const menus: Menus = {
       icon: <MdViewList />,
       link: '/todo',
     },
+    // {
+    //   title: '해몽',
+    //   titlen: 'Dream Resorlver',
+    //   icon: <MdOutlineAutoAwesome />,
+    //   link: '/dream-resolver',
+    // },
     {
-      title: '해몽',
-      titlen: 'Dream Resorlver',
-      icon: <MdOutlineAutoAwesome />,
-      link: '/dream-resolver',
+      title: '암호화 복호화',
+      titlen: 'Coder',
+      icon: <MdCode />,
+      link: '/coder',
     },
   ],
   out: [
