@@ -188,6 +188,7 @@ table {
       }
     }
   }
+
   // 색
   .c {
     &-basic {
@@ -202,6 +203,30 @@ table {
       }
       &-3 {
         @apply text-zinc-700 dark:text-zinc-200;
+      }
+    }
+  }
+
+  // 배경색
+  .bg {
+    &-basic {
+      &-0 {
+        @apply bg-white dark:text-black;
+      }
+      &-1 {
+        @apply bg-zinc-50 dark:bg-zinc-900;
+      }
+      &-2 {
+        @apply bg-zinc-100 dark:bg-zinc-800;
+      }
+      &-3 {
+        @apply bg-zinc-200 dark:bg-zinc-700;
+      }
+      &-4 {
+        @apply bg-zinc-300 dark:bg-zinc-600;
+      }
+      &-5 {
+        @apply bg-zinc-400 dark:bg-zinc-500;
       }
     }
   }
