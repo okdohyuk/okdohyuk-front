@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue',
+    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.auto-image {
+  width: 100%;
+}
+
+.auto-image > span {
+  position: unset !important;
+}
+
+.auto-image > span > img {
+  height: auto !important;
+  position: relative !important;
+}
+
+@layer components {
+  .t {
+    // 크기
+    // 제목
+    &-t {
+      &-1 {
+        @apply text-4xl font-bold;
+      }
+      &-2 {
+        @apply text-3xl font-bold;
+      }
+      &-3 {
+        @apply text-2xl font-bold;
+      }
+    }
+    // 자료
+    &-d {
+      &-1 {
+        @apply text-xl font-normal;
+      }
+      &-2 {
+        @apply text-lg font-normal;
+      }
+      &-3 {
+        @apply text-base font-normal;
+      }
+    }
+    // 캡션
+    &-c {
+      &-1 {
+        @apply text-sm font-light;
+      }
+      &-2 {
+        @apply text-xs font-light;
+      }
+      &-3 {
+        @apply text-xxs font-light;
+      }
+    }
+  }
+  // 색
+  .c {
+    &-basic {
+      &-0 {
+        @apply text-black dark:text-white;
+      }
+      &-1 {
+        @apply text-zinc-900 dark:text-zinc-50;
+      }
+      &-2 {
+        @apply text-zinc-800 dark:text-zinc-100;
+      }
+      &-3 {
+        @apply text-zinc-700 dark:text-zinc-200;
+      }
+    }
+  }
+}
