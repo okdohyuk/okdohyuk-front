@@ -187,10 +187,8 @@ table {
         @apply text-xxs font-light;
       }
     }
-  }
 
-  // 색
-  .c {
+    // 색
     &-basic {
       &-0 {
         @apply text-black dark:text-white;
@@ -203,6 +201,27 @@ table {
       }
       &-3 {
         @apply text-zinc-700 dark:text-zinc-200;
+      }
+      &-4 {
+        @apply text-zinc-600 dark:text-zinc-300;
+      }
+      &-5 {
+        @apply text-zinc-500 dark:text-zinc-400;
+      }
+      &-6 {
+        @apply text-zinc-400 dark:text-zinc-500;
+      }
+      &-7 {
+        @apply text-zinc-300 dark:text-zinc-600;
+      }
+      &-8 {
+        @apply text-zinc-200 dark:text-zinc-700;
+      }
+      &-9 {
+        @apply text-zinc-100 dark:text-zinc-800;
+      }
+      &-10 {
+        @apply text-zinc-50 dark:text-zinc-900;
       }
     }
   }
@@ -258,7 +277,10 @@ table {
   // 인풋
   .input {
     &-text {
-      @apply flex items-center rounded-md bg-basic-1 border border-basic-4 focus:outline outline-2 outline-point-1 p-1;
+      @apply flex items-center rounded-md bg-basic-1 border border-basic-4 focus:outline outline-2 outline-point-2 p-1 t-basic-1 t-d-1;
     }
+  }
+  .button {
+    @apply flex items-center justify-center rounded-md bg-point-2 hover:bg-point-1 p-1 t-d-1 t-basic-10;
   }
 }

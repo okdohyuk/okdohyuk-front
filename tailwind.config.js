@@ -4,9 +4,10 @@ module.exports = {
     extend: {
       colors: {
         point: {
-          1: '#BEADFA',
-          2: '#D0BFFF',
-          3: '#DFCCFB',
+          1: '#AA90FA',
+          2: '#BEADFA',
+          3: '#D0BFFF',
+          4: '#DFCCFB',
         },
       },
     },
