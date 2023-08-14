@@ -211,7 +211,7 @@ table {
   .bg {
     &-basic {
       &-0 {
-        @apply bg-white dark:text-black;
+        @apply bg-white dark:bg-black;
       }
       &-1 {
         @apply bg-zinc-50 dark:bg-zinc-900;
@@ -228,6 +228,37 @@ table {
       &-5 {
         @apply bg-zinc-400 dark:bg-zinc-500;
       }
+    }
+  }
+
+  // 배경색
+  .border {
+    &-basic {
+      &-0 {
+        @apply border-white dark:border-black;
+      }
+      &-1 {
+        @apply border-zinc-50 dark:border-zinc-900;
+      }
+      &-2 {
+        @apply border-zinc-100 dark:border-zinc-800;
+      }
+      &-3 {
+        @apply border-zinc-200 dark:border-zinc-700;
+      }
+      &-4 {
+        @apply border-zinc-300 dark:border-zinc-600;
+      }
+      &-5 {
+        @apply border-zinc-400 dark:border-zinc-500;
+      }
+    }
+  }
+
+  // 인풋
+  .input {
+    &-text {
+      @apply flex items-center rounded-md bg-basic-1 border border-basic-4 focus:outline outline-2 outline-point-1 p-1;
     }
   }
 }
