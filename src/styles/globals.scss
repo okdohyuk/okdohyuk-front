@@ -277,10 +277,10 @@ table {
   // 인풋
   .input {
     &-text {
-      @apply flex items-center rounded-md bg-basic-1 border border-basic-4 focus:outline outline-2 outline-point-2 p-1 t-basic-1 t-d-1;
+      @apply flex items-center min-h-[32px] rounded-md bg-basic-1 border border-basic-4 focus:outline outline-2 outline-point-2 p-1 t-basic-1 t-d-1;
     }
   }
   .button {
-    @apply flex items-center justify-center rounded-md bg-point-2 hover:bg-point-1 p-1 t-d-1 t-basic-10;
+    @apply flex items-center justify-center min-h-[42px] rounded-md bg-point-2 hover:bg-point-1 p-1 t-d-1 t-basic-10;
   }
 }
