@@ -59,7 +59,7 @@ function CoderPage() {
             }}
           />
         </section>
-        <section className="flex justify-end">
+        <section className="flex justify-end mb-4 gap-4">
           <div className="flex items-center space-x-2">
             <label className="t-d-1">횟수</label>
             <input
@@ -71,6 +71,28 @@ function CoderPage() {
               })}
             />
           </div>
+          <Controller
+            control={control}
+            name={'isEncoder'}
+            render={({ field: { value, onChange } }) => {
+              return (
+                <div className="flex min-h-[32px] p-1 bg-point-3 rounded-md">
+                  <button
+                    className={cls(value ? 'bg-point-1' : '', 'p-1 rounded-md t-c-1 t-basic-10')}
+                    onClick={() => onChange(true)}
+                  >
+                    Encoder
+                  </button>
+                  <button
+                    className={cls(!value ? 'bg-point-1' : '', 'p-1 rounded-md t-c-1 t-basic-10')}
+                    onClick={() => onChange(false)}
+                  >
+                    Decoder
+                  </button>
+                </div>
+              );
+            }}
+          />
         </section>
         <section className="flex flex-col space-y-4">
           <textarea className="input-text resize-none h-32" {...register('value')} />
