@@ -4,5 +4,10 @@
     "ogTitle": "coder | encoder and decoder tool",
     "description": "Decode from various formats such as Base64, URL, etc. online, or conveniently use as many times as you want to encode."
   },
-  "title": "Coder"
+  "title": "Coder",
+  "count": "Count",
+  "encoder": "Encoder",
+  "decoder": "Decoder",
+  "submit": "Submit",
+  "copy": "Copy"
 }

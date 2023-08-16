@@ -15,7 +15,12 @@ const coderList: CoderType[] = ['BASE64', 'URI'];
 function CoderPage() {
   const { t } = useTranslation('coder');
   const { cls } = ClassName;
-  const { register, handleSubmit, control } = useForm<CoderFormType>({
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<CoderFormType>({
     defaultValues: { type: 'BASE64', count: 1, isEncoder: true, value: '' },
   });
   const [resultList, setResultList] = React.useState<string[] | null>(null);
@@ -61,10 +66,10 @@ function CoderPage() {
         </section>
         <section className="flex justify-end mb-4 gap-4">
           <div className="flex items-center space-x-2">
-            <label className="t-d-1">횟수</label>
+            <label className="t-d-1">{t('count')}</label>
             <input
               type="number"
-              className="input-text w-12"
+              className={cls('input-text w-12', errors.count ? 'outline' : '')}
               {...register('count', {
                 valueAsNumber: true,
                 min: 1,
@@ -81,13 +86,13 @@ function CoderPage() {
                     className={cls(value ? 'bg-point-1' : '', 'p-1 rounded-md t-c-1 t-basic-10')}
                     onClick={() => onChange(true)}
                   >
-                    Encoder
+                    {t('encoder')}
                   </button>
                   <button
                     className={cls(!value ? 'bg-point-1' : '', 'p-1 rounded-md t-c-1 t-basic-10')}
                     onClick={() => onChange(false)}
                   >
-                    Decoder
+                    {t('decoder')}
                   </button>
                 </div>
               );
@@ -97,14 +102,14 @@ function CoderPage() {
         <section className="flex flex-col space-y-4">
           <textarea className="input-text resize-none h-32" {...register('value')} />
           <button className="button" onClick={handleSubmit(onSubmit)}>
-            완성
+            {t('submit')}
           </button>
           <div>사이보기 + 복사</div>
           <textarea
             className="input-text resize-none h-32"
             value={resultList ? resultList[resultList.length - 1] : ''}
           />
-          <button className="button">복사</button>
+          <button className="button">{t('copy')}</button>
         </section>
       </MobileScreenWarpper>
     </>
