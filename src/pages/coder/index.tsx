@@ -24,11 +24,13 @@ function CoderPage() {
     defaultValues: { type: 'BASE64', count: 1, isEncoder: true, value: '' },
   });
   const [resultList, setResultList] = React.useState<string[] | null>(null);
+  const [isMoreOpen, setIsMoreOpen] = React.useState<boolean>(false);
   const { runCoder } = CoderUtils;
 
   const onSubmit: SubmitHandler<CoderFormType> = (data) => {
     const result = runCoder(data);
     setResultList(result);
+    setIsMoreOpen(false);
   };
 
   return (
@@ -104,7 +106,21 @@ function CoderPage() {
           <button className="button" onClick={handleSubmit(onSubmit)}>
             {t('submit')}
           </button>
-          <div>사이보기 + 복사</div>
+
+          {resultList !== null && resultList.length > 1 ? (
+            !isMoreOpen ? (
+              <button
+                className="w-24 mx-auto rounded-md bg-point-3"
+                onClick={() => setIsMoreOpen(true)}
+              >
+                ...
+              </button>
+            ) : (
+              resultList.slice(0, -1).map((value) => <pre key={value}>{value}</pre>)
+            )
+          ) : (
+            <></>
+          )}
           <textarea
             className="input-text resize-none h-32"
             value={resultList ? resultList[resultList.length - 1] : ''}
