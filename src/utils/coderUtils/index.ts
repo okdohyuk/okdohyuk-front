@@ -1,14 +1,7 @@
-import { CoderType } from './type';
-
-type RunActionType = {
-  type: CoderType;
-  count: number;
-  isEncoder: boolean;
-  value: string;
-};
+import { CoderFormType } from './type';
 
 export default class CoderUtils {
-  static runAction = ({ type, count, isEncoder, value }: RunActionType): string[] => {
+  static runCoder = ({ type, count, isEncoder, value }: CoderFormType): string[] => {
     let coderFunc: ((data: string) => string) | null = null;
     const result: string[] = [];
 

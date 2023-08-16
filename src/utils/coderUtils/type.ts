@@ -1,3 +1,10 @@
 type CoderType = 'BASE64' | 'URI';
 
-export type { CoderType };
+type CoderFormType = {
+  type: CoderType;
+  count: number;
+  isEncoder: boolean;
+  value: string;
+};
+
+export type { CoderType, CoderFormType };
