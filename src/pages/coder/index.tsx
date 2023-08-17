@@ -3,14 +3,15 @@ import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { observer } from 'mobx-react';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+import { MdMoreHoriz } from 'react-icons/md';
+
 import Opengraph from '@components/Basic/Opengraph';
 import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import Code from '@components/Complex/MarkDown/Code';
 import ClassName from '@utils/classNameUtils';
-import { CoderFormType, CoderType } from '@utils/coderUtils/type';
 import CoderUtils from '@utils/coderUtils';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-
-import { MdMoreHoriz } from 'react-icons/md';
+import { CoderFormType, CoderType } from '@utils/coderUtils/type';
 
 const coderList: CoderType[] = ['BASE64', 'URI'];
 
@@ -121,7 +122,7 @@ function CoderPage() {
                 <MdMoreHoriz className="text-white" />
               </button>
             ) : (
-              resultList.slice(0, -1).map((value) => <pre key={value}>{value}</pre>)
+              resultList.slice(0, -1).map((value) => <Code key={value}>{value}</Code>)
             )
           ) : (
             <></>
