@@ -10,6 +10,8 @@ import { CoderFormType, CoderType } from '@utils/coderUtils/type';
 import CoderUtils from '@utils/coderUtils';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 
+import { MdMoreHoriz } from 'react-icons/md';
+
 const coderList: CoderType[] = ['BASE64', 'URI'];
 
 function CoderPage() {
@@ -41,8 +43,8 @@ function CoderPage() {
         description={t('openGraph.description')}
       />
       <MobileScreenWarpper className="dark:text-white">
-        <h1 className="t-t-1 t-basic-1">{t('title')}</h1>
-        <section className="flex flex-col mb-4 space-y-4">
+        <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
+        <section className="flex flex-col space-y-4">
           <Controller
             control={control}
             name={'type'}
@@ -66,7 +68,7 @@ function CoderPage() {
             }}
           />
         </section>
-        <section className="flex justify-end mb-4 gap-4">
+        <section className="flex justify-end flex-wrap mb-4 gap-x-4 gap-y-2">
           <div className="flex items-center space-x-2">
             <label className="t-d-1">{t('count')}</label>
             <input
@@ -85,13 +87,19 @@ function CoderPage() {
               return (
                 <div className="flex min-h-[32px] p-1 bg-point-3 rounded-md">
                   <button
-                    className={cls(value ? 'bg-point-1' : '', 'p-1 rounded-md t-c-1 t-basic-10')}
+                    className={cls(
+                      value ? 'bg-point-1' : '',
+                      'p-1 rounded-md text-white t-basic-10',
+                    )}
                     onClick={() => onChange(true)}
                   >
                     {t('encoder')}
                   </button>
                   <button
-                    className={cls(!value ? 'bg-point-1' : '', 'p-1 rounded-md t-c-1 t-basic-10')}
+                    className={cls(
+                      !value ? 'bg-point-1' : '',
+                      'p-1 rounded-md text-white t-basic-10',
+                    )}
                     onClick={() => onChange(false)}
                   >
                     {t('decoder')}
@@ -109,11 +117,8 @@ function CoderPage() {
 
           {resultList !== null && resultList.length > 1 ? (
             !isMoreOpen ? (
-              <button
-                className="w-24 mx-auto rounded-md bg-point-3"
-                onClick={() => setIsMoreOpen(true)}
-              >
-                ...
+              <button className="button w-16 h-4 mx-auto" onClick={() => setIsMoreOpen(true)}>
+                <MdMoreHoriz className="text-white" />
               </button>
             ) : (
               resultList.slice(0, -1).map((value) => <pre key={value}>{value}</pre>)
