@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { observer } from 'mobx-react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import { MdMoreHoriz } from 'react-icons/md';
+import { MdMoreHoriz, MdOutlineContentCopy, MdOutlineCheck } from 'react-icons/md';
+import { debounce } from 'lodash';
 
 import Opengraph from '@components/Basic/Opengraph';
 import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
@@ -18,6 +19,8 @@ const coderList: CoderType[] = ['BASE64', 'URI'];
 function CoderPage() {
   const { t } = useTranslation('coder');
   const { cls } = ClassName;
+  const [copied, setCopied] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
@@ -26,14 +29,27 @@ function CoderPage() {
   } = useForm<CoderFormType>({
     defaultValues: { type: 'BASE64', count: 1, isEncoder: true, value: '' },
   });
-  const [resultList, setResultList] = React.useState<string[] | null>(null);
-  const [isMoreOpen, setIsMoreOpen] = React.useState<boolean>(false);
+  const [resultList, setResultList] = useState<string[] | null>(null);
+  const [isMoreOpen, setIsMoreOpen] = useState<boolean>(false);
   const { runCoder } = CoderUtils;
 
   const onSubmit: SubmitHandler<CoderFormType> = (data) => {
     const result = runCoder(data);
     setResultList(result);
     setIsMoreOpen(false);
+  };
+
+  const setServicesValueDebounced = useCallback(
+    debounce(() => setCopied(false), 1000),
+    [],
+  );
+
+  const copyToClipboard = () => {
+    if (!resultList) return;
+    navigator.clipboard.writeText(resultList[resultList.length - 1]);
+
+    setCopied(true);
+    setServicesValueDebounced();
   };
 
   return (
@@ -131,7 +147,11 @@ function CoderPage() {
             className="input-text resize-none h-32"
             value={resultList ? resultList[resultList.length - 1] : ''}
           />
-          <button className="button">{t('copy')}</button>
+          <button className="button gap-2" onClick={copyToClipboard}>
+            <MdOutlineContentCopy className={cls(copied ? 'hidden' : '')} />
+            <MdOutlineCheck className={cls(!copied ? 'hidden' : '')} />
+            {t('copy')}
+          </button>
         </section>
       </MobileScreenWarpper>
     </>
