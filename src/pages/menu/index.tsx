@@ -1,11 +1,13 @@
 import React from 'react';
-import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Opengraph from '@components/Basic/Opengraph';
-import Link from '@components/Basic/Link';
 import { useRouter } from 'next/router';
+
+import Link from '@components/Basic/Link';
+import Opengraph from '@components/Basic/Opengraph';
 import { MenuItem, Menus, menus } from '@assets/datas/menus';
+import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
 
 function MenuPage() {
   const { t } = useTranslation('menu');
@@ -15,7 +17,7 @@ function MenuPage() {
     return menuList.map((menu) => (
       <li key={menu.title} className="list-none">
         <Link href={menu.link} hasTargetBlank={menu.link.includes('http')}>
-          <button className="flex items-center gap-2 w-full bg-transparent hover:bg-zinc-400 active:bg-zinc-500 dark:hover:bg-zinc-700 dark:active:bg-zinc-600 outline-none transition ease-in duration-[40ms] rounded-md p-3 text-left text-lg md:text-xl lg:text-1xl dark:text-white">
+          <button className="flex items-center gap-2 w-full bg-transparent hover:bg-basic-4 active:bg-basic-5 outline-none transition ease-in duration-[40ms] rounded-md p-2 text-left t-d-1 t-basic-1">
             {menu.icon}
             {locale === 'ko' ? menu.title : menu.titlen}
           </button>
@@ -27,8 +29,8 @@ function MenuPage() {
   const renderMenuGroup = (menus: Menus) => {
     return Object.entries(menus).map(([key, menuList]) => {
       return (
-        <div key={key} className="mb-6">
-          <h2 className="text-xl md:text-1xl lg:text-2xl dark:text-white">{t(key)}</h2>
+        <div key={key} className="mb-4 bg-basic-3 rounded-md p-2">
+          <h2 className="t-t-3 t-basic-1">{t(key)}</h2>
           <ul className="space-y-2">{renderMenuList(menuList)}</ul>
         </div>
       );
@@ -42,10 +44,10 @@ function MenuPage() {
         ogTitle={t('openGraph.ogTitle')}
         description={t('openGraph.description')}
       />
-      <div className="bg-zinc-300 dark:bg-zinc-800 shadow-md w-full md:w-2/3 lg:w-1/2 xl:max-w-7xl h-screen mx-auto px-2 pt-safe">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl mb-10 dark:text-white">{t('title')}</h1>
-        {renderMenuGroup(menus)}
-      </div>
+      <MobileScreenWarpper>
+        <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
+        <div className="lg:columns-2">{renderMenuGroup(menus)}</div>
+      </MobileScreenWarpper>
     </>
   );
 }

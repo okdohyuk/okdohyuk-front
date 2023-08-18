@@ -19,6 +19,7 @@ import {
   LineShareButton,
   LineIcon,
 } from 'react-share';
+import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
 
 function DreamResolver() {
   const { locale } = useRouter();
@@ -94,10 +95,8 @@ function DreamResolver() {
         description={t('openGraph.description')}
         image={'/dream-resolver.jpg'}
       />
-      <main className="flex flex-col items-center w-full min-h-screen lg:min-h-0 lg:h-auto lg:mx-auto lg:w-96 bg-zinc-100 dark:bg-zinc-800 lg:my-auto lg:rounded-lg p-4">
-        <h1 className="text-xl lg:text-2xl font-bold mb-6 text-black dark:text-white">
-          {t('openGraph.title')}
-        </h1>
+      <MobileScreenWarpper>
+        <h1 className="t-t-1 t-basic-1 mb-4">{t('openGraph.title')}</h1>
         {loading && (
           <>
             <div className="flex items-center bg-zinc-400 p-2 rounded">
@@ -134,12 +133,12 @@ function DreamResolver() {
               placeholder={t('placeholder')}
               value={dreamContent}
               onChange={(e) => setDreamContent(e.target.value)}
-              className="mb-4 rounded-lg text-base lg:text-lg border-lime-500 border-2 w-full h-96 p-2 resize-none outline-none focus:ring-4 ring-offset-2 ring-lime-500 ring-opacity-50"
+              className="input-text w-full h-96 mb-4"
             />
             <button
               disabled={dreamContent.trim().length <= 0}
               type="submit"
-              className="w-full disabled:opacity-50 bg-lime-600 p-4 rounded-full font-medium text-base lg:text-lg text-white"
+              className="button w-full disabled:opacity-50"
             >
               {t('submit')}
             </button>
@@ -165,7 +164,7 @@ function DreamResolver() {
             <MdLink size={32} className="text-white" />
           </button>
         </div>
-      </main>
+      </MobileScreenWarpper>
     </>
   );
 }

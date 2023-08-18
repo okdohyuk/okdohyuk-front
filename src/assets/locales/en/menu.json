@@ -5,6 +5,7 @@
     "description": "You can check all services."
   },
   "title": "Menu",
-  "service": "service",
-  "out": "out"
+  "service": "Service",
+  "out": "Out Links",
+  "trash": "Trash"
 }

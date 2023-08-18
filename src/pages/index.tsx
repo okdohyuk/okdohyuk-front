@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next';
-import MyLinkCard from '@components/Complex/Card/MyLinkCard';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticPropsContext } from 'next';
 import Opengraph from '@components/Basic/Opengraph';
-
-type MyLinks = {
-  title: string;
-  explanation: string;
-  link: string;
-};
 
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
@@ -29,8 +22,6 @@ declare global {
 function Home() {
   const [deferredPrompt, setDeferredPrompt] = useState<null | BeforeInstallPromptEvent>(null);
   const { t } = useTranslation('index');
-
-  const mylinks = t('myLinks.array', { returnObjects: true }) as MyLinks[];
 
   useEffect(() => {
     window.addEventListener('beforeinstallprompt', (e: BeforeInstallPromptEvent) => {
@@ -93,15 +84,8 @@ function Home() {
           {t('subTitle')}
         </p>
       </div>
-      <div className={'px-4 lg:max-w-screen-lg md:mx-auto pb-8'}>
-        <h2 className={'text-xl md:text-3xl dark:text-white'}>
-          {t('myLinks.title', { returnObjects: true })}
-        </h2>
-        <div className={'mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3'}>
-          {mylinks.map((item: MyLinks, idx) => (
-            <MyLinkCard {...item} key={idx} />
-          ))}
-        </div>
+      <div className="max-w-100 mx-auto px-4">
+        <img src="https://ghchart.rshah.org/okdohyuk" alt="okdohyuk's Github chart" />
       </div>
     </>
   );

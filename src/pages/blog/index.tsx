@@ -9,6 +9,7 @@ import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
 import Opengraph from '@components/Basic/Opengraph';
+import MobileScreenWarpper from '~/components/Complex/Layouts/MobileScreenWarpper';
 
 function BlogPage() {
   const { t } = useTranslation('blog');
@@ -38,15 +39,9 @@ function BlogPage() {
         ogTitle={t('openGraph.ogTitle')}
         description={t('openGraph.description')}
       />
-      <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
-        <h1
-          className={
-            'font-bold text-2xl max-w-md md:text-3xl lg:text-5xl lg:max-w-2xl dark:text-white'
-          }
-        >
-          {t('title')}
-        </h1>
-        <div className={'flex flex-col w-full gap-2 xl:max-w-6xl'}>
+      <MobileScreenWarpper>
+        <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
+        <div className={'flex flex-col w-full gap-2'}>
           {blogs?.map((blog) => (
             <BlogCard key={blog.urlSlug} blog={blog} />
           ))}
@@ -56,7 +51,7 @@ function BlogPage() {
             </div>
           ) : null}
         </div>
-      </div>
+      </MobileScreenWarpper>
     </>
   );
 }
