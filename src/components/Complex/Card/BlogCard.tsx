@@ -15,7 +15,7 @@ function BlogCard({ blog }: BlogCardProps) {
     <Link href={'/blog/' + urlSlug}>
       <article
         className={
-          'md:min-h-[200px] flex p-2 rounded bg-zinc-300 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 gap-6 overflow-hidden'
+          'md:min-h-[200px] flex p-2 rounded-md bg-basic-3 hover:bg-basic-4 gap-6 overflow-hidden'
         }
       >
         <div className={'relative'}>
@@ -35,16 +35,8 @@ function BlogCard({ blog }: BlogCardProps) {
             'flex flex-col flex-1 text-left justify-center md:justify-start md:pt-6 gap-6 overflow-hidden'
           }
         >
-          <h2
-            className={
-              'text-md md:text-xl font-bold text-black dark:text-white line-clamp-1 md:line-clamp-2'
-            }
-          >
-            {title}
-          </h2>
-          <div
-            className={'text-sm md:text-md text-black dark:text-white line-clamp-2 md:line-clamp-3'}
-          >
+          <h2 className={'t-d-1 t-basic-1 line-clamp-1 md:line-clamp-2'}>{title}</h2>
+          <div className={'t-d-3 t-basic-1 line-clamp-2 md:line-clamp-3'}>
             {markdownUtils.removeMarkdown(contents)}
           </div>
         </div>

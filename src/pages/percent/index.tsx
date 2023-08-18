@@ -4,6 +4,7 @@ import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Opengraph from '@components/Basic/Opengraph';
+import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
 
 const PercentPage = () => {
   const { t } = useTranslation('percent');
@@ -15,15 +16,9 @@ const PercentPage = () => {
         ogTitle={t('openGraph.ogTitle')}
         description={t('openGraph.description')}
       />
-      <div className="flex flex-col items-center gap-6 text-center px-4 py-12 lg:py-24">
-        <h1
-          className={
-            'font-bold text-2xl max-w-md md:text-3xl lg:text-5xl lg:max-w-2xl dark:text-white'
-          }
-        >
-          {t('title')}
-        </h1>
-        <section className={'w-full md:max-w-[600px] lg:max-w-[800px] flex flex-col space-y-10'}>
+      <MobileScreenWarpper>
+        <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
+        <section className={'w-full space-y-4'}>
           <PercentCalculatorCard
             title={t('percentageOfTotal.title')}
             placeholder={t('percentageOfTotal.placeholder', { returnObjects: true })}
@@ -55,7 +50,7 @@ const PercentPage = () => {
             text={t('findPercentageValue.text', { returnObjects: true })}
           />
         </section>
-      </div>
+      </MobileScreenWarpper>
     </>
   );
 };

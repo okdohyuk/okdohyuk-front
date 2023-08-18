@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const runtimeCaching = require('next-pwa/cache');
 const { i18n } = require('./next-i18next.config');
+const path = require('path');
 
 console.log('=>(next.config.js:4) process.env.NODE_ENV', process.env.NODE_ENV);
 
@@ -18,6 +19,9 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ['okdohyuk.dev', `${process.env.NEXT_PUBLIC_VERCEL_URL}`, 'localhost'],
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
   },
 };
 

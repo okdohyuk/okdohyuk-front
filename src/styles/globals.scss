@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue',
+    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.auto-image {
+  width: 100%;
+}
+
+.auto-image > span {
+  position: unset !important;
+}
+
+.auto-image > span > img {
+  height: auto !important;
+  position: relative !important;
+}
+
+@layer components {
+  .t {
+    // 크기
+    // 제목
+    &-t {
+      &-1 {
+        @apply text-4xl font-bold;
+      }
+      &-2 {
+        @apply text-3xl font-bold;
+      }
+      &-3 {
+        @apply text-2xl font-bold;
+      }
+    }
+    // 자료
+    &-d {
+      &-1 {
+        @apply text-xl font-normal;
+      }
+      &-2 {
+        @apply text-lg font-normal;
+      }
+      &-3 {
+        @apply text-base font-normal;
+      }
+    }
+    // 캡션
+    &-c {
+      &-1 {
+        @apply text-sm font-light;
+      }
+      &-2 {
+        @apply text-xs font-light;
+      }
+      &-3 {
+        @apply text-xxs font-light;
+      }
+    }
+
+    // 색
+    &-basic {
+      &-0 {
+        @apply text-black dark:text-white;
+      }
+      &-1 {
+        @apply text-zinc-900 dark:text-zinc-50;
+      }
+      &-2 {
+        @apply text-zinc-800 dark:text-zinc-100;
+      }
+      &-3 {
+        @apply text-zinc-700 dark:text-zinc-200;
+      }
+      &-4 {
+        @apply text-zinc-600 dark:text-zinc-300;
+      }
+      &-5 {
+        @apply text-zinc-500 dark:text-zinc-400;
+      }
+      &-6 {
+        @apply text-zinc-400 dark:text-zinc-500;
+      }
+      &-7 {
+        @apply text-zinc-300 dark:text-zinc-600;
+      }
+      &-8 {
+        @apply text-zinc-200 dark:text-zinc-700;
+      }
+      &-9 {
+        @apply text-zinc-100 dark:text-zinc-800;
+      }
+      &-10 {
+        @apply text-zinc-50 dark:text-zinc-900;
+      }
+    }
+  }
+
+  // 배경색
+  .bg {
+    &-basic {
+      &-0 {
+        @apply bg-white dark:bg-black;
+      }
+      &-1 {
+        @apply bg-zinc-50 dark:bg-zinc-900;
+      }
+      &-2 {
+        @apply bg-zinc-100 dark:bg-zinc-800;
+      }
+      &-3 {
+        @apply bg-zinc-200 dark:bg-zinc-700;
+      }
+      &-4 {
+        @apply bg-zinc-300 dark:bg-zinc-600;
+      }
+      &-5 {
+        @apply bg-zinc-400 dark:bg-zinc-500;
+      }
+    }
+  }
+
+  // 배경색
+  .border {
+    &-basic {
+      &-0 {
+        @apply border-white dark:border-black;
+      }
+      &-1 {
+        @apply border-zinc-50 dark:border-zinc-900;
+      }
+      &-2 {
+        @apply border-zinc-100 dark:border-zinc-800;
+      }
+      &-3 {
+        @apply border-zinc-200 dark:border-zinc-700;
+      }
+      &-4 {
+        @apply border-zinc-300 dark:border-zinc-600;
+      }
+      &-5 {
+        @apply border-zinc-400 dark:border-zinc-500;
+      }
+    }
+  }
+
+  // 인풋
+  .input {
+    &-text {
+      @apply flex items-center min-h-[32px] rounded-md bg-basic-1 border border-basic-4 focus:outline outline-2 outline-point-2 p-1 t-basic-1 t-d-1;
+    }
+  }
+  .button {
+    @apply flex items-center justify-center min-h-[42px] rounded-md bg-point-2 hover:bg-point-1 p-1 t-d-1 text-white;
+  }
+}

@@ -6,6 +6,8 @@ import {
   MdOutlinePersonalVideo,
   MdPayment,
   MdOutlineAutoAwesome,
+  MdCode,
+  MdOutlineWebAsset,
 } from 'react-icons/md';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
 
@@ -35,10 +37,10 @@ const menus: Menus = {
       link: '/todo',
     },
     {
-      title: '해몽',
-      titlen: 'Dream Resorlver',
-      icon: <MdOutlineAutoAwesome />,
-      link: '/dream-resolver',
+      title: '암호화 복호화',
+      titlen: 'Coder',
+      icon: <MdCode />,
+      link: '/coder',
     },
   ],
   out: [
@@ -49,8 +51,8 @@ const menus: Menus = {
       link: 'https://okdohyuk.notion.site/',
     },
     {
-      title: '블로그',
-      titlen: 'Blog',
+      title: '티스토리',
+      titlen: 'Tistory',
       icon: <MdOutlinePersonalVideo />,
       link: 'https://blog.okdohyuk.dev/',
     },
@@ -77,6 +79,20 @@ const menus: Menus = {
       titlen: 'Donate',
       icon: <MdPayment />,
       link: 'https://toss.me/guksu',
+    },
+  ],
+  trash: [
+    {
+      title: '해몽',
+      titlen: 'Dream Resorlver',
+      icon: <MdOutlineAutoAwesome />,
+      link: '/dream-resolver',
+    },
+    {
+      title: '블로그',
+      titlen: 'Blog',
+      icon: <MdOutlineWebAsset />,
+      link: '/blog',
     },
   ],
 };

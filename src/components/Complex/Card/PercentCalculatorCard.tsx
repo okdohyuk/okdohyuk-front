@@ -29,16 +29,16 @@ function PercentCalculatorCard({
   }, [calculatorName, calculators]);
 
   return (
-    <div className={'w-full flex flex-col space-y-4 rounded-xl bg-zinc-300 dark:bg-zinc-800 p-5'}>
+    <div className={'w-full flex flex-col space-y-4 rounded-md bg-basic-4 p-4'}>
       <div className={'flex'}>
-        <h3 className={'text-sm md:text-base dark:text-white'}>{title}</h3>
+        <h3 className={'t-d-1 t-basic-1'}>{title}</h3>
       </div>
       <div className={'w-full flex flex-col md:flex-row justify-between space-y-1 md:space-y-0'}>
         <div className={'w-full md:w-3/4 flex items-center space-x-1'}>
           <input
             type={'text'}
             inputMode={'numeric'}
-            className={'w-1/4 h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right'}
+            className={'input-text w-1/4 text-right'}
             placeholder={placeholder[0]}
             value={calculator.primaryNumber}
             onChange={(e) =>
@@ -49,11 +49,11 @@ function PercentCalculatorCard({
               })
             }
           />
-          <span className={'text-xs md:text-base dark:text-white'}>{text[0]}</span>
+          <span className={'t-d-2 t-basic-1'}>{text[0]}</span>
           <input
             type={'text'}
             inputMode={'numeric'}
-            className={'w-1/4 h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right'}
+            className={'input-text w-1/4 text-right'}
             placeholder={placeholder[1]}
             value={calculator.secondaryNumber}
             onChange={(e) =>
@@ -64,13 +64,11 @@ function PercentCalculatorCard({
               })
             }
           />
-          <span className={'text-xs md:text-base dark:text-white'}>{text[1]}</span>
+          <span className={'t-d-2 t-basic-1'}>{text[1]}</span>
           {'isIncrease' in calculator ? (
             <>
               <select
-                className={
-                  'w-1/6 h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right'
-                }
+                className={'input-text w-1/6 text-right'}
                 value={calculator.isIncrease ? 'true' : 'false'}
                 onChange={(e) =>
                   valueChange({
@@ -83,23 +81,21 @@ function PercentCalculatorCard({
                 <option value={'true'}>{t('increase')}</option>
                 <option value={'false'}>{t('decrease')}</option>
               </select>
-              <span className={'text-xs md:text-base dark:text-white'}>{t('to')}</span>
+              <span className={'t-d-2 t-basic-1'}>{t('to')}</span>
             </>
           ) : null}
         </div>
         <div className={'w-1/3 md:w-1/4 flex ml-auto md:ml-0 items-center space-x-1'}>
-          <span className={'text-xs md:text-base dark:text-white'}>{text[2]}</span>
+          <span className={'t-d-2 t-basic-1'}>{text[2]}</span>
           <input
             type={'text'}
             inputMode={'none'}
-            className={
-              'w-full h-[30px] md:h-[50px] rounded-xl md:rounded-2xl p-1 md:p-2 text-right'
-            }
+            className={'input-text w-full text-right'}
             placeholder={placeholder[2]}
             value={calculator.result.toLocaleString()}
             onChange={() => calculator.result}
           />
-          <span className={'text-xs md:text-base dark:text-white'}>{text[3]}</span>
+          <span className={'t-d-2 t-basic-1'}>{text[3]}</span>
         </div>
       </div>
     </div>
