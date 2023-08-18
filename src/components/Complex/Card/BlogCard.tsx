@@ -15,7 +15,7 @@ function BlogCard({ blog }: BlogCardProps) {
     <Link href={'/blog/' + urlSlug}>
       <article
         className={
-          'md:min-h-[200px] flex p-2 rounded bg-basic-3 hover:bg-basic-4 gap-6 overflow-hidden'
+          'md:min-h-[200px] flex p-2 rounded-md bg-basic-3 hover:bg-basic-4 gap-6 overflow-hidden'
         }
       >
         <div className={'relative'}>

@@ -44,7 +44,7 @@ const TodoApp = ({ todoStore }: TodoApp) => {
             value={value}
             onChange={onChange}
           />
-          <button type="submit" className="button">
+          <button type="submit" className="button w-20">
             {t('add')}
           </button>
         </form>
