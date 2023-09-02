@@ -78,7 +78,7 @@ const menus: Menus = {
       title: '후원하기',
       titlen: 'Donate',
       icon: <MdPayment />,
-      link: 'https://toss.me/guksu',
+      link: 'https://github.com/sponsors/okdohyuk?frequency=recurring',
     },
   ],
   trash: [
