@@ -1,13 +1,14 @@
 import { BlogStoreState, Status } from '@stores/BlogStore/type';
 import { action, makeObservable, observable, runInAction } from 'mobx';
-import { Blog } from '@assets/type';
-import { customAxios } from '@libs/client/customAxios';
+import { Blog, BlogApi } from '@api/Blog';
 
 class BlogStore implements BlogStoreState {
   @observable blogs: Blog[] | null = null;
   @observable status: Status = 'idle';
   @observable isLastPage = false;
-  @observable page = 1;
+  @observable page = 0;
+
+  private blogApi = new BlogApi();
 
   constructor() {
     makeObservable(this);
@@ -19,7 +20,7 @@ class BlogStore implements BlogStoreState {
     runInAction(() => {
       this.status = 'loading';
     });
-    customAxios.get(`blog/list?page=${this.page}&limit=${limit}`).then(({ data: { blogs } }) => {
+    this.blogApi.getBlog(this.page, limit).then(({ data: blogs }) => {
       runInAction(() => {
         if (!blogs.length) {
           this.isLastPage = true;
