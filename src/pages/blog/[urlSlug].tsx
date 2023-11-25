@@ -2,7 +2,7 @@ import React from 'react';
 import { NextPageContext } from 'next';
 import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { Blog } from '@assets/type';
+import { Blog } from '@api/Blog';
 import markdownUtils from '@utils/markdownUtils';
 import { format } from 'date-fns';
 import Markdown from 'markdown-to-jsx';
@@ -92,7 +92,7 @@ function BlogDetailPage({ blog }: BlogPageProps) {
             }
           >
             <h1 className={'text-black dark:text-white text-xl md:text-3xl'}>{title}</h1>
-            <div>{format(new Date(createdAt), 'yyyy-MM-dd')}</div>
+            <div>{format(new Date(createdAt || ''), 'yyyy-MM-dd')}</div>
           </div>
           <Markdown
             options={{

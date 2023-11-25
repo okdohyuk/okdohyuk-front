@@ -1,7 +1,7 @@
 import { getServerSideSitemap } from 'next-sitemap';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
-import { Blog } from '@assets/type';
+import { Blog } from '@api/Blog';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {

@@ -1,6 +1,6 @@
 import { BlogStoreState, Status } from '@stores/BlogStore/type';
 import { action, makeObservable, observable, runInAction } from 'mobx';
-import { Blog } from '@assets/type';
+import { Blog } from '@api/Blog';
 import { customAxios } from '@libs/client/customAxios';
 
 class BlogStore implements BlogStoreState {

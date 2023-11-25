@@ -1,4 +1,4 @@
-import { Blog } from '@assets/type';
+import { Blog } from '@api/Blog';
 
 type Status = 'idle' | 'loading' | 'success' | 'fail';
 
