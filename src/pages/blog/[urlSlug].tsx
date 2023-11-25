@@ -133,13 +133,12 @@ export async function getServerSideProps({ query, locale }: NextPageContext) {
   if (!(query && query.urlSlug)) return { notFound: true };
   const { urlSlug } = query;
   try {
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/blog/${urlSlug}`);
-    if (!data) throw 'body is null';
+    const { data } = await axios.get(`${process.env.API_PATH}/blog/${urlSlug}`);
     const translations = await serverSideTranslations(locale as string, ['common', 'blog']);
     return {
       props: {
         ...translations,
-        blog: data.blog,
+        blog: data,
       },
     };
   } catch (e) {
