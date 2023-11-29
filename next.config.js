@@ -18,7 +18,7 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   images: {
-    domains: ['okdohyuk.dev', `${process.env.NEXT_PUBLIC_VERCEL_URL}`, 'localhost'],
+    domains: ['okdohyuk.dev', `${process.env.WORKER_URL_HOST}`, 'localhost'],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
