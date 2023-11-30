@@ -1,15 +1,10 @@
 import { getServerSideSitemap } from 'next-sitemap';
 import { GetServerSideProps } from 'next';
-import axios from 'axios';
-import { Blog } from '@api/Blog';
+import { blogApi } from '~/spec/api';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
-    const { data } = await axios.get(
-      `${process.env.NEXT_PUBLIC_URL}/api/blog/list?page=1&limit=100`,
-    );
-    if (!data) throw 'body is null';
-    const blogs = data.blogs as Blog[];
+    const { data: blogs } = await blogApi.getBlog(0, 1000);
 
     const newsSitemaps = blogs.map((blog) => ({
       loc: `${process.env.NEXT_PUBLIC_URL}/blog/${blog.urlSlug}`,
