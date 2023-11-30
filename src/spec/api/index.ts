@@ -1,3 +1,3 @@
-import { BlogApi } from "./Blog";
+import { BlogApi } from './Blog';
 
 export const blogApi = new BlogApi();

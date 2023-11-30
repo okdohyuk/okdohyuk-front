@@ -147,7 +147,6 @@ export async function getStaticProps({ query, locale }: NextPageContext) {
         ...translations,
         blog,
       },
-      revalidate: 10,
     };
   } catch (e) {
     console.error('-> e', e);
