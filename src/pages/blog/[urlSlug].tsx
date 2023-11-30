@@ -1,6 +1,5 @@
 import React from 'react';
-import { NextPageContext } from 'next';
-import axios from 'axios';
+import { GetStaticPaths, NextPageContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Blog } from '@api/Blog';
 import markdownUtils from '@utils/markdownUtils';
@@ -9,6 +8,7 @@ import Markdown from 'markdown-to-jsx';
 import AutoHeightImage from '@components/Basic/Image/AutoHeightImage';
 import { withTranslation } from 'next-i18next';
 import Opengraph from '@components/Basic/Opengraph';
+import { blogApi } from '@api';
 
 type BlogPageProps = {
   blog: Blog;
@@ -129,17 +129,25 @@ function BlogDetailPage({ blog }: BlogPageProps) {
   );
 }
 
-export async function getServerSideProps({ query, locale }: NextPageContext) {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { data: blogs } = await blogApi.getBlog(0, 1000);
+  const paths = blogs.map((blog) => ({ params: { blogId: blog.id + '' } }));
+
+  return { paths, fallback: 'blocking' };
+};
+ 
+export async function getStaticProps({ query, locale }: NextPageContext) {
   if (!(query && query.urlSlug)) return { notFound: true };
   const { urlSlug } = query;
   try {
-    const { data } = await axios.get(`${process.env.API_PATH}/blog/${urlSlug}`);
+    const { data: blog } = await blogApi.getBlogUrlSlug(urlSlug + '');
     const translations = await serverSideTranslations(locale as string, ['common', 'blog']);
     return {
       props: {
         ...translations,
-        blog: data,
+        blog,
       },
+      revalidate: 10,
     };
   } catch (e) {
     console.error('-> e', e);
