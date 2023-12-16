@@ -20,7 +20,7 @@ class BlogStore implements BlogStoreState {
     runInAction(() => {
       this.status = 'loading';
     });
-    this.blogApi.getBlog(this.page, limit).then(({ data: blogs }) => {
+    this.blogApi.getBlogList(this.page, limit).then(({ data: blogs }) => {
       runInAction(() => {
         if (!blogs.length) {
           this.isLastPage = true;

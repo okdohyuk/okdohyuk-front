@@ -130,7 +130,7 @@ function BlogDetailPage({ blog }: BlogPageProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data: blogs } = await blogApi.getBlog(0, 1000);
+  const { data: blogs } = await blogApi.getBlogList(0, 1000);
   const paths = blogs.map((blog) => ({ params: { urlSlug: blog.urlSlug } }));
 
   return { paths, fallback: 'blocking' };
