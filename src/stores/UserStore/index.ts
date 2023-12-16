@@ -3,7 +3,7 @@ import { UserStoreState } from './type';
 import { authApi } from '@api';
 import { User } from '@api/User';
 import Cookies from 'js-cookie';
-import LocalStorage from '@utils/localstorage';
+import LocalStorage from '@utils/localStorage';
 
 class UserStore implements UserStoreState {
   @observable public user: User | null = null;
