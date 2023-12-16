@@ -35,7 +35,7 @@ class UserStore implements UserStoreState {
     if (!this.user) return;
     authApi
       .deleteAuthTokenUserId('Bearer ' + Cookies.get('access_token'), this.user.id)
-      .then((res) => {
+      .then(() => {
         this.logOut();
       });
   };
