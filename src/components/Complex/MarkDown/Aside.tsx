@@ -1,3 +1,4 @@
+import React from 'react';
 import { MarkdownComponent } from './type';
 
 const Aside: MarkdownComponent = ({ children, ...props }) => (
