@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { observer } from 'mobx-react';
-import UserStore from '@stores/UserStore';
 import useStore from '@hooks/useStore';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
@@ -9,7 +8,7 @@ import { useTranslation } from 'next-i18next';
 
 function UserInfoCard() {
   const { t } = useTranslation('menu');
-  const { user, logOut, logOutAll } = useStore<UserStore>('userStore');
+  const { user, logOut, logOutAll } = useStore('userStore');
   const { push, asPath } = useRouter();
 
   const handleLogin = () => {

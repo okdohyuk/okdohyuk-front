@@ -11,7 +11,6 @@ import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper
 import Opengraph from '@components/Basic/Opengraph';
 import Link from '@components/Basic/Link';
 import { authApi, userApi } from '@api';
-import UserStore from '@stores/UserStore';
 import useStore from '@hooks/useStore';
 
 type Login = (accessToken: string, redirectUri: string) => void;
@@ -20,7 +19,7 @@ function LoginPage() {
   const { t } = useTranslation('login');
   const { asPath, push } = useRouter();
   const [loginButtonDisabled, setLoginButtonDisabled] = React.useState<boolean>(true);
-  const { setUser } = useStore<UserStore>('userStore');
+  const { setUser } = useStore('userStore');
 
   useEffect(() => {
     const hash = asPath.split('#')[1];

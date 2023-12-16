@@ -3,7 +3,6 @@ import { MdCheckBoxOutlineBlank, MdCheckBox, MdDeleteForever } from 'react-icons
 import { observer } from 'mobx-react';
 
 import useStore from '@hooks/useStore';
-import TodoStore from '@stores/TodoStore';
 import { Todo } from '@stores/TodoStore/type';
 
 type ToDoCardType = {
@@ -11,7 +10,7 @@ type ToDoCardType = {
 };
 
 function ToDoCard({ todo }: ToDoCardType) {
-  const { toggleTodoCheck, removeTodo } = useStore<TodoStore>('todoStore');
+  const { toggleTodoCheck, removeTodo } = useStore('todoStore');
 
   return (
     <div
