@@ -7,5 +7,10 @@
   "title": "Menu",
   "service": "Service",
   "out": "Out Links",
-  "trash": "Trash"
+  "trash": "Trash",
+  "login": {
+    "description": "Go to Login!",
+    "logout": "Logout",
+    "logoutAll": "Logout All"
+  }
 }
