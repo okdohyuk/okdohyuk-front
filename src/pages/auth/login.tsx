@@ -1,14 +1,18 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
 import googleSignInButton from '../../../public/icons/signin/web_neutral_rd_na.svg';
 import Image from 'next/image';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import Cookies from 'js-cookie';
+
+import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
 import Opengraph from '@components/Basic/Opengraph';
 import Link from '@components/Basic/Link';
-import { authApi } from '@api';
+import { authApi, userApi } from '@api';
+import UserStore from '@stores/UserStore';
+import useStore from '@hooks/useStore';
 
 type Login = (accessToken: string, redirectUri: string) => void;
 
@@ -16,6 +20,7 @@ function LoginPage() {
   const { t } = useTranslation('login');
   const { asPath, push } = useRouter();
   const [loginButtonDisabled, setLoginButtonDisabled] = React.useState<boolean>(true);
+  const { setUser } = useStore<UserStore>('userStore');
 
   useEffect(() => {
     const hash = asPath.split('#')[1];
@@ -23,27 +28,32 @@ function LoginPage() {
     const params = new URLSearchParams(hash);
     const paramsState = params.get('state');
     const accessToken = params.get('access_token');
-    const state = localStorage.getItem('login_state');
+    const state = Cookies.get('login_state');
     if (!paramsState || !accessToken || state !== paramsState) return setLoginButtonDisabled(false);
-    const redirectUri = localStorage.getItem('redirect_uri');
+
+    const redirectUri = Cookies.get('redirect_uri');
     login(accessToken, redirectUri || '/');
   }, []);
 
   const login: Login = (accessToken, redirectUri) => {
     authApi
-      .postAuthGoogle(accessToken, { headers: { Authorization: `Bearer ${accessToken}` } })
-      .then(({ data }) => {
-        localStorage.setItem('access_token', data.access_token);
-        localStorage.setItem('refresh_token', data.refresh_token);
-        localStorage.setItem('user_id', data.user_id);
+      .postAuthGoogle('Bearer ' + accessToken)
+      .then(({ data: { access_token, refresh_token, user_id } }) => {
+        userApi.getUserUserId('Bearer ' + access_token, user_id).then(({ data }) => {
+          Cookies.set('access_token', access_token);
+
+          setUser(data);
+          localStorage.setItem('refresh_token', refresh_token);
+          localStorage.setItem('user', JSON.stringify(data));
+        });
         push(redirectUri);
       })
       .catch(() => {
         push('/auth/login');
       })
       .finally(() => {
-        localStorage.removeItem('redirect_uri');
-        localStorage.removeItem('login_state');
+        Cookies.remove('redirect_uri');
+        Cookies.remove('login_state');
       });
   };
 
@@ -54,7 +64,7 @@ function LoginPage() {
     const state = Math.random().toString(36).substring(2, 15);
     const url = `${oauthUrl}?scope=${scope}&include_granted_scopes=true&response_type=token
     &state=${state}&redirect_uri=${window.location.origin}/auth/login&client_id=${clientId}`;
-    localStorage.setItem('login_state', state);
+    Cookies.set('login_state', state);
     window.location.href = url;
   };
 
