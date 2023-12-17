@@ -7,7 +7,6 @@ import {
   MdPayment,
   MdOutlineAutoAwesome,
   MdCode,
-  MdOutlineWebAsset,
 } from 'react-icons/md';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
 
@@ -87,12 +86,6 @@ const menus: Menus = {
       titlen: 'Dream Resorlver',
       icon: <MdOutlineAutoAwesome />,
       link: '/dream-resolver',
-    },
-    {
-      title: '블로그',
-      titlen: 'Blog',
-      icon: <MdOutlineWebAsset />,
-      link: '/blog',
     },
   ],
 };
