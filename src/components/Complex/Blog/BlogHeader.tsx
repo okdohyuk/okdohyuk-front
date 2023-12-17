@@ -19,7 +19,7 @@ const BlogHeader: BlogComponent = ({ blog }) => {
           <h1 className={'t-t-1 text-white mb-4 line-clamp-2'}>{title}</h1>
           <div className="flex items-center gap-2 t-c-1 text-white">
             <div>{format(new Date(createdAt || ''), 'yyyy-MM-dd')}</div>
-            <Link href={'/blog/edit/' + urlSlug}>수정</Link>
+            <Link href={'/blog/write?urlSlug=' + urlSlug}>수정</Link>
           </div>
         </div>
       </header>
