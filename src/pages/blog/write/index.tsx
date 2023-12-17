@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetServerSideProps, GetStaticPaths, GetStaticPropsContext } from 'next';
+import { GetServerSideProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Blog } from '@api/Blog';
 import { withTranslation } from 'next-i18next';
@@ -16,7 +16,9 @@ type BlogPageProps = {
 };
 
 function BlogEditPage({ blog }: BlogPageProps) {
-  const { register, watch, handleSubmit } = useForm<Blog>({ defaultValues: blog ? blog : {} });
+  const { register, watch, handleSubmit } = useForm<Blog>({
+    defaultValues: blog ? blog : { createdAt: new Date().toString(), contents: '' },
+  });
   const { push } = useRouter();
 
   const onSubmit: SubmitHandler<Blog> = async (submitBlog) => {
@@ -39,11 +41,18 @@ function BlogEditPage({ blog }: BlogPageProps) {
         <input
           className="w-full input-text"
           id="title"
+          placeholder="title"
           {...register('title', {
             required: true,
           })}
         />
         <input className="" type="checkbox" id="isPublic" {...register('isPublic')} />
+        <input
+          className="w-full input-text"
+          id="thumbnailImage"
+          placeholder="thumbnailImage"
+          {...register('thumbnailImage')}
+        />
         <textarea
           className="w-full h-full resize-none input-text"
           id="content"
