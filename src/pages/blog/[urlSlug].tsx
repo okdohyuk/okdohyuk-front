@@ -3,20 +3,18 @@ import { GetStaticPaths, GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Blog } from '@api/Blog';
 import markdownUtils from '@utils/markdownUtils';
-import { format } from 'date-fns';
 import { withTranslation } from 'next-i18next';
 import Opengraph from '@components/Basic/Opengraph';
 import { blogApi } from '@api';
 import MobileScreenWarpper from '~/components/Complex/Layouts/MobileScreenWarpper';
-import Link from '@components/Basic/Link';
-import MarkDown from '@components/Complex/MarkDown';
+import BlogPost from '@components/Complex/Blog';
 
 type BlogPageProps = {
   blog: Blog;
 };
 
 function BlogDetailPage({ blog }: BlogPageProps) {
-  const { title, contents, createdAt, thumbnailImage } = blog;
+  const { title, contents, thumbnailImage } = blog;
   return (
     <>
       <Opengraph
@@ -26,16 +24,7 @@ function BlogDetailPage({ blog }: BlogPageProps) {
         image={thumbnailImage}
       />
       <MobileScreenWarpper>
-        <article className="prose prose-zinc dark:prose-invert mb-16 max-w-full">
-          <div className="mb-8">
-            <h1 className={'t-t-1 t-basic-1 mb-4'}>{title}</h1>
-            <div className="flex items-center gap-2 t-c-1 t-basic-3">
-              <div>{format(new Date(createdAt || ''), 'yyyy-MM-dd')}</div>
-              <Link href={'/blog/edit/' + blog.urlSlug}>수정</Link>
-            </div>
-          </div>
-          <MarkDown contents={contents} />
-        </article>
+        <BlogPost blog={blog} />
       </MobileScreenWarpper>
     </>
   );
