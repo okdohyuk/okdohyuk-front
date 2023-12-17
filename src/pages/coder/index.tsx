@@ -9,7 +9,7 @@ import { debounce } from 'lodash';
 
 import Opengraph from '@components/Basic/Opengraph';
 import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
-import Code from '@components/Complex/MarkDown/Code';
+import CodeCopy from '@components/Complex/MarkDown/CodeCopy';
 import ClassName from '@utils/classNameUtils';
 import CoderUtils from '@utils/coderUtils';
 import { CoderFormType, CoderType } from '@utils/coderUtils/type';
@@ -138,7 +138,11 @@ function CoderPage() {
                 <MdMoreHoriz className="text-white" />
               </button>
             ) : (
-              resultList.slice(0, -1).map((value) => <Code key={value}>{value}</Code>)
+              resultList.slice(0, -1).map((value) => (
+                <CodeCopy key={value} className="bg-basic-4" copyString={value}>
+                  {value}
+                </CodeCopy>
+              ))
             )
           ) : (
             <></>

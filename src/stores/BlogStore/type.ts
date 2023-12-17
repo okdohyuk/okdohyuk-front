@@ -7,6 +7,7 @@ type BlogStoreState = {
   status: Status;
   isLastPage: boolean;
   page: number;
+  getBlogsPage: (limit: number) => void;
 };
 
 export type { BlogStoreState, Status };

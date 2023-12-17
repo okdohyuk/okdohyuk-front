@@ -4,7 +4,7 @@ import { blogApi } from '~/spec/api';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
-    const { data: blogs } = await blogApi.getBlog(0, 1000);
+    const { data: blogs } = await blogApi.getBlogList(0, 1000);
 
     const newsSitemaps = blogs.map((blog) => ({
       loc: `${process.env.NEXT_PUBLIC_URL}/blog/${blog.urlSlug}`,

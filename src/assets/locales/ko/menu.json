@@ -7,5 +7,10 @@
   "title": "메뉴서랍",
   "service": "서비스",
   "out": "외부 링크",
-  "trash": "휴지통"
+  "trash": "휴지통",
+  "login": {
+    "description": "로그인하러가기!",
+    "logout": "로그아웃",
+    "logoutAll": "모두 로그아웃"
+  }
 }

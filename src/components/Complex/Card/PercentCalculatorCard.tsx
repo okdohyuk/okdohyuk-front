@@ -1,10 +1,8 @@
 import React, { useMemo } from 'react';
 import { PercentCalculators } from '@stores/PercentStore/type';
-import { toJS } from 'mobx';
 import useStore from '@hooks/useStore';
 import { observer } from 'mobx-react';
 import { useTranslation } from 'next-i18next';
-import PercentStore from '@stores/PercentStore';
 
 type PercentCalculatorCard = {
   calculatorName: keyof PercentCalculators;
@@ -19,9 +17,7 @@ function PercentCalculatorCard({
   placeholder,
   text,
 }: PercentCalculatorCard) {
-  const percentStore = useStore<PercentStore>('percentStore');
-  const { valueChange } = percentStore;
-  const { calculators } = toJS(percentStore);
+  const { valueChange, calculators } = useStore('percentStore');
   const { t } = useTranslation('percent');
 
   const calculator = useMemo(() => {
