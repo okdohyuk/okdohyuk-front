@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     'react/display-name': 'off',
+    'react/prop-types': 'off',
     'react/no-unknown-property': 'off',
     'no-console': ['warn'],
   },

@@ -4,16 +4,15 @@ import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import BlogCard from '@components/Complex/Card/BlogCard';
 import useStore from '@hooks/useStore';
-import BlogStore from '@stores/BlogStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
 import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWarpper from '~/components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
 
 function BlogPage() {
   const { t } = useTranslation('blog');
-  const { blogs, getBlogsPage, status, isLastPage } = useStore<BlogStore>('blogStore');
+  const { blogs, getBlogsPage, status, isLastPage } = useStore('blogStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
 
   useEffect(() => {
