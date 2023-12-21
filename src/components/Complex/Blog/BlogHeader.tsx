@@ -11,7 +11,7 @@ const BlogHeader: BlogComponent = ({ blog }) => {
         {thumbnailImage ? (
           <img src={thumbnailImage} alt={title} className="w-full h-64 object-cover my-0" />
         ) : null}
-        <div className="absolute flex flex-col justify-center w-full h-full p-10 top-0 left-0 z-10">
+        <div className="absolute flex flex-col justify-center w-full h-full p-6 md:p-10 top-0 left-0 z-10">
           <h1 className={'t-t-1 text-white mb-4 line-clamp-2'}>{title}</h1>
           <div className="flex items-center gap-2 t-c-1 text-white">
             <div>{format(new Date(createdAt || ''), 'yyyy-MM-dd')}</div>
