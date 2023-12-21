@@ -1,27 +1,27 @@
 import { BlogStoreState, Status } from '@stores/BlogStore/type';
 import { action, makeObservable, observable, runInAction } from 'mobx';
-import { Blog, BlogApi } from '@api/Blog';
+import { Blog } from '@api/Blog';
+import { blogApi } from '~/spec/api';
 
 class BlogStore implements BlogStoreState {
-  @observable blogs: Blog[] | null = null;
-  @observable status: Status = 'idle';
-  @observable isLastPage = false;
-  @observable page = 0;
-
-  private blogApi = new BlogApi();
+  @observable public blogs: Blog[] | null = null;
+  @observable public status: Status = 'idle';
+  @observable public isLastPage = false;
+  @observable public page = 0;
 
   constructor() {
     makeObservable(this);
   }
 
-  @action setBlogs = (blogs: Blog[] | null) => (this.blogs = blogs);
+  @action public setBlogs: BlogStoreState['setBlogs'] = (blogs) => (this.blogs = blogs);
 
-  @action getBlogsPage = (limit: number) => {
+  @action public getBlogsPage: BlogStoreState['getBlogsPage'] = (limit, authorization) => {
     runInAction(() => {
       this.status = 'loading';
     });
-    this.blogApi.getBlogList(this.page, limit).then(({ data: blogs }) => {
-      runInAction(() => {
+    blogApi
+      .getBlogList(this.page, limit, authorization && 'Bearer ' + authorization)
+      .then(({ data: blogs }) => {
         if (!blogs.length) {
           this.isLastPage = true;
         } else {
@@ -34,8 +34,10 @@ class BlogStore implements BlogStoreState {
         }
         this.status = 'success';
         this.page += 1;
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    });
   };
 }
 
