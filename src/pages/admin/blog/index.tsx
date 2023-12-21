@@ -12,7 +12,7 @@ import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper
 import Cookies from 'js-cookie';
 
 function BlogAdminPage() {
-  const { t } = useTranslation('blog');
+  const { t } = useTranslation('blog/index');
   const { blogs, getBlogsPage, status, isLastPage } = useStore('blogStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
   const accessToken = Cookies.get('access_token');
@@ -59,7 +59,7 @@ function BlogAdminPage() {
 
 export const getStaticProps = async ({ locale }: GetStaticPropsContext) => ({
   props: {
-    ...(await serverSideTranslations(locale as string, ['common', 'blog'])),
+    ...(await serverSideTranslations(locale as string, ['common', 'blog/index'])),
   },
 });
 
