@@ -11,7 +11,7 @@ import Opengraph from '@components/Basic/Opengraph';
 import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
 
 function BlogPage() {
-  const { t } = useTranslation('blog');
+  const { t } = useTranslation('blog/index');
   const { blogs, getBlogsPage, status, isLastPage } = useStore('blogStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
 
@@ -57,7 +57,7 @@ function BlogPage() {
 
 export const getStaticProps = async ({ locale }: GetStaticPropsContext) => ({
   props: {
-    ...(await serverSideTranslations(locale as string, ['common', 'blog'])),
+    ...(await serverSideTranslations(locale as string, ['common', 'blog/index'])),
   },
 });
 
