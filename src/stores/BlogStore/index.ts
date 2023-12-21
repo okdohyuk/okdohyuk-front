@@ -1,7 +1,7 @@
 import { BlogStoreState, Status } from '@stores/BlogStore/type';
 import { action, makeObservable, observable, runInAction } from 'mobx';
 import { Blog } from '@api/Blog';
-import { blogApi } from '~/spec/api';
+import { blogApi } from '@api';
 
 class BlogStore implements BlogStoreState {
   @observable public blogs: Blog[] | null = null;
