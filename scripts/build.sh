@@ -5,5 +5,6 @@ cd ../
 npm run generate-api -- --name=Blog
 npm run generate-api -- --name=User
 npm run generate-api -- --name=Auth
+npm run generate-api -- --name=Storage
 next build
 next-sitemap
