@@ -9,15 +9,17 @@ import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
 import Opengraph from '@components/Basic/Opengraph';
 import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import Cookies from 'js-cookie';
 
-function BlogPage() {
+function BlogAdminPage() {
   const { t } = useTranslation('blog/index');
   const { blogs, getBlogsPage, status, isLastPage } = useStore('blogStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
+  const accessToken = Cookies.get('access_token');
 
   useEffect(() => {
     if (!isFetching) return;
-    getBlogsPage(10);
+    getBlogsPage(10, accessToken);
   }, [isFetching]);
 
   useEffect(() => {
@@ -42,7 +44,7 @@ function BlogPage() {
         <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
         <div className={'flex flex-col w-full gap-2'}>
           {blogs?.map((blog) => (
-            <BlogCard key={blog.urlSlug} blog={blog} />
+            <BlogCard key={blog.urlSlug} blog={blog} isAdmin />
           ))}
           {status === 'loading' ? (
             <div className={'flex justify-center'}>
@@ -61,4 +63,4 @@ export const getStaticProps = async ({ locale }: GetStaticPropsContext) => ({
   },
 });
 
-export default observer(BlogPage);
+export default observer(BlogAdminPage);

@@ -18,12 +18,7 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   images: {
-    domains: [
-      'okdohyuk.dev',
-      `${process.env.WORKER_URL_HOST}`,
-      'localhost',
-      'lh3.googleusercontent.com',
-    ],
+    domains: ['okdohyuk.dev', 'localhost', 'lh3.googleusercontent.com', 'storage.googleapis.com'],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],

@@ -13,3 +13,9 @@ public/sitemap.xml
 public/sitemap-*.xml
 public/sw.js
 public/workbox-*.js
+.eenv
+.env
+openapitools.json
+test.http
+public/sw.js.map
+public/workbox-*.js.map

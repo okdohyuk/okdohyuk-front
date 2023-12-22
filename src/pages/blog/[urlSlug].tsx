@@ -20,7 +20,7 @@ function BlogDetailPage({ blog }: BlogPageProps) {
       <Opengraph
         title={title}
         ogTitle={title}
-        description={markdownUtils.removeMarkdown(contents).slice(0, 500) + '...'}
+        description={markdownUtils.removeMarkdown(contents).slice(0, 155) + '..'}
         image={thumbnailImage}
       />
       <MobileScreenWarpper>
@@ -42,11 +42,12 @@ export async function getStaticProps({ params, locale }: GetStaticPropsContext) 
   const { urlSlug } = params;
   try {
     const { data: blog } = await blogApi.getBlogUrlSlug(urlSlug + '');
-    const translations = await serverSideTranslations(locale as string, ['common', 'blog']);
+    const translations = await serverSideTranslations(locale as string, ['common']);
     return {
       props: {
         ...translations,
         blog,
+        revalidate: 60,
       },
     };
   } catch (e) {
@@ -55,4 +56,4 @@ export async function getStaticProps({ params, locale }: GetStaticPropsContext) 
   }
 }
 
-export default withTranslation(['common', 'blog'])(BlogDetailPage);
+export default withTranslation(['common'])(BlogDetailPage);

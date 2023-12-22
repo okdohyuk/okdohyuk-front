@@ -3,30 +3,31 @@ import { Blog } from '@api/Blog';
 import Image from 'next/image';
 import Link from '@components/Basic/Link';
 import markdownUtils from '@utils/markdownUtils';
+import ClassName from '~/utils/classNameUtils';
 
 type BlogCardProps = {
   blog: Blog;
+  isAdmin?: boolean;
 };
 
-function BlogCard({ blog }: BlogCardProps) {
-  const { thumbnailImage, title, contents, urlSlug } = blog;
+function BlogCard({ blog, isAdmin }: BlogCardProps) {
+  const { thumbnailImage, title, contents, urlSlug, isPublic } = blog;
+  const { cls } = ClassName;
+
+  const link = isAdmin ? '/blog/write?urlSlug=' + urlSlug : '/blog/' + urlSlug;
 
   return (
-    <Link href={'/blog/' + urlSlug}>
+    <Link href={link}>
       <article
-        className={
-          'md:min-h-[200px] flex p-2 rounded-md bg-basic-3 hover:bg-basic-4 gap-6 overflow-hidden'
-        }
+        className={cls(
+          'md:min-h-[200px] flex p-2 rounded-md gap-6 overflow-hidden',
+          isPublic ? 'bg-basic-3 hover:bg-basic-4' : 'bg-red-100',
+        )}
       >
         <div className={'relative'}>
           {thumbnailImage ? (
             <div className={'w-[100px] h-[100px] md:w-[200px] md:h-[200px] relative'}>
-              <Image
-                src={`${process.env.NEXT_PUBLIC_WORKER_URL}${thumbnailImage}`}
-                alt={title}
-                layout={'fill'}
-                objectFit={'cover'}
-              />
+              <Image src={thumbnailImage} alt={title} layout={'fill'} objectFit={'cover'} />
             </div>
           ) : null}
         </div>
