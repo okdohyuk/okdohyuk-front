@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import BlogCard from '@components/Complex/Card/BlogCard';
+import BlogCard from '@components/Complex/Blog/BlogCard';
 import useStore from '@hooks/useStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
