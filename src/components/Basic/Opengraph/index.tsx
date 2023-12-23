@@ -15,7 +15,7 @@ function Opengraph({ title, ogTitle, description, isMainPage = false, image }: O
   const router = useRouter();
   const { t } = useTranslation('common');
   const withMe = t('openGraph.withMe');
-  const tempWithMe = withMe === 'openGraph.withMe' ? ' | 개발자 유도혁' : withMe;
+  const tempWithMe = withMe === 'openGraph.withMe' ? ' - 개발자 유도혁' : withMe;
   const URL = 'https://okdohyuk.dev';
 
   return (
