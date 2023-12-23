@@ -18,7 +18,8 @@
 
 .token.attr-value,
 .token.class,
-.token.string {
+.token.string,
+.token.constant {
   @apply text-sky-300;
 }
 
