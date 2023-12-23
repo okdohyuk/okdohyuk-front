@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import CodeCopy from './CodeCopy';
 import { MarkdownComponent } from './type';
 import Code from './Code';
