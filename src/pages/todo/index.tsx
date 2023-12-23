@@ -11,11 +11,9 @@ import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper
 
 const ToDoCard = dynamic(() => import('@components/Complex/Card/ToDoCard'), { ssr: false });
 
-type TodoApp = {
-  todoStore: TodoStoreState;
-};
+type TodoAppComponent = ({ todoStore }: { todoStore: TodoStoreState }) => JSX.Element;
 
-const TodoApp = ({ todoStore }: TodoApp) => {
+const TodoApp: TodoAppComponent = ({ todoStore }) => {
   const { todos, addTodo } = todoStore;
   const { t } = useTranslation('todo');
   const { onChange, value, reset } = useInput('');
