@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { authApi } from '@api';
