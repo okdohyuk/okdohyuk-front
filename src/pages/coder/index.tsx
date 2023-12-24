@@ -58,6 +58,8 @@ function CoderPage() {
         title={t('openGraph.title')}
         ogTitle={t('openGraph.ogTitle')}
         description={t('openGraph.description')}
+        keywords={t('openGraph.keywords', { returnObjects: true })}
+        isAds
       />
       <MobileScreenWarpper className="dark:text-white">
         <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>

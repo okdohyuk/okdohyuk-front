@@ -61,7 +61,7 @@ function BlogWritePage({ blog }: BlogPageProps) {
 
   return (
     <>
-      <Opengraph title={'Blog Edit'} ogTitle={'Blog Edit'} description={'Blog Edit'} />
+      <Opengraph title={'Blog Edit '} ogTitle={'Blog Edit'} description={'Blog Edit'} />
       <div className="flex w-full h-screen overflow-hidden">
         <div className="flex-1 flex flex-col relative pb-16">
           <div className="flex flex-col p-4 gap-4">
