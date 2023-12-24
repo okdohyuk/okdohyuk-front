@@ -2,7 +2,19 @@
   "openGraph": {
     "title": "percent calculator",
     "ogTitle": "Discount Rate, Sale, Percentage, Partial Value, Percent Calculator",
-    "description": "There are many people who want to simplify the calculation of discount rates and percentages. Find the results you want by using a total of 6 percent calculations!"
+    "description": "There are many people who want to simplify the calculation of discount rates and percentages. Find the results you want by using a total of 6 percent calculations!",
+    "keywords": [
+      "percent",
+      "calculator",
+      "discount",
+      "rate",
+      "sale",
+      "percentage",
+      "partial",
+      "value",
+      "increase",
+      "decrease"
+    ]
   },
   "title": "Percent Calculator",
   "percentageOfTotal": {

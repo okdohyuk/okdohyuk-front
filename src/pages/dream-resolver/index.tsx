@@ -94,6 +94,7 @@ function DreamResolver() {
         ogTitle={t('openGraph.ogTitle')}
         description={t('openGraph.description')}
         image={'/dream-resolver.jpg'}
+        isAds
       />
       <MobileScreenWarpper>
         <h1 className="t-t-1 t-basic-1 mb-4">{t('openGraph.title')}</h1>

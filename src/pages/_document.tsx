@@ -1,7 +1,6 @@
 import React from 'react';
 import Document, { Html, Main, NextScript, Head } from 'next/document';
 import Script from 'next/script';
-import { GA_TRACKING_ID } from '@libs/client/gtag';
 import i18nextConfig from '../../next-i18next.config';
 
 class MyDocument extends Document {
@@ -102,7 +101,10 @@ class MyDocument extends Document {
           />
 
           <Script
-            src={'https://www.googletagmanager.com/gtag/js?id=' + GA_TRACKING_ID}
+            src={
+              'https://www.googletagmanager.com/gtag/js?id=' +
+              `${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}`
+            }
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
@@ -111,7 +113,7 @@ class MyDocument extends Document {
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', '${GA_TRACKING_ID}', {page_path: window.location.pathname});
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}', {page_path: window.location.pathname});
         `}
           </Script>
         </Head>
