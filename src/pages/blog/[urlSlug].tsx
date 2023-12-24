@@ -6,7 +6,7 @@ import markdownUtils from '@utils/markdownUtils';
 import { withTranslation } from 'next-i18next';
 import Opengraph from '@components/Basic/Opengraph';
 import { blogApi } from '@api';
-import MobileScreenWarpper from '~/components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
 import BlogPost from '@components/Complex/Blog';
 
 type BlogPageProps = {
@@ -22,6 +22,9 @@ function BlogDetailPage({ blog }: BlogPageProps) {
         ogTitle={title}
         description={markdownUtils.removeMarkdown(contents).slice(0, 155) + '..'}
         image={thumbnailImage}
+        keywords={title.split(' ')}
+        contentType="article"
+        isAds
       />
       <MobileScreenWarpper>
         <BlogPost blog={blog} />
