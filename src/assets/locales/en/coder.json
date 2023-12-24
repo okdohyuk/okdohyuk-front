@@ -2,7 +2,8 @@
   "openGraph": {
     "title": "coder",
     "ogTitle": "coder | encoder and decoder tool",
-    "description": "Decode from various formats such as Base64, URL, etc. online, or conveniently use as many times as you want to encode."
+    "description": "Decode from various formats such as Base64, URL, etc. online, or conveniently use as many times as you want to encode.",
+    "keywords": ["coder", "encoder", "decoder", "base64", "url", "binary", "hex"]
   },
   "title": "Coder",
   "count": "Count",
