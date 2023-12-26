@@ -6,7 +6,7 @@ import markdownUtils from '@utils/markdownUtils';
 import { withTranslation } from 'next-i18next';
 import Opengraph from '@components/Basic/Opengraph';
 import { blogApi } from '@api';
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 import BlogPost from '@components/Complex/Blog';
 
 type BlogPageProps = {
@@ -26,9 +26,9 @@ function BlogDetailPage({ blog }: BlogPageProps) {
         contentType="article"
         isAds
       />
-      <MobileScreenWarpper>
+      <MobileScreenWrapper>
         <BlogPost blog={blog} />
-      </MobileScreenWarpper>
+      </MobileScreenWrapper>
     </>
   );
 }

@@ -19,7 +19,7 @@ import {
   LineShareButton,
   LineIcon,
 } from 'react-share';
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 
 function DreamResolver() {
   const { locale } = useRouter();
@@ -96,7 +96,7 @@ function DreamResolver() {
         image={'/dream-resolver.jpg'}
         isAds
       />
-      <MobileScreenWarpper>
+      <MobileScreenWrapper>
         <h1 className="t-t-1 t-basic-1 mb-4">{t('openGraph.title')}</h1>
         {loading && (
           <>
@@ -165,7 +165,7 @@ function DreamResolver() {
             <MdLink size={32} className="text-white" />
           </button>
         </div>
-      </MobileScreenWarpper>
+      </MobileScreenWrapper>
     </>
   );
 }

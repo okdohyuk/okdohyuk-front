@@ -7,7 +7,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Cookies from 'js-cookie';
 
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 import Opengraph from '@components/Basic/Opengraph';
 import Link from '@components/Basic/Link';
 import { authApi, userApi } from '@api';
@@ -74,7 +74,7 @@ function LoginPage() {
         ogTitle={t('openGraph.ogTitle')}
         description={t('openGraph.description')}
       />
-      <MobileScreenWarpper>
+      <MobileScreenWrapper>
         <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
         <div className="t-d-1 t-basic-1 mb-16">{t('openGraph.description')}</div>
         <button
@@ -88,7 +88,7 @@ function LoginPage() {
         <Link href="https://privacy-policy.okdohyuk.dev" hasTargetBlank>
           <div className="t-c-1 t-basic-1">{t('privacy-policy')}</div>
         </Link>
-      </MobileScreenWarpper>
+      </MobileScreenWrapper>
     </>
   );
 }
