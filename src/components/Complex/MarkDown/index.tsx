@@ -4,6 +4,7 @@ import Aside from './Aside';
 import CodeWindow from './CodeWindow';
 import { MarkDownProps } from './type';
 import Table from './Table';
+import Link from '@components/Basic/Link';
 
 const MarkDown: MarkDownProps = ({ contents }) => {
   return (
@@ -21,6 +22,12 @@ const MarkDown: MarkDownProps = ({ contents }) => {
           },
           table: {
             component: Table,
+          },
+          a: {
+            component: Link,
+            props: {
+              hasTargetBlank: true,
+            },
           },
         },
       }}
