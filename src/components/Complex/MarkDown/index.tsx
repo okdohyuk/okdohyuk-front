@@ -3,6 +3,7 @@ import MarkdownTransJSX from 'markdown-to-jsx';
 import Aside from './Aside';
 import CodeWindow from './CodeWindow';
 import { MarkDownProps } from './type';
+import Table from './Table';
 
 const MarkDown: MarkDownProps = ({ contents }) => {
   return (
@@ -17,6 +18,9 @@ const MarkDown: MarkDownProps = ({ contents }) => {
           },
           aside: {
             component: Aside,
+          },
+          table: {
+            component: Table,
           },
         },
       }}
