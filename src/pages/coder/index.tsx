@@ -8,7 +8,7 @@ import { MdMoreHoriz, MdOutlineContentCopy, MdOutlineCheck } from 'react-icons/m
 import { debounce } from 'lodash';
 
 import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 import CodeCopy from '@components/Complex/MarkDown/CodeCopy';
 import ClassName from '@utils/classNameUtils';
 import CoderUtils from '@utils/coderUtils';
@@ -61,7 +61,7 @@ function CoderPage() {
         keywords={t('openGraph.keywords', { returnObjects: true })}
         isAds
       />
-      <MobileScreenWarpper className="dark:text-white">
+      <MobileScreenWrapper className="dark:text-white">
         <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
         <section className="flex flex-col space-y-4">
           <Controller
@@ -159,7 +159,7 @@ function CoderPage() {
             {t('copy')}
           </button>
         </section>
-      </MobileScreenWarpper>
+      </MobileScreenWrapper>
     </>
   );
 }

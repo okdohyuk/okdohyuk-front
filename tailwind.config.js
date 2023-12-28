@@ -13,5 +13,9 @@ module.exports = {
     },
   },
   darkMode: 'media',
-  plugins: [require('tailwindcss-safe-area'), require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
+  plugins: [
+    require('tailwindcss-safe-area'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
+  ],
 };

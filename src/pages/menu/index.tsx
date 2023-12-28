@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import Link from '@components/Basic/Link';
 import Opengraph from '@components/Basic/Opengraph';
 import { MenuItem, Menus, menus } from '@assets/datas/menus';
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 import dynamic from 'next/dynamic';
 
 const UserInfoCard = dynamic(() => import('@components/Complex/Card/UserInfoCard'), { ssr: false });
@@ -47,13 +47,13 @@ function MenuPage() {
         ogTitle={t('openGraph.ogTitle')}
         description={t('openGraph.description')}
       />
-      <MobileScreenWarpper>
+      <MobileScreenWrapper>
         <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
         <div className="lg:columns-2">
           <UserInfoCard />
           {renderMenuGroup(menus)}
         </div>
-      </MobileScreenWarpper>
+      </MobileScreenWrapper>
     </>
   );
 }

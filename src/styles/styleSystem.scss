@@ -1,0 +1,142 @@
+@layer components {
+  .t {
+    // 크기
+    // 제목
+    &-t {
+      &-1 {
+        @apply text-4xl font-bold;
+      }
+      &-2 {
+        @apply text-3xl font-bold;
+      }
+      &-3 {
+        @apply text-2xl font-bold;
+      }
+    }
+    // 자료
+    &-d {
+      &-1 {
+        @apply text-lg font-normal;
+      }
+      &-2 {
+        @apply text-base font-normal;
+      }
+      &-3 {
+        @apply text-sm font-normal;
+      }
+    }
+    // 캡션
+    &-c {
+      &-1 {
+        @apply text-xs font-light;
+      }
+      &-2 {
+        @apply text-[10px] font-light;
+      }
+      &-3 {
+        @apply text-[8px] font-light;
+      }
+    }
+
+    // 색
+    &-basic {
+      &-0 {
+        @apply text-black dark:text-white;
+      }
+      &-1 {
+        @apply text-zinc-900 dark:text-zinc-50;
+      }
+      &-2 {
+        @apply text-zinc-800 dark:text-zinc-100;
+      }
+      &-3 {
+        @apply text-zinc-700 dark:text-zinc-200;
+      }
+      &-4 {
+        @apply text-zinc-600 dark:text-zinc-300;
+      }
+      &-5 {
+        @apply text-zinc-500 dark:text-zinc-400;
+      }
+      &-6 {
+        @apply text-zinc-400 dark:text-zinc-500;
+      }
+      &-7 {
+        @apply text-zinc-300 dark:text-zinc-600;
+      }
+      &-8 {
+        @apply text-zinc-200 dark:text-zinc-700;
+      }
+      &-9 {
+        @apply text-zinc-100 dark:text-zinc-800;
+      }
+      &-10 {
+        @apply text-zinc-50 dark:text-zinc-900;
+      }
+    }
+  }
+
+  // 배경색
+  .bg {
+    &-basic {
+      &-0 {
+        @apply bg-white dark:bg-black;
+      }
+      &-1 {
+        @apply bg-zinc-50 dark:bg-zinc-900;
+      }
+      &-2 {
+        @apply bg-zinc-100 dark:bg-zinc-800;
+      }
+      &-3 {
+        @apply bg-zinc-200 dark:bg-zinc-700;
+      }
+      &-4 {
+        @apply bg-zinc-300 dark:bg-zinc-600;
+      }
+      &-5 {
+        @apply bg-zinc-400 dark:bg-zinc-500;
+      }
+    }
+  }
+
+  // 테두리색
+  .border {
+    &-basic {
+      &-0 {
+        @apply border-white dark:border-black;
+      }
+      &-1 {
+        @apply border-zinc-50 dark:border-zinc-900;
+      }
+      &-2 {
+        @apply border-zinc-100 dark:border-zinc-800;
+      }
+      &-3 {
+        @apply border-zinc-200 dark:border-zinc-700;
+      }
+      &-4 {
+        @apply border-zinc-300 dark:border-zinc-600;
+      }
+      &-5 {
+        @apply border-zinc-400 dark:border-zinc-500;
+      }
+    }
+  }
+
+  // 인풋
+  .input {
+    &-text {
+      @apply flex items-center min-h-[32px] rounded-md bg-basic-1 border border-basic-4 focus:outline outline-2 outline-point-2 p-1 t-basic-1 t-d-1;
+    }
+  }
+  .button {
+    @apply flex items-center justify-center min-h-[32px] rounded-md bg-point-2 hover:bg-point-1 p-1 t-d-1 text-white;
+  }
+
+  .table {
+  }
+  .table th, .table  td {
+    @apply p-2 border border-solid border-basic-5 align-middle
+  }
+}

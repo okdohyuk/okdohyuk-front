@@ -12,6 +12,7 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import Opengraph from '~/components/Basic/Opengraph';
 import { MdImage } from 'react-icons/md';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 
 type BlogPageProps = {
   blog: Blog | null;
@@ -80,7 +81,6 @@ function BlogWritePage({ blog }: BlogPageProps) {
               {...register('thumbnailImage')}
             />
             <div className="flex gap-2">
-              {/* 이미지 업로드 */}
               <input className="input-text flex-1" value={imageUrl} />
               <div>
                 <label className="" htmlFor={'upload-image'} onClick={onClickHandler}>
@@ -107,6 +107,7 @@ function BlogWritePage({ blog }: BlogPageProps) {
               required: true,
             })}
           />
+
           <div className="w-full lg:w-1/2 flex justify-between items-center fixed bottom-[57px] lg:bottom-0 left-0 h-16 bg-basic-5 px-4">
             <input className="" type="checkbox" id="isPublic" {...register('isPublic')} />
             <button className="button h-8" onClick={handleSubmit(onSubmit)}>
@@ -116,9 +117,9 @@ function BlogWritePage({ blog }: BlogPageProps) {
         </div>
 
         <div className="flex-1 hidden lg:block overflow-y-scroll">
-          <div className="relative lg:px-6 lg:py-6 box-border bg-zinc-100 dark:bg-zinc-900">
+          <MobileScreenWrapper>
             <BlogPost blog={watch()} />
-          </div>
+          </MobileScreenWrapper>
         </div>
       </div>
     </>
