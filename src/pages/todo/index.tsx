@@ -7,7 +7,7 @@ import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 
 const ToDoCard = dynamic(() => import('@components/Complex/Card/ToDoCard'), { ssr: false });
 
@@ -33,7 +33,7 @@ const TodoApp: TodoAppComponent = ({ todoStore }) => {
         ogTitle={t('openGraph.ogTitle')}
         description={t('openGraph.description')}
       />
-      <MobileScreenWarpper>
+      <MobileScreenWrapper>
         <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
         <form onSubmit={handleSubmitTodo} className="flex items-center gap-2 mb-4">
           <input
@@ -50,7 +50,7 @@ const TodoApp: TodoAppComponent = ({ todoStore }) => {
         <div className={'flex flex-col space-y-2'}>
           {todos.length ? todos.map((todo) => <ToDoCard key={todo.id} todo={todo} />) : null}
         </div>
-      </MobileScreenWarpper>
+      </MobileScreenWrapper>
     </>
   );
 };

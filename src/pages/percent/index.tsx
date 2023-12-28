@@ -4,7 +4,7 @@ import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 
 const PercentPage = () => {
   const { t } = useTranslation('percent');
@@ -18,7 +18,7 @@ const PercentPage = () => {
         keywords={t('openGraph.keywords', { returnObjects: true })}
         isAds
       />
-      <MobileScreenWarpper>
+      <MobileScreenWrapper>
         <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
         <section className={'w-full space-y-4'}>
           <PercentCalculatorCard
@@ -52,7 +52,7 @@ const PercentPage = () => {
             text={t('findPercentageValue.text', { returnObjects: true })}
           />
         </section>
-      </MobileScreenWarpper>
+      </MobileScreenWrapper>
     </>
   );
 };

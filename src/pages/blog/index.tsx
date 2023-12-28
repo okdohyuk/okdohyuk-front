@@ -8,7 +8,7 @@ import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
 import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 
 function BlogPage() {
   const { t } = useTranslation('blog/index');
@@ -39,7 +39,7 @@ function BlogPage() {
         description={t('openGraph.description')}
         isAds
       />
-      <MobileScreenWarpper>
+      <MobileScreenWrapper>
         <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
         <div className={'flex flex-col w-full gap-2'}>
           {blogs?.map((blog) => (
@@ -51,7 +51,7 @@ function BlogPage() {
             </div>
           ) : null}
         </div>
-      </MobileScreenWarpper>
+      </MobileScreenWrapper>
     </>
   );
 }

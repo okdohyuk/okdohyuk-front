@@ -8,7 +8,7 @@ import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
 import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWarpper from '@components/Complex/Layouts/MobileScreenWarpper';
+import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
 import Cookies from 'js-cookie';
 
 function BlogAdminPage() {
@@ -40,7 +40,7 @@ function BlogAdminPage() {
         ogTitle={t('openGraph.ogTitle')}
         description={t('openGraph.description')}
       />
-      <MobileScreenWarpper>
+      <MobileScreenWrapper>
         <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
         <div className={'flex flex-col w-full gap-2'}>
           {blogs?.map((blog) => (
@@ -52,7 +52,7 @@ function BlogAdminPage() {
             </div>
           ) : null}
         </div>
-      </MobileScreenWarpper>
+      </MobileScreenWrapper>
     </>
   );
 }
