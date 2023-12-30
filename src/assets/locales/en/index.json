@@ -1,50 +1,11 @@
 {
   "openGraph": {
-    "title": "developer okdohyuk",
-    "ogTitle": "developer okdohyuk",
-    "description": "Hey there! I'm a developer okdohyuk who values details."
+    "title": "okdohyuk - Web Multi Tool Platform",
+    "ogTitle": "okdohyuk - Web Multi Tool Platform",
+    "description": "The Web Multi Tool Platform provides several easy-to-use web tools."
   },
   "downloads": "Downloads",
-  "nickname": "okdohyuk",
-  "title": {
-    "primary": "High-quality ",
-    "secondary": "web developer"
-  },
-  "subTitle": "type - safe, does not tolerate even a one pixel, one who enjoys, and have a not don't give up",
-  "myLinks": {
-    "title": "my links",
-    "array": [
-      {
-        "title": "Profile",
-        "explanation": "My profile is updated frequently.",
-        "link": "https://me.okdohyuk.dev/"
-      },
-      {
-        "title": "Blog",
-        "explanation": "thoughts and records place.",
-        "link": "https://blog.okdohyuk.dev/"
-      },
-      {
-        "title": "Github",
-        "explanation": "my github address.",
-        "link": "https://github.com/okdohyuk"
-      },
-      {
-        "title": "RocketPunch",
-        "explanation": "my rocket punch profile",
-        "link": "https://www.rocketpunch.com/@okdohyuk"
-      },
-      {
-        "title": "Linkedin",
-        "explanation": "my linkedin profile",
-        "link": "https://www.linkedin.com/in/okdohyuk/"
-      },
-      {
-        "title": "YouTube",
-        "explanation": "A distant future video may be uploaded...?",
-        "link": "https://www.youtube.com/@okdohyuk"
-      },
-      { "title": "Sponsor", "explanation": "🙏", "link": "https://toss.me/guksu" }
-    ]
-  }
+  "domain": "okdohyuk.dev",
+  "title": "Web Multi Tool Platform",
+  "subTitle": "It offers several simple and easy-to-use web tools."
 }
