@@ -1,50 +1,11 @@
 {
   "openGraph": {
-    "title": "개발자 유도혁",
-    "ogTitle": "개발자 유도혁",
-    "description": "안녕하세요! 디테일을 중요시하는 개발자 유도혁입니다."
+    "title": "okdohyuk - 웹 멀티툴 플랫폼",
+    "ogTitle": "okdohyuk - 웹 멀티툴 플랫폼",
+    "description": "웹 멀티툴 플랫폼은 간편하게 사용할 수 있는 여러 웹 도구를 제공합니다."
   },
   "downloads": "다운로드",
-  "nickname": "유도혁",
-  "title": {
-    "primary": "고품질의 ",
-    "secondary": "웹 개발자"
-  },
-  "subTitle": "안전한 타입, 한 픽셀의 오차도 용납하지 않습니다, 즐기는 사람, 그리고 포기하지 않습니다!",
-  "myLinks": {
-    "title": "링크",
-    "array": [
-      {
-        "title": "프로필",
-        "explanation": "수시로 업데이트되는 프로필입니다.",
-        "link": "https://me.okdohyuk.dev/"
-      },
-      {
-        "title": "블로그",
-        "explanation": "생각과 기록을 정리하는 장소입니다.",
-        "link": "https://blog.okdohyuk.dev/"
-      },
-      {
-        "title": "깃허브",
-        "explanation": "깃허브 주소입니다.",
-        "link": "https://github.com/okdohyuk"
-      },
-      {
-        "title": "로켓펀치",
-        "explanation": "로켓펀치 프로필 입니다. 연결신청 해주세요",
-        "link": "https://www.rocketpunch.com/@okdohyuk"
-      },
-      {
-        "title": "링크드인",
-        "explanation": "링크드인 프로필입니다.",
-        "link": "https://www.linkedin.com/in/okdohyuk/"
-      },
-      {
-        "title": "유튜브",
-        "explanation": "먼... 미래 영상이 올라갈지도...?",
-        "link": "https://www.youtube.com/@okdohyuk"
-      },
-      { "title": "후원하기", "explanation": "🙏", "link": "https://toss.me/guksu" }
-    ]
-  }
+  "domain": "okdohyuk.dev",
+  "title": "웹 멀티툴 플랫폼",
+  "subTitle": "간편하고 쉽게 사용할 수 있는 여러 웹 도구를 제공합니다."
 }
