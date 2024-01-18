@@ -4,13 +4,13 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
-import Link from '@components/Basic/Link';
-import Opengraph from '@components/Basic/Opengraph';
+import Link from '~/components/basic/Link';
+import Opengraph from '~/components/basic/Opengraph';
 import { MenuItem, Menus, menus } from '@assets/datas/menus';
-import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
+import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
 import dynamic from 'next/dynamic';
 
-const UserInfoCard = dynamic(() => import('@components/Complex/Card/UserInfoCard'), { ssr: false });
+const UserInfoCard = dynamic(() => import('@components/complex/Card/UserInfoCard'), { ssr: false });
 
 function MenuPage() {
   const { t } = useTranslation('menu');

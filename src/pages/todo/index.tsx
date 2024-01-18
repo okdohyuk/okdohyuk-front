@@ -6,10 +6,10 @@ import { TodoStoreState } from '@stores/TodoStore/type';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
+import Opengraph from '~/components/basic/Opengraph';
+import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
 
-const ToDoCard = dynamic(() => import('@components/Complex/Card/ToDoCard'), { ssr: false });
+const ToDoCard = dynamic(() => import('@components/todo/ToDoCard'), { ssr: false });
 
 type TodoAppComponent = ({ todoStore }: { todoStore: TodoStoreState }) => JSX.Element;
 

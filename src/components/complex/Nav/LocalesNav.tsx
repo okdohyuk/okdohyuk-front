@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Link from '@components/Basic/Link';
+import Link from '~/components/basic/Link';
 
 function LocalesNav() {
   const { asPath, locale } = useRouter();

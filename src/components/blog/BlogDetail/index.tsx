@@ -2,7 +2,7 @@ import React from 'react';
 
 import BlogHeader from './BlogHeader';
 import { BlogComponent } from './type';
-import MarkDown from '@components/Complex/MarkDown';
+import MarkDown from '@components/complex/MarkDown';
 
 const BlogPost: BlogComponent = ({ blog }) => {
   const { contents } = blog;

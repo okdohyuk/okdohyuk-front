@@ -6,13 +6,13 @@ import { useTranslation, withTranslation } from 'next-i18next';
 import { blogApi, storageApi, userApi } from '@api';
 import { UserRoleEnum } from '~/spec/api/User';
 import Jwt from '~/utils/jwtUtils';
-import BlogPost from '~/components/Complex/Blog';
+import BlogDetail from '@components/blog/BlogDetail';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import Opengraph from '~/components/Basic/Opengraph';
+import Opengraph from '~/components/basic/Opengraph';
 import { MdImage } from 'react-icons/md';
-import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
+import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
 
 type BlogPageProps = {
   blog: Blog | null;
@@ -118,7 +118,7 @@ function BlogWritePage({ blog }: BlogPageProps) {
 
         <div className="flex-1 hidden lg:block overflow-y-scroll">
           <MobileScreenWrapper>
-            <BlogPost blog={watch()} />
+            <BlogDetail blog={watch()} />
           </MobileScreenWrapper>
         </div>
       </div>

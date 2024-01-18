@@ -4,7 +4,7 @@ import Aside from './Aside';
 import CodeWindow from './CodeWindow';
 import { MarkDownProps } from './type';
 import Table from './Table';
-import Link from '@components/Basic/Link';
+import Link from '~/components/basic/Link';
 
 const MarkDown: MarkDownProps = ({ contents }) => {
   return (

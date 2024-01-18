@@ -1,7 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
 import { BlogComponent } from './type';
-import Link from '@components/Basic/Link';
+import Link from '@components/basic/Link';
 
 const BlogHeader: BlogComponent = ({ blog }) => {
   const { thumbnailImage, title, createdAt, urlSlug } = blog;

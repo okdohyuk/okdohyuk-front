@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticPropsContext } from 'next';
-import Opengraph from '@components/Basic/Opengraph';
+import Opengraph from '~/components/basic/Opengraph';
 import Image from 'next/image';
 import logoIcon from '../../public/logo.svg';
 

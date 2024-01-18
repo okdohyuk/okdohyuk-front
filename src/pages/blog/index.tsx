@@ -1,35 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import BlogCard from '@components/Complex/Blog/BlogCard';
-import useStore from '@hooks/useStore';
-import useInfiniteScroll from '@hooks/useInfiniteScroll';
+import BlogCard from '@components/blog/BlogCard';
 import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
-import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
+import Opengraph from '@components/basic/Opengraph';
+import useBlogSearch from '@hooks/blog/useBlogSearch';
+import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
 
 function BlogPage() {
   const { t } = useTranslation('blog/index');
-  const { blogs, getBlogsPage, status, isLastPage } = useStore('blogStore');
-  const { setIsFetching, isFetching } = useInfiniteScroll();
-
-  useEffect(() => {
-    if (!isFetching) return;
-    getBlogsPage(10);
-  }, [isFetching]);
-
-  useEffect(() => {
-    if (isLastPage) return;
-    if (status === 'success') {
-      setIsFetching(false);
-    }
-  }, [status, isLastPage]);
-
-  useEffect(() => {
-    if (status === 'idle') setIsFetching(true);
-  }, []);
+  const { blogs, status } = useBlogSearch();
 
   return (
     <>
@@ -39,8 +21,9 @@ function BlogPage() {
         description={t('openGraph.description')}
         isAds
       />
-      <MobileScreenWrapper>
+      <AsideScreenWrapper right={<div className="w-56 h-[700px] bg-basic-3 mt-8 mr-4 ml-4"></div>}>
         <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
+
         <div className={'flex flex-col w-full gap-2'}>
           {blogs?.map((blog) => (
             <BlogCard key={blog.urlSlug} blog={blog} />
@@ -51,7 +34,7 @@ function BlogPage() {
             </div>
           ) : null}
         </div>
-      </MobileScreenWrapper>
+      </AsideScreenWrapper>
     </>
   );
 }

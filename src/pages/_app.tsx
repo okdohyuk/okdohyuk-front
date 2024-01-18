@@ -6,9 +6,9 @@ import stores from '@stores';
 import { useRouter } from 'next/router';
 import * as gtag from '@libs/client/gtag';
 import { appWithTranslation } from 'next-i18next';
-import CommonLayout from '~/components/Complex/Layouts/CommonLayout';
+import CommonLayout from '@components/complex/Layout/CommonLayout';
 import { Analytics } from '@vercel/analytics/react';
-import AxiosInterceptor from '@components/Complex/Layouts/AxiosInterceptor';
+import AxiosInterceptor from '@components/complex/Layout/AxiosInterceptor';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

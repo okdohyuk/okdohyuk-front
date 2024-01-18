@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { MdArticle, MdHome, MdMenu } from 'react-icons/md';
-import Link from '@components/Basic/Link';
+import Link from '~/components/basic/Link';
 import ClassName from '@utils/classNameUtils';
 
 type NavItem = {

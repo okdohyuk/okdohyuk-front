@@ -1,7 +1,7 @@
 import React from 'react';
 import { Blog } from '@api/Blog';
 import Image from 'next/image';
-import Link from '@components/Basic/Link';
+import Link from '~/components/basic/Link';
 import markdownUtils from '@utils/markdownUtils';
 import ClassName from '~/utils/classNameUtils';
 
