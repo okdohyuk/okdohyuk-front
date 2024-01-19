@@ -8,6 +8,7 @@ export function middleware(request: NextRequest) {
   const accessToken = request.cookies.get('access_token');
 
   if (request.nextUrl.pathname.startsWith('/admin')) {
+
     if (!accessToken) return NextResponse.rewrite(new URL('/404', request.url));
     const jwt = Jwt;
     const tokenPayload = jwt.getPayload(accessToken);
@@ -26,5 +27,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin'],
+  matcher: ['/admin', '/admin/((?!general).*)'],
 };
