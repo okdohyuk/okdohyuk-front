@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { Blog } from '@api/Blog';
+import { Blog, BlogCategory, BlogRequest } from '@api/Blog';
 import { useTranslation, withTranslation } from 'next-i18next';
 import { blogApi, storageApi, userApi } from '@api';
 import { UserRoleEnum } from '~/spec/api/User';
@@ -13,26 +13,44 @@ import { useRouter } from 'next/router';
 import Opengraph from '~/components/basic/Opengraph';
 import { MdImage } from 'react-icons/md';
 import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
+import { accessToken } from '~/utils/userTokenUtil';
+import BlogUtils from '~/utils/blogUtils';
+import InputTag from '~/components/complex/InputTag';
+import { cls } from '~/utils/classNameUtils';
 
 type BlogPageProps = {
   blog: Blog | null;
+  categorys: BlogCategory[];
 };
 
-function BlogWritePage({ blog }: BlogPageProps) {
+const defaultValue: BlogRequest = {
+  title: '',
+  thumbnailImage: '',
+  contents: '',
+  isPublic: false,
+  categoryId: '',
+  tags: [],
+};
+
+type SelectFC = (category: BlogCategory) => React.ReactElement;
+
+function BlogWritePage({ blog, categorys }: BlogPageProps) {
   const { t } = useTranslation('blog/write');
-  const { register, watch, handleSubmit } = useForm<Blog>({
-    defaultValues: blog ? blog : { createdAt: new Date().toString(), contents: '' },
+  const { register, watch, handleSubmit, setValue } = useForm<Blog & BlogRequest>({
+    defaultValues: blog ? BlogUtils.toBlogRequest(blog, categorys) : defaultValue,
   });
+  const tags = watch('tags');
   const [imageUrl, setImageUrl] = React.useState<string>('');
   const { push } = useRouter();
 
-  const onSubmit: SubmitHandler<Blog> = async (submitBlog) => {
-    const accessToken = Cookies.get('access_token');
+  const onSubmit: SubmitHandler<BlogRequest> = async (submitBlog) => {
+    console.log(submitBlog.tags);
+
     try {
       if (!blog) {
-        await blogApi.postBlog('Bearer ' + accessToken, submitBlog);
+        await blogApi.postBlog(accessToken, submitBlog);
       } else {
-        await blogApi.putBlogUrlSlug('Bearer ' + accessToken, blog.urlSlug, submitBlog);
+        await blogApi.putBlogUrlSlug(accessToken, blog.urlSlug, submitBlog);
       }
       if (submitBlog.isPublic) {
         push('/blog/' + submitBlog.title.replaceAll(' ', '-'));
@@ -60,6 +78,28 @@ function BlogWritePage({ blog }: BlogPageProps) {
     }
   };
 
+  const renderSelect: SelectFC = (category) => {
+    return (
+      <React.Fragment key={category.id}>
+        <option value={category.id} key={category.id}>
+          {category.name}
+        </option>
+        {category.child?.map(renderSelect)}
+      </React.Fragment>
+    );
+  };
+
+  function addTag(tag: string): void {
+    setValue('tags', [...tags, tag]);
+  }
+
+  function removeTag(tag: string): void {
+    setValue(
+      'tags',
+      tags.filter((t) => t !== tag),
+    );
+  }
+
   return (
     <>
       <Opengraph title={'Blog Edit '} ogTitle={'Blog Edit'} description={'Blog Edit'} />
@@ -80,8 +120,30 @@ function BlogWritePage({ blog }: BlogPageProps) {
               placeholder={t('form.thumbnailImage')}
               {...register('thumbnailImage')}
             />
+
+            <div className="inline-block relative w-64">
+              <select
+                className="block appearance-none w-full input-text leading-tight overflow-hidden"
+                {...register('categoryId')}
+              >
+                <option value="">-</option>
+                {categorys.map(renderSelect)}
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg
+                  className="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </div>
+            </div>
+
+            <InputTag tags={tags} addTag={addTag} removeTag={removeTag} />
+
             <div className="flex gap-2">
-              <input className="input-text flex-1" value={imageUrl} />
+              <input className="input-text flex-1" value={imageUrl} readOnly />
               <div>
                 <label className="" htmlFor={'upload-image'} onClick={onClickHandler}>
                   <button className="button h-[38px]">
@@ -143,12 +205,14 @@ export const getServerSideProps: GetServerSideProps = async ({
     if (user.role !== UserRoleEnum.Admin) return { notFound: true };
 
     const translations = await serverSideTranslations(locale + '', ['common', 'blog/write']);
+    const { data: categorys } = await blogApi.getBlogCategory();
 
     if (!urlSlug)
       return {
         props: {
           ...translations,
           blog: null,
+          categorys,
         },
       };
 
@@ -158,6 +222,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       props: {
         ...translations,
         blog,
+        categorys,
       },
     };
   } catch (e) {
