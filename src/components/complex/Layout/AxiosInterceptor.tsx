@@ -48,8 +48,11 @@ function AxiosInterceptor() {
         } = error.response;
 
         switch (status) {
-          case 401:
-            return code == 6 ? await refresh(originalConfig) : logoutAndLogin();
+          case 401: {
+            if (code == 6) return await refresh(originalConfig);
+            logoutAndLogin();
+            break;
+          }
           /** TODO custom alert */
           default:
             window.alert(errorMessage);
