@@ -22,14 +22,14 @@ const useBlogCategory = () => {
       name: parent.name,
     };
 
-    await blogApi.patchBlogCategoryId(accessToken, parent.id, postdata);
+    await blogApi.patchBlogCategoryId(parent.id, accessToken, postdata);
   };
 
   const remove = async ({ parent }: UseCategoryProps) => {
     if (!(parent && parent.id && parent.name)) return;
     if (!window.confirm('정말 삭제 하시겠습니까?')) return;
 
-    await blogApi.deleteBlogCategoryId(accessToken, parent.id);
+    await blogApi.deleteBlogCategoryId(parent.id, accessToken);
   };
 
   return { post, patch, remove };

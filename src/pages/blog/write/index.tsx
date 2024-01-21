@@ -50,7 +50,7 @@ function BlogWritePage({ blog, categorys }: BlogPageProps) {
       if (!blog) {
         await blogApi.postBlog(accessToken, submitBlog);
       } else {
-        await blogApi.putBlogUrlSlug(accessToken, blog.urlSlug, submitBlog);
+        await blogApi.putBlogUrlSlug(blog.urlSlug, accessToken, submitBlog);
       }
       if (submitBlog.isPublic) {
         push('/blog/' + submitBlog.title.replaceAll(' ', '-'));
