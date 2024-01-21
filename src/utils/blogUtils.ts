@@ -4,11 +4,11 @@ export default class BlogUtils {
   static toBlogRequest(blog: Blog, category: BlogCategory[]): BlogRequest {
     return {
       ...blog,
-      categoryId: this.findCurrentCategory(blog.categoryChain, category),
+      categoryId: this.findIdByCategoryChain(blog.categoryChain, category),
     };
   }
 
-  static findCurrentCategory = (
+  static findIdByCategoryChain = (
     categoryChain: string[] | undefined,
     category: BlogCategory[] | undefined,
   ): string | undefined => {
@@ -16,6 +16,6 @@ export default class BlogUtils {
     const currentCategory = category.find((category) => category.name === categoryChain[0]);
     if (!currentCategory) return;
     if (categoryChain.length === 1) return currentCategory.id;
-    return this.findCurrentCategory(categoryChain.slice(1), currentCategory.child);
+    return this.findIdByCategoryChain(categoryChain.slice(1), currentCategory.child);
   };
 }
