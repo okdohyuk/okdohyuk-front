@@ -5,6 +5,6 @@ type BlogProps = {
   blog: Blog;
 };
 
-type BlogComponent = ({ blog }: BlogProps) => React.JSX.Element;
+type BlogComponent = React.FC<BlogProps>;
 
 export type { BlogProps, BlogComponent };
