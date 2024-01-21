@@ -1,0 +1,39 @@
+import React from 'react';
+import BlogCard from './BlogCard';
+import { observer } from 'mobx-react';
+import useStore from '~/hooks/useStore';
+import { cls } from '~/utils/classNameUtils';
+import { useTranslation } from 'next-i18next';
+
+type BlogSearchSortFC = React.FC;
+
+const BlogSearchList: BlogSearchSortFC = () => {
+  const { blogs, count, viewType } = useStore('blogSearchStore');
+  const { t } = useTranslation('blog/index');
+
+  return (
+    <div className="mt-4">
+      <div className="t-d-1 t-basic-1">
+        {t('resultCount')}
+        {count}
+      </div>
+      <div
+        className={cls(
+          'w-full gap-2 mt-4',
+          viewType === 'frame' ? 'grid grid-cols-2 lg:grid-cols-3' : 'flex flex-col',
+        )}
+      >
+        {blogs?.map((blog) => (
+          <BlogCard key={blog.urlSlug} blog={blog} type={viewType} />
+        ))}
+      </div>
+      {/* {status === 'loading' ? (
+          <div className={'flex justify-center'}>
+            <MdAutorenew className={'text-black dark:text-white animate-spin'} size={24} />
+          </div>
+        ) : null} */}
+    </div>
+  );
+};
+
+export default observer(BlogSearchList);
