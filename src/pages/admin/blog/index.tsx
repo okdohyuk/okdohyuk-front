@@ -10,6 +10,7 @@ import { MdAutorenew } from 'react-icons/md';
 import Opengraph from '~/components/basic/Opengraph';
 import MobileScreenWrapper from '~/components/complex/Layout/MobileScreenWrapper';
 import Cookies from 'js-cookie';
+import { BlogSearch } from '~/spec/api/Blog';
 
 function BlogAdminPage() {
   const { t } = useTranslation('blog/index');
@@ -44,7 +45,7 @@ function BlogAdminPage() {
         <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
         <div className={'flex flex-col w-full gap-2'}>
           {blogs?.map((blog) => (
-            <BlogCard key={blog.urlSlug} blog={blog} isAdmin />
+            <BlogCard key={blog.urlSlug} blog={blog as BlogSearch} isAdmin type="board" />
           ))}
           {status === 'loading' ? (
             <div className={'flex justify-center'}>
