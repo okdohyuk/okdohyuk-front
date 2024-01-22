@@ -14,7 +14,7 @@ type BlogPageProps = {
 };
 
 function BlogDetailPage({ blog }: BlogPageProps) {
-  const { title, contents, thumbnailImage } = blog;
+  const { title, contents, thumbnailImage, tags } = blog;
   return (
     <>
       <Opengraph
@@ -22,7 +22,7 @@ function BlogDetailPage({ blog }: BlogPageProps) {
         ogTitle={title}
         description={markdownUtils.removeMarkdown(contents).slice(0, 155) + '..'}
         image={thumbnailImage}
-        keywords={title.split(' ')}
+        keywords={tags}
         contentType="article"
         isAds
       />

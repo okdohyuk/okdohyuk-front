@@ -3,6 +3,7 @@ import React from 'react';
 import BlogHeader from './BlogHeader';
 import { BlogComponent } from './type';
 import MarkDown from '@components/complex/MarkDown';
+import BlogBottom from './BlogBottom';
 
 const BlogPost: BlogComponent = ({ blog }) => {
   const { contents } = blog;
@@ -11,6 +12,7 @@ const BlogPost: BlogComponent = ({ blog }) => {
     <>
       <BlogHeader blog={blog} />
       <MarkDown contents={contents} />
+      <BlogBottom blog={blog} />
     </>
   );
 };
