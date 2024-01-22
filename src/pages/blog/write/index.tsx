@@ -16,7 +16,6 @@ import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper'
 import { accessToken } from '~/utils/userTokenUtil';
 import BlogUtils from '~/utils/blogUtils';
 import InputTag from '~/components/complex/InputTag';
-import { cls } from '~/utils/classNameUtils';
 
 type BlogPageProps = {
   blog: Blog | null;
@@ -50,13 +49,10 @@ function BlogWritePage({ blog, categorys }: BlogPageProps) {
       if (!blog) {
         await blogApi.postBlog(accessToken, submitBlog);
       } else {
-        await blogApi.putBlogUrlSlug(blog.urlSlug, accessToken, submitBlog);
+        await blogApi.patchBlogUrlSlug(blog.urlSlug, accessToken, submitBlog);
       }
-      if (submitBlog.isPublic) {
-        push('/blog/' + submitBlog.title.replaceAll(' ', '-'));
-      } else {
-        push('/admin/blog');
-      }
+
+      push('/admin/blog');
     } catch (e) {
       console.error('-> e', e);
     }
