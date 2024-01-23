@@ -25,7 +25,7 @@ const Board: BlogCardTypeFC = ({ blog }) => {
 
       <div className="ml-auto flex whitespace-nowrap overflow-hidden">
         {tags.map((t) => (
-          <Tag tag={t} />
+          <Tag tag={t} key={t} />
         ))}
       </div>
     </article>
