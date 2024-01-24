@@ -27,11 +27,11 @@ const Discript: BlogCardTypeFC = ({ blog }) => {
         ) : null}
       </div>
       <div className={'flex flex-col flex-1 text-left justify-start overflow-hidden'}>
-        <h2 className={'my-2 md:my-4 t-d-1 font-bold t-basic-1 line-clamp-1'}>{title}</h2>
+        <h2 className={'my-1 md:my-4 t-d-1 font-bold t-basic-1 line-clamp-1'}>{title}</h2>
         <p className={'t-d-3 t-basic-1 line-clamp-2 md:line-clamp-4'}>
           {markdownUtils.removeMarkdown(contents)}
         </p>
-        <span className="mt-auto mb-4 t-c-1 t-basic-2">{DateUtils.foramtDate(createdAt)}</span>
+        <span className="mt-auto md:mb-4 t-c-1 t-basic-2">{DateUtils.foramtDate(createdAt)}</span>
       </div>
     </article>
   );
