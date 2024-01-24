@@ -4,11 +4,12 @@ import { observer } from 'mobx-react';
 import useStore from '~/hooks/useStore';
 import { cls } from '~/utils/classNameUtils';
 import { useTranslation } from 'next-i18next';
+import BlogCardSkeleton from './BlogCardSkeleton';
 
 type BlogSearchSortFC = React.FC;
 
 const BlogSearchList: BlogSearchSortFC = () => {
-  const { blogs, count, viewType } = useStore('blogSearchStore');
+  const { blogs, count, viewType, status, isLast } = useStore('blogSearchStore');
   const { t } = useTranslation('blog/index');
 
   return (
@@ -26,12 +27,11 @@ const BlogSearchList: BlogSearchSortFC = () => {
         {blogs?.map((blog) => (
           <BlogCard key={blog.urlSlug} blog={blog} type={viewType} />
         ))}
+        {status === 'loading'
+          ? [...new Array(3)].map(() => <BlogCardSkeleton type={viewType} />)
+          : null}
+        {!isLast ? <BlogCardSkeleton type={viewType} /> : null}
       </div>
-      {/* {status === 'loading' ? (
-          <div className={'flex justify-center'}>
-            <MdAutorenew className={'text-black dark:text-white animate-spin'} size={24} />
-          </div>
-        ) : null} */}
     </div>
   );
 };
