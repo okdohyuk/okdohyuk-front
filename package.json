@@ -37,6 +37,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.6.0",
+    "react-modern-drawer": "^1.2.2",
     "react-share": "^4.4.1",
     "sharp": "^0.32.6",
     "tailwindcss-safe-area": "^0.2.2",

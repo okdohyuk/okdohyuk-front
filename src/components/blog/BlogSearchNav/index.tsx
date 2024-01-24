@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-import FilterDropdown from '~/components/complex/FilterDropdown';
-import useStore from '~/hooks/useStore';
-import { cls } from '~/utils/classNameUtils';
+import FilterDropdown from '@components/complex/FilterDropdown';
+import useStore from '@hooks/useStore';
+import { cls } from '@utils/classNameUtils';
 
 type BlogSearchNavProps = {
   hasMargin?: boolean;
@@ -16,7 +16,12 @@ const BlogSearchNav: BlogSearchNavFC = ({ hasMargin = false }) => {
   const { t } = useTranslation('blog/index');
 
   return (
-    <div className={cls('w-[250px] h-[700px] bg-basic-3', hasMargin ? 'mt-8 mr-4 ml-4' : '')}>
+    <div
+      className={cls(
+        'w-[250px] bg-basic-3 p-0',
+        hasMargin ? 'h-fit mt-8 mr-4 ml-auto rounded overflow-hidden' : 'h-full overflow-y-scroll',
+      )}
+    >
       <FilterDropdown
         title={t('filter.category')}
         items={categorys}
