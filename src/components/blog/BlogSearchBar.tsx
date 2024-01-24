@@ -19,7 +19,7 @@ const BlogSearchBar: BlogSearchBarFC = ({ toggleDrawer }) => {
   return (
     <div className="flex gap-4">
       <label className="relative flex-1">
-        <MdOutlineSearch className="w-6 h-6 ml-1 top-1/2 transform -translate-y-1/2 absolute text-white" />
+        <MdOutlineSearch className="w-6 h-6 ml-1 top-1/2 transform -translate-y-1/2 absolute t-basic-3" />
         <input
           className="w-full input-text pl-8"
           type="text"
