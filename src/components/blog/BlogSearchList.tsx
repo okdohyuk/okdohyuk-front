@@ -28,7 +28,7 @@ const BlogSearchList: BlogSearchSortFC = () => {
           <BlogCard key={blog.urlSlug} blog={blog} type={viewType} />
         ))}
         {status === 'loading'
-          ? [...new Array(3)].map(() => <BlogCardSkeleton type={viewType} />)
+          ? [...new Array(3)].map((d, i) => <BlogCardSkeleton type={viewType} key={i} />)
           : null}
         {!isLast ? <BlogCardSkeleton type={viewType} /> : null}
       </div>
