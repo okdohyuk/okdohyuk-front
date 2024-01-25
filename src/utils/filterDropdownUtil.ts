@@ -52,4 +52,15 @@ export default class FilterDropdownUtils {
       child: this.byBlogCategory(category.child),
     }));
   };
+
+  static findValueByChain = (
+    chain: string[] | undefined,
+    items: FilterDropdownItem[] | undefined,
+  ): string | undefined => {
+    if (!chain || !items) return;
+    const currentItem = items.find((item) => item.name === chain[0]);
+    if (!currentItem) return;
+    if (chain.length === 1) return currentItem.value;
+    return this.findValueByChain(chain.slice(1), currentItem.child);
+  };
 }
