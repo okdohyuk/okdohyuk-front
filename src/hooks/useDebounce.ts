@@ -9,6 +9,7 @@ export default function useDebounce<T>(value: T, delay: number) {
     }, delay);
 
     return () => {
+      if (debouncedValue === null) return setDebouncedValue(value);
       clearTimeout(handler);
     };
   }, [value, delay]);
