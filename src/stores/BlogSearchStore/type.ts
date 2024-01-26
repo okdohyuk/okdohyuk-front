@@ -19,8 +19,10 @@ type BlogSearchStoreState = {
 
   page: number;
   limit: number;
-  title: string;
+  title: string | null;
   orderBy: BlogOrderByEnum;
+
+  prevPath: string | null;
 
   getBlogList: (reset: boolean) => void;
 
@@ -33,6 +35,7 @@ type BlogSearchStoreState = {
   changeTagType: (value: string, type: FilterType) => void;
 
   setViewType: (viewType: BlogCardType) => void;
+  setPrevPath: (prevPath: string | null) => void;
 };
 
 export type { BlogSearchStoreState, Status };

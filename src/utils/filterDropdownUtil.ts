@@ -37,6 +37,41 @@ export default class FilterDropdownUtils {
     return result;
   };
 
+  static getInsChain = (items: FilterDropdownItem[]): string[][] => {
+    const result: string[][] = [];
+
+    const checkChild = (items: FilterDropdownItem[], chain: string[] = []) => {
+      for (const item of items) {
+        if (item.type === 'in') {
+          result.push([...chain, item.name]);
+        }
+        if (item.child) {
+          checkChild(item.child, [...chain, item.name]);
+        }
+      }
+    };
+
+    checkChild(items);
+    return result;
+  };
+  static getNotInsChain = (items: FilterDropdownItem[]): string[][] => {
+    const result: string[][] = [];
+
+    const checkChild = (items: FilterDropdownItem[], chain: string[] = []) => {
+      for (const item of items) {
+        if (item.type === 'notIn') {
+          result.push([...chain, item.name]);
+        }
+        if (item.child) {
+          checkChild(item.child, [...chain, item.name]);
+        }
+      }
+    };
+
+    checkChild(items);
+    return result;
+  };
+
   static byString = (array: string[]): FilterDropdownItem[] =>
     array.map((string) => ({
       value: string,
@@ -58,9 +93,19 @@ export default class FilterDropdownUtils {
     items: FilterDropdownItem[] | undefined,
   ): string | undefined => {
     if (!chain || !items) return;
-    const currentItem = items.find((item) => item.name === chain[0]);
-    if (!currentItem) return;
-    if (chain.length === 1) return currentItem.value;
-    return this.findValueByChain(chain.slice(1), currentItem.child);
+
+    let result: string | undefined = undefined;
+
+    for (const item of items) {
+      if (item.name === chain[0]) {
+        if (chain.length === 1) {
+          result = item.value;
+        } else {
+          return this.findValueByChain(chain.slice(1), item.child ? item.child : undefined);
+        }
+      }
+    }
+
+    return result;
   };
 }

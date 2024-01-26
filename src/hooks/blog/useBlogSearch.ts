@@ -17,22 +17,28 @@ const useBlogSearch = (initCategorys: BlogCategory[], initTags: string[]) => {
     categorys: findCategorys,
     tags: findTags,
     orderBy,
-    title,
+    title: titleS,
     setOrderBy,
     setTitle,
     changeTagType,
     changeCategoryType,
+    prevPath,
+    setPrevPath,
   } = useStore('blogSearchStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
-  const { query, isReady } = useRouter();
+  const { query, isReady, replace } = useRouter();
   const [isFirst, setIsFirst] = useState(true);
-  const titleD = useDebounce(title, 1000);
+  const titleD = useDebounce(titleS, 1000);
+
+  useEffect(() => {
+    setBlogCategorys(initCategorys);
+    setBlogTags(initTags);
+  }, [initCategorys, initTags, setBlogCategorys, setBlogTags]);
 
   // 최초 렌더링 시 검색 조건 적용
   useEffect(() => {
+    if (initCategorys.length === 0 || initTags.length === 0) return;
     if (!isReady || !isFirst) return;
-    setBlogCategorys(initCategorys);
-    setBlogTags(initTags);
 
     const { findValueByChain } = FilterDropdownUtils;
     const { orderBy, title, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
@@ -54,9 +60,14 @@ const useBlogSearch = (initCategorys: BlogCategory[], initTags: string[]) => {
 
     if (title && typeof title === 'string') {
       setTitle(title);
+    } else {
+      setTitle('');
     }
+
     if (orderBy === 'RESENT' || orderBy === 'TITLE') {
       setOrderBy(orderBy);
+    } else {
+      setOrderBy('RESENT');
     }
     if (categoryIn) {
       if (typeof categoryIn === 'string') {
@@ -80,25 +91,82 @@ const useBlogSearch = (initCategorys: BlogCategory[], initTags: string[]) => {
     }
 
     setIsFirst(false);
-  }, [query, isReady, initCategorys, initTags]);
+  }, [
+    query,
+    isReady,
+    initCategorys,
+    initTags,
+    isFirst,
+    setBlogCategorys,
+    setBlogTags,
+    findCategorys,
+    changeCategoryType,
+    changeTagType,
+    setTitle,
+    setOrderBy,
+  ]);
 
   // 무한 스크롤 로직
   useEffect(() => {
     if (!isFetching) return;
     getBlogList(false);
-  }, [isFetching]);
+  }, [getBlogList, isFetching]);
 
   useEffect(() => {
     if (status === 'success') {
       setIsFetching(false);
     }
-  }, [status]);
+  }, [setIsFetching, status]);
 
   // 검색 조건 변경 시 적용
   useEffect(() => {
-    if (isFirst) return;
+    if (isFirst || titleD === null) return;
+
+    const stringParams: { [key: string]: string } = {
+      title: titleD ? titleD : '',
+      tagIn: FilterDropdownUtils.getIns(findTags).toString(),
+      tagNotIn: FilterDropdownUtils.getNotIns(findTags).toString(),
+    };
+
+    const arraryParams: { [key: string]: string[][] } = {
+      categoryIn: FilterDropdownUtils.getInsChain(findCategorys),
+      categoryNotIn: FilterDropdownUtils.getNotInsChain(findCategorys),
+    };
+
+    const params = new URLSearchParams();
+
+    for (const key in stringParams) {
+      if (stringParams[key] !== undefined && stringParams[key] !== '') {
+        params.append(key, stringParams[key]);
+      }
+    }
+    for (const key in arraryParams) {
+      if (arraryParams[key].length !== 0) {
+        arraryParams[key].forEach((value) => {
+          params.append(key, value.toString());
+        });
+      }
+    }
+    if (orderBy !== 'RESENT') {
+      params.append('orderBy', orderBy);
+    }
+    const url = '/blog' + (params.size === 0 ? '' : '?' + params.toString());
+    if (prevPath === url) return;
+    replace(url, url, { shallow: true });
+    setPrevPath(url);
+
     getBlogList(true);
-  }, [titleD, orderBy, findCategorys, findTags, isFirst]);
+  }, [
+    titleD,
+    orderBy,
+    findCategorys,
+    findTags,
+    isFirst,
+    prevPath,
+    replace,
+    setPrevPath,
+    getBlogList,
+  ]);
 
   return { blogs, status };
 };

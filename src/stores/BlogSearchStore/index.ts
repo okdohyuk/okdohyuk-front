@@ -19,8 +19,10 @@ class BlogSearchStore implements BlogSearchStoreState {
 
   @observable public page = 0;
   @observable public limit = 10;
-  @observable public title = '';
+  @observable public title: string | null = null;
   @observable public orderBy: BlogOrderByEnum = BlogOrderByEnum.Resent;
+
+  @observable public prevPath: string | null = null;
 
   constructor() {
     makeObservable(this);
@@ -138,6 +140,12 @@ class BlogSearchStore implements BlogSearchStoreState {
   public setViewType = (viewType: BlogCardType) => {
     runInAction(() => {
       this.viewType = viewType;
+    });
+  };
+
+  public setPrevPath = (prevPath: string | null) => {
+    runInAction(() => {
+      this.prevPath = prevPath;
     });
   };
 }
