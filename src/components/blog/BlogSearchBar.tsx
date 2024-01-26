@@ -5,6 +5,7 @@ import { MdOutlineSearch, MdFilterList } from 'react-icons/md';
 import useStore from '~/hooks/useStore';
 import { MdOutlineViewList, MdGridView } from 'react-icons/md';
 import { cls } from '~/utils/classNameUtils';
+import Select from '../complex/Select';
 
 type BlogSearchBarProps = {
   toggleDrawer: () => void;
@@ -14,7 +15,14 @@ type BlogSearchBarFC = React.FC<BlogSearchBarProps>;
 
 const BlogSearchBar: BlogSearchBarFC = ({ toggleDrawer }) => {
   const { t } = useTranslation('blog/index');
-  const { title, setTitle, viewType, setViewType } = useStore('blogSearchStore');
+  const { title, setTitle, viewType, setViewType, orderBy, setOrderBy } =
+    useStore('blogSearchStore');
+
+  const onOrderByChange = (value: string) => {
+    if (value === 'RESENT' || value === 'TITLE') {
+      setOrderBy(value);
+    }
+  };
 
   return (
     <div className="flex gap-4">
@@ -23,7 +31,7 @@ const BlogSearchBar: BlogSearchBarFC = ({ toggleDrawer }) => {
         <input
           className="w-full input-text pl-8"
           type="text"
-          value={title}
+          value={title ? title : ''}
           onChange={(e) => setTitle(e.target.value)}
         />
       </label>
@@ -45,6 +53,10 @@ const BlogSearchBar: BlogSearchBarFC = ({ toggleDrawer }) => {
           <MdGridView className="w-6 h-6" />
         </button>
       </div>
+      <Select value={orderBy} onChange={onOrderByChange} className="h-full w-24">
+        <option value="RESENT">{t('filter.orderBy.resent')}</option>
+        <option value="TITLE">{t('filter.orderBy.title')}</option>
+      </Select>
     </div>
   );
 };

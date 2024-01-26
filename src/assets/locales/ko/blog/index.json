@@ -9,6 +9,10 @@
   "filter": {
     "index": "필터",
     "category": "카테고리",
-    "tag": "태그"
+    "tag": "태그",
+    "orderBy": {
+      "resent": "최신순",
+      "title": "제목"
+    }
   }
 }

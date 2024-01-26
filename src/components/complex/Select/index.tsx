@@ -8,7 +8,7 @@ const Select: SelectFC = ({ className = '', children, placeholder, form, value, 
   };
 
   return (
-    <div className={cls('inline-block relative w-64', className)}>
+    <div className={cls('inline-block relative', className)}>
       <select
         className="block appearance-none w-full h-full input-text leading-tight overflow-hidden"
         placeholder={placeholder}
