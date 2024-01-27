@@ -41,20 +41,14 @@ const Opengraph: OpengraphComponent = ({
       <meta property="og:url" content={URL + router.asPath} />
       <meta property="og:type" content={contentType} />
       <meta property="og:title" content={isMainPage ? ogTitle : ogTitle + tempWithMe} />
-      <meta
-        property="og:description"
-        content={isMainPage ? description : description + tempWithMe}
-      />
+      <meta property="og:description" content={description} />
       <meta property="og:image" content={image ? image : '/opengraph_image.png'} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:domain" content="okdohyuk.dev" />
       <meta property="twitter:url" content={URL + router.asPath} />
       <meta name="twitter:title" content={isMainPage ? ogTitle : ogTitle + tempWithMe} />
-      <meta
-        name="twitter:description"
-        content={isMainPage ? description : description + tempWithMe}
-      />
+      <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image ? image : '/opengraph_image.png'} />
 
       <meta
