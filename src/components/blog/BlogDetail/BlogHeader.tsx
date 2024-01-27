@@ -28,7 +28,7 @@ const BlogHeader: BlogComponent = ({ blog }) => {
         ) : null}
         <div className="absolute flex flex-col justify-center w-full h-full p-6 md:p-10 top-0 left-0 z-10">
           <div className="flex items-center gap-2 t-d-3 text-white mb-2">
-            {categoryChain.map(categoryRender)}
+            {categoryChain ? categoryChain.map(categoryRender) : null}
           </div>
           <h1 className={'t-t-3 lg:t-t-1 text-white mb-4'}>{title}</h1>
           <div className="flex items-center gap-2 t-c-1 text-zinc-300">
