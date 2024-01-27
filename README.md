@@ -1,19 +1,14 @@
-# 개발자 유도혁
+# okdohyuk-front
 
-## 기본
+## 주요 기술 스택
 
-### 스크립트
-
-```jsx
-"scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "vercel-build": "prisma generate && next build && next-sitemap",
-    "postbuild": "next-sitemap",
-    "start": "next start",
-    "test": "jest --watch"
-  }
-```
+- nextJS개발
+- vercel배포
+- 타입스크립트
+- mobx
+- tailwind
+- axios + react-query
 
 ### 노드 버전
-v16
+
+v18
