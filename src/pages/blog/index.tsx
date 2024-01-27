@@ -21,14 +21,14 @@ import BlogUtils from '~/utils/blogUtils';
 type BlogPageProps = {
   categorys: BlogCategory[];
   tags: string[];
-  title: string | null;
+  keyword: string | null;
   query: ParsedUrlQuery;
   initData: BlogSearchResponce;
 };
 
 type BlogPageFC = React.FC<BlogPageProps>;
 
-const BlogPage: BlogPageFC = ({ categorys, tags, title, query, initData }) => {
+const BlogPage: BlogPageFC = ({ categorys, tags, keyword, query, initData }) => {
   const { t } = useTranslation('blog/index');
   const {} = useBlogSearch(categorys, tags, query, initData);
   const [isOpen, setIsOpen] = useState(false);
@@ -37,10 +37,10 @@ const BlogPage: BlogPageFC = ({ categorys, tags, title, query, initData }) => {
   };
 
   const OGTitle =
-    title !== null ? `${title} (${new Date().getFullYear()})` : t('openGraph.defaultTitle');
+    keyword !== null ? `${keyword} (${new Date().getFullYear()})` : t('openGraph.defaultTitle');
   const OGDescription =
-    title !== null
-      ? t('openGraph.description').replace('{title}', title)
+    keyword !== null
+      ? t('openGraph.description').replace('{title}', keyword)
       : t('openGraph.defaultDescription');
 
   return (
@@ -68,7 +68,7 @@ export const getServerSideProps = async ({ locale, query }: GetServerSidePropsCo
     const { data: categorys } = await blogApi.getBlogCategory();
     const { data: tags } = await blogApi.getBlogTag();
 
-    const { orderBy, title, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
+    const { orderBy, keyword, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
     let reqTitle: string | null = null;
     let reqOrderBy: BlogOrderByEnum = 'RESENT';
     const reqCategoryIn: string[] = [];
@@ -95,8 +95,8 @@ export const getServerSideProps = async ({ locale, query }: GetServerSidePropsCo
       }
     };
 
-    if (title && typeof title === 'string') {
-      reqTitle = title;
+    if (keyword && typeof keyword === 'string') {
+      reqTitle = keyword;
     }
 
     if (orderBy === 'RESENT' || orderBy === 'TITLE') {
@@ -139,7 +139,7 @@ export const getServerSideProps = async ({ locale, query }: GetServerSidePropsCo
         ...(await serverSideTranslations(locale ? locale : 'ko', ['common', 'blog/index'])),
         categorys,
         tags,
-        title: reqTitle,
+        keyword: reqTitle,
         query,
         initData,
       },

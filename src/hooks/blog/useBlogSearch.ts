@@ -45,10 +45,11 @@ const useBlogSearch = (
 
   // 최초 렌더링 시 검색 조건 적용
   useEffect(() => {
+    if (findCategorys.length === 0 || findTags.length === 0) return;
     if (!isFirst) return;
 
     const { findValueByChain } = FilterDropdownUtils;
-    const { orderBy, title, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
+    const { orderBy, keyword, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
 
     const handleCategory = (category: string, type: FilterType) => {
       const categoryChain = category.split(',');
@@ -65,8 +66,8 @@ const useBlogSearch = (
       });
     };
 
-    if (title && typeof title === 'string') {
-      setTitle(title);
+    if (keyword && typeof keyword === 'string') {
+      setTitle(keyword);
     } else {
       setTitle('');
     }
@@ -100,10 +101,11 @@ const useBlogSearch = (
     setIsFirst(false);
   }, [
     query,
+    findCategorys,
+    findTags,
     isFirst,
     setBlogCategorys,
     setBlogTags,
-    findCategorys,
     changeCategoryType,
     changeTagType,
     setTitle,
@@ -127,7 +129,7 @@ const useBlogSearch = (
     if (isFirst || titleD === null) return;
 
     const stringParams: { [key: string]: string } = {
-      title: titleD ? titleD : '',
+      keyword: titleD ? titleD : '',
       tagIn: FilterDropdownUtils.getIns(findTags).toString(),
       tagNotIn: FilterDropdownUtils.getNotIns(findTags).toString(),
     };
