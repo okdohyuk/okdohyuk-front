@@ -31,7 +31,9 @@ const Discript: BlogCardTypeFC = ({ blog }) => {
         <p className={'t-d-3 t-basic-1 line-clamp-2 md:line-clamp-4'}>
           {markdownUtils.removeMarkdown(contents)}
         </p>
-        <span className="mt-auto md:mb-4 t-c-1 t-basic-2">{DateUtils.foramtDate(createdAt)}</span>
+        <span className="mt-auto md:mb-4 t-c-1 t-basic-2" suppressHydrationWarning>
+          {DateUtils.foramtDate(createdAt)}
+        </span>
       </div>
     </article>
   );

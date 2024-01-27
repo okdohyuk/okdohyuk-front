@@ -23,7 +23,9 @@ const Frame: BlogCardTypeFC = ({ blog }) => {
       <div className="flex flex-col flex-1 p-4">
         <h2 className="t-d-1 font-bold t-basic-1 line-clamp-1">{title}</h2>
         <p className="t-d-3 t-basic-1 line-clamp-3">{markdownUtils.removeMarkdown(contents)}</p>
-        <span className="mt-auto t-c-1 t-basic-2">{DateUtils.foramtDate(createdAt)}</span>
+        <span className="mt-auto t-c-1 t-basic-2" suppressHydrationWarning>
+          {DateUtils.foramtDate(createdAt)}
+        </span>
       </div>
     </article>
   );
