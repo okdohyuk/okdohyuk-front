@@ -7,9 +7,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Cookies from 'js-cookie';
 
-import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
-import Opengraph from '@components/Basic/Opengraph';
-import Link from '@components/Basic/Link';
+import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
+import Opengraph from '~/components/basic/Opengraph';
+import Link from '~/components/basic/Link';
 import { authApi, userApi } from '@api';
 import useStore from '@hooks/useStore';
 

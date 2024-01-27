@@ -7,9 +7,9 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { MdMoreHoriz, MdOutlineContentCopy, MdOutlineCheck } from 'react-icons/md';
 import { debounce } from 'lodash';
 
-import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
-import CodeCopy from '@components/Complex/MarkDown/CodeCopy';
+import Opengraph from '~/components/basic/Opengraph';
+import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
+import CodeCopy from '@components/complex/MarkDown/CodeCopy';
 import ClassName from '@utils/classNameUtils';
 import CoderUtils from '@utils/coderUtils';
 import { CoderFormType, CoderType } from '@utils/coderUtils/type';

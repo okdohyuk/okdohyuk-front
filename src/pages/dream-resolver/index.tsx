@@ -2,13 +2,13 @@ import { GetStaticPropsContext } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useEffect } from 'react';
-import Opengraph from '@components/Basic/Opengraph';
+import Opengraph from '~/components/basic/Opengraph';
 import Cookies from 'js-cookie';
 import { AiOutlineLoading } from 'react-icons/ai';
 import { MdLink } from 'react-icons/md';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import Link from '@components/Basic/Link';
+import Link from '~/components/basic/Link';
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -19,7 +19,7 @@ import {
   LineShareButton,
   LineIcon,
 } from 'react-share';
-import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
+import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
 
 function DreamResolver() {
   const { locale } = useRouter();

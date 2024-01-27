@@ -4,17 +4,17 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Blog } from '@api/Blog';
 import markdownUtils from '@utils/markdownUtils';
 import { withTranslation } from 'next-i18next';
-import Opengraph from '@components/Basic/Opengraph';
+import Opengraph from '~/components/basic/Opengraph';
 import { blogApi } from '@api';
-import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
-import BlogPost from '@components/Complex/Blog';
+import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
+import BlogDetail from '@components/blog/BlogDetail';
 
 type BlogPageProps = {
   blog: Blog;
 };
 
 function BlogDetailPage({ blog }: BlogPageProps) {
-  const { title, contents, thumbnailImage } = blog;
+  const { title, contents, thumbnailImage, tags } = blog;
   return (
     <>
       <Opengraph
@@ -22,12 +22,12 @@ function BlogDetailPage({ blog }: BlogPageProps) {
         ogTitle={title}
         description={markdownUtils.removeMarkdown(contents).slice(0, 155) + '..'}
         image={thumbnailImage}
-        keywords={title.split(' ')}
+        keywords={tags}
         contentType="article"
         isAds
       />
       <MobileScreenWrapper>
-        <BlogPost blog={blog} />
+        <BlogDetail blog={blog} />
       </MobileScreenWrapper>
     </>
   );
