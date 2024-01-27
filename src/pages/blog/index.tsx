@@ -136,7 +136,7 @@ export const getServerSideProps = async ({ locale, query }: GetServerSidePropsCo
 
     return {
       props: {
-        ...(await serverSideTranslations(locale as string, ['common', 'blog/index'])),
+        ...(await serverSideTranslations(locale ? locale : 'ko', ['common', 'blog/index'])),
         categorys,
         tags,
         title: reqTitle,
