@@ -1,5 +1,5 @@
 import { action, makeObservable, observable, runInAction } from 'mobx';
-import { BlogSearch, BlogOrderByEnum, BlogCategory } from '@api/Blog';
+import { BlogSearch, BlogOrderByEnum, BlogCategory, BlogSearchResponce } from '@api/Blog';
 import { blogApi } from '@api';
 import { BlogSearchStoreState, Status } from './type';
 import { FilterDropdownItem, FilterType } from '~/components/complex/FilterDropdown/type';
@@ -9,7 +9,7 @@ import { BlogCardType } from '~/components/blog/BlogCard/type';
 class BlogSearchStore implements BlogSearchStoreState {
   @observable public blogs: BlogSearch[] | null = null;
   @observable public status: Status = 'idle';
-  @observable public count = 0;
+  @observable public count: number | null = null;
   @observable public isFirst = true;
   @observable public isLast = false;
   @observable public viewType: BlogCardType = 'discript';
@@ -72,6 +72,20 @@ class BlogSearchStore implements BlogSearchStoreState {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  public setBlogList = (data: BlogSearchResponce) => {
+    runInAction(() => {
+      if (this.blogs === null) {
+        this.count = data.count;
+        this.isFirst = data.isFirst;
+        this.isLast = data.isLast;
+        this.blogs = data.results;
+
+        this.status = 'success';
+        this.page = 1;
+      }
+    });
   };
 
   public findBlogCategorys = () => {

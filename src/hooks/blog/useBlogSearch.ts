@@ -3,11 +3,17 @@ import useInfiniteScroll from '../useInfiniteScroll';
 import useStore from '../useStore';
 import { useRouter } from 'next/router';
 import FilterDropdownUtils from '~/utils/filterDropdownUtil';
-import { BlogCategory } from '~/spec/api/Blog';
+import { BlogCategory, BlogSearchResponce } from '~/spec/api/Blog';
 import { FilterType } from '~/components/complex/FilterDropdown/type';
 import useDebounce from '../useDebounce';
+import { ParsedUrlQuery } from 'querystring';
 
-const useBlogSearch = (initCategorys: BlogCategory[], initTags: string[]) => {
+const useBlogSearch = (
+  initCategorys: BlogCategory[],
+  initTags: string[],
+  query: ParsedUrlQuery,
+  initData: BlogSearchResponce,
+) => {
   const {
     blogs,
     getBlogList,
@@ -18,6 +24,7 @@ const useBlogSearch = (initCategorys: BlogCategory[], initTags: string[]) => {
     tags: findTags,
     orderBy,
     title: titleS,
+    setBlogList,
     setOrderBy,
     setTitle,
     changeTagType,
@@ -26,19 +33,19 @@ const useBlogSearch = (initCategorys: BlogCategory[], initTags: string[]) => {
     setPrevPath,
   } = useStore('blogSearchStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
-  const { query, isReady, replace } = useRouter();
+  const { replace } = useRouter();
   const [isFirst, setIsFirst] = useState(true);
   const titleD = useDebounce(titleS, 1000);
 
   useEffect(() => {
     setBlogCategorys(initCategorys);
     setBlogTags(initTags);
-  }, [initCategorys, initTags, setBlogCategorys, setBlogTags]);
+    setBlogList(initData);
+  }, [initCategorys, initTags, initData, setBlogCategorys, setBlogTags, setBlogList]);
 
   // 최초 렌더링 시 검색 조건 적용
   useEffect(() => {
-    if (initCategorys.length === 0 || initTags.length === 0) return;
-    if (!isReady || !isFirst) return;
+    if (!isFirst) return;
 
     const { findValueByChain } = FilterDropdownUtils;
     const { orderBy, title, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
@@ -93,9 +100,6 @@ const useBlogSearch = (initCategorys: BlogCategory[], initTags: string[]) => {
     setIsFirst(false);
   }, [
     query,
-    isReady,
-    initCategorys,
-    initTags,
     isFirst,
     setBlogCategorys,
     setBlogTags,
@@ -153,9 +157,8 @@ const useBlogSearch = (initCategorys: BlogCategory[], initTags: string[]) => {
     const url = '/blog' + (params.size === 0 ? '' : '?' + params.toString());
     if (prevPath === url) return;
     replace(url, url, { shallow: true });
+    if (prevPath !== null) getBlogList(true);
     setPrevPath(url);
-
-    getBlogList(true);
   }, [
     titleD,
     orderBy,
