@@ -6,12 +6,14 @@ import stores from '@stores';
 import { useRouter } from 'next/router';
 import * as gtag from '@libs/client/gtag';
 import { appWithTranslation } from 'next-i18next';
-import CommonLayout from '~/components/Complex/Layouts/CommonLayout';
+import CommonLayout from '@components/complex/Layout/CommonLayout';
 import { Analytics } from '@vercel/analytics/react';
-import AxiosInterceptor from '@components/Complex/Layouts/AxiosInterceptor';
+import AxiosInterceptor from '@components/complex/Layout/AxiosInterceptor';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const queryClient = new QueryClient();
 
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
@@ -25,11 +27,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Provider {...stores}>
-      <CommonLayout>
-        <Component {...pageProps} />
-        <Analytics />
-        <AxiosInterceptor />
-      </CommonLayout>
+      <QueryClientProvider client={queryClient}>
+        <CommonLayout>
+          <Component {...pageProps} />
+          <Analytics />
+          <AxiosInterceptor />
+        </CommonLayout>
+      </QueryClientProvider>
     </Provider>
   );
 }

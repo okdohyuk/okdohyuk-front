@@ -3,3 +3,5 @@ export default class ClassName {
     return classnames.join(' ');
   }
 }
+
+export const cls = ClassName.cls;

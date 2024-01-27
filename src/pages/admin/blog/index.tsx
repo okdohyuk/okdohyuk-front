@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import BlogCard from '@components/Complex/Blog/BlogCard';
+import BlogCard from '~/components/blog/BlogCard';
 import useStore from '@hooks/useStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
-import Opengraph from '@components/Basic/Opengraph';
-import MobileScreenWrapper from '@components/Complex/Layouts/MobileScreenWrapper';
+import Opengraph from '~/components/basic/Opengraph';
+import MobileScreenWrapper from '~/components/complex/Layout/MobileScreenWrapper';
 import Cookies from 'js-cookie';
+import { BlogSearch } from '~/spec/api/Blog';
 
 function BlogAdminPage() {
   const { t } = useTranslation('blog/index');
@@ -44,7 +45,7 @@ function BlogAdminPage() {
         <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
         <div className={'flex flex-col w-full gap-2'}>
           {blogs?.map((blog) => (
-            <BlogCard key={blog.urlSlug} blog={blog} isAdmin />
+            <BlogCard key={blog.urlSlug} blog={blog as BlogSearch} isAdmin type="board" />
           ))}
           {status === 'loading' ? (
             <div className={'flex justify-center'}>

@@ -1,8 +1,18 @@
 {
   "openGraph": {
-    "title": "블로그",
-    "ogTitle": "블로그",
-    "description": "개발자 유도혁의 블로그입니다."
+    "defaultTitle": "개발자 유도혁의 블로그",
+    "defaultDescription": "okdohyuk 사이트에는 Web에 대한 다양한 포스팅이 있습니다. 궁금한 기술의 정보를 다양한 검색 필터로 확인해 보세요!",
+    "description": "okdohyuk에는 Web에 대한 다양한 포스팅이 있습니다. {title} 기술을 확인해 보세요!"
   },
-  "title": "블로그"
+  "title": "블로그",
+  "resultCount": "검색 결과: ",
+  "filter": {
+    "index": "필터",
+    "category": "카테고리",
+    "tag": "태그",
+    "orderBy": {
+      "resent": "최신순",
+      "title": "제목"
+    }
+  }
 }
