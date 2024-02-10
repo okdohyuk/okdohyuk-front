@@ -5,6 +5,7 @@ import CodeWindow from './CodeWindow';
 import { MarkDownProps } from './type';
 import Table from './Table';
 import Link from '~/components/basic/Link';
+import Heading2 from '@components/complex/MarkDown/Heading2';
 
 const MarkDown: MarkDownProps = ({ contents }) => {
   return (
@@ -14,6 +15,9 @@ const MarkDown: MarkDownProps = ({ contents }) => {
         forceBlock: true,
         wrapper: 'article',
         overrides: {
+          h2: {
+            component: Heading2,
+          },
           pre: {
             component: CodeWindow,
           },
