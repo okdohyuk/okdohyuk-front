@@ -1,4 +1,5 @@
 import StringUtils from '@utils/stringUtils';
+import { BlogToc } from '~/components/blog/BlogDetail/type';
 
 /**
  * Set unique id for each headings (only for h1, h2, h3)
@@ -30,8 +31,9 @@ export function setHeadingId(html: string) {
 /**
  * Parses heading for building TOC
  * @param html
+ * @returns BlogToc[]
  */
-export function parseHeadings(html: string) {
+export function parseHeadings(html: string): BlogToc[] {
   const div = document.createElement('div');
   div.innerHTML = html;
 
@@ -39,7 +41,7 @@ export function parseHeadings(html: string) {
 
   const headingsInfo = headings.map((heading) => ({
     id: heading.id,
-    text: heading.textContent,
+    text: heading.textContent + '',
     level: parseInt(heading.tagName.replace('H', ''), 10),
   }));
 

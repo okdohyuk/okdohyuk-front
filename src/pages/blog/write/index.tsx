@@ -12,7 +12,6 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import Opengraph from '~/components/basic/Opengraph';
 import { MdImage } from 'react-icons/md';
-import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
 import { accessToken } from '~/utils/userTokenUtil';
 import BlogUtils from '~/utils/blogUtils';
 import InputTag from '~/components/complex/InputTag';
@@ -162,9 +161,7 @@ function BlogWritePage({ blog, categorys }: BlogPageProps) {
         </div>
 
         <div className="flex-1 hidden lg:block overflow-y-scroll">
-          <MobileScreenWrapper>
-            <BlogDetail blog={watch()} />
-          </MobileScreenWrapper>
+          <BlogDetail blog={watch()} isPreview />
         </div>
       </div>
     </>
