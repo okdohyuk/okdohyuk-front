@@ -4,8 +4,9 @@ import Aside from './Aside';
 import CodeWindow from './CodeWindow';
 import { MarkDownProps } from './type';
 import Table from './Table';
-import Link from '~/components/basic/Link';
-import Heading2 from '@components/complex/MarkDown/Heading2';
+import Link from '@components/basic/Link';
+import Heading2 from './Heading2';
+import Heading3 from './Heading3';
 
 const MarkDown: MarkDownProps = ({ contents }) => {
   return (
@@ -17,6 +18,9 @@ const MarkDown: MarkDownProps = ({ contents }) => {
         overrides: {
           h2: {
             component: Heading2,
+          },
+          h3: {
+            component: Heading3,
           },
           pre: {
             component: CodeWindow,
