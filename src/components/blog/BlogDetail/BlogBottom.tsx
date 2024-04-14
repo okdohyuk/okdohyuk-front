@@ -1,10 +1,12 @@
 import React from 'react';
-import { BlogComponent } from './type';
 import Link from '@components/basic/Link';
-import Tag from '~/components/basic/Tag';
+import Tag from '@components/basic/Tag';
+import { useBlogDetail } from './BlogDetailProvider';
 
-const BlogBottom: BlogComponent = ({ blog }) => {
-  const { tags } = blog;
+const BlogBottom: React.FC = () => {
+  const {
+    blog: { tags },
+  } = useBlogDetail();
 
   return (
     <footer className="w-full h-48 border-t border-solid border-basic-5">

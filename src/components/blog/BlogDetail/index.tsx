@@ -1,20 +1,27 @@
 import React from 'react';
-
 import BlogHeader from './BlogHeader';
 import { BlogComponent } from './type';
-import MarkDown from '@components/complex/MarkDown';
 import BlogBottom from './BlogBottom';
+import { BlogDetailProvider } from './BlogDetailProvider';
+import BlogToc from './BlogToc';
+import BlogContent from './BlogContent';
 
-const BlogPost: BlogComponent = ({ blog }) => {
-  const { contents } = blog;
+import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
+import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
+
+const BlogDetail: BlogComponent = ({ blog, isPreview = false }) => {
+  const Wrapper = isPreview ? MobileScreenWrapper : AsideScreenWrapper;
+  const rightProp = isPreview ? {} : { right: <BlogToc /> };
 
   return (
-    <>
-      <BlogHeader blog={blog} />
-      <MarkDown contents={contents} />
-      <BlogBottom blog={blog} />
-    </>
+    <BlogDetailProvider blog={blog}>
+      <Wrapper {...rightProp}>
+        <BlogHeader />
+        <BlogContent isPreview={isPreview} />
+        <BlogBottom />
+      </Wrapper>
+    </BlogDetailProvider>
   );
 };
 
-export default BlogPost;
+export default BlogDetail;
