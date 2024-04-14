@@ -1,9 +1,10 @@
 import React from 'react';
 import { format } from 'date-fns';
-import { BlogComponent } from './type';
 import Link from '@components/basic/Link';
+import { useBlogDetail } from './BlogDetailProvider';
 
-const BlogHeader: BlogComponent = ({ blog }) => {
+const BlogHeader: React.FC = () => {
+  const { blog } = useBlogDetail();
   const { thumbnailImage, title, createdAt, urlSlug, categoryChain } = blog;
 
   const categoryRender = (category: string, index: number) => {

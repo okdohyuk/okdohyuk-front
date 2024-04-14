@@ -6,7 +6,6 @@ import markdownUtils from '@utils/markdownUtils';
 import { withTranslation } from 'next-i18next';
 import Opengraph from '~/components/basic/Opengraph';
 import { blogApi } from '@api';
-import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
 import BlogDetail from '@components/blog/BlogDetail';
 
 type BlogPageProps = {
@@ -26,16 +25,14 @@ function BlogDetailPage({ blog }: BlogPageProps) {
         contentType="article"
         isAds
       />
-      <MobileScreenWrapper>
-        <BlogDetail blog={blog} />
-      </MobileScreenWrapper>
+      <BlogDetail blog={blog} />
     </>
   );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data: blogs } = await blogApi.getBlogList(0, 1000);
-  const paths = blogs.map((blog) => ({ params: { urlSlug: blog.urlSlug } }));
+  const { data: res } = await blogApi.getBlogSearch(0, 100);
+  const paths = res.results.map((blog) => ({ params: { urlSlug: blog.urlSlug } }));
 
   return { paths, fallback: 'blocking' };
 };
