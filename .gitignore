@@ -19,3 +19,5 @@ openapitools.json
 test.http
 public/sw.js.map
 public/workbox-*.js.map
+
+.idea

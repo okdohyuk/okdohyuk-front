@@ -24,7 +24,7 @@
     "markdown-to-jsx": "^7.1.7",
     "mobx": "^6.6.2",
     "mobx-react": "^7.5.3",
-    "next": "12.3.1",
+    "next": "^14.2.11",
     "next-i18next": "^12.1.0",
     "next-pwa": "^5.6.0",
     "next-sitemap": "^3.1.29",
