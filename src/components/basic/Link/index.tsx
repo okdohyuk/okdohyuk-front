@@ -12,14 +12,14 @@ type LinkType = {
 export default function Link({ children, href, hasTargetBlank, className, ...rest }: LinkType) {
   if (!href) return <>{children}</>;
   return (
-    <NextLink href={href} {...rest}>
-      <a
-        onClick={(e) => e.stopPropagation()}
-        target={hasTargetBlank ? '_blank' : '_self'}
-        className={className}
-      >
-        {children}
-      </a>
+    <NextLink
+      href={href}
+      {...rest}
+      onClick={(e) => e.stopPropagation()}
+      target={hasTargetBlank ? '_blank' : '_self'}
+      className={className}
+    >
+      {children}
     </NextLink>
   );
 }
