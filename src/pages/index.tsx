@@ -72,7 +72,7 @@ function Home() {
         <p className="t-d-1 t-basic-3">{t('subTitle')}</p>
       </div>
 
-      <div className="text-center">
+      <div className="flex justify-center">
         <Image priority src={logoIcon} alt={'logo'} width={250} height={250} />
       </div>
     </>
