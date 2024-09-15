@@ -15,8 +15,6 @@ const withPWA = require('next-pwa')({
 
 const nextConfig = {
   i18n,
-  reactStrictMode: false,
-  swcMinify: true,
   // reactStrictMode: false,
   // experimental: {
   //   forceSwcTransforms: true,
@@ -46,4 +44,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig);
+module.exports = process.env.NODE_ENV === 'development' ? nextConfig : withPWA(nextConfig);
