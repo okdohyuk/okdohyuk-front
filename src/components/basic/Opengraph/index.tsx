@@ -22,7 +22,6 @@ const Opengraph: OpengraphComponent = ({
   description,
   isMainPage = false,
   image,
-  isAds,
   keywords,
   contentType = 'website',
 }) => {
@@ -55,14 +54,6 @@ const Opengraph: OpengraphComponent = ({
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
       />
-
-      {isAds && (
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}`}
-          crossOrigin="anonymous"
-        ></script>
-      )}
     </Head>
   );
 };
