@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import googleSignInButton from '../../../public/icons/signin/web_neutral_rd_na.svg';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
