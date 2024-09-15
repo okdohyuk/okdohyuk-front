@@ -2,7 +2,7 @@ import React from 'react';
 import { cls } from '@utils/classNameUtils';
 import { SelectFC } from './type';
 
-const Select: SelectFC = ({ className = '', children, placeholder, form, value, onChange }) => {
+const Select: SelectFC = ({ className = '', children, form, value, onChange }) => {
   const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (onChange) onChange(e.target.value);
   };
@@ -11,7 +11,6 @@ const Select: SelectFC = ({ className = '', children, placeholder, form, value, 
     <div className={cls('inline-block relative', className)}>
       <select
         className="block appearance-none w-full h-full input-text leading-tight overflow-hidden"
-        placeholder={placeholder}
         value={value}
         onChange={change}
         {...form}

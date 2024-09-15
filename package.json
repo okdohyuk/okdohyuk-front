@@ -36,12 +36,12 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7",
-    "react-i18next": "~15.0.1",
+    "react-i18next": "~15.0.2",
     "react-icons": "^4",
     "react-modern-drawer": "~1.4.0",
     "react-share": "^4.4.1",
     "tailwindcss-safe-area": "^0.2.2",
-    "typescript": "^4"
+    "typescript": "^5"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.13.5",
@@ -53,6 +53,7 @@
     "@types/node": "^18",
     "@types/prismjs": "^1",
     "@types/react": "^18",
+    "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "autoprefixer": "^10",
