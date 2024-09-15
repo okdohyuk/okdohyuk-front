@@ -1,4 +1,4 @@
-import { getServerSideSitemap } from 'next-sitemap';
+import { getServerSideSitemapLegacy } from 'next-sitemap';
 import { GetServerSideProps } from 'next';
 import { blogApi } from '~/spec/api';
 
@@ -13,7 +13,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     const fields = [...newsSitemaps];
 
-    return getServerSideSitemap(ctx, fields);
+    return getServerSideSitemapLegacy(ctx, fields);
   } catch (e) {
     console.error('-> e', e);
     return { notFound: true };
