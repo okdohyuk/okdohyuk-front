@@ -37,8 +37,8 @@ function BlogAdminPage() {
   return (
     <>
       <Opengraph
-        title={t('openGraph.title')}
-        ogTitle={t('openGraph.ogTitle')}
+        title={t('openGraph.defaultTitle')}
+        ogTitle={t('openGraph.defaultTitle')}
         description={t('openGraph.description')}
       />
       <MobileScreenWrapper>

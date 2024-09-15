@@ -19,3 +19,14 @@ openapitools.json
 test.http
 public/sw.js.map
 public/workbox-*.js.map
+
+.idea
+
+.pnp.*
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
