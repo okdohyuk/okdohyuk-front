@@ -73,7 +73,7 @@ function Home() {
       </div>
 
       <div className="text-center">
-        <Image priority src={logoIcon} width={250} height={250} />
+        <Image priority src={logoIcon} alt={'logo'} width={250} height={250} />
       </div>
     </>
   );

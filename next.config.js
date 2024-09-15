@@ -17,8 +17,29 @@ const nextConfig = {
   i18n,
   reactStrictMode: false,
   swcMinify: true,
+  // reactStrictMode: false,
+  // experimental: {
+  //   forceSwcTransforms: true,
+  // },
   images: {
-    domains: ['okdohyuk.dev', 'localhost', 'lh3.googleusercontent.com', 'storage.googleapis.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.okdohyuk.dev',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+      },
+    ],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],

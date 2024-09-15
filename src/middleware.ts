@@ -10,11 +10,11 @@ export function middleware(request: NextRequest) {
 
   if (request.nextUrl.pathname.startsWith('/admin')) {
     if (!accessToken) return NextResponse.redirect(new URL('/auth/login', request.url));
-    const tokenPayload = Jwt.getPayload(accessToken);
+    const tokenPayload = Jwt.getPayload(accessToken.value);
     if (tokenPayload && !tokenPayload.id) return NextResponse.rewrite(new URL('/404', request.url));
 
     userApi
-      .getUserUserId(UserTokenUtil.getTokenBearer(accessToken), tokenPayload.id)
+      .getUserUserId(UserTokenUtil.getTokenBearer(accessToken.value), tokenPayload.id)
       .then(({ data: user }) => {
         if (user.role === UserRoleEnum.Admin) return NextResponse.next();
         throw new Error('Not admin');

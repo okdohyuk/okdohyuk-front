@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['react-hooks', 'prettier'],
+  plugins: ['prettier'],
   extends: [
     'next/core-web-vitals',
     'plugin:react/recommended',
@@ -9,7 +9,6 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 'error',
-    'react-hooks/rules-of-hooks': 'error',
     'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
     'comma-dangle': ['error', 'always-multiline'],
     quotes: ['error', 'single'],
