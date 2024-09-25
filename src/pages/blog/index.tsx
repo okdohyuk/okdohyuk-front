@@ -17,6 +17,7 @@ import { BlogCategory, BlogOrderByEnum, BlogSearchResponce } from '@api/Blog';
 import { ParsedUrlQuery } from 'querystring';
 import { FilterType } from '~/components/complex/FilterDropdown/type';
 import BlogUtils from '~/utils/blogUtils';
+import { unstable_cache } from 'next/cache';
 
 type BlogPageProps = {
   categorys: BlogCategory[];
@@ -65,81 +66,106 @@ const BlogPage: BlogPageFC = ({ categorys, tags, keyword, query, initData }) => 
 
 export const getServerSideProps = async ({ locale, query }: GetServerSidePropsContext) => {
   try {
-    const { data: categorys } = await blogApi.getBlogCategory();
-    const { data: tags } = await blogApi.getBlogTag();
-
-    const { orderBy, keyword, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
-    let reqTitle: string | null = null;
-    let reqOrderBy: BlogOrderByEnum = 'RESENT';
-    const reqCategoryIn: string[] = [];
-    const reqCategoryNotIn: string[] = [];
-    let reqTagIn: string[] | undefined;
-    let reqTagNotIn: string[] | undefined;
-
-    const handleCategory = (category: string, type: FilterType) => {
-      const categoryChain = category.split(',');
-      const categoryValue = BlogUtils.findIdByCategoryChain(categoryChain, categorys);
-      if (type === 'in' && categoryValue) {
-        reqCategoryIn.push(categoryValue);
-      } else if (type === 'notIn' && categoryValue) {
-        reqCategoryNotIn.push(categoryValue);
-      }
-    };
-
-    const handleTag = (tag: string, type: FilterType) => {
-      const tagArray = tag.split(',');
-      if (type === 'in') {
-        reqTagIn = tagArray;
-      } else if (type === 'notIn') {
-        reqTagNotIn = tagArray;
-      }
-    };
-
-    if (keyword && typeof keyword === 'string') {
-      reqTitle = keyword;
-    }
-
-    if (orderBy === 'RESENT' || orderBy === 'TITLE') {
-      reqOrderBy = orderBy;
-    }
-    if (categoryIn) {
-      if (typeof categoryIn === 'string') {
-        handleCategory(categoryIn, 'in');
-      } else if (Array.isArray(categoryIn)) {
-        categoryIn.forEach((element) => handleCategory(element, 'in'));
-      }
-    }
-    if (categoryNotIn) {
-      if (typeof categoryNotIn === 'string') {
-        handleCategory(categoryNotIn, 'notIn');
-      } else if (Array.isArray(categoryNotIn)) {
-        categoryNotIn.forEach((element) => handleCategory(element, 'notIn'));
-      }
-    }
-    if (tagIn && typeof tagIn === 'string') {
-      handleTag(tagIn, 'in');
-    }
-    if (tagNotIn && typeof tagNotIn === 'string') {
-      handleTag(tagNotIn, 'notIn');
-    }
-
-    const { data: initData } = await blogApi.getBlogSearch(
-      0,
-      10,
-      reqCategoryIn,
-      reqCategoryNotIn,
-      reqTitle ? reqTitle : undefined,
-      reqTagIn,
-      reqTagNotIn,
-      reqOrderBy,
+    const fetchCategorys = unstable_cache(
+      async () => {
+        const { data: categorys } = await blogApi.getBlogCategory();
+        return categorys;
+      },
+      ['categorys'],
+      { revalidate: 60 },
     );
+
+    const fetchTags = unstable_cache(
+      async () => {
+        const { data: tags } = await blogApi.getBlogTag();
+        return tags;
+      },
+      ['tags'],
+      { revalidate: 60 },
+    );
+
+    const fetchInitData = async () => {
+      const { orderBy, keyword, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
+      let reqTitle: string | null = null;
+      let reqOrderBy: BlogOrderByEnum = 'RESENT';
+      const reqCategoryIn: string[] = [];
+      const reqCategoryNotIn: string[] = [];
+      let reqTagIn: string[] | undefined;
+      let reqTagNotIn: string[] | undefined;
+
+      const handleCategory = (category: string, type: FilterType) => {
+        const categoryChain = category.split(',');
+        const categoryValue = BlogUtils.findIdByCategoryChain(categoryChain, categorys);
+        if (type === 'in' && categoryValue) {
+          reqCategoryIn.push(categoryValue);
+        } else if (type === 'notIn' && categoryValue) {
+          reqCategoryNotIn.push(categoryValue);
+        }
+      };
+
+      const handleTag = (tag: string, type: FilterType) => {
+        const tagArray = tag.split(',');
+        if (type === 'in') {
+          reqTagIn = tagArray;
+        } else if (type === 'notIn') {
+          reqTagNotIn = tagArray;
+        }
+      };
+
+      if (keyword && typeof keyword === 'string') {
+        reqTitle = keyword;
+      }
+
+      if (orderBy === 'RESENT' || orderBy === 'TITLE') {
+        reqOrderBy = orderBy;
+      }
+      if (categoryIn) {
+        if (typeof categoryIn === 'string') {
+          handleCategory(categoryIn, 'in');
+        } else if (Array.isArray(categoryIn)) {
+          categoryIn.forEach((element) => handleCategory(element, 'in'));
+        }
+      }
+      if (categoryNotIn) {
+        if (typeof categoryNotIn === 'string') {
+          handleCategory(categoryNotIn, 'notIn');
+        } else if (Array.isArray(categoryNotIn)) {
+          categoryNotIn.forEach((element) => handleCategory(element, 'notIn'));
+        }
+      }
+      if (tagIn && typeof tagIn === 'string') {
+        handleTag(tagIn, 'in');
+      }
+      if (tagNotIn && typeof tagNotIn === 'string') {
+        handleTag(tagNotIn, 'notIn');
+      }
+
+      const { data: initData } = await blogApi.getBlogSearch(
+        0,
+        10,
+        reqCategoryIn,
+        reqCategoryNotIn,
+        reqTitle ? reqTitle : undefined,
+        reqTagIn,
+        reqTagNotIn,
+        reqOrderBy,
+      );
+
+      return initData;
+    };
+
+    const [categorys, tags, initData] = await Promise.all([
+      fetchCategorys(),
+      fetchTags(),
+      fetchInitData(),
+    ]);
 
     return {
       props: {
         ...(await serverSideTranslations(locale ? locale : 'ko', ['common', 'blog/index'])),
         categorys,
         tags,
-        keyword: reqTitle,
+        keyword: query.keyword || null,
         query,
         initData,
       },

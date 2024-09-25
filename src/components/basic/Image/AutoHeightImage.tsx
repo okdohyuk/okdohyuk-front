@@ -1,5 +1,5 @@
 import React from 'react';
-import Image, { ImageProps } from 'next/image';
+import Image, { ImageProps } from 'next/legacy/image';
 
 const AutoHeightImage = ({ ...props }: ImageProps) => {
   return (

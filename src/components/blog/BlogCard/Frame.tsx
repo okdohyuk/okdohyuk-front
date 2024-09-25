@@ -2,7 +2,7 @@ import React from 'react';
 import { BlogCardTypeFC } from './type';
 import ClassName from '~/utils/classNameUtils';
 import markdownUtils from '~/utils/markdownUtils';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import DateUtils from '~/utils/dateUtils';
 
 const Frame: BlogCardTypeFC = ({ blog }) => {
