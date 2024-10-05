@@ -3,6 +3,7 @@ import { getTranslations } from '~/app/i18n';
 import { Language } from '~/app/i18n/settings';
 import { FlatNamespace } from 'i18next';
 import { OpenGraphType } from 'next/dist/lib/metadata/types/opengraph-types';
+import * as process from 'node:process';
 
 export type GenerateMetadata = ({ params }: { params: { lng: Language } }) => Promise<Metadata>;
 
@@ -27,6 +28,7 @@ const metadata: CustomMetadata = async ({
   const { t } = await getTranslations(language, namespace);
   const keywords = t('openGraph.keywords', { returnObjects: true }) as string | string[];
   return {
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL}`),
     title: t('openGraph.title'),
     description: t('openGraph.description'),
     keywords: keywords instanceof Array ? keywords : '',

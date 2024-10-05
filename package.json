@@ -54,6 +54,7 @@
     "@testing-library/react": "^13",
     "@testing-library/user-event": "^14",
     "@types/gtag.js": "^0.0.12",
+    "@types/jest": "^29.5.13",
     "@types/node": "^18",
     "@types/prismjs": "^1",
     "@types/react": "^18",

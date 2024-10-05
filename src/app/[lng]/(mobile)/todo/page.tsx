@@ -2,25 +2,19 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { inject, observer } from 'mobx-react';
+import { observer } from 'mobx-react';
 import useInput from '@hooks/useInput';
-import { TodoStoreState } from '@stores/TodoStore/type';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
 import useIsClient from '@hooks/useIsClient';
+import useStore from '@hooks/useStore';
 
 const ToDoCard = dynamic(() => import('@components/todo/ToDoCard'), { ssr: false });
 
-type TodoAppComponent = ({
-  todoStore,
-  params,
-}: {
-  todoStore: TodoStoreState;
-  params: { lng: Language };
-}) => JSX.Element;
+type TodoAppComponent = ({ params }: { params: { lng: Language } }) => JSX.Element;
 
-const TodoApp: TodoAppComponent = ({ todoStore, params: { lng } }) => {
-  const { todos, addTodo } = todoStore;
+const TodoApp: TodoAppComponent = ({ params: { lng } }) => {
+  const { todos, addTodo } = useStore('todoStore');
   const { t } = useTranslation(lng, 'todo');
   const { onChange, value, reset } = useInput('');
   const isClient = useIsClient();
@@ -57,4 +51,4 @@ const TodoApp: TodoAppComponent = ({ todoStore, params: { lng } }) => {
   );
 };
 
-export default inject('todoStore')(observer(TodoApp));
+export default observer(TodoApp);

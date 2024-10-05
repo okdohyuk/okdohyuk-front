@@ -2382,7 +2382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*":
+"@types/jest@npm:*, @types/jest@npm:^29.5.13":
   version: 29.5.13
   resolution: "@types/jest@npm:29.5.13"
   dependencies:
@@ -7804,6 +7804,7 @@ __metadata:
     "@testing-library/react": "npm:^13"
     "@testing-library/user-event": "npm:^14"
     "@types/gtag.js": "npm:^0.0.12"
+    "@types/jest": "npm:^29.5.13"
     "@types/js-cookie": "npm:~3.0.6"
     "@types/lodash": "npm:^4"
     "@types/node": "npm:^18"

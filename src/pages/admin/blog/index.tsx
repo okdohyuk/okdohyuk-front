@@ -1,7 +1,4 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
-import { GetStaticPropsContext } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import BlogCard from '~/components/blog/BlogCard';
 import useStore from '@hooks/useStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
@@ -11,9 +8,10 @@ import Opengraph from 'components/legacy/basic/Opengraph';
 import MobileScreenWrapper from '~/components/complex/Layout/MobileScreenWrapper';
 import Cookies from 'js-cookie';
 import { BlogSearch } from '~/spec/api/Blog';
+import { useTranslation } from '~/app/i18n/client';
 
 function BlogAdminPage() {
-  const { t } = useTranslation('blog/index');
+  const { t } = useTranslation('ko', 'blog/index');
   const { blogs, getBlogsPage, status, isLastPage } = useStore('blogStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
   const accessToken = Cookies.get('access_token');
@@ -57,11 +55,5 @@ function BlogAdminPage() {
     </>
   );
 }
-
-export const getStaticProps = async ({ locale }: GetStaticPropsContext) => ({
-  props: {
-    ...(await serverSideTranslations(locale as string, ['common', 'blog/index'])),
-  },
-});
 
 export default observer(BlogAdminPage);
