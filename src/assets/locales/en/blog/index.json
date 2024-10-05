@@ -4,7 +4,7 @@
     "defaultDescription": "okdohyuk 사이트에는 Web에 대한 다양한 포스팅이 있습니다. 궁금한 기술의 정보를 다양한 검색 필터로 확인해 보세요!",
     "description": "okdohyuk에는 Web에 대한 다양한 포스팅이 있습니다. {title} 기술을 확인해 보세요!"
   },
-  "title": "블로그",
+  "title": "Blog",
   "resultCount": "검색 결과: ",
   "filter": {
     "index": "필터",
