@@ -20,7 +20,7 @@ const CategorySettingPage = () => {
   const selectedParent = watch('parent');
   const { data, refetch } = useQuery({
     queryKey: ['category'],
-    queryFn: blogApi.getBlogCategory,
+    queryFn: () => blogApi.getBlogCategory(),
     enabled: false,
   });
   const { post, patch, remove } = useBlogCategory();
