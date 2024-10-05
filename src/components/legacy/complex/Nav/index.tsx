@@ -1,7 +1,5 @@
-'use client';
-
 import React from 'react';
-import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { MdArticle, MdHome, MdMenu } from 'react-icons/md';
 import Link from '@components/basic/Link';
 import ClassName from '@utils/classNameUtils';
@@ -26,6 +24,13 @@ const navList: NavItem[] = [
     link: '/blog',
     pathname: ['/blog', '/blog/[urlSlug]'],
   },
+  /*  { name: 'Todo', icon: <MdViewList size={24} />, link: '/todo', pathname: ['/todo'] },
+  {
+    name: 'Percent',
+    icon: <MdCalculate size={24} />,
+    link: '/percent',
+    pathname: ['/percent'],
+  },*/
   {
     name: 'Menu',
     icon: <MdMenu size={24} />,
@@ -35,7 +40,7 @@ const navList: NavItem[] = [
 ];
 
 function Nav() {
-  const pathname = usePathname();
+  const router = useRouter();
   const { cls } = ClassName;
 
   return (
@@ -57,7 +62,7 @@ function Nav() {
             >
               <div
                 className={cls(
-                  navItem.pathname.findIndex((value) => value === pathname) !== -1
+                  navItem.pathname.findIndex((value) => value === router.pathname) !== -1
                     ? 'text-black dark:text-white'
                     : 'text-gray-500 hover:text-black hover:dark:text-white',
                   'm-auto',
@@ -65,6 +70,15 @@ function Nav() {
               >
                 {navItem.icon}
               </div>
+              {/*<Icon
+                icon={navItem.icon}
+                className={cls(
+                  navItem.pathname.findIndex((value) => value === router.pathname) !== -1
+                    ? 'text-black dark:text-white'
+                    : 'text-gray-500 hover:text-black hover:dark:text-white',
+                  'm-auto',
+                )}
+              />*/}
             </Link>
           </li>
         ))}

@@ -1,22 +1,24 @@
-'use client';
-
 import React, { useMemo } from 'react';
 import { PercentCalculators } from '@stores/PercentStore/type';
 import useStore from '@hooks/useStore';
 import { observer } from 'mobx-react';
-import { useTranslation } from '~/app/i18n/client';
-import { Language } from '~/app/i18n/settings';
+import { useTranslation } from 'next-i18next';
 
 type PercentCalculatorCard = {
   calculatorName: keyof PercentCalculators;
+  title: string;
   placeholder: string[];
   text: string[];
-  lng: Language;
 };
 
-function PercentCalculatorCard({ calculatorName, placeholder, text, lng }: PercentCalculatorCard) {
+function PercentCalculatorCard({
+  calculatorName,
+  title,
+  placeholder,
+  text,
+}: PercentCalculatorCard) {
   const { valueChange, calculators } = useStore('percentStore');
-  const { t } = useTranslation(lng, 'percent');
+  const { t } = useTranslation('percent');
 
   const calculator = useMemo(() => {
     return calculators[calculatorName];
@@ -25,7 +27,7 @@ function PercentCalculatorCard({ calculatorName, placeholder, text, lng }: Perce
   return (
     <div className={'w-full flex flex-col space-y-4 rounded-md bg-basic-4 p-4'}>
       <div className={'flex'}>
-        <h3 className={'t-d-1 t-basic-1'}>{t(`${calculatorName}.title`)}</h3>
+        <h3 className={'t-d-1 t-basic-1'}>{title}</h3>
       </div>
       <div className={'w-full flex flex-col md:flex-row justify-between space-y-1 md:space-y-0'}>
         <div className={'w-full md:w-3/4 flex items-center space-x-1'}>

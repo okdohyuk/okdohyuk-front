@@ -1,29 +1,20 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/legacy/image';
 import { observer } from 'mobx-react';
 import useStore from '@hooks/useStore';
 import Cookies from 'js-cookie';
-import { usePathname, useRouter } from 'next/navigation';
-import { Language } from '~/app/i18n/settings';
-import { useTranslation } from '~/app/i18n/client';
-import useIsClient from '@hooks/useIsClient';
-import Skeleton from '@components/basic/Skeleton';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
-function UserInfoCard({ lng }: { lng: Language }) {
-  const { t } = useTranslation(lng, 'menu');
+function UserInfoCard() {
+  const { t } = useTranslation('menu');
   const { user, logOut, logOutAll } = useStore('userStore');
-  const { push } = useRouter();
-  const pathname = usePathname();
-  const isClient = useIsClient();
+  const { push, asPath } = useRouter();
 
   const handleLogin = () => {
-    if (pathname) Cookies.set('redirect_uri', pathname);
+    Cookies.set('redirect_uri', asPath);
     push('/auth/login');
   };
-
-  if (!isClient) return <Skeleton className={'mb-4 rounded-md'} h={12} />;
 
   return (
     <section className="mb-4 bg-basic-3 rounded-md p-2 flex items-center">

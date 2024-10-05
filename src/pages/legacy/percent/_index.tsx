@@ -1,9 +1,9 @@
 import React from 'react';
-import PercentCalculatorCard from '@components/complex/Card/PercentCalculatorCard';
+import PercentCalculatorCard from '@components/legacy/complex/Card/PercentCalculatorCard';
 import { GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import Opengraph from '~/components/basic/Opengraph';
+import Opengraph from 'components/legacy/basic/Opengraph';
 import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
 
 const PercentPage = () => {

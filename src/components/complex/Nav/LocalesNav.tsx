@@ -1,20 +1,26 @@
+'use client';
+
 import React from 'react';
-import { useRouter } from 'next/router';
-import Link from '~/components/basic/Link';
+import { usePathname } from 'next/navigation';
 
 function LocalesNav() {
-  const { asPath, locale } = useRouter();
+  const pathname = usePathname();
+  if (pathname === null) return null;
+
+  // Determine the current language and toggle it
+  const currentLang = pathname.startsWith('/ko') ? 'ko' : 'en';
+  const newLang = currentLang === 'ko' ? 'en' : 'ko';
+  const newPathname = pathname.replace(/^\/(ko|en)/, `/${newLang}`);
 
   return (
-    <Link
+    <a
       className={
         'w-[57px] h-[57px] mb-safe flex justify-center items-center cursor-pointer fixed z-30 bottom-[77px] right-5 bg-zinc-100 dark:bg-zinc-800 lg:bottom-[340px] lg:right-5 lg:left-auto rounded-full shadow-md t-d-3 t-basic-1'
       }
-      href={asPath}
-      locale={locale === 'ko' ? 'en' : 'ko'}
+      href={newPathname}
     >
       {'KO/EN'}
-    </Link>
+    </a>
   );
 }
 

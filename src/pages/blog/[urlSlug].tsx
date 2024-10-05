@@ -1,10 +1,8 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticPropsContext } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Blog } from '@api/Blog';
 import markdownUtils from '@utils/markdownUtils';
-import { withTranslation } from 'next-i18next';
-import Opengraph from '~/components/basic/Opengraph';
+import Opengraph from 'components/legacy/basic/Opengraph';
 import { blogApi } from '@api';
 import BlogDetail from '@components/blog/BlogDetail';
 
@@ -37,15 +35,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: 'blocking' };
 };
 
-export async function getStaticProps({ params, locale }: GetStaticPropsContext) {
+export async function getStaticProps({ params }: GetStaticPropsContext) {
   if (!(params && params.urlSlug)) return { notFound: true };
   const { urlSlug } = params;
   try {
     const { data: blog } = await blogApi.getBlogUrlSlug(urlSlug + '');
-    const translations = await serverSideTranslations(locale as string, ['common']);
     return {
       props: {
-        ...translations,
         blog,
         revalidate: 60,
       },
@@ -56,4 +52,4 @@ export async function getStaticProps({ params, locale }: GetStaticPropsContext) 
   }
 }
 
-export default withTranslation(['common'])(BlogDetailPage);
+export default BlogDetailPage;

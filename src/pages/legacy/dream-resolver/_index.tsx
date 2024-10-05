@@ -2,7 +2,7 @@ import { GetStaticPropsContext } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useEffect } from 'react';
-import Opengraph from '~/components/basic/Opengraph';
+import Opengraph from 'components/legacy/basic/Opengraph';
 import Cookies from 'js-cookie';
 import { AiOutlineLoading } from 'react-icons/ai';
 import { MdLink } from 'react-icons/md';

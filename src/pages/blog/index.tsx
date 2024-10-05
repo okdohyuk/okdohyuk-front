@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import { GetServerSidePropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { observer } from 'mobx-react';
-import Opengraph from '@components/basic/Opengraph';
+import Opengraph from 'components/legacy/basic/Opengraph';
 import useBlogSearch from '@hooks/blog/useBlogSearch';
 import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
 import BlogSearchNav from '@components/blog/BlogSearchNav';

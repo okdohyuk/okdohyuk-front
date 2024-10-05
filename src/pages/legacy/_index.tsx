@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticPropsContext } from 'next';
-import Opengraph from '~/components/basic/Opengraph';
+import Opengraph from 'components/legacy/basic/Opengraph';
 import Image from 'next/legacy/image';
-import logoIcon from '../../public/logo.svg';
+import logoIcon from '../../../public/logo.svg';
 
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];

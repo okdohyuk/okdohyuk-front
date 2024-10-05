@@ -10,7 +10,7 @@ import BlogDetail from '@components/blog/BlogDetail';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import Opengraph from '~/components/basic/Opengraph';
+import Opengraph from 'components/legacy/basic/Opengraph';
 import { MdImage } from 'react-icons/md';
 import { accessToken } from '~/utils/userTokenUtil';
 import BlogUtils from '~/utils/blogUtils';

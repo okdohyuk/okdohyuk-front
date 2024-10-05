@@ -2,21 +2,19 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import googleSignInButton from '../../../public/icons/signin/web_neutral_rd_na.svg';
 import Image from 'next/legacy/image';
-import { GetStaticPropsContext } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
 import Cookies from 'js-cookie';
 
 import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
-import Opengraph from '~/components/basic/Opengraph';
+import Opengraph from '~/components/legacy/basic/Opengraph';
 import Link from '~/components/basic/Link';
 import { authApi, userApi } from '@api';
 import useStore from '@hooks/useStore';
+import { useTranslation } from '~/app/i18n/client';
 
 type Login = (accessToken: string, redirectUri: string) => void;
 
 function LoginPage() {
-  const { t } = useTranslation('login');
+  const { t } = useTranslation('ko', 'login');
   const { asPath, push } = useRouter();
   const [loginButtonDisabled, setLoginButtonDisabled] = React.useState<boolean>(true);
   const { setUser } = useStore('userStore');
@@ -38,14 +36,18 @@ function LoginPage() {
     authApi
       .postAuthGoogle('Bearer ' + accessToken)
       .then(({ data: { access_token, refresh_token, user_id } }) => {
-        userApi.getUserUserId('Bearer ' + access_token, user_id).then(({ data }) => {
-          Cookies.set('access_token', access_token);
+        userApi
+          .getUserUserId('Bearer ' + access_token, user_id)
+          .then(({ data }) => {
+            Cookies.set('access_token', access_token);
 
-          setUser(data);
-          localStorage.setItem('refresh_token', refresh_token);
-          localStorage.setItem('user', JSON.stringify(data));
-        });
-        push(redirectUri);
+            setUser(data);
+            localStorage.setItem('refresh_token', refresh_token);
+            localStorage.setItem('user', JSON.stringify(data));
+          })
+          .then(() => {
+            push(redirectUri);
+          });
       })
       .catch(() => {
         push('/auth/login');
@@ -61,8 +63,7 @@ function LoginPage() {
     const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
     const scope = process.env.NEXT_PUBLIC_GOOGLE_SCOPE;
     const state = Math.random().toString(36).substring(2, 15);
-    const url = `${oauthUrl}?scope=${scope}&include_granted_scopes=true&response_type=token
-    &state=${state}&redirect_uri=${window.location.origin}/auth/login&client_id=${clientId}`;
+    const url = `${oauthUrl}?scope=${scope}&include_granted_scopes=true&response_type=token&state=${state}&redirect_uri=${window.location.origin}/auth/login&client_id=${clientId}`;
     Cookies.set('login_state', state);
     window.location.href = url;
   };
@@ -93,10 +94,10 @@ function LoginPage() {
   );
 }
 
-export const getStaticProps = async ({ locale }: GetStaticPropsContext) => ({
+/*export const getStaticProps = async ({ locale }: GetStaticPropsContext) => ({
   props: {
     ...(await serverSideTranslations(locale as string, ['common', 'login'])),
   },
-});
+});*/
 
 export default LoginPage;

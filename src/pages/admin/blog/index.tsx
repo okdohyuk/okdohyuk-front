@@ -7,7 +7,7 @@ import useStore from '@hooks/useStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
-import Opengraph from '~/components/basic/Opengraph';
+import Opengraph from 'components/legacy/basic/Opengraph';
 import MobileScreenWrapper from '~/components/complex/Layout/MobileScreenWrapper';
 import Cookies from 'js-cookie';
 import { BlogSearch } from '~/spec/api/Blog';
