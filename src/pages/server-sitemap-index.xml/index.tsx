@@ -1,6 +1,6 @@
 import { getServerSideSitemapLegacy } from 'next-sitemap';
 import { GetServerSideProps } from 'next';
-import { blogApi } from '~/spec/api';
+import { blogApi } from '@api';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
