@@ -17,9 +17,6 @@ class MyDocument extends Document {
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           <meta name="mobile-web-app-capable" content="yes" />
 
-          <meta name="description" content="Description" />
-          <meta name="keywords" content="Keywords" />
-
           <link rel="shortcut icon" href="/favicon.ico" />
 
           <link rel="manifest" href="/manifest.json" />
