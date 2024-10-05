@@ -14,11 +14,8 @@ const withPWA = require('next-pwa')({
 });
 
 const nextConfig = {
-  i18n,
-  // reactStrictMode: false,
-  // experimental: {
-  //   forceSwcTransforms: true,
-  // },
+  // i18n,
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {
