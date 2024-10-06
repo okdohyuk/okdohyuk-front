@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import googleSignInButton from '../../../public/icons/signin/web_neutral_rd_na.svg';
+
+// @ts-ignore
+import googleSignInButton from '../../public/icons/signin/web_neutral_rd_na.svg';
 import Image from 'next/legacy/image';
 import Cookies from 'js-cookie';
 

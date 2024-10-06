@@ -7850,6 +7850,7 @@ __metadata:
     react-modern-drawer: "npm:~1.4.0"
     react-share: "npm:^4.4.1"
     sass: "npm:^1"
+    server-only: "npm:^0.0.1"
     tailwindcss: "npm:^3"
     tailwindcss-safe-area: "npm:^0.2.2"
     ts-jest: "npm:^29"

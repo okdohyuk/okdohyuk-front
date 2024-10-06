@@ -12,7 +12,7 @@ import useStore from '@hooks/useStore';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 
-type _page = (accessToken: string, redirectUri: string) => void;
+type Page = (accessToken: string, redirectUri: string) => void;
 
 function LoginPage({ params: { lng } }: { params: { lng: Language } }) {
   const { t } = useTranslation(lng, 'login');
@@ -33,7 +33,7 @@ function LoginPage({ params: { lng } }: { params: { lng: Language } }) {
     login(accessToken, redirectUri || '/');
   }, []);
 
-  const login: _page = (accessToken, redirectUri) => {
+  const login: Page = (accessToken, redirectUri) => {
     authApi
       .postAuthGoogle('Bearer ' + accessToken)
       .then(({ data: { access_token, refresh_token, user_id } }) => {
@@ -60,8 +60,7 @@ function LoginPage({ params: { lng } }: { params: { lng: Language } }) {
     const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
     const scope = process.env.NEXT_PUBLIC_GOOGLE_SCOPE;
     const state = Math.random().toString(36).substring(2, 15);
-    const url = `${oauthUrl}?scope=${scope}&include_granted_scopes=true&response_type=token
-    &state=${state}&redirect_uri=${window.location.origin}/auth/login&client_id=${clientId}`;
+    const url = `${oauthUrl}?scope=${scope}&include_granted_scopes=true&response_type=token&state=${state}&redirect_uri=${window.location.origin}/auth/login&client_id=${clientId}`;
     Cookies.set('login_state', state);
     window.location.href = url;
   };
