@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticPropsContext } from 'next';
 import Opengraph from 'components/legacy/basic/Opengraph';
 import Image from 'next/legacy/image';
+// @ts-ignore
 import logoIcon from '../../../public/logo.svg';
 
 interface BeforeInstallPromptEvent extends Event {

@@ -19,17 +19,17 @@ type OpengraphComponent = (props: OpengraphProps) => JSX.Element;
 
 /**
  * page route
- * OpengraphComponent is responsible for handling the Open Graph and Twitter metadata for the web application.
- * It dynamically sets the metadata tags for the webpage based on the provided properties.
+ * OpengraphComponent is responsible for handling the Open Graph and Twitter translationsMetadata for the web application.
+ * It dynamically sets the translationsMetadata tags for the webpage based on the provided properties.
  *
  * @param {Object} props - The properties object.
  * @param {string} props.title - The title of the page.
  * @param {string} [props.ogTitle] - The Open Graph title of the page.
  * @param {string} props.description - The description of the page.
  * @param {boolean} [props.isMainPage=false] - Flag indicating if the page is the main page.
- * @param {string} [props.image] - The URL of the image to be used in the Open Graph and Twitter metadata.
+ * @param {string} [props.image] - The URL of the image to be used in the Open Graph and Twitter translationsMetadata.
  * @param {Array<string>} [props.keywords] - The keywords for the page.
- * @param {string} [props.contentType='website'] - The content type of the page for Open Graph metadata.
+ * @param {string} [props.contentType='website'] - The content type of the page for Open Graph translationsMetadata.
  *
  * @returns {JSX.Element} Returns a Head component containing meta tags for SEO and social media sharing.
  */

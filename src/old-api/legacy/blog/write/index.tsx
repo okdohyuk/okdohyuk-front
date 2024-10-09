@@ -4,22 +4,22 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Blog, BlogCategory, BlogRequest } from '@api/Blog';
 import { useTranslation, withTranslation } from 'next-i18next';
 import { blogApi, storageApi, userApi } from '@api';
-import { UserRoleEnum } from '~/spec/api/User';
-import Jwt from '~/utils/jwtUtils';
-import BlogDetail from '@components/blog/BlogDetail';
+import { UserRoleEnum } from '@api/User';
+import Jwt from '@utils/jwtUtils';
+import BlogDetail from '@components/legacy/blog/BlogDetail';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import Opengraph from 'components/legacy/basic/Opengraph';
+import Opengraph from '@components/legacy/basic/Opengraph';
 import { MdImage } from 'react-icons/md';
-import { accessToken } from '~/utils/userTokenUtil';
-import BlogUtils from '~/utils/blogUtils';
-import InputTag from '~/components/complex/InputTag';
-import Select from '~/components/complex/Select';
+import { accessToken } from '@utils/userTokenUtil';
+import BlogUtils from '@utils/blogUtils';
+import InputTag from '@components/complex/InputTag';
+import Select from '@components/complex/Select';
 
 type BlogPageProps = {
   blog: Blog | null;
-  categorys: BlogCategory[];
+  category: BlogCategory[];
 };
 
 const defaultValue: BlogRequest = {
@@ -33,10 +33,10 @@ const defaultValue: BlogRequest = {
 
 type SelectFC = (category: BlogCategory) => React.ReactElement;
 
-function BlogWritePage({ blog, categorys }: BlogPageProps) {
+function BlogWritePage({ blog, category }: BlogPageProps) {
   const { t } = useTranslation('blog/write');
   const { register, watch, handleSubmit, setValue } = useForm<Blog & BlogRequest>({
-    defaultValues: blog ? BlogUtils.toBlogRequest(blog, categorys) : defaultValue,
+    defaultValues: blog ? BlogUtils.toBlogRequest(blog, category) : defaultValue,
   });
   const tags = watch('tags');
   const [imageUrl, setImageUrl] = React.useState<string>('');
@@ -119,7 +119,7 @@ function BlogWritePage({ blog, categorys }: BlogPageProps) {
 
             <Select form={register('categoryId')}>
               <option value="">-</option>
-              {categorys.map(renderSelect)}
+              {category.map(renderSelect)}
             </Select>
 
             <InputTag tags={tags} addTag={addTag} removeTag={removeTag} />
@@ -185,14 +185,14 @@ export const getServerSideProps: GetServerSideProps = async ({
     if (user.role !== UserRoleEnum.Admin) return { notFound: true };
 
     const translations = await serverSideTranslations(locale + '', ['common', 'blog/write']);
-    const { data: categorys } = await blogApi.getBlogCategory();
+    const { data: category } = await blogApi.getBlogCategory();
 
     if (!urlSlug)
       return {
         props: {
           ...translations,
           blog: null,
-          categorys,
+          category,
         },
       };
 
@@ -202,7 +202,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       props: {
         ...translations,
         blog,
-        categorys,
+        category,
       },
     };
   } catch (e) {

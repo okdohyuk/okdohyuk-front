@@ -2,9 +2,9 @@ import React from 'react';
 import { GetStaticPaths, GetStaticPropsContext } from 'next';
 import { Blog } from '@api/Blog';
 import markdownUtils from '@utils/markdownUtils';
-import Opengraph from 'components/legacy/basic/Opengraph';
+import Opengraph from '@components/legacy/basic/Opengraph';
 import { blogApi } from '@api';
-import BlogDetail from '@components/blog/BlogDetail';
+import BlogDetail from '@components/legacy/blog/BlogDetail';
 
 type BlogPageProps = {
   blog: Blog;

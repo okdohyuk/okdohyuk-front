@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import BlogCard from '~/components/blog/BlogCard';
+import BlogCard from '@components/legacy/blog/BlogCard';
 import useStore from '@hooks/useStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';

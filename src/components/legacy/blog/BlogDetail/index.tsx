@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import BlogHeader from './BlogHeader';
 import { BlogComponent } from './type';

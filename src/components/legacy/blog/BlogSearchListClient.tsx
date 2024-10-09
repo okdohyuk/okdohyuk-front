@@ -1,21 +1,12 @@
 import React from 'react';
 import BlogCard from './BlogCard';
 import { observer } from 'mobx-react';
-import useStore from '~/hooks/useStore';
-import { cls } from '~/utils/classNameUtils';
+import useStore from '@hooks/useStore';
+import { cls } from '@utils/classNameUtils';
 import { useTranslation } from 'next-i18next';
 import BlogCardSkeleton from './BlogCardSkeleton';
-import { BlogSearchResponce } from '~/spec/api/Blog';
 
-type BlogSearchListProps = {
-  initData: BlogSearchResponce;
-};
-
-type BlogSearchListFC = React.FC<BlogSearchListProps>;
-
-const BlogSearchList: BlogSearchListFC = ({
-  initData: { count: initCount, results: initBlogs },
-}) => {
+const BlogSearchListClient = ({}) => {
   const { blogs, count, viewType, status, isLast } = useStore('blogSearchStore');
   const { t } = useTranslation('blog/index');
 
@@ -23,7 +14,7 @@ const BlogSearchList: BlogSearchListFC = ({
     <div className="mt-4">
       <div className="t-d-1 t-basic-1">
         {t('resultCount')}
-        {count === null ? initCount : count}
+        {count}
       </div>
       <div
         className={cls(
@@ -31,9 +22,6 @@ const BlogSearchList: BlogSearchListFC = ({
           viewType === 'frame' ? 'grid grid-cols-2 lg:grid-cols-3' : 'flex flex-col',
         )}
       >
-        {status === 'idle'
-          ? initBlogs.map((blog) => <BlogCard key={blog.urlSlug} blog={blog} type={viewType} />)
-          : null}
         {blogs?.map((blog) => (
           <BlogCard key={blog.urlSlug} blog={blog} type={viewType} />
         ))}
@@ -47,4 +35,4 @@ const BlogSearchList: BlogSearchListFC = ({
   );
 };
 
-export default observer(BlogSearchList);
+export default observer(BlogSearchListClient);

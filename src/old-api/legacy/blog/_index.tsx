@@ -3,24 +3,24 @@ import { useTranslation } from 'next-i18next';
 import { GetServerSidePropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { observer } from 'mobx-react';
-import Opengraph from 'components/legacy/basic/Opengraph';
+import Opengraph from '@components/legacy/basic/Opengraph';
 import useBlogSearch from '@hooks/blog/useBlogSearch';
 import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
-import BlogSearchNav from '@components/blog/BlogSearchNav';
-import BlogSearchList from '@components/blog/BlogSearchList';
-import BlogSearchBar from '@components/blog/BlogSearchBar';
+import BlogSearchNav from '@components/legacy/blog/BlogSearchNav';
+import BlogSearchList from '@components/legacy/blog/BlogSearchList';
+import BlogSearchBar from '@components/legacy/blog/BlogSearchBar';
 import Drawer from 'react-modern-drawer';
 
 import 'react-modern-drawer/dist/index.css';
 import { blogApi } from '@api';
 import { BlogCategory, BlogOrderByEnum, BlogSearchResponce } from '@api/Blog';
 import { ParsedUrlQuery } from 'querystring';
-import { FilterType } from '~/components/complex/FilterDropdown/type';
-import BlogUtils from '~/utils/blogUtils';
+import { FilterType } from '@components/complex/FilterDropdown/type';
+import BlogUtils from '@utils/blogUtils';
 import { unstable_cache } from 'next/cache';
 
 type BlogPageProps = {
-  categorys: BlogCategory[];
+  category: BlogCategory[];
   tags: string[];
   keyword: string | null;
   query: ParsedUrlQuery;
@@ -29,9 +29,9 @@ type BlogPageProps = {
 
 type BlogPageFC = React.FC<BlogPageProps>;
 
-const BlogPage: BlogPageFC = ({ categorys, tags, keyword, query, initData }) => {
+const BlogPage: BlogPageFC = ({ category, tags, keyword, query, initData }) => {
   const { t } = useTranslation('blog/index');
-  const {} = useBlogSearch(categorys, tags, query, initData);
+  const {} = useBlogSearch(category, tags, query, initData);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
@@ -68,10 +68,10 @@ export const getServerSideProps = async ({ locale, query }: GetServerSidePropsCo
   try {
     const fetchCategorys = unstable_cache(
       async () => {
-        const { data: categorys } = await blogApi.getBlogCategory();
-        return categorys;
+        const { data: category } = await blogApi.getBlogCategory();
+        return category;
       },
-      ['categorys'],
+      ['category'],
       { revalidate: 60 },
     );
 
@@ -95,7 +95,8 @@ export const getServerSideProps = async ({ locale, query }: GetServerSidePropsCo
 
       const handleCategory = (category: string, type: FilterType) => {
         const categoryChain = category.split(',');
-        const categoryValue = BlogUtils.findIdByCategoryChain(categoryChain, categorys);
+        // @ts-ignore
+        const categoryValue = BlogUtils.findIdByCategoryChain(categoryChain, category);
         if (type === 'in' && categoryValue) {
           reqCategoryIn.push(categoryValue);
         } else if (type === 'notIn' && categoryValue) {
@@ -154,7 +155,7 @@ export const getServerSideProps = async ({ locale, query }: GetServerSidePropsCo
       return initData;
     };
 
-    const [categorys, tags, initData] = await Promise.all([
+    const [category, tags, initData] = await Promise.all([
       fetchCategorys(),
       fetchTags(),
       fetchInitData(),
@@ -163,7 +164,7 @@ export const getServerSideProps = async ({ locale, query }: GetServerSidePropsCo
     return {
       props: {
         ...(await serverSideTranslations(locale ? locale : 'ko', ['common', 'blog/index'])),
-        categorys,
+        category,
         tags,
         keyword: query.keyword || null,
         query,
