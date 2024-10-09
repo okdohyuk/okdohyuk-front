@@ -45,6 +45,7 @@
     "react-modern-drawer": "~1.4.0",
     "react-share": "^4.4.1",
     "server-only": "^0.0.1",
+    "sharp": "0.33.5",
     "tailwindcss-safe-area": "^0.2.2",
     "typescript": "^5"
   },
