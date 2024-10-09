@@ -2,11 +2,12 @@ import React from 'react';
 import { MenuItem, Menus, menus } from '@assets/datas/menus';
 import { useTranslation } from '~/app/i18n';
 import { Language } from '~/app/i18n/settings';
-import metadata, { GenerateMetadata } from '@libs/server/customMetadata';
+import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetadata';
 import UserInfoCard from '@components/complex/Card/UserInfoCard';
 import Link from 'next/link';
 
-export const generateMetadata: GenerateMetadata = ({ params }) => metadata({ params, ns: 'menu' });
+export const generateMetadata: GenerateMetadata = ({ params }) =>
+  translationsMetadata({ params, ns: 'menu' });
 
 async function MenuPage({ params: { lng } }: { params: { lng: Language } }) {
   const { t } = await useTranslation(lng, 'menu');

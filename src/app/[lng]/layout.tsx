@@ -5,7 +5,7 @@ import { StoreProvider } from './provider';
 import { languages } from '~/app/i18n/settings';
 import { dir } from 'i18next';
 import localFont from 'next/font/local';
-import metadata, { GenerateMetadata } from '@libs/server/customMetadata';
+import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetadata';
 import CommonLayout from '@components/complex/Layout/CommonLayout';
 import AxiosInterceptor from '@components/complex/Layout/AxiosInterceptor';
 import { Analytics } from '@vercel/analytics/react';
@@ -17,7 +17,8 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
-export const generateMetadata: GenerateMetadata = ({ params }) => metadata({ params, ns: 'index' });
+export const generateMetadata: GenerateMetadata = ({ params }) =>
+  translationsMetadata({ params, ns: 'index' });
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));

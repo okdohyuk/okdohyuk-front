@@ -4,12 +4,15 @@ import logoIcon from '../../../public/logo.svg';
 import { useTranslation } from '~/app/i18n';
 import InstallApp from '@components/complex/InstallApp';
 import { Language, languages } from '~/app/i18n/settings';
-import metadata, { GenerateMetadata } from '@libs/server/customMetadata';
+import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetadata';
 import { notFound } from 'next/navigation';
 import { stringToLanguage } from '@utils/localeUtil';
 
 export const generateMetadata: GenerateMetadata = ({ params }) =>
-  metadata({ params, ns: stringToLanguage(params.lng) === null ? 'notFound' : 'index' });
+  translationsMetadata({
+    params,
+    ns: stringToLanguage(params.lng) === null ? 'notFound' : 'index',
+  });
 
 async function Home({ params: { lng } }: { params: { lng: Language } }) {
   // redirect to notfound

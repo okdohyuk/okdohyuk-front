@@ -5,21 +5,34 @@ import { FlatNamespace } from 'i18next';
 import { OpenGraphType } from 'next/dist/lib/metadata/types/opengraph-types';
 import * as process from 'node:process';
 
-export type GenerateMetadata = ({ params }: { params: { lng: Language } }) => Promise<Metadata>;
+type MetaDataProps = {
+  title: string;
+  description: string;
+  keywords?: string | string[];
+  image?: string;
+  type?: OpenGraphType;
+  language: Language;
+};
 
-type CustomMetadata = ({
+type CustomMetadata = (props: MetaDataProps) => Metadata;
+
+type GenerateMetadata = ({ params }: { params: { lng: Language } }) => Promise<Metadata>;
+
+type TranslationsMetadataProps = {
+  params: { lng: Language };
+  ns: FlatNamespace;
+  type?: OpenGraphType;
+  image?: string;
+};
+
+type TranslationsMetadata = ({
   params: { lng },
   ns,
   type,
   image,
-}: {
-  params: { lng: Language };
-  type?: OpenGraphType;
-  ns: FlatNamespace;
-  image?: string;
-}) => Promise<Metadata>;
+}: TranslationsMetadataProps) => Promise<Metadata>;
 
-const metadata: CustomMetadata = async ({
+const translationsMetadata: TranslationsMetadata = async ({
   params: { lng: language },
   ns: namespace,
   type = 'website',
@@ -27,20 +40,42 @@ const metadata: CustomMetadata = async ({
 }) => {
   const { t } = await getTranslations(language, namespace);
   const keywords = t('openGraph.keywords', { returnObjects: true }) as string | string[];
-  return {
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL}`),
+
+  return metadata({
     title: t('openGraph.title'),
     description: t('openGraph.description'),
     keywords: keywords instanceof Array ? keywords : '',
+    image,
+    type,
+    language,
+  });
+};
+
+const metadata: CustomMetadata = ({
+  title,
+  description,
+  keywords,
+  image,
+  type = 'website',
+  language,
+}) => {
+  return {
+    manifest: '/manifest.json',
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL}`),
+    title,
+    description,
+    keywords,
     image: image ? image : '/opengraph_image.png',
     openGraph: {
-      type: type,
-      title: t('openGraph.title'),
-      description: t('openGraph.description'),
-      language: language,
+      type,
+      title,
+      description,
+      language,
       images: image ? image : '/opengraph_image.png',
     },
   };
 };
 
-export default metadata;
+export { translationsMetadata, metadata };
+
+export type { GenerateMetadata };
