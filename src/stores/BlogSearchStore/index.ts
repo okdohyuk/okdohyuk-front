@@ -4,7 +4,7 @@ import { blogApi } from '@api';
 import { BlogSearchStoreState, Status } from './type';
 import { FilterDropdownItem, FilterType } from '~/components/complex/FilterDropdown/type';
 import FilterDropdownUtils from '~/utils/filterDropdownUtil';
-import { BlogCardType } from '~/components/blog/BlogCard/type';
+import { BlogCardType } from '@components/legacy/blog/BlogCard/type';
 
 class BlogSearchStore implements BlogSearchStoreState {
   @observable public blogs: BlogSearch[] | null = null;
@@ -14,7 +14,7 @@ class BlogSearchStore implements BlogSearchStoreState {
   @observable public isLast = false;
   @observable public viewType: BlogCardType = 'discript';
 
-  @observable public categorys: FilterDropdownItem[] = [];
+  @observable public category: FilterDropdownItem[] = [];
   @observable public tags: FilterDropdownItem[] = [];
 
   @observable public page = 0;
@@ -48,26 +48,28 @@ class BlogSearchStore implements BlogSearchStoreState {
       .getBlogSearch(
         this.page,
         this.limit,
-        getIns(this.categorys),
-        getNotIns(this.categorys),
+        getIns(this.category),
+        getNotIns(this.category),
         this.title ? this.title : undefined,
         getIns(this.tags),
         getNotIns(this.tags),
         this.orderBy,
       )
       .then(({ data }) => {
-        this.count = data.count;
-        this.isFirst = data.isFirst;
-        this.isLast = data.isLast;
+        runInAction(() => {
+          this.count = data.count;
+          this.isFirst = data.isFirst;
+          this.isLast = data.isLast;
 
-        if (this.blogs === null) {
-          this.blogs = data.results;
-        } else {
-          this.blogs = [...this.blogs, ...data.results];
-        }
+          if (this.blogs === null) {
+            this.blogs = data.results;
+          } else {
+            this.blogs = [...this.blogs, ...data.results];
+          }
 
-        this.status = 'success';
-        this.page += 1;
+          this.status = 'success';
+          this.page += 1;
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -90,7 +92,7 @@ class BlogSearchStore implements BlogSearchStoreState {
 
   public findBlogCategorys = () => {
     blogApi.getBlogCategory().then(({ data }) => {
-      this.categorys = FilterDropdownUtils.byBlogCategory(data);
+      this.category = FilterDropdownUtils.byBlogCategory(data);
     });
   };
 
@@ -100,9 +102,9 @@ class BlogSearchStore implements BlogSearchStoreState {
     });
   };
 
-  public setBlogCategorys = (categorys: BlogCategory[]) => {
+  public setBlogCategorys = (category: BlogCategory[]) => {
     runInAction(() => {
-      this.categorys = FilterDropdownUtils.byBlogCategory(categorys);
+      this.category = FilterDropdownUtils.byBlogCategory(category);
     });
   };
   public setBlogTags = (tags: string[]) => {
@@ -123,7 +125,7 @@ class BlogSearchStore implements BlogSearchStoreState {
     };
 
     runInAction(() => {
-      this.categorys = change(this.categorys);
+      this.category = change(this.category);
     });
   };
 

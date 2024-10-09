@@ -20,7 +20,7 @@ const useBlogSearch = (
     status,
     setBlogCategorys,
     setBlogTags,
-    categorys: findCategorys,
+    category: findCategorys,
     tags: findTags,
     orderBy,
     title: titleS,
