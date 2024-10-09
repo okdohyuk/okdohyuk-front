@@ -19,7 +19,9 @@ export function middleware(req: NextRequest) {
         req.nextUrl.pathname.split('/')[1] === loc && !req.nextUrl.pathname.startsWith('/_next'),
     )
   ) {
-    return NextResponse.redirect(new URL(`/${lng}/${req.nextUrl.pathname}`, req.url));
+    return NextResponse.redirect(
+      new URL(`/${lng}/${req.nextUrl.pathname}${req.nextUrl.search}`, req.url),
+    );
   }
 
   if (req.headers.has('referer')) {
