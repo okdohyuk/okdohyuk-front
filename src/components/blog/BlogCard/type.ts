@@ -1,5 +1,5 @@
 import React from 'react';
-import { BlogSearch } from '~/spec/api/Blog';
+import { BlogSearch } from '@api/Blog';
 
 type BlogCardType = 'discript' | 'frame' | 'board';
 

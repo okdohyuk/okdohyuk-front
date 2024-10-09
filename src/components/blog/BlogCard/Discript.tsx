@@ -1,9 +1,9 @@
 import React from 'react';
 import { BlogCardTypeFC } from './type';
-import ClassName from '~/utils/classNameUtils';
-import markdownUtils from '~/utils/markdownUtils';
+import ClassName from '@utils/classNameUtils';
+import markdownUtils from '@utils/markdownUtils';
 import Image from 'next/legacy/image';
-import DateUtils from '~/utils/dateUtils';
+import DateUtils from '@utils/dateUtils';
 
 const Discript: BlogCardTypeFC = ({ blog }) => {
   const { thumbnailImage, title, contents, createdAt } = blog;

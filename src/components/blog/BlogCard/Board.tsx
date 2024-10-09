@@ -1,8 +1,8 @@
 import React from 'react';
 import { BlogCardTypeFC } from './type';
-import ClassName from '~/utils/classNameUtils';
+import ClassName from '@utils/classNameUtils';
 import Image from 'next/legacy/image';
-import Tag from '~/components/basic/Tag';
+import Tag from '@components/basic/Tag';
 
 const Board: BlogCardTypeFC = ({ blog }) => {
   const { thumbnailImage, title, isPublic, tags } = blog;

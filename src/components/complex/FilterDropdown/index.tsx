@@ -6,6 +6,7 @@ import {
   MdOutlineIndeterminateCheckBox,
 } from 'react-icons/md';
 import { cls } from '~/utils/classNameUtils';
+import Skeleton from '@components/basic/Skeleton';
 
 const FilterDropdown: FilterDropdownFC = ({ title, items, changeType }) => {
   const changeState = (item: FilterDropdownItem) => {
@@ -43,7 +44,12 @@ const FilterDropdown: FilterDropdownFC = ({ title, items, changeType }) => {
   return (
     <div>
       <div className="p-2 t-d-1 font-bold t-basic-1 bg-basic-4">{title}</div>
-      <div className="p-2">{items.map((item, index) => renderItems(item, index, 0))}</div>
+      <div className="p-2">
+        {items.map((item, index) => renderItems(item, index, 0))}
+        {items.length === 0
+          ? [...new Array(6)].map((d, i) => <Skeleton className={'rounded h-[28px]'} key={i} />)
+          : null}
+      </div>
     </div>
   );
 };
