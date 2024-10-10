@@ -34,7 +34,7 @@ const BlogHeader: React.FC = () => {
           <h1 className={'t-t-3 lg:t-t-1 text-white mb-4'}>{title}</h1>
           <div className="flex items-center gap-2 t-c-1 text-zinc-300">
             <div>{format(createdAt ? new Date(createdAt || '') : new Date(), 'yyyy-MM-dd')}</div>
-            <Link href={'/blog/write?urlSlug=' + urlSlug}>수정</Link>
+            <Link href={'/admin/blog/write?urlSlug=' + urlSlug}>수정</Link>
           </div>
         </div>
       </header>

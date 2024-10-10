@@ -8,7 +8,7 @@ import Board from './Board';
 const BlogCard: BlogCardFC = ({ blog, isAdmin = false, type = 'discript' }) => {
   const { urlSlug } = blog;
 
-  const link = isAdmin ? '/blog/write?urlSlug=' + urlSlug : '/blog/' + urlSlug;
+  const link = isAdmin ? '/admin/blog/write?urlSlug=' + urlSlug : '/blog/' + urlSlug;
 
   return (
     <Link href={link}>
