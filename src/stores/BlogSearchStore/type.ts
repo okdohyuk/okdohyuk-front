@@ -1,5 +1,5 @@
 import { BlogSearch, BlogOrderByEnum, BlogCategory, BlogSearchResponce } from '@api/Blog';
-import { BlogCardType } from '~/components/blog/BlogCard/type';
+import { BlogCardType } from '@components/legacy/blog/BlogCard/type';
 import { FilterDropdownItem, FilterType } from '~/components/complex/FilterDropdown/type';
 
 type Status = 'idle' | 'loading' | 'success' | 'fail';
@@ -14,7 +14,9 @@ type BlogSearchStoreState = {
   isLast: boolean;
   viewType: BlogCardType;
 
-  categorys: FilterDropdownItem[];
+  setBlogs: (blogs: BlogSearch[]) => void;
+
+  category: FilterDropdownItem[];
   tags: FilterDropdownItem[];
 
   page: number;
@@ -27,7 +29,7 @@ type BlogSearchStoreState = {
   getBlogList: (reset: boolean) => void;
   setBlogList: (data: BlogSearchResponce) => void;
 
-  setBlogCategorys: (categorys: BlogCategory[]) => void;
+  setBlogCategorys: (category: BlogCategory[]) => void;
   setBlogTags: (tags: string[]) => void;
 
   setTitle: (title: string) => void;

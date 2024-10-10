@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '~/components/basic/Link';
+import Link from '@components/basic/Link';
 import { BlogCardFC } from './type';
 import Discript from './Discript';
 import Frame from './Frame';

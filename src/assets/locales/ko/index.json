@@ -2,7 +2,8 @@
   "openGraph": {
     "title": "okdohyuk - 웹 멀티툴 플랫폼",
     "ogTitle": "okdohyuk - 웹 멀티툴 플랫폼",
-    "description": "웹 멀티툴 플랫폼은 간편하게 사용할 수 있는 여러 웹 도구를 제공합니다."
+    "description": "웹 멀티툴 플랫폼은 간편하게 사용할 수 있는 여러 웹 도구를 제공합니다.",
+    "keywords": ["wef", "few"]
   },
   "downloads": "다운로드",
   "domain": "okdohyuk.dev",
