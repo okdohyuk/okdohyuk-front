@@ -16,7 +16,11 @@ type GoogleAdProps = {
 
 const GoogleAd = ({ slotId, className }: GoogleAdProps) => {
   useEffect(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (error) {
+      console.error('Google Ad error:', error);
+    }
   }, []);
 
   return (
