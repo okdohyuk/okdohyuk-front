@@ -1,4 +1,4 @@
-import { BlogToc } from '@components/blog/BlogDetail/type';
+import { BlogToc } from '@components/legacy/blog/BlogDetail/type';
 
 /**
  * Parses heading for building TOC

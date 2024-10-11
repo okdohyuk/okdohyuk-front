@@ -1,14 +1,17 @@
+'use client';
+
 import React from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { MdArticle, MdHome, MdMenu } from 'react-icons/md';
-import Link from '~/components/basic/Link';
+import Link from '@components/basic/Link';
 import ClassName from '@utils/classNameUtils';
+import { sendGAEvent } from '@libs/client/gtag';
 
 type NavItem = {
   name: string;
   icon: React.ReactNode;
   link: string;
-  pathname: string[];
+  pathname: string;
 };
 
 const navList: NavItem[] = [
@@ -16,31 +19,24 @@ const navList: NavItem[] = [
     name: 'Home',
     icon: <MdHome size={24} />,
     link: '/',
-    pathname: ['/'],
+    pathname: '/home',
   },
   {
     name: 'Blog',
     icon: <MdArticle size={24} />,
     link: '/blog',
-    pathname: ['/blog', '/blog/[urlSlug]'],
+    pathname: '/blog',
   },
-  /*  { name: 'Todo', icon: <MdViewList size={24} />, link: '/todo', pathname: ['/todo'] },
-  {
-    name: 'Percent',
-    icon: <MdCalculate size={24} />,
-    link: '/percent',
-    pathname: ['/percent'],
-  },*/
   {
     name: 'Menu',
     icon: <MdMenu size={24} />,
     link: '/menu',
-    pathname: ['/menu'],
+    pathname: '/menu',
   },
 ];
 
 function Nav() {
-  const router = useRouter();
+  const pathname = usePathname();
   const { cls } = ClassName;
 
   return (
@@ -61,8 +57,10 @@ function Nav() {
               className={'w-full h-full flex align-center justify-center text-center'}
             >
               <div
+                onClick={() => sendGAEvent('link_click', navItem.name)}
                 className={cls(
-                  navItem.pathname.findIndex((value) => value === router.pathname) !== -1
+                  (pathname + '').includes(navItem.pathname) ||
+                    (navItem.pathname === '/home' && pathname?.length === 3)
                     ? 'text-black dark:text-white'
                     : 'text-gray-500 hover:text-black hover:dark:text-white',
                   'm-auto',
@@ -70,15 +68,6 @@ function Nav() {
               >
                 {navItem.icon}
               </div>
-              {/*<Icon
-                icon={navItem.icon}
-                className={cls(
-                  navItem.pathname.findIndex((value) => value === router.pathname) !== -1
-                    ? 'text-black dark:text-white'
-                    : 'text-gray-500 hover:text-black hover:dark:text-white',
-                  'm-auto',
-                )}
-              />*/}
             </Link>
           </li>
         ))}

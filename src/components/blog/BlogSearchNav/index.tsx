@@ -1,19 +1,23 @@
+'use client';
+
 import { observer } from 'mobx-react';
-import { useTranslation } from 'next-i18next';
 import React from 'react';
 import FilterDropdown from '@components/complex/FilterDropdown';
 import useStore from '@hooks/useStore';
 import { cls } from '@utils/classNameUtils';
+import { Language } from '~/app/i18n/settings';
+import { useTranslation } from '~/app/i18n/client';
 
 type BlogSearchNavProps = {
   hasMargin?: boolean;
+  lng: Language;
 };
 
 type BlogSearchNavFC = React.FC<BlogSearchNavProps>;
 
-const BlogSearchNav: BlogSearchNavFC = ({ hasMargin = false }) => {
-  const { categorys, tags, changeCategoryType, changeTagType } = useStore('blogSearchStore');
-  const { t } = useTranslation('blog/index');
+const BlogSearchNav: BlogSearchNavFC = ({ hasMargin = false, lng }) => {
+  const { category, tags, changeCategoryType, changeTagType } = useStore('blogSearchStore');
+  const { t } = useTranslation(lng, 'blog/index');
 
   return (
     <div
@@ -24,7 +28,7 @@ const BlogSearchNav: BlogSearchNavFC = ({ hasMargin = false }) => {
     >
       <FilterDropdown
         title={t('filter.category')}
-        items={categorys}
+        items={category}
         changeType={changeCategoryType}
       />
       <FilterDropdown title={t('filter.tag')} items={tags} changeType={changeTagType} />

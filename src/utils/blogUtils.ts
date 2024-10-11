@@ -18,4 +18,17 @@ export default class BlogUtils {
     if (categoryChain.length === 1) return currentCategory.id;
     return this.findIdByCategoryChain(categoryChain.slice(1), currentCategory.child);
   };
+
+  static findCategoryChainById = (
+    category: BlogCategory[] | undefined,
+    id: string | undefined,
+  ): string[] => {
+    if (!category || !id) return [];
+    for (const currentCategory of category) {
+      if (currentCategory.id === id) return [currentCategory.name];
+      const childChain = this.findCategoryChainById(currentCategory.child, id);
+      if (childChain.length > 0) return [currentCategory.name, ...childChain];
+    }
+    return [];
+  };
 }
