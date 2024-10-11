@@ -6,6 +6,13 @@ import { cookieName, fallbackLng, languages } from '~/app/i18n/settings';
 acceptLanguage.languages([...languages]);
 
 export function middleware(req: NextRequest) {
+  // session id가 없으면 생성
+  if (!req.cookies.has('session_id')) {
+    const res = NextResponse.next();
+    res.cookies.set('session_id', Math.random().toString(36).slice(2));
+    return res;
+  }
+
   // Get lng from cookie or Accept-Language header
   let lng;
   if (req.cookies.has(cookieName)) lng = acceptLanguage.get(req.cookies.get(cookieName)!.value);

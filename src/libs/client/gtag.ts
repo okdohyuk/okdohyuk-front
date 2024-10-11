@@ -1,22 +1,38 @@
-// https://developers.google.com/analytics/devguides/collection/gtagjs/pages
-export const pageview = (url: URL) => {
-  window.gtag('config', `${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}`, {
-    page_path: url,
-  });
-};
+'use client';
+
+import { sendGAEvent as sE } from '@next/third-parties/google';
+import Cookies from 'js-cookie';
+import Jwt from '@utils/jwtUtils';
+
+type Event = 'button_click' | 'link_click' | 'page_view';
 
 type GTagEvent = {
-  action: string;
-  category: string;
-  label: string;
-  value: number;
+  id: string;
+  pathname: string;
+  event: Event;
+  value: string;
 };
 
-// https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const event = ({ action, category, label, value }: GTagEvent) => {
-  window.gtag('event', action, {
-    event_category: category,
-    event_label: label,
-    value: value,
-  });
+type SendGAEventType = (event: Event, value: string) => void;
+
+export const sendGAEvent: SendGAEventType = (event, value) => {
+  if (window === undefined) return;
+  let id = '';
+  const accessToken = Cookies.get('access_token');
+
+  if (accessToken) {
+    const { id: userId } = Jwt.getPayload(accessToken) || {};
+    id = userId;
+  } else {
+    id = Cookies.get('session_id') || '';
+  }
+
+  const object: GTagEvent = {
+    id: id,
+    pathname: window.location.pathname,
+    event,
+    value,
+  };
+
+  sE(object);
 };
