@@ -4,9 +4,9 @@ module.exports = {
   siteUrl: 'https://okdohyuk.dev',
   changefreq: 'daily',
   generateRobotsTxt: true,
-  exclude: ['/server-sitemap-index.xml'],
+  exclude: ['/server-sitemap.xml'],
   robotsTxtOptions: {
-    additionalSitemaps: ['https://okdohyuk.dev/server-sitemap-index.xml'],
+    additionalSitemaps: ['https://okdohyuk.dev/server-sitemap.xml'],
     policies: [
       {
         userAgent: '*',
