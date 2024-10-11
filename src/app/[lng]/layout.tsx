@@ -10,6 +10,7 @@ import CommonLayout from '@components/complex/Layout/CommonLayout';
 import AxiosInterceptor from '@components/complex/Layout/AxiosInterceptor';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import GoogleAdsense from '@components/google/GoogleAdsense';
 
 const pretendard = localFont({
   src: '../../assets/fonts/PretendardVariable.woff2',
@@ -39,6 +40,7 @@ export default function RootLayout({
           <CommonLayout>{children}</CommonLayout>
           <Analytics />
           <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}`} />
+          <GoogleAdsense pid={`${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}`} />
           <AxiosInterceptor />
         </StoreProvider>
       </body>
