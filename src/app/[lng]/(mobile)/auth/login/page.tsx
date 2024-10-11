@@ -56,7 +56,7 @@ function LoginPage({ params: { lng } }: { params: { lng: Language } }) {
   };
 
   const handleLogin = async () => {
-    const oauthUrl = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_URL;
+    const oauthUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
     const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
     const scope = process.env.NEXT_PUBLIC_GOOGLE_SCOPE;
     const state = Math.random().toString(36).substring(2, 15);
