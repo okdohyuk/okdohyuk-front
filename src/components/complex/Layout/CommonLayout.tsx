@@ -1,25 +1,27 @@
-import React, { useMemo } from 'react';
-import LocalesNav from '../Nav/LocalesNav';
-import Nav from '../Nav';
-import { useRouter } from 'next/router';
+'use client';
+
+import React from 'react';
+import LocalesNav from '@components/complex/Nav/LocalesNav';
+import Nav from 'components/complex/Nav';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 type CommonLayoutProps = {
   children: React.ReactNode;
 };
 
-const searchArray = ['/blog'];
+// const searchArray = ['/blog'];
+const queryClient = new QueryClient();
 
 function CommonLayout({ children }: CommonLayoutProps) {
-  const { asPath } = useRouter();
-
-  const isLocalesNavShown = useMemo(() => {
-    return !searchArray.some((searchStr) => asPath.includes(searchStr));
-  }, [asPath]);
+  /*const isLocalesNavShown = useMemo(() => {
+    return pathname !== null && !searchArray.some((searchStr) => pathname.includes(searchStr));
+  }, [pathname]);*/
 
   return (
     <div className={'w-full min-h-screen flex flex-col dark:bg-black pb-[57px] lg:pb-0'}>
-      {children}
-      {isLocalesNavShown && <LocalesNav />}
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      {/*{isLocalesNavShown && <LocalesNav />}*/}
+      <LocalesNav />
       <Nav />
     </div>
   );

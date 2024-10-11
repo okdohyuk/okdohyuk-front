@@ -1,13 +1,16 @@
+'use client';
+
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router';
+import { useRouter, usePathname } from 'next/navigation';
 import { authApi } from '@api';
 import Cookies from 'js-cookie';
 import { observer } from 'mobx-react';
 import useStore from '@hooks/useStore';
 
 function AxiosInterceptor() {
-  const { push, asPath } = useRouter();
+  const { push } = useRouter();
+  const pathname = usePathname();
   const { user, logOut } = useStore('userStore');
 
   useEffect(() => {
@@ -17,7 +20,7 @@ function AxiosInterceptor() {
 
     const logoutAndLogin = () => {
       logOut();
-      Cookies.set('redirect_uri', asPath);
+      if (pathname) Cookies.set('redirect_uri', pathname);
       push('/auth/login');
     };
 
