@@ -1,0 +1,16 @@
+{
+  "openGraph": {
+    "title": "MultiLive",
+    "description": "MultiLive is a service that allows you to simultaneously watch broadcasts on Twitch, YouTube, Chzzk, Soop, Kick.\nOn each broadcast platform, you can access broadcasts based on the channel's unique ID or the streamer's ID."
+  },
+  "title": "MultiLive",
+  "description": "MultiLive is a service that allows you to watch broadcasts from multiple platforms simultaneously.\nOn each broadcast platform, you can access the broadcast based on the channel's unique ID or the streamer's ID.\n\nTo use: Select a platform from the popup below, enter the ID of the broadcast and click the Add button.\nAlternatively, you can enter the URL directly.\nYou can watch up to four broadcasts simultaneously, and when you're done, close the popup and start watching.\n\nHow to find your broadcast ID:\nhttps://www.twitch.tv/{id} -> t:{id},\nhttps://www.youtube.com/watch?v={id} -> y:{id},\nhttps://chzzk.naver.com/live/{id} -> c:{id},\nhttps://play.sooplive.co.kr/{id}/ -> s:{id},\nhttps://kick.com/{id} -> k:{id}",
+  "twitch": "Twitch",
+  "youtube": "YouTube",
+  "chzzk": "Chzzk",
+  "soop": "Soop",
+  "kick": "Kick",
+  "input-placeholder": "Enter the ID of the live broadcast.",
+  "add": "Add",
+  "close": "Close"
+}
