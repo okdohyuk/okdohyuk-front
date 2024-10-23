@@ -1,25 +1,14 @@
 import React from 'react';
 import { cls } from '@utils/classNameUtils';
-import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n';
-import { LiveType, platformMapper } from '@utils/liveTypes';
+import { platformMapper, getLiveUrl } from '@utils/liveTypes';
+import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
+import { MultiLiveProps } from '~/app/[lng]/multi-live/[[...slug]]/layout';
 
-const getLiveUrl = (type: LiveType, id: string): string => {
-  const urls: Record<LiveType, string> = {
-    twitch: `https://player.twitch.tv/?channel=${id}`,
-    youtube: `https://www.youtube.com/embed/${id}`,
-    chzzk: `https://chzzk.naver.com/live/${id}`,
-    soop: `https://play.sooplive.co.kr/${id}/embed`,
-    kick: `https://player.kick.com/${id}`,
-  };
-  return urls[type];
-};
+export const generateMetadata: GenerateMetadata = ({ params }) =>
+  translationsMetadata({ params, ns: 'multi-live' });
 
-async function MultiLivePage({
-  params: { lng, slug },
-}: {
-  params: { lng: Language; slug?: string[] };
-}) {
+export default async function MultiLivePage({ params: { lng, slug } }: MultiLiveProps) {
   const { t } = await useTranslation(lng, 'multi-live');
 
   if (!slug)
@@ -57,5 +46,3 @@ async function MultiLivePage({
     </div>
   );
 }
-
-export default MultiLivePage;

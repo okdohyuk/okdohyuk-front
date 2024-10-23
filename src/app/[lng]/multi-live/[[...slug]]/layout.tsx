@@ -1,12 +1,13 @@
 import React from 'react';
-import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
+import { LanguageParams } from '~/app/[lng]/layout';
 
 type LayoutProps = { children: React.ReactNode; popup: React.ReactNode };
 
-export const generateMetadata: GenerateMetadata = ({ params }) =>
-  translationsMetadata({ params, ns: 'multi-live' });
+export type SlugParams = { params: { slug?: string[] } };
 
-export default function layout({ children, popup }: LayoutProps) {
+export type MultiLiveProps = LanguageParams & SlugParams;
+
+export default function MultiLiveLayout({ children, popup }: LayoutProps) {
   return (
     <>
       {children}

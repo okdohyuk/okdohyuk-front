@@ -1,20 +1,20 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Select from '@components/complex/Select';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from '~/app/i18n/client';
-import { Language } from '~/app/i18n/settings';
 import { LiveType, platformMapper } from '@utils/liveTypes';
+import { MultiLiveProps } from '~/app/[lng]/multi-live/[[...slug]]/layout';
 
-function PopupPage({ params: { lng, slug } }: { params: { lng: Language; slug?: string[] } }) {
+const MultiLivePopUp = ({ params: { lng, slug } }: MultiLiveProps) => {
   const { t } = useTranslation(lng, 'multi-live');
   const [newLiveType, setNewLiveType] = useState<LiveType>('twitch');
   const [liveId, setLiveId] = useState<string>('');
-  const router = useRouter();
   const [isVisible, setIsVisible] = useState(true);
+  const router = useRouter();
 
-  const onSubmit = () => {
+  const onSubmit = useCallback(() => {
     if (liveId) {
       const platformKey = Object.keys(platformMapper).find(
         (key) => platformMapper[key] === newLiveType,
@@ -25,13 +25,14 @@ function PopupPage({ params: { lng, slug } }: { params: { lng: Language; slug?: 
         setLiveId('');
       }
     }
-  };
+  }, [liveId, newLiveType, slug, router]);
 
-  const closePopUp = () => {
+  const closePopUp = useCallback(() => {
     setIsVisible(false);
-  };
+  }, []);
 
   if (slug && slug.length >= 4) return null;
+
   return (
     isVisible && (
       <div className="fixed flex bottom-4 left-4 bg-basic-0 p-2 rounded-lg gap-2">
@@ -61,6 +62,6 @@ function PopupPage({ params: { lng, slug } }: { params: { lng: Language; slug?: 
       </div>
     )
   );
-}
+};
 
-export default PopupPage;
+export default MultiLivePopUp;
