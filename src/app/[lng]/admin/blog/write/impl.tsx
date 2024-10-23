@@ -28,7 +28,7 @@ const defaultValue: BlogRequest = {
 
 type SelectFC = (category: BlogCategory) => React.ReactElement;
 
-function BlogWritePageImpl({
+const BlogWritePageImpl = ({
   lng,
   blog,
   category,
@@ -36,7 +36,7 @@ function BlogWritePageImpl({
   lng: Language;
   blog: Blog | null;
   category: BlogCategory[];
-}) {
+}) => {
   const { t } = useTranslation(lng, 'blog/write');
   const { pending } = useFormStatus();
 
@@ -169,6 +169,6 @@ function BlogWritePageImpl({
       </div>
     </div>
   );
-}
+};
 
 export default BlogWritePageImpl;

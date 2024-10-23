@@ -11,11 +11,11 @@ import { cls } from '@utils/classNameUtils';
 import CoderUtils from '@utils/coderUtils';
 import { CoderFormType, CoderType } from '@utils/coderUtils/type';
 import { useTranslation } from '~/app/i18n/client';
-import { Language } from '~/app/i18n/settings';
+import { LanguageParams } from '~/app/[lng]/layout';
 
 const coderList: CoderType[] = ['BASE64', 'URI'];
 
-function CoderPage({ params: { lng } }: { params: { lng: Language } }) {
+function CoderPage({ params: { lng } }: LanguageParams) {
   const { t } = useTranslation(lng, 'coder');
   const [copied, setCopied] = useState<boolean>(false);
 

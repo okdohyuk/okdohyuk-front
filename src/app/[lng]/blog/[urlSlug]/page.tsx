@@ -6,7 +6,11 @@ import axios from 'axios';
 import { BaseException } from '@api/Blog';
 import { unstable_cache as cache } from 'next/cache';
 import { metadata } from '@libs/server/customMetadata';
-import { Language } from '~/app/i18n/settings';
+import { LanguageParams } from '~/app/[lng]/layout';
+
+type BlogDetailProps = LanguageParams & {
+  params: { urlSlug: string };
+};
 
 export const dynamic = 'force-static';
 
@@ -30,11 +34,7 @@ const getPost = cache(async (urlSlug: string) => {
   }
 });
 
-export const generateMetadata = async ({
-  params: { lng, urlSlug },
-}: {
-  params: { lng: Language; urlSlug: string };
-}) => {
+export const generateMetadata = async ({ params: { lng, urlSlug } }: BlogDetailProps) => {
   const { title, contents, thumbnailImage, tags } = await getPost(urlSlug);
 
   return metadata({
@@ -47,10 +47,8 @@ export const generateMetadata = async ({
   });
 };
 
-async function BlogDetailPage({ params: { urlSlug } }: { params: { urlSlug: string } }) {
+export default async function BlogDetailPage({ params: { urlSlug } }: BlogDetailProps) {
   const blog = await getPost(urlSlug);
 
   return <BlogDetail blog={blog} />;
 }
-
-export default BlogDetailPage;

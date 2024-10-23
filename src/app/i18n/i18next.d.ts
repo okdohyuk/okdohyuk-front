@@ -9,6 +9,7 @@ import login from 'assets/locales/ko/login.json';
 import dreamResolver from 'assets/locales/ko/dream-resolver.json';
 import menu from 'assets/locales/ko/menu.json';
 import percent from 'assets/locales/ko/percent.json';
+import multiLive from '@assets/locales/ko/multi-live.json';
 import todo from 'assets/locales/ko/todo.json';
 import blog from 'assets/locales/ko/blog/index.json';
 import blogw from 'assets/locales/ko/blog/write.json';
@@ -30,6 +31,7 @@ declare module 'i18next' {
       menu: typeof menu & { [key: string]: string };
       percent: typeof percent;
       todo: typeof todo;
+      'multi-live': typeof multiLive;
       'blog/index': typeof blog;
       'blog/write': typeof blogw;
     };
