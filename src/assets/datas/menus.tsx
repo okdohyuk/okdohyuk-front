@@ -7,6 +7,7 @@ import {
   MdPayment,
   MdOutlineAutoAwesome,
   MdCode,
+  MdLiveTv,
 } from 'react-icons/md';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
 
@@ -40,6 +41,12 @@ const menus: Menus = {
       titlen: 'Coder',
       icon: <MdCode />,
       link: '/coder',
+    },
+    {
+      title: '멀티라이브',
+      titlen: 'MultiLive',
+      icon: <MdLiveTv />,
+      link: '/multi-live',
     },
   ],
   out: [
