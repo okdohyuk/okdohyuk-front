@@ -3,10 +3,11 @@ import Image from 'next/legacy/image';
 import logoIcon from '../../../public/logo.svg';
 import { useTranslation } from '~/app/i18n';
 import InstallApp from '@components/complex/InstallApp';
-import { Language, languages } from '~/app/i18n/settings';
+import { languages } from '~/app/i18n/settings';
 import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetadata';
 import { notFound } from 'next/navigation';
 import { stringToLanguage } from '@utils/localeUtil';
+import { LanguageParams } from '~/app/[lng]/layout';
 
 export const generateMetadata: GenerateMetadata = ({ params }) =>
   translationsMetadata({
@@ -14,7 +15,7 @@ export const generateMetadata: GenerateMetadata = ({ params }) =>
     ns: stringToLanguage(params.lng) === null ? 'notFound' : 'index',
   });
 
-async function Home({ params: { lng } }: { params: { lng: Language } }) {
+export default async function Home({ params: { lng } }: LanguageParams) {
   // redirect to notfound
   if (languages.indexOf(lng) < 0) notFound();
   const { t } = await useTranslation(lng, 'index');
@@ -42,5 +43,3 @@ async function Home({ params: { lng } }: { params: { lng: Language } }) {
     </>
   );
 }
-
-export default Home;

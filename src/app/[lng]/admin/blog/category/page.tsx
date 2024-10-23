@@ -14,7 +14,7 @@ type CategoryInput = {
   nowEdit: boolean;
 } & UseCategoryProps;
 
-const CategorySettingPage = () => {
+export default function CategorySettingPage() {
   const { register, handleSubmit, setValue, getValues, watch, reset } = useForm<CategoryInput>({
     defaultValues: { category: '', parent: null },
   });
@@ -136,6 +136,4 @@ const CategorySettingPage = () => {
       </MobileScreenWrapper>
     </>
   );
-};
-
-export default CategorySettingPage;
+}

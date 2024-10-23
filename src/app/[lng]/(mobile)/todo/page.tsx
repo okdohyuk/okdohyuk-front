@@ -4,16 +4,14 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { observer } from 'mobx-react';
 import useInput from '@hooks/useInput';
-import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
 import useIsClient from '@hooks/useIsClient';
 import useStore from '@hooks/useStore';
+import { LanguageParams } from '~/app/[lng]/layout';
 
 const ToDoCard = dynamic(() => import('@components/todo/ToDoCard'), { ssr: false });
 
-type TodoAppComponent = ({ params }: { params: { lng: Language } }) => JSX.Element;
-
-const TodoApp: TodoAppComponent = ({ params: { lng } }) => {
+function TodoPage({ params: { lng } }: LanguageParams) {
   const { todos, addTodo } = useStore('todoStore');
   const { t } = useTranslation(lng, 'todo');
   const { onChange, value, reset } = useInput('');
@@ -49,6 +47,6 @@ const TodoApp: TodoAppComponent = ({ params: { lng } }) => {
       </div>
     </>
   );
-};
+}
 
-export default observer(TodoApp);
+export default observer(TodoPage);

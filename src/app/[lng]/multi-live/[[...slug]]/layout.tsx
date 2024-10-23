@@ -1,7 +1,7 @@
 import React from 'react';
-import { LanguageParams } from '~/app/[lng]/layout';
+import { ChildrenProps, LanguageParams } from '~/app/[lng]/layout';
 
-type LayoutProps = { children: React.ReactNode; popup: React.ReactNode };
+type LayoutProps = ChildrenProps & { popup: React.ReactNode };
 
 export type SlugParams = { params: { slug?: string[] } };
 

@@ -10,11 +10,11 @@ import Link from '~/components/basic/Link';
 import { authApi, userApi } from '@api';
 import useStore from '@hooks/useStore';
 import { useTranslation } from '~/app/i18n/client';
-import { Language } from '~/app/i18n/settings';
+import { LanguageParams } from '~/app/[lng]/layout';
 
-type Page = (accessToken: string, redirectUri: string) => void;
+type LoginHandler = (accessToken: string, redirectUri: string) => void;
 
-function LoginPage({ params: { lng } }: { params: { lng: Language } }) {
+export default function LoginPage({ params: { lng } }: LanguageParams) {
   const { t } = useTranslation(lng, 'login');
   const { push } = useRouter();
   const [loginButtonDisabled, setLoginButtonDisabled] = React.useState<boolean>(true);
@@ -33,7 +33,7 @@ function LoginPage({ params: { lng } }: { params: { lng: Language } }) {
     login(accessToken, redirectUri || '/');
   }, []);
 
-  const login: Page = (accessToken, redirectUri) => {
+  const login: LoginHandler = (accessToken, redirectUri) => {
     authApi
       .postAuthGoogle('Bearer ' + accessToken)
       .then(({ data: { access_token, refresh_token, user_id } }) => {
@@ -83,5 +83,3 @@ function LoginPage({ params: { lng } }: { params: { lng: Language } }) {
     </>
   );
 }
-
-export default LoginPage;

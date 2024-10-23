@@ -21,6 +21,10 @@ const pretendard = localFont({
 
 export type LanguageParams = { params: { lng: Language } };
 
+export type ChildrenProps = {
+  children: React.ReactNode;
+};
+
 export const generateMetadata: GenerateMetadata = ({ params }) =>
   translationsMetadata({ params, ns: 'index' });
 
@@ -28,9 +32,7 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
-type RootLayoutProps = {
-  children: React.ReactNode;
-} & LanguageParams;
+type RootLayoutProps = ChildrenProps & LanguageParams;
 
 export default function RootLayout({ children, params: { lng } }: RootLayoutProps) {
   return (

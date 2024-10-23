@@ -1,18 +1,19 @@
 import React from 'react';
 import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
 import BlogSearchNav from '@components/blog/BlogSearchNav';
-import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n';
+import { ChildrenProps, LanguageParams } from '~/app/[lng]/layout';
 
-export default async function BlogsLayout({
+type BlogSearchProps = {
+  drawer: React.ReactNode;
+} & ChildrenProps &
+  LanguageParams;
+
+export default async function BlogSearchLayout({
   children,
   params: { lng },
   drawer,
-}: {
-  children: React.ReactNode;
-  params: { lng: Language };
-  drawer: React.ReactNode;
-}) {
+}: BlogSearchProps) {
   const { t } = await useTranslation(lng, 'blog/index');
 
   return (

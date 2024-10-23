@@ -1,8 +1,9 @@
 import React from 'react';
 import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
 import GoogleAd from '@components/google/GoogleAd';
+import { ChildrenProps } from '~/app/[lng]/layout';
 
-export default function MobileLayout({ children }: { children: React.ReactNode }) {
+export default function MobileLayout({ children }: ChildrenProps) {
   return (
     <AsideScreenWrapper
       left={
