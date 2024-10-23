@@ -2,13 +2,13 @@ import React from 'react';
 import PercentCalculatorCard from '@components/complex/Card/PercentCalculatorCard';
 import { useTranslation } from '~/app/i18n';
 import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetadata';
-import { Language } from '~/app/i18n/settings';
 import { PercentCalculators } from '@stores/PercentStore/type';
+import { LanguageParams } from '~/app/[lng]/layout';
 
 export const generateMetadata: GenerateMetadata = ({ params }) =>
   translationsMetadata({ params, ns: 'percent' });
 
-async function PercentPage({ params: { lng } }: { params: { lng: Language } }) {
+export default async function PercentPage({ params: { lng } }: LanguageParams) {
   const { t } = await useTranslation(lng, 'percent');
 
   const calculators: (keyof PercentCalculators)[] = [
@@ -36,5 +36,3 @@ async function PercentPage({ params: { lng } }: { params: { lng: Language } }) {
     </>
   );
 }
-
-export default PercentPage;

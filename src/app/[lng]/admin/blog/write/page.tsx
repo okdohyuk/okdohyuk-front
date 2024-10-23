@@ -3,9 +3,9 @@ import { notFound } from 'next/navigation';
 import axios from 'axios';
 import { blogApi } from '@api';
 import { BaseException } from '@api/Blog';
-import { Language } from '~/app/i18n/settings';
 import { verifySession } from '@libs/server/dal';
 import BlogWritePageImpl from '~/app/[lng]/admin/blog/write/impl';
+import { LanguageParams } from '~/app/[lng]/layout';
 
 const getPost = async (urlSlug: string) => {
   try {
@@ -26,18 +26,14 @@ const getCategory = async () => {
   return data;
 };
 
-async function BlogWritePage({
-  params: { lng },
-  searchParams,
-}: {
-  params: { lng: Language };
+type BlogWriteProps = LanguageParams & {
   searchParams: { [key: string]: string | string[] | undefined };
-}) {
+};
+
+export default async function BlogWritePage({ params: { lng }, searchParams }: BlogWriteProps) {
   const urlSlug = typeof searchParams.urlSlug === 'string' ? searchParams.urlSlug : null;
   const blog = urlSlug ? await getPost(urlSlug) : null;
   const category = await getCategory();
 
   return <BlogWritePageImpl lng={lng} blog={blog} category={category} />;
 }
-
-export default BlogWritePage;

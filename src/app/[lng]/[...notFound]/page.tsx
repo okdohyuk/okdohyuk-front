@@ -4,8 +4,6 @@ import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetad
 export const generateMetadata: GenerateMetadata = ({ params }) =>
   translationsMetadata({ params, ns: 'notFound' });
 
-const CatchAll = () => {
+export default function CatchAll() {
   return notFound();
-};
-
-export default CatchAll;
+}

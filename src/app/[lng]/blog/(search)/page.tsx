@@ -5,6 +5,7 @@ import { getTranslations } from '~/app/i18n';
 import { metadata } from '@libs/server/customMetadata';
 import { blogApi } from '@api';
 import { unstable_cache } from 'next/cache';
+import { LanguageParams } from '~/app/[lng]/layout';
 
 export const generateMetadata = async ({
   params: { lng },
@@ -41,9 +42,7 @@ const getStaticProps = unstable_cache(
   { revalidate: 60 * 60 * 24 * 7, tags: ['blog-search'] },
 );
 
-const BlogSearchPage = async ({ params }: { params: { lng: Language } }) => {
+export default async function BlogSearchPage({ params }: LanguageParams) {
   const { category, tags } = await getStaticProps();
   return <BlogImpl params={params} category={category} tags={tags} />;
-};
-
-export default BlogSearchPage;
+}

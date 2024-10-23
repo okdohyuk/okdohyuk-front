@@ -1,15 +1,15 @@
 import React from 'react';
 import { MenuItem, Menus, menus } from '@assets/datas/menus';
 import { useTranslation } from '~/app/i18n';
-import { Language } from '~/app/i18n/settings';
 import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetadata';
 import UserInfoCard from '@components/complex/Card/UserInfoCard';
 import Link from 'next/link';
+import { LanguageParams } from '~/app/[lng]/layout';
 
 export const generateMetadata: GenerateMetadata = ({ params }) =>
   translationsMetadata({ params, ns: 'menu' });
 
-async function MenuPage({ params: { lng } }: { params: { lng: Language } }) {
+export default async function MenuPage({ params: { lng } }: LanguageParams) {
   const { t } = await useTranslation(lng, 'menu');
 
   const renderMenuList = (menuList: MenuItem[]) => {
@@ -46,5 +46,3 @@ async function MenuPage({ params: { lng } }: { params: { lng: Language } }) {
     </>
   );
 }
-
-export default MenuPage;
