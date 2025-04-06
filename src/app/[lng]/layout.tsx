@@ -34,7 +34,8 @@ export async function generateStaticParams() {
 
 type RootLayoutProps = ChildrenProps & LanguageParams;
 
-export default function RootLayout({ children, params: { lng } }: RootLayoutProps) {
+export default async function RootLayout({ children, params }: RootLayoutProps) {
+  const { lng } = await params;
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={pretendard.className}>

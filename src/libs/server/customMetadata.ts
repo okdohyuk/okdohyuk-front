@@ -34,11 +34,12 @@ type TranslationsMetadata = ({
 }: TranslationsMetadataProps) => Promise<Metadata>;
 
 const translationsMetadata: TranslationsMetadata = async ({
-  params: { lng: language },
+  params,
   ns: namespace,
   type = 'website',
   image,
 }) => {
+  const { lng: language } = await params;
   const { t } = await getTranslations(language, namespace);
   const keywords = t('openGraph.keywords', { returnObjects: true }) as string | string[];
 

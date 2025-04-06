@@ -9,13 +9,17 @@ import { notFound } from 'next/navigation';
 import { stringToLanguage } from '@utils/localeUtil';
 import { LanguageParams } from '~/app/[lng]/layout';
 
-export const generateMetadata: GenerateMetadata = ({ params }) =>
-  translationsMetadata({
+export const generateMetadata: GenerateMetadata = async ({ params }) => {
+  const { lng } = await params;
+  return translationsMetadata({
     params,
-    ns: stringToLanguage(params.lng) === null ? 'notFound' : 'index',
+    ns: stringToLanguage(lng) === null ? 'notFound' : 'index',
   });
+};
 
-export default async function Home({ params: { lng } }: LanguageParams) {
+export default async function Home({ params }: LanguageParams) {
+  const { lng } = await params;
+
   // redirect to notfound
   if (languages.indexOf(lng) < 0) notFound();
   const { t } = await useTranslation(lng, 'index');
