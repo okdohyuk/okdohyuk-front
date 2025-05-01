@@ -7,13 +7,15 @@ import { blogApi } from '@api';
 import { unstable_cache } from 'next/cache';
 import { LanguageParams } from '~/app/[lng]/layout';
 
-export const generateMetadata = async ({
-  params: { lng },
-  searchParams,
-}: {
-  params: { lng: Language };
-  searchParams: { [key: string]: string | string[] | undefined };
+export const generateMetadata = async (props: {
+  params: Promise<{ lng: Language }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
+
+  const { lng } = params;
+
   const { t } = await getTranslations(lng, 'blog/index');
   const keyword = searchParams?.keyword;
 
@@ -42,7 +44,8 @@ const getStaticProps = unstable_cache(
   { revalidate: 60 * 60 * 24 * 7, tags: ['blog-search'] },
 );
 
-export default async function BlogSearchPage({ params }: LanguageParams) {
+export default async function BlogSearchPage(props: LanguageParams) {
+  const params = await props.params;
   const { category, tags } = await getStaticProps();
   return <BlogImpl params={params} category={category} tags={tags} />;
 }

@@ -9,7 +9,7 @@ import { metadata } from '@libs/server/customMetadata';
 import { LanguageParams } from '~/app/[lng]/layout';
 
 type BlogDetailProps = LanguageParams & {
-  params: { urlSlug: string };
+  params: Promise<{ urlSlug: string }>;
 };
 
 export const dynamic = 'force-static';
@@ -34,7 +34,11 @@ const getPost = cache(async (urlSlug: string) => {
   }
 });
 
-export const generateMetadata = async ({ params: { lng, urlSlug } }: BlogDetailProps) => {
+export const generateMetadata = async (props: BlogDetailProps) => {
+  const params = await props.params;
+
+  const { lng, urlSlug } = params;
+
   const { title, contents, thumbnailImage, tags } = await getPost(urlSlug);
 
   return metadata({
@@ -47,7 +51,11 @@ export const generateMetadata = async ({ params: { lng, urlSlug } }: BlogDetailP
   });
 };
 
-export default async function BlogDetailPage({ params: { urlSlug } }: BlogDetailProps) {
+export default async function BlogDetailPage(props: BlogDetailProps) {
+  const params = await props.params;
+
+  const { urlSlug } = params;
+
   const blog = await getPost(urlSlug);
 
   return <BlogDetail blog={blog} />;

@@ -4,7 +4,6 @@ import { Language } from '~/app/i18n/settings';
 import { FlatNamespace } from 'i18next';
 import { OpenGraphType } from 'next/dist/lib/metadata/types/opengraph-types';
 import * as process from 'node:process';
-import { LanguageParams } from '~/app/[lng]/layout';
 
 type MetaDataProps = {
   title: string;
@@ -17,17 +16,17 @@ type MetaDataProps = {
 
 type CustomMetadata = (props: MetaDataProps) => Metadata;
 
-type GenerateMetadata = ({ params }: LanguageParams) => Promise<Metadata>;
+type GenerateMetadata = ({ params }: { params: Promise<{ lng: Language }> }) => Promise<Metadata>;
 
 type TranslationsMetadataProps = {
-  params: { lng: Language };
+  params: Promise<{ lng: Language }>;
   ns: FlatNamespace;
   type?: OpenGraphType;
   image?: string;
 };
 
 type TranslationsMetadata = ({
-  params: { lng },
+  params,
   ns,
   type,
   image,

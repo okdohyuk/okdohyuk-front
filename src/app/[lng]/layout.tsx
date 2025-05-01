@@ -19,7 +19,7 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
-export type LanguageParams = { params: { lng: Language } };
+export type LanguageParams = { params: Promise<{ lng: Language }> };
 
 export type ChildrenProps = {
   children: React.ReactNode;

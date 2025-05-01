@@ -9,11 +9,13 @@ type BlogSearchProps = {
 } & ChildrenProps &
   LanguageParams;
 
-export default async function BlogSearchLayout({
-  children,
-  params: { lng },
-  drawer,
-}: BlogSearchProps) {
+export default async function BlogSearchLayout(props: BlogSearchProps) {
+  const params = await props.params;
+
+  const { lng } = params;
+
+  const { children, drawer } = props;
+
   const { t } = await useTranslation(lng, 'blog/index');
 
   return (

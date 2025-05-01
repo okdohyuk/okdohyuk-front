@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, use } from 'react';
 import ModernDrawer from 'react-modern-drawer';
 import BlogSearchNav from '@components/blog/BlogSearchNav';
 import BlogSearchBar from '@components/legacy/blog/BlogSearchBar';
@@ -9,7 +9,9 @@ import 'react-modern-drawer/dist/index.css';
 import useIsClient from '@hooks/useIsClient';
 import { LanguageParams } from '~/app/[lng]/layout';
 
-const Drawer = ({ params: { lng } }: LanguageParams) => {
+const Drawer = ({ params }: LanguageParams) => {
+  const { lng } = use(params);
+
   const [isOpen, setIsOpen] = useState(false);
   const isClient = useIsClient();
   const toggleDrawer = () => {

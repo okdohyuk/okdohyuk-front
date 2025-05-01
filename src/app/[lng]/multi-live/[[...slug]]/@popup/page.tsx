@@ -1,13 +1,15 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, use } from 'react';
 import Select from '@components/complex/Select';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from '~/app/i18n/client';
 import { LiveType, platformMapper } from '@utils/liveTypes';
 import { MultiLiveProps } from '~/app/[lng]/multi-live/[[...slug]]/layout';
 
-const MultiLivePopUp = ({ params: { lng, slug } }: MultiLiveProps) => {
+const MultiLivePopUp = ({ params }: MultiLiveProps) => {
+  const { lng, slug } = use(params);
+
   const { t } = useTranslation(lng, 'multi-live');
   const [newLiveType, setNewLiveType] = useState<LiveType>('twitch');
   const [liveId, setLiveId] = useState<string>('');
