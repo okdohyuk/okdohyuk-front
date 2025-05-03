@@ -129,10 +129,10 @@ const BlogWritePageImpl = ({
           <InputTag tags={tags} addTag={addTag} removeTag={removeTag} />
 
           <div className="flex gap-2">
-            <input className="input-text flex-1" value={imageUrl} readOnly />
+            <input className="input-text flex-1" value={imageUrl ?? ''} readOnly />
             <div>
               <label className="" htmlFor={'upload-image'} onClick={onClickHandler}>
-                <button className="button h-[38px]">
+                <button type="button" className="button h-[38px]">
                   <MdImage size={24} />
                 </button>
               </label>
