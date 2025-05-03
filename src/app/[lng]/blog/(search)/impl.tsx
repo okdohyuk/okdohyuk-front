@@ -16,7 +16,7 @@ const BlogImpl = ({
   category: BlogCategory[];
   tags: string[];
 }) => {
-  const {} = useBlogSearchClient(category, tags);
+  useBlogSearchClient(category, tags);
 
   return <BlogSearchListClient lng={lng} />;
 };

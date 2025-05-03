@@ -15,7 +15,6 @@ export default function Link({ children, href, hasTargetBlank, className, ...res
     <NextLink
       href={href}
       {...rest}
-      onClick={(e) => e.stopPropagation()}
       target={hasTargetBlank ? '_blank' : '_self'}
       className={className}
     >

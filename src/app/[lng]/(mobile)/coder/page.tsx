@@ -15,7 +15,8 @@ import { LanguageParams } from '~/app/[lng]/layout';
 
 const coderList: CoderType[] = ['BASE64', 'URI'];
 
-function CoderPage({ params: { lng } }: LanguageParams) {
+function CoderPage({ params }: LanguageParams) {
+  const { lng } = React.use(params);
   const { t } = useTranslation(lng, 'coder');
   const [copied, setCopied] = useState<boolean>(false);
 
