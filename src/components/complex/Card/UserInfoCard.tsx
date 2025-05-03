@@ -10,6 +10,7 @@ import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
 import useIsClient from '@hooks/useIsClient';
 import Skeleton from '@components/basic/Skeleton';
+import Link from '@components/basic/Link';
 
 function UserInfoCard({ lng }: { lng: Language }) {
   const { t } = useTranslation(lng, 'menu');
@@ -37,6 +38,12 @@ function UserInfoCard({ lng }: { lng: Language }) {
           <button className="ml-4 t-c-1 t-basic-1" onClick={logOutAll}>
             {t('login.logoutAll')}
           </button>
+          {/* 어드민이면 /admin 이동 버튼 노출 */}
+          {user.role === 'ADMIN' && (
+            <Link href="/admin" className="ml-4 t-c-1 t-point-1 underline">
+              관리자 페이지
+            </Link>
+          )}
         </>
       ) : (
         <button onClick={handleLogin}>
