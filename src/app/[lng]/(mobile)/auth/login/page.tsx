@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import React, { useEffect } from 'react';
+import React, { useEffect, use } from 'react';
 import googleSignInButton from '~/../public/icons/signin/web_neutral_rd_na.svg';
 import Image from 'next/legacy/image';
 import Cookies from 'js-cookie';
@@ -14,7 +14,9 @@ import { LanguageParams } from '~/app/[lng]/layout';
 
 type LoginHandler = (accessToken: string, redirectUri: string) => void;
 
-export default function LoginPage({ params: { lng } }: LanguageParams) {
+export default function LoginPage({ params }: LanguageParams) {
+  const { lng } = use(params);
+
   const { t } = useTranslation(lng, 'login');
   const { push } = useRouter();
   const [loginButtonDisabled, setLoginButtonDisabled] = React.useState<boolean>(true);

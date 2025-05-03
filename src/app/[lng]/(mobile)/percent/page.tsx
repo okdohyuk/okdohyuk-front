@@ -5,10 +5,14 @@ import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetad
 import { PercentCalculators } from '@stores/PercentStore/type';
 import { LanguageParams } from '~/app/[lng]/layout';
 
-export const generateMetadata: GenerateMetadata = ({ params }) =>
+export const generateMetadata: GenerateMetadata = async ({ params }) =>
   translationsMetadata({ params, ns: 'percent' });
 
-export default async function PercentPage({ params: { lng } }: LanguageParams) {
+export default async function PercentPage(props: LanguageParams) {
+  const params = await props.params;
+
+  const { lng } = params;
+
   const { t } = await useTranslation(lng, 'percent');
 
   const calculators: (keyof PercentCalculators)[] = [

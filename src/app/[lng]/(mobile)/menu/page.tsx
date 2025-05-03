@@ -9,7 +9,9 @@ import { LanguageParams } from '~/app/[lng]/layout';
 export const generateMetadata: GenerateMetadata = ({ params }) =>
   translationsMetadata({ params, ns: 'menu' });
 
-export default async function MenuPage({ params: { lng } }: LanguageParams) {
+export default async function MenuPage({ params }: LanguageParams) {
+  const { lng } = await params;
+
   const { t } = await useTranslation(lng, 'menu');
 
   const renderMenuList = (menuList: MenuItem[]) => {

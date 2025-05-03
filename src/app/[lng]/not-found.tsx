@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 import { getLanguageFromCookies } from '@utils/localeUtil';
 
 export default async function NotFound() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const { t } = await useTranslation(getLanguageFromCookies(cookieStore), 'notFound');
 
   return (

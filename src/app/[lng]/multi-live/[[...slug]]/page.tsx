@@ -5,10 +5,15 @@ import { platformMapper, getLiveUrl } from '@utils/liveTypes';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { MultiLiveProps } from '~/app/[lng]/multi-live/[[...slug]]/layout';
 
-export const generateMetadata: GenerateMetadata = ({ params }) =>
-  translationsMetadata({ params, ns: 'multi-live' });
+export const generateMetadata: GenerateMetadata = async ({ params }) => {
+  return translationsMetadata({ params, ns: 'multi-live' });
+};
 
-export default async function MultiLivePage({ params: { lng, slug } }: MultiLiveProps) {
+export default async function MultiLivePage(props: MultiLiveProps) {
+  const params = await props.params;
+
+  const { lng, slug } = params;
+
   const { t } = await useTranslation(lng, 'multi-live');
 
   if (!slug)

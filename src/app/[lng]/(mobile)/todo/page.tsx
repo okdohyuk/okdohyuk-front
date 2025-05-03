@@ -11,7 +11,8 @@ import { LanguageParams } from '~/app/[lng]/layout';
 
 const ToDoCard = dynamic(() => import('@components/todo/ToDoCard'), { ssr: false });
 
-function TodoPage({ params: { lng } }: LanguageParams) {
+function TodoPage({ params }: LanguageParams) {
+  const { lng } = React.use(params);
   const { todos, addTodo } = useStore('todoStore');
   const { t } = useTranslation(lng, 'todo');
   const { onChange, value, reset } = useInput('');

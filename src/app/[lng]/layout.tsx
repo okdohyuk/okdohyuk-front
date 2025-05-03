@@ -19,7 +19,7 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
-export type LanguageParams = { params: { lng: Language } };
+export type LanguageParams = { params: Promise<{ lng: Language }> };
 
 export type ChildrenProps = {
   children: React.ReactNode;
@@ -34,7 +34,8 @@ export async function generateStaticParams() {
 
 type RootLayoutProps = ChildrenProps & LanguageParams;
 
-export default function RootLayout({ children, params: { lng } }: RootLayoutProps) {
+export default async function RootLayout({ children, params }: RootLayoutProps) {
+  const { lng } = await params;
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={pretendard.className}>

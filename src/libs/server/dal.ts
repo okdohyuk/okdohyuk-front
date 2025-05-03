@@ -8,7 +8,7 @@ import { userApi } from '@api';
 import UserTokenUtil from '@utils/userTokenUtil';
 
 export const verifySession = cache(async () => {
-  const accessToken = cookies().get('access_token')?.value;
+  const accessToken = (await cookies()).get('access_token')?.value;
   if (!accessToken) {
     redirect('/auth/login');
     return null;

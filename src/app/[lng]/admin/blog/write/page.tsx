@@ -27,10 +27,15 @@ const getCategory = async () => {
 };
 
 type BlogWriteProps = LanguageParams & {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export default async function BlogWritePage({ params: { lng }, searchParams }: BlogWriteProps) {
+export default async function BlogWritePage(props: BlogWriteProps) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
+
+  const { lng } = params;
+
   const urlSlug = typeof searchParams.urlSlug === 'string' ? searchParams.urlSlug : null;
   const blog = urlSlug ? await getPost(urlSlug) : null;
   const category = await getCategory();
