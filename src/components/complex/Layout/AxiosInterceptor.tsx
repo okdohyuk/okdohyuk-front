@@ -8,6 +8,18 @@ import Cookies from 'js-cookie';
 import { observer } from 'mobx-react';
 import useStore from '@hooks/useStore';
 
+// 중복 요청 취소용 Map 선언
+const pendingRequests = new Map<string, () => void>();
+
+function getRequestKey(config: any) {
+  return JSON.stringify({
+    url: config.url,
+    method: config.method,
+    data: config.data,
+    params: config.params,
+  });
+}
+
 function AxiosInterceptor() {
   const { push } = useRouter();
   const pathname = usePathname();
@@ -39,11 +51,34 @@ function AxiosInterceptor() {
       }
     };
 
+    // 요청 인터셉터: 중복 요청 취소
+    const requestInterceptor = axios.interceptors.request.use((config) => {
+      const key = getRequestKey(config);
+      if (pendingRequests.has(key)) {
+        // 이전 요청 취소
+        const cancel = pendingRequests.get(key);
+        if (cancel) cancel();
+        pendingRequests.delete(key);
+      }
+      config.cancelToken = new axios.CancelToken((cancel) => {
+        pendingRequests.set(key, cancel);
+      });
+      return config;
+    });
+
     const interceptor = axios.interceptors.response.use(
       function (response) {
+        // 응답이 오면 해당 요청 삭제
+        const key = getRequestKey(response.config);
+        pendingRequests.delete(key);
         return response;
       },
       async function (error) {
+        // 에러 발생 시에도 해당 요청 삭제
+        if (error.config) {
+          const key = getRequestKey(error.config);
+          pendingRequests.delete(key);
+        }
         const originalConfig = error.config;
         const {
           status,
@@ -67,6 +102,7 @@ function AxiosInterceptor() {
 
     return () => {
       axios.interceptors.response.eject(interceptor);
+      axios.interceptors.request.eject(requestInterceptor);
     };
   }, []);
   return <></>;

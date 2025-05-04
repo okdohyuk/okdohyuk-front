@@ -8,8 +8,19 @@ import { cls } from '@utils/classNameUtils';
 import BlogCardSkeleton from './BlogCardSkeleton';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
+import { BlogCategory } from '~/spec/api/Blog';
+import useBlogSearchClient from '@hooks/blog/useBlogSearchClient';
 
-const BlogSearchListClient = ({ lng }: { lng: Language }) => {
+const BlogSearchListClient = ({
+  lng,
+  category,
+  tags,
+}: {
+  lng: Language;
+  category: BlogCategory[];
+  tags: string[];
+}) => {
+  useBlogSearchClient(category, tags);
   const { blogs, count, viewType, status } = useStore('blogSearchStore');
   const { t } = useTranslation(lng, 'blog/index');
 
