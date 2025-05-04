@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Language } from '~/app/i18n/settings';
 import BlogImpl from './impl';
 import { getTranslations } from '~/app/i18n';
@@ -47,9 +47,5 @@ const getStaticProps = unstable_cache(
 export default async function BlogSearchPage(props: LanguageParams) {
   const params = await props.params;
   const { category, tags } = await getStaticProps();
-  return (
-    <Suspense>
-      <BlogImpl params={params} category={category} tags={tags} />
-    </Suspense>
-  );
+  return <BlogImpl params={params} category={category} tags={tags} />;
 }
