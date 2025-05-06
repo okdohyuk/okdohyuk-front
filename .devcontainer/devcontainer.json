@@ -3,7 +3,13 @@
 	"image": "mcr.microsoft.com/devcontainers/javascript-node:20-bullseye",
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {},
-		"ghcr.io/devcontainers/features/github-cli:1": {}
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "17",
+			"installMaven": false,
+			"installGradle": false
+		},
+		"ghcr.io/devcontainers/features/common-utils:2": {}
 	},
 	"customizations": {
 		"vscode": {
@@ -31,13 +37,13 @@
 				"typescript.tsdk": ".yarn/sdks/typescript/lib",
 				"typescript.enablePromptUseWorkspaceTsdk": true,
 				"search.exclude": {
-					"**/.yarn": true,
-					"**/.pnp.*": true
+					"**/.yarn": true
 				}
 			}
 		}
 	},
-	"forwardPorts": [3000, 5000],
-	"postCreateCommand": "sudo corepack enable && corepack prepare yarn@4.5.0 --activate && yarn install",
-	"remoteUser": "node"
+	"forwardPorts": [3000, 8080],
+	"postCreateCommand": "yarn install",
+	"remoteUser": "node",
+	"runArgs": ["--env-file", ".env"]
 }
