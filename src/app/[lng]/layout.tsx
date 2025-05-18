@@ -7,6 +7,7 @@ import { dir } from 'i18next';
 import localFont from 'next/font/local';
 import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetadata';
 import CommonLayout from '@components/complex/Layout/CommonLayout';
+import Footer from '@components/complex/Layout/Footer';
 import AxiosInterceptor from '@components/complex/Layout/AxiosInterceptor';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -41,6 +42,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
       <body className={pretendard.className}>
         <StoreProvider>
           <CommonLayout>{children}</CommonLayout>
+          <Footer lng={lng} />
           <Analytics />
           <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}`} />
           <GoogleAdsense pid={`${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}`} />
