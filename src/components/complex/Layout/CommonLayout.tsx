@@ -34,10 +34,7 @@ function CommonLayout({ children }: CommonLayoutProps) {
   }, []);
 
   return (
-    <div
-      ref={wrapperRef}
-      className={'w-full min-h-screen flex flex-col dark:bg-black pb-[57px] lg:pb-0'}
-    >
+    <div ref={wrapperRef} className={'w-full min-h-screen flex flex-col dark:bg-black'}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
       {!navDisabledPath.some((path) => pathname.includes(path)) && (
         <>

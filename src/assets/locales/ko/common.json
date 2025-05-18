@@ -1,5 +1,10 @@
 {
   "openGraph": {
     "withMe": " - okdohyuk"
+  },
+  "footer": {
+    "appName": "okdohyuk",
+    "terms": "이용약관",
+    "privacy": "개인정보처리방침"
   }
 }
