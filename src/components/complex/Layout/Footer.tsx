@@ -24,6 +24,7 @@ const Footer: React.FC<FooterProps> = ({ lng, className = '' }) => {
       className={cls(
         'w-full py-4 border-t border-zinc-200 dark:border-zinc-800',
         'bg-zinc-100 dark:bg-zinc-900',
+        'mb-[57px] lg:mb-0',
         className,
       )}
     >
