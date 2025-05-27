@@ -14,6 +14,7 @@ import todo from 'assets/locales/ko/todo.json';
 import blog from 'assets/locales/ko/blog/index.json';
 import blogw from 'assets/locales/ko/blog/write.json';
 import type from 'assets/locales/ko/type.json';
+import ppollong from 'assets/locales/ko/ppollong.json'; // ppollong.json 임포트 추가
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -34,6 +35,7 @@ declare module 'i18next' {
       'multi-live': typeof multiLive;
       'blog/index': typeof blog;
       'blog/write': typeof blogw;
+      ppollong: typeof ppollong; // ppollong 네임스페이스 추가
     };
   }
 }

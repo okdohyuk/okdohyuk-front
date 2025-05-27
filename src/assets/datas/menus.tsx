@@ -1,15 +1,16 @@
 import React from 'react';
 import {
   MdCalculate,
-  MdViewList,
-  MdTagFaces,
-  MdOutlinePersonalVideo,
-  MdPayment,
-  MdOutlineAutoAwesome,
   MdCode,
   MdLiveTv,
+  MdOutlineAutoAwesome,
+  MdOutlinePersonalVideo,
+  MdPayment,
+  MdTagFaces,
+  MdViewList,
 } from 'react-icons/md';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
+import { BiBomb } from 'react-icons/bi';
 
 type MenuItem = {
   title: string;
@@ -47,6 +48,12 @@ const menus: Menus = {
       titlen: 'MultiLive',
       icon: <MdLiveTv />,
       link: '/multi-live',
+    },
+    {
+      title: '뽈롱',
+      titlen: 'Ppollong',
+      icon: <BiBomb />,
+      link: '/ppollong',
     },
   ],
   out: [
