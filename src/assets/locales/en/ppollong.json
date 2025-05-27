@@ -1,0 +1,25 @@
+{
+  "openGraph": {
+    "title": "Cannon Ppollong Draw",
+    "ogTitle": "Cannon Ppollong Draw",
+    "description": "Draw random numbers with the Cannon Ppollong! Set a maximum number and check the drawn numbers."
+  },
+  "title": "Cannon Ppollong Draw 💣",
+  "settingsTitle": "Draw Settings",
+  "maxNumberPlaceholder": "Max Number (e.g., 45)",
+  "initializeButton": "Set",
+  "resetButtonTitle": "Reset Settings",
+  "error": {
+    "invalidNumber": "Please enter a valid number greater than 0.",
+    "maxNumberExceeded": "The maximum number cannot exceed 200.",
+    "allDrawnMessage": "All numbers have been drawn!",
+    "notInitialized": "Please set the number first."
+  },
+  "drawButton": {
+    "loading": "Firing...",
+    "allDrawn": "All Drawn!",
+    "ready": "Fire!"
+  },
+  "drawnNumberPrefix": "Ppollong! Drawn Number:",
+  "numberBoardTitle": "Number Board (1 ~ {{maxNumber}}) - Drawn: {{drawnCount}} / {{totalCount}}"
+}
