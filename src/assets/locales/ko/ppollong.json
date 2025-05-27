@@ -1,0 +1,25 @@
+{
+  "openGraph": {
+    "title": "대포 뽈롱 뽑기",
+    "ogTitle": "대포 뽈롱 뽑기",
+    "description": "대포 뽈롱 뽑기로 무작위 숫자를 뽑아보세요! 최대 숫자를 설정하고, 뽑힌 숫자를 확인할 수 있습니다."
+  },
+  "title": "대포 뽈롱 뽑기 💣",
+  "settingsTitle": "뽑기 설정",
+  "maxNumberPlaceholder": "최대 숫자 (예: 45)",
+  "initializeButton": "설정",
+  "resetButtonTitle": "설정 초기화",
+  "error": {
+    "invalidNumber": "1 이상의 유효한 숫자를 입력해주세요.",
+    "maxNumberExceeded": "최대 숫자는 200까지 설정할 수 있습니다.",
+    "allDrawnMessage": "모든 숫자를 다 뽑았습니다!",
+    "notInitialized": "먼저 숫자를 설정해주세요."
+  },
+  "drawButton": {
+    "loading": "발사 중...",
+    "allDrawn": "모두 뽑힘!",
+    "ready": "발사!"
+  },
+  "drawnNumberPrefix": "뽈롱! 뽑힌 숫자:",
+  "numberBoardTitle": "숫자판 (1 ~ {{maxNumber}}) - 뽑힌 개수: {{drawnCount}} / {{totalCount}}"
+}
