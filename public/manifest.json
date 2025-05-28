@@ -1,13 +1,13 @@
 {
-  "name" : "okdohyuk",
-  "short_name" : "okdohyuk",
-  "description" : "간편하고 쉽게 사용할 수 있는 여러 웹 도구를 제공합니다.",
-  "theme_color" : "#AA90FA",
-  "background_color" : "#ffffff",
+  "name": "okdohyuk",
+  "short_name": "okdohyuk",
+  "description": "간편하고 쉽게 사용할 수 있는 여러 웹 도구를 제공합니다.",
+  "theme_color": "#AA90FA",
+  "background_color": "#ffffff",
   "display": "fullscreen",
   "orientation": "portrait",
-  "scope" : "/",
-  "start_url" : "/",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "/icons/app/android-icon-36x36.png",
@@ -46,7 +46,7 @@
       "density": "4.0"
     }
   ],
-  "screenshots" : [
+  "screenshots": [
     {
       "src": "/splashscreens/iphone5_splash.png",
       "sizes": "640x1136",
