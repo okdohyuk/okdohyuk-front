@@ -40,14 +40,10 @@ export default class markdownUtils {
       }
       if (options.gfm) {
         output = output
-          // Header
+          // 헤더 마크다운 제거
           .replace(/\n={2,}/g, '\n')
-          // Fenced codeblocks
-          .replace(/~{3}.*\n/g, '')
-          // Strikethrough
-          .replace(/~~/g, '')
-          // Fenced codeblocks
-          .replace(/`{3}.*\n/g, '');
+          // GFM 취소선 마크다운 제거
+          .replace(/~~/g, ''); // 코드블록 마크다운은 아래에서 한 번에 처리
       }
       if (options.preserveLinks) {
         // Remove inline links while preserving the links
@@ -66,8 +62,8 @@ export default class markdownUtils {
         // Remove inline links
         .replace(/\[(.*?)\][\[\(].*?[\]\)]/g, '$1')
         // Remove blockquotes
-        .replace(/^\s{0,3}>\s?/g, '')
-        .replace(/(^|\n)\s{0,3}>\s?/g, '\n\n')
+        .replace(/^\s{0,3}>\s?/gm, '') // 각 줄의 > 제거
+        .replace(/(^|\n)\s{0,3}>\s?/g, '\n') // 중첩 인용구도 \n으로 통일
         // Remove reference-style links?
         .replace(/^\s{1,2}\[(.*?)\]: (\S+)( ".*?")?\s*$/g, '')
         // Remove atx-style headers
@@ -75,12 +71,18 @@ export default class markdownUtils {
         // Remove emphasis (repeat the line to remove double emphasis)
         .replace(/([\*_]{1,3})(\S.*?\S{0,1})\1/g, '$2')
         .replace(/([\*_]{1,3})(\S.*?\S{0,1})\1/g, '$2')
-        // Remove code blocks
-        .replace(/(`{3,})(.*?)\1/gm, '$2')
+        // 코드블록의 시작(```[언어])과 끝(```), 내부/끝에 개행이 있든 없든, 마지막 ```가 줄 끝이든 파일 끝이든 모두 완벽하게 제거. 내부 코드는 가공하지 않고 그대로 남김
+        .replace(/```[ \t]*[a-zA-Z0-9]*\s*\n?([\s\S]*?)\n?```[ \t]*(\n|$)/g, '$1')
+        // 혹시 남아있는 ``` 단독 라인, 줄 끝, 파일 끝 모두 제거
+        .replace(/(^|\n)```[ \t]*($|\n|$)/g, '$1')
+        .replace(/```+[ \t]*($|\n|$)/g, '')
+        // 마지막 남은 개행/공백 모두 제거
+        .replace(/[\n\r\s]+$/g, '')
+        .trim()
         // Remove inline code
-        .replace(/`(.+?)`/g, '$1')
-        // Replace two or more newlines with exactly two? Not entirely sure this belongs here...
-        .replace(/\n{2,}/g, '\n\n');
+        .replace(/`([^`]+?)`/g, '$1')
+        // Replace two or more newlines with exactly one
+        .replace(/\n{2,}/g, '\n');
     } catch (e) {
       console.error(e);
 

@@ -136,7 +136,8 @@
 
   .table {
   }
-  .table th, .table  td {
-    @apply p-2 border border-solid border-basic-5 align-middle break-keep
+  .table th,
+  .table td {
+    @apply p-2 border border-solid border-basic-5 align-middle break-keep;
   }
 }

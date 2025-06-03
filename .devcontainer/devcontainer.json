@@ -1,49 +1,49 @@
 {
-	"name": "Node.js Development Environment",
-	"image": "node:20",
-	"features": {
-		"ghcr.io/devcontainers/features/git:1": {},
-		"ghcr.io/devcontainers/features/github-cli:1": {},
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "17",
-			"installMaven": false,
-			"installGradle": false
-		},
-		"ghcr.io/devcontainers/features/common-utils:2": {}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"bradlc.vscode-tailwindcss",
-				"formulahendry.auto-close-tag",
-				"idered.npm",
-				"esbenp.prettier-vscode",
-				"dbaeumer.vscode-eslint",
-				"burkeholland.simple-react-snippets",
-				"justinmahar.react-icons-snippets",
-				"steoates.autoimport",
-				"eamodio.gitlens",
-				"christian-kohler.path-intellisense",
-				"streetsidesoftware.code-spell-checker",
-				"arcanis.vscode-zipfs",
-				"ms-vscode.vscode-typescript-next"
-			],
-			"settings": {
-				"terminal.integrated.defaultProfile.linux": "bash",
-				"editor.formatOnSave": true,
-				"editor.codeActionsOnSave": {
-					"source.fixAll.eslint": true
-				},
-				"typescript.tsdk": ".yarn/sdks/typescript/lib",
-				"typescript.enablePromptUseWorkspaceTsdk": true,
-				"search.exclude": {
-					"**/.yarn": true
-				}
-			}
-		}
-	},
-	"forwardPorts": [3000, 8080],
-	"postCreateCommand": "yarn install",
-	"remoteUser": "node",
-	"runArgs": ["--env-file", ".env"]
+  "name": "Node.js Development Environment",
+  "image": "node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "installMaven": false,
+      "installGradle": false
+    },
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-close-tag",
+        "idered.npm",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "burkeholland.simple-react-snippets",
+        "justinmahar.react-icons-snippets",
+        "steoates.autoimport",
+        "eamodio.gitlens",
+        "christian-kohler.path-intellisense",
+        "streetsidesoftware.code-spell-checker",
+        "arcanis.vscode-zipfs",
+        "ms-vscode.vscode-typescript-next"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        },
+        "typescript.tsdk": ".yarn/sdks/typescript/lib",
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        "search.exclude": {
+          "**/.yarn": true
+        }
+      }
+    }
+  },
+  "forwardPorts": [3000, 8080],
+  "postCreateCommand": "yarn install",
+  "remoteUser": "node",
+  "runArgs": ["--env-file", ".env"]
 }
