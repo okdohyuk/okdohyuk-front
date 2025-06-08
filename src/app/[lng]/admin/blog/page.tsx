@@ -7,7 +7,6 @@ import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 import { MdAutorenew } from 'react-icons/md';
 import MobileScreenWrapper from '~/components/complex/Layout/MobileScreenWrapper';
-import Cookies from 'js-cookie';
 import { BlogSearch } from '~/spec/api/Blog';
 import { useTranslation } from '~/app/i18n/client';
 
@@ -15,11 +14,11 @@ function BlogAdminPage() {
   const { t } = useTranslation('ko', 'blog/index');
   const { blogs, getBlogsPage, status, isLastPage } = useStore('blogStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
-  const accessToken = Cookies.get('access_token');
+  // const accessToken = Cookies.get('access_token');
 
   useEffect(() => {
     if (!isFetching) return;
-    getBlogsPage(10, accessToken);
+    getBlogsPage(10);
   }, [isFetching]);
 
   useEffect(() => {
