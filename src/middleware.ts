@@ -60,6 +60,23 @@ export async function middleware(req: NextRequest) {
     }
   }
 
+  // 사용자 요청: 리프레시 토큰이 없거나, 사용자 ID가 없는 경우 로그아웃 처리.
+  // 이는 액세스 토큰만 있고 필수 정보(리프레시 토큰 또는 사용자 ID)가 없는 경우를 포함합니다.
+  // 이 조건은 토큰 리프레시 시도 전에 확인되어야 합니다.
+  if (!refreshToken || !userId) {
+    // 현재 요청에 인증 관련 쿠키가 하나라도 설정되어 있었다면, 클리어를 진행합니다.
+    // 이는 불필요한 쿠키 삭제 연산을 방지하고, 실제로 로그아웃이 필요한 상황인지 명확히 합니다.
+    if (
+      req.cookies.has('access_token') ||
+      req.cookies.has('refresh_token') ||
+      req.cookies.has('user_info')
+    ) {
+      response.cookies.delete('access_token');
+      response.cookies.delete('refresh_token');
+      response.cookies.delete('user_info');
+    }
+  }
+
   let needsRefresh = !accessToken;
   if (accessToken) {
     try {
@@ -98,7 +115,7 @@ export async function middleware(req: NextRequest) {
           sameSite: 'strict',
           secure: isProduction,
           expires: accessTokenExp,
-          httpOnly: true,
+          // httpOnly: true,
         });
 
         if (newRefreshTokenValue) {
@@ -117,7 +134,7 @@ export async function middleware(req: NextRequest) {
             sameSite: 'strict',
             secure: isProduction,
             expires: refreshTokenExp,
-            httpOnly: true,
+            // httpOnly: true,
           });
         }
       }
