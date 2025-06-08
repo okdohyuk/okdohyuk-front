@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import React, { useEffect, use } from 'react';
+import React, { use, useEffect } from 'react';
 import googleSignInButton from '~/../public/icons/signin/web_neutral_rd_na.svg';
 import Image from 'next/legacy/image';
 import Cookies from 'js-cookie';
@@ -11,6 +11,7 @@ import { authApi, userApi } from '@api';
 import useStore from '@hooks/useStore';
 import { useTranslation } from '~/app/i18n/client';
 import { LanguageParams } from '~/app/[lng]/layout';
+import UserTokenUtil from '~/utils/userTokenUtil';
 
 type LoginHandler = (accessToken: string, redirectUri: string) => void;
 
@@ -40,13 +41,14 @@ export default function LoginPage({ params }: LanguageParams) {
       .postAuthGoogle('Bearer ' + accessToken)
       .then(({ data: { access_token, refresh_token, user_id } }) => {
         userApi.getUserUserId('Bearer ' + access_token, user_id).then(({ data }) => {
-          Cookies.set('access_token', access_token);
-
           setUser(data);
-          localStorage.setItem('refresh_token', refresh_token);
-          localStorage.setItem('user', JSON.stringify(data));
+
+          // 토큰과 사용자 정보를 클라이언트 쿠키에 직접 저장
+          UserTokenUtil.setAccessToken(access_token);
+          UserTokenUtil.setRefreshToken(refresh_token);
+          UserTokenUtil.setUserInfo(data);
+          push(redirectUri);
         });
-        push(redirectUri);
       })
       .catch(() => {
         push('/auth/login');
