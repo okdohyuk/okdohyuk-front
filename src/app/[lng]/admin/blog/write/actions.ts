@@ -3,17 +3,18 @@
 import { blogApi } from '@api';
 import axios from 'axios';
 import { BlogRequest } from './schema';
-import { verifySession } from '@libs/server/dal';
 import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
 
 export const submitBlog = async (blog: BlogRequest, urlSlug?: string) => {
   try {
-    const session = await verifySession();
-    if (!session) return;
+    const cookieStore = await cookies();
+    const accessToken = cookieStore.get('access_token')?.value;
+    if (!accessToken) return;
     if (!urlSlug) {
-      await blogApi.postBlog(session.accessToken, blog);
+      await blogApi.postBlog('Bearer ' + accessToken, blog);
     } else {
-      await blogApi.patchBlogUrlSlug(urlSlug, session.accessToken, blog);
+      await blogApi.patchBlogUrlSlug(urlSlug, 'Bearer ' + accessToken, blog);
     }
     redirect('/admin/blog');
   } catch (e) {
