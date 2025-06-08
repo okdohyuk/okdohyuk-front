@@ -3,15 +3,19 @@ import { notFound } from 'next/navigation';
 import axios from 'axios';
 import { blogApi } from '@api';
 import { BaseException } from '@api/Blog';
-import { verifySession } from '@libs/server/dal';
 import BlogWritePageImpl from '~/app/[lng]/admin/blog/write/impl';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { cookies } from 'next/headers';
 
 const getPost = async (urlSlug: string) => {
   try {
-    const session = await verifySession();
-    if (!session) return notFound();
-    const { data } = await blogApi.getBlogUrlSlug(decodeURIComponent(urlSlug), session.accessToken);
+    const cookieStore = await cookies();
+    const accessToken = cookieStore.get('access_token')?.value;
+    if (!accessToken) return notFound();
+    const { data } = await blogApi.getBlogUrlSlug(
+      decodeURIComponent(urlSlug),
+      'Bearer ' + accessToken,
+    );
     return data;
   } catch (e) {
     if (axios.isAxiosError<BaseException, never>(e)) {
