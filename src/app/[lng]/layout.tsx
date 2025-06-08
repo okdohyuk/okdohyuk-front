@@ -42,11 +42,13 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
     <html lang={lng} dir={dir(lng)}>
       <body className={pretendard.className}>
         <StoreProvider>
-          <CommonLayout>{children}</CommonLayout>
-          <Footer lng={lng} />
-          <Analytics />
-          <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}`} />
-          <GoogleAdsense pid={`${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}`} />
+          <ReactQueryProvider>
+            <CommonLayout>{children}</CommonLayout>
+            <Footer lng={lng} />
+            <Analytics />
+            <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}`} />
+            <GoogleAdsense pid={`${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}`} />
+          </ReactQueryProvider>
         </StoreProvider>
       </body>
     </html>
