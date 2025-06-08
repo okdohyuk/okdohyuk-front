@@ -5,17 +5,13 @@ import { blogApi } from '@api';
 import { BaseException } from '@api/Blog';
 import BlogWritePageImpl from '~/app/[lng]/admin/blog/write/impl';
 import { LanguageParams } from '~/app/[lng]/layout';
-import { cookies } from 'next/headers';
+import { getTokenServer } from '@libs/server/token';
 
 const getPost = async (urlSlug: string) => {
   try {
-    const cookieStore = await cookies();
-    const accessToken = cookieStore.get('access_token')?.value;
-    if (!accessToken) return notFound();
-    const { data } = await blogApi.getBlogUrlSlug(
-      decodeURIComponent(urlSlug),
-      'Bearer ' + accessToken,
-    );
+    const token = await getTokenServer();
+    if (!token) return notFound();
+    const { data } = await blogApi.getBlogUrlSlug(decodeURIComponent(urlSlug), token.accessToken);
     return data;
   } catch (e) {
     if (axios.isAxiosError<BaseException, never>(e)) {

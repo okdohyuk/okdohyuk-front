@@ -4,17 +4,16 @@ import { blogApi } from '@api';
 import axios from 'axios';
 import { BlogRequest } from './schema';
 import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
+import { getTokenServer } from '@libs/server/token';
 
 export const submitBlog = async (blog: BlogRequest, urlSlug?: string) => {
   try {
-    const cookieStore = await cookies();
-    const accessToken = cookieStore.get('access_token')?.value;
-    if (!accessToken) return;
+    const token = await getTokenServer();
+    if (!token) return;
     if (!urlSlug) {
-      await blogApi.postBlog('Bearer ' + accessToken, blog);
+      await blogApi.postBlog(token.accessToken, blog);
     } else {
-      await blogApi.patchBlogUrlSlug(urlSlug, 'Bearer ' + accessToken, blog);
+      await blogApi.patchBlogUrlSlug(urlSlug, token.accessToken, blog);
     }
     redirect('/admin/blog');
   } catch (e) {
