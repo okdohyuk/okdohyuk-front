@@ -3,15 +3,15 @@ import { notFound } from 'next/navigation';
 import axios from 'axios';
 import { blogApi } from '@api';
 import { BaseException } from '@api/Blog';
-import { verifySession } from '@libs/server/dal';
 import BlogWritePageImpl from '~/app/[lng]/admin/blog/write/impl';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { getTokenServer } from '@libs/server/token';
 
 const getPost = async (urlSlug: string) => {
   try {
-    const session = await verifySession();
-    if (!session) return notFound();
-    const { data } = await blogApi.getBlogUrlSlug(decodeURIComponent(urlSlug), session.accessToken);
+    const token = await getTokenServer();
+    if (!token) return notFound();
+    const { data } = await blogApi.getBlogUrlSlug(decodeURIComponent(urlSlug), token.accessToken);
     return data;
   } catch (e) {
     if (axios.isAxiosError<BaseException, never>(e)) {
