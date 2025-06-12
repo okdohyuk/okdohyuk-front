@@ -1,0 +1,19 @@
+{
+  "openGraph": {
+  "title": "Online Server Time Checker",
+  "ogTitle": "Online Server Time Checker",
+  "description": "Accurate server times are the key to ticketing and enrollment success! Get current server time information in real-time on our server time page and gain a competitive edge in those all-important ticketing and enrollment wars. By providing accurate and fast server times, we help you come out on top in ticketing wars and 3-hour fights that are decided by 0.1 seconds. Visit now to get the essential server times for successful ticketing and enrollment!"
+  },
+  "title": "Online Server Time Checker",
+  "disclaimer": "Server time may have a slight margin of error depending on your network environment and server status.",
+  "disclaimer2": "The accuracy of server time may decrease over time.",
+  "showMilliseconds": "Show Milliseconds",
+  "loading": "Fetching time...",
+  "error": "Error: {{message}}",
+  "serverTimeFor": "{{site}} Server Time",
+  "availableSites": "Available Sites",
+  "customServer": "Custom Server",
+  "enterCustomUrlPlaceholder": "Enter custom server URL (e.g., www.example.com)",
+  "fetchTime": "Fetch Time",
+  "custom": "Custom"
+}

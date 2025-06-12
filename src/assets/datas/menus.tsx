@@ -10,7 +10,7 @@ import {
   MdViewList,
 } from 'react-icons/md';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
-import { BiBomb } from 'react-icons/bi';
+import { BiBomb, BiServer } from 'react-icons/bi';
 
 type MenuItem = {
   title: string;
@@ -54,6 +54,12 @@ const menus: Menus = {
       titlen: 'Ppollong',
       icon: <BiBomb />,
       link: '/ppollong',
+    },
+    {
+      title: '온라인 서버 시간 조회',
+      titlen: 'Online Server Time Checker',
+      icon: <BiServer />,
+      link: '/server-clock',
     },
   ],
   out: [
