@@ -15,12 +15,12 @@ class BlogStore implements BlogStoreState {
 
   @action public setBlogs: BlogStoreState['setBlogs'] = (blogs) => (this.blogs = blogs);
 
-  @action public getBlogsPage: BlogStoreState['getBlogsPage'] = (limit, authorization) => {
+  @action public getBlogsPage: BlogStoreState['getBlogsPage'] = (limit) => {
     runInAction(() => {
       this.status = 'loading';
     });
     blogApi
-      .getBlogList(this.page, limit, authorization && 'Bearer ' + authorization)
+      .getBlogList(this.page, limit)
       .then(({ data: blogs }) => {
         if (!blogs.length) {
           this.isLastPage = true;

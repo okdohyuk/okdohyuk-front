@@ -14,7 +14,9 @@ export default class CoderUtils {
         break;
     }
 
-    if (coderFunc === null) return [];
+    if (coderFunc === null) {
+      throw new Error(`지원하지 않는 타입입니다: ${type}`);
+    }
 
     for (let i = 0; i < count; i++) {
       if (i === 0) {

@@ -3,17 +3,17 @@
 import { blogApi } from '@api';
 import axios from 'axios';
 import { BlogRequest } from './schema';
-import { verifySession } from '@libs/server/dal';
 import { redirect } from 'next/navigation';
+import { getTokenServer } from '@libs/server/token';
 
 export const submitBlog = async (blog: BlogRequest, urlSlug?: string) => {
   try {
-    const session = await verifySession();
-    if (!session) return;
+    const token = await getTokenServer();
+    if (!token) return;
     if (!urlSlug) {
-      await blogApi.postBlog(session.accessToken, blog);
+      await blogApi.postBlog(token.accessToken, blog);
     } else {
-      await blogApi.patchBlogUrlSlug(urlSlug, session.accessToken, blog);
+      await blogApi.patchBlogUrlSlug(urlSlug, token.accessToken, blog);
     }
     redirect('/admin/blog');
   } catch (e) {

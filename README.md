@@ -60,6 +60,7 @@ NOTION_API_KEY=secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 > **필수 환경변수 목록**
+>
 > - `API_PATH` : 백엔드 API 서버 주소
 > - `NEXT_PUBLIC_URL` : 서비스의 실제 도메인 주소
 > - `NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID` : 구글 애널리틱스 추적 ID
