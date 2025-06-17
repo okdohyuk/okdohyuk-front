@@ -12,7 +12,7 @@ import {
 import { useCookies } from 'react-cookie';
 import resourcesToBackend from 'i18next-resources-to-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { getOptions, languages, cookieName, Language } from './settings';
+import { cookieName, getOptions, Language, languages } from './settings';
 
 const runsOnServerSide = typeof window === 'undefined';
 
@@ -63,10 +63,10 @@ export function useTranslation<
     }, [lng, i18n]);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-      if (cookies.i18next === lng) return;
+      if (cookies.i18nextLng === lng) return;
       setCookie(cookieName, lng, { path: '/' });
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [lng, cookies.i18next]);
+    }, [lng, cookies.i18nextLng]);
   }
   return ret;
 }
