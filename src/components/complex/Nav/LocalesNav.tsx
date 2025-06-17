@@ -36,7 +36,7 @@ function LocalesNav() {
       sendGAEvent('link_click', `change_language_to_${newLang}`);
 
       // Navigate to the new URL
-      router.push(newPathname);
+      window.location.pathname = newPathname;
     },
     [pathname, router],
   );
