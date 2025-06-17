@@ -7,7 +7,7 @@ module.exports = {
   siteUrl: siteUrl,
   changefreq: 'daily',
   generateRobotsTxt: true,
-  priority: 0.7, // 기본 우선순위 추가
+  priority: 1,
   exclude: ['/server-sitemap.xml'],
   robotsTxtOptions: {
     additionalSitemaps: [`${siteUrl}/server-sitemap.xml`],
