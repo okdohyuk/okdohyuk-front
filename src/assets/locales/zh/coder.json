@@ -1,0 +1,14 @@
+{
+  "openGraph": {
+    "title": "编码器",
+    "ogTitle": "编码器 | 编码与解码工具",
+    "description": "可在线对Base64、URL等多种格式进行解码，也可多次便捷编码使用。",
+    "keywords": ["编码器", "解码器", "base64", "url", "二进制", "十六进制"]
+  },
+  "title": "编码器",
+  "count": "次数",
+  "encoder": "编码器",
+  "decoder": "解码器",
+  "submit": "完成",
+  "copy": "复制"
+}

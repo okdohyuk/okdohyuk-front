@@ -1,0 +1,16 @@
+{
+  "openGraph": {
+    "title": "菜单",
+    "ogTitle": "菜单",
+    "description": "您可以查看所有服务。"
+  },
+  "title": "菜单",
+  "service": "服务",
+  "out": "外部链接",
+  "trash": "回收站",
+  "login": {
+    "description": "去登录！",
+    "logout": "退出登录",
+    "logoutAll": "退出所有设备"
+  }
+}

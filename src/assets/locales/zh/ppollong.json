@@ -1,0 +1,25 @@
+{
+  "openGraph": {
+    "title": "大炮砰砰抽奖",
+    "ogTitle": "大炮砰砰抽奖",
+    "description": "使用大炮砰砰来抽取随机数字！设置最大数字并查看抽中的号码。"
+  },
+  "title": "大炮砰砰抽奖 💣",
+  "settingsTitle": "抽奖设置",
+  "maxNumberPlaceholder": "最大数字（例如：45）",
+  "initializeButton": "设置",
+  "resetButtonTitle": "重置设置",
+  "error": {
+    "invalidNumber": "请输入大于0的有效数字。",
+    "maxNumberExceeded": "最大数字不能超过200。",
+    "allDrawnMessage": "所有号码都已抽出！",
+    "notInitialized": "请先设置数字。"
+  },
+  "drawButton": {
+    "loading": "发射中...",
+    "allDrawn": "全部已抽出！",
+    "ready": "发射！"
+  },
+  "drawnNumberPrefix": "砰！抽中的数字：",
+  "numberBoardTitle": "数字板 (1 ~ {{maxNumber}}) - 已抽: {{drawnCount}} / {{totalCount}}"
+}

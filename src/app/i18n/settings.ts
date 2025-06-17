@@ -1,5 +1,5 @@
 export const fallbackLng = 'ko';
-export const languages = [fallbackLng, 'en'] as const;
+export const languages = [fallbackLng, 'en', 'ja', 'zh'] as const;
 
 export type Language = (typeof languages)[number];
 
