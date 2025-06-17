@@ -1,0 +1,19 @@
+{
+  "openGraph": {
+    "title": "在线服务器时间检查器",
+    "ogTitle": "在线服务器时间检查器",
+    "description": "准确的服务器时间是抢票和报名成功的关键！在我们的服务器时间页面上实时获取当前服务器时间信息，在重要的抢票和报名大战中占据竞争优势。通过提供准确快速的服务器时间，我们帮助您在0.1秒决定胜负的抢票战争和3小时激战中脱颖而出。立即访问，获取成功抢票和报名所需的关键服务器时间！"
+  },
+  "title": "在线服务器时间检查器",
+  "disclaimer": "根据您的网络环境和服务器状态，服务器时间可能会有轻微误差。",
+  "disclaimer2": "服务器时间的准确性可能会随着时间的推移而降低。",
+  "showMilliseconds": "显示毫秒",
+  "loading": "正在获取时间...",
+  "error": "错误: {{message}}",
+  "serverTimeFor": "{{site}} 服务器时间",
+  "availableSites": "可用站点",
+  "customServer": "自定义服务器",
+  "enterCustomUrlPlaceholder": "输入自定义服务器URL（例如：www.example.com）",
+  "fetchTime": "获取时间",
+  "custom": "自定义"
+}

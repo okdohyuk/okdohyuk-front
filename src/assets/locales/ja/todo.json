@@ -1,0 +1,10 @@
+{
+  "openGraph": {
+    "title": "TODOアプリ",
+    "ogTitle": "今日、明日、カレンダー管理ができるToDoアプリ",
+    "description": "ToDoアプリで自分のやることを管理しましょう！"
+  },
+  "title": "ToDoリスト",
+  "inputPlaceholder": "今日、明日、予定を入力してください！",
+  "add": "追加"
+}

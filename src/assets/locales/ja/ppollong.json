@@ -1,0 +1,25 @@
+{
+  "openGraph": {
+    "title": "大砲ポロロン抽選",
+    "ogTitle": "大砲ポロロン抽選",
+    "description": "大砲ポロロンでランダムな数字を抽選しましょう！最大数を設定して、選ばれた数字を確認できます。"
+  },
+  "title": "大砲ポロロン抽選 💣",
+  "settingsTitle": "抽選設定",
+  "maxNumberPlaceholder": "最大数（例：45）",
+  "initializeButton": "設定",
+  "resetButtonTitle": "設定をリセット",
+  "error": {
+    "invalidNumber": "1以上の有効な数字を入力してください。",
+    "maxNumberExceeded": "最大数は200まで設定できます。",
+    "allDrawnMessage": "すべての数字が選ばれました！",
+    "notInitialized": "最初に数字を設定してください。"
+  },
+  "drawButton": {
+    "loading": "発射中...",
+    "allDrawn": "すべて選ばれました！",
+    "ready": "発射！"
+  },
+  "drawnNumberPrefix": "ポロロン！選ばれた数字：",
+  "numberBoardTitle": "ナンバーボード (1 ~ {{maxNumber}}) - 選ばれた数: {{drawnCount}} / {{totalCount}}"
+}

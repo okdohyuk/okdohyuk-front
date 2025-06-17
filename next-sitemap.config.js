@@ -7,7 +7,7 @@ module.exports = {
   siteUrl: siteUrl,
   changefreq: 'daily',
   generateRobotsTxt: true,
-  priority: 0.7, // 기본 우선순위 추가
+  priority: 1,
   exclude: ['/server-sitemap.xml'],
   robotsTxtOptions: {
     additionalSitemaps: [`${siteUrl}/server-sitemap.xml`],
@@ -37,7 +37,7 @@ module.exports = {
     });
 
     const sitemapEntries = [];
-    const locales = ['ko', 'en'];
+    const locales = ['ko', 'en', 'ja', 'zh'];
 
     pageFiles.forEach((file) => {
       let routePath = file

@@ -1,0 +1,12 @@
+{
+  "openGraph": {
+    "title": "ログイン",
+    "ogTitle": "ログイン",
+    "description": "簡単ログインで様々なサービスをお楽しみください！"
+  },
+  "title": "ログイン",
+  "login": {
+    "google": "Googleでログイン"
+  },
+  "privacy-policy": "プライバシーポリシー"
+}

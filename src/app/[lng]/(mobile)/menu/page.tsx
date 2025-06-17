@@ -15,16 +15,21 @@ export default async function MenuPage({ params }: LanguageParams) {
   const { t } = await useTranslation(lng, 'menu');
 
   const renderMenuList = (menuList: MenuItem[]) => {
-    return menuList.map((menu) => (
-      <li key={menu.title} className="list-none">
-        <Link href={menu.link} target={menu.link.startsWith('/') ? '' : '_blank'}>
-          <button className="flex items-center gap-2 w-full bg-transparent hover:bg-basic-4 active:bg-basic-5 outline-none transition ease-in duration-[40ms] rounded-md p-2 text-left t-d-1 t-basic-1">
-            {menu.icon}
-            {lng === 'ko' ? menu.title : menu.titlen}
-          </button>
-        </Link>
-      </li>
-    ));
+    return menuList.map((menu) => {
+      // Get the title in the current language, fallback to English if not available
+      const title = menu.title[lng as keyof typeof menu.title] || menu.title.en;
+
+      return (
+        <li key={title} className="list-none">
+          <Link href={menu.link} target={menu.link.startsWith('/') ? '' : '_blank'}>
+            <button className="flex items-center gap-2 w-full bg-transparent hover:bg-basic-4 active:bg-basic-5 outline-none transition ease-in duration-[40ms] rounded-md p-2 text-left t-d-1 t-basic-1">
+              {menu.icon}
+              {title}
+            </button>
+          </Link>
+        </li>
+      );
+    });
   };
 
   const renderMenuGroup = (menus: Menus) => {
