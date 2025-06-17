@@ -11,10 +11,14 @@ import {
 } from 'react-icons/md';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
 import { BiBomb, BiServer } from 'react-icons/bi';
+import { Language } from '~/app/i18n/settings';
+
+type Title = {
+  [key in Language]: string;
+};
 
 type MenuItem = {
-  title: string;
-  titlen: string;
+  title: Title;
   icon: React.ReactNode;
   link: string;
 };
@@ -26,84 +30,136 @@ type Menus = {
 const menus: Menus = {
   service: [
     {
-      title: '퍼센트계산기',
-      titlen: 'Percent Calculator',
+      title: {
+        ko: '퍼센트계산기',
+        en: 'Percent Calculator',
+        ja: 'パーセント計算機',
+        zh: '百分比計算器',
+      },
       icon: <MdCalculate />,
       link: '/percent',
     },
     {
-      title: '할일',
-      titlen: 'Todo',
+      title: {
+        ko: '할일',
+        en: 'Todo',
+        ja: 'やること',
+        zh: '待辦事項',
+      },
       icon: <MdViewList />,
       link: '/todo',
     },
     {
-      title: '암호화 복호화',
-      titlen: 'Coder',
+      title: {
+        ko: '암호화 복호화',
+        en: 'Coder',
+        ja: 'エンコーダー/デコーダー',
+        zh: '编码器/解码器',
+      },
       icon: <MdCode />,
       link: '/coder',
     },
     {
-      title: '멀티라이브',
-      titlen: 'MultiLive',
+      title: {
+        ko: '멀티라이브',
+        en: 'MultiLive',
+        ja: 'マルチライブ',
+        zh: '多平台直播',
+      },
       icon: <MdLiveTv />,
       link: '/multi-live',
     },
     {
-      title: '뽈롱',
-      titlen: 'Ppollong',
+      title: {
+        ko: '뽈롱',
+        en: 'Ppollong',
+        ja: 'ポロン',
+        zh: '波隆',
+      },
       icon: <BiBomb />,
       link: '/ppollong',
     },
     {
-      title: '온라인 서버 시간 조회',
-      titlen: 'Online Server Time Checker',
+      title: {
+        ko: '온라인 서버 시간 조회',
+        en: 'Online Server Time Checker',
+        ja: 'オンラインサーバー時間確認',
+        zh: '在线服务器时间检查',
+      },
       icon: <BiServer />,
       link: '/server-clock',
     },
   ],
   out: [
     {
-      title: '프로필',
-      titlen: 'Profile',
+      title: {
+        ko: '프로필',
+        en: 'Profile',
+        ja: 'プロフィール',
+        zh: '个人资料',
+      },
       icon: <MdTagFaces />,
       link: 'https://okdohyuk.notion.site/',
     },
     {
-      title: '티스토리',
-      titlen: 'Tistory',
+      title: {
+        ko: '티스토리',
+        en: 'Tistory',
+        ja: 'Tistory',
+        zh: 'Tistory',
+      },
       icon: <MdOutlinePersonalVideo />,
       link: 'https://blog.okdohyuk.dev/',
     },
     {
-      title: '깃허브',
-      titlen: 'Github',
+      title: {
+        ko: '깃허브',
+        en: 'Github',
+        ja: 'GitHub',
+        zh: 'GitHub',
+      },
       icon: <AiFillGithub />,
       link: 'https://github.com/okdohyuk',
     },
     {
-      title: '링크드인',
-      titlen: 'Linkedin',
+      title: {
+        ko: '링크드인',
+        en: 'LinkedIn',
+        ja: 'LinkedIn',
+        zh: '领英',
+      },
       icon: <AiFillLinkedin />,
       link: 'https://www.linkedin.com/in/okdohyuk/',
     },
     {
-      title: '유튜브',
-      titlen: 'Youtube',
+      title: {
+        ko: '유튜브',
+        en: 'YouTube',
+        ja: 'YouTube',
+        zh: 'YouTube',
+      },
       icon: <AiFillYoutube />,
       link: 'https://www.youtube.com/@okdohyuk',
     },
     {
-      title: '후원하기',
-      titlen: 'Donate',
+      title: {
+        ko: '후원하기',
+        en: 'Donate',
+        ja: '寄付する',
+        zh: '赞助',
+      },
       icon: <MdPayment />,
       link: 'https://github.com/sponsors/okdohyuk?frequency=recurring',
     },
   ],
   trash: [
     {
-      title: '해몽',
-      titlen: 'Dream Resorlver',
+      title: {
+        ko: '해몽',
+        en: 'Dream Resolver',
+        ja: '夢占い',
+        zh: '解梦',
+      },
       icon: <MdOutlineAutoAwesome />,
       link: '/dream-resolver',
     },

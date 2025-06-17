@@ -1,0 +1,16 @@
+{
+  "openGraph": {
+    "title": "多平台直播",
+    "description": "多平台直播是一项服务，可让您同时观看Twitch、YouTube、Chzzk、Soop和Kick的直播。\n在每个直播平台上，您都可以根据频道的唯一ID或主播的ID访问直播内容。"
+  },
+  "title": "多平台直播",
+  "description": "多平台直播是一项服务，可让您同时观看来自多个平台的直播。\n在每个直播平台上，您都可以根据频道的唯一ID或主播的ID访问直播内容。\n\n使用方法：从下面的弹出窗口中选择一个平台，输入直播ID，然后点击“添加”按钮。\n或者，您也可以直接输入URL。\n您可以同时观看最多四个直播，添加完成后，关闭弹出窗口即可开始观看。\n\n如何查找直播ID：\nhttps://www.twitch.tv/{id} -> t:{id},\nhttps://www.youtube.com/watch?v={id} -> y:{id},\nhttps://chzzk.naver.com/live/{id} -> c:{id},\nhttps://play.sooplive.co.kr/{id}/ -> s:{id},\nhttps://kick.com/{id} -> k:{id}",
+  "twitch": "Twitch",
+  "youtube": "YouTube",
+  "chzzk": "Chzzk",
+  "soop": "Soop",
+  "kick": "Kick",
+  "input-placeholder": "请输入直播ID。",
+  "add": "添加",
+  "close": "关闭"
+}

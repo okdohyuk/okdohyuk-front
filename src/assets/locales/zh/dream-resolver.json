@@ -1,0 +1,17 @@
+{
+  "openGraph": {
+    "title": "解梦 AI",
+    "ogTitle": "解梦 AI",
+    "description": "想解读您今天的梦境吗？\n这被称为'梦境解析'或'解梦'，AI将帮您解读今天所做的梦和您所担心的梦的内容。"
+  },
+  "placeholder": "请输入您做的梦。",
+  "submit": "解析",
+  "processing": "处理中...",
+  "question": "用户问题",
+  "answer": "AI 回答",
+  "tryAgain": "明天再试",
+  "donate": "捐赠",
+  "copyed": "已复制到剪贴板",
+  "failShare": "当前环境不支持分享。",
+  "error": "发生错误，请稍后重试。"
+}

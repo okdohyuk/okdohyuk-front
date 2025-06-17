@@ -1,0 +1,18 @@
+{
+  "openGraph": {
+    "defaultTitle": "开发者 You Dohyuk 的博客",
+    "defaultDescription": "okdohyuk 网站上有各种关于 Web 的帖子。使用各种搜索筛选器查看您感兴趣的技术信息！",
+    "description": "okdohyuk 上有各种关于 Web 的帖子。查看 {{title}} 技术！"
+  },
+  "title": "博客",
+  "resultCount": "搜索结果：",
+  "filter": {
+    "index": "筛选",
+    "category": "分类",
+    "tag": "标签",
+    "orderBy": {
+      "resent": "最新",
+      "title": "标题"
+    }
+  }
+}

@@ -37,7 +37,7 @@ module.exports = {
     });
 
     const sitemapEntries = [];
-    const locales = ['ko', 'en'];
+    const locales = ['ko', 'en', 'ja', 'zh'];
 
     pageFiles.forEach((file) => {
       let routePath = file

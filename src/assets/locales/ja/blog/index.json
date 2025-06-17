@@ -1,0 +1,18 @@
+{
+  "openGraph": {
+    "defaultTitle": "開発者 ユ・ドヒョクのブログ",
+    "defaultDescription": "okdohyukのサイトにはWebに関する様々な投稿があります。気になる技術情報を様々な検索フィルターで確認してみてください！",
+    "description": "okdohyukにはWebに関する様々な投稿があります。{{title}}の技術を確認してみてください！"
+  },
+  "title": "ブログ",
+  "resultCount": "検索結果: ",
+  "filter": {
+    "index": "フィルター",
+    "category": "カテゴリー",
+    "tag": "タグ",
+    "orderBy": {
+      "resent": "最新順",
+      "title": "タイトル"
+    }
+  }
+}

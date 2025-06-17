@@ -1,0 +1,16 @@
+{
+  "openGraph": {
+    "title": "メニュー",
+    "ogTitle": "メニュー",
+    "description": "すべてのサービスを確認できます。"
+  },
+  "title": "メニュー",
+  "service": "サービス",
+  "out": "外部リンク",
+  "trash": "ゴミ箱",
+  "login": {
+    "description": "ログインする",
+    "logout": "ログアウト",
+    "logoutAll": "すべてのデバイスからログアウト"
+  }
+}

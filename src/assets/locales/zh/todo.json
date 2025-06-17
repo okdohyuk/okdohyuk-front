@@ -1,0 +1,10 @@
+{
+  "openGraph": {
+    "title": "待办事项应用",
+    "ogTitle": "今天、明天、日历管理待办事项应用",
+    "description": "使用待办事项应用来管理您的任务！"
+  },
+  "title": "待办事项列表",
+  "inputPlaceholder": "输入今天、明天和计划！",
+  "add": "添加"
+}

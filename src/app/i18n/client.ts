@@ -70,3 +70,5 @@ export function useTranslation<
   }
   return ret;
 }
+
+export default i18next;
