@@ -52,20 +52,23 @@ function LocalesNav() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <select
-        value={currentLang}
-        onChange={handleLanguageChange}
-        className={
-          'h-[57px] w-20 px-4 appearance-none bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-sm font-medium rounded-full border-0 focus:outline-none cursor-pointer transition-colors text-center'
-        }
-        aria-label="Select language"
-      >
-        {LANGUAGES.map((lang) => (
-          <option key={lang.code} value={lang.code}>
-            {lang.name}
-          </option>
-        ))}
-      </select>
+      <div className="flex items-center justify-center relative h-[57px] w-20 bg-zinc-100 dark:bg-zinc-800 rounded-full">
+        <select
+          value={currentLang}
+          onChange={handleLanguageChange}
+          className={
+            'absolute inset-0 w-full h-full appearance-none bg-transparent text-zinc-800 dark:text-zinc-200 text-sm font-medium border-0 focus:outline-none cursor-pointer text-center'
+          }
+          style={{ textAlignLast: 'center' }}
+          aria-label="Select language"
+        >
+          {LANGUAGES.map((lang) => (
+            <option key={lang.code} value={lang.code}>
+              {lang.name}
+            </option>
+          ))}
+        </select>
+      </div>
     </motion.div>
   );
 }
