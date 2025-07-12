@@ -6,6 +6,7 @@ import { MarkDownProps } from './type';
 import Table from './Table';
 import Link from '@components/basic/Link';
 import Heading2 from './Heading2';
+import Img from './Img';
 import Heading3 from './Heading3';
 
 const MarkDown: MarkDownProps = ({ contents }) => {
@@ -36,6 +37,9 @@ const MarkDown: MarkDownProps = ({ contents }) => {
             props: {
               hasTargetBlank: true,
             },
+          },
+          img: {
+            component: Img,
           },
         },
       }}
