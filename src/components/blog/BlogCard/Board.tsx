@@ -17,7 +17,15 @@ const Board: BlogCardTypeFC = ({ blog }) => {
     >
       <div className={'flex shrink-0 w-12 h-12 relative'}>
         {thumbnailImage ? (
-          <Image src={thumbnailImage} alt={title} layout={'fill'} objectFit={'cover'} />
+          <Image
+            src={thumbnailImage + '?w=150'}
+            blurDataURL={thumbnailImage + '?w=50'}
+            alt={title}
+            layout={'fill'}
+            objectFit={'cover'}
+            placeholder="blur"
+            unoptimized
+          />
         ) : null}
       </div>
 

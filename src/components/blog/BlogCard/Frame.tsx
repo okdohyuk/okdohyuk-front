@@ -17,7 +17,15 @@ const Frame: BlogCardTypeFC = ({ blog }) => {
     >
       {thumbnailImage ? (
         <div className={'w-full h-32 md:h-40 relative'}>
-          <Image src={thumbnailImage} alt={title} layout={'fill'} objectFit={'cover'} />
+          <Image
+            src={thumbnailImage + '?w=320'}
+            blurDataURL={thumbnailImage + '?w=50'}
+            alt={title}
+            layout={'fill'}
+            objectFit={'cover'}
+            placeholder="blur"
+            unoptimized
+          />
         </div>
       ) : null}
       <div className="flex flex-col flex-1 p-4">
