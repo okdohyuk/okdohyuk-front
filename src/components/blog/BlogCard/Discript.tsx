@@ -22,7 +22,15 @@ const Discript: BlogCardTypeFC = ({ blog }) => {
               'w-[100px] h-[100px] md:w-[200px] md:h-[200px] relative rounded overflow-hidden'
             }
           >
-            <Image src={thumbnailImage} alt={title} layout={'fill'} objectFit={'cover'} />
+            <Image
+              src={thumbnailImage + '?w=320'}
+              blurDataURL={thumbnailImage + '?w=50'}
+              alt={title}
+              layout={'fill'}
+              objectFit={'cover'}
+              placeholder="blur"
+              unoptimized
+            />
           </div>
         ) : null}
       </div>
