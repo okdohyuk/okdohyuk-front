@@ -12,6 +12,7 @@ import Footer from '@components/complex/Layout/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import GoogleAdsense from '@components/google/GoogleAdsense';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const pretendard = localFont({
   src: '../../assets/fonts/PretendardVariable.woff2',
@@ -46,6 +47,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
             <CommonLayout>{children}</CommonLayout>
             <Footer lng={lng} />
             <Analytics />
+            <SpeedInsights />
             <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}`} />
             <GoogleAdsense pid={`${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}`} />
           </ReactQueryProvider>
