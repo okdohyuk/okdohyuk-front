@@ -8,5 +8,20 @@
   "downloads": "下载",
   "domain": "okdohyuk.dev",
   "title": "网页多功能工具平台",
-  "subTitle": "提供多个简单易用的网页工具。"
+  "subTitle": "提供多个简单易用的网页工具。",
+  "action": "前往",
+  "features": {
+    "blog": {
+      "title": "博客",
+      "desc": "阅读并撰写技术故事。"
+    },
+    "multi": {
+      "title": "多重直播",
+      "desc": "一次观看多个直播。"
+    },
+    "todo": {
+      "title": "待办事项",
+      "desc": "在网页上轻松管理任务。"
+    }
+  }
 }

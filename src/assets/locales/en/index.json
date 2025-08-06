@@ -7,5 +7,20 @@
   "downloads": "Downloads",
   "domain": "okdohyuk.dev",
   "title": "Web Multi Tool Platform",
-  "subTitle": "It offers several simple and easy-to-use web tools."
+  "subTitle": "It offers several simple and easy-to-use web tools.",
+  "action": "Open",
+  "features": {
+    "blog": {
+      "title": "Blog",
+      "desc": "Read and write tech stories."
+    },
+    "multi": {
+      "title": "Multi Live",
+      "desc": "Watch multiple live streams at once."
+    },
+    "todo": {
+      "title": "Todo",
+      "desc": "Manage your tasks easily on the web."
+    }
+  }
 }
