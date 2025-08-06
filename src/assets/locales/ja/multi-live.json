@@ -1,7 +1,7 @@
 {
   "openGraph": {
     "title": "マルチライブ",
-    "description": "マルチライブは、Twitch、YouTube、Chzzk、Soop、Kickの生放送を同時に視聴できるサービスです。\n各配信プラットフォームでは、チャンネルのユニークIDまたは配信者のIDに基づいて配信にアクセスできます。"
+    "description": "マルチライブはマルチビュー、一緒に見る、同時視聴に対応し、Twitch、YouTube、Chzzk、Soop、Kickの生放送を同時に視聴できるサービスです。\n各配信プラットフォームでは、チャンネルのユニークIDまたは配信者のIDに基づいて配信にアクセスできます。"
   },
   "title": "マルチライブ",
   "description": "マルチライブは、複数のプラットフォームの配信を同時に視聴できるサービスです。\n各配信プラットフォームでは、チャンネルのユニークIDまたは配信者のIDに基づいて配信にアクセスできます。\n\n使い方: 下のポップアップからプラットフォームを選択し、配信のIDを入力して「追加」ボタンをクリックしてください。\nまたは、URLを直接入力することもできます。\n最大4つの配信を同時に視聴でき、追加が完了したらポップアップを閉じて視聴を開始できます。\n\n配信IDの確認方法:\nhttps://www.twitch.tv/{id} -> t:{id},\nhttps://www.youtube.com/watch?v={id} -> y:{id},\nhttps://chzzk.naver.com/live/{id} -> c:{id},\nhttps://play.sooplive.co.kr/{id}/ -> s:{id},\nhttps://kick.com/{id} -> k:{id}",
@@ -12,5 +12,6 @@
   "kick": "Kick",
   "input-placeholder": "配信IDを入力してください。",
   "add": "追加",
-  "close": "閉じる"
+  "close": "閉じる",
+  "other-service": "他のサービスを見る"
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { cls } from '@utils/classNameUtils';
 import { useTranslation } from '~/app/i18n';
 import { platformMapper, getLiveUrl } from '@utils/liveTypes';
@@ -21,6 +22,12 @@ export default async function MultiLivePage(props: MultiLiveProps) {
       <div className={'w-screen h-screen flex flex-col justify-center items-center t-basic-1'}>
         <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
         <div className={'whitespace-pre-wrap t-d-1'}>{t('description')}</div>
+        <Link
+          href={`/${lng}/menu`}
+          className="mt-8 px-4 py-2 rounded bg-basic-5 t-basic-1"
+        >
+          {t('other-service')}
+        </Link>
       </div>
     );
 
@@ -48,6 +55,12 @@ export default async function MultiLivePage(props: MultiLiveProps) {
           allowFullScreen
         ></iframe>
       ))}
+      <Link
+        href={`/${lng}/menu`}
+        className="fixed top-4 right-4 px-4 py-2 rounded bg-basic-5 t-basic-1"
+      >
+        {t('other-service')}
+      </Link>
     </div>
   );
 }
