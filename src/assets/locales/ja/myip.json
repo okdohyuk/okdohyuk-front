@@ -1,0 +1,17 @@
+{
+  "openGraph": {
+    "title": "自分のIPアドレス",
+    "ogTitle": "IPアドレスと情報の確認",
+    "description": "あなたのIPアドレスと各種情報を確認しましょう。"
+  },
+  "title": "自分のIPアドレス",
+  "ip": "IPアドレス",
+  "city": "都市",
+  "region": "地域",
+  "country": "国",
+  "postal": "郵便番号",
+  "timezone": "タイムゾーン",
+  "org": "ISP",
+  "latitude": "緯度",
+  "longitude": "経度"
+}
