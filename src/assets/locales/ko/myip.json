@@ -1,0 +1,17 @@
+{
+  "openGraph": {
+    "title": "내 IP 주소 확인",
+    "ogTitle": "IP 주소와 정보 확인",
+    "description": "내 IP 주소와 관련 정보를 확인해보세요."
+  },
+  "title": "내 IP 주소 확인",
+  "ip": "IP 주소",
+  "city": "도시",
+  "region": "지역",
+  "country": "국가",
+  "postal": "우편번호",
+  "timezone": "시간대",
+  "org": "ISP",
+  "latitude": "위도",
+  "longitude": "경도"
+}

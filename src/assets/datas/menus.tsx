@@ -5,6 +5,7 @@ import {
   MdLiveTv,
   MdOutlineAutoAwesome,
   MdOutlinePersonalVideo,
+  MdOutlinePublic,
   MdPayment,
   MdTagFaces,
   MdViewList,
@@ -88,6 +89,16 @@ const menus: Menus = {
       },
       icon: <BiServer />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '내 IP 주소 확인',
+        en: 'My IP Address',
+        ja: '自分のIPアドレス',
+        zh: '我的IP地址',
+      },
+      icon: <MdOutlinePublic />,
+      link: '/myip',
     },
   ],
   out: [

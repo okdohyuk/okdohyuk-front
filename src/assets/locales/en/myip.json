@@ -1,0 +1,17 @@
+{
+  "openGraph": {
+    "title": "My IP Address",
+    "ogTitle": "Check Your IP Address",
+    "description": "View your IP address and related information."
+  },
+  "title": "My IP Address",
+  "ip": "IP Address",
+  "city": "City",
+  "region": "Region",
+  "country": "Country",
+  "postal": "Postal Code",
+  "timezone": "Timezone",
+  "org": "ISP",
+  "latitude": "Latitude",
+  "longitude": "Longitude"
+}

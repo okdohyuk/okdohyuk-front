@@ -1,0 +1,17 @@
+{
+  "openGraph": {
+    "title": "我的IP地址",
+    "ogTitle": "查看IP地址與資訊",
+    "description": "查看您的IP地址與各種資訊。"
+  },
+  "title": "我的IP地址",
+  "ip": "IP地址",
+  "city": "城市",
+  "region": "地區",
+  "country": "國家",
+  "postal": "郵遞區號",
+  "timezone": "時區",
+  "org": "ISP",
+  "latitude": "緯度",
+  "longitude": "經度"
+}
