@@ -8,6 +8,7 @@ import {
   MdPayment,
   MdTagFaces,
   MdViewList,
+  MdTextFields,
 } from 'react-icons/md';
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
 import { BiBomb, BiServer } from 'react-icons/bi';
@@ -88,6 +89,16 @@ const menus: Menus = {
       },
       icon: <BiServer />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '초성메이커',
+        en: 'Choseong Maker',
+        ja: 'チョソンメーカー',
+        zh: '初聲製作器',
+      },
+      icon: <MdTextFields />,
+      link: '/choseong-maker',
     },
   ],
   out: [

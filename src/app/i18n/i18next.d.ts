@@ -16,6 +16,7 @@ import blogw from 'assets/locales/ko/blog/write.json';
 import type from 'assets/locales/ko/type.json';
 import ppollong from 'assets/locales/ko/ppollong.json'; // ppollong.json 임포트 추가
 import serverClock from 'assets/locales/ko/server-clock.json';
+import choseongMaker from 'assets/locales/ko/choseong-maker.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -38,6 +39,7 @@ declare module 'i18next' {
       'blog/write': typeof blogw;
       ppollong: typeof ppollong; // ppollong 네임스페이스 추가
       'server-clock': typeof serverClock;
+      'choseong-maker': typeof choseongMaker;
     };
   }
 }
