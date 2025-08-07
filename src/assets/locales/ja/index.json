@@ -8,5 +8,18 @@
   "downloads": "ダウンロード",
   "domain": "okdohyuk.dev",
   "title": "Webマルチツールプラットフォーム",
-  "subTitle": "シンプルで使いやすいWebツールをいくつか提供しています。"
+  "subTitle": "シンプルで使いやすいWebツールをいくつか提供しています。",
+  "features": {
+    "title": "サービス紹介",
+    "blogTitle": "ブログ",
+    "blogDesc": "開発と日常の物語を共有します。",
+    "multiLiveTitle": "マルチライブ",
+    "multiLiveDesc": "複数のプラットフォームで同時にライブ配信しましょう。",
+    "adminTitle": "管理者",
+    "adminDesc": "サイト管理のための管理ページです。"
+  },
+  "dashboard": {
+    "welcome": "{{name}}さん、ようこそ！",
+    "quickLinks": "クイックリンク"
+  }
 }

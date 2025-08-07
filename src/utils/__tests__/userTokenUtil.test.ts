@@ -52,7 +52,7 @@ describe('UserTokenUtil', () => {
   describe('setAccessToken', () => {
     it('Cookies.set을 올바른 인자로 호출해야 합니다', () => {
       UserTokenUtil.setAccessToken(mockAccessToken);
-      expect(Cookies.set).toHaveBeenCalledWith('access_token', mockAccessToken);
+      expect(Cookies.set).toHaveBeenCalledWith('access_token', mockAccessToken, expect.any(Object));
     });
   });
 
@@ -64,33 +64,28 @@ describe('UserTokenUtil', () => {
   });
 
   describe('getRefreshToken', () => {
-    it('localStorage에 refresh_token이 있으면 해당 토큰을 반환해야 합니다', () => {
-      localStorageMock.setItem('refresh_token', mockRefreshToken);
+    it('refresh_token 쿠키가 있으면 해당 토큰을 반환해야 합니다', () => {
+      (Cookies.get as jest.Mock).mockReturnValue(mockRefreshToken);
       expect(UserTokenUtil.getRefreshToken()).toBe(mockRefreshToken);
     });
 
-    it('localStorage에 refresh_token이 없으면 null을 반환해야 합니다', () => {
-      expect(UserTokenUtil.getRefreshToken()).toBeNull();
+    it('refresh_token 쿠키가 없으면 빈 문자열을 반환해야 합니다', () => {
+      (Cookies.get as jest.Mock).mockReturnValue(undefined);
+      expect(UserTokenUtil.getRefreshToken()).toBe('');
     });
   });
 
   describe('setRefreshToken', () => {
-    it('localStorage.setItem을 올바른 인자로 호출해야 합니다', () => {
-      const spy = jest.spyOn(localStorageMock, 'setItem');
+    it('Cookies.set을 올바른 인자로 호출해야 합니다', () => {
       UserTokenUtil.setRefreshToken(mockRefreshToken);
-      expect(spy).toHaveBeenCalledWith('refresh_token', mockRefreshToken);
-      spy.mockRestore();
+      expect(Cookies.set).toHaveBeenCalledWith('refresh_token', mockRefreshToken, expect.any(Object));
     });
   });
 
   describe('removeRefreshToken', () => {
-    it('localStorage.removeItem을 올바른 인자로 호출해야 합니다', () => {
-      const spy = jest.spyOn(localStorageMock, 'removeItem');
-      // 먼저 아이템을 설정하여 삭제할 대상이 있도록 합니다.
-      localStorageMock.setItem('refresh_token', mockRefreshToken);
+    it('Cookies.remove를 올바른 인자로 호출해야 합니다', () => {
       UserTokenUtil.removeRefreshToken();
-      expect(spy).toHaveBeenCalledWith('refresh_token');
-      spy.mockRestore();
+      expect(Cookies.remove).toHaveBeenCalledWith('refresh_token');
     });
   });
 

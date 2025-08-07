@@ -7,5 +7,18 @@
   "downloads": "Downloads",
   "domain": "okdohyuk.dev",
   "title": "Web Multi Tool Platform",
-  "subTitle": "It offers several simple and easy-to-use web tools."
+  "subTitle": "It offers several simple and easy-to-use web tools.",
+  "features": {
+    "title": "Features",
+    "blogTitle": "Blog",
+    "blogDesc": "Read stories about development and daily life.",
+    "multiLiveTitle": "Multi Live",
+    "multiLiveDesc": "Stream to multiple platforms simultaneously.",
+    "adminTitle": "Admin",
+    "adminDesc": "Administration tools for the site."
+  },
+  "dashboard": {
+    "welcome": "Welcome, {{name}}!",
+    "quickLinks": "Quick Links"
+  }
 }

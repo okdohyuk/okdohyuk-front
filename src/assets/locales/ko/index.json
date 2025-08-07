@@ -8,5 +8,18 @@
   "downloads": "다운로드",
   "domain": "okdohyuk.dev",
   "title": "웹 멀티툴 플랫폼",
-  "subTitle": "간편하고 쉽게 사용할 수 있는 여러 웹 도구를 제공합니다."
+  "subTitle": "간편하고 쉽게 사용할 수 있는 여러 웹 도구를 제공합니다.",
+  "features": {
+    "title": "서비스 소개",
+    "blogTitle": "블로그",
+    "blogDesc": "개발과 일상의 이야기를 공유합니다.",
+    "multiLiveTitle": "멀티라이브",
+    "multiLiveDesc": "여러 플랫폼으로 라이브를 동시에 진행해보세요.",
+    "adminTitle": "관리자",
+    "adminDesc": "사이트 관리를 위한 관리자 페이지입니다."
+  },
+  "dashboard": {
+    "welcome": "{{name}}님, 환영합니다!",
+    "quickLinks": "빠른 링크"
+  }
 }
