@@ -1,0 +1,10 @@
+{
+  "openGraph": {
+    "title": "Choseong Maker",
+    "ogTitle": "Korean Initial Consonant Extractor",
+    "description": "Type any Korean text and instantly see only its initial consonants. Example: 안녕하세요 → ㅇㄴㅎㅅㅇ",
+    "keywords": ["choseong", "initial consonant", "korean consonant", "choseong maker"]
+  },
+  "title": "Choseong Maker",
+  "placeholder": "Type Korean text here"
+}
