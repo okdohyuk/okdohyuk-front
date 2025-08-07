@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import ClassName from '@utils/classNameUtils';
@@ -14,6 +15,9 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ lng, className = '' }) => {
   const { t } = useTranslation(lng, 'common');
   const { cls } = ClassName;
+  const pathname = usePathname();
+
+  if (pathname.includes('/multi-live')) return null;
 
   const currentYear = new Date().getFullYear();
   const linkClassName = 'hover:text-blue-700 dark:hover:text-blue-300 transition-colors';
