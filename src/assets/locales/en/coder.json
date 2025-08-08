@@ -10,5 +10,14 @@
   "encoder": "Encoder",
   "decoder": "Decoder",
   "submit": "Submit",
-  "copy": "Copy"
+  "copy": "Copy",
+  "desc": {
+    "BASE64": "Encode or decode data using Base64 representation.",
+    "URI": "Encode or decode a full URI string.",
+    "URI_COMPONENT": "Encode or decode a URI component.",
+    "ESCAPE": "Use legacy JavaScript escape/unescape.",
+    "HEX": "Convert text to or from hexadecimal.",
+    "BINARY": "Convert text to or from binary.",
+    "HTML": "Escape or unescape HTML entities."
+  }
 }

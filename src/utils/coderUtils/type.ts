@@ -1,4 +1,11 @@
-type CoderType = 'BASE64' | 'URI';
+type CoderType =
+  | 'BASE64'
+  | 'URI'
+  | 'URI_COMPONENT'
+  | 'ESCAPE'
+  | 'HEX'
+  | 'BINARY'
+  | 'HTML';
 
 type CoderFormType = {
   type: CoderType;
