@@ -10,5 +10,14 @@
   "encoder": "编码器",
   "decoder": "解码器",
   "submit": "完成",
-  "copy": "复制"
+  "copy": "复制",
+  "desc": {
+    "BASE64": "使用Base64格式对数据进行编码或解码。",
+    "URI": "对完整的URI字符串进行编码或解码。",
+    "URI_COMPONENT": "对URI组件进行编码或解码。",
+    "ESCAPE": "使用旧版JavaScript的escape/unescape。",
+    "HEX": "在字符串与十六进制之间转换。",
+    "BINARY": "在字符串与二进制之间转换。",
+    "HTML": "转义或还原HTML实体。"
+  }
 }
