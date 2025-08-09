@@ -11,7 +11,7 @@ module.exports = {
     'prettier/prettier': 'error',
     'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
     'comma-dangle': ['error', 'always-multiline'],
-    quotes: ['error', 'single'],
+    quotes: ['warn', 'single'],
     'object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
