@@ -105,6 +105,67 @@ describe('CoderUtils', () => {
       });
     });
 
+    // 추가 인코딩/디코딩 방식 테스트
+    describe('URI_COMPONENT', () => {
+      const type: CoderType = 'URI_COMPONENT';
+      it('should encode URI component', () => {
+        const params: CoderFormType = { type, isEncoder: true, count: 1, value: 'a b' };
+        expect(CoderUtils.runCoder(params)).toEqual(['a%20b']);
+      });
+      it('should decode URI component', () => {
+        const params: CoderFormType = { type, isEncoder: false, count: 1, value: 'a%20b' };
+        expect(CoderUtils.runCoder(params)).toEqual(['a b']);
+      });
+    });
+
+    describe('ESCAPE', () => {
+      const type: CoderType = 'ESCAPE';
+      it('should encode using escape', () => {
+        const params: CoderFormType = { type, isEncoder: true, count: 1, value: 'abc=한' };
+        expect(CoderUtils.runCoder(params)).toEqual(['abc%3D%uD55C']);
+      });
+      it('should decode using unescape', () => {
+        const params: CoderFormType = { type, isEncoder: false, count: 1, value: 'abc%3D%uD55C' };
+        expect(CoderUtils.runCoder(params)).toEqual(['abc=한']);
+      });
+    });
+
+    describe('HEX', () => {
+      const type: CoderType = 'HEX';
+      it('should encode to hex', () => {
+        const params: CoderFormType = { type, isEncoder: true, count: 1, value: 'hi' };
+        expect(CoderUtils.runCoder(params)).toEqual(['6869']);
+      });
+      it('should decode from hex', () => {
+        const params: CoderFormType = { type, isEncoder: false, count: 1, value: '6869' };
+        expect(CoderUtils.runCoder(params)).toEqual(['hi']);
+      });
+    });
+
+    describe('BINARY', () => {
+      const type: CoderType = 'BINARY';
+      it('should encode to binary', () => {
+        const params: CoderFormType = { type, isEncoder: true, count: 1, value: 'A' };
+        expect(CoderUtils.runCoder(params)).toEqual(['01000001']);
+      });
+      it('should decode from binary', () => {
+        const params: CoderFormType = { type, isEncoder: false, count: 1, value: '01000001' };
+        expect(CoderUtils.runCoder(params)).toEqual(['A']);
+      });
+    });
+
+    describe('HTML', () => {
+      const type: CoderType = 'HTML';
+      it('should encode HTML entities', () => {
+        const params: CoderFormType = { type, isEncoder: true, count: 1, value: '<div>' };
+        expect(CoderUtils.runCoder(params)).toEqual(['&lt;div&gt;']);
+      });
+      it('should decode HTML entities', () => {
+        const params: CoderFormType = { type, isEncoder: false, count: 1, value: '&lt;div&gt;' };
+        expect(CoderUtils.runCoder(params)).toEqual(['<div>']);
+      });
+    });
+
     // 기타 엣지 케이스
     describe('Edge Cases', () => {
       it('count가 0이면 빈 배열을 반환해야 합니다', () => {
