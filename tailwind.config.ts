@@ -1,4 +1,8 @@
-module.exports = {
+import type { Config } from 'tailwindcss';
+import tailwindcssSafeArea from 'tailwindcss-safe-area';
+import typography from '@tailwindcss/typography';
+
+export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -13,5 +17,5 @@ module.exports = {
     },
   },
   darkMode: 'media',
-  plugins: [require('tailwindcss-safe-area'), require('@tailwindcss/typography')],
-};
+  plugins: [tailwindcssSafeArea, typography],
+} satisfies Config;
