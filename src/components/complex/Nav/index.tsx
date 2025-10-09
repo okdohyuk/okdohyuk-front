@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { MdArticle, MdHome, MdMenu } from 'react-icons/md';
+import { FileText, Home, Menu } from 'lucide-react';
 import Link from '@components/basic/Link';
 import ClassName from '@utils/classNameUtils';
 import { sendGAEvent } from '@libs/client/gtag';
@@ -17,19 +17,19 @@ type NavItem = {
 const navList: NavItem[] = [
   {
     name: 'Home',
-    icon: <MdHome size={24} />,
+    icon: <Home size={24} />,
     link: '/',
     pathname: '/home',
   },
   {
     name: 'Blog',
-    icon: <MdArticle size={24} />,
+    icon: <FileText size={24} />,
     link: '/blog',
     pathname: '/blog',
   },
   {
     name: 'Menu',
-    icon: <MdMenu size={24} />,
+    icon: <Menu size={24} />,
     link: '/menu',
     pathname: '/menu',
   },

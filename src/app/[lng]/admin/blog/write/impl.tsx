@@ -10,7 +10,7 @@ import { useTranslation } from '~/app/i18n/client';
 import BlogDetail from '@components/blog/BlogDetail';
 import InputTag from '~/components/complex/InputTag';
 import Select from '~/components/complex/Select';
-import { MdImage } from 'react-icons/md';
+import { Image as ImageIcon } from 'lucide-react';
 import { Blog, BlogCategory } from '@api/Blog';
 import BlogUtils from '~/utils/blogUtils';
 import { Language } from '~/app/i18n/settings';
@@ -133,7 +133,7 @@ const BlogWritePageImpl = ({
             <div>
               <label className="" htmlFor={'upload-image'} onClick={onClickHandler}>
                 <button type="button" className="button h-[38px]">
-                  <MdImage size={24} />
+                  <ImageIcon size={24} />
                 </button>
               </label>
               <input

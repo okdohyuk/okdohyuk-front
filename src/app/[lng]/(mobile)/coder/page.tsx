@@ -3,8 +3,8 @@
 import React, { useCallback, useState } from 'react';
 import { observer } from 'mobx-react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { MdMoreHoriz, MdOutlineCheck, MdOutlineContentCopy } from 'react-icons/md';
 import { debounce } from 'lodash';
+import { Check, Copy, MoreHorizontal } from 'lucide-react';
 
 import CodeCopy from '@components/complex/MarkDown/CodeCopy';
 import { cls } from '@utils/classNameUtils';
@@ -139,7 +139,7 @@ function CoderPage({ params }: LanguageParams) {
         {resultList !== null && resultList.length > 1 ? (
           !isMoreOpen ? (
             <button className="button w-16 h-4 mx-auto" onClick={() => setIsMoreOpen(true)}>
-              <MdMoreHoriz className="text-white" />
+              <MoreHorizontal className="text-white" />
             </button>
           ) : (
             resultList.slice(0, -1).map((value) => (
@@ -155,8 +155,8 @@ function CoderPage({ params }: LanguageParams) {
           readOnly
         />
         <button className="button w-full gap-2" onClick={copyToClipboard}>
-          <MdOutlineContentCopy className={cls(copied ? 'hidden' : '')} />
-          <MdOutlineCheck className={cls(!copied ? 'hidden' : '')} />
+          <Copy className={cls(copied ? 'hidden' : '')} />
+          <Check className={cls(!copied ? 'hidden' : '')} />
           {t('copy')}
         </button>
       </section>

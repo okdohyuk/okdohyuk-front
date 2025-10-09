@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdOutlineCancel } from 'react-icons/md';
+import { X } from 'lucide-react';
 
 type TagProps = {
   value: string;
@@ -12,7 +12,7 @@ const Tag: TagFC = ({ value, removeTag }) => {
   return (
     <p className="flex items-center px-1 rounded t-d-1 t-basic-1 bg-basic-4">
       {value}
-      <MdOutlineCancel className="ml-2 cursor-pointer" onClick={() => removeTag(value)} />
+      <X className="ml-2 cursor-pointer" onClick={() => removeTag(value)} />
     </p>
   );
 };

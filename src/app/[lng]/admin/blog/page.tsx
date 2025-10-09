@@ -5,7 +5,7 @@ import BlogCard from '@components/blog/BlogCard';
 import useStore from '@hooks/useStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
-import { MdAutorenew } from 'react-icons/md';
+import { RefreshCcw } from 'lucide-react';
 import MobileScreenWrapper from '~/components/complex/Layout/MobileScreenWrapper';
 import { BlogSearch } from '~/spec/api/Blog';
 import { useTranslation } from '~/app/i18n/client';
@@ -42,7 +42,7 @@ function BlogAdminPage() {
           ))}
           {status === 'loading' ? (
             <div className={'flex justify-center'}>
-              <MdAutorenew className={'text-black dark:text-white animate-spin'} size={24} />
+              <RefreshCcw className={'text-black dark:text-white animate-spin'} size={24} />
             </div>
           ) : null}
         </div>

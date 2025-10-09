@@ -1,10 +1,6 @@
 import React from 'react';
 import { FilterDropdownFC, FilterDropdownItem } from './type';
-import {
-  MdOutlineCheckBoxOutlineBlank,
-  MdOutlineAddBox,
-  MdOutlineIndeterminateCheckBox,
-} from 'react-icons/md';
+import { Square, SquareMinus, SquarePlus } from 'lucide-react';
 import { cls } from '~/utils/classNameUtils';
 import Skeleton from '@components/basic/Skeleton';
 
@@ -30,9 +26,9 @@ const FilterDropdown: FilterDropdownFC = ({ title, items, changeType }) => {
           <div className={cls('t-d-1 t-basic-1', 'ml-' + margin * 2)}>{item.name}</div>
           {
             {
-              in: <MdOutlineAddBox className="text-point-1" />,
-              notIn: <MdOutlineIndeterminateCheckBox className="text-red-500" />,
-              idle: <MdOutlineCheckBoxOutlineBlank className="t-basic-1" />,
+              in: <SquarePlus className="text-point-1" />,
+              notIn: <SquareMinus className="text-red-500" />,
+              idle: <Square className="t-basic-1" />,
             }[item.type]
           }
         </div>

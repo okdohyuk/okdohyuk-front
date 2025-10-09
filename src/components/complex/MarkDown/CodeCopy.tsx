@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { MdOutlineContentCopy, MdOutlineCheck } from 'react-icons/md';
+import { Check, Copy } from 'lucide-react';
 import { debounce } from 'lodash';
 
 import ClassName from '@utils/classNameUtils';
@@ -45,8 +45,8 @@ const CodeCopy = ({ children, copyString, ...props }: CodeCopyProps) => {
             )}
             onClick={copyToClipboard}
           >
-            <MdOutlineContentCopy className={cls('m-auto text-white', copied ? 'hidden' : '')} />
-            <MdOutlineCheck className={cls('m-auto text-point-2', !copied ? 'hidden' : '')} />
+            <Copy className={cls('m-auto text-white', copied ? 'hidden' : '')} />
+            <Check className={cls('m-auto text-point-2', !copied ? 'hidden' : '')} />
           </button>
         </div>
       </pre>

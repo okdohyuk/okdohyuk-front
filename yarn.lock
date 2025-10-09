@@ -8385,7 +8385,6 @@ __metadata:
     react-dom: "npm:~19.1.0"
     react-hook-form: "npm:^7"
     react-i18next: "npm:~15.5.1"
-    react-icons: "npm:^4"
     react-modern-drawer: "npm:~1.4.0"
     react-share: "npm:^4.4.1"
     sass: "npm:^1"
@@ -9026,15 +9025,6 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/448e190beb3338e5e6e48936c82b5e8610fdb54d0b3dafc14c2af76115a6c931eff601c3e4aee00b3d3c1b78d4d7061bbac443fc9bcff786d131e695c79f5822
-  languageName: node
-  linkType: hard
-
-"react-icons@npm:^4":
-  version: 4.12.0
-  resolution: "react-icons@npm:4.12.0"
-  peerDependencies:
-    react: "*"
-  checksum: 10c0/2170f43031ee7365539f72d4075cbe6c7fbf9a66d6cf4494aa9393b194272da0564f5b19d1b24dbfc567c0ac89f5fe5b8974d92dd83f61e252388dde6a226fb8
   languageName: node
   linkType: hard
 

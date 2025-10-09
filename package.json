@@ -50,7 +50,6 @@
     "react-dom": "~19.1.0",
     "react-hook-form": "^7",
     "react-i18next": "~15.5.1",
-    "react-icons": "^4",
     "react-modern-drawer": "~1.4.0",
     "react-share": "^4.4.1",
     "server-only": "^0.0.1",

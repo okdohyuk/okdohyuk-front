@@ -3,7 +3,7 @@
 import { observer } from 'mobx-react';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-import { MdFilterList, MdGridView, MdOutlineSearch, MdOutlineViewList } from 'react-icons/md';
+import { Filter, LayoutGrid, List, Search } from 'lucide-react';
 import useStore from '@hooks/useStore';
 import { cls } from '@utils/classNameUtils';
 import Select from 'components/complex/Select';
@@ -28,7 +28,7 @@ const BlogSearchBar: BlogSearchBarFC = ({ toggleDrawer }) => {
   return (
     <div className="flex gap-4">
       <label className="relative flex-1">
-        <MdOutlineSearch className="w-6 h-6 ml-1 top-1/2 transform -translate-y-1/2 absolute t-basic-3" />
+        <Search className="w-6 h-6 ml-1 top-1/2 transform -translate-y-1/2 absolute t-basic-3" />
         <input
           className="w-full input-text pl-8"
           type="text"
@@ -37,7 +37,7 @@ const BlogSearchBar: BlogSearchBarFC = ({ toggleDrawer }) => {
         />
       </label>
       <button className="button lg:hidden" onClick={toggleDrawer}>
-        <MdFilterList />
+        <Filter />
         {t('filter.index')}
       </button>
       <div className="flex min-h-[32px] p-1 bg-point-3 rounded-md">
@@ -45,13 +45,13 @@ const BlogSearchBar: BlogSearchBarFC = ({ toggleDrawer }) => {
           className={cls('p-1 rounded-md text-white', viewType === 'discript' ? 'bg-point-1' : '')}
           onClick={() => setViewType('discript')}
         >
-          <MdOutlineViewList className="w-6 h-6" />
+          <List className="w-6 h-6" />
         </button>
         <button
           className={cls('p-1 rounded-md text-white', viewType === 'frame' ? 'bg-point-1' : '')}
           onClick={() => setViewType('frame')}
         >
-          <MdGridView className="w-6 h-6" />
+          <LayoutGrid className="w-6 h-6" />
         </button>
       </div>
       <Select value={orderBy} onChange={onOrderByChange} className="h-full w-24">

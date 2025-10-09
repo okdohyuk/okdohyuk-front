@@ -3,7 +3,7 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from '~/app/i18n/client';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FiRotateCcw, FiSettings, FiZap } from 'react-icons/fi';
+import { RotateCcw, Settings, Zap } from 'lucide-react';
 import { LanguageParams } from '~/app/[lng]/layout';
 
 const MAX_BALLS_DISPLAY = 100; // 화면에 표시할 최대 공 개수 (성능 고려)
@@ -162,7 +162,7 @@ export default function PpollongPage({ params }: LanguageParams) {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-xl font-semibold mb-4 text-gray-700 flex items-center">
-          <FiSettings className="mr-2 text-blue-500" /> {t('settingsTitle')}
+          <Settings className="mr-2 text-blue-500" /> {t('settingsTitle')}
         </h2>
         <div className="flex space-x-2">
           <input
@@ -189,7 +189,7 @@ export default function PpollongPage({ params }: LanguageParams) {
               whileTap={{ scale: 0.95 }}
               title={t('resetButtonTitle') || '설정 초기화'}
             >
-              <FiRotateCcw size={20} />
+              <RotateCcw size={20} />
             </motion.button>
           )}
         </div>
@@ -219,7 +219,7 @@ export default function PpollongPage({ params }: LanguageParams) {
               whileTap={{ scale: 0.98 }}
               disabled={isLoading || availableNumbers().length === 0}
             >
-              <FiZap className="inline mr-2 mb-1" />
+              <Zap className="inline mr-2 mb-1" />
               {isLoading
                 ? t('drawButton.loading')
                 : availableNumbers().length === 0

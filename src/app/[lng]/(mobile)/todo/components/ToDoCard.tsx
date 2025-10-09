@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdCheckBoxOutlineBlank, MdCheckBox, MdDeleteForever } from 'react-icons/md';
+import { CheckSquare, Square, Trash2 } from 'lucide-react';
 import { observer } from 'mobx-react';
 
 import useStore from '@hooks/useStore';
@@ -20,13 +20,13 @@ function ToDoCard({ todo }: ToDoCardType) {
     >
       <div onClick={() => toggleTodoCheck(todo.id)}>
         {todo.isChecked ? (
-          <MdCheckBox className={'t-d-1 t-basic-1 cursor-pointer'} />
+          <CheckSquare className={'t-d-1 t-basic-1 cursor-pointer'} />
         ) : (
-          <MdCheckBoxOutlineBlank className={'t-d-1 t-basic-1 cursor-pointer'} />
+          <Square className={'t-d-1 t-basic-1 cursor-pointer'} />
         )}
       </div>
       <div className={'flex flex-1 break-all text-left t-d-1 t-basic-1'}>{todo.title}</div>
-      <MdDeleteForever
+      <Trash2
         className={'t-d-1 t-basic-1 cursor-pointer'}
         onClick={() => removeTodo(todo.id)}
       />
