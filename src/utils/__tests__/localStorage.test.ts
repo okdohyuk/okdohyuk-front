@@ -1,18 +1,19 @@
+import { vi } from 'vitest';
 import LocalStorage from '../localStorage';
 
 describe('LocalStorage', () => {
   // 각 테스트 전에 localStorage를 초기화합니다.
   beforeEach(() => {
     localStorage.clear();
-    // Jest가 localStorage의 각 메서드 호출을 감시하도록 spy를 설정합니다.
-    jest.spyOn(Storage.prototype, 'setItem');
-    jest.spyOn(Storage.prototype, 'getItem');
-    jest.spyOn(Storage.prototype, 'removeItem');
+    // Vitest가 localStorage의 각 메서드 호출을 감시하도록 spy를 설정합니다.
+    vi.spyOn(Storage.prototype, 'setItem');
+    vi.spyOn(Storage.prototype, 'getItem');
+    vi.spyOn(Storage.prototype, 'removeItem');
   });
 
   // 각 테스트 후에 spy를 복원합니다.
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   describe('setItem', () => {
@@ -64,6 +65,6 @@ describe('LocalStorage', () => {
   });
 
   // window 객체가 없는 환경 (예: SSR)을 시뮬레이션하기 위한 테스트는
-  // Jest 설정을 변경하거나, global.window를 undefined로 설정하는 등의 추가 작업이 필요할 수 있습니다.
+  // 테스트 러너 설정을 변경하거나, global.window를 undefined로 설정하는 등의 추가 작업이 필요할 수 있습니다.
   // 여기서는 JSDOM 환경을 기준으로 테스트합니다.
 });

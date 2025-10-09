@@ -73,15 +73,10 @@ NOTION_API_KEY=secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## 🧪 테스팅
 
-- **Jest** 기반 유닛/통합 테스트
-- 커버리지 자동 수집
-
-```bash
-yarn test
-```
-
-- 커스텀 설정: `jest.config.js` 참고
-- 테스트 커버리지 리포트: `coverage/` 폴더 생성
+- **Vitest** 기반 유닛/통합 테스트
+- 기본 명령: `yarn test`
+- 커버리지 리포트: `yarn test:coverage`
+- 커스텀 설정: `vitest.config.ts` 참고
 
 ## 📡 API 명세 및 테스트
 

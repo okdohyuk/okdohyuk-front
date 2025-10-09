@@ -1,28 +1,38 @@
+import { vi } from 'vitest';
 import Cookies from 'js-cookie';
 import UserTokenUtil from '../userTokenUtil';
 
 // js-cookie 모의
-jest.mock('js-cookie');
+vi.mock('js-cookie');
+const mockedCookies = vi.mocked(Cookies, true);
 
 describe('UserTokenUtil', () => {
   const mockAccessToken = 'mock-access-token';
   const mockRefreshToken = 'mock-refresh-token';
 
+  beforeAll(() => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterAll(() => {
+    vi.restoreAllMocks();
+  });
+
   beforeEach(() => {
     // 각 테스트 전에 쿠키 모의 초기화
-    (Cookies.get as jest.Mock).mockClear();
-    (Cookies.set as jest.Mock).mockClear();
-    (Cookies.remove as jest.Mock).mockClear();
+    mockedCookies.get.mockClear();
+    mockedCookies.set.mockClear();
+    mockedCookies.remove.mockClear();
   });
 
   describe('getAccessToken', () => {
     it('access_token 쿠키가 있으면 "Bearer " 접두사와 함께 토큰을 반환해야 합니다', () => {
-      (Cookies.get as jest.Mock).mockReturnValue(mockAccessToken);
+      mockedCookies.get.mockReturnValue(mockAccessToken);
       expect(UserTokenUtil.getAccessToken()).toBe(`Bearer ${mockAccessToken}`);
     });
 
     it('access_token 쿠키가 없으면 빈 문자열을 반환해야 합니다', () => {
-      (Cookies.get as jest.Mock).mockReturnValue(undefined);
+      mockedCookies.get.mockReturnValue(undefined);
       expect(UserTokenUtil.getAccessToken()).toBe('');
     });
   });
@@ -47,12 +57,12 @@ describe('UserTokenUtil', () => {
 
   describe('getRefreshToken', () => {
     it('refresh_token 쿠키가 있으면 해당 토큰을 반환해야 합니다', () => {
-      (Cookies.get as jest.Mock).mockReturnValue(mockRefreshToken);
+      mockedCookies.get.mockReturnValue(mockRefreshToken);
       expect(UserTokenUtil.getRefreshToken()).toBe(mockRefreshToken);
     });
 
     it('refresh_token 쿠키가 없으면 빈 문자열을 반환해야 합니다', () => {
-      (Cookies.get as jest.Mock).mockReturnValue(undefined);
+      mockedCookies.get.mockReturnValue(undefined);
       expect(UserTokenUtil.getRefreshToken()).toBe('');
     });
   });

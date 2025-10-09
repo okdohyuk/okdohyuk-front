@@ -1,4 +1,5 @@
 import React from 'react';
+import { MockedFunction, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { format } from 'date-fns';
 import { TFunction } from 'i18next';
@@ -6,8 +7,8 @@ import { TargetAndTransition } from 'framer-motion';
 import TimeDisplay, { TimeDisplayProps } from '../TimeDisplay';
 
 // framer-motion 모킹
-jest.mock('framer-motion', () => {
-  const actual = jest.requireActual('framer-motion');
+vi.mock('framer-motion', async () => {
+  const actual = await vi.importActual<typeof import('framer-motion')>('framer-motion');
   return {
     ...actual,
     AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
@@ -30,7 +31,7 @@ jest.mock('framer-motion', () => {
 });
 
 // useTranslation 모킹
-const mockT = jest.fn((key: string, options?: { [key: string]: string | number }) => {
+const mockT = vi.fn((key: string, options?: { [key: string]: string | number }) => {
   const translations: { [key: string]: string } = {
     loading: '서버 시간 불러오는 중...',
     'error-occurred': '오류 발생: {{error}}',
@@ -41,10 +42,12 @@ const mockT = jest.fn((key: string, options?: { [key: string]: string | number }
     translation = translation.replace('{{site}}', String(options.site));
   }
   return translation;
-}) as unknown as jest.MockedFunction<TFunction<'server-clock'>>;
+}) as unknown as MockedFunction<TFunction<'server-clock'>>;
 
 describe('TimeDisplay Component', () => {
-  const mockGetHostname = jest.fn((url: string | undefined) => (url ? new URL(url).hostname : ''));
+  const mockGetHostname = vi.fn((url: string | undefined) =>
+    url ? new URL(url).hostname : '',
+  );
 
   beforeEach(() => {
     mockT.mockClear();
