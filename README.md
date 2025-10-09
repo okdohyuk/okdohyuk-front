@@ -112,8 +112,9 @@ Authorization: Token exampletoken
 
 1. 이슈/PR 등록 전 최신 main 브랜치 pull
 2. 기능/버그별 브랜치 생성 후 작업
-3. 커밋 메시지는 명확하게 작성
-4. PR 등록 시 변경 요약 및 스크린샷 첨부 권장
+3. `yarn install` 후 생성된 Husky 훅을 통해 커밋 전 자동으로 `lint-staged`와 `vitest`가 실행됩니다.
+4. 커밋 메시지는 `feat:`, `fix:`, `refactor:`, `docs:`, `enhance:` 등 [Conventional Commits](https://www.conventionalcommits.org) 규칙을 따르며 `type: description` 형식이어야 합니다.
+5. PR 등록 시 변경 요약 및 스크린샷 첨부 권장
 
 ## 📄 라이선스
 

@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+# shellcheck shell=sh
+
+set -e
+
+cd -- "$(dirname "$0")/.." || exit 1
+
+echo "husky pre-commit: running lint-staged"
+yarn lint-staged
+
+echo "husky pre-commit: running vitest"
+yarn test:precommit
