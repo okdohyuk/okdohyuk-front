@@ -1,6 +1,6 @@
-import { BlogSearch, BlogOrderByEnum, BlogCategory, BlogSearchResponce } from '@api/Blog';
-import { BlogCardType } from '@components/legacy/blog/BlogCard/type';
-import { FilterDropdownItem, FilterType } from '~/components/complex/FilterDropdown/type';
+import { BlogCategory, BlogOrderByEnum, BlogSearch, BlogSearchResponce } from '@api/Blog';
+import { BlogCardType } from '@components/blog/BlogCard/type';
+import { FilterDropdownItem, FilterType } from '@components/complex/FilterDropdown/type';
 
 type Status = 'idle' | 'loading' | 'success' | 'fail';
 

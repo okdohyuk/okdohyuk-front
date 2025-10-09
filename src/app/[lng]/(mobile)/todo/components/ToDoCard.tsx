@@ -26,10 +26,7 @@ function ToDoCard({ todo }: ToDoCardType) {
         )}
       </div>
       <div className={'flex flex-1 break-all text-left t-d-1 t-basic-1'}>{todo.title}</div>
-      <Trash2
-        className={'t-d-1 t-basic-1 cursor-pointer'}
-        onClick={() => removeTodo(todo.id)}
-      />
+      <Trash2 className={'t-d-1 t-basic-1 cursor-pointer'} onClick={() => removeTodo(todo.id)} />
     </div>
   );
 }

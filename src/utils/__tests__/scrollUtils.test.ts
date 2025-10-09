@@ -18,36 +18,32 @@ describe('ScrollUtils', () => {
     it('document.documentElement.scrollTop이 값을 가지면 해당 값을 반환해야 합니다', () => {
       const scrollTopValue = 100;
       vi.spyOn(global.document, 'body', 'get').mockReturnValue({ scrollTop: 50 } as any);
-      vi
-        .spyOn(global.document, 'documentElement', 'get')
-        .mockReturnValue({ scrollTop: scrollTopValue } as any);
+      vi.spyOn(global.document, 'documentElement', 'get').mockReturnValue({
+        scrollTop: scrollTopValue,
+      } as any);
       expect(ScrollUtils.getScrollTop()).toBe(scrollTopValue);
     });
 
     it('document.documentElement.scrollTop이 0이고 document.body.scrollTop이 값을 가지면 body.scrollTop 값을 반환해야 합니다', () => {
       const bodyScrollTopValue = 200;
-      vi
-        .spyOn(global.document, 'body', 'get')
-        .mockReturnValue({ scrollTop: bodyScrollTopValue } as any);
-      vi
-        .spyOn(global.document, 'documentElement', 'get')
-        .mockReturnValue({ scrollTop: 0 } as any);
+      vi.spyOn(global.document, 'body', 'get').mockReturnValue({
+        scrollTop: bodyScrollTopValue,
+      } as any);
+      vi.spyOn(global.document, 'documentElement', 'get').mockReturnValue({ scrollTop: 0 } as any);
       expect(ScrollUtils.getScrollTop()).toBe(bodyScrollTopValue);
     });
 
     it('document.documentElement.scrollTop과 document.body.scrollTop 모두 0이면 0을 반환해야 합니다', () => {
       vi.spyOn(global.document, 'body', 'get').mockReturnValue({ scrollTop: 0 } as any);
-      vi
-        .spyOn(global.document, 'documentElement', 'get')
-        .mockReturnValue({ scrollTop: 0 } as any);
+      vi.spyOn(global.document, 'documentElement', 'get').mockReturnValue({ scrollTop: 0 } as any);
       expect(ScrollUtils.getScrollTop()).toBe(0);
     });
 
     it('document.documentElement가 null이지만 document.body.scrollTop이 값을 가지면 body.scrollTop 값을 반환해야 합니다', () => {
       const bodyScrollTopValue = 300;
-      vi
-        .spyOn(global.document, 'body', 'get')
-        .mockReturnValue({ scrollTop: bodyScrollTopValue } as any);
+      vi.spyOn(global.document, 'body', 'get').mockReturnValue({
+        scrollTop: bodyScrollTopValue,
+      } as any);
       vi.spyOn(global.document, 'documentElement', 'get').mockReturnValue(null as any);
       expect(ScrollUtils.getScrollTop()).toBe(bodyScrollTopValue);
     });

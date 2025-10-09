@@ -4,7 +4,7 @@ import { blogApi } from '@api';
 import { BlogSearchStoreState, Status } from './type';
 import { FilterDropdownItem, FilterType } from '~/components/complex/FilterDropdown/type';
 import FilterDropdownUtils from '~/utils/filterDropdownUtil';
-import { BlogCardType } from '@components/legacy/blog/BlogCard/type';
+import { BlogCardType } from '@components/blog/BlogCard/type';
 
 class BlogSearchStore implements BlogSearchStoreState {
   @observable public blogs: BlogSearch[] | null = null;

@@ -45,9 +45,7 @@ const mockT = vi.fn((key: string, options?: { [key: string]: string | number }) 
 }) as unknown as MockedFunction<TFunction<'server-clock'>>;
 
 describe('TimeDisplay Component', () => {
-  const mockGetHostname = vi.fn((url: string | undefined) =>
-    url ? new URL(url).hostname : '',
-  );
+  const mockGetHostname = vi.fn((url: string | undefined) => (url ? new URL(url).hostname : ''));
 
   beforeEach(() => {
     mockT.mockClear();

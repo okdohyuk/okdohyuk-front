@@ -11,7 +11,7 @@ describe('UserTokenUtil', () => {
   const mockRefreshToken = 'mock-refresh-token';
 
   beforeAll(() => {
-    vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
   });
 
   afterAll(() => {
