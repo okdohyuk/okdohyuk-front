@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from '@components/basic/Link';
 import Tag from '@components/basic/Tag';
-import { useBlogDetail } from './BlogDetailProvider';
+import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 
 const BlogBottom: React.FC = () => {
   const {

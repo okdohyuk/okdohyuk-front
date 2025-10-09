@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, use } from 'react';
+import React, { use, useState } from 'react';
 import ModernDrawer from 'react-modern-drawer';
 import BlogSearchNav from '@components/blog/BlogSearchNav';
-import BlogSearchBar from '@components/legacy/blog/BlogSearchBar';
+import BlogSearchBar from '@components/blog/BlogSearchBar';
 
 import 'react-modern-drawer/dist/index.css';
 import useIsClient from '@hooks/useIsClient';

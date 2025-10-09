@@ -9,7 +9,9 @@ import useIsClient from '@hooks/useIsClient';
 import useStore from '@hooks/useStore';
 import { LanguageParams } from '~/app/[lng]/layout';
 
-const ToDoCard = dynamic(() => import('@components/todo/ToDoCard'), { ssr: false });
+const ToDoCard = dynamic(() => import('~/app/[lng]/(mobile)/todo/components/ToDoCard'), {
+  ssr: false,
+});
 
 function TodoPage({ params }: LanguageParams) {
   const { lng } = React.use(params);

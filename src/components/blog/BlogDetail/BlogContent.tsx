@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import ReactDomServer from 'react-dom/server';
-import { useBlogDetail } from './BlogDetailProvider';
+import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 import MarkDown from '@components/complex/MarkDown';
 import { parseHeadings } from '@libs/client/heading';
 

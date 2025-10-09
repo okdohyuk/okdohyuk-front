@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useBlogDetail } from './BlogDetailProvider';
+import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 import Link from '@components/basic/Link';
 import { cls } from '@utils/classNameUtils';
 import ScrollUtils from '@utils/scrollUtils';

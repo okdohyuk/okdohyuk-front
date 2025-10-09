@@ -1,7 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
 import Link from '@components/basic/Link';
-import { useBlogDetail } from './BlogDetailProvider';
+import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 
 const BlogHeader: React.FC = () => {
   const { blog } = useBlogDetail();

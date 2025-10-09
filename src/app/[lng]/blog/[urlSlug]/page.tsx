@@ -1,6 +1,6 @@
 import React from 'react';
 import { blogApi } from '@api';
-import BlogDetail from '@components/legacy/blog/BlogDetail';
+import BlogDetail from '@components/blog/BlogDetail';
 import { notFound } from 'next/navigation';
 import axios from 'axios';
 import { BaseException } from '@api/Blog';

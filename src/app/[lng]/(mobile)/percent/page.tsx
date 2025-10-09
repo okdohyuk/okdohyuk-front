@@ -1,7 +1,7 @@
 import React from 'react';
-import PercentCalculatorCard from '@components/complex/Card/PercentCalculatorCard';
+import PercentCalculatorCard from '~/app/[lng]/(mobile)/percent/components/PercentCalculatorCard';
 import { useTranslation } from '~/app/i18n';
-import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetadata';
+import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { PercentCalculators } from '@stores/PercentStore/type';
 import { LanguageParams } from '~/app/[lng]/layout';
 

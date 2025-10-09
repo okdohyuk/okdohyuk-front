@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { BlogToc } from './type';
+import { BlogToc } from 'components/blog/BlogDetail/type';
 import { Blog } from '@api/Blog';
 
 type BlogDetailContextType = {

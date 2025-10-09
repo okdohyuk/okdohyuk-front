@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import BlogHeader from './BlogHeader';
-import { BlogComponent } from './type';
-import BlogBottom from './BlogBottom';
-import { BlogDetailProvider } from './BlogDetailProvider';
-import BlogToc from './BlogToc';
-import BlogContent from './BlogContent';
+import BlogHeader from 'components/blog/BlogDetail/BlogHeader';
+import { BlogComponent } from 'components/blog/BlogDetail/type';
+import BlogBottom from 'components/blog/BlogDetail/BlogBottom';
+import { BlogDetailProvider } from 'components/blog/BlogDetail/BlogDetailProvider';
+import BlogToc from 'components/blog/BlogDetail/BlogToc';
+import BlogContent from 'components/blog/BlogDetail/BlogContent';
 
 import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
 import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
