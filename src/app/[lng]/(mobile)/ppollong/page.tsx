@@ -27,7 +27,7 @@ export default function PpollongPage({ params }: LanguageParams) {
 
   const handleInitialize = () => {
     const num = parseInt(inputValue, 10);
-    if (isNaN(num) || num <= 0) {
+    if (Number.isNaN(num) || num <= 0) {
       setError(t('error.invalidNumber'));
       setIsInitialized(false);
       return;
@@ -61,7 +61,7 @@ export default function PpollongPage({ params }: LanguageParams) {
     const intervalId = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * numbersToDrawFrom.length);
       setCurrentNumber(numbersToDrawFrom[randomIndex]); // 임시 숫자 보여주기
-      currentStep++;
+      currentStep += 1;
       if (currentStep >= animationSteps) {
         clearInterval(intervalId);
         const finalRandomIndex = Math.floor(Math.random() * numbersToDrawFrom.length);
@@ -86,7 +86,7 @@ export default function PpollongPage({ params }: LanguageParams) {
   const renderNumberBalls = () => {
     if (!isInitialized) return null;
     const balls = [];
-    for (let i = 1; i <= maxNumber; i++) {
+    for (let i = 1; i <= maxNumber; i += 1) {
       const isDrawn = drawnNumbers.includes(i);
       balls.push(
         <motion.div
@@ -114,7 +114,7 @@ export default function PpollongPage({ params }: LanguageParams) {
           </div>,
         );
         // 마지막 몇 개를 더 보여줄 수 있음
-        for (let j = maxNumber - 4; j <= maxNumber; j++) {
+        for (let j = maxNumber - 4; j <= maxNumber; j += 1) {
           const isDrawnEnd = drawnNumbers.includes(j);
           balls.push(
             <motion.div
@@ -142,6 +142,14 @@ export default function PpollongPage({ params }: LanguageParams) {
     }
     return balls;
   };
+
+  const remainingNumbers = availableNumbers();
+  let drawButtonLabel = t('drawButton.ready');
+  if (isLoading) {
+    drawButtonLabel = t('drawButton.loading');
+  } else if (remainingNumbers.length === 0) {
+    drawButtonLabel = t('drawButton.allDrawn');
+  }
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center min-h-[calc(100vh-100px)]">
@@ -175,6 +183,7 @@ export default function PpollongPage({ params }: LanguageParams) {
           />
           {!isInitialized ? (
             <motion.button
+              type="button"
               onClick={handleInitialize}
               className="button w-20 bg-blue-500 text-white hover:bg-blue-600 transition-colors disabled:bg-gray-300 text-nowrap"
               whileTap={{ scale: 0.97 }}
@@ -184,6 +193,7 @@ export default function PpollongPage({ params }: LanguageParams) {
             </motion.button>
           ) : (
             <motion.button
+              type="button"
               onClick={handleReset}
               className="button w-20 justify-center bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors"
               whileTap={{ scale: 0.95 }}
@@ -214,17 +224,14 @@ export default function PpollongPage({ params }: LanguageParams) {
               💣
             </motion.div>
             <motion.button
+              type="button"
               onClick={handleDraw}
               className="button w-full px-8 py-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-xl font-bold rounded-full hover:from-green-500 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
               whileTap={{ scale: 0.98 }}
-              disabled={isLoading || availableNumbers().length === 0}
+              disabled={isLoading || remainingNumbers.length === 0}
             >
               <Zap className="inline mr-2 mb-1" />
-              {isLoading
-                ? t('drawButton.loading')
-                : availableNumbers().length === 0
-                ? t('drawButton.allDrawn')
-                : t('drawButton.ready')}
+              {drawButtonLabel}
             </motion.button>
           </div>
 
@@ -258,7 +265,7 @@ export default function PpollongPage({ params }: LanguageParams) {
         >
           <h3 className="text-lg font-semibold mb-4 text-gray-600">
             {t('numberBoardTitle', {
-              maxNumber: maxNumber,
+              maxNumber,
               drawnCount: drawnNumbers.length,
               totalCount: maxNumber,
             })}

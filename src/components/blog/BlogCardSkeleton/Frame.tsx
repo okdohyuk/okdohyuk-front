@@ -1,9 +1,9 @@
 import React from 'react';
 import Skeleton from '@components/basic/Skeleton';
 
-const Frame = () => {
+function Frame() {
   return (
-    <article className={'flex flex-col h-80 md:h-96 rounded overflow-hidden bg-basic-3'}>
+    <article className="flex flex-col h-80 md:h-96 rounded overflow-hidden bg-basic-3">
       <Skeleton className="w-full h-32 md:h-40 relative" />
 
       <div className="flex flex-col flex-1 p-4">
@@ -13,6 +13,6 @@ const Frame = () => {
       </div>
     </article>
   );
-};
+}
 
 export default Frame;

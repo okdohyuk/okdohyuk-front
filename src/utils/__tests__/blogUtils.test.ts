@@ -1,5 +1,5 @@
-import BlogUtils from '../blogUtils';
 import { Blog, BlogCategory, BlogRequest } from '~/spec/api/Blog';
+import BlogUtils from '../blogUtils';
 
 const mockCategories: BlogCategory[] = [
   {

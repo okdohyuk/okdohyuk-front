@@ -32,6 +32,31 @@ type TranslationsMetadata = ({
   image,
 }: TranslationsMetadataProps) => Promise<Metadata>;
 
+const metadata: CustomMetadata = ({
+  title,
+  description,
+  keywords,
+  image,
+  type = 'website',
+  language,
+}) => {
+  return {
+    manifest: '/manifest.json',
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL}`),
+    title,
+    description,
+    keywords,
+    image: image || '/opengraph_image.png',
+    openGraph: {
+      type,
+      title,
+      description,
+      language,
+      images: image || '/opengraph_image.png',
+    },
+  };
+};
+
 const translationsMetadata: TranslationsMetadata = async ({
   params,
   ns: namespace,
@@ -50,31 +75,6 @@ const translationsMetadata: TranslationsMetadata = async ({
     type,
     language,
   });
-};
-
-const metadata: CustomMetadata = ({
-  title,
-  description,
-  keywords,
-  image,
-  type = 'website',
-  language,
-}) => {
-  return {
-    manifest: '/manifest.json',
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL}`),
-    title,
-    description,
-    keywords,
-    image: image ? image : '/opengraph_image.png',
-    openGraph: {
-      type,
-      title,
-      description,
-      language,
-      images: image ? image : '/opengraph_image.png',
-    },
-  };
 };
 
 export { translationsMetadata, metadata };

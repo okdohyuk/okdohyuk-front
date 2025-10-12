@@ -52,10 +52,9 @@ export function useServerTime(lng: Language, selectedSite: string, customServerU
   }, [selectedSite, customServerUrl, t]);
 
   useEffect(() => {
-    // 오프셋이 있고 로딩중이 아닐 때만 타이머를 실행합니다.
-    if (timeOffset === 0 && !isLoading) {
-      // 초기 시간이 없는 경우 타이머를 시작하지 않습니다.
-      if (!serverTime) return;
+    // 오프셋이 있고 로딩 중이 아닐 때만 타이머를 실행합니다.
+    if (timeOffset === 0 && !isLoading && !serverTime) {
+      return undefined;
     }
 
     const timer = window.setInterval(() => {
@@ -64,7 +63,7 @@ export function useServerTime(lng: Language, selectedSite: string, customServerU
     }, 50);
 
     return () => window.clearInterval(timer);
-  }, [timeOffset, isLoading]);
+  }, [timeOffset, isLoading, serverTime]);
 
   return { serverTime, isLoading, error, setTimeOffset, setServerTime, setError, setIsLoading };
 }

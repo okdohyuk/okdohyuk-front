@@ -28,7 +28,7 @@ export const sendGAEvent: SendGAEventType = (event, value) => {
   }
 
   const object: GTagEvent = {
-    id: id,
+    id,
     pathname: window.location.pathname,
     event,
     value,

@@ -31,7 +31,7 @@ class PercentStore implements PercentStoreState {
     if (props.targetValue === 'isIncrease') {
       calculators.percentageUpDown.isIncrease = props.value === 'true';
     } else {
-      if (isNaN(+props.value)) return;
+      if (Number.isNaN(Number(props.value))) return;
       calculators[props.target][props.targetValue] = props.value;
     }
 
@@ -41,32 +41,37 @@ class PercentStore implements PercentStoreState {
   @action public handleResultCalculator = (target: keyof PercentCalculators) => {
     const { calculators } = this;
 
-    if (isNaN(+calculators[target].primaryNumber) || isNaN(+calculators[target].secondaryNumber))
+    const primary = Number(calculators[target].primaryNumber);
+    const secondary = Number(calculators[target].secondaryNumber);
+
+    if (Number.isNaN(primary) || Number.isNaN(secondary)) {
+      calculators[target].result = '';
       return;
+    }
 
     switch (target) {
       case 'percentageOfTotal':
-        return (calculators[target].result =
-          (+calculators[target].primaryNumber * +calculators[target].secondaryNumber) / 100);
+        calculators[target].result = (primary * secondary) / 100;
+        break;
       case 'partOfTotal':
-        return (calculators[target].result =
-          (+calculators[target].secondaryNumber * 100) / +calculators[target].primaryNumber);
+        calculators[target].result = (secondary * 100) / primary;
+        break;
       case 'findPercentage':
-        return (calculators[target].result =
-          ((+calculators[target].secondaryNumber - +calculators[target].primaryNumber) /
-            +calculators[target].primaryNumber) *
-          100);
-      case 'percentageUpDown':
-        return calculators.percentageUpDown.isIncrease
-          ? (calculators[target].result =
-              +calculators[target].primaryNumber +
-              (+calculators[target].primaryNumber * +calculators[target].secondaryNumber) / 100)
-          : (calculators[target].result =
-              +calculators[target].primaryNumber -
-              (+calculators[target].primaryNumber * +calculators[target].secondaryNumber) / 100);
+        calculators[target].result = ((secondary - primary) / primary) * 100;
+        break;
+      case 'percentageUpDown': {
+        const { isIncrease } = calculators.percentageUpDown;
+        calculators.percentageUpDown.result = isIncrease
+          ? primary + (primary * secondary) / 100
+          : primary - (primary * secondary) / 100;
+        break;
+      }
       case 'findPercentageValue':
-        return (calculators[target].result =
-          (+calculators[target].secondaryNumber * 100) / +calculators[target].primaryNumber);
+        calculators[target].result = (secondary * 100) / primary;
+        break;
+      default:
+        calculators[target].result = '';
+        break;
     }
   };
 }

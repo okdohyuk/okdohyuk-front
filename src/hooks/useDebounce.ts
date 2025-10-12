@@ -6,16 +6,17 @@ export default function useDebounce<T>(value: T, delay: number) {
   useEffect(() => {
     if (debouncedValue === null) {
       setDebouncedValue(value);
-    } else {
-      const handler = setTimeout(() => {
-        setDebouncedValue(value);
-      }, delay);
-
-      return () => {
-        clearTimeout(handler);
-      };
+      return undefined;
     }
-  }, [value, delay]);
+
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay, debouncedValue]);
 
   return debouncedValue;
 }

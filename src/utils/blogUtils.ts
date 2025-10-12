@@ -1,33 +1,49 @@
 import { Blog, BlogCategory, BlogRequest } from '~/spec/api/Blog';
 
 export default class BlogUtils {
-  static toBlogRequest(blog: Blog, category: BlogCategory[]): BlogRequest {
+  static toBlogRequest(blog: Blog, categories: BlogCategory[]): BlogRequest {
     return {
       ...blog,
-      categoryId: this.findIdByCategoryChain(blog.categoryChain, category),
+      categoryId: this.findIdByCategoryChain(blog.categoryChain, categories),
     };
   }
 
   static findIdByCategoryChain = (
     categoryChain: string[] | undefined,
-    category: BlogCategory[] | undefined,
+    categories: BlogCategory[] | undefined,
   ): string | undefined => {
-    if (!categoryChain || !category) return;
-    const currentCategory = category.find((category) => category.name === categoryChain[0]);
-    if (!currentCategory) return;
-    if (categoryChain.length === 1) return currentCategory.id;
-    return this.findIdByCategoryChain(categoryChain.slice(1), currentCategory.child);
+    if (!categoryChain?.length || !categories?.length) {
+      return undefined;
+    }
+
+    const [currentCategoryName, ...restChain] = categoryChain;
+    const matchedCategory = categories.find((item) => item.name === currentCategoryName);
+    if (!matchedCategory) {
+      return undefined;
+    }
+
+    if (restChain.length === 0) {
+      return matchedCategory.id;
+    }
+
+    return this.findIdByCategoryChain(restChain, matchedCategory.child);
   };
 
   static findCategoryChainById = (
-    category: BlogCategory[] | undefined,
+    categories: BlogCategory[] | undefined,
     id: string | undefined,
   ): string[] => {
-    if (!category || !id) return [];
-    for (const currentCategory of category) {
-      if (currentCategory.id === id) return [currentCategory.name];
+    if (!categories || !id) return [];
+
+    for (let index = 0; index < categories.length; index += 1) {
+      const currentCategory = categories[index];
+      if (currentCategory.id === id) {
+        return [currentCategory.name];
+      }
       const childChain = this.findCategoryChainById(currentCategory.child, id);
-      if (childChain.length > 0) return [currentCategory.name, ...childChain];
+      if (childChain.length > 0) {
+        return [currentCategory.name, ...childChain];
+      }
     }
     return [];
   };

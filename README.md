@@ -29,6 +29,7 @@ yarn dev
 - UI/상태/비즈니스 로직 분리
 - 함수형/불변성 패턴
 - 폴더/파일 네이밍 일관성
+- ESLint: Airbnb TypeScript 규칙 + Next.js 15 권장 설정 적용
 
 ## ⚙️ 환경 변수 설정
 

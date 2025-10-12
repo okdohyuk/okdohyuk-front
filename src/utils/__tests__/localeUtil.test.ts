@@ -1,7 +1,7 @@
 import { vi } from 'vitest';
-import { getLanguageFromCookies, stringToLanguage } from '../localeUtil';
 import type { Language } from '~/app/i18n/settings';
 import { RequestCookies, ResponseCookies } from 'next/dist/compiled/@edge-runtime/cookies';
+import { getLanguageFromCookies, stringToLanguage } from '../localeUtil';
 
 const settingsMock = vi.hoisted(() => ({
   fallbackLng: 'en' as Language,
@@ -49,10 +49,8 @@ describe('localeUtil', () => {
         // @ts-ignore
         has: (name: string) => cookiesMap.has(name),
         // @ts-ignore
-        [Symbol.iterator]: function* () {
-          for (const cookie of cookiesMap.values()) {
-            yield cookie;
-          }
+        [Symbol.iterator]() {
+          return cookiesMap.values();
         },
         // @ts-ignore
         getAll: () => Array.from(cookiesMap.values()),

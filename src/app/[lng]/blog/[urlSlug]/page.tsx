@@ -1,24 +1,22 @@
 import React from 'react';
-import { blogApi } from '@api';
-import BlogDetail from '@components/blog/BlogDetail';
-import { notFound } from 'next/navigation';
 import axios from 'axios';
-import { BaseException } from '@api/Blog';
+import { notFound } from 'next/navigation';
 import { unstable_cache as cache } from 'next/cache';
+import { blogApi } from '@api';
+import { BaseException } from '@api/Blog';
+import BlogDetail from '@components/blog/BlogDetail';
 import { metadata } from '@libs/server/customMetadata';
-import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
 
-type BlogDetailProps = LanguageParams & {
-  params: Promise<{ urlSlug: string }>;
+type BlogDetailProps = {
+  params: { lng: Language; urlSlug: string };
 };
 
 export const dynamic = 'force-static';
 
 export async function generateStaticParams() {
-  const { data: res } = await blogApi.getBlogSearch(0, 100);
-  const paths = res.results.map((blog) => ({ urlSlug: blog.urlSlug }));
-
-  return paths;
+  const { data } = await blogApi.getBlogSearch(0, 100);
+  return data.results.map((blog) => ({ urlSlug: blog.urlSlug }));
 }
 
 const getPost = cache(async (urlSlug: string) => {
@@ -26,9 +24,9 @@ const getPost = cache(async (urlSlug: string) => {
     const { data } = await blogApi.getBlogUrlSlug(decodeURIComponent(urlSlug));
 
     return data;
-  } catch (e) {
-    if (axios.isAxiosError<BaseException, never>(e)) {
-      console.error(e.response?.data.errorMessage);
+  } catch (error) {
+    if (axios.isAxiosError<BaseException, never>(error)) {
+      return notFound();
     }
     return notFound();
   }
@@ -42,8 +40,8 @@ export const generateMetadata = async (props: BlogDetailProps) => {
   const { title, contents, thumbnailImage, tags } = await getPost(urlSlug);
 
   return metadata({
-    title: title,
-    description: contents.slice(0, 200) + '..',
+    title,
+    description: `${contents.slice(0, 200)}..`,
     image: thumbnailImage,
     type: 'article',
     keywords: tags,
@@ -51,11 +49,8 @@ export const generateMetadata = async (props: BlogDetailProps) => {
   });
 };
 
-export default async function BlogDetailPage(props: BlogDetailProps) {
-  const params = await props.params;
-
-  const { urlSlug } = params;
-
+export default async function BlogDetailPage({ params }: BlogDetailProps) {
+  const { urlSlug } = await params;
   const blog = await getPost(urlSlug);
 
   return <BlogDetail blog={blog} />;

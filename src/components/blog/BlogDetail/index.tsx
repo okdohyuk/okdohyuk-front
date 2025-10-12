@@ -12,17 +12,17 @@ import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper'
 import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
 import { sendGAEvent } from '@libs/client/gtag';
 
-const BlogDetail: BlogComponent = ({ blog, isPreview = false }) => {
+const BlogDetail: BlogComponent = function BlogDetail({ blog, isPreview = false }) {
   const Wrapper = isPreview ? MobileScreenWrapper : AsideScreenWrapper;
-  const rightProp = isPreview ? {} : { right: <BlogToc /> };
+  const wrapperProps = isPreview ? {} : { right: <BlogToc /> };
 
   useEffect(() => {
     sendGAEvent('page_view', blog.title);
-  }, [blog]);
+  }, [blog.title]);
 
   return (
     <BlogDetailProvider blog={blog}>
-      <Wrapper {...rightProp}>
+      <Wrapper {...wrapperProps}>
         <BlogHeader />
         <BlogContent isPreview={isPreview} />
         <BlogBottom />

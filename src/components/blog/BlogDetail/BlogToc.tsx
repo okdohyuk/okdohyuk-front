@@ -1,11 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 import Link from '@components/basic/Link';
 import { cls } from '@utils/classNameUtils';
 import ScrollUtils from '@utils/scrollUtils';
+import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 
-const BlogToc = () => {
-  const { getScrollTop } = ScrollUtils;
+function BlogToc() {
   const { toc } = useBlogDetail();
   const [activeId, setActiveId] = useState<null | string>(null);
   const [headingTops, setHeadingTops] = useState<
@@ -18,8 +17,8 @@ const BlogToc = () => {
 
   const updateTocPositions = useCallback(() => {
     if (!toc) return;
-    const scrollTop = getScrollTop();
-    const headingTops = toc.map(({ id }) => {
+    const scrollTop = ScrollUtils.getScrollTop();
+    const calculatedHeadingTops = toc.map(({ id }) => {
       const el = document.getElementById(id);
       if (!el) {
         return {
@@ -27,21 +26,22 @@ const BlogToc = () => {
           top: 0,
         };
       }
-      const top = el.getBoundingClientRect().top + scrollTop;
+      const { top } = el.getBoundingClientRect();
       return {
         id,
-        top,
+        top: top + scrollTop,
       };
     });
-    setHeadingTops(headingTops);
+    setHeadingTops(calculatedHeadingTops);
   }, [toc]);
 
   useEffect(() => {
     updateTocPositions();
-    let prevScrollHeight = document.body.scrollHeight;
+    const { scrollHeight: initialScrollHeight } = document.body;
+    let prevScrollHeight = initialScrollHeight;
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     function checkScrollHeight() {
-      const scrollHeight = document.body.scrollHeight;
+      const { scrollHeight } = document.body;
       if (prevScrollHeight !== scrollHeight) {
         updateTocPositions();
       }
@@ -57,11 +57,9 @@ const BlogToc = () => {
   }, [updateTocPositions]);
 
   const onScroll = useCallback(() => {
-    const scrollTop = getScrollTop();
+    const scrollTop = ScrollUtils.getScrollTop();
     if (!headingTops) return;
-    const currentHeading = [...headingTops].reverse().find((headingTop) => {
-      return scrollTop >= headingTop.top - 4;
-    });
+    const currentHeading = [...headingTops].reverse().find(({ top }) => scrollTop >= top - 4);
     if (!currentHeading) {
       setActiveId(null);
       return;
@@ -100,6 +98,6 @@ const BlogToc = () => {
       ))}
     </ol>
   );
-};
+}
 
 export default BlogToc;

@@ -1,18 +1,17 @@
 import React from 'react';
-
-import '~/styles/globals.scss';
-import { StoreProvider } from './provider';
-import { ReactQueryProvider } from '@components/complex/Layout/QueryClient';
-import { Language, languages } from '~/app/i18n/settings';
+import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
 import localFont from 'next/font/local';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import CommonLayout from '@components/complex/Layout/CommonLayout';
 import Footer from '@components/complex/Layout/Footer';
-import { Analytics } from '@vercel/analytics/react';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { ReactQueryProvider } from '@components/complex/Layout/QueryClient';
 import GoogleAdsense from '@components/google/GoogleAdsense';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import '~/styles/globals.scss';
+import { Language, languages } from '~/app/i18n/settings';
+import { StoreProvider } from './provider';
 
 const pretendard = localFont({
   src: '../../assets/fonts/PretendardVariable.woff2',

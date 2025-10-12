@@ -10,16 +10,15 @@ declare global {
 
 type GoogleAdProps = {
   slotId: string;
-  type?: string;
   className?: string;
 };
 
-const GoogleAd = ({ slotId, className }: GoogleAdProps) => {
+function GoogleAd({ slotId, className = '' }: GoogleAdProps) {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (error) {
-      console.error('Google Ad error:', error);
+      // console.error('Google Ad error:', error);
     }
   }, []);
 
@@ -35,6 +34,10 @@ const GoogleAd = ({ slotId, className }: GoogleAdProps) => {
       />
     </div>
   );
-};
+}
 
 export default GoogleAd;
+
+GoogleAd.defaultProps = {
+  className: '',
+};

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import useInfiniteScroll from '../useInfiniteScroll';
-import useStore from '../useStore';
 import { useRouter } from 'next/router';
 import FilterDropdownUtils from '~/utils/filterDropdownUtil';
 import { BlogCategory, BlogSearchResponce } from '~/spec/api/Blog';
 import { FilterType } from '~/components/complex/FilterDropdown/type';
-import useDebounce from '../useDebounce';
 import { ParsedUrlQuery } from 'querystring';
+import useDebounce from '../useDebounce';
+import useStore from '../useStore';
+import useInfiniteScroll from '../useInfiniteScroll';
 
 const useBlogSearch = (
   initCategorys: BlogCategory[],
@@ -49,7 +49,7 @@ const useBlogSearch = (
     if (!isFirst) return;
 
     const { findValueByChain } = FilterDropdownUtils;
-    const { orderBy, keyword, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
+    const { orderBy: orderByQuery, keyword, categoryIn, categoryNotIn, tagIn, tagNotIn } = query;
 
     const handleCategory = (category: string, type: FilterType) => {
       const categoryChain = category.split(',');
@@ -72,8 +72,8 @@ const useBlogSearch = (
       setTitle('');
     }
 
-    if (orderBy === 'RESENT' || orderBy === 'TITLE') {
-      setOrderBy(orderBy);
+    if (orderByQuery === 'RESENT' || orderByQuery === 'TITLE') {
+      setOrderBy(orderByQuery);
     } else {
       setOrderBy('RESENT');
     }
@@ -129,7 +129,7 @@ const useBlogSearch = (
     if (isFirst || titleD === null) return;
 
     const stringParams: { [key: string]: string } = {
-      keyword: titleD ? titleD : '',
+      keyword: titleD || '',
       tagIn: FilterDropdownUtils.getIns(findTags).toString(),
       tagNotIn: FilterDropdownUtils.getNotIns(findTags).toString(),
     };
@@ -141,22 +141,22 @@ const useBlogSearch = (
 
     const params = new URLSearchParams();
 
-    for (const key in stringParams) {
-      if (stringParams[key] !== undefined && stringParams[key] !== '') {
-        params.append(key, stringParams[key]);
+    Object.entries(stringParams).forEach(([key, value]) => {
+      if (value !== undefined && value !== '') {
+        params.append(key, value);
       }
-    }
-    for (const key in arraryParams) {
-      if (arraryParams[key].length !== 0) {
-        arraryParams[key].forEach((value) => {
-          params.append(key, value.toString());
+    });
+    Object.entries(arraryParams).forEach(([key, value]) => {
+      if (value.length !== 0) {
+        value.forEach((item) => {
+          params.append(key, item.toString());
         });
       }
-    }
+    });
     if (orderBy !== 'RESENT') {
       params.append('orderBy', orderBy);
     }
-    const url = '/blog' + (params.size === 0 ? '' : '?' + params.toString());
+    const url = `/blog${params.size === 0 ? '' : `?${params.toString()}`}`;
     if (prevPath === url) return;
     replace(url, url, { shallow: true });
     if (prevPath !== null) getBlogList(true);

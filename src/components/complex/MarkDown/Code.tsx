@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import Prism from 'prismjs';
 import { MarkdownComponent } from './type';
 
@@ -12,15 +12,12 @@ import 'prismjs/components/prism-docker';
 import 'prismjs/components/prism-sql';
 import 'prismjs/components/prism-bash';
 
-const Code: MarkdownComponent = ({ children }) => {
+const Code: MarkdownComponent = function Code({ children }) {
   useEffect(() => {
-    const highlight = async () => {
-      await Prism.highlightAll(); // <--- prepare Prism
-    };
-    highlight(); // <--- call the async function
-  }, [children]); // <--- run when post updates
+    Prism.highlightAll();
+  }, [children]);
 
-  return <>{children}</>;
+  return children as ReactNode;
 };
 
 export default Code;

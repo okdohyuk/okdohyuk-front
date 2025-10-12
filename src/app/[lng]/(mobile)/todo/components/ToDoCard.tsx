@@ -15,18 +15,26 @@ function ToDoCard({ todo }: ToDoCardType) {
   return (
     <div
       key={todo.id}
-      className={'flex items-center w-full space-x-1 overflow-hidden bg-basic-4 rounded-md p-2'}
+      className="flex items-center w-full space-x-1 overflow-hidden bg-basic-4 rounded-md p-2"
       suppressHydrationWarning
     >
-      <div onClick={() => toggleTodoCheck(todo.id)}>
-        {todo.isChecked ? (
-          <CheckSquare className={'t-d-1 t-basic-1 cursor-pointer'} />
-        ) : (
-          <Square className={'t-d-1 t-basic-1 cursor-pointer'} />
-        )}
-      </div>
-      <div className={'flex flex-1 break-all text-left t-d-1 t-basic-1'}>{todo.title}</div>
-      <Trash2 className={'t-d-1 t-basic-1 cursor-pointer'} onClick={() => removeTodo(todo.id)} />
+      <button
+        type="button"
+        onClick={() => toggleTodoCheck(todo.id)}
+        className="t-d-1 t-basic-1 cursor-pointer"
+        aria-pressed={todo.isChecked}
+      >
+        {todo.isChecked ? <CheckSquare /> : <Square />}
+      </button>
+      <div className="flex flex-1 break-all text-left t-d-1 t-basic-1">{todo.title}</div>
+      <button
+        type="button"
+        className="t-d-1 t-basic-1 cursor-pointer"
+        onClick={() => removeTodo(todo.id)}
+        aria-label="remove todo"
+      >
+        <Trash2 />
+      </button>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { observer } from 'mobx-react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { debounce } from 'lodash';
@@ -47,16 +47,34 @@ function CoderPage({ params }: LanguageParams) {
   const [isMoreOpen, setIsMoreOpen] = useState<boolean>(false);
   const { runCoder } = CoderUtils;
 
+  let historyContent: React.ReactNode = null;
+  if (resultList !== null && resultList.length > 1) {
+    if (isMoreOpen) {
+      historyContent = resultList.slice(0, -1).map((value) => (
+        <CodeCopy key={value} className="bg-basic-4" copyString={value}>
+          {value}
+        </CodeCopy>
+      ));
+    } else {
+      historyContent = (
+        <button
+          type="button"
+          className="button w-16 h-4 mx-auto"
+          onClick={() => setIsMoreOpen(true)}
+        >
+          <MoreHorizontal className="text-white" />
+        </button>
+      );
+    }
+  }
+
   const onSubmit: SubmitHandler<CoderFormType> = (data) => {
     const result = runCoder(data);
     setResultList(result);
     setIsMoreOpen(false);
   };
 
-  const setServicesValueDebounced = useCallback(
-    debounce(() => setCopied(false), 1000),
-    [],
-  );
+  const setServicesValueDebounced = useMemo(() => debounce(() => setCopied(false), 1000), []);
 
   const copyToClipboard = () => {
     if (!resultList) return;
@@ -72,7 +90,7 @@ function CoderPage({ params }: LanguageParams) {
       <section className="space-y-4 bg-basic-7">
         <Controller
           control={control}
-          name={'type'}
+          name="type"
           render={({ field: { value, onChange } }) => (
             <div className="flex flex-col space-y-2">
               <Select value={value} onValueChange={(v) => onChange(v as CoderType)}>
@@ -93,7 +111,9 @@ function CoderPage({ params }: LanguageParams) {
         />
         <div className="flex justify-end flex-wrap gap-4">
           <div className="flex items-center space-x-2">
-            <label className="t-d-1">{t('count')}</label>
+            <label className="t-d-1" htmlFor="coder-count-input">
+              {t('count')}
+            </label>
             <input
               type="number"
               className={cls('input-text w-16', errors.count ? 'outline' : '')}
@@ -101,14 +121,16 @@ function CoderPage({ params }: LanguageParams) {
                 valueAsNumber: true,
                 min: 1,
               })}
+              id="coder-count-input"
             />
           </div>
           <Controller
             control={control}
-            name={'isEncoder'}
+            name="isEncoder"
             render={({ field: { value, onChange } }) => (
               <div className="flex min-h-[32px] p-1 bg-point-3 rounded-md">
                 <button
+                  type="button"
                   className={cls(
                     value ? 'bg-point-1' : '',
                     'px-3 rounded-md text-white t-basic-10',
@@ -118,6 +140,7 @@ function CoderPage({ params }: LanguageParams) {
                   {t('encoder')}
                 </button>
                 <button
+                  type="button"
                   className={cls(
                     !value ? 'bg-point-1' : '',
                     'px-3 rounded-md text-white t-basic-10',
@@ -132,29 +155,17 @@ function CoderPage({ params }: LanguageParams) {
         </div>
 
         <textarea className="input-text resize-none h-32 w-full" {...register('value')} />
-        <button className="button w-full" onClick={handleSubmit(onSubmit)}>
+        <button type="button" className="button w-full" onClick={handleSubmit(onSubmit)}>
           {t('submit')}
         </button>
 
-        {resultList !== null && resultList.length > 1 ? (
-          !isMoreOpen ? (
-            <button className="button w-16 h-4 mx-auto" onClick={() => setIsMoreOpen(true)}>
-              <MoreHorizontal className="text-white" />
-            </button>
-          ) : (
-            resultList.slice(0, -1).map((value) => (
-              <CodeCopy key={value} className="bg-basic-4" copyString={value}>
-                {value}
-              </CodeCopy>
-            ))
-          )
-        ) : null}
+        {historyContent}
         <textarea
           className="input-text resize-none h-32 w-full"
           value={resultList ? resultList[resultList.length - 1] : ''}
           readOnly
         />
-        <button className="button w-full gap-2" onClick={copyToClipboard}>
+        <button type="button" className="button w-full gap-2" onClick={copyToClipboard}>
           <Copy className={cls(copied ? 'hidden' : '')} />
           <Check className={cls(!copied ? 'hidden' : '')} />
           {t('copy')}

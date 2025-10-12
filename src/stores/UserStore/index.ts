@@ -1,9 +1,9 @@
 import { action, makeObservable, observable, runInAction } from 'mobx';
-import { UserStoreState } from './type';
 import { authApi } from '@api';
 import { User } from '@api/User';
 import Cookies from 'js-cookie';
 import UserTokenUtil from '@utils/userTokenUtil';
+import { UserStoreState } from './type';
 
 class UserStore implements UserStoreState {
   @observable public user: User | null = null;
@@ -51,7 +51,7 @@ class UserStore implements UserStoreState {
       return;
     }
     authApi
-      .deleteAuthTokenUserId('Bearer ' + accessToken, this.user.id)
+      .deleteAuthTokenUserId(`Bearer ${accessToken}`, this.user.id)
       .then(() => {
         this.logOut();
       })

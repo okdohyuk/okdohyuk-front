@@ -28,6 +28,11 @@ export default function TimeDisplay({
   showMilliseconds,
   t,
 }: TimeDisplayProps) {
+  let siteLabel = selectedSite;
+  if (selectedSite === 'custom') {
+    siteLabel = customServerUrl ? getHostname(customServerUrl) : t('customServer');
+  }
+
   return (
     <div className="mx-auto inline-block min-w-[320px] rounded-2xl bg-gray-50 p-6 shadow-xl transition-all duration-300 dark:bg-gray-800 md:min-w-[500px] md:p-10">
       <AnimatePresence mode="wait">
@@ -65,13 +70,7 @@ export default function TimeDisplay({
               className="mb-2 truncate text-xl text-gray-600 dark:text-gray-300 md:text-2xl"
               title={selectedSite === 'custom' ? customServerUrl : selectedSite}
             >
-              <span className="font-semibold capitalize">
-                {selectedSite === 'custom'
-                  ? customServerUrl
-                    ? getHostname(customServerUrl)
-                    : t('customServer') // 'custom' 대신 'customServer' 번역 키 사용
-                  : selectedSite}
-              </span>
+              <span className="font-semibold capitalize">{siteLabel}</span>
             </p>
             <p className="font-mono tabular-nums text-6xl tracking-tighter text-gray-900 dark:text-white md:text-7xl">
               <motion.span

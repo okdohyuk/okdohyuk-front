@@ -2,73 +2,56 @@ import { FilterDropdownItem } from '~/components/complex/FilterDropdown/type';
 import { BlogCategory } from '~/spec/api/Blog';
 
 export default class FilterDropdownUtils {
+  private static traverse(
+    items: FilterDropdownItem[],
+    visitor: (item: FilterDropdownItem, chain: string[]) => void,
+    chain: string[] = [],
+  ): void {
+    items.forEach((item) => {
+      visitor(item, chain);
+      if (item.child && item.child.length > 0) {
+        FilterDropdownUtils.traverse(item.child, visitor, [...chain, item.name]);
+      }
+    });
+  }
+
   static getIns = (items: FilterDropdownItem[]): string[] => {
     const result: string[] = [];
-
-    const checkChild = (items: FilterDropdownItem[]) => {
-      for (const item of items) {
-        if (item.type === 'in') {
-          result.push(item.value);
-        }
-        if (item.child) {
-          checkChild(item.child);
-        }
+    FilterDropdownUtils.traverse(items, (item) => {
+      if (item.type === 'in') {
+        result.push(item.value);
       }
-    };
-
-    checkChild(items);
+    });
     return result;
   };
+
   static getNotIns = (items: FilterDropdownItem[]): string[] => {
     const result: string[] = [];
-
-    const checkChild = (items: FilterDropdownItem[]) => {
-      for (const item of items) {
-        if (item.type === 'notIn') {
-          result.push(item.value);
-        }
-        if (item.child) {
-          checkChild(item.child);
-        }
+    FilterDropdownUtils.traverse(items, (item) => {
+      if (item.type === 'notIn') {
+        result.push(item.value);
       }
-    };
-
-    checkChild(items);
+    });
     return result;
   };
 
   static getInsChain = (items: FilterDropdownItem[]): string[][] => {
     const result: string[][] = [];
-
-    const checkChild = (items: FilterDropdownItem[], chain: string[] = []) => {
-      for (const item of items) {
-        if (item.type === 'in') {
-          result.push([...chain, item.name]);
-        }
-        if (item.child) {
-          checkChild(item.child, [...chain, item.name]);
-        }
+    FilterDropdownUtils.traverse(items, (item, chain) => {
+      if (item.type === 'in') {
+        result.push([...chain, item.name]);
       }
-    };
-
-    checkChild(items);
+    });
     return result;
   };
+
   static getNotInsChain = (items: FilterDropdownItem[]): string[][] => {
     const result: string[][] = [];
-
-    const checkChild = (items: FilterDropdownItem[], chain: string[] = []) => {
-      for (const item of items) {
-        if (item.type === 'notIn') {
-          result.push([...chain, item.name]);
-        }
-        if (item.child) {
-          checkChild(item.child, [...chain, item.name]);
-        }
+    FilterDropdownUtils.traverse(items, (item, chain) => {
+      if (item.type === 'notIn') {
+        result.push([...chain, item.name]);
       }
-    };
-
-    checkChild(items);
+    });
     return result;
   };
 
@@ -79,33 +62,32 @@ export default class FilterDropdownUtils {
       type: 'idle',
     }));
 
-  static byBlogCategory = (array: BlogCategory[]): FilterDropdownItem[] => {
-    return array.map((category: BlogCategory) => ({
+  static byBlogCategory = (array: BlogCategory[]): FilterDropdownItem[] =>
+    array.map((category) => ({
       value: category.id,
       name: category.name,
       type: 'idle',
-      child: this.byBlogCategory(category.child),
+      child: FilterDropdownUtils.byBlogCategory(category.child),
     }));
-  };
 
   static findValueByChain = (
     chain: string[] | undefined,
     items: FilterDropdownItem[] | undefined,
   ): string | undefined => {
-    if (!chain || !items) return;
-
-    let result: string | undefined = undefined;
-
-    for (const item of items) {
-      if (item.name === chain[0]) {
-        if (chain.length === 1) {
-          result = item.value;
-        } else {
-          return this.findValueByChain(chain.slice(1), item.child ? item.child : undefined);
-        }
-      }
+    if (!chain?.length || !items) {
+      return undefined;
     }
 
-    return result;
+    const [current, ...rest] = chain;
+    const matched = items.find((item) => item.name === current);
+    if (!matched) {
+      return undefined;
+    }
+
+    if (rest.length === 0) {
+      return matched.value;
+    }
+
+    return matched.child ? FilterDropdownUtils.findValueByChain(rest, matched.child) : undefined;
   };
 }

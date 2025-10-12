@@ -1,15 +1,15 @@
 import React from 'react';
+import Link from '@components/basic/Link';
 import MarkdownTransJSX from 'markdown-to-jsx';
 import Aside from './Aside';
 import CodeWindow from './CodeWindow';
-import { MarkDownProps } from './type';
-import Table from './Table';
-import Link from '@components/basic/Link';
 import Heading2 from './Heading2';
-import Img from './Img';
 import Heading3 from './Heading3';
+import Img from './Img';
+import Table from './Table';
+import { MarkDownProps } from './type';
 
-const MarkDown: MarkDownProps = ({ contents }) => {
+const MarkDown: MarkDownProps = function MarkDown({ contents }) {
   return (
     <MarkdownTransJSX
       className="prose prose-zinc dark:prose-invert mt-8 mb-16 max-w-full"
@@ -48,4 +48,5 @@ const MarkDown: MarkDownProps = ({ contents }) => {
     </MarkdownTransJSX>
   );
 };
+
 export default MarkDown;

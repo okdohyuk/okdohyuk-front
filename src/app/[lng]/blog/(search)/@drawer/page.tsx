@@ -9,7 +9,7 @@ import 'react-modern-drawer/dist/index.css';
 import useIsClient from '@hooks/useIsClient';
 import { LanguageParams } from '~/app/[lng]/layout';
 
-const Drawer = ({ params }: LanguageParams) => {
+function Drawer({ params }: LanguageParams) {
   const { lng } = use(params);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +33,6 @@ const Drawer = ({ params }: LanguageParams) => {
       )}
     </>
   );
-};
+}
 
 export default Drawer;

@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
-import { BlogToc } from 'components/blog/BlogDetail/type';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 import { Blog } from '@api/Blog';
+import { BlogToc } from 'components/blog/BlogDetail/type';
 
 type BlogDetailContextType = {
   blog: Blog;
@@ -15,22 +15,19 @@ type BlogTocProviderProps = {
   children: React.ReactNode;
 };
 
-const BlogDetailProvider = ({ children, blog }: BlogTocProviderProps) => {
+function BlogDetailProvider({ children, blog }: BlogTocProviderProps) {
   const [toc, setToc] = useState<BlogToc[] | null>(null);
+  const contextValue = useMemo(() => ({ blog, toc, setToc }), [blog, toc]);
 
-  return (
-    <BlogDetailContext.Provider value={{ blog, toc, setToc }}>
-      {children}
-    </BlogDetailContext.Provider>
-  );
-};
+  return <BlogDetailContext.Provider value={contextValue}>{children}</BlogDetailContext.Provider>;
+}
 
-const useBlogDetail = () => {
+function useBlogDetail() {
   const context = useContext(BlogDetailContext);
   if (!context) {
     throw new Error('useBlogToc must be used within a BlogTocProvider');
   }
   return context;
-};
+}
 
 export { BlogDetailProvider, useBlogDetail };

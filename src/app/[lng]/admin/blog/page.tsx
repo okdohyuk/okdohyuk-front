@@ -19,35 +19,33 @@ function BlogAdminPage() {
   useEffect(() => {
     if (!isFetching) return;
     getBlogsPage(10);
-  }, [isFetching]);
+  }, [getBlogsPage, isFetching]);
 
   useEffect(() => {
     if (isLastPage) return;
     if (status === 'success') {
       setIsFetching(false);
     }
-  }, [status, isLastPage]);
+  }, [isLastPage, setIsFetching, status]);
 
   useEffect(() => {
     if (status === 'idle') setIsFetching(true);
-  }, []);
+  }, [setIsFetching, status]);
 
   return (
-    <>
-      <MobileScreenWrapper>
-        <h1 className={'t-t-1 t-basic-1 mb-4'}>{t('title')}</h1>
-        <div className={'flex flex-col w-full gap-2'}>
-          {blogs?.map((blog) => (
-            <BlogCard key={blog.urlSlug} blog={blog as BlogSearch} isAdmin type="board" />
-          ))}
-          {status === 'loading' ? (
-            <div className={'flex justify-center'}>
-              <RefreshCcw className={'text-black dark:text-white animate-spin'} size={24} />
-            </div>
-          ) : null}
-        </div>
-      </MobileScreenWrapper>
-    </>
+    <MobileScreenWrapper>
+      <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
+      <div className="flex flex-col w-full gap-2">
+        {blogs?.map((blog) => (
+          <BlogCard key={blog.urlSlug} blog={blog as BlogSearch} isAdmin type="board" />
+        ))}
+        {status === 'loading' ? (
+          <div className="flex justify-center">
+            <RefreshCcw className="text-black dark:text-white animate-spin" size={24} />
+          </div>
+        ) : null}
+      </div>
+    </MobileScreenWrapper>
   );
 }
 

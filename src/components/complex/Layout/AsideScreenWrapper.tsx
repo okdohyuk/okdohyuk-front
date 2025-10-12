@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import MobileScreenWrapper from './MobileScreenWrapper';
 
@@ -7,9 +8,7 @@ type AsideScreenWrapperProps = {
   right?: React.ReactNode;
 };
 
-type AsideScreenWrapperFC = React.FC<AsideScreenWrapperProps>;
-
-const AsideScreenWrapper: AsideScreenWrapperFC = ({ children, left, right }) => {
+function AsideScreenWrapper({ children, left = null, right = null }: AsideScreenWrapperProps) {
   return (
     <div className="flex">
       <aside className="flex-1 hidden lg:flex">{left}</aside>
@@ -17,6 +16,6 @@ const AsideScreenWrapper: AsideScreenWrapperFC = ({ children, left, right }) => 
       <aside className="flex-1 hidden lg:flex">{right}</aside>
     </div>
   );
-};
+}
 
 export default AsideScreenWrapper;

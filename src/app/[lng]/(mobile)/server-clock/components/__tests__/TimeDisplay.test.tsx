@@ -9,23 +9,34 @@ import TimeDisplay, { TimeDisplayProps } from '../TimeDisplay';
 // framer-motion 모킹
 vi.mock('framer-motion', async () => {
   const actual = await vi.importActual<typeof import('framer-motion')>('framer-motion');
+  const ForwardDiv = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    (props, ref) => <div {...props} ref={ref} />,
+  );
+  ForwardDiv.displayName = 'ForwardDiv';
+  const ForwardParagraph = React.forwardRef<
+    HTMLParagraphElement,
+    React.HTMLAttributes<HTMLParagraphElement>
+  >((props, ref) => <p {...props} ref={ref} />);
+  ForwardParagraph.displayName = 'ForwardParagraph';
+  const ForwardHeading = React.forwardRef<
+    HTMLHeadingElement,
+    React.HTMLAttributes<HTMLHeadingElement>
+  >((props, ref) => <h1 {...props} ref={ref} />);
+  ForwardHeading.displayName = 'ForwardHeading';
+  const ForwardSpan = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
+    (props, ref) => <span {...props} ref={ref} />,
+  );
+  ForwardSpan.displayName = 'ForwardSpan';
+
   return {
     ...actual,
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+    AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
     motion: {
       ...actual.motion,
-      div: React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => (
-        <div {...props} ref={ref} />
-      )),
-      p: React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
-        (props, ref) => <p {...props} ref={ref} />,
-      ),
-      h1: React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
-        (props, ref) => <h1 {...props} ref={ref} />,
-      ),
-      span: React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
-        (props, ref) => <span {...props} ref={ref} />,
-      ),
+      div: ForwardDiv,
+      p: ForwardParagraph,
+      h1: ForwardHeading,
+      span: ForwardSpan,
     },
   };
 });
@@ -65,7 +76,7 @@ describe('TimeDisplay Component', () => {
   };
 
   it('shows loading message when isLoading is true', () => {
-    render(<TimeDisplay {...defaultProps} isLoading={true} serverTime={null} />);
+    render(<TimeDisplay {...defaultProps} isLoading serverTime={null} />);
     expect(screen.getByText('서버 시간 불러오는 중...')).toBeInTheDocument();
   });
 

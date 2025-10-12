@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
+import logger from '@utils/logger';
 
 export interface ResponseType {
   ok: boolean;
@@ -10,7 +11,7 @@ export default function withHandler(
   method: 'GET' | 'POST' | 'DELETE',
   fn: (req: NextApiRequest, res: NextApiResponse) => void,
 ) {
-  return async function (req: NextApiRequest, res: NextApiResponse): Promise<any> {
+  return async (req: NextApiRequest, res: NextApiResponse): Promise<any> => {
     if (req.method !== method) {
       return res.status(405).end();
     }
@@ -21,10 +22,10 @@ export default function withHandler(
         origin: '*',
         optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
       });
-      await fn(req, res);
-    } catch (e) {
-      console.error(e);
-      return res.status(500).json({ e });
+      return fn(req, res);
+    } catch (error) {
+      logger.error(error);
+      return res.status(500).json({ error });
     }
   };
 }

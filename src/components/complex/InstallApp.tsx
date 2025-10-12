@@ -17,14 +17,21 @@ declare global {
   }
 }
 
-const InstallApp = ({ text }: { text: string }) => {
+type InstallAppProps = {
+  text: string;
+};
+
+function InstallApp({ text }: InstallAppProps) {
   const [deferredPrompt, setDeferredPrompt] = useState<null | BeforeInstallPromptEvent>(null);
 
   useEffect(() => {
-    window.addEventListener('beforeinstallprompt', (e: BeforeInstallPromptEvent) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    });
+    const handler = (event: BeforeInstallPromptEvent) => {
+      event.preventDefault();
+      setDeferredPrompt(event);
+    };
+
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
   }, []);
 
   const installApp = () => {
@@ -37,18 +44,17 @@ const InstallApp = ({ text }: { text: string }) => {
     });
   };
 
+  if (!deferredPrompt) return null;
+
   return (
-    <>
-      {!!deferredPrompt ? (
-        <button
-          className={'absolute top-[16px] right-[16px] underline dark:text-white'}
-          onClick={installApp}
-        >
-          {text}
-        </button>
-      ) : null}
-    </>
+    <button
+      type="button"
+      className="absolute top-[16px] right-[16px] underline dark:text-white"
+      onClick={installApp}
+    >
+      {text}
+    </button>
   );
-};
+}
 
 export default InstallApp;

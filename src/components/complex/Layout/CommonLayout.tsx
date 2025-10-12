@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import LocalesNav from '@components/complex/Nav/LocalesNav';
-import Nav from 'components/complex/Nav';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { usePathname } from 'next/navigation';
+import LocalesNav from '@components/complex/Nav/LocalesNav';
+import Nav from '@components/complex/Nav';
 
 type CommonLayoutProps = {
   children: React.ReactNode;
@@ -19,28 +19,32 @@ function CommonLayout({ children }: CommonLayoutProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (wrapperRef.current === null) return;
-    /**
-     * 구글 에드센스 광고가 삽입되면서 레이아웃이 깨지는 문제를 방지
-     */
+    const { current } = wrapperRef;
+    if (!current) {
+      return undefined;
+    }
+
     const observer = new MutationObserver(() => {
-      if (wrapperRef.current === null) return;
+      if (!wrapperRef.current) return;
       wrapperRef.current.style.height = '';
       wrapperRef.current.style.minHeight = '';
     });
-    observer.observe(wrapperRef.current, {
+
+    observer.observe(current, {
       attributeFilter: ['style'],
     });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div ref={wrapperRef} className={'w-full min-h-screen flex flex-col dark:bg-black'}>
+    <div ref={wrapperRef} className="w-full min-h-screen flex flex-col dark:bg-black">
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
       {!navDisabledPath.some((path) => pathname.includes(path)) && (
-        <>
+        <div>
           <LocalesNav />
           <Nav />
-        </>
+        </div>
       )}
     </div>
   );

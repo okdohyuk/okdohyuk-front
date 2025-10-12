@@ -26,6 +26,7 @@ const useBlogCategory = () => {
 
   const remove = async ({ parent }: UseCategoryProps) => {
     if (!(parent && parent.id && parent.name)) return;
+    // eslint-disable-next-line no-alert
     if (!window.confirm('정말 삭제 하시겠습니까?')) return;
 
     await blogApi.deleteBlogCategoryId(parent.id, '');

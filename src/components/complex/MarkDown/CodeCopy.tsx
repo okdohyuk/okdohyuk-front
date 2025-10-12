@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import { Check, Copy } from 'lucide-react';
 import { debounce } from 'lodash';
 
@@ -9,21 +9,25 @@ type CodeCopyProps = {
   copyString: string;
 } & MarkdownItem;
 
-const CodeCopy = ({ children, copyString, ...props }: CodeCopyProps) => {
+const CodeCopy = function CodeCopy({ children, copyString, ...props }: CodeCopyProps) {
   const { cls } = ClassName;
-  const [copied, setCopied] = useState<boolean>(false);
+  const [copied, setCopied] = useState(false);
 
-  const setServicesValueDebounced = useCallback(
-    debounce(() => setCopied(false), 1000),
+  const resetCopied = useMemo(
+    () =>
+      debounce(() => {
+        setCopied(false);
+      }, 1000),
     [],
   );
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(copyString);
+  useEffect(() => () => resetCopied.cancel(), [resetCopied]);
 
+  const copyToClipboard = useCallback(() => {
+    navigator.clipboard.writeText(copyString);
     setCopied(true);
-    setServicesValueDebounced();
-  };
+    resetCopied();
+  }, [copyString, resetCopied]);
 
   return (
     <div className="w-full overflow-auto min-h-[42px] h-auto my-4 relative">
@@ -37,6 +41,7 @@ const CodeCopy = ({ children, copyString, ...props }: CodeCopyProps) => {
         {children}
         <div className="absolute right-0 top-0 w-[42px] h-[42px] flex items-center justify-center">
           <button
+            type="button"
             className={cls(
               'w-[32px] h-[32px] rounded-md bg-black border-2',
               copied

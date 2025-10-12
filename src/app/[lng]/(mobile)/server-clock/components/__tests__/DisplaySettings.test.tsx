@@ -43,11 +43,7 @@ describe('DisplaySettings Component', () => {
 
   it('renders correctly with initial props', () => {
     render(
-      <DisplaySettings
-        showMilliseconds={true}
-        setShowMilliseconds={mockSetShowMilliseconds}
-        t={mockT}
-      />,
+      <DisplaySettings showMilliseconds setShowMilliseconds={mockSetShowMilliseconds} t={mockT} />,
     );
 
     expect(screen.getByLabelText('밀리초 표시')).toBeInTheDocument();
@@ -58,11 +54,7 @@ describe('DisplaySettings Component', () => {
 
   it('calls setShowMilliseconds with false when checkbox is clicked (initially true)', () => {
     render(
-      <DisplaySettings
-        showMilliseconds={true}
-        setShowMilliseconds={mockSetShowMilliseconds}
-        t={mockT}
-      />,
+      <DisplaySettings showMilliseconds setShowMilliseconds={mockSetShowMilliseconds} t={mockT} />,
     );
 
     const checkbox = screen.getByLabelText('밀리초 표시');
@@ -89,11 +81,7 @@ describe('DisplaySettings Component', () => {
 
   it('renders disclaimer texts correctly', () => {
     render(
-      <DisplaySettings
-        showMilliseconds={true}
-        setShowMilliseconds={mockSetShowMilliseconds}
-        t={mockT}
-      />,
+      <DisplaySettings showMilliseconds setShowMilliseconds={mockSetShowMilliseconds} t={mockT} />,
     );
     expect(mockT).toHaveBeenCalledWith('showMilliseconds');
     expect(mockT).toHaveBeenCalledWith('disclaimer');

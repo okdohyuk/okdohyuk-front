@@ -1,6 +1,6 @@
 import React from 'react';
 import PercentCalculatorCard from '~/app/[lng]/(mobile)/percent/components/PercentCalculatorCard';
-import { useTranslation } from '~/app/i18n';
+import { getTranslations } from '~/app/i18n';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { PercentCalculators } from '@stores/PercentStore/type';
 import { LanguageParams } from '~/app/[lng]/layout';
@@ -8,12 +8,10 @@ import { LanguageParams } from '~/app/[lng]/layout';
 export const generateMetadata: GenerateMetadata = async ({ params }) =>
   translationsMetadata({ params, ns: 'percent' });
 
-export default async function PercentPage(props: LanguageParams) {
-  const params = await props.params;
+export default async function PercentPage({ params }: LanguageParams) {
+  const { lng } = await params;
 
-  const { lng } = params;
-
-  const { t } = await useTranslation(lng, 'percent');
+  const { t } = await getTranslations(lng, 'percent');
 
   const calculators: (keyof PercentCalculators)[] = [
     'percentageOfTotal',

@@ -3,6 +3,7 @@
 exports[`<MyLinkCard /> > matches snapshot 1`] = `
 <div>
   <a
+    class=""
     href="/"
     target="_blank"
   >

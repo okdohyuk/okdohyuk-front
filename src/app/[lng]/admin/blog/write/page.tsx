@@ -1,11 +1,11 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
 import axios from 'axios';
+import { notFound } from 'next/navigation';
 import { blogApi } from '@api';
 import { BaseException } from '@api/Blog';
+import { getTokenServer } from '@libs/server/token';
 import BlogWritePageImpl from '~/app/[lng]/admin/blog/write/impl';
 import { LanguageParams } from '~/app/[lng]/layout';
-import { getTokenServer } from '@libs/server/token';
 
 const getPost = async (urlSlug: string) => {
   try {
@@ -13,9 +13,9 @@ const getPost = async (urlSlug: string) => {
     if (!token) return notFound();
     const { data } = await blogApi.getBlogUrlSlug(decodeURIComponent(urlSlug), token.accessToken);
     return data;
-  } catch (e) {
-    if (axios.isAxiosError<BaseException, never>(e)) {
-      console.error(e.response?.data.errorMessage);
+  } catch (error) {
+    if (axios.isAxiosError<BaseException, never>(error)) {
+      return notFound();
     }
     return notFound();
   }
@@ -26,17 +26,16 @@ const getCategory = async () => {
   return data;
 };
 
-type BlogWriteProps = LanguageParams & {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+type BlogWriteProps = {
+  params: LanguageParams['params'];
+  searchParams: Record<string, string | string[] | undefined>;
 };
 
-export default async function BlogWritePage(props: BlogWriteProps) {
-  const searchParams = await props.searchParams;
-  const params = await props.params;
+export default async function BlogWritePage({ params, searchParams }: BlogWriteProps) {
+  const { lng } = await params;
+  const { urlSlug: urlSlugs } = await searchParams;
 
-  const { lng } = params;
-
-  const urlSlug = typeof searchParams.urlSlug === 'string' ? searchParams.urlSlug : null;
+  const urlSlug = typeof urlSlugs === 'string' ? urlSlugs : null;
   const blog = urlSlug ? await getPost(urlSlug) : null;
   const category = await getCategory();
 

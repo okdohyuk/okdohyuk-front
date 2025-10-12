@@ -1,6 +1,6 @@
-import FilterDropdownUtils from '../filterDropdownUtil';
 import { FilterDropdownItem } from '~/components/complex/FilterDropdown/type';
 import { BlogCategory } from '~/spec/api/Blog';
+import FilterDropdownUtils from '../filterDropdownUtil';
 
 const mockItems: FilterDropdownItem[] = [
   {
