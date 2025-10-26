@@ -41,23 +41,25 @@ class PercentStore implements PercentStoreState {
   @action public handleResultCalculator = (target: keyof PercentCalculators) => {
     const { calculators } = this;
 
-    const primary = Number(calculators[target].primaryNumber);
-    const secondary = Number(calculators[target].secondaryNumber);
+    const calculator = calculators[target];
+
+    const primary = Number(calculator.primaryNumber);
+    const secondary = Number(calculator.secondaryNumber);
 
     if (Number.isNaN(primary) || Number.isNaN(secondary)) {
-      calculators[target].result = '';
+      calculator.result = '';
       return;
     }
 
     switch (target) {
       case 'percentageOfTotal':
-        calculators[target].result = (primary * secondary) / 100;
+        calculator.result = (primary * secondary) / 100;
         break;
       case 'partOfTotal':
-        calculators[target].result = (secondary * 100) / primary;
+        calculator.result = (secondary * 100) / primary;
         break;
       case 'findPercentage':
-        calculators[target].result = ((secondary - primary) / primary) * 100;
+        calculator.result = ((secondary - primary) / primary) * 100;
         break;
       case 'percentageUpDown': {
         const { isIncrease } = calculators.percentageUpDown;
@@ -67,10 +69,10 @@ class PercentStore implements PercentStoreState {
         break;
       }
       case 'findPercentageValue':
-        calculators[target].result = (secondary * 100) / primary;
+        calculator.result = (secondary * 100) / primary;
         break;
       default:
-        calculators[target].result = '';
+        calculator.result = '';
         break;
     }
   };

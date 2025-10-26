@@ -9,7 +9,7 @@ import { metadata } from '@libs/server/customMetadata';
 import { Language } from '~/app/i18n/settings';
 
 type BlogDetailProps = {
-  params: { lng: Language; urlSlug: string };
+  params: Promise<{ lng: Language; urlSlug: string }>;
 };
 
 export const dynamic = 'force-static';

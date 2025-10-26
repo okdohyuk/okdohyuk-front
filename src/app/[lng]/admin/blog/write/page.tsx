@@ -28,7 +28,7 @@ const getCategory = async () => {
 
 type BlogWriteProps = {
   params: LanguageParams['params'];
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 export default async function BlogWritePage({ params, searchParams }: BlogWriteProps) {

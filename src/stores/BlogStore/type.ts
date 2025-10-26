@@ -9,7 +9,7 @@ type BlogStoreState = {
   status: Status;
   isLastPage: boolean;
   page: number;
-  setBlogs: (blogs: OptionalBlogs) => OptionalBlogs;
+  setBlogs: (blogs: OptionalBlogs) => void;
   getBlogsPage: (limit: number, authorization?: string) => void;
 };
 

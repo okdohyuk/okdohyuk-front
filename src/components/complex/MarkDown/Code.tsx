@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import { isValidElement, useEffect } from 'react';
 import Prism from 'prismjs';
 import { MarkdownComponent } from './type';
 
@@ -17,7 +17,11 @@ const Code: MarkdownComponent = function Code({ children }) {
     Prism.highlightAll();
   }, [children]);
 
-  return children as ReactNode;
+  if (isValidElement(children)) {
+    return children;
+  }
+
+  return <span>{children}</span>;
 };
 
 export default Code;

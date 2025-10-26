@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
+import axios, { AxiosError, AxiosHeaders, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import UserTokenUtil from '@utils/userTokenUtil';
 import { AuthApi } from './Auth';
 import { BlogApi } from './Blog';
@@ -22,14 +22,15 @@ export const apiInstance: AxiosInstance = axios.create({
 apiInstance.interceptors.request.use(
   async (config: InternalAxiosRequestConfig) => {
     const accessToken = await UserTokenUtil.getAccessToken();
-    if (accessToken && config.headers) {
+    if (accessToken) {
+      const headers = AxiosHeaders.from(config.headers ?? {});
+      headers.set('Authorization', accessToken);
+
       const updatedConfig: InternalAxiosRequestConfig = {
         ...config,
-        headers: {
-          ...config.headers,
-          Authorization: accessToken,
-        },
+        headers,
       };
+
       return updatedConfig;
     }
     return config;
@@ -114,16 +115,23 @@ apiInstance.interceptors.response.use(
     // 401 에러면서 재시도 플래그 없을 때만 동작
     if (error.response && error.response.status === 401 && !originalRequest.retryAttempted) {
       // errorCode === 6인 경우만 리프레시 시도
-      const errorCode = error.response.data && error.response.data.errorCode;
+      const responseData = error.response.data as { errorCode?: number } | undefined;
+      const errorCode = responseData?.errorCode;
       // errorCode가 6이거나, 401이고 리프레시 토큰이 있으면 리프레시 시도
       if (errorCode === 6 || (error.response.status === 401 && UserTokenUtil.getRefreshToken())) {
         if (isRefreshing) {
           // 리프레시 중이면 큐에 추가
           try {
-            const token = await new Promise((resolve, reject) => {
+            const token = await new Promise<string | null>((resolve, reject) => {
               failedQueue.push({ resolve, reject });
             });
-            originalRequest.headers.Authorization = token;
+            const headers = AxiosHeaders.from(originalRequest.headers ?? {});
+            if (token) {
+              headers.set('Authorization', token);
+            } else {
+              headers.delete('Authorization');
+            }
+            originalRequest.headers = headers;
             return await apiInstance(originalRequest);
           } catch (err) {
             return Promise.reject(err);
@@ -132,7 +140,9 @@ apiInstance.interceptors.response.use(
         originalRequest.retryAttempted = true;
         try {
           const newAccessToken = await refreshAccessToken();
-          originalRequest.headers.Authorization = newAccessToken;
+          const headers = AxiosHeaders.from(originalRequest.headers ?? {});
+          headers.set('Authorization', newAccessToken);
+          originalRequest.headers = headers;
           return await apiInstance(originalRequest);
         } catch (err) {
           return Promise.reject(err);
