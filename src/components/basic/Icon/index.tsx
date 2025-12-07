@@ -1,20 +1,18 @@
 import React from 'react';
-import { IconContext } from 'react-icons';
 
-type Icon = {
-  icon: React.ReactNode;
+type IconProps = {
+  icon: React.ReactElement;
   className?: string;
-  size?: string;
+  size?: number | string;
 };
 
-const Icon = ({ icon, className, size = '24' }: Icon) => {
-  return (
-    <>
-      <IconContext.Provider value={{ className, size }}>
-        <>{icon}</>
-      </IconContext.Provider>
-    </>
-  );
+const Icon = ({ icon, className, size = 24 }: IconProps) => {
+  const mergedClassName = [icon.props.className, className].filter(Boolean).join(' ').trim();
+
+  return React.cloneElement(icon, {
+    className: mergedClassName || undefined,
+    size,
+  });
 };
 
 export default Icon;

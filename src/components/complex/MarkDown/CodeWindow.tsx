@@ -1,27 +1,33 @@
 import React, { useMemo, useRef } from 'react';
 import CodeCopy from './CodeCopy';
-import { MarkdownComponent } from './type';
 import Code from './Code';
+import { MarkdownComponent } from './type';
 
-const CodeWindow: MarkdownComponent = ({ children: codeDOM, ...props }) => {
-  const prevCopyString = useRef<string>('');
-  const prevCodeDOM = useRef<React.ReactNode>(codeDOM);
+const CodeWindow: MarkdownComponent = function CodeWindow({ children: codeDom, ...props }) {
+  const prevCodeDom = useRef<React.ReactNode>(codeDom);
+  const prevCopyString = useRef('');
 
   const copyString = useMemo(() => {
-    if (React.isValidElement(codeDOM)) return codeDOM.props.children;
-    prevCopyString.current = copyString;
-    return '';
-  }, [codeDOM]);
+    if (React.isValidElement(codeDom)) {
+      const copyValue = codeDom.props.children as string;
+      prevCopyString.current = copyValue;
+      return copyValue;
+    }
 
-  const momoCodeDOM = useMemo(() => {
-    if (prevCopyString.current === copyString) return prevCodeDOM.current;
-    prevCodeDOM.current = codeDOM;
-    return codeDOM;
-  }, [copyString]);
+    return prevCopyString.current;
+  }, [codeDom]);
+
+  const memoizedCodeDom = useMemo(() => {
+    if (prevCopyString.current === copyString) {
+      return prevCodeDom.current;
+    }
+    prevCodeDom.current = codeDom;
+    return codeDom;
+  }, [codeDom, copyString]);
 
   return (
     <CodeCopy {...props} copyString={copyString}>
-      <Code {...props}>{momoCodeDOM}</Code>
+      <Code {...props}>{memoizedCodeDom}</Code>
     </CodeCopy>
   );
 };

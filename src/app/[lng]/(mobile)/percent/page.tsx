@@ -1,19 +1,19 @@
 import React from 'react';
-import PercentCalculatorCard from '@components/complex/Card/PercentCalculatorCard';
-import { useTranslation } from '~/app/i18n';
-import { translationsMetadata, GenerateMetadata } from '@libs/server/customMetadata';
+import PercentCalculatorCard from '~/app/[lng]/(mobile)/percent/components/PercentCalculatorCard';
+import { getTranslations } from '~/app/i18n';
+import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { PercentCalculators } from '@stores/PercentStore/type';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
 
 export const generateMetadata: GenerateMetadata = async ({ params }) =>
   translationsMetadata({ params, ns: 'percent' });
 
-export default async function PercentPage(props: LanguageParams) {
-  const params = await props.params;
+export default async function PercentPage({ params }: LanguageParams) {
+  const { lng } = await params;
+  const language = lng as Language;
 
-  const { lng } = params;
-
-  const { t } = await useTranslation(lng, 'percent');
+  const { t } = await getTranslations(language, 'percent');
 
   const calculators: (keyof PercentCalculators)[] = [
     'percentageOfTotal',
@@ -33,7 +33,7 @@ export default async function PercentPage(props: LanguageParams) {
             calculatorName={name}
             placeholder={t(`${name}.placeholder`, { returnObjects: true })}
             text={t(`${name}.text`, { returnObjects: true })}
-            lng={lng}
+            lng={language}
           />
         ))}
       </section>

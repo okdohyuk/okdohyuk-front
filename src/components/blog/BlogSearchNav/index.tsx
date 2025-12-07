@@ -1,21 +1,21 @@
 'use client';
 
+/* eslint-disable react/require-default-props */
+
 import { observer } from 'mobx-react';
 import React from 'react';
 import FilterDropdown from '@components/complex/FilterDropdown';
 import useStore from '@hooks/useStore';
 import { cls } from '@utils/classNameUtils';
-import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
+import { Language } from '~/app/i18n/settings';
 
 type BlogSearchNavProps = {
   hasMargin?: boolean;
   lng: Language;
 };
 
-type BlogSearchNavFC = React.FC<BlogSearchNavProps>;
-
-const BlogSearchNav: BlogSearchNavFC = ({ hasMargin = false, lng }) => {
+const BlogSearchNav = function BlogSearchNav({ hasMargin = false, lng }: BlogSearchNavProps) {
   const { category, tags, changeCategoryType, changeTagType } = useStore('blogSearchStore');
   const { t } = useTranslation(lng, 'blog/index');
 

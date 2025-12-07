@@ -1,22 +1,23 @@
 import React from 'react';
-import { Language } from '~/app/i18n/settings';
-import BlogImpl from './impl';
-import { getTranslations } from '~/app/i18n';
-import { metadata } from '@libs/server/customMetadata';
-import { blogApi } from '@api';
 import { unstable_cache } from 'next/cache';
+import { blogApi } from '@api';
+import { metadata } from '@libs/server/customMetadata';
+import { getTranslations } from '~/app/i18n';
+import { Language } from '~/app/i18n/settings';
 import { LanguageParams } from '~/app/[lng]/layout';
+import BlogImpl from './impl';
 
 export const generateMetadata = async (props: {
-  params: Promise<{ lng: Language }>;
+  params: Promise<{ lng: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
   const searchParams = await props.searchParams;
   const params = await props.params;
 
   const { lng } = params;
+  const language = lng as Language;
 
-  const { t } = await getTranslations(lng, 'blog/index');
+  const { t } = await getTranslations(language, 'blog/index');
   const keyword = searchParams?.keyword;
 
   const title = keyword ? `${keyword} (${new Date().getFullYear()})` : t('openGraph.defaultTitle');
@@ -25,9 +26,9 @@ export const generateMetadata = async (props: {
     : t('openGraph.defaultDescription');
 
   return metadata({
-    title: title,
+    title,
     description,
-    language: lng,
+    language,
   });
 };
 
@@ -44,8 +45,8 @@ const getStaticProps = unstable_cache(
   { revalidate: 60 * 60 * 24 * 7, tags: ['blog-search'] },
 );
 
-export default async function BlogSearchPage(props: LanguageParams) {
-  const params = await props.params;
+export default async function BlogSearchPage({ params }: LanguageParams) {
+  const { lng } = await params;
   const { category, tags } = await getStaticProps();
-  return <BlogImpl params={params} category={category} tags={tags} />;
+  return <BlogImpl lng={lng as Language} category={category} tags={tags} />;
 }

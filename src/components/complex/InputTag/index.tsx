@@ -1,6 +1,6 @@
-import React from 'react';
-import Tag from './Tag';
+import React, { useState } from 'react';
 import { cls } from '@utils/classNameUtils';
+import Tag from './Tag';
 
 type InputTagProps = {
   tags: string[];
@@ -8,12 +8,11 @@ type InputTagProps = {
   removeTag: (tag: string) => void;
 };
 
-type InputTagFC = React.FC<InputTagProps>;
+function InputTag({ tags, addTag, removeTag }: InputTagProps) {
+  const [isFocus, setIsFocus] = useState(false);
+  const [input, setInput] = useState('');
 
-const InputTag: InputTagFC = ({ tags, addTag, removeTag }) => {
-  const [isFocus, setIsFocus] = React.useState<boolean>(false);
-  const [input, setInput] = React.useState<string>('');
-  const onKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === ',' || e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
 
@@ -28,7 +27,7 @@ const InputTag: InputTagFC = ({ tags, addTag, removeTag }) => {
   };
 
   return (
-    <label
+    <div
       className={cls(
         'relative flex flex-row flex-wrap gap-2 input-text border-solid',
         isFocus ? 'outline outline-2 outline-point-2' : '',
@@ -39,7 +38,7 @@ const InputTag: InputTagFC = ({ tags, addTag, removeTag }) => {
       ))}
       <input
         className="flex-1 outline-none bg-transparent"
-        onKeyDown={(e) => onKeyUp(e)}
+        onKeyDown={handleKeyUp}
         type="text"
         name="tag-input"
         value={input}
@@ -47,8 +46,8 @@ const InputTag: InputTagFC = ({ tags, addTag, removeTag }) => {
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
       />
-    </label>
+    </div>
   );
-};
+}
 
 export default InputTag;

@@ -3,14 +3,16 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from '~/app/i18n/client';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FiRotateCcw, FiSettings, FiZap } from 'react-icons/fi';
+import { RotateCcw, Settings, Zap } from 'lucide-react';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
 
 const MAX_BALLS_DISPLAY = 100; // 화면에 표시할 최대 공 개수 (성능 고려)
 
 export default function PpollongPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
-  const { t } = useTranslation(lng, 'ppollong'); // 'ppollong' 네임스페이스 사용
+  const language = lng as Language;
+  const { t } = useTranslation(language, 'ppollong'); // 'ppollong' 네임스페이스 사용
   const [maxNumber, setMaxNumber] = useState<number>(0);
   const [inputValue, setInputValue] = useState<string>('45'); // 초기 입력값
   const [drawnNumbers, setDrawnNumbers] = useState<number[]>([]);
@@ -27,7 +29,7 @@ export default function PpollongPage({ params }: LanguageParams) {
 
   const handleInitialize = () => {
     const num = parseInt(inputValue, 10);
-    if (isNaN(num) || num <= 0) {
+    if (Number.isNaN(num) || num <= 0) {
       setError(t('error.invalidNumber'));
       setIsInitialized(false);
       return;
@@ -61,7 +63,7 @@ export default function PpollongPage({ params }: LanguageParams) {
     const intervalId = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * numbersToDrawFrom.length);
       setCurrentNumber(numbersToDrawFrom[randomIndex]); // 임시 숫자 보여주기
-      currentStep++;
+      currentStep += 1;
       if (currentStep >= animationSteps) {
         clearInterval(intervalId);
         const finalRandomIndex = Math.floor(Math.random() * numbersToDrawFrom.length);
@@ -86,7 +88,7 @@ export default function PpollongPage({ params }: LanguageParams) {
   const renderNumberBalls = () => {
     if (!isInitialized) return null;
     const balls = [];
-    for (let i = 1; i <= maxNumber; i++) {
+    for (let i = 1; i <= maxNumber; i += 1) {
       const isDrawn = drawnNumbers.includes(i);
       balls.push(
         <motion.div
@@ -114,7 +116,7 @@ export default function PpollongPage({ params }: LanguageParams) {
           </div>,
         );
         // 마지막 몇 개를 더 보여줄 수 있음
-        for (let j = maxNumber - 4; j <= maxNumber; j++) {
+        for (let j = maxNumber - 4; j <= maxNumber; j += 1) {
           const isDrawnEnd = drawnNumbers.includes(j);
           balls.push(
             <motion.div
@@ -143,6 +145,14 @@ export default function PpollongPage({ params }: LanguageParams) {
     return balls;
   };
 
+  const remainingNumbers = availableNumbers();
+  let drawButtonLabel = t('drawButton.ready');
+  if (isLoading) {
+    drawButtonLabel = t('drawButton.loading');
+  } else if (remainingNumbers.length === 0) {
+    drawButtonLabel = t('drawButton.allDrawn');
+  }
+
   return (
     <div className="container mx-auto p-4 flex flex-col items-center min-h-[calc(100vh-100px)]">
       <motion.h1
@@ -162,7 +172,7 @@ export default function PpollongPage({ params }: LanguageParams) {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-xl font-semibold mb-4 text-gray-700 flex items-center">
-          <FiSettings className="mr-2 text-blue-500" /> {t('settingsTitle')}
+          <Settings className="mr-2 text-blue-500" /> {t('settingsTitle')}
         </h2>
         <div className="flex space-x-2">
           <input
@@ -175,6 +185,7 @@ export default function PpollongPage({ params }: LanguageParams) {
           />
           {!isInitialized ? (
             <motion.button
+              type="button"
               onClick={handleInitialize}
               className="button w-20 bg-blue-500 text-white hover:bg-blue-600 transition-colors disabled:bg-gray-300 text-nowrap"
               whileTap={{ scale: 0.97 }}
@@ -184,12 +195,13 @@ export default function PpollongPage({ params }: LanguageParams) {
             </motion.button>
           ) : (
             <motion.button
+              type="button"
               onClick={handleReset}
               className="button w-20 justify-center bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors"
               whileTap={{ scale: 0.95 }}
               title={t('resetButtonTitle') || '설정 초기화'}
             >
-              <FiRotateCcw size={20} />
+              <RotateCcw size={20} />
             </motion.button>
           )}
         </div>
@@ -214,17 +226,14 @@ export default function PpollongPage({ params }: LanguageParams) {
               💣
             </motion.div>
             <motion.button
+              type="button"
               onClick={handleDraw}
               className="button w-full px-8 py-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-xl font-bold rounded-full hover:from-green-500 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
               whileTap={{ scale: 0.98 }}
-              disabled={isLoading || availableNumbers().length === 0}
+              disabled={isLoading || remainingNumbers.length === 0}
             >
-              <FiZap className="inline mr-2 mb-1" />
-              {isLoading
-                ? t('drawButton.loading')
-                : availableNumbers().length === 0
-                ? t('drawButton.allDrawn')
-                : t('drawButton.ready')}
+              <Zap className="inline mr-2 mb-1" />
+              {drawButtonLabel}
             </motion.button>
           </div>
 
@@ -258,7 +267,7 @@ export default function PpollongPage({ params }: LanguageParams) {
         >
           <h3 className="text-lg font-semibold mb-4 text-gray-600">
             {t('numberBoardTitle', {
-              maxNumber: maxNumber,
+              maxNumber,
               drawnCount: drawnNumbers.length,
               totalCount: maxNumber,
             })}

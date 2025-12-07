@@ -4,10 +4,12 @@ import React, { useState } from 'react';
 import { useTranslation } from '~/app/i18n/client';
 import { toChoseong } from '@utils/choseongUtils';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
 
 export default function ChoseongMakerPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
-  const { t } = useTranslation(lng, 'choseong-maker');
+  const language = lng as Language;
+  const { t } = useTranslation(language, 'choseong-maker');
   const [value, setValue] = useState('');
 
   return (

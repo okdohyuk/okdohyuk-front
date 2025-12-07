@@ -1,14 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useCallback } from 'react';
-import useInfiniteScroll from '../useInfiniteScroll';
-import useStore from '../useStore';
+import { useEffect, useRef, useMemo } from 'react';
 import FilterDropdownUtils from '~/utils/filterDropdownUtil';
 import { FilterType } from '~/components/complex/FilterDropdown/type';
-import useDebounce from '../useDebounce';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { BlogCategory, BlogOrderByEnum } from '@api/Blog';
 import debounce from 'lodash.debounce';
+import useDebounce from '../useDebounce';
+import useStore from '../useStore';
+import useInfiniteScroll from '../useInfiniteScroll';
 
 // --- 검색 파라미터를 store에 반영하는 함수 ---
 type ApplySearchParamsToStoreArgs = {
@@ -92,16 +92,16 @@ function buildSearchUrl({ title, orderBy, findCategorys, findTags }: BuildSearch
     categoryNotIn: FilterDropdownUtils.getNotInsChain(findCategorys),
   };
   const params = new URLSearchParams();
-  for (const key in stringParams) {
-    if (stringParams[key]) params.append(key, stringParams[key]);
-  }
-  for (const key in arraryParams) {
-    arraryParams[key].forEach((value: string[]) => {
-      params.append(key, value.toString());
+  Object.entries(stringParams).forEach(([key, value]) => {
+    if (value) params.append(key, value);
+  });
+  Object.entries(arraryParams).forEach(([key, value]) => {
+    value.forEach((item: string[]) => {
+      params.append(key, item.toString());
     });
-  }
+  });
   if (orderBy !== BlogOrderByEnum.Resent) params.append('orderBy', orderBy.toString());
-  return '/blog' + (params.size === 0 ? '' : '?' + params.toString());
+  return `/blog${params.size === 0 ? '' : `?${params.toString()}`}`;
 }
 
 const useBlogSearch = (category: BlogCategory[], tags: string[]) => {
@@ -166,10 +166,11 @@ const useBlogSearch = (category: BlogCategory[], tags: string[]) => {
   ]);
 
   // --- getBlogList를 debounce로 감싼 함수 ---
-  const debouncedGetBlogList = useCallback(
-    debounce((reset: boolean) => {
-      getBlogList(reset);
-    }, 300),
+  const debouncedGetBlogList = useMemo(
+    () =>
+      debounce((reset: boolean) => {
+        getBlogList(reset);
+      }, 300),
     [getBlogList],
   );
 

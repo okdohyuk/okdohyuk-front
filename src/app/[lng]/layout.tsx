@@ -1,18 +1,17 @@
 import React from 'react';
-
-import '~/styles/globals.scss';
-import { StoreProvider } from './provider';
-import { ReactQueryProvider } from '@components/complex/Layout/QueryClient';
-import { Language, languages } from '~/app/i18n/settings';
+import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
 import localFont from 'next/font/local';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import CommonLayout from '@components/complex/Layout/CommonLayout';
 import Footer from '@components/complex/Layout/Footer';
-import { Analytics } from '@vercel/analytics/react';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { ReactQueryProvider } from '@components/complex/Layout/QueryClient';
 import GoogleAdsense from '@components/google/GoogleAdsense';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import '~/styles/globals.scss';
+import { Language, languages } from '~/app/i18n/settings';
+import { StoreProvider } from './provider';
 
 const pretendard = localFont({
   src: '../../assets/fonts/PretendardVariable.woff2',
@@ -21,7 +20,7 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
-export type LanguageParams = { params: Promise<{ lng: Language }> };
+export type LanguageParams = { params: Promise<{ lng: string }> };
 
 export type ChildrenProps = {
   children: React.ReactNode;
@@ -38,14 +37,15 @@ type RootLayoutProps = ChildrenProps & LanguageParams;
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
   const { lng } = await params;
+  const language = lng as Language;
 
   return (
-    <html lang={lng} dir={dir(lng)}>
+    <html lang={language} dir={dir(language)}>
       <body className={pretendard.className}>
         <StoreProvider>
           <ReactQueryProvider>
             <CommonLayout>{children}</CommonLayout>
-            <Footer lng={lng} />
+            <Footer lng={language} />
             <Analytics />
             <SpeedInsights />
             <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}`} />

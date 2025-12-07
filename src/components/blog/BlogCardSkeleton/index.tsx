@@ -1,10 +1,10 @@
 import React from 'react';
-import { BlogCardSkeletonFC } from './type';
+import Board from './Board';
 import Discript from './Discript';
 import Frame from './Frame';
-import Board from './Board';
+import { BlogCardSkeletonFC } from './type';
 
-const BlogCardSkeleton: BlogCardSkeletonFC = ({ type = 'discript' }) => {
+const BlogCardSkeleton: BlogCardSkeletonFC = function BlogCardSkeleton({ type = 'discript' }) {
   return (
     <div>
       {

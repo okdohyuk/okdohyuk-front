@@ -1,53 +1,55 @@
-import React from 'react';
-import { FilterDropdownFC, FilterDropdownItem } from './type';
-import {
-  MdOutlineCheckBoxOutlineBlank,
-  MdOutlineAddBox,
-  MdOutlineIndeterminateCheckBox,
-} from 'react-icons/md';
-import { cls } from '~/utils/classNameUtils';
+import React, { useCallback } from 'react';
+import { Square, SquareMinus, SquarePlus } from 'lucide-react';
 import Skeleton from '@components/basic/Skeleton';
+import { cls } from '~/utils/classNameUtils';
+import { FilterDropdownFC, FilterDropdownItem } from './type';
 
-const FilterDropdown: FilterDropdownFC = ({ title, items, changeType }) => {
-  const changeState = (item: FilterDropdownItem) => {
-    if (item.type === 'in') {
-      changeType(item.value, 'notIn');
-    } else if (item.type === 'notIn') {
-      changeType(item.value, 'idle');
-    } else {
-      changeType(item.value, 'in');
-    }
-  };
+const FilterDropdown: FilterDropdownFC = function FilterDropdown({ title, items, changeType }) {
+  const changeState = useCallback(
+    (item: FilterDropdownItem) => {
+      if (item.type === 'in') {
+        changeType(item.value, 'notIn');
+      } else if (item.type === 'notIn') {
+        changeType(item.value, 'idle');
+      } else {
+        changeType(item.value, 'in');
+      }
+    },
+    [changeType],
+  );
 
-  const renderItems = (item: FilterDropdownItem, index: number, margin: number) => {
-    return (
-      <React.Fragment key={index + item.value}>
-        <div
-          key={item.value}
-          className="px-1 rounded flex items-center justify-between cursor-pointer hover:bg-basic-4"
+  const renderItems = useCallback(
+    (item: FilterDropdownItem, margin: number): React.ReactNode => (
+      <React.Fragment key={`${item.value}-${margin}`}>
+        <button
+          type="button"
+          className="px-1 rounded flex items-center justify-between cursor-pointer hover:bg-basic-4 w-full"
           onClick={() => changeState(item)}
         >
-          <div className={cls('t-d-1 t-basic-1', 'ml-' + margin * 2)}>{item.name}</div>
+          <span className={cls('t-d-1 t-basic-1', `ml-${margin * 2}`)}>{item.name}</span>
           {
             {
-              in: <MdOutlineAddBox className="text-point-1" />,
-              notIn: <MdOutlineIndeterminateCheckBox className="text-red-500" />,
-              idle: <MdOutlineCheckBoxOutlineBlank className="t-basic-1" />,
+              in: <SquarePlus className="text-point-1" />,
+              notIn: <SquareMinus className="text-red-500" />,
+              idle: <Square className="t-basic-1" />,
             }[item.type]
           }
-        </div>
-        {item.child?.map((item, index) => renderItems(item, index, margin + 1))}
+        </button>
+        {item.child?.map((child) => renderItems(child, margin + 1))}
       </React.Fragment>
-    );
-  };
+    ),
+    [changeState],
+  );
 
   return (
     <div>
       <div className="p-2 t-d-1 font-bold t-basic-1 bg-basic-4">{title}</div>
       <div className="p-2">
-        {items.map((item, index) => renderItems(item, index, 0))}
+        {items.map((item) => renderItems(item, 0))}
         {items.length === 0
-          ? [...new Array(6)].map((d, i) => <Skeleton className={'rounded h-[28px]'} key={i} />)
+          ? Array.from({ length: 6 }, (_, index) => (
+              <Skeleton className="rounded h-[28px]" key={`dropdown-skeleton-${index}`} />
+            ))
           : null}
       </div>
     </div>

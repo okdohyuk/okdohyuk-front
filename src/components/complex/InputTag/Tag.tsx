@@ -1,20 +1,25 @@
 import React from 'react';
-import { MdOutlineCancel } from 'react-icons/md';
+import { X } from 'lucide-react';
 
 type TagProps = {
   value: string;
   removeTag: (tag: string) => void;
 };
 
-type TagFC = React.FC<TagProps>;
-
-const Tag: TagFC = ({ value, removeTag }) => {
+function Tag({ value, removeTag }: TagProps) {
   return (
-    <p className="flex items-center px-1 rounded t-d-1 t-basic-1 bg-basic-4">
+    <span className="flex items-center px-1 rounded t-d-1 t-basic-1 bg-basic-4">
       {value}
-      <MdOutlineCancel className="ml-2 cursor-pointer" onClick={() => removeTag(value)} />
-    </p>
+      <button
+        type="button"
+        className="ml-2 cursor-pointer"
+        onClick={() => removeTag(value)}
+        aria-label={`remove ${value}`}
+      >
+        <X />
+      </button>
+    </span>
   );
-};
+}
 
 export default Tag;

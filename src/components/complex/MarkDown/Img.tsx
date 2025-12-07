@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable @next/next/no-img-element */
+import React, { useEffect, useState } from 'react';
 import { cls } from '~/utils/classNameUtils';
 
 interface ImgProps {
-  src?: string;
+  src: string;
+  // eslint-disable-next-line react/require-default-props
   alt?: string;
 }
 
-const Img = ({ src, alt }: ImgProps) => {
+const Img = function Img({ src, alt }: ImgProps) {
   const [aspectRatio, setAspectRatio] = useState<number | undefined>();
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (!src) return;
-
     const img = new window.Image();
-    img.src = src;
+    img.src = `${src}?w=512`;
     img.onload = () => {
-      setAspectRatio(img.naturalWidth / img.naturalHeight - 64);
+      setAspectRatio(img.naturalWidth / img.naturalHeight);
     };
   }, [src]);
 
@@ -41,10 +41,10 @@ const Img = ({ src, alt }: ImgProps) => {
       )}
       <img
         src={`${src}?w=1280`}
-        alt={alt || ''}
+        alt={alt}
         onLoad={() => setIsLoaded(true)}
         className={cls(
-          'w-full h-full object-contain transition-opacity duration-300 ease-in-out',
+          'object-contain transition-opacity duration-300 ease-in-out',
           isLoaded ? 'opacity-100' : 'opacity-0',
         )}
       />

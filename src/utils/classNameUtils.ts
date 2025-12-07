@@ -4,4 +4,4 @@ export default class ClassName {
   }
 }
 
-export const cls = ClassName.cls;
+export const { cls } = ClassName;

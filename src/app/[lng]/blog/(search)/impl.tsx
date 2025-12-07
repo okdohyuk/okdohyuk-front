@@ -9,20 +9,18 @@ const BlogSearchListClient = dynamic(() => import('@components/blog/BlogSearchLi
   ssr: false,
 });
 
-const BlogImpl = ({
-  params: { lng },
-  category,
-  tags,
-}: {
-  params: { lng: Language };
+type BlogImplProps = {
+  lng: Language;
   category: BlogCategory[];
   tags: string[];
-}) => {
+};
+
+function BlogImpl({ lng, category, tags }: BlogImplProps) {
   return (
     <Suspense>
       <BlogSearchListClient lng={lng} category={category} tags={tags} />
     </Suspense>
   );
-};
+}
 
 export default BlogImpl;

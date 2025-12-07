@@ -1,10 +1,10 @@
 'use server';
 
-import { blogApi } from '@api';
 import axios from 'axios';
-import { BlogRequest } from './schema';
 import { redirect } from 'next/navigation';
 import { getTokenServer } from '@libs/server/token';
+import { blogApi } from '@api';
+import { BlogRequest } from './schema';
 
 export const submitBlog = async (blog: BlogRequest, urlSlug?: string) => {
   try {
@@ -16,11 +16,11 @@ export const submitBlog = async (blog: BlogRequest, urlSlug?: string) => {
       await blogApi.patchBlogUrlSlug(urlSlug, token.accessToken, blog);
     }
     redirect('/admin/blog');
-  } catch (e) {
-    if (axios.isAxiosError(e)) {
-      console.error('-> e', e.response?.data.errorMessage);
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.errorMessage ?? '블로그 저장 실패');
     }
-    throw e;
+    throw error;
   }
 };
 

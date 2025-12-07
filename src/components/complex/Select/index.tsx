@@ -1,8 +1,8 @@
 import React from 'react';
 import { cls } from '@utils/classNameUtils';
-import { SelectFC } from './type';
+import { SelectProps } from './type';
 
-const Select: SelectFC = ({ className = '', children, form, value, onChange }) => {
+function Select({ className = '', children, form, value, onChange }: SelectProps) {
   const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (onChange) onChange(e.target.value);
   };
@@ -28,6 +28,6 @@ const Select: SelectFC = ({ className = '', children, form, value, onChange }) =
       </div>
     </div>
   );
-};
+}
 
 export default Select;
