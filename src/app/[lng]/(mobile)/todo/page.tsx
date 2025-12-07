@@ -8,6 +8,7 @@ import { useTranslation } from '~/app/i18n/client';
 import useIsClient from '@hooks/useIsClient';
 import useStore from '@hooks/useStore';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
 
 const ToDoCard = dynamic(() => import('~/app/[lng]/(mobile)/todo/components/ToDoCard'), {
   ssr: false,
@@ -15,8 +16,9 @@ const ToDoCard = dynamic(() => import('~/app/[lng]/(mobile)/todo/components/ToDo
 
 function TodoPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
+  const language = lng as Language;
   const { todos, addTodo } = useStore('todoStore');
-  const { t } = useTranslation(lng, 'todo');
+  const { t } = useTranslation(language, 'todo');
   const { onChange, value, reset } = useInput('');
   const isClient = useIsClient();
 

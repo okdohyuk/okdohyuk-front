@@ -12,13 +12,15 @@ import useStore from '@hooks/useStore';
 import { useTranslation } from '~/app/i18n/client';
 import { LanguageParams } from '~/app/[lng]/layout';
 import UserTokenUtil from '~/utils/userTokenUtil';
+import { Language } from '~/app/i18n/settings';
 
 type LoginHandler = (accessToken: string, redirectUri: string) => void;
 
 export default function LoginPage({ params }: LanguageParams) {
   const { lng } = use(params);
+  const language = lng as Language;
 
-  const { t } = useTranslation(lng, 'login');
+  const { t } = useTranslation(language, 'login');
   const { push } = useRouter();
   const [loginButtonDisabled, setLoginButtonDisabled] = React.useState<boolean>(true);
   const { setUser } = useStore('userStore');

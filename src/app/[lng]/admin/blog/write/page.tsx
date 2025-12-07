@@ -6,6 +6,7 @@ import { BaseException } from '@api/Blog';
 import { getTokenServer } from '@libs/server/token';
 import BlogWritePageImpl from '~/app/[lng]/admin/blog/write/impl';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
 
 const getPost = async (urlSlug: string) => {
   try {
@@ -33,11 +34,12 @@ type BlogWriteProps = {
 
 export default async function BlogWritePage({ params, searchParams }: BlogWriteProps) {
   const { lng } = await params;
+  const language = lng as Language;
   const { urlSlug: urlSlugs } = await searchParams;
 
   const urlSlug = typeof urlSlugs === 'string' ? urlSlugs : null;
   const blog = urlSlug ? await getPost(urlSlug) : null;
   const category = await getCategory();
 
-  return <BlogWritePageImpl lng={lng} blog={blog} category={category} />;
+  return <BlogWritePageImpl lng={language} blog={blog} category={category} />;
 }

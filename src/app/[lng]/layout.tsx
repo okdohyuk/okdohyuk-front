@@ -20,7 +20,7 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
-export type LanguageParams = { params: Promise<{ lng: Language }> };
+export type LanguageParams = { params: Promise<{ lng: string }> };
 
 export type ChildrenProps = {
   children: React.ReactNode;
@@ -37,14 +37,15 @@ type RootLayoutProps = ChildrenProps & LanguageParams;
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
   const { lng } = await params;
+  const language = lng as Language;
 
   return (
-    <html lang={lng} dir={dir(lng)}>
+    <html lang={language} dir={dir(language)}>
       <body className={pretendard.className}>
         <StoreProvider>
           <ReactQueryProvider>
             <CommonLayout>{children}</CommonLayout>
-            <Footer lng={lng} />
+            <Footer lng={language} />
             <Analytics />
             <SpeedInsights />
             <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID}`} />

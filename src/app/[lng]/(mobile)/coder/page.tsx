@@ -12,6 +12,7 @@ import CoderUtils from '@utils/coderUtils';
 import { CoderFormType, CoderType } from '@utils/coderUtils/type';
 import { useTranslation } from '~/app/i18n/client';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
 import {
   Select,
   SelectContent,
@@ -32,7 +33,8 @@ const coderList: CoderType[] = [
 
 function CoderPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
-  const { t } = useTranslation(lng, 'coder');
+  const language = lng as Language;
+  const { t } = useTranslation(language, 'coder');
   const [copied, setCopied] = useState<boolean>(false);
 
   const {

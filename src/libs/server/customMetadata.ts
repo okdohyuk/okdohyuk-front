@@ -16,10 +16,10 @@ type MetaDataProps = {
 
 type CustomMetadata = (props: MetaDataProps) => Metadata;
 
-type GenerateMetadata = ({ params }: { params: Promise<{ lng: Language }> }) => Promise<Metadata>;
+type GenerateMetadata = ({ params }: { params: Promise<{ lng: string }> }) => Promise<Metadata>;
 
 type TranslationsMetadataProps = {
-  params: Promise<{ lng: Language }>;
+  params: Promise<{ lng: string }>;
   ns: FlatNamespace;
   type?: OpenGraphType;
   image?: string;
@@ -63,7 +63,8 @@ const translationsMetadata: TranslationsMetadata = async ({
   type = 'website',
   image,
 }) => {
-  const { lng: language } = await params;
+  const { lng } = await params;
+  const language = lng as Language;
   const { t } = await getTranslations(language, namespace);
   const keywords = t('openGraph.keywords', { returnObjects: true }) as string | string[];
 

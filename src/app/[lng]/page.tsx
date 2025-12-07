@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import InstallApp from '@components/complex/InstallApp';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { useTranslation as getServerTranslation } from '~/app/i18n';
-import { languages } from '~/app/i18n/settings';
 import { stringToLanguage } from '@utils/localeUtil';
 import { LanguageParams } from '~/app/[lng]/layout';
 import logoIcon from '../../../public/logo.svg';
@@ -19,10 +18,11 @@ export const generateMetadata: GenerateMetadata = async ({ params }) => {
 
 export default async function Home({ params }: LanguageParams) {
   const { lng } = await params;
+  const language = stringToLanguage(lng);
 
   // redirect to notfound
-  if (languages.indexOf(lng) < 0) notFound();
-  const { t } = await getServerTranslation(lng, 'index');
+  if (!language) notFound();
+  const { t } = await getServerTranslation(language, 'index');
 
   return (
     <>

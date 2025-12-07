@@ -5,12 +5,14 @@ import { useTranslation } from '~/app/i18n/client';
 import { AnimatePresence, motion } from 'framer-motion';
 import { RotateCcw, Settings, Zap } from 'lucide-react';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
 
 const MAX_BALLS_DISPLAY = 100; // 화면에 표시할 최대 공 개수 (성능 고려)
 
 export default function PpollongPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
-  const { t } = useTranslation(lng, 'ppollong'); // 'ppollong' 네임스페이스 사용
+  const language = lng as Language;
+  const { t } = useTranslation(language, 'ppollong'); // 'ppollong' 네임스페이스 사용
   const [maxNumber, setMaxNumber] = useState<number>(0);
   const [inputValue, setInputValue] = useState<string>('45'); // 초기 입력값
   const [drawnNumbers, setDrawnNumbers] = useState<number[]>([]);

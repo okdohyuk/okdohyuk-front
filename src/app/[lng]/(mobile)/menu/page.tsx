@@ -5,19 +5,21 @@ import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetad
 import UserInfoCard from '@components/complex/Card/UserInfoCard';
 import Link from 'next/link';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
 
 export const generateMetadata: GenerateMetadata = ({ params }) =>
   translationsMetadata({ params, ns: 'menu' });
 
 export default async function MenuPage({ params }: LanguageParams) {
   const { lng } = await params;
+  const language = lng as Language;
 
-  const { t } = await getTranslations(lng, 'menu');
+  const { t } = await getTranslations(language, 'menu');
 
   const renderMenuList = (menuList: MenuItem[]) => {
     return menuList.map((menu) => {
       // Get the title in the current language, fallback to English if not available
-      const title = menu.title[lng as keyof typeof menu.title] || menu.title.en;
+      const title = menu.title[language as keyof typeof menu.title] || menu.title.en;
 
       return (
         <li key={title} className="list-none">
@@ -50,7 +52,7 @@ export default async function MenuPage({ params }: LanguageParams) {
     <>
       <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
       <div className="lg:columns-2">
-        <UserInfoCard lng={lng} />
+        <UserInfoCard lng={language} />
         {renderMenuGroup(menus)}
       </div>
     </>

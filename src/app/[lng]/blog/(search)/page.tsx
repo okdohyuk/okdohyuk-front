@@ -8,15 +8,16 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import BlogImpl from './impl';
 
 export const generateMetadata = async (props: {
-  params: Promise<{ lng: Language }>;
+  params: Promise<{ lng: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
   const searchParams = await props.searchParams;
   const params = await props.params;
 
   const { lng } = params;
+  const language = lng as Language;
 
-  const { t } = await getTranslations(lng, 'blog/index');
+  const { t } = await getTranslations(language, 'blog/index');
   const keyword = searchParams?.keyword;
 
   const title = keyword ? `${keyword} (${new Date().getFullYear()})` : t('openGraph.defaultTitle');
@@ -27,7 +28,7 @@ export const generateMetadata = async (props: {
   return metadata({
     title,
     description,
-    language: lng,
+    language,
   });
 };
 
@@ -47,5 +48,5 @@ const getStaticProps = unstable_cache(
 export default async function BlogSearchPage({ params }: LanguageParams) {
   const { lng } = await params;
   const { category, tags } = await getStaticProps();
-  return <BlogImpl lng={lng} category={category} tags={tags} />;
+  return <BlogImpl lng={lng as Language} category={category} tags={tags} />;
 }
