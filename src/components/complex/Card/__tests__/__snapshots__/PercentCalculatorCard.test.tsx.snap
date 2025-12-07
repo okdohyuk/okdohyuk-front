@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<PercentCalculatorCard /> matches snapshot 1`] = `
+exports[`<PercentCalculatorCard /> > matches snapshot 1`] = `
 <div>
   <div
     class="w-full flex flex-col space-y-4 rounded-md bg-basic-4 p-4"

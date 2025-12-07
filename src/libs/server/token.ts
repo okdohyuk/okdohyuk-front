@@ -5,8 +5,9 @@ import { cookies } from 'next/headers';
 import Jwt from '@utils/jwtUtils';
 import { redirect } from 'next/navigation';
 import UserTokenUtil from '@utils/userTokenUtil';
-import { authApi } from '@api';
 import { AxiosError } from 'axios';
+import { authApi } from '@api';
+import logger from '@utils/logger';
 
 export const getTokenServer = cache(async () => {
   const cookieStore = await cookies();
@@ -20,7 +21,7 @@ export const getTokenServer = cache(async () => {
       const userInfo = JSON.parse(userInfoRaw);
       userIdFromCookie = userInfo?.id;
     } catch (e) {
-      console.error('getTokenServer: Failed to parse user_info cookie', e);
+      logger.error('getTokenServer: Failed to parse user_info cookie', e);
     }
   }
 
@@ -34,13 +35,10 @@ export const getTokenServer = cache(async () => {
       }
       // 액세스 토큰은 있지만 payload가 유효하지 않음 (예: 만료, 형식 오류)
       // 리프레시 로직으로 진행하기 위해 accessToken을 undefined로 설정
-      console.warn('getTokenServer: Existing access token is invalid, attempting refresh.');
+      logger.warn('getTokenServer: Existing access token is invalid, attempting refresh.');
       accessToken = undefined;
     } catch (e) {
-      console.error(
-        'getTokenServer: Failed to parse existing access token, attempting refresh.',
-        e,
-      );
+      logger.error('getTokenServer: Failed to parse existing access token, attempting refresh.', e);
       accessToken = undefined; // 파싱 오류 시에도 리프레시 시도
     }
   }
@@ -60,23 +58,22 @@ export const getTokenServer = cache(async () => {
           accessToken: UserTokenUtil.getTokenBearer(newAccessToken),
           userId: userIdFromCookie,
         };
-      } else {
-        console.error(
-          `verifySession: Refresh successful but no new access token received for user ${userIdFromCookie}`,
-        );
       }
+      logger.error(
+        `verifySession: Refresh successful but no new access token received for user ${userIdFromCookie}`,
+      );
     } catch (err) {
       if (err instanceof AxiosError && err.response?.status === 401) {
-        console.warn(
+        logger.warn(
           `verifySession: Refresh token expired or invalid for user ${userIdFromCookie}. Redirecting to login.`,
         );
       } else {
-        console.error(`verifySession: Token refresh failed for user ${userIdFromCookie}:`, err);
+        logger.error(`verifySession: Token refresh failed for user ${userIdFromCookie}:`, err);
       }
       // 리프레시 중 어떤 오류든 발생하면 로그인 페이지로 리디렉션
     }
   }
 
   // 3. 모든 시도 실패 시 (유효한 초기 토큰 없음, 리프레시 토큰/사용자 ID 없음, 또는 리프레시 실패)
-  redirect('/auth/login');
+  return redirect('/auth/login');
 });

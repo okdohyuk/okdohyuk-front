@@ -8,10 +8,12 @@ import UserStore from '@stores/UserStore';
 // eslint-disable-next-line react-hooks/rules-of-hooks
 enableStaticRendering(typeof window === 'undefined');
 
-export default {
+const stores = {
   todoStore: new TodoStore(),
   percentStore: new PercentStore(),
   blogStore: new BlogStore(),
   blogSearchStore: new BlogSearchStore(),
   userStore: new UserStore(),
 };
+
+export default stores;

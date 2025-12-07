@@ -1,7 +1,7 @@
 import React from 'react';
 import Script from 'next/script';
 
-const GoogleAdsense = ({ pid }: { pid: string }) => {
+function GoogleAdsense({ pid }: { pid: string }) {
   if (process.env.NODE_ENV !== 'production') {
     return null;
   }
@@ -14,6 +14,6 @@ const GoogleAdsense = ({ pid }: { pid: string }) => {
       strategy="lazyOnload"
     />
   );
-};
+}
 
 export default GoogleAdsense;

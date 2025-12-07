@@ -2,18 +2,24 @@ import { BlogStoreState, Status } from '@stores/BlogStore/type';
 import { action, makeObservable, observable, runInAction } from 'mobx';
 import { Blog } from '@api/Blog';
 import { blogApi } from '@api';
+import logger from '@utils/logger';
 
 class BlogStore implements BlogStoreState {
   @observable public blogs: Blog[] | null = null;
+
   @observable public status: Status = 'idle';
+
   @observable public isLastPage = false;
+
   @observable public page = 0;
 
   constructor() {
     makeObservable(this);
   }
 
-  @action public setBlogs: BlogStoreState['setBlogs'] = (blogs) => (this.blogs = blogs);
+  @action public setBlogs: BlogStoreState['setBlogs'] = (blogs) => {
+    this.blogs = blogs;
+  };
 
   @action public getBlogsPage: BlogStoreState['getBlogsPage'] = (limit) => {
     runInAction(() => {
@@ -36,7 +42,7 @@ class BlogStore implements BlogStoreState {
         this.page += 1;
       })
       .catch((error) => {
-        console.log(error);
+        logger.error(error);
       });
   };
 }

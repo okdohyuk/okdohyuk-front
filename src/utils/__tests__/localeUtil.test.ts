@@ -1,13 +1,16 @@
-import { getLanguageFromCookies, stringToLanguage } from '../localeUtil';
-import { Language } from '~/app/i18n/settings';
+import { vi } from 'vitest';
+import type { Language } from '~/app/i18n/settings';
 import { RequestCookies, ResponseCookies } from 'next/dist/compiled/@edge-runtime/cookies';
+import { getLanguageFromCookies, stringToLanguage } from '../localeUtil';
 
-// ~/app/i18n/settings 모듈을 모킹합니다.
-jest.mock('~/app/i18n/settings', () => ({
+const settingsMock = vi.hoisted(() => ({
   fallbackLng: 'en' as Language,
   languages: ['en', 'ko'] as Language[],
   cookieName: 'i18next',
-}));
+})) as { fallbackLng: Language; languages: Language[]; cookieName: string };
+
+// ~/app/i18n/settings 모듈을 모킹합니다.
+vi.mock('~/app/i18n/settings', () => settingsMock);
 
 // getLanguageFromCookies에 필요한 cookieStore의 모의 타입을 정의합니다.
 // 실제 RequestCookies와 ResponseCookies 타입은 복잡하므로, 필요한 부분만 모킹합니다.
@@ -46,10 +49,8 @@ describe('localeUtil', () => {
         // @ts-ignore
         has: (name: string) => cookiesMap.has(name),
         // @ts-ignore
-        [Symbol.iterator]: function* () {
-          for (const cookie of cookiesMap.values()) {
-            yield cookie;
-          }
+        [Symbol.iterator]() {
+          return cookiesMap.values();
         },
         // @ts-ignore
         getAll: () => Array.from(cookiesMap.values()),
@@ -77,37 +78,21 @@ describe('localeUtil', () => {
 
     // fallbackLng가 다른 경우도 테스트 (모듈 모킹을 통해 제어)
     it('다른 fallbackLng 설정에 대해서도 올바르게 동작해야 합니다', async () => {
-      await jest.isolateModulesAsync(async () => {
-        // Ensure a completely fresh start for modules within this isolated block
-        jest.resetModules();
+      const originalFallback = settingsMock.fallbackLng;
+      settingsMock.fallbackLng = 'ko';
 
-        // Dynamically mock '~/app/i18n/settings' for the scope of this isolateModulesAsync block.
-        jest.doMock('~/app/i18n/settings', () => ({
-          __esModule: true,
-          fallbackLng: 'ko' as Language,
-          languages: ['en', 'ko'] as Language[],
-          cookieName: 'i18next',
-        }));
+      vi.resetModules();
 
-        // Verify that the mock is active by importing '~/app/i18n/settings' directly.
-        const settings = await import('~/app/i18n/settings');
-        expect(settings.fallbackLng).toBe('ko'); // Crucial check for mock effectiveness
+      // Import the module under test ('../localeUtil') to pick up the updated fallback.
+      const { getLanguageFromCookies: getLangWithNewFallback } = await import('../localeUtil');
+      // Since mockCookieStore is empty, getLangWithNewFallback should return 'ko'.
+      expect(getLangWithNewFallback(mockCookieStore)).toBe('ko'); // The main assertion
 
-        // Now, import the module under test ('../localeUtil').
-        const { getLanguageFromCookies: getLangWithNewFallback } = await import('../localeUtil');
-        // Since mockCookieStore is empty, getLangWithNewFallback should return 'ko'.
-        expect(getLangWithNewFallback(mockCookieStore)).toBe('ko'); // The main assertion
-      });
-
-      // After exiting isolateModulesAsync, ensure the module system is reset.
-      jest.resetModules();
-      // Import '~/app/i18n/settings' again to confirm it reflects the global mock.
-      const globalSettings = await import('~/app/i18n/settings');
-      expect(globalSettings.fallbackLng).toBe('ko'); // Global mock sets 'en'
-
-      // Import '../localeUtil' again. It should now use the globally mocked settings.
+      // Restore the original fallback and verify it loads correctly.
+      settingsMock.fallbackLng = originalFallback;
+      vi.resetModules();
       const { getLanguageFromCookies: getLangOriginalFallback } = await import('../localeUtil');
-      expect(getLangOriginalFallback(mockCookieStore)).toBe('ko');
+      expect(getLangOriginalFallback(mockCookieStore)).toBe(originalFallback);
     });
   });
 });

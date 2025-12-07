@@ -1,25 +1,35 @@
 import { action, makeObservable, observable, runInAction } from 'mobx';
 import { BlogCategory, BlogOrderByEnum, BlogSearch, BlogSearchResponce } from '@api/Blog';
 import { blogApi } from '@api';
-import { BlogSearchStoreState, Status } from './type';
+import { BlogCardType } from '@components/blog/BlogCard/type';
+import logger from '@utils/logger';
 import { FilterDropdownItem, FilterType } from '~/components/complex/FilterDropdown/type';
 import FilterDropdownUtils from '~/utils/filterDropdownUtil';
-import { BlogCardType } from '@components/legacy/blog/BlogCard/type';
+import { BlogSearchStoreState, Status } from './type';
 
 class BlogSearchStore implements BlogSearchStoreState {
   @observable public blogs: BlogSearch[] | null = null;
+
   @observable public status: Status = 'idle';
+
   @observable public count: number | null = null;
+
   @observable public isFirst = true;
+
   @observable public isLast = false;
+
   @observable public viewType: BlogCardType = 'discript';
 
   @observable public category: FilterDropdownItem[] = [];
+
   @observable public tags: FilterDropdownItem[] = [];
 
   @observable public page = 0;
+
   @observable public limit = 10;
+
   @observable public title: string | null = null;
+
   @observable public orderBy: BlogOrderByEnum = BlogOrderByEnum.Resent;
 
   @observable public prevPath: string | null = null;
@@ -28,7 +38,9 @@ class BlogSearchStore implements BlogSearchStoreState {
     makeObservable(this);
   }
 
-  @action public setBlogs = (blogs: BlogSearch[]) => (this.blogs = blogs);
+  @action public setBlogs = (blogs: BlogSearch[]) => {
+    this.blogs = blogs;
+  };
 
   @action public getBlogList = async (reset: boolean) => {
     const { getIns, getNotIns } = FilterDropdownUtils;
@@ -72,7 +84,7 @@ class BlogSearchStore implements BlogSearchStoreState {
         });
       })
       .catch((error) => {
-        console.log(error);
+        logger.error(error);
       });
   };
 
@@ -107,6 +119,7 @@ class BlogSearchStore implements BlogSearchStoreState {
       this.category = FilterDropdownUtils.byBlogCategory(category);
     });
   };
+
   public setBlogTags = (tags: string[]) => {
     runInAction(() => {
       this.tags = FilterDropdownUtils.byString(tags);
@@ -118,9 +131,8 @@ class BlogSearchStore implements BlogSearchStoreState {
       return items.map((item) => {
         if (item.value === value) {
           return { ...item, type };
-        } else {
-          return { ...item, child: item.child?.length ? change(item.child) : item.child };
         }
+        return { ...item, child: item.child?.length ? change(item.child) : item.child };
       });
     };
 
@@ -134,9 +146,8 @@ class BlogSearchStore implements BlogSearchStoreState {
       this.tags = this.tags.map((item) => {
         if (item.value === value) {
           return { ...item, type };
-        } else {
-          return item;
         }
+        return item;
       });
     });
   };

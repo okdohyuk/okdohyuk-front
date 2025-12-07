@@ -7,7 +7,7 @@ import { useTranslation } from '~/app/i18n/client';
 import { LiveType, platformMapper } from '@utils/liveTypes';
 import { MultiLiveProps } from '~/app/[lng]/multi-live/[[...slug]]/layout';
 
-const MultiLivePopUp = ({ params }: MultiLiveProps) => {
+function MultiLivePopUp({ params }: MultiLiveProps) {
   const { lng, slug } = use(params);
 
   const { t } = useTranslation(lng, 'multi-live');
@@ -55,15 +55,15 @@ const MultiLivePopUp = ({ params }: MultiLiveProps) => {
           onChange={(e) => setLiveId(e.target.value)}
           placeholder={t('input-placeholder')}
         />
-        <button className="button" onClick={onSubmit}>
+        <button type="button" className="button" onClick={onSubmit}>
           {t('add')}
         </button>
-        <button className="button bg-red-400 hover:bg-red-500" onClick={closePopUp}>
+        <button type="button" className="button bg-red-400 hover:bg-red-500" onClick={closePopUp}>
           {t('close')}
         </button>
       </div>
     )
   );
-};
+}
 
 export default MultiLivePopUp;

@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import NextLink from 'next/link';
 
@@ -9,8 +10,13 @@ type LinkType = {
   [key: string]: any;
 };
 
-export default function Link({ children, href, hasTargetBlank, className, ...rest }: LinkType) {
-  if (!href) return <>{children}</>;
+export default function Link({
+  children,
+  href,
+  hasTargetBlank = false,
+  className = '',
+  ...rest
+}: LinkType) {
   return (
     <NextLink
       href={href}

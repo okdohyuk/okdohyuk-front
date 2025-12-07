@@ -1,3 +1,5 @@
+/* eslint-disable react/require-default-props */
+
 'use client';
 
 import React from 'react';
@@ -12,7 +14,7 @@ interface FooterProps {
   className?: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ lng, className = '' }) => {
+function Footer({ lng, className = '' }: FooterProps) {
   const { t } = useTranslation(lng, 'common');
   const { cls } = ClassName;
   const pathname = usePathname();
@@ -61,6 +63,6 @@ const Footer: React.FC<FooterProps> = ({ lng, className = '' }) => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

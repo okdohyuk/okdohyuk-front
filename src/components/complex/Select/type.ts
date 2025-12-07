@@ -10,4 +10,4 @@ type SelectProps = {
 
 type SelectFC = React.FC<SelectProps>;
 
-export type { SelectFC };
+export type { SelectFC, SelectProps };

@@ -9,8 +9,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
 import useIsClient from '@hooks/useIsClient';
-import Skeleton from '@components/basic/Skeleton';
 import Link from '@components/basic/Link';
+import Skeleton from '@components/basic/Skeleton';
 
 function UserInfoCard({ lng }: { lng: Language }) {
   const { t } = useTranslation(lng, 'menu');
@@ -24,7 +24,7 @@ function UserInfoCard({ lng }: { lng: Language }) {
     push('/auth/login');
   };
 
-  if (!isClient) return <Skeleton className={'mb-4 rounded-md'} h={12} />;
+  if (!isClient) return <Skeleton className="mb-4 rounded-md" h={12} />;
 
   return (
     <section className="mb-4 bg-basic-3 rounded-md p-2 flex items-center">
@@ -32,10 +32,10 @@ function UserInfoCard({ lng }: { lng: Language }) {
         <>
           <Image src={user.profileImage} width={32} height={32} alt="profile" />
           <div className="ml-4 t-d-1 t-basic-1">{user.name}</div>
-          <button className="ml-auto t-c-1 t-basic-1" onClick={logOut}>
+          <button type="button" className="ml-auto t-c-1 t-basic-1" onClick={logOut}>
             {t('login.logout')}
           </button>
-          <button className="ml-4 t-c-1 t-basic-1" onClick={logOutAll}>
+          <button type="button" className="ml-4 t-c-1 t-basic-1" onClick={logOutAll}>
             {t('login.logoutAll')}
           </button>
           {/* 어드민이면 /admin 이동 버튼 노출 */}
@@ -46,7 +46,7 @@ function UserInfoCard({ lng }: { lng: Language }) {
           )}
         </>
       ) : (
-        <button onClick={handleLogin}>
+        <button type="button" onClick={handleLogin}>
           <div className="t-t-3 text-point-1">{t('login.description')}</div>
         </button>
       )}

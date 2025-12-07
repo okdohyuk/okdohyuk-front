@@ -1,17 +1,20 @@
 import React from 'react';
 import {
-  MdCalculate,
-  MdCode,
-  MdLiveTv,
-  MdOutlineAutoAwesome,
-  MdOutlinePersonalVideo,
-  MdPayment,
-  MdTagFaces,
-  MdViewList,
-  MdTextFields,
-} from 'react-icons/md';
-import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai';
-import { BiBomb, BiServer } from 'react-icons/bi';
+  Bomb,
+  Calculator,
+  Code,
+  CreditCard,
+  Github,
+  Linkedin,
+  List,
+  MonitorPlay,
+  Server,
+  Smile,
+  Sparkles,
+  TextCursorInput,
+  Tv,
+  Youtube,
+} from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
 type Title = {
@@ -37,7 +40,7 @@ const menus: Menus = {
         ja: 'パーセント計算機',
         zh: '百分比計算器',
       },
-      icon: <MdCalculate />,
+      icon: <Calculator />,
       link: '/percent',
     },
     {
@@ -47,7 +50,7 @@ const menus: Menus = {
         ja: 'やること',
         zh: '待辦事項',
       },
-      icon: <MdViewList />,
+      icon: <List />,
       link: '/todo',
     },
     {
@@ -57,7 +60,7 @@ const menus: Menus = {
         ja: 'エンコーダー/デコーダー',
         zh: '编码器/解码器',
       },
-      icon: <MdCode />,
+      icon: <Code />,
       link: '/coder',
     },
     {
@@ -67,7 +70,7 @@ const menus: Menus = {
         ja: 'マルチライブ',
         zh: '多平台直播',
       },
-      icon: <MdLiveTv />,
+      icon: <Tv />,
       link: '/multi-live',
     },
     {
@@ -77,7 +80,7 @@ const menus: Menus = {
         ja: 'ポロン',
         zh: '波隆',
       },
-      icon: <BiBomb />,
+      icon: <Bomb />,
       link: '/ppollong',
     },
     {
@@ -87,7 +90,7 @@ const menus: Menus = {
         ja: 'オンラインサーバー時間確認',
         zh: '在线服务器时间检查',
       },
-      icon: <BiServer />,
+      icon: <Server />,
       link: '/server-clock',
     },
     {
@@ -97,7 +100,7 @@ const menus: Menus = {
         ja: 'チョソンメーカー',
         zh: '初聲製作器',
       },
-      icon: <MdTextFields />,
+      icon: <TextCursorInput />,
       link: '/choseong-maker',
     },
   ],
@@ -109,7 +112,7 @@ const menus: Menus = {
         ja: 'プロフィール',
         zh: '个人资料',
       },
-      icon: <MdTagFaces />,
+      icon: <Smile />,
       link: 'https://okdohyuk.notion.site/',
     },
     {
@@ -119,7 +122,7 @@ const menus: Menus = {
         ja: 'Tistory',
         zh: 'Tistory',
       },
-      icon: <MdOutlinePersonalVideo />,
+      icon: <MonitorPlay />,
       link: 'https://blog.okdohyuk.dev/',
     },
     {
@@ -129,7 +132,7 @@ const menus: Menus = {
         ja: 'GitHub',
         zh: 'GitHub',
       },
-      icon: <AiFillGithub />,
+      icon: <Github />,
       link: 'https://github.com/okdohyuk',
     },
     {
@@ -139,7 +142,7 @@ const menus: Menus = {
         ja: 'LinkedIn',
         zh: '领英',
       },
-      icon: <AiFillLinkedin />,
+      icon: <Linkedin />,
       link: 'https://www.linkedin.com/in/okdohyuk/',
     },
     {
@@ -149,7 +152,7 @@ const menus: Menus = {
         ja: 'YouTube',
         zh: 'YouTube',
       },
-      icon: <AiFillYoutube />,
+      icon: <Youtube />,
       link: 'https://www.youtube.com/@okdohyuk',
     },
     {
@@ -159,7 +162,7 @@ const menus: Menus = {
         ja: '寄付する',
         zh: '赞助',
       },
-      icon: <MdPayment />,
+      icon: <CreditCard />,
       link: 'https://github.com/sponsors/okdohyuk?frequency=recurring',
     },
   ],
@@ -171,7 +174,7 @@ const menus: Menus = {
         ja: '夢占い',
         zh: '解梦',
       },
-      icon: <MdOutlineAutoAwesome />,
+      icon: <Sparkles />,
       link: '/dream-resolver',
     },
   ],

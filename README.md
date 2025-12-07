@@ -29,6 +29,7 @@ yarn dev
 - UI/상태/비즈니스 로직 분리
 - 함수형/불변성 패턴
 - 폴더/파일 네이밍 일관성
+- ESLint: Airbnb TypeScript 규칙 + Next.js 15 권장 설정 적용
 
 ## ⚙️ 환경 변수 설정
 
@@ -73,15 +74,10 @@ NOTION_API_KEY=secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## 🧪 테스팅
 
-- **Jest** 기반 유닛/통합 테스트
-- 커버리지 자동 수집
-
-```bash
-yarn test
-```
-
-- 커스텀 설정: `jest.config.js` 참고
-- 테스트 커버리지 리포트: `coverage/` 폴더 생성
+- **Vitest** 기반 유닛/통합 테스트
+- 기본 명령: `yarn test`
+- 커버리지 리포트: `yarn test:coverage`
+- 커스텀 설정: `vitest.config.ts` 참고
 
 ## 📡 API 명세 및 테스트
 
@@ -117,8 +113,9 @@ Authorization: Token exampletoken
 
 1. 이슈/PR 등록 전 최신 main 브랜치 pull
 2. 기능/버그별 브랜치 생성 후 작업
-3. 커밋 메시지는 명확하게 작성
-4. PR 등록 시 변경 요약 및 스크린샷 첨부 권장
+3. `yarn install` 후 생성된 Husky 훅을 통해 커밋 전 자동으로 `lint-staged`와 `vitest`가 실행됩니다.
+4. 커밋 메시지는 `feat:`, `fix:`, `refactor:`, `docs:`, `enhance:` 등 [Conventional Commits](https://www.conventionalcommits.org) 규칙을 따르며 `type: description` 형식이어야 합니다.
+5. PR 등록 시 변경 요약 및 스크린샷 첨부 권장
 
 ## 📄 라이선스
 

@@ -1,25 +1,27 @@
 'use client';
 
 import React from 'react';
-import BlogCard from './BlogCard';
 import { observer } from 'mobx-react';
+import useBlogSearchClient from '@hooks/blog/useBlogSearchClient';
 import useStore from '@hooks/useStore';
 import { cls } from '@utils/classNameUtils';
-import BlogCardSkeleton from './BlogCardSkeleton';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { BlogCategory } from '~/spec/api/Blog';
-import useBlogSearchClient from '@hooks/blog/useBlogSearchClient';
+import BlogCard from './BlogCard';
+import BlogCardSkeleton from './BlogCardSkeleton';
 
-const BlogSearchListClient = ({
-  lng,
-  category,
-  tags,
-}: {
+type BlogSearchListClientProps = {
   lng: Language;
   category: BlogCategory[];
   tags: string[];
-}) => {
+};
+
+const BlogSearchListClient = function BlogSearchListClient({
+  lng,
+  category,
+  tags,
+}: BlogSearchListClientProps) {
   useBlogSearchClient(category, tags);
   const { blogs, count, viewType, status } = useStore('blogSearchStore');
   const { t } = useTranslation(lng, 'blog/index');
@@ -41,7 +43,9 @@ const BlogSearchListClient = ({
         ))}
 
         {blogs === null
-          ? [...new Array(4)].map((d, i) => <BlogCardSkeleton type={viewType} key={i} />)
+          ? Array.from({ length: 4 }, (_, index) => (
+              <BlogCardSkeleton type={viewType} key={`skeleton-${index}`} />
+            ))
           : null}
         {status === 'loading' ? <BlogCardSkeleton type={viewType} /> : null}
       </div>

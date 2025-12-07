@@ -5,6 +5,7 @@ import { AxiosError } from 'axios';
 import { authApi } from '@api'; // API 클라이언트
 import Jwt from '~/utils/jwtUtils';
 import { cookieName, fallbackLng, languages } from '~/app/i18n/settings';
+import logger from '@utils/logger';
 
 acceptLanguage.languages([...languages]);
 
@@ -35,7 +36,6 @@ export async function middleware(req: NextRequest) {
   if (req.headers.has('referer')) {
     const refererUrl = new URL(req.headers.get('referer')!);
     const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`));
-    const response = NextResponse.next();
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
   }
 
@@ -54,7 +54,7 @@ export async function middleware(req: NextRequest) {
       const userInfo = JSON.parse(userInfoRaw);
       userId = userInfo?.id;
     } catch (e) {
-      console.error('Middleware: Failed to parse user_info cookie', e);
+      logger.error('Middleware: Failed to parse user_info cookie', e);
       // user_info 파싱 실패 시 쿠키 삭제 고려
       response.cookies.delete('user_info');
     }
@@ -88,7 +88,7 @@ export async function middleware(req: NextRequest) {
         }
       }
     } catch (e) {
-      console.error('Middleware: Failed to parse access token for expiry check', e);
+      logger.error('Middleware: Failed to parse access token for expiry check', e);
       needsRefresh = true; // 파싱 실패 시 안전하게 리프레시 시도
     }
   }
@@ -105,7 +105,7 @@ export async function middleware(req: NextRequest) {
           const payload = Jwt.getPayload(newAccessToken);
           if (payload.exp) accessTokenExp = new Date(payload.exp * 1000);
         } catch (e) {
-          console.error('Middleware: Failed to parse new access token for expiry', e);
+          logger.error('Middleware: Failed to parse new access token for expiry', e);
         }
 
         response.cookies.set({
@@ -124,7 +124,7 @@ export async function middleware(req: NextRequest) {
             const payload = Jwt.getPayload(newRefreshTokenValue);
             if (payload.exp) refreshTokenExp = new Date(payload.exp * 1000);
           } catch (e) {
-            console.error('Middleware: Failed to parse new refresh token for expiry', e);
+            logger.error('Middleware: Failed to parse new refresh token for expiry', e);
           }
 
           response.cookies.set({
@@ -139,7 +139,7 @@ export async function middleware(req: NextRequest) {
         }
       }
     } catch (errUnknown) {
-      console.error('Middleware: Token refresh failed:', errUnknown);
+      logger.error('Middleware: Token refresh failed:', errUnknown);
       if (errUnknown instanceof AxiosError && errUnknown.response?.status === 401) {
         // 리프레시 실패 (401) 시 쿠키 삭제
         response.cookies.delete('access_token');

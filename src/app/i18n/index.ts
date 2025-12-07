@@ -1,8 +1,8 @@
+import { FallbackNs } from 'react-i18next';
+import { initReactI18next } from 'react-i18next/initReactI18next';
 import { createInstance, FlatNamespace, i18n, KeyPrefix, Namespace, TFunction } from 'i18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
-import { initReactI18next } from 'react-i18next/initReactI18next';
 import { getOptions, Language } from './settings';
-import { FallbackNs } from 'react-i18next';
 
 const initI18next = async (lng: Language, ns: string | string[]) => {
   const i18nInstance = createInstance();

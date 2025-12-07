@@ -16,10 +16,10 @@ type MetaDataProps = {
 
 type CustomMetadata = (props: MetaDataProps) => Metadata;
 
-type GenerateMetadata = ({ params }: { params: Promise<{ lng: Language }> }) => Promise<Metadata>;
+type GenerateMetadata = ({ params }: { params: Promise<{ lng: string }> }) => Promise<Metadata>;
 
 type TranslationsMetadataProps = {
-  params: Promise<{ lng: Language }>;
+  params: Promise<{ lng: string }>;
   ns: FlatNamespace;
   type?: OpenGraphType;
   image?: string;
@@ -31,26 +31,6 @@ type TranslationsMetadata = ({
   type,
   image,
 }: TranslationsMetadataProps) => Promise<Metadata>;
-
-const translationsMetadata: TranslationsMetadata = async ({
-  params,
-  ns: namespace,
-  type = 'website',
-  image,
-}) => {
-  const { lng: language } = await params;
-  const { t } = await getTranslations(language, namespace);
-  const keywords = t('openGraph.keywords', { returnObjects: true }) as string | string[];
-
-  return metadata({
-    title: t('openGraph.title'),
-    description: t('openGraph.description'),
-    keywords: keywords instanceof Array ? keywords : '',
-    image,
-    type,
-    language,
-  });
-};
 
 const metadata: CustomMetadata = ({
   title,
@@ -66,15 +46,36 @@ const metadata: CustomMetadata = ({
     title,
     description,
     keywords,
-    image: image ? image : '/opengraph_image.png',
+    image: image || '/opengraph_image.png',
     openGraph: {
       type,
       title,
       description,
       language,
-      images: image ? image : '/opengraph_image.png',
+      images: image || '/opengraph_image.png',
     },
   };
+};
+
+const translationsMetadata: TranslationsMetadata = async ({
+  params,
+  ns: namespace,
+  type = 'website',
+  image,
+}) => {
+  const { lng } = await params;
+  const language = lng as Language;
+  const { t } = await getTranslations(language, namespace);
+  const keywords = t('openGraph.keywords', { returnObjects: true }) as string | string[];
+
+  return metadata({
+    title: t('openGraph.title'),
+    description: t('openGraph.description'),
+    keywords: keywords instanceof Array ? keywords : '',
+    image,
+    type,
+    language,
+  });
 };
 
 export { translationsMetadata, metadata };

@@ -20,7 +20,7 @@ export default function CategorySettingPage() {
   });
   const nowEdit = watch('nowEdit');
   const selectedParent = watch('parent');
-  const { data, refetch } = useQuery({
+  const { data: categoryResponse, refetch } = useQuery({
     queryKey: ['category'],
     queryFn: () => blogApi.getBlogCategory(),
     enabled: false,
@@ -29,111 +29,109 @@ export default function CategorySettingPage() {
 
   useEffect(() => {
     refetch();
-  }, []);
+  }, [refetch]);
 
-  const postCategory = useCallback(
-    handleSubmit(async (data: CategoryInput) => {
-      await post(data);
-      reset();
-      refetch();
-    }),
-    [refetch, reset],
-  );
+  const postCategory = handleSubmit(async (formValues: CategoryInput) => {
+    await post(formValues);
+    reset();
+    refetch();
+  });
 
-  const patchCategory = useCallback(
-    handleSubmit(async (data: CategoryInput) => {
-      await patch(data);
-      reset();
-      refetch();
-    }),
-    [refetch, reset],
-  );
+  const patchCategory = handleSubmit(async (formValues: CategoryInput) => {
+    await patch(formValues);
+    reset();
+    refetch();
+  });
 
-  const deleteCategory = useCallback(
-    handleSubmit(async (data: CategoryInput) => {
-      await remove(data);
-      reset();
-      refetch();
-    }),
-    [refetch, reset],
-  );
+  const deleteCategory = handleSubmit(async (formValues: CategoryInput) => {
+    await remove(formValues);
+    reset();
+    refetch();
+  });
 
   const toggleParent = useCallback(
-    (data: BlogCategory) => {
-      if (getValues('parent')?.id === data.id) {
+    (category: BlogCategory) => {
+      if (getValues('parent')?.id === category.id) {
         setValue('parent', null);
       } else {
-        setValue('parent', data);
+        setValue('parent', category);
       }
     },
     [getValues, setValue],
   );
 
-  const categoryRender = (data: BlogCategory) => {
-    const selected = selectedParent?.id === data.id;
+  const renderCategory = useCallback(
+    (category: BlogCategory) => {
+      const selected = selectedParent?.id === category.id;
 
-    return (
-      <div className="p-2 bg-basic-3 rounded" key={data.id}>
-        <div className="flex justify-between">
-          {selected && nowEdit ? (
-            <>
-              <input className="input-text" id="parent" {...register('parent.name', {})} />
+      return (
+        <div className="p-2 bg-basic-3 rounded" key={category.id}>
+          <div className="flex justify-between">
+            {selected && nowEdit ? (
+              <>
+                <input className="input-text" id="parent" {...register('parent.name')} />
+                <div className="flex space-x-2">
+                  <button type="button" className="button" onClick={patchCategory}>
+                    수정
+                  </button>
+                  <button
+                    type="button"
+                    className="button bg-red-400"
+                    onClick={() => setValue('nowEdit', false)}
+                  >
+                    취소
+                  </button>
+                </div>
+              </>
+            ) : (
+              <button
+                type="button"
+                className={cls(
+                  'w-fit p-1 rounded cursor-pointer t-d-1 t-basic-2',
+                  selected ? 'bg-point-3 text-black' : 'hover:bg-basic-4',
+                )}
+                onClick={() => toggleParent(category)}
+              >
+                {category.name}
+              </button>
+            )}
+            {selected && !nowEdit ? (
               <div className="flex space-x-2">
-                <button className="button" onClick={patchCategory}>
+                <button
+                  type="button"
+                  className="button bg-blue-400"
+                  onClick={() => setValue('nowEdit', true)}
+                >
                   수정
                 </button>
-                <button className="button bg-red-400" onClick={() => setValue('nowEdit', false)}>
-                  취소
+                <button type="button" className="button bg-red-400" onClick={deleteCategory}>
+                  삭제
                 </button>
               </div>
-            </>
-          ) : (
-            <div
-              className={cls(
-                'w-fit p-1 rounded cursor-pointer t-d-1 t-basic-2',
-                selected ? 'bg-point-3 text-black' : 'hover:bg-basic-4',
-              )}
-              onClick={() => toggleParent(data)}
-            >
-              {data.name}
-            </div>
-          )}
-          {selected && !nowEdit ? (
-            <div className="flex space-x-2">
-              <button className="button bg-blue-400" onClick={() => setValue('nowEdit', true)}>
-                수정
-              </button>
-              <button className="button bg-red-400" onClick={deleteCategory}>
-                삭제
-              </button>
-            </div>
-          ) : null}
-        </div>
+            ) : null}
+          </div>
 
-        <div className="ml-4">{data.child?.map(categoryRender)}</div>
-      </div>
-    );
-  };
+          <div className="ml-4">{category.child?.map(renderCategory)}</div>
+        </div>
+      );
+    },
+    [deleteCategory, nowEdit, patchCategory, register, selectedParent, setValue, toggleParent],
+  );
+
+  const categories = categoryResponse?.data ?? [];
 
   return (
-    <>
-      <MobileScreenWrapper>
-        <div className="flex flex-col p-4 bg-basic-1 rounded mb-4 gap-2">
-          {data ? data.data.map(categoryRender) : null}
-        </div>
+    <MobileScreenWrapper>
+      <div className="flex flex-col p-4 bg-basic-1 rounded mb-4 gap-2">
+        {categories.map(renderCategory)}
+      </div>
 
-        <div className="space-y-2">
-          <input
-            className="input-text"
-            id="category"
-            placeholder={''}
-            {...register('category', {})}
-          />
-          <button className="button" onClick={postCategory}>
-            추가
-          </button>
-        </div>
-      </MobileScreenWrapper>
-    </>
+      <div className="space-y-2">
+        <input className="input-text" id="category" placeholder="" {...register('category')} />
+        <button type="button" className="button" onClick={postCategory}>
+          추가
+        </button>
+      </div>
+    </MobileScreenWrapper>
   );
 }

@@ -50,8 +50,8 @@ describe('CoderUtils', () => {
         const params: CoderFormType = { type, isEncoder, count: 1, value: 'invalid-base64!' };
         // In Node.js, atob throws a DOMException for invalid base64 strings.
         // In some browser environments, it might throw a different error or return null.
-        // For Jest running in Node, we expect a DOMException.
-        // If running in a pure browser Jest setup, this might need adjustment.
+        // For Vitest running in Node, we expect a DOMException.
+        // If running in a pure browser-based setup, this might need adjustment.
         expect(() => CoderUtils.runCoder(params)).toThrow();
       });
     });

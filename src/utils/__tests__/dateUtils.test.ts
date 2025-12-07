@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import DateUtils from '../dateUtils';
 
 // 현재 시간을 고정하기 위한 기준 시간 설정
@@ -6,12 +7,12 @@ const MOCK_NOW = new Date('2024-05-27T10:00:00.000Z').getTime();
 describe('DateUtils.foramtDate', () => {
   beforeEach(() => {
     // 각 테스트 전에 Date.now()를 모킹하여 고정된 시간을 반환하도록 설정
-    jest.spyOn(Date, 'now').mockReturnValue(MOCK_NOW);
+    vi.spyOn(Date, 'now').mockReturnValue(MOCK_NOW);
   });
 
   afterEach(() => {
     // 각 테스트 후에 모킹을 복원
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   it('should return relative time for a date 1 day ago', () => {
