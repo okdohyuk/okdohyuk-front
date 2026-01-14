@@ -3,7 +3,6 @@
   "short_name": "okdohyuk",
   "description": "간편하고 쉽게 사용할 수 있는 여러 웹 도구를 제공합니다.",
   "theme_color": "#AA90FA",
-  "background_color": "#ffffff",
   "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
