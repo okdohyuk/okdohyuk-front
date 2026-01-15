@@ -18,6 +18,7 @@ import {
 import { Language } from '~/app/i18n/settings';
 
 type Title = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   [key in Language]: string;
 };
 

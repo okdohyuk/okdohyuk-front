@@ -62,6 +62,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@eslint/compat": "^2.0.1",
+    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/js": "^9.39.2",
     "@openapitools/openapi-generator-cli": "^2.13.5",
     "@tanstack/eslint-plugin-query": "^5",
     "@testing-library/dom": "^9.3.4",
@@ -89,8 +92,9 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^4",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "glob": "^11.1.0",
+    "globals": "^17.0.0",
     "husky": "^9.1.7",
     "jsdom": "^25.0.1",
     "lint-staged": "^16.2.3",

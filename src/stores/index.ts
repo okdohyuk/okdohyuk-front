@@ -5,7 +5,6 @@ import BlogStore from '@stores/BlogStore';
 import BlogSearchStore from '@stores/BlogSearchStore';
 import UserStore from '@stores/UserStore';
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
 enableStaticRendering(typeof window === 'undefined');
 
 const stores = {
