@@ -4,7 +4,11 @@ import { getTranslations } from '~/app/i18n';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { PercentCalculators } from '@stores/PercentStore/type';
 import { LanguageParams } from '~/app/[lng]/layout';
-import { Language } from '~/app/i18n/settings';
+import { Language, languages } from '~/app/i18n/settings';
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }));
+}
 
 export const generateMetadata: GenerateMetadata = async ({ params }) =>
   translationsMetadata({ params, ns: 'percent' });

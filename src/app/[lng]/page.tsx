@@ -1,12 +1,18 @@
 import React from 'react';
 import Image from 'next/legacy/image';
 import { notFound } from 'next/navigation';
+import { Viewport } from 'next';
 import InstallApp from '@components/complex/InstallApp';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { useTranslation as getServerTranslation } from '~/app/i18n';
+import { languages } from '~/app/i18n/settings';
 import { stringToLanguage } from '@utils/localeUtil';
 import { LanguageParams } from '~/app/[lng]/layout';
 import logoIcon from '../../../public/logo.svg';
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }));
+}
 
 export const generateMetadata: GenerateMetadata = async ({ params }) => {
   const { lng } = await params;
@@ -14,6 +20,14 @@ export const generateMetadata: GenerateMetadata = async ({ params }) => {
     params,
     ns: stringToLanguage(lng) === null ? 'notFound' : 'index',
   });
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#AA90FA',
 };
 
 export default async function Home({ params }: LanguageParams) {

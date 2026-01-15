@@ -4,6 +4,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
 import localFont from 'next/font/local';
+import { Viewport } from 'next';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import CommonLayout from '@components/complex/Layout/CommonLayout';
 import Footer from '@components/complex/Layout/Footer';
@@ -28,6 +29,14 @@ export type ChildrenProps = {
 
 export const generateMetadata: GenerateMetadata = ({ params }) =>
   translationsMetadata({ params, ns: 'index' });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#AA90FA',
+};
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));

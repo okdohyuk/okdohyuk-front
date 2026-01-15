@@ -44,7 +44,7 @@ function LocalesNav() {
 
   return (
     <motion.div
-      className="fixed z-30 bottom-[77px] right-5 lg:bottom-[340px] lg:right-5 lg:left-auto rounded-full shadow-md overflow-hidden"
+      className="fixed z-30 bottom-[calc(77px+env(safe-area-inset-bottom))] right-5 lg:bottom-[calc(340px+env(safe-area-inset-bottom))] lg:right-5 lg:left-auto rounded-full shadow-md overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
