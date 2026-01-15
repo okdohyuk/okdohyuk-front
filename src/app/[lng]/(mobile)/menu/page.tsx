@@ -5,7 +5,11 @@ import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetad
 import UserInfoCard from '@components/complex/Card/UserInfoCard';
 import Link from 'next/link';
 import { LanguageParams } from '~/app/[lng]/layout';
-import { Language } from '~/app/i18n/settings';
+import { Language, languages } from '~/app/i18n/settings';
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }));
+}
 
 export const generateMetadata: GenerateMetadata = ({ params }) =>
   translationsMetadata({ params, ns: 'menu' });
