@@ -5,11 +5,6 @@ import { getLiveUrl, platformMapper } from '@utils/liveTypes';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { getTranslations } from '~/app/i18n';
 import { MultiLiveProps } from '~/app/[lng]/multi-live/[[...slug]]/layout';
-import { languages } from '~/app/i18n/settings';
-
-export async function generateStaticParams() {
-  return languages.map((lng) => ({ lng }));
-}
 
 export const generateMetadata: GenerateMetadata = async ({ params }) => {
   return translationsMetadata({ params, ns: 'multi-live' });
