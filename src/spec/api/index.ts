@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 import axios, { AxiosError, AxiosHeaders, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
+import * as Sentry from '@sentry/nextjs';
 import UserTokenUtil from '@utils/userTokenUtil';
 import { AuthApi } from './Auth';
 import { BlogApi } from './Blog';
@@ -108,6 +109,7 @@ const refreshAccessToken = async (): Promise<string> => {
 apiInstance.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {
+    Sentry.captureException(error);
     const originalRequest = error.config as RetryableRequestConfig | undefined;
     if (!originalRequest) {
       return Promise.reject(error);
