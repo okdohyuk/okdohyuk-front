@@ -54,3 +54,5 @@ node_modules/
 tasks.json
 tasks/
 coverage
+# Sentry Config File
+.env.sentry-build-plugin
