@@ -104,6 +104,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
       id: 0,
       urlSlug: '',
       ...watchedFormData,
+      likeCount: 0,
     }),
     [category, watchedFormData],
   );
