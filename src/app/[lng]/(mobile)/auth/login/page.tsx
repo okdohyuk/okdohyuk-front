@@ -93,9 +93,19 @@ export default function LoginPage({ params }: LanguageParams) {
         <Image priority src={googleSignInButton} alt="Google sign in button" />
         <div className="t-d-1 text-[#757575]">{t('login.google')}</div>
       </button>
-      <Link href="https://privacy-policy.okdohyuk.dev" hasTargetBlank>
-        <div className="t-c-1 t-basic-1">{t('privacy-policy')}</div>
-      </Link>
+      <div className="flex justify-center items-center gap-4 mt-4">
+        <Link href="/terms">
+          <div className="t-c-1 t-basic-1 underline decoration-1 underline-offset-2 hover:text-blue-500 transition-colors">
+            {t('terms')}
+          </div>
+        </Link>
+        <div className="w-[1px] h-3 bg-zinc-300 dark:bg-zinc-600" />
+        <Link href="/privacy">
+          <div className="t-c-1 t-basic-1 underline decoration-1 underline-offset-2 hover:text-blue-500 transition-colors">
+            {t('privacy-policy')}
+          </div>
+        </Link>
+      </div>
     </>
   );
 }

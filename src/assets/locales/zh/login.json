@@ -8,5 +8,6 @@
   "login": {
     "google": "使用 Google 账号登录"
   },
-  "privacy-policy": "隐私政策"
+  "privacy-policy": "隐私政策",
+  "terms": "服务条款"
 }
