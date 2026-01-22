@@ -41,21 +41,11 @@ function Footer({ lng, className = '' }: FooterProps) {
               © {currentYear} {t('footer.appName')}
             </span>
             <span className={separatorClassName}>|</span>
-            <Link
-              href={`${process.env.NEXT_PUBLIC_POLICY_URL || '#'}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={linkClassName}
-            >
+            <Link href="/terms" className={linkClassName}>
               {t('footer.terms')}
             </Link>
             <span className={separatorClassName}>·</span>
-            <Link
-              href={`${process.env.NEXT_PUBLIC_PRIVACY_URL || '#'}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={linkClassName}
-            >
+            <Link href="/privacy" className={linkClassName}>
               {t('footer.privacy')}
             </Link>
           </p>

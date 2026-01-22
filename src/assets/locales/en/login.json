@@ -8,5 +8,6 @@
   "login": {
     "google": "Sign in with Google"
   },
-  "privacy-policy": "Privacy Policy"
+  "privacy-policy": "Privacy Policy",
+  "terms": "Terms of Service"
 }
