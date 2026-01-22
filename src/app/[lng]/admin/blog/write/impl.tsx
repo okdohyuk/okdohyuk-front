@@ -103,8 +103,8 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
       categoryChain: BlogUtils.findCategoryChainById(category, watchedFormData.categoryId),
       id: 0,
       urlSlug: '',
-      ...watchedFormData,
       likeCount: 0,
+      ...watchedFormData,
     }),
     [category, watchedFormData],
   );
