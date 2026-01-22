@@ -92,9 +92,7 @@ function LikeButton() {
           </motion.div>
         </AnimatePresence>
       </motion.button>
-      <div className="text-sm font-medium text-gray-600">
-        {likeCount} {likeCount === 1 ? 'Like' : 'Likes'}
-      </div>
+      <div className="text-sm font-medium text-gray-600">{likeCount ?? 0}</div>
     </div>
   );
 }
