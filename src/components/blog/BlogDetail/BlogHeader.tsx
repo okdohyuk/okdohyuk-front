@@ -2,6 +2,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import Link from '@components/basic/Link';
 import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
+import ViewCount from './ViewCount';
 
 function BlogHeader() {
   const { blog } = useBlogDetail();
@@ -37,6 +38,7 @@ function BlogHeader() {
           <h1 className="t-t-3 lg:t-t-1 text-white mb-4">{title}</h1>
           <div className="flex items-center gap-2 t-c-1 text-zinc-300">
             <div>{format(createdDate, 'yyyy-MM-dd')}</div>
+            <ViewCount />
             <Link href={`/admin/blog/write?urlSlug=${urlSlug}`}>수정</Link>
           </div>
         </div>
