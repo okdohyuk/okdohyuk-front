@@ -1,9 +1,12 @@
 import React from 'react';
 import { Blog } from '@api/Blog';
 
+import { Language } from '~/app/i18n/settings';
+
 type BlogProps = {
   blog: Blog;
   isPreview?: boolean;
+  lng: Language;
 };
 
 type BlogComponent = React.FC<BlogProps>;

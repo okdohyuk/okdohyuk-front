@@ -50,8 +50,8 @@ export const generateMetadata = async (props: BlogDetailProps) => {
 };
 
 export default async function BlogDetailPage({ params }: BlogDetailProps) {
-  const { urlSlug } = await params;
+  const { urlSlug, lng } = await params;
   const blog = await getPost(urlSlug);
 
-  return <BlogDetail blog={blog} />;
+  return <BlogDetail blog={blog} lng={await lng} />;
 }

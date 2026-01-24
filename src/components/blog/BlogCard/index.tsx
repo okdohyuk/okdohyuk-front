@@ -7,7 +7,7 @@ import { BlogCardFC } from './type';
 
 const BlogCard: BlogCardFC = function BlogCard({ blog, isAdmin = false, type = 'discript' }) {
   const { urlSlug } = blog;
-  const link = isAdmin ? `/blog/write?urlSlug=${urlSlug}` : `/blog/${urlSlug}`;
+  const link = isAdmin ? `/admin/blog/write?urlSlug=${urlSlug}` : `/blog/${urlSlug}`;
 
   return (
     <Link href={link}>

@@ -4,6 +4,7 @@ import * as Sentry from '@sentry/nextjs';
 import UserTokenUtil from '@utils/userTokenUtil';
 import { AuthApi } from './Auth';
 import { BlogApi } from './Blog';
+import { BlogReplyApi } from './BlogReply';
 import { StorageApi } from './Storage';
 import { UserApi } from './User';
 
@@ -74,6 +75,7 @@ const logoutAndLogin = () => {
 // 각 API 인스턴스를 export합니다.
 export const authApi = new AuthApi(undefined, API_URL, apiInstance);
 export const blogApi = new BlogApi(undefined, API_URL, apiInstance);
+export const blogReplyApi = new BlogReplyApi(undefined, API_URL, apiInstance);
 export const storageApi = new StorageApi(undefined, API_URL, apiInstance);
 export const userApi = new UserApi(undefined, API_URL, apiInstance);
 
