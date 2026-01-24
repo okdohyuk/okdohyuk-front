@@ -6,5 +6,28 @@
     "appName": "okdohyuk",
     "terms": "이용약관",
     "privacy": "개인정보처리방침"
+  },
+  "error": {
+    "unknown": "알 수 없는 오류가 발생했습니다.",
+    "16": "이미 신고한 댓글입니다."
+  },
+  "confirm": {
+    "loginRequired": "로그인이 필요한 서비스입니다. 로그인 페이지로 이동하시겠습니까?",
+    "delete": "정말 삭제하시겠습니까?"
+  },
+  "alert": {
+    "reported": "신고되었습니다."
+  },
+  "reply": {
+    "listTitle": "댓글",
+    "placeholder": "댓글을 입력하세요...",
+    "submit": "등록",
+    "cancel": "취소",
+    "action": {
+      "reply": "답글",
+      "edit": "수정",
+      "delete": "삭제",
+      "report": "신고"
+    }
   }
 }

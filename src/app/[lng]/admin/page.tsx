@@ -5,6 +5,8 @@ import MobileScreenWrapper from '~/components/complex/Layout/MobileScreenWrapper
 const ADMIN_MENUS = [
   { href: '/admin/blog', label: 'Blog 관리' },
   { href: '/admin/blog/category', label: '카테고리 관리' },
+  { href: '/admin/reply-report', label: '댓글 신고 관리' },
+  { href: '/admin/users', label: '유저 관리' },
   // 추후 추가될 메뉴는 이 배열에 추가
 ];
 
