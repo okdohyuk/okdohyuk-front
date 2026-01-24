@@ -118,8 +118,10 @@ describe('BlogUtils', () => {
       contents: 'Test Content',
       categoryChain: ['Tech', 'Programming'],
       tags: [],
-      createdAt: '',
-      updatedAt: '',
+      createdAt: '2023-01-01',
+      updatedAt: '2023-01-01',
+      likeCount: 0,
+      viewCount: 0,
     };
 
     it('올바른 categoryId를 포함하는 BlogRequest 객체를 반환해야 합니다', () => {

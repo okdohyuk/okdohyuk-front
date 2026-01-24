@@ -19,6 +19,7 @@
   "alert": {
     "reported": "举报成功。"
   },
+  "recommended_posts": "推荐文章",
   "reply": {
     "listTitle": "评论",
     "placeholder": "请输入评论...",

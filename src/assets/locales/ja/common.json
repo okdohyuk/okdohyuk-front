@@ -19,6 +19,7 @@
   "alert": {
     "reported": "通報しました。"
   },
+  "recommended_posts": "おすすめの投稿",
   "reply": {
     "listTitle": "コメント",
     "placeholder": "コメントを入力してください...",
