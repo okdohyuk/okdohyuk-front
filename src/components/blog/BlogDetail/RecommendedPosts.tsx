@@ -36,7 +36,7 @@ function RecommendedPosts({ urlSlug, lng }: RecommendedPostsProps) {
       <h3 className="text-xl font-bold mb-6">{t('recommended_posts')}</h3>
       <div
         className={cls(
-          'gap-4 pb-4 mx-4 px-4',
+          'gap-4 pb-4',
           posts !== null
             ? 'flex overflow-x-auto scrollbar-hide'
             : 'grid grid-cols-2 lg:grid-cols-3 h-80 md:h-96 overflow-hidden',
