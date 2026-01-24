@@ -19,6 +19,7 @@
   "alert": {
     "reported": "Reported successfully."
   },
+  "recommended_posts": "Recommended Posts",
   "reply": {
     "listTitle": "Comments",
     "placeholder": "Enter your comment...",

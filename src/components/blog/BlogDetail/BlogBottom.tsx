@@ -5,6 +5,7 @@ import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 
 const LikeButton = React.lazy(() => import('./LikeButton'));
 const BlogReplyList = React.lazy(() => import('../reply/BlogReplyList'));
+const RecommendedPosts = React.lazy(() => import('./RecommendedPosts'));
 
 function BlogBottom() {
   const {
@@ -26,6 +27,7 @@ function BlogBottom() {
         </div>
 
         <BlogReplyList urlSlug={urlSlug} lng={lng} />
+        <RecommendedPosts urlSlug={urlSlug} lng={lng} />
       </footer>
     </>
   );

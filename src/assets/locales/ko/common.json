@@ -18,6 +18,7 @@
   "alert": {
     "reported": "신고되었습니다."
   },
+  "recommended_posts": "추천 게시물",
   "reply": {
     "listTitle": "댓글",
     "placeholder": "댓글을 입력하세요...",
