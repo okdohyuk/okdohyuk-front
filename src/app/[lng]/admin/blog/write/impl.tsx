@@ -176,7 +176,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
       </form>
 
       <div className="flex-1 hidden lg:block overflow-y-scroll">
-        <BlogDetail blog={blogData} isPreview />
+        <BlogDetail blog={blogData} isPreview lng="ko" />
       </div>
     </div>
   );

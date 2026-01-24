@@ -6,5 +6,29 @@
     "appName": "okdohyuk",
     "terms": "利用規約",
     "privacy": "プライバシーポリシー"
+  },
+  "error": {
+    "unknown": "不明なエラーが発生しました。",
+    "16": "このコメントは既に通報済みです。",
+    "17": "コメントは最大10件まで投稿できます。"
+  },
+  "confirm": {
+    "loginRequired": "ログインが必要です。ログインページに移動しますか？",
+    "delete": "本当に削除しますか？"
+  },
+  "alert": {
+    "reported": "通報しました。"
+  },
+  "reply": {
+    "listTitle": "コメント",
+    "placeholder": "コメントを入力してください...",
+    "submit": "登録",
+    "cancel": "キャンセル",
+    "action": {
+      "reply": "返信",
+      "edit": "編集",
+      "delete": "削除",
+      "report": "通報"
+    }
   }
 }

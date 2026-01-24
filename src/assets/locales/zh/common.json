@@ -6,5 +6,29 @@
     "appName": "okdohyuk",
     "terms": "服务条款",
     "privacy": "隐私政策"
+  },
+  "error": {
+    "unknown": "发生未知错误。",
+    "16": "您已举报过该评论。",
+    "17": "最多只能发表10条评论。"
+  },
+  "confirm": {
+    "loginRequired": "需要登录。您想前往登录页面吗？",
+    "delete": "确定要删除吗？"
+  },
+  "alert": {
+    "reported": "举报成功。"
+  },
+  "reply": {
+    "listTitle": "评论",
+    "placeholder": "请输入评论...",
+    "submit": "发布",
+    "cancel": "取消",
+    "action": {
+      "reply": "回复",
+      "edit": "编辑",
+      "delete": "删除",
+      "report": "举报"
+    }
   }
 }
