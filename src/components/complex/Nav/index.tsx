@@ -4,7 +4,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import { FileText, Home, Menu } from 'lucide-react';
 import Link from '@components/basic/Link';
-import ClassName from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import { sendGAEvent } from '@libs/client/gtag';
 
 type NavItem = {
@@ -37,7 +37,6 @@ const navList: NavItem[] = [
 
 function Nav() {
   const pathname = usePathname();
-  const { cls } = ClassName;
 
   return (
     <div className="fixed z-30 bottom-0 left-0 bg-zinc-100 dark:bg-zinc-800 w-full lg:bottom-5 lg:right-5 lg:left-auto lg:w-auto lg:rounded-full lg:shadow-md">
@@ -47,7 +46,7 @@ function Nav() {
             <Link
               href={navItem.link}
               onClick={() => sendGAEvent('link_click', navItem.name)}
-              className={cls(
+              className={cn(
                 'w-full h-full flex align-center justify-center text-center',
                 `${pathname}`.includes(navItem.pathname) ||
                   (navItem.pathname === '/home' && pathname?.length === 3)

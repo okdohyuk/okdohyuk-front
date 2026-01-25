@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { cls } from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import Tag from './Tag';
 
 type InputTagProps = {
@@ -28,7 +28,7 @@ function InputTag({ tags, addTag, removeTag }: InputTagProps) {
 
   return (
     <div
-      className={cls(
+      className={cn(
         'relative flex flex-row flex-wrap gap-2 input-text border-solid',
         isFocus ? 'outline outline-2 outline-point-2' : '',
       )}

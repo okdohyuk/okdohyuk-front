@@ -39,7 +39,7 @@ function BlogReplyList({ urlSlug, lng }: BlogReplyListProps) {
 
   return (
     <div className="mt-8 border-t pt-8 border-gray-200 dark:border-gray-700">
-      <h3 className="text-xl font-bold mb-4">{t('reply.listTitle')}</h3>
+      <h3 className="text-xl font-bold t-basic-1 mb-4">{t('reply.listTitle')}</h3>
 
       <BlogReplyForm urlSlug={urlSlug} onSuccess={() => refetch()} lng={lng} />
 

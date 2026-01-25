@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 import React from 'react';
 import FilterDropdown from '@components/complex/FilterDropdown';
 import useStore from '@hooks/useStore';
-import { cls } from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 
@@ -21,7 +21,7 @@ const BlogSearchNav = function BlogSearchNav({ hasMargin = false, lng }: BlogSea
 
   return (
     <div
-      className={cls(
+      className={cn(
         'w-[250px] bg-basic-3 p-0',
         hasMargin ? 'h-fit mt-8 mr-4 ml-auto rounded overflow-hidden' : 'h-full overflow-y-scroll',
       )}

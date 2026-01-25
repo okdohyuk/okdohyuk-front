@@ -1,5 +1,5 @@
 import React from 'react';
-import { cls } from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import { SelectProps } from './type';
 
 function Select({ className = '', children, form, value, onChange }: SelectProps) {
@@ -8,7 +8,7 @@ function Select({ className = '', children, form, value, onChange }: SelectProps
   };
 
   return (
-    <div className={cls('inline-block relative', className)}>
+    <div className={cn('inline-block relative', className)}>
       <select
         className="block appearance-none w-full h-full input-text leading-tight overflow-hidden"
         value={value}

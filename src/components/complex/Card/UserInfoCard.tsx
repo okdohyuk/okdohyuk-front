@@ -11,6 +11,7 @@ import { useTranslation } from '~/app/i18n/client';
 import useIsClient from '@hooks/useIsClient';
 import Link from '@components/basic/Link';
 import Skeleton from '@components/basic/Skeleton';
+import { Text } from '@components/basic/Text';
 
 function UserInfoCard({ lng }: { lng: Language }) {
   const { t } = useTranslation(lng, 'menu');
@@ -27,27 +28,37 @@ function UserInfoCard({ lng }: { lng: Language }) {
   if (!isClient) return <Skeleton className="mb-4 rounded-md" h={12} />;
 
   return (
-    <section className="mb-4 bg-basic-3 rounded-md p-2 flex items-center">
+    <section className="mb-4 flex items-center rounded-md bg-basic-3 p-2">
       {user ? (
         <>
           <Image src={user.profileImage} width={32} height={32} alt="profile" />
-          <div className="ml-4 t-d-1 t-basic-1">{user.name}</div>
-          <button type="button" className="ml-auto t-c-1 t-basic-1" onClick={logOut}>
-            {t('login.logout')}
+          <Text className="ml-4 t-basic-1" variant="d1">
+            {user.name}
+          </Text>
+          <button type="button" className="ml-auto" onClick={logOut}>
+            <Text variant="c1" className="t-basic-1">
+              {t('login.logout')}
+            </Text>
           </button>
-          <button type="button" className="ml-4 t-c-1 t-basic-1" onClick={logOutAll}>
-            {t('login.logoutAll')}
+          <button type="button" className="ml-4" onClick={logOutAll}>
+            <Text variant="c1" className="t-basic-1">
+              {t('login.logoutAll')}
+            </Text>
           </button>
           {/* 어드민이면 /admin 이동 버튼 노출 */}
           {user.role === 'ADMIN' && (
-            <Link href="/admin" className="ml-4 t-c-1 t-point-1 underline">
-              관리자 페이지
+            <Link href="/admin" className="ml-4 underline">
+              <Text variant="c1" className="text-point-1">
+                관리자 페이지
+              </Text>
             </Link>
           )}
         </>
       ) : (
         <button type="button" onClick={handleLogin}>
-          <div className="t-t-3 text-point-1">{t('login.description')}</div>
+          <Text variant="t3" className="text-point-1">
+            {t('login.description')}
+          </Text>
         </button>
       )}
     </section>

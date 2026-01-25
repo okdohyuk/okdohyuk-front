@@ -15,8 +15,13 @@ type BlogDetailProps = {
 export const dynamic = 'force-static';
 
 export async function generateStaticParams() {
-  const { data } = await blogApi.getBlogSearch(0, 100);
-  return data.results.map((blog) => ({ urlSlug: blog.urlSlug }));
+  try {
+    const { data } = await blogApi.getBlogSearch(0, 100);
+    return data.results.map((blog) => ({ urlSlug: blog.urlSlug }));
+  } catch (error) {
+    // console.error('Failed to generate static params:', error);
+    return [];
+  }
 }
 
 const getPost = cache(async (urlSlug: string) => {

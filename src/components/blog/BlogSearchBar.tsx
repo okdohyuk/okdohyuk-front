@@ -5,8 +5,8 @@ import { useTranslation } from 'next-i18next';
 import React, { useCallback } from 'react';
 import { Filter, LayoutGrid, List, Search } from 'lucide-react';
 import useStore from '@hooks/useStore';
-import { cls } from '@utils/classNameUtils';
 import Select from 'components/complex/Select';
+import { cn } from '@utils/cn';
 
 type BlogSearchBarProps = {
   toggleDrawer: () => void;
@@ -45,14 +45,14 @@ function BlogSearchBar({ toggleDrawer }: BlogSearchBarProps) {
       <div className="flex min-h-[32px] p-1 bg-point-3 rounded-md">
         <button
           type="button"
-          className={cls('p-1 rounded-md text-white', viewType === 'discript' ? 'bg-point-1' : '')}
+          className={cn('p-1 rounded-md text-white', viewType === 'discript' ? 'bg-point-1' : '')}
           onClick={() => setViewType('discript')}
         >
           <List className="w-6 h-6" />
         </button>
         <button
           type="button"
-          className={cls('p-1 rounded-md text-white', viewType === 'frame' ? 'bg-point-1' : '')}
+          className={cn('p-1 rounded-md text-white', viewType === 'frame' ? 'bg-point-1' : '')}
           onClick={() => setViewType('frame')}
         >
           <LayoutGrid className="w-6 h-6" />

@@ -5,7 +5,7 @@ import { BlogSearch } from '@api/Blog';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import BlogCardSkeleton from '@components/blog/BlogCardSkeleton';
-import { cls } from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import BlogCard from '../BlogCard';
 
 interface RecommendedPostsProps {
@@ -33,9 +33,9 @@ function RecommendedPosts({ urlSlug, lng }: RecommendedPostsProps) {
 
   return (
     <div ref={ref} className="mt-12 w-full">
-      <h3 className="text-xl font-bold mb-6">{t('recommended_posts')}</h3>
+      <h3 className="text-xl t-basic-1 font-bold mb-6">{t('recommended_posts')}</h3>
       <div
-        className={cls(
+        className={cn(
           'gap-4 pb-4',
           posts !== null
             ? 'flex overflow-x-auto scrollbar-hide'

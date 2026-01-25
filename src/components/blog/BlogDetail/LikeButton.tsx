@@ -6,6 +6,7 @@ import { Heart } from 'lucide-react';
 import { useCookies } from 'react-cookie';
 import { v4 as uuidv4 } from 'uuid';
 import { blogApi } from '@api';
+import { Text } from '@components/basic/Text';
 import { useBlogDetail } from './BlogDetailProvider';
 
 function LikeButton() {
@@ -75,7 +76,7 @@ function LikeButton() {
         onClick={handleLike}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className={`p-3 rounded-full shadow-lg transition-colors ${
+        className={`p-3 rounded-full shadow-lg dark:shadow-zinc-600 transition-colors ${
           isLiked ? 'bg-red-500 text-white' : 'bg-white text-gray-400 border border-gray-200'
         }`}
         disabled={isLoading}
@@ -92,7 +93,9 @@ function LikeButton() {
           </motion.div>
         </AnimatePresence>
       </motion.button>
-      <div className="text-sm font-medium text-gray-600">{likeCount ?? 0}</div>
+      <Text variant="d3" color="basic-5">
+        {likeCount ?? 0}
+      </Text>
     </div>
   );
 }

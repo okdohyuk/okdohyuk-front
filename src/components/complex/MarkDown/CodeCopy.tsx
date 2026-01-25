@@ -1,8 +1,7 @@
-import React, { useCallback, useMemo, useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Check, Copy } from 'lucide-react';
 import { debounce } from 'lodash';
-
-import ClassName from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import { MarkdownItem } from './type';
 
 type CodeCopyProps = {
@@ -10,7 +9,6 @@ type CodeCopyProps = {
 } & MarkdownItem;
 
 const CodeCopy = function CodeCopy({ children, copyString, ...props }: CodeCopyProps) {
-  const { cls } = ClassName;
   const [copied, setCopied] = useState(false);
 
   const resetCopied = useMemo(
@@ -33,8 +31,8 @@ const CodeCopy = function CodeCopy({ children, copyString, ...props }: CodeCopyP
     <div className="w-full overflow-auto min-h-[42px] h-auto my-4 relative">
       <pre
         {...props}
-        className={cls(
-          'w-full overflow-auto min-h-[42px] h-auto p-2 rounded-md t-d-3 my-0',
+        className={cn(
+          'w-full overflow-auto min-h-[42px] h-auto p-2 rounded-md t-d-3 my-0 relative',
           props.className,
         )}
       >
@@ -42,16 +40,16 @@ const CodeCopy = function CodeCopy({ children, copyString, ...props }: CodeCopyP
         <div className="absolute right-0 top-0 w-[42px] h-[42px] flex items-center justify-center">
           <button
             type="button"
-            className={cls(
+            className={cn(
               'w-[32px] h-[32px] rounded-md bg-black border-2',
               copied
                 ? 'border-point-2'
-                : 'border-white hover:border-basic-5 [&>svg]:hover:t-basic-5',
+                : 'border-zinc-200 hover:border-basic-5 [&>svg]:hover:t-basic-5',
             )}
             onClick={copyToClipboard}
           >
-            <Copy className={cls('m-auto text-white', copied ? 'hidden' : '')} />
-            <Check className={cls('m-auto text-point-2', !copied ? 'hidden' : '')} />
+            <Copy className={cn('m-auto text-zinc-200 hover:t-basic-5', copied ? 'hidden' : '')} />
+            <Check className={cn('m-auto text-point-2', !copied ? 'hidden' : '')} />
           </button>
         </div>
       </pre>
