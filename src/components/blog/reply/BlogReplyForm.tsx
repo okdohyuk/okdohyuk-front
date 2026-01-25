@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
-import { blogReplyApi } from '@api';
+import { useCreateBlogReply, useUpdateBlogReply } from '@queries/useReplyQueries';
 import { BlogReply } from '@api/BlogReply';
 import { useRouter } from 'next/navigation';
 import UserTokenUtil from '@utils/userTokenUtil';
@@ -31,6 +31,9 @@ function BlogReplyForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
+  const createMutation = useCreateBlogReply(urlSlug);
+  const updateMutation = useUpdateBlogReply(urlSlug);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!content.trim()) return;
@@ -45,25 +48,30 @@ function BlogReplyForm({
     }
 
     setIsSubmitting(true);
-    try {
-      const fullToken = `Bearer ${token}`;
 
-      if (replyToEdit) {
-        await blogReplyApi.putBlogReply(replyToEdit.id, fullToken, { urlSlug, content });
-      } else {
-        await blogReplyApi.postBlogReply(urlSlug, fullToken, {
-          urlSlug,
-          content,
-          parentId: parentId || null,
-        });
-      }
+    const handleSuccess = () => {
       setContent('');
       onSuccess();
-    } catch (error) {
+      setIsSubmitting(false);
+    };
+
+    const handleError = (error: any) => {
+      // eslint-disable-next-line no-console
       console.error('Failed to submit reply', error);
       alert(getErrorMessage(error, t));
-    } finally {
       setIsSubmitting(false);
+    };
+
+    if (replyToEdit) {
+      updateMutation.mutate(
+        { id: replyToEdit.id, content },
+        { onSuccess: handleSuccess, onError: handleError },
+      );
+    } else {
+      createMutation.mutate(
+        { content, parentId },
+        { onSuccess: handleSuccess, onError: handleError },
+      );
     }
   };
 
