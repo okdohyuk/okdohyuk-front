@@ -1,0 +1,276 @@
+@import 'tailwindcss';
+@import './prism.css';
+
+@config "../../tailwind.config.js";
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/*html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue',
+    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+!* HTML5 display-role reset for older browsers *!
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.auto-image {
+  width: 100%;
+}
+
+.auto-image > span {
+  position: unset !important;
+}
+
+.auto-image > span > img {
+  height: auto !important;
+  position: relative !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@layer base {
+  :root {
+    --basic-0: #ffffff;
+    --basic-1: #fafafa;
+    --basic-2: #f4f4f5;
+    --basic-3: #e4e4e7;
+    --basic-4: #d4d4d8;
+    --basic-5: #a1a1aa;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --basic-0: #000000;
+      --basic-1: #18181b;
+      --basic-2: #27272a;
+      --basic-3: #3f3f46;
+      --basic-4: #52525b;
+      --basic-5: #71717a;
+    }
+  }
+}
+
+@layer components {
+  /* Legacy Typography Sizes */
+  .t-t-1 {
+    @apply text-4xl font-bold;
+  }
+  .t-t-2 {
+    @apply text-3xl font-bold;
+  }
+  .t-t-3 {
+    @apply text-2xl font-bold;
+  }
+
+  .t-d-1 {
+    @apply text-lg font-normal;
+  }
+  .t-d-2 {
+    @apply text-base font-normal;
+  }
+  .t-d-3 {
+    @apply text-sm font-normal;
+  }
+
+  .t-c-1 {
+    @apply text-xs font-light;
+  }
+  .t-c-2 {
+    @apply text-[10px] font-light;
+  }
+  .t-c-3 {
+    @apply text-[8px] font-light;
+  }
+
+  /* Legacy Typography Colors */
+  .t-basic-0 {
+    @apply text-black dark:text-white;
+  }
+  .t-basic-1 {
+    @apply text-zinc-900 dark:text-zinc-50;
+  }
+  .t-basic-2 {
+    @apply text-zinc-800 dark:text-zinc-100;
+  }
+  .t-basic-3 {
+    @apply text-zinc-700 dark:text-zinc-200;
+  }
+  .t-basic-4 {
+    @apply text-zinc-600 dark:text-zinc-300;
+  }
+  .t-basic-5 {
+    @apply text-zinc-500 dark:text-zinc-400;
+  }
+  .t-basic-6 {
+    @apply text-zinc-400 dark:text-zinc-500;
+  }
+  .t-basic-7 {
+    @apply text-zinc-300 dark:text-zinc-600;
+  }
+  .t-basic-8 {
+    @apply text-zinc-200 dark:text-zinc-700;
+  }
+  .t-basic-9 {
+    @apply text-zinc-100 dark:text-zinc-800;
+  }
+  .t-basic-10 {
+    @apply text-zinc-50 dark:text-zinc-900;
+  }
+
+  /* Legacy Components */
+  .input-text {
+    @apply flex items-center min-h-[32px] rounded-md bg-basic-1 border border-basic-4 focus:outline outline-2 outline-point-2 p-1 text-lg font-normal text-zinc-900 dark:text-zinc-50;
+  }
+
+  .button {
+    @apply flex items-center justify-center min-h-[32px] rounded-md bg-point-2 hover:bg-point-1 p-1 text-lg font-normal text-white;
+  }
+
+  .table th,
+  .table td {
+    @apply p-2 border border-solid border-basic-5 align-middle break-keep;
+  }
+}

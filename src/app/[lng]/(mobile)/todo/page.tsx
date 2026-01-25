@@ -9,6 +9,9 @@ import useIsClient from '@hooks/useIsClient';
 import useStore from '@hooks/useStore';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
+import { H1 } from '@components/basic/Text';
+import { Input } from '@components/basic/Input';
+import { Button } from '@components/basic/Button';
 
 const ToDoCard = dynamic(() => import('~/app/[lng]/(mobile)/todo/components/ToDoCard'), {
   ssr: false,
@@ -32,17 +35,17 @@ function TodoPage({ params }: LanguageParams) {
 
   return (
     <>
-      <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
-      <form onSubmit={handleSubmitTodo} className="flex items-center gap-2 mb-4">
-        <input
-          className="input-text w-full"
+      <H1 className="mb-4 t-basic-1">{t('title')}</H1>
+      <form onSubmit={handleSubmitTodo} className="mb-4 flex items-center gap-2">
+        <Input
+          className="w-full"
           placeholder={t('inputPlaceholder')}
           value={value}
           onChange={onChange}
         />
-        <button type="submit" className="button w-20">
+        <Button type="submit" className="w-20">
           {t('add')}
-        </button>
+        </Button>
       </form>
 
       <div className="flex flex-col space-y-2">

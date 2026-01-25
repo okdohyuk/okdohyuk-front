@@ -10,7 +10,7 @@ import CommonLayout from '@components/complex/Layout/CommonLayout';
 import Footer from '@components/complex/Layout/Footer';
 import { ReactQueryProvider } from '@components/complex/Layout/QueryClient';
 import GoogleAdsense from '@components/google/GoogleAdsense';
-import '~/styles/globals.scss';
+import '~/styles/globals.css';
 import { Language, languages } from '~/app/i18n/settings';
 import { StoreProvider } from './provider';
 

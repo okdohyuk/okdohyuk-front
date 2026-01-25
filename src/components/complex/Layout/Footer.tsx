@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import ClassName from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 
 interface FooterProps {
   lng: Language;
@@ -18,7 +18,6 @@ const blockedPaths = ['/multi-live', '/admin'];
 
 function Footer({ lng, className = '' }: FooterProps) {
   const { t } = useTranslation(lng, 'common');
-  const { cls } = ClassName;
   const pathname = usePathname();
 
   if (blockedPaths.some((path) => pathname.includes(path))) {
@@ -31,7 +30,7 @@ function Footer({ lng, className = '' }: FooterProps) {
 
   return (
     <footer
-      className={cls(
+      className={cn(
         'w-full py-4 border-t border-zinc-200 dark:border-zinc-800',
         'bg-zinc-100 dark:bg-zinc-900',
         'mb-[57px] lg:mb-0',

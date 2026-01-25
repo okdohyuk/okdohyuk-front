@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Square, SquareMinus, SquarePlus } from 'lucide-react';
 import Skeleton from '@components/basic/Skeleton';
-import { cls } from '~/utils/classNameUtils';
+import { cn } from '@utils/cn';
 import { FilterDropdownFC, FilterDropdownItem } from './type';
 
 const FilterDropdown: FilterDropdownFC = function FilterDropdown({ title, items, changeType }) {
@@ -26,7 +26,7 @@ const FilterDropdown: FilterDropdownFC = function FilterDropdown({ title, items,
           className="px-1 rounded flex items-center justify-between cursor-pointer hover:bg-basic-4 w-full"
           onClick={() => changeState(item)}
         >
-          <span className={cls('t-d-1 t-basic-1', `ml-${margin * 2}`)}>{item.name}</span>
+          <span className={cn('t-d-1 t-basic-1', `ml-${margin * 2}`)}>{item.name}</span>
           {
             {
               in: <SquarePlus className="text-point-1" />,

@@ -6,6 +6,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { RotateCcw, Settings, Zap } from 'lucide-react';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
+import { Input } from '@components/basic/Input';
+import { Button } from '@components/basic/Button';
+import { H1, H2, H3, Text } from '@components/basic/Text';
 
 const MAX_BALLS_DISPLAY = 100; // 화면에 표시할 최대 공 개수 (성능 고려)
 
@@ -93,11 +96,11 @@ export default function PpollongPage({ params }: LanguageParams) {
       balls.push(
         <motion.div
           key={i}
-          className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-bold text-sm md:text-base border-2
+          className={`flex h-10 w-10 items-center justify-center rounded-full border-2 text-sm font-bold md:h-12 md:w-12 md:text-base
             ${
               isDrawn
-                ? 'bg-gray-300 border-gray-400 text-gray-500 opacity-50'
-                : 'bg-blue-100 border-blue-400 text-blue-700'
+                ? 'border-gray-400 bg-gray-300 text-gray-500 opacity-50 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-400'
+                : 'border-blue-400 bg-blue-100 text-blue-700 dark:border-blue-500 dark:bg-blue-900/50 dark:text-blue-300'
             }
             ${currentNumber === i && isLoading ? 'animate-ping' : ''}
           `}
@@ -111,7 +114,7 @@ export default function PpollongPage({ params }: LanguageParams) {
       if (i >= MAX_BALLS_DISPLAY && maxNumber > MAX_BALLS_DISPLAY + 5) {
         // 너무 많으면 ...으로 표시
         balls.push(
-          <div key="ellipsis" className="p-2">
+          <div key="ellipsis" className="p-2 t-basic-1">
             ...
           </div>,
         );
@@ -121,11 +124,11 @@ export default function PpollongPage({ params }: LanguageParams) {
           balls.push(
             <motion.div
               key={j}
-              className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-bold text-sm md:text-base border-2
+              className={`flex h-10 w-10 items-center justify-center rounded-full border-2 text-sm font-bold md:h-12 md:w-12 md:text-base
                     ${
                       isDrawnEnd
-                        ? 'bg-gray-300 border-gray-400 text-gray-500 opacity-50'
-                        : 'bg-blue-100 border-blue-400 text-blue-700'
+                        ? 'border-gray-400 bg-gray-300 text-gray-500 opacity-50 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-400'
+                        : 'border-blue-400 bg-blue-100 text-blue-700 dark:border-blue-500 dark:bg-blue-900/50 dark:text-blue-300'
                     }
                   `}
               initial={{ scale: 0.5, opacity: 0 }}
@@ -154,103 +157,110 @@ export default function PpollongPage({ params }: LanguageParams) {
   }
 
   return (
-    <div className="container mx-auto p-4 flex flex-col items-center min-h-[calc(100vh-100px)]">
-      <motion.h1
-        className="text-3xl md:text-4xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"
+    <div className="container mx-auto flex min-h-[calc(100vh-100px)] flex-col items-center p-4">
+      <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {t('title')}
-      </motion.h1>
+        <H1 className="mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-center text-3xl font-bold text-transparent md:text-4xl">
+          {t('title')}
+        </H1>
+      </motion.div>
 
       {/* 설정 영역 */}
       <motion.div
-        className="w-full max-w-md mb-8 p-6 bg-white shadow-xl rounded-xl border border-gray-200"
+        className="mb-8 w-full max-w-md rounded-xl bg-basic-3 p-6 shadow-xl"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-xl font-semibold mb-4 text-gray-700 flex items-center">
+        <H2 className="mb-4 flex items-center text-xl font-semibold t-basic-2">
           <Settings className="mr-2 text-blue-500" /> {t('settingsTitle')}
-        </h2>
+        </H2>
         <div className="flex space-x-2">
-          <input
+          <Input
             type="number"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder={t('maxNumberPlaceholder') || '최대 숫자 (예: 45)'}
-            className="input-text w-full"
+            className="w-full"
             disabled={isInitialized || isLoading}
           />
           {!isInitialized ? (
-            <motion.button
-              type="button"
-              onClick={handleInitialize}
-              className="button w-20 bg-blue-500 text-white hover:bg-blue-600 transition-colors disabled:bg-gray-300 text-nowrap"
-              whileTap={{ scale: 0.97 }}
+            <Button
+              asChild
+              className="w-20 text-nowrap bg-blue-500 text-white hover:bg-blue-600 disabled:bg-gray-300 dark:disabled:bg-zinc-700"
               disabled={isLoading}
             >
-              {t('initializeButton')}
-            </motion.button>
+              <motion.button type="button" onClick={handleInitialize} whileTap={{ scale: 0.97 }}>
+                {t('initializeButton')}
+              </motion.button>
+            </Button>
           ) : (
-            <motion.button
-              type="button"
-              onClick={handleReset}
-              className="button w-20 justify-center bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors"
-              whileTap={{ scale: 0.95 }}
+            <Button
+              asChild
+              className="w-20 justify-center"
               title={t('resetButtonTitle') || '설정 초기화'}
             >
-              <RotateCcw size={20} />
-            </motion.button>
+              <motion.button type="button" onClick={handleReset} whileTap={{ scale: 0.95 }}>
+                <RotateCcw size={20} />
+              </motion.button>
+            </Button>
           )}
         </div>
-        {error && !isLoading && <p className="text-red-500 text-sm mt-2 animate-pulse">{error}</p>}
+        {error && !isLoading && (
+          <Text variant="c1" className="mt-2 animate-pulse text-red-500">
+            {error}
+          </Text>
+        )}
       </motion.div>
 
       {/* 뽑기 실행 영역 */}
       {isInitialized && (
         <motion.div
-          className="w-full max-w-md mb-8 p-6 bg-white shadow-xl rounded-xl border border-gray-200"
+          className="mb-8 w-full max-w-md rounded-xl bg-basic-3 p-6 shadow-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <div className="text-center mb-6">
+          <div className="mb-6 text-center">
             {/* "대포" 시각적 요소 (간단하게) */}
             <motion.div
-              className="text-6xl mb-4"
+              className="mb-4 text-6xl"
               animate={isLoading ? { rotate: [0, -5, 5, -5, 0], scale: [1, 1.1, 1, 1.1, 1] } : {}}
               transition={isLoading ? { duration: 0.3, repeat: Infinity, repeatType: 'loop' } : {}}
             >
               💣
             </motion.div>
-            <motion.button
-              type="button"
-              onClick={handleDraw}
-              className="button w-full px-8 py-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-xl font-bold rounded-full hover:from-green-500 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-              whileTap={{ scale: 0.98 }}
+            <Button
+              asChild
+              className="h-auto w-full rounded-full bg-gradient-to-r from-green-400 to-blue-500 px-8 py-4 text-xl font-bold text-white shadow-lg transition-all hover:scale-105 hover:from-green-500 hover:to-blue-600 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
               disabled={isLoading || remainingNumbers.length === 0}
             >
-              <Zap className="inline mr-2 mb-1" />
-              {drawButtonLabel}
-            </motion.button>
+              <motion.button type="button" onClick={handleDraw} whileTap={{ scale: 0.98 }}>
+                <Zap className="mb-1 mr-2 inline" />
+                {drawButtonLabel}
+              </motion.button>
+            </Button>
           </div>
 
           {/* 현재 뽑힌 숫자 */}
           <AnimatePresence>
             {currentNumber !== null && (
               <motion.div
-                className="text-center my-6 p-6 bg-yellow-100 border-4 border-dashed border-yellow-400 rounded-xl shadow-inner"
+                className="my-6 rounded-xl border-4 border-dashed border-yellow-400 bg-yellow-100 p-6 text-center shadow-inner dark:bg-yellow-900/30"
                 initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                 exit={{ opacity: 0, scale: 0.5, rotate: 15, transition: { duration: 0.3 } }}
                 transition={{ type: 'spring', stiffness: 150, damping: 10 }}
               >
-                <p className="text-sm text-yellow-600 font-semibold">{t('drawnNumberPrefix')}</p>
-                <p className="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-red-600 my-2">
+                <Text className="font-semibold text-yellow-600 dark:text-yellow-400">
+                  {t('drawnNumberPrefix')}
+                </Text>
+                <span className="my-2 bg-gradient-to-br from-yellow-500 to-red-600 bg-clip-text text-7xl font-black text-transparent md:text-8xl">
                   {currentNumber}
-                </p>
+                </span>
               </motion.div>
             )}
           </AnimatePresence>
@@ -260,19 +270,19 @@ export default function PpollongPage({ params }: LanguageParams) {
       {/* 뽑힌 숫자 목록 (구슬 모양) */}
       {isInitialized && maxNumber > 0 && (
         <motion.div
-          className="w-full max-w-2xl mt-4 p-6 bg-gray-50 shadow-lg rounded-xl border border-gray-200"
+          className="mt-4 w-full max-w-2xl rounded-xl bg-basic-4 p-6 shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
-          <h3 className="text-lg font-semibold mb-4 text-gray-600">
+          <H3 className="mb-4 text-lg font-semibold t-basic-2">
             {t('numberBoardTitle', {
               maxNumber,
               drawnCount: drawnNumbers.length,
               totalCount: maxNumber,
             })}
-          </h3>
-          <div className="flex flex-wrap gap-2 justify-center">{renderNumberBalls()}</div>
+          </H3>
+          <div className="flex flex-wrap justify-center gap-2">{renderNumberBalls()}</div>
         </motion.div>
       )}
     </div>

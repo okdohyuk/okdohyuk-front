@@ -1,17 +1,16 @@
 import React from 'react';
 import Image from 'next/legacy/image';
 import DateUtils from '@utils/dateUtils';
-import ClassName from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import MarkdownUtils from '@utils/markdownUtils';
 import { BlogCardTypeFC } from './type';
 
 const Frame: BlogCardTypeFC = function Frame({ blog }) {
   const { thumbnailImage, title, contents, createdAt } = blog;
-  const { cls } = ClassName;
 
   return (
     <article
-      className={cls(
+      className={cn(
         'flex flex-col h-80 md:h-96 rounded overflow-hidden bg-basic-3 hover:bg-basic-4',
       )}
     >

@@ -1,11 +1,19 @@
 'use client';
 
 import React, { useState, useCallback, use } from 'react';
-import Select from '@components/complex/Select';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from '~/app/i18n/client';
 import { LiveType, platformMapper } from '@utils/liveTypes';
 import { MultiLiveProps } from '~/app/[lng]/multi-live/[[...slug]]/layout';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@components/basic/Select';
+import { Input } from '@components/basic/Input';
+import { Button } from '@components/basic/Button';
 
 function MultiLivePopUp({ params }: MultiLiveProps) {
   const { lng, slug } = use(params);
@@ -37,30 +45,31 @@ function MultiLivePopUp({ params }: MultiLiveProps) {
 
   return (
     isVisible && (
-      <div className="fixed flex bottom-4 left-4 bg-basic-0 p-2 rounded-lg gap-2">
-        <Select
-          value={newLiveType}
-          onChange={(value) => setNewLiveType(value as LiveType)}
-          className="w-24"
-        >
-          {Object.values(platformMapper).map((type) => (
-            <option key={type} value={type}>
-              {t(type)}
-            </option>
-          ))}
+      <div className="fixed bottom-4 left-4 flex gap-2 rounded-lg bg-basic-0 p-2">
+        <Select value={newLiveType} onValueChange={(value) => setNewLiveType(value as LiveType)}>
+          <SelectTrigger className="w-24">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {Object.values(platformMapper).map((type) => (
+              <SelectItem key={type} value={type}>
+                {t(type)}
+              </SelectItem>
+            ))}
+          </SelectContent>
         </Select>
-        <input
-          className="input-text"
+        <Input
+          className="w-40"
           value={liveId}
           onChange={(e) => setLiveId(e.target.value)}
           placeholder={t('input-placeholder')}
         />
-        <button type="button" className="button" onClick={onSubmit}>
+        <Button type="button" onClick={onSubmit}>
           {t('add')}
-        </button>
-        <button type="button" className="button bg-red-400 hover:bg-red-500" onClick={closePopUp}>
+        </Button>
+        <Button type="button" className="bg-red-400 hover:bg-red-500" onClick={closePopUp}>
           {t('close')}
-        </button>
+        </Button>
       </div>
     )
   );

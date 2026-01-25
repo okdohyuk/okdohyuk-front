@@ -1,16 +1,15 @@
 import React from 'react';
 import Image from 'next/legacy/image';
 import Tag from '@components/basic/Tag';
-import ClassName from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import { BlogCardTypeFC } from './type';
 
 const Board: BlogCardTypeFC = function Board({ blog }) {
   const { thumbnailImage, title, isPublic, tags } = blog;
-  const { cls } = ClassName;
 
   return (
     <article
-      className={cls(
+      className={cn(
         'flex items-center p-1 rounded-md overflow-hidden bg-basic-3 hover:bg-basic-4',
         isPublic ? '' : 'bg-red-300',
       )}

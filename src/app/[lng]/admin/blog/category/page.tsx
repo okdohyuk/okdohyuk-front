@@ -8,7 +8,7 @@ import { UseCategoryProps } from '@hooks/blog/type';
 import useBlogCategory from '@hooks/blog/useBlogCategory';
 import { blogApi } from '@api';
 import { BlogCategory } from '@api/Blog';
-import { cls } from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 
 type CategoryInput = {
   nowEdit: boolean;
@@ -86,7 +86,7 @@ export default function CategorySettingPage() {
             ) : (
               <button
                 type="button"
-                className={cls(
+                className={cn(
                   'w-fit p-1 rounded cursor-pointer t-d-1 t-basic-2',
                   selected ? 'bg-point-3 text-black' : 'hover:bg-basic-4',
                 )}

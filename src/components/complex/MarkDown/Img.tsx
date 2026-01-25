@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
-import { cls } from '~/utils/classNameUtils';
+import { cn } from '@utils/cn';
 
 interface ImgProps {
   src: string;
@@ -43,7 +43,7 @@ const Img = function Img({ src, alt }: ImgProps) {
         src={`${src}?w=1280`}
         alt={alt}
         onLoad={() => setIsLoaded(true)}
-        className={cls(
+        className={cn(
           'object-contain transition-opacity duration-300 ease-in-out',
           isLoaded ? 'opacity-100' : 'opacity-0',
         )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from '@components/basic/Link';
-import { cls } from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import { getLiveUrl, platformMapper } from '@utils/liveTypes';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { getTranslations } from '~/app/i18n';
@@ -40,7 +40,7 @@ export default async function MultiLivePage({ params }: MultiLiveProps) {
       {liveUrls.map((url) => (
         <iframe
           key={url}
-          className={cls(
+          className={cn(
             'border-0 overflow-hidden',
             liveUrls.length === 1 ? 'w-screen h-screen' : 'aspect-video w-full lg:w-1/2',
             liveUrls.length >= 3 ? 'max-w-screen-lg max-h-[50vh]' : '',
