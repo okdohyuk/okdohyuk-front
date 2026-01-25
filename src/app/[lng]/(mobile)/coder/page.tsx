@@ -7,7 +7,6 @@ import { debounce } from 'lodash';
 import { Check, Copy, MoreHorizontal } from 'lucide-react';
 
 import CodeCopy from '@components/complex/MarkDown/CodeCopy';
-import { cls } from '@utils/classNameUtils';
 import CoderUtils from '@utils/coderUtils';
 import { CoderFormType, CoderType } from '@utils/coderUtils/type';
 import { useTranslation } from '~/app/i18n/client';
@@ -19,7 +18,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@components/ui/select';
+} from '@components/basic/Select';
+import { cn } from '@utils/cn';
+import { Input } from '@components/basic/Input';
+import { Textarea } from '@components/basic/Textarea';
 
 const coderList: CoderType[] = [
   'BASE64',
@@ -53,7 +55,7 @@ function CoderPage({ params }: LanguageParams) {
   if (resultList !== null && resultList.length > 1) {
     if (isMoreOpen) {
       historyContent = resultList.slice(0, -1).map((value) => (
-        <CodeCopy key={value} className="bg-basic-4" copyString={value}>
+        <CodeCopy key={value} className="bg-basic-4 t-basic-1" copyString={value}>
           {value}
         </CodeCopy>
       ));
@@ -107,18 +109,18 @@ function CoderPage({ params }: LanguageParams) {
                   ))}
                 </SelectContent>
               </Select>
-              <p className="t-d-2">{t(`desc.${value}`)}</p>
+              <p className="t-d-2 t-basic-0">{t(`desc.${value}`)}</p>
             </div>
           )}
         />
         <div className="flex justify-end flex-wrap gap-4">
           <div className="flex items-center space-x-2">
-            <label className="t-d-1" htmlFor="coder-count-input">
+            <label className="t-d-1 t-basic-0" htmlFor="coder-count-input">
               {t('count')}
             </label>
-            <input
+            <Input
               type="number"
-              className={cls('input-text w-16', errors.count ? 'outline' : '')}
+              className={cn('w-16', errors.count ? 'outline' : '')}
               {...register('count', {
                 valueAsNumber: true,
                 min: 1,
@@ -133,17 +135,14 @@ function CoderPage({ params }: LanguageParams) {
               <div className="flex min-h-[32px] p-1 bg-point-3 rounded-md">
                 <button
                   type="button"
-                  className={cls(
-                    value ? 'bg-point-1' : '',
-                    'px-3 rounded-md text-white t-basic-10',
-                  )}
+                  className={cn(value ? 'bg-point-1' : '', 'px-3 rounded-md text-white t-basic-10')}
                   onClick={() => onChange(true)}
                 >
                   {t('encoder')}
                 </button>
                 <button
                   type="button"
-                  className={cls(
+                  className={cn(
                     !value ? 'bg-point-1' : '',
                     'px-3 rounded-md text-white t-basic-10',
                   )}
@@ -156,20 +155,20 @@ function CoderPage({ params }: LanguageParams) {
           />
         </div>
 
-        <textarea className="input-text resize-none h-32 w-full" {...register('value')} />
+        <Textarea className="resize-none h-32 w-full" {...register('value')} />
         <button type="button" className="button w-full" onClick={handleSubmit(onSubmit)}>
           {t('submit')}
         </button>
 
         {historyContent}
-        <textarea
-          className="input-text resize-none h-32 w-full"
+        <Textarea
+          className="resize-none h-32 w-full"
           value={resultList ? resultList[resultList.length - 1] : ''}
           readOnly
         />
         <button type="button" className="button w-full gap-2" onClick={copyToClipboard}>
-          <Copy className={cls(copied ? 'hidden' : '')} />
-          <Check className={cls(!copied ? 'hidden' : '')} />
+          <Copy className={cn(copied ? 'hidden' : '')} />
+          <Check className={cn(!copied ? 'hidden' : '')} />
           {t('copy')}
         </button>
       </section>

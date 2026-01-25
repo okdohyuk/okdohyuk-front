@@ -6,6 +6,8 @@ import UserInfoCard from '@components/complex/Card/UserInfoCard';
 import Link from 'next/link';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
+import { H1, H2, Text } from '@components/basic/Text';
+import { Button } from '@components/basic/Button';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -28,13 +30,15 @@ export default async function MenuPage({ params }: LanguageParams) {
       return (
         <li key={title} className="list-none">
           <Link href={menu.link} target={menu.link.startsWith('/') ? '' : '_blank'}>
-            <button
+            <Button
               type="button"
-              className="flex items-center gap-2 w-full bg-transparent hover:bg-basic-4 active:bg-basic-5 outline-none transition ease-in duration-[40ms] rounded-md p-2 text-left t-d-1 t-basic-1"
+              className="w-full justify-start rounded-md bg-transparent p-2 outline-none transition duration-[40ms] ease-in hover:bg-basic-4 active:bg-basic-5"
             >
-              {menu.icon}
-              {title}
-            </button>
+              <Text className="flex gap-2 items-center w-full justify-start text-left t-basic-1">
+                {menu.icon}
+                {title}
+              </Text>
+            </Button>
           </Link>
         </li>
       );
@@ -44,8 +48,10 @@ export default async function MenuPage({ params }: LanguageParams) {
   const renderMenuGroup = (menuMap: Menus) => {
     return Object.entries(menuMap).map(([key, menuList]) => {
       return (
-        <section key={key} className="mb-4 bg-basic-3 rounded-md p-2">
-          <h2 className="t-t-3 t-basic-1">{t(key)}</h2>
+        <section key={key} className="mb-4 rounded-md bg-basic-3 p-2">
+          <H2 variant="t3" className="t-basic-1">
+            {t(key)}
+          </H2>
           <ul className="space-y-2">{renderMenuList(menuList)}</ul>
         </section>
       );
@@ -54,7 +60,7 @@ export default async function MenuPage({ params }: LanguageParams) {
 
   return (
     <>
-      <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
+      <H1 className="mb-4 t-basic-1">{t('title')}</H1>
       <div className="lg:columns-2">
         <UserInfoCard lng={language} />
         {renderMenuGroup(menus)}

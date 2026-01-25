@@ -4,7 +4,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import useBlogSearchClient from '@hooks/blog/useBlogSearchClient';
 import useStore from '@hooks/useStore';
-import { cls } from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { BlogCategory } from '~/spec/api/Blog';
@@ -33,7 +33,7 @@ const BlogSearchListClient = function BlogSearchListClient({
         {count}
       </div>
       <div
-        className={cls(
+        className={cn(
           'w-full gap-2 mt-4',
           viewType === 'frame' ? 'grid grid-cols-2 lg:grid-cols-3' : 'flex flex-col',
         )}

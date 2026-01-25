@@ -6,6 +6,14 @@ import useStore from '@hooks/useStore';
 import { observer } from 'mobx-react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
+import { Input } from '@components/basic/Input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@components/basic/Select';
 
 type PercentCalculatorCardProps = {
   calculatorName: keyof PercentCalculators;
@@ -28,16 +36,16 @@ function PercentCalculatorCard({
   }, [calculatorName, calculators]);
 
   return (
-    <div className="w-full flex flex-col space-y-4 rounded-md bg-basic-4 p-4">
+    <div className="flex w-full flex-col space-y-4 rounded-md bg-basic-4 p-4">
       <div className="flex">
         <h3 className="t-d-1 t-basic-1">{t(`${calculatorName}.title`)}</h3>
       </div>
-      <div className="w-full flex flex-col md:flex-row justify-between space-y-1 md:space-y-0">
-        <div className="w-full md:w-3/4 flex items-center space-x-1">
-          <input
+      <div className="flex w-full flex-col justify-between space-y-1 md:flex-row md:space-y-0">
+        <div className="flex w-full items-center space-x-1 md:w-3/4">
+          <Input
             type="text"
             inputMode="numeric"
-            className="input-text w-1/4 text-right"
+            className="w-1/4 text-right"
             placeholder={placeholder[0]}
             value={calculator.primaryNumber}
             onChange={(e) =>
@@ -49,10 +57,10 @@ function PercentCalculatorCard({
             }
           />
           <span className="t-d-2 t-basic-1">{text[0]}</span>
-          <input
+          <Input
             type="text"
             inputMode="numeric"
-            className="input-text w-1/4 text-right"
+            className="w-1/4 text-right"
             placeholder={placeholder[1]}
             value={calculator.secondaryNumber}
             onChange={(e) =>
@@ -66,30 +74,34 @@ function PercentCalculatorCard({
           <span className="t-d-2 t-basic-1">{text[1]}</span>
           {'isIncrease' in calculator ? (
             <>
-              <select
-                className="input-text w-1/6 text-right"
+              <Select
                 value={calculator.isIncrease ? 'true' : 'false'}
-                onChange={(e) =>
+                onValueChange={(value) =>
                   valueChange({
                     target: calculatorName,
                     targetValue: 'isIncrease',
-                    value: e.target.value,
+                    value,
                   })
                 }
               >
-                <option value="true">{t('increase')}</option>
-                <option value="false">{t('decrease')}</option>
-              </select>
+                <SelectTrigger className="w-1/6">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="true">{t('increase')}</SelectItem>
+                  <SelectItem value="false">{t('decrease')}</SelectItem>
+                </SelectContent>
+              </Select>
               <span className="t-d-2 t-basic-1">{t('to')}</span>
             </>
           ) : null}
         </div>
-        <div className="w-1/3 md:w-1/4 flex ml-auto md:ml-0 items-center space-x-1">
+        <div className="ml-auto flex w-1/3 items-center space-x-1 md:ml-0 md:w-1/4">
           <span className="t-d-2 t-basic-1">{text[2]}</span>
-          <input
+          <Input
             type="text"
             inputMode="none"
-            className="input-text w-full text-right"
+            className="w-full text-right"
             placeholder={placeholder[2]}
             value={calculator.result.toLocaleString()}
             onChange={() => calculator.result}

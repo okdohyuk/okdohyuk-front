@@ -13,6 +13,8 @@ import { useTranslation } from '~/app/i18n/client';
 import { LanguageParams } from '~/app/[lng]/layout';
 import UserTokenUtil from '~/utils/userTokenUtil';
 import { Language } from '~/app/i18n/settings';
+import { H1, Text } from '@components/basic/Text';
+import { Button } from '@components/basic/Button';
 
 type LoginHandler = (accessToken: string, redirectUri: string) => void;
 
@@ -82,28 +84,36 @@ export default function LoginPage({ params }: LanguageParams) {
 
   return (
     <>
-      <h1 className="t-t-1 t-basic-1 mb-4">{t('title')}</h1>
-      <div className="t-d-1 t-basic-1 mb-16">{t('openGraph.description')}</div>
-      <button
+      <H1 className="mb-4 t-basic-1">{t('title')}</H1>
+      <Text className="mb-16 t-basic-1">{t('openGraph.description')}</Text>
+      <Button
         type="button"
-        className="button w-full disabled:opacity-50 disabled:hover:bg-white bg-white hover:bg-zinc-200 space-x-2 mb-4"
+        className="mb-4 w-full space-x-2 bg-white hover:bg-zinc-200 disabled:hover:bg-white"
         onClick={handleLogin}
         disabled={loginButtonDisabled}
       >
         <Image priority src={googleSignInButton} alt="Google sign in button" />
-        <div className="t-d-1 text-[#757575]">{t('login.google')}</div>
-      </button>
-      <div className="flex justify-center items-center gap-4 mt-4">
+        <Text variant="d1" className="text-[#757575] dark:text-[#757575]">
+          {t('login.google')}
+        </Text>
+      </Button>
+      <div className="mt-4 flex items-center justify-center gap-4">
         <Link href="/terms">
-          <div className="t-c-1 t-basic-1 underline decoration-1 underline-offset-2 hover:text-blue-500 transition-colors">
+          <Text
+            variant="c1"
+            className="t-basic-1 decoration-1 underline-offset-2 transition-colors hover:text-blue-500 hover:underline"
+          >
             {t('terms')}
-          </div>
+          </Text>
         </Link>
-        <div className="w-[1px] h-3 bg-zinc-300 dark:bg-zinc-600" />
+        <div className="h-3 w-[1px] bg-zinc-300 dark:bg-zinc-600" />
         <Link href="/privacy">
-          <div className="t-c-1 t-basic-1 underline decoration-1 underline-offset-2 hover:text-blue-500 transition-colors">
+          <Text
+            variant="c1"
+            className="t-basic-1 decoration-1 underline-offset-2 transition-colors hover:text-blue-500 hover:underline"
+          >
             {t('privacy-policy')}
-          </div>
+          </Text>
         </Link>
       </div>
     </>

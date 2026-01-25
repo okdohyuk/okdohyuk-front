@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from '@components/basic/Link';
-import { cls } from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 import ScrollUtils from '@utils/scrollUtils';
 import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 
@@ -87,7 +87,7 @@ function BlogToc() {
       {toc?.map((t) => (
         <li
           key={t.id}
-          className={cls(
+          className={cn(
             't-d-2 couser-pointer hover:t-basic-1 transition-all',
             `pl-${2 * t.level}`,
             activeId === t.id ? 't-basic-1 font-bold scale-105' : 't-basic-5',

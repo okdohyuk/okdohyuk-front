@@ -2,7 +2,7 @@
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from 'react';
 import { BlogReply } from '@api/BlogReply';
-import { blogReplyApi } from '@api';
+import { useDeleteBlogReply, useReportBlogReply } from '@queries/useReplyQueries';
 import UserTokenUtil from '@utils/userTokenUtil';
 import { useRouter } from 'next/navigation';
 import { User, UserRoleEnum } from '@api/User';
@@ -52,6 +52,9 @@ export default function BlogReplyItem({
     return true;
   };
 
+  const deleteReplyMutation = useDeleteBlogReply(urlSlug);
+  const reportReplyMutation = useReportBlogReply();
+
   const handleReplyClick = async () => {
     if (await checkLogin()) {
       setIsReplying(!isReplying);
@@ -60,14 +63,16 @@ export default function BlogReplyItem({
 
   const handleDelete = async () => {
     if (!window.confirm(t('confirm.delete'))) return;
-    try {
-      const token = `Bearer ${await UserTokenUtil.getAccessToken()}`;
-      await blogReplyApi.deleteBlogReply(reply.id, token || '');
-      onRefresh();
-    } catch (error) {
-      console.error('Delete failed', error);
-      alert(getErrorMessage(error, t));
-    }
+    deleteReplyMutation.mutate(reply.id, {
+      onSuccess: () => {
+        onRefresh();
+      },
+      onError: (error) => {
+        // eslint-disable-next-line no-console
+        console.error('Delete failed', error);
+        alert(getErrorMessage(error, t));
+      },
+    });
   };
 
   const handleReportClick = async () => {
@@ -76,17 +81,23 @@ export default function BlogReplyItem({
     }
   };
 
-  const handleReportSubmit = async (reason: any) => {
-    try {
-      const token = `Bearer ${await UserTokenUtil.getAccessToken()}`;
-      await blogReplyApi.postBlogReplyReport(reply.id, token || '', {
+  const handleReportSubmit = (reason: any) => {
+    reportReplyMutation.mutate(
+      {
+        replyId: reply.id,
         reason,
         description: 'User report',
-      });
-      alert(t('alert.reported'));
-    } catch (error: any) {
-      alert(getErrorMessage(error, t));
-    }
+      },
+      {
+        onSuccess: () => {
+          alert(t('alert.reported'));
+          setReportDialogOpen(false);
+        },
+        onError: (error) => {
+          alert(getErrorMessage(error, t));
+        },
+      },
+    );
   };
 
   const isAuthor = currentUser?.id === reply.author?.id;

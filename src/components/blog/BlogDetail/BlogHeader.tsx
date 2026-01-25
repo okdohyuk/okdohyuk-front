@@ -2,6 +2,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import Link from '@components/basic/Link';
 import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
+import { H1, Text } from '@components/basic/Text';
 import ViewCount from './ViewCount';
 
 function BlogHeader() {
@@ -23,24 +24,24 @@ function BlogHeader() {
 
   return (
     <div className="h-60">
-      <header className="w-full h-64 absolute top-0 left-0 before:content-[''] before:z-0 before:bg-black before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:opacity-40">
+      <header className="absolute top-0 left-0 h-64 w-full before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-0 before:bg-black before:opacity-40 before:content-['']">
         {thumbnailImage ? (
           <img
             src={`${thumbnailImage}?w=1280`}
             alt={title}
-            className="w-full h-64 object-cover my-0"
+            className="my-0 h-64 w-full object-cover"
           />
         ) : null}
-        <div className="absolute flex flex-col justify-center w-full h-full p-6 md:p-10 top-0 left-0 z-10">
-          <div className="flex items-center gap-2 t-d-3 text-white mb-2">
+        <div className="absolute top-0 left-0 z-10 flex h-full w-full flex-col justify-center p-6 md:p-10">
+          <Text className="mb-2 flex items-center gap-2 text-white" variant="d3">
             {categoryChain ? categoryChain.map(categoryRender) : null}
-          </div>
-          <h1 className="t-t-3 lg:t-t-1 text-white mb-4">{title}</h1>
-          <div className="flex items-center gap-2 t-c-1 text-zinc-300">
+          </Text>
+          <H1 className="mb-4 text-2xl text-white lg:text-4xl">{title}</H1>
+          <Text className="flex items-center gap-2 text-zinc-300" variant="c1">
             <div>{format(createdDate, 'yyyy-MM-dd')}</div>
             <ViewCount />
             <Link href={`/admin/blog/write?urlSlug=${urlSlug}`}>수정</Link>
-          </div>
+          </Text>
         </div>
       </header>
     </div>

@@ -14,7 +14,7 @@ export default function AdminPage() {
   return (
     <MobileScreenWrapper>
       <h1 className="text-2xl font-bold mb-4">관리자 대시보드</h1>
-      <p className="mb-6 text-basic-2">
+      <p className="mb-6 t-basic-2">
         관리자 전용 페이지입니다. 아래 메뉴에서 원하는 관리 기능을 선택하세요.
       </p>
       <nav className="flex gap-4">

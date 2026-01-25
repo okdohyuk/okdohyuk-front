@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { cls } from '@utils/classNameUtils';
+import { cn } from '@utils/cn';
 
 type SkeletonProps = {
   className?: string;
@@ -11,7 +11,7 @@ type SkeletonProps = {
 function Skeleton({ className = '', h, w }: SkeletonProps) {
   return (
     <div
-      className={cls(
+      className={cn(
         'animate-pulse bg-basic-4',
         h ? `h-${h}` : 'h-32',
         w ? `w-${w}` : 'w-full',
