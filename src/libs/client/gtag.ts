@@ -24,7 +24,7 @@ export const sendGAEvent: SendGAEventType = (event, value) => {
     const { id: userId } = Jwt.getPayload(accessToken) || {};
     id = userId;
   } else {
-    id = Cookies.get('session_id') || '';
+    id = Cookies.get('SessionId') || '';
   }
 
   const object: GTagEvent = {

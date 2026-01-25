@@ -40,8 +40,8 @@ export async function middleware(req: NextRequest) {
   }
 
   // 2. 세션 ID 생성
-  if (!req.cookies.has('session_id')) {
-    response.cookies.set('session_id', Math.random().toString(36).slice(2));
+  if (!req.cookies.has('SessionId')) {
+    response.cookies.set('SessionId', crypto.randomUUID());
   }
 
   // 3. 토큰 리프레시 로직

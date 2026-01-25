@@ -17,7 +17,9 @@
       "@assets": ["./assets"],
       "@assets/*": ["./assets/*"],
       "@api": ["./spec/api"],
-      "@api/*": ["./spec/api/*"]
+      "@api/*": ["./spec/api/*"],
+      "@queries": ["./queries"],
+      "@queries/*": ["./queries/*"]
     }
   }
 }

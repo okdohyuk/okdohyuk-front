@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { blogReplyApi } from '@api';
+import { useGetBlogReplies } from '@queries/useReplyQueries';
 import { useInView } from 'react-intersection-observer';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
@@ -15,19 +14,8 @@ interface BlogReplyListProps {
 function BlogReplyList({ urlSlug, lng }: BlogReplyListProps) {
   const { ref, inView } = useInView();
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } = useInfiniteQuery({
-    queryKey: ['blogReply', urlSlug],
-    queryFn: async ({ pageParam = 0 }) => {
-      const res = await blogReplyApi.getBlogReply(urlSlug, pageParam, 20);
-      return res.data;
-    },
-    getNextPageParam: (lastPage, allPages) => {
-      // Assume API returns list. If list < 20, no more pages.
-      // Pagination logic: page 0, 1, 2...
-      return lastPage.length === 20 ? allPages.length : undefined;
-    },
-    initialPageParam: 0,
-  });
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } =
+    useGetBlogReplies(urlSlug);
 
   useEffect(() => {
     if (inView && hasNextPage) {

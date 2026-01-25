@@ -4,13 +4,15 @@ import React, { useEffect, useState } from 'react';
 import { Eye } from 'lucide-react';
 import { useCookies } from 'react-cookie';
 import { v4 as uuidv4 } from 'uuid';
-import { blogApi } from '@api';
+import { usePostBlogView } from '@queries/useBlogQueries';
 import { useBlogDetail } from './BlogDetailProvider';
 
 function ViewCount() {
   const { blog } = useBlogDetail();
   const [cookies, setCookie] = useCookies(['Authorization', 'SessionId']);
   const [viewCount, setViewCount] = useState(blog.viewCount || 0);
+
+  const postViewMutation = usePostBlogView();
 
   useEffect(() => {
     // Ensure SessionId exists
@@ -20,21 +22,19 @@ function ViewCount() {
       setCookie('SessionId', sessionId, { path: '/' });
     }
 
-    const fetchView = async () => {
+    const incrementView = async () => {
       try {
-        const { data } = await blogApi.postBlogView(
-          blog.urlSlug,
-          cookies.Authorization ?? (undefined as unknown as string),
-          sessionId,
-        );
+        const { data } = await postViewMutation.mutateAsync({ urlSlug: blog.urlSlug, sessionId });
         setViewCount(data.viewCount);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Failed to update view count', error);
       }
     };
 
-    fetchView();
-  }, [blog.urlSlug, cookies.Authorization, cookies.SessionId, setCookie]);
+    incrementView();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [blog.urlSlug, cookies.SessionId, setCookie]); // Mutation dependency omitted to run once per slug/session
 
   return (
     <div className="flex items-center gap-1">
