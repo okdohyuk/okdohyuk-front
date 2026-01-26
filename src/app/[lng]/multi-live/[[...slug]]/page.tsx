@@ -43,7 +43,7 @@ export default async function MultiLivePage({ params }: MultiLiveProps) {
           className={cn(
             'border-0 overflow-hidden',
             liveUrls.length === 1 ? 'w-screen h-screen' : 'aspect-video w-full lg:w-1/2',
-            liveUrls.length >= 3 ? 'max-w-screen-lg max-h-[50vh]' : '',
+            liveUrls.length >= 3 ? 'max-h-[50vh]' : '',
           )}
           src={url}
           title={`Live ${url}`}
