@@ -19,7 +19,9 @@
       "@api": ["./spec/api"],
       "@api/*": ["./spec/api/*"],
       "@queries": ["./queries"],
-      "@queries/*": ["./queries/*"]
+      "@queries/*": ["./queries/*"],
+      "@context": ["./context"],
+      "@context/*": ["./context/*"]
     }
   }
 }

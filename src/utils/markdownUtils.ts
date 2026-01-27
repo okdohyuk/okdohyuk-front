@@ -1,3 +1,6 @@
+import { BlogToc } from '~/components/blog/BlogDetail/type';
+import StringUtils from './stringUtils';
+
 type Options = {
   stripListLeaders?: boolean;
   listUnicodeChar?: string | boolean;
@@ -15,6 +18,33 @@ const defaultOptions: Required<Options> = {
 };
 
 export default class MarkdownUtils {
+  static extractHeadings = (markdown: string): BlogToc[] => {
+    const lines = markdown.split('\n');
+    let inCodeBlock = false;
+
+    const headings = lines.reduce<{ id: string; text: string; level: number }[]>((acc, line) => {
+      if (line.trim().startsWith('```')) {
+        inCodeBlock = !inCodeBlock;
+        return acc;
+      }
+      if (inCodeBlock) return acc;
+
+      const match = line.match(/^(#{2,3})\s+(.*)$/);
+      if (match) {
+        const level = match[1].length;
+        const textRaw = match[2];
+        const text = MarkdownUtils.removeMarkdown(textRaw, { stripListLeaders: false });
+        const id = StringUtils.toUrlSlug(text);
+        acc.push({ id, text, level });
+      }
+      return acc;
+    }, []);
+
+    if (headings.length === 0) return [];
+    const minLevel = Math.min(...headings.map((h) => h.level));
+    return headings.map((h) => ({ ...h, level: h.level - minLevel }));
+  };
+
   static removeMarkdown = (markdown: string, options: Options = defaultOptions) => {
     const settings = { ...defaultOptions, ...options };
 
