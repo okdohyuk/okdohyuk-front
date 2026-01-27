@@ -18,20 +18,19 @@ function BlogToc() {
   const updateTocPositions = useCallback(() => {
     if (!toc) return;
     const scrollTop = ScrollUtils.getScrollTop();
-    const calculatedHeadingTops = toc.map(({ id }) => {
-      const el = document.getElementById(id);
-      if (!el) {
+    const calculatedHeadingTops = toc
+      .map(({ id }) => {
+        const el = document.getElementById(id);
+        if (!el) {
+          return null;
+        }
+        const { top } = el.getBoundingClientRect();
         return {
           id,
-          top: 0,
+          top: top + scrollTop,
         };
-      }
-      const { top } = el.getBoundingClientRect();
-      return {
-        id,
-        top: top + scrollTop,
-      };
-    });
+      })
+      .filter((t) => t !== null) as { id: string; top: number }[];
     setHeadingTops(calculatedHeadingTops);
   }, [toc]);
 
@@ -88,9 +87,13 @@ function BlogToc() {
         <li
           key={t.id}
           className={cn(
-            't-d-2 couser-pointer hover:t-basic-1 transition-all',
-            `pl-${2 * t.level}`,
-            activeId === t.id ? 't-basic-1 font-bold scale-105' : 't-basic-5',
+            'cursor-pointer transition-all hover:text-black dark:hover:text-white mb-1',
+            t.level === 0 && 'text-sm font-medium pl-0',
+            t.level === 1 && 'text-xs pl-3',
+            t.level >= 2 && 'text-xs pl-5',
+            activeId === t.id
+              ? 'text-black dark:text-white font-bold scale-105'
+              : 'text-gray-500 dark:text-gray-400',
           )}
         >
           <Link href={`#${t.id}`}>{t.text}</Link>

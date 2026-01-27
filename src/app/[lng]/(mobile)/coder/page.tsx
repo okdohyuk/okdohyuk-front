@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from 'react';
 import { observer } from 'mobx-react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { debounce } from 'lodash';
+import debounce from 'lodash/debounce';
 import { Check, Copy, MoreHorizontal } from 'lucide-react';
 
 import CodeCopy from '@components/complex/MarkDown/CodeCopy';

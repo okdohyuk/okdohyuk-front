@@ -37,15 +37,19 @@ function CommonLayout({ children }: CommonLayoutProps) {
     return () => observer.disconnect();
   }, []);
 
+  const showNav = !navDisabledPath.some((path) => pathname.includes(path));
+
   return (
     <div ref={wrapperRef} className="w-full min-h-screen flex flex-col dark:bg-black">
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-      {!navDisabledPath.some((path) => pathname.includes(path)) && (
-        <div>
-          <LocalesNav />
-          <Nav />
-        </div>
-      )}
+      <QueryClientProvider client={queryClient}>
+        {children}
+        {showNav && (
+          <>
+            <LocalesNav />
+            <Nav />
+          </>
+        )}
+      </QueryClientProvider>
     </div>
   );
 }

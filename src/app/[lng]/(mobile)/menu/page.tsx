@@ -29,7 +29,11 @@ export default async function MenuPage({ params }: LanguageParams) {
 
       return (
         <li key={title} className="list-none">
-          <Link href={menu.link} target={menu.link.startsWith('/') ? '' : '_blank'}>
+          <Link
+            href={menu.link}
+            target={menu.link.startsWith('/') ? '' : '_blank'}
+            prefetch={menu.link.startsWith('/')}
+          >
             <Button
               type="button"
               className="w-full justify-start rounded-md bg-transparent p-2 outline-none transition duration-[40ms] ease-in hover:bg-basic-4 active:bg-basic-5"

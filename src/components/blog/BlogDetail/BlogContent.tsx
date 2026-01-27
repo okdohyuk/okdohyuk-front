@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
-import ReactDomServer from 'react-dom/server';
 import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 import MarkDown from '@components/complex/MarkDown';
-import { parseHeadings } from '@libs/client/heading';
+import MarkdownUtils from '@utils/markdownUtils';
 
 type BlogContentProps = {
   isPreview: boolean;
@@ -17,9 +16,9 @@ const BlogContent: React.FC<BlogContentProps> = ({ isPreview }) => {
 
   useEffect(() => {
     if (isPreview) return;
-    const toc = parseHeadings(ReactDomServer.renderToString(blogContent));
+    const toc = MarkdownUtils.extractHeadings(contents);
     setToc(toc);
-  }, [blogContent, setToc, isPreview]);
+  }, [contents, setToc, isPreview]);
 
   return blogContent;
 };

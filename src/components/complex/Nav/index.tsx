@@ -46,6 +46,7 @@ function Nav() {
             <Link
               href={navItem.link}
               onClick={() => sendGAEvent('link_click', navItem.name)}
+              prefetch
               className={cn(
                 'w-full h-full flex align-center justify-center text-center',
                 `${pathname}`.includes(navItem.pathname) ||

@@ -5,7 +5,7 @@ import FilterDropdownUtils from '~/utils/filterDropdownUtil';
 import { FilterType } from '~/components/complex/FilterDropdown/type';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { BlogCategory, BlogOrderByEnum } from '@api/Blog';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 import useDebounce from '../useDebounce';
 import useStore from '../useStore';
 import useInfiniteScroll from '../useInfiniteScroll';
