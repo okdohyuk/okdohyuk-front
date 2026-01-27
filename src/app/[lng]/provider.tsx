@@ -2,9 +2,9 @@
 
 import React, { ReactNode } from 'react';
 
-import { Provider } from 'mobx-react';
 import stores from '@stores';
+import { StoreContext } from '@context/storeContext';
 
 export function StoreProvider({ children }: { children: ReactNode }) {
-  return <Provider {...stores}>{children}</Provider>;
+  return <StoreContext.Provider value={stores}>{children}</StoreContext.Provider>;
 }

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Check, Copy } from 'lucide-react';
-import { debounce } from 'lodash';
+import debounce from 'lodash/debounce';
 import { cn } from '@utils/cn';
 import { MarkdownItem } from './type';
 

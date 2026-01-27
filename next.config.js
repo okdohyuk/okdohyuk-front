@@ -2,6 +2,7 @@
 const runtimeCaching = require('next-pwa/cache');
 // const { i18n } = require('./next-i18next.config');
 const path = require('path');
+const { withSentryConfig } = require('@sentry/nextjs');
 
 console.log('=>(next.config.js:4) process.env.NODE_ENV', process.env.NODE_ENV);
 
@@ -11,6 +12,10 @@ const withPWA = require('next-pwa')({
   skipWaiting: true,
   runtimeCaching,
   buildExcludes: ['app-build-manifest.json'],
+});
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
 });
 
 const nextConfig = {
@@ -41,13 +46,11 @@ const nextConfig = {
   },
 };
 
-module.exports = process.env.NODE_ENV === 'development' ? nextConfig : withPWA(nextConfig);
+const configWithPWA = process.env.NODE_ENV === 'development' ? nextConfig : withPWA(nextConfig);
 
-// Injected content via Sentry wizard below
+const configWithBundleAnalyzer = withBundleAnalyzer(configWithPWA);
 
-const { withSentryConfig } = require('@sentry/nextjs');
-
-module.exports = withSentryConfig(module.exports, {
+module.exports = withSentryConfig(configWithBundleAnalyzer, {
   // For all available options, see:
   // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
