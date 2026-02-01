@@ -1,0 +1,20 @@
+{
+  "title": "Cron 生成器",
+  "description": "Cron 式を簡単に作成して説明します。",
+  "label": {
+    "minute": "分",
+    "hour": "時",
+    "day": "日",
+    "month": "月",
+    "weekday": "曜日",
+    "result": "結果"
+  },
+  "explanation": "説明: {{text}}",
+  "copy": "コピー",
+  "copied": "コピーしました！",
+  "invalid": "無効なCron式",
+  "meta": {
+    "title": "Cron 生成器 | Okdohyuk Multi-Tool",
+    "description": "Cron 式を簡単に生成します。"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Cron Generator",
+  "description": "Create and explain cron expressions easily.",
+  "label": {
+    "minute": "Minute",
+    "hour": "Hour",
+    "day": "Day",
+    "month": "Month",
+    "weekday": "Weekday",
+    "result": "Result"
+  },
+  "explanation": "Human readable: {{text}}",
+  "copy": "Copy",
+  "copied": "Copied!",
+  "invalid": "Invalid Cron Expression",
+  "meta": {
+    "title": "Cron Generator | Okdohyuk Multi-Tool",
+    "description": "Generate cron expressions with ease."
+  }
+}

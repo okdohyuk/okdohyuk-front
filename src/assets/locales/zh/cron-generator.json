@@ -1,0 +1,20 @@
+{
+  "title": "Cron 生成器",
+  "description": "轻松创建和解释 Cron 表达式。",
+  "label": {
+    "minute": "分",
+    "hour": "时",
+    "day": "日",
+    "month": "月",
+    "weekday": "周",
+    "result": "结果"
+  },
+  "explanation": "说明: {{text}}",
+  "copy": "复制",
+  "copied": "已复制！",
+  "invalid": "无效的 Cron 表达式",
+  "meta": {
+    "title": "Cron 生成器 | Okdohyuk Multi-Tool",
+    "description": "轻松生成 Cron 表达式。"
+  }
+}
