@@ -1,0 +1,17 @@
+{
+  "title": "JWT デコーダー",
+  "description": "JWTトークンをデコードしてヘッダーとペイロードを検査します。データはサーバーに送信されません。",
+  "label": {
+    "encodedToken": "エンコードされたトークン",
+    "header": "ヘッダー",
+    "payload": "ペイロード"
+  },
+  "placeholder": "ここにJWTを貼り付けてください...",
+  "error": {
+    "invalidFormat": "無効なJWTトークン形式です。"
+  },
+  "openGraph": {
+    "title": "JWT デコーダー",
+    "description": "クライアントサイドで安全にJWTトークンをデコードおよびデバッグします。"
+  }
+}
