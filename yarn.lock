@@ -6753,6 +6753,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cronstrue@npm:^3.11.0":
+  version: 3.11.0
+  resolution: "cronstrue@npm:3.11.0"
+  bin:
+    cronstrue: bin/cli.js
+  checksum: 10c0/16ecc85750b55df41f16e0f2f10bef81f8954bbcdfc31912e66e2f46cdb0e33c059a7645e9d01080a3f0739d9d88a2a93cb86811597adc07b44255bc94bf118c
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:^7.0.6":
   version: 7.0.6
   resolution: "cross-spawn@npm:7.0.6"
@@ -10921,6 +10930,7 @@ __metadata:
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
     cookie: "npm:^1.1.1"
+    cronstrue: "npm:^3.11.0"
     date-fns: "npm:^3"
     eslint: "npm:^9.39.2"
     eslint-config-airbnb: "npm:^19.0.4"

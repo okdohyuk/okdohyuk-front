@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Bomb,
   Calculator,
+  CalendarClock,
   Code,
   CreditCard,
   Github,
@@ -45,13 +46,23 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: 'Cron 생성기',
+        en: 'Cron Generator',
+        ja: 'Cron生成器',
+        zh: 'Cron生成器'
+      },
+      icon: <CalendarClock />,
+      link: '/cron-generator'
+    },
+    {
+      title: {
         ko: 'CSS 생성기',
         en: 'CSS Generator',
         ja: 'CSSジェネレーター',
-        zh: 'CSS生成器',
+        zh: 'CSS生成器'
       },
       icon: <Palette />,
-      link: '/css-generator',
+      link: '/css-generator'
     },
     {
       title: {
