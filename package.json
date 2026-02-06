@@ -14,7 +14,9 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --cache",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:precommit": "vitest run --passWithNoTests"
+    "test:precommit": "vitest run --passWithNoTests",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -79,6 +81,8 @@
     "@eslint/js": "^9.39.2",
     "@next/bundle-analyzer": "^16.1.4",
     "@openapitools/openapi-generator-cli": "^2.13.5",
+    "@storybook/addon-a11y": "^10.2.7",
+    "@storybook/nextjs": "^10.2.7",
     "@tanstack/eslint-plugin-query": "^5",
     "@testing-library/dom": "^9.3.4",
     "@testing-library/jest-dom": "^6.4.5",
@@ -112,8 +116,10 @@
     "lint-staged": "^16.2.3",
     "postcss": "^8",
     "prettier": "^2",
+    "storybook": "^10.2.7",
     "tailwindcss": "^4.1.18",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.4",
+    "webpack": "^5"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
