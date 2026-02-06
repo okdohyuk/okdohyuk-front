@@ -72,8 +72,10 @@ export default async function MenuPage({ params }: LanguageParams) {
       return (
         <section
           key={key}
-          className={cn(SERVICE_PANEL_SOFT, 'mb-4 p-3 md:p-4')}
-          style={{ breakInside: 'avoid', WebkitColumnBreakInside: 'avoid' }}
+          className={cn(
+            SERVICE_PANEL_SOFT,
+            'mb-4 break-inside-avoid p-3 [-webkit-column-break-inside:avoid] md:p-4',
+          )}
         >
           <div className="mb-3 flex items-center justify-between px-1">
             <h2 className="text-lg font-extrabold text-zinc-900 dark:text-zinc-100">{t(key)}</h2>
@@ -98,7 +100,7 @@ export default async function MenuPage({ params }: LanguageParams) {
       <ServiceInfoNotice icon={<Sparkles className="h-5 w-5" />}>{t('intro')}</ServiceInfoNotice>
 
       <div className="lg:columns-2 lg:gap-4">
-        <div style={{ breakInside: 'avoid', WebkitColumnBreakInside: 'avoid' }}>
+        <div className="break-inside-avoid [-webkit-column-break-inside:avoid]">
           <UserInfoCard lng={language} />
         </div>
         {renderMenuGroup(menus)}
