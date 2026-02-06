@@ -1,289 +1,329 @@
 'use client';
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from '~/app/i18n/client';
-import { AnimatePresence, motion } from 'framer-motion';
-import { RotateCcw, Settings, Zap } from 'lucide-react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { Bomb, RotateCcw, Settings2, Zap } from 'lucide-react';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
-import { Button } from '@components/basic/Button';
-import { H1, H2, H3, Text } from '@components/basic/Text';
+import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { cn } from '@utils/cn';
+import {
+  SERVICE_CARD_INTERACTIVE,
+  SERVICE_PANEL_SOFT,
+} from '@components/complex/Service/interactiveStyles';
 
-const MAX_BALLS_DISPLAY = 100; // 화면에 표시할 최대 공 개수 (성능 고려)
+const MAX_ALLOWED_NUMBER = 200;
+const MAX_BALLS_DISPLAY = 100;
+const TAIL_BALLS_DISPLAY = 5;
+const DRAW_ANIMATION_STEPS = 6;
+const DRAW_INTERVAL_MS = 180;
 
 export default function PpollongPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
   const language = lng as Language;
-  const { t } = useTranslation(language, 'ppollong'); // 'ppollong' 네임스페이스 사용
+  const { t } = useTranslation(language, 'ppollong');
+  const shouldReduceMotion = useReducedMotion();
+
   const [maxNumber, setMaxNumber] = useState<number>(0);
-  const [inputValue, setInputValue] = useState<string>('45'); // 초기 입력값
+  const [inputValue, setInputValue] = useState<string>('45');
   const [drawnNumbers, setDrawnNumbers] = useState<number[]>([]);
   const [currentNumber, setCurrentNumber] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [isInitialized, setIsInitialized] = useState<boolean>(false); // 숫자가 설정되었는지 여부
+  const [isInitialized, setIsInitialized] = useState<boolean>(false);
+  const drawIntervalRef = useRef<number | null>(null);
 
-  const availableNumbers = useCallback(() => {
+  const drawnSet = useMemo(() => new Set(drawnNumbers), [drawnNumbers]);
+
+  const availableNumbers = useMemo(() => {
     if (!isInitialized || maxNumber === 0) return [];
-    const allNumbers = Array.from({ length: maxNumber }, (_, i) => i + 1);
-    return allNumbers.filter((num) => !drawnNumbers.includes(num));
-  }, [maxNumber, drawnNumbers, isInitialized]);
+    return Array.from({ length: maxNumber }, (_, index) => index + 1).filter(
+      (number) => !drawnSet.has(number),
+    );
+  }, [drawnSet, isInitialized, maxNumber]);
 
-  const handleInitialize = () => {
+  const clearDrawInterval = useCallback(() => {
+    if (drawIntervalRef.current !== null) {
+      window.clearInterval(drawIntervalRef.current);
+      drawIntervalRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => () => clearDrawInterval(), [clearDrawInterval]);
+
+  const handleInitialize = useCallback(() => {
     const num = parseInt(inputValue, 10);
+
     if (Number.isNaN(num) || num <= 0) {
       setError(t('error.invalidNumber'));
       setIsInitialized(false);
       return;
     }
-    if (num > 200) {
-      // 너무 많은 숫자 제한
+
+    if (num > MAX_ALLOWED_NUMBER) {
       setError(t('error.maxNumberExceeded'));
       setIsInitialized(false);
       return;
     }
+
+    clearDrawInterval();
     setMaxNumber(num);
     setDrawnNumbers([]);
     setCurrentNumber(null);
     setError(null);
+    setIsLoading(false);
     setIsInitialized(true);
-  };
+  }, [clearDrawInterval, inputValue, t]);
 
-  const handleDraw = () => {
-    const numbersToDrawFrom = availableNumbers();
+  const handleDraw = useCallback(() => {
+    const numbersToDrawFrom = availableNumbers;
+
     if (numbersToDrawFrom.length === 0) {
       setError(isInitialized ? t('error.allDrawnMessage') : t('error.notInitialized'));
       return;
     }
-    setError(null);
-    setIsLoading(true);
-    setCurrentNumber(null); // 이전 결과 숨기기
 
-    // "뽈롱" 애니메이션 효과 (간단한 딜레이와 숫자 변경)
-    const animationSteps = 5;
+    setError(null);
+    clearDrawInterval();
+    setIsLoading(true);
+    setCurrentNumber(null);
+
     let currentStep = 0;
-    const intervalId = setInterval(() => {
+    drawIntervalRef.current = window.setInterval(() => {
       const randomIndex = Math.floor(Math.random() * numbersToDrawFrom.length);
-      setCurrentNumber(numbersToDrawFrom[randomIndex]); // 임시 숫자 보여주기
+      setCurrentNumber(numbersToDrawFrom[randomIndex]);
       currentStep += 1;
-      if (currentStep >= animationSteps) {
-        clearInterval(intervalId);
+
+      if (currentStep >= DRAW_ANIMATION_STEPS) {
+        clearDrawInterval();
         const finalRandomIndex = Math.floor(Math.random() * numbersToDrawFrom.length);
         const drawn = numbersToDrawFrom[finalRandomIndex];
+
         setCurrentNumber(drawn);
-        setDrawnNumbers((prev) => [...prev, drawn].sort((a, b) => a - b)); // 뽑은 숫자 추가 및 정렬
+        setDrawnNumbers((prev) => [...prev, drawn].sort((a, b) => a - b));
         setIsLoading(false);
       }
-    }, 300); // 0.3초 간격으로 숫자 변경
-  };
+    }, DRAW_INTERVAL_MS);
+  }, [availableNumbers, clearDrawInterval, isInitialized, t]);
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
+    clearDrawInterval();
     setIsInitialized(false);
     setMaxNumber(0);
     setDrawnNumbers([]);
     setCurrentNumber(null);
     setError(null);
-    // inputValue는 유지하거나 초기화할 수 있음 (여기서는 유지)
-  };
+    setIsLoading(false);
+  }, [clearDrawInterval]);
 
-  // 전체 숫자 구슬들을 렌더링 (성능을 위해 일부만 표시)
-  const renderNumberBalls = () => {
-    if (!isInitialized) return null;
-    const balls = [];
-    for (let i = 1; i <= maxNumber; i += 1) {
-      const isDrawn = drawnNumbers.includes(i);
-      balls.push(
-        <motion.div
-          key={i}
-          className={`flex h-10 w-10 items-center justify-center rounded-full border-2 text-sm font-bold md:h-12 md:w-12 md:text-base
-            ${
-              isDrawn
-                ? 'border-gray-400 bg-gray-300 text-gray-500 opacity-50 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-400'
-                : 'border-blue-400 bg-blue-100 text-blue-700 dark:border-blue-500 dark:bg-blue-900/50 dark:text-blue-300'
-            }
-            ${currentNumber === i && isLoading ? 'animate-ping' : ''}
-          `}
-          initial={{ scale: 0.5, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: (i - 1) * 0.02, duration: 0.3 }}
-        >
-          {i}
-        </motion.div>,
-      );
-      if (i >= MAX_BALLS_DISPLAY && maxNumber > MAX_BALLS_DISPLAY + 5) {
-        // 너무 많으면 ...으로 표시
-        balls.push(
-          <div key="ellipsis" className="p-2 t-basic-1">
-            ...
-          </div>,
-        );
-        // 마지막 몇 개를 더 보여줄 수 있음
-        for (let j = maxNumber - 4; j <= maxNumber; j += 1) {
-          const isDrawnEnd = drawnNumbers.includes(j);
-          balls.push(
-            <motion.div
-              key={j}
-              className={`flex h-10 w-10 items-center justify-center rounded-full border-2 text-sm font-bold md:h-12 md:w-12 md:text-base
-                    ${
-                      isDrawnEnd
-                        ? 'border-gray-400 bg-gray-300 text-gray-500 opacity-50 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-400'
-                        : 'border-blue-400 bg-blue-100 text-blue-700 dark:border-blue-500 dark:bg-blue-900/50 dark:text-blue-300'
-                    }
-                  `}
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{
-                delay: (MAX_BALLS_DISPLAY + (j - (maxNumber - 4))) * 0.02,
-                duration: 0.3,
-              }}
-            >
-              {j}
-            </motion.div>,
-          );
-        }
-        break;
-      }
+  const displayedNumbers = useMemo(() => {
+    if (maxNumber <= MAX_BALLS_DISPLAY + TAIL_BALLS_DISPLAY) {
+      return {
+        head: Array.from({ length: maxNumber }, (_, index) => index + 1),
+        tail: [] as number[],
+      };
     }
-    return balls;
-  };
 
-  const remainingNumbers = availableNumbers();
-  let drawButtonLabel = t('drawButton.ready');
-  if (isLoading) {
-    drawButtonLabel = t('drawButton.loading');
-  } else if (remainingNumbers.length === 0) {
-    drawButtonLabel = t('drawButton.allDrawn');
-  }
+    return {
+      head: Array.from({ length: MAX_BALLS_DISPLAY }, (_, index) => index + 1),
+      tail: Array.from({ length: TAIL_BALLS_DISPLAY }, (_, index) => maxNumber - 4 + index),
+    };
+  }, [maxNumber]);
+
+  const drawButtonLabel = useMemo(() => {
+    if (isLoading) return t('drawButton.loading');
+    if (availableNumbers.length === 0) return t('drawButton.allDrawn');
+    return t('drawButton.ready');
+  }, [availableNumbers.length, isLoading, t]);
 
   return (
-    <div className="container mx-auto flex min-h-[calc(100vh-100px)] flex-col items-center p-4">
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <H1 className="mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-center text-3xl font-bold text-transparent md:text-4xl">
-          {t('title')}
-        </H1>
-      </motion.div>
+    <div className="space-y-4">
+      <ServicePageHeader title={t('title')} description={t('openGraph.description')} />
 
-      {/* 설정 영역 */}
-      <motion.div
-        className="mb-8 w-full max-w-md rounded-xl bg-basic-3 p-6 shadow-xl"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
+      <motion.section
+        className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
       >
-        <H2 className="mb-4 flex items-center text-xl font-semibold t-basic-2">
-          <Settings className="mr-2 text-blue-500" /> {t('settingsTitle')}
-        </H2>
-        <div className="flex space-x-2">
+        <h2 className="flex items-center gap-2 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+          <Settings2 className="h-4 w-4 text-point-1" />
+          {t('settingsTitle')}
+        </h2>
+
+        <div className="flex gap-2">
           <Input
             type="number"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder={t('maxNumberPlaceholder') || '최대 숫자 (예: 45)'}
+            placeholder={t('maxNumberPlaceholder')}
             className="w-full"
             disabled={isInitialized || isLoading}
           />
+
           {!isInitialized ? (
-            <Button
-              asChild
-              className="w-20 text-nowrap bg-blue-500 text-white hover:bg-blue-600 disabled:bg-gray-300 dark:disabled:bg-zinc-700"
+            <motion.button
+              type="button"
+              className={cn(
+                SERVICE_CARD_INTERACTIVE,
+                'h-10 shrink-0 whitespace-nowrap rounded-xl bg-point-1 px-4 text-sm font-bold text-white disabled:cursor-not-allowed disabled:opacity-60',
+              )}
               disabled={isLoading}
+              onClick={handleInitialize}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
             >
-              <motion.button type="button" onClick={handleInitialize} whileTap={{ scale: 0.97 }}>
-                {t('initializeButton')}
-              </motion.button>
-            </Button>
+              {t('initializeButton')}
+            </motion.button>
           ) : (
-            <Button
-              asChild
-              className="w-20 justify-center"
-              title={t('resetButtonTitle') || '설정 초기화'}
+            <motion.button
+              type="button"
+              className={cn(
+                SERVICE_CARD_INTERACTIVE,
+                'flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 bg-white/80 text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800/70 dark:text-zinc-200',
+              )}
+              title={t('resetButtonTitle')}
+              onClick={handleReset}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
             >
-              <motion.button type="button" onClick={handleReset} whileTap={{ scale: 0.95 }}>
-                <RotateCcw size={20} />
-              </motion.button>
-            </Button>
+              <RotateCcw className="h-4 w-4" />
+            </motion.button>
           )}
         </div>
-        {error && !isLoading && (
-          <Text variant="c1" className="mt-2 animate-pulse text-red-500">
-            {error}
-          </Text>
-        )}
-      </motion.div>
 
-      {/* 뽑기 실행 영역 */}
+        {error && !isLoading && (
+          <p className="animate-pulse text-sm font-medium text-red-500 dark:text-red-400">
+            {error}
+          </p>
+        )}
+      </motion.section>
+
       {isInitialized && (
-        <motion.div
-          className="mb-8 w-full max-w-md rounded-xl bg-basic-3 p-6 shadow-xl"
-          initial={{ opacity: 0, y: 20 }}
+        <motion.section
+          className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-5 p-4')}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
         >
-          <div className="mb-6 text-center">
-            {/* "대포" 시각적 요소 (간단하게) */}
+          <div className="text-center">
             <motion.div
-              className="mb-4 text-6xl"
-              animate={isLoading ? { rotate: [0, -5, 5, -5, 0], scale: [1, 1.1, 1, 1.1, 1] } : {}}
-              transition={isLoading ? { duration: 0.3, repeat: Infinity, repeatType: 'loop' } : {}}
+              className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-point-1/20 to-violet-500/20 text-point-1"
+              animate={
+                isLoading ? { rotate: [0, -8, 8, -8, 0], scale: [1, 1.08, 1, 1.08, 1] } : undefined
+              }
+              transition={
+                isLoading
+                  ? {
+                      duration: shouldReduceMotion ? 0 : 0.35,
+                      repeat: Infinity,
+                      repeatType: 'loop',
+                    }
+                  : { duration: 0 }
+              }
             >
-              💣
+              <Bomb className="h-7 w-7" />
             </motion.div>
-            <Button
-              asChild
-              className="h-auto w-full rounded-full bg-gradient-to-r from-green-400 to-blue-500 px-8 py-4 text-xl font-bold text-white shadow-lg transition-all hover:scale-105 hover:from-green-500 hover:to-blue-600 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
-              disabled={isLoading || remainingNumbers.length === 0}
+
+            <motion.button
+              type="button"
+              className={cn(
+                SERVICE_CARD_INTERACTIVE,
+                'flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-point-1 to-violet-500 text-sm font-extrabold text-white shadow-[0_12px_28px_rgba(0,0,0,0.14)] disabled:cursor-not-allowed disabled:opacity-55',
+              )}
+              onClick={handleDraw}
+              disabled={isLoading || availableNumbers.length === 0}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
             >
-              <motion.button type="button" onClick={handleDraw} whileTap={{ scale: 0.98 }}>
-                <Zap className="mb-1 mr-2 inline" />
-                {drawButtonLabel}
-              </motion.button>
-            </Button>
+              <Zap className="h-4 w-4" />
+              {drawButtonLabel}
+            </motion.button>
           </div>
 
-          {/* 현재 뽑힌 숫자 */}
           <AnimatePresence>
             {currentNumber !== null && (
               <motion.div
-                className="my-6 rounded-xl border-4 border-dashed border-yellow-400 bg-yellow-100 p-6 text-center shadow-inner dark:bg-yellow-900/30"
-                initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                className="rounded-2xl border border-yellow-300/70 bg-yellow-100/75 p-6 text-center shadow-inner dark:border-yellow-700/50 dark:bg-yellow-900/25"
+                initial={{ opacity: 0, scale: 0.5, rotate: -12 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                exit={{ opacity: 0, scale: 0.5, rotate: 15, transition: { duration: 0.3 } }}
-                transition={{ type: 'spring', stiffness: 150, damping: 10 }}
+                exit={{ opacity: 0, scale: 0.5, rotate: 12, transition: { duration: 0.2 } }}
+                transition={{ type: 'spring', stiffness: 180, damping: 12 }}
               >
-                <Text className="font-semibold text-yellow-600 dark:text-yellow-400">
+                <p className="text-xs font-semibold text-yellow-700 dark:text-yellow-300">
                   {t('drawnNumberPrefix')}
-                </Text>
-                <span className="my-2 bg-gradient-to-br from-yellow-500 to-red-600 bg-clip-text text-7xl font-black text-transparent md:text-8xl">
+                </p>
+                <span className="mt-2 block bg-gradient-to-br from-yellow-500 to-red-600 bg-clip-text text-6xl font-black text-transparent md:text-7xl">
                   {currentNumber}
                 </span>
               </motion.div>
             )}
           </AnimatePresence>
-        </motion.div>
+        </motion.section>
       )}
 
-      {/* 뽑힌 숫자 목록 (구슬 모양) */}
       {isInitialized && maxNumber > 0 && (
-        <motion.div
-          className="mt-4 w-full max-w-2xl rounded-xl bg-basic-4 p-6 shadow-lg"
-          initial={{ opacity: 0 }}
+        <motion.section
+          className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
         >
-          <H3 className="mb-4 text-lg font-semibold t-basic-2">
+          <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
             {t('numberBoardTitle', {
               maxNumber,
               drawnCount: drawnNumbers.length,
               totalCount: maxNumber,
             })}
-          </H3>
-          <div className="flex flex-wrap justify-center gap-2">{renderNumberBalls()}</div>
-        </motion.div>
+          </h3>
+
+          <div
+            className="flex flex-wrap justify-center gap-2"
+            style={{ contentVisibility: 'auto' }}
+          >
+            {displayedNumbers.head.map((number) => {
+              const isDrawn = drawnSet.has(number);
+              return (
+                <div
+                  key={number}
+                  className={cn(
+                    'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-bold transition-all md:h-10 md:w-10 md:text-sm',
+                    isDrawn
+                      ? 'border-zinc-400 bg-zinc-200 text-zinc-500 opacity-60 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-400'
+                      : 'border-point-2/70 bg-point-2/25 text-point-1 dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
+                    currentNumber === number && isLoading
+                      ? 'scale-110 animate-pulse shadow-md'
+                      : '',
+                  )}
+                >
+                  {number}
+                </div>
+              );
+            })}
+
+            {displayedNumbers.tail.length > 0 ? (
+              <div className="flex items-center px-1 text-sm font-bold text-zinc-500 dark:text-zinc-400">
+                ...
+              </div>
+            ) : null}
+
+            {displayedNumbers.tail.map((number) => {
+              const isDrawn = drawnSet.has(number);
+              return (
+                <div
+                  key={number}
+                  className={cn(
+                    'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-bold transition-all md:h-10 md:w-10 md:text-sm',
+                    isDrawn
+                      ? 'border-zinc-400 bg-zinc-200 text-zinc-500 opacity-60 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-400'
+                      : 'border-point-2/70 bg-point-2/25 text-point-1 dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
+                  )}
+                >
+                  {number}
+                </div>
+              );
+            })}
+          </div>
+        </motion.section>
       )}
     </div>
   );

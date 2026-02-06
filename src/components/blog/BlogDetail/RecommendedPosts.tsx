@@ -23,14 +23,14 @@ function RecommendedPosts({ urlSlug, lng }: RecommendedPostsProps) {
   }
 
   return (
-    <div ref={ref} className="mt-12 w-full">
-      <h3 className="text-xl t-basic-1 font-bold mb-6">{t('recommended_posts')}</h3>
+    <div ref={ref} className="w-full">
+      <h3 className="mb-4 text-xl font-bold t-basic-1">{t('recommended_posts')}</h3>
       <div
         className={cn(
-          'gap-4 pb-4',
+          'gap-4 pb-1',
           posts
             ? 'flex overflow-x-auto scrollbar-hide'
-            : 'grid grid-cols-2 lg:grid-cols-3 h-80 md:h-96 overflow-hidden',
+            : 'grid h-80 grid-cols-1 gap-4 overflow-hidden sm:grid-cols-2 lg:h-96 lg:grid-cols-3',
         )}
       >
         {posts

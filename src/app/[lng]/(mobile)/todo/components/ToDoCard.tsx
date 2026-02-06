@@ -4,6 +4,8 @@ import { observer } from 'mobx-react';
 
 import useStore from '@hooks/useStore';
 import { Todo } from '@stores/TodoStore/type';
+import { cn } from '@utils/cn';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 
 type ToDoCardType = {
   todo: Todo;
@@ -15,7 +17,7 @@ function ToDoCard({ todo }: ToDoCardType) {
   return (
     <div
       key={todo.id}
-      className="flex items-center w-full space-x-1 overflow-hidden bg-basic-4 rounded-md p-2"
+      className={cn(SERVICE_PANEL_SOFT, 'flex w-full items-center space-x-1 overflow-hidden p-2')}
       suppressHydrationWarning
     >
       <button

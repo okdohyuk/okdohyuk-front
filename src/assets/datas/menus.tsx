@@ -6,6 +6,7 @@ import {
   Code,
   CreditCard,
   Github,
+  Key,
   Linkedin,
   List,
   MonitorPlay,
@@ -17,7 +18,6 @@ import {
   TextCursorInput,
   Tv,
   Youtube,
-  Key,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
@@ -50,10 +50,10 @@ const menus: Menus = {
         ko: 'Cron 생성기',
         en: 'Cron Generator',
         ja: 'Cron生成器',
-        zh: 'Cron生成器'
+        zh: 'Cron生成器',
       },
       icon: <CalendarClock />,
-      link: '/cron-generator'
+      link: '/cron-generator',
     },
     {
       title: {
@@ -70,20 +70,10 @@ const menus: Menus = {
         ko: 'CSS 생성기',
         en: 'CSS Generator',
         ja: 'CSSジェネレーター',
-        zh: 'CSS生成器'
+        zh: 'CSS生成器',
       },
       icon: <Palette />,
-      link: '/css-generator'
-    },
-    {
-      title: {
-        ko: 'CSS 생성기',
-        en: 'CSS Generator',
-        ja: 'CSSジェネレーター',
-        zh: 'CSS生成器'
-      },
-      icon: <Palette />,
-      link: '/css-generator'
+      link: '/css-generator',
     },
     {
       title: {

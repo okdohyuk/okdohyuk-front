@@ -8,6 +8,7 @@ import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { BlogCategory } from '~/spec/api/Blog';
+import { BLOG_GLASS_PANEL_SOFT } from './interactiveStyles';
 import BlogCard from './BlogCard';
 import BlogCardSkeleton from './BlogCardSkeleton';
 
@@ -27,15 +28,19 @@ const BlogSearchListClient = function BlogSearchListClient({
   const { t } = useTranslation(lng, 'blog/index');
 
   return (
-    <div className="mt-4">
-      <div className="t-d-1 t-basic-1">
-        {t('resultCount')}
-        {count}
+    <section className="mt-2">
+      <div
+        className={cn(BLOG_GLASS_PANEL_SOFT, 'mb-4 flex items-center justify-between px-4 py-3')}
+      >
+        <div className="text-sm font-semibold text-zinc-700 dark:text-zinc-200">
+          {t('resultCount')}
+          <span className="ml-1 text-base font-black text-point-1">{count ?? 0}</span>
+        </div>
       </div>
       <div
         className={cn(
-          'w-full gap-2 mt-4',
-          viewType === 'frame' ? 'grid grid-cols-2 lg:grid-cols-3' : 'flex flex-col',
+          'mt-4 w-full gap-4',
+          viewType === 'frame' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'flex flex-col',
         )}
       >
         {blogs?.map((blog) => (
@@ -49,7 +54,7 @@ const BlogSearchListClient = function BlogSearchListClient({
           : null}
         {status === 'loading' ? <BlogCardSkeleton type={viewType} /> : null}
       </div>
-    </div>
+    </section>
   );
 };
 

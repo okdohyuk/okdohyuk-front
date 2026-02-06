@@ -5,7 +5,7 @@ import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetad
 import { PercentCalculators } from '@stores/PercentStore/type';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
-import { H1 } from '@components/basic/Text';
+import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -29,8 +29,12 @@ export default async function PercentPage({ params }: LanguageParams) {
   ];
 
   return (
-    <>
-      <H1 className="mb-4 t-basic-1">{t('title')}</H1>
+    <div className="space-y-4">
+      <ServicePageHeader
+        title={t('title')}
+        description={t('openGraph.description')}
+        badge="Insight Tool"
+      />
       <section className="w-full space-y-4">
         {calculators.map((name) => (
           <PercentCalculatorCard
@@ -42,6 +46,6 @@ export default async function PercentPage({ params }: LanguageParams) {
           />
         ))}
       </section>
-    </>
+    </div>
   );
 }

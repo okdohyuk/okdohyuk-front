@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from 'react';
+import Image from 'next/legacy/image';
 import { BlogReply } from '@api/BlogReply';
 import { useDeleteBlogReply, useReportBlogReply } from '@queries/useReplyQueries';
 import UserTokenUtil from '@utils/userTokenUtil';
@@ -105,115 +106,118 @@ export default function BlogReplyItem({
   const canEdit = isAuthor;
   const canDelete = isAuthor || isAdmin;
 
+  const actionButtonClass =
+    'rounded-md px-2 py-1 font-medium text-zinc-500 transition-colors hover:bg-point-4/70 hover:text-point-1 dark:text-zinc-300 dark:hover:bg-point-1/20';
+
   return (
     <div
       className={`mt-6 ${
-        depth > 0 ? 'ml-6 pl-4 border-l-2 border-gray-100 dark:border-gray-800' : ''
+        depth > 0 ? 'ml-6 border-l-2 border-zinc-200 pl-4 dark:border-zinc-700' : ''
       }`}
     >
-      <div className="flex justify-between items-start group">
-        <div className="flex items-center gap-3">
-          {/* Avatar Placeholder or Image */}
-          <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
-            {reply.author?.profileImage ? (
-              <img
-                src={reply.author.profileImage}
-                alt={reply.author.name}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <span className="text-xs font-bold text-gray-500 dark:text-gray-400">
-                {reply.author?.name?.charAt(0)}
+      <div className="group rounded-xl border border-zinc-200/80 bg-white/70 p-3 backdrop-blur-sm dark:border-zinc-700/70 dark:bg-zinc-900/70 md:p-4">
+        <div className="flex items-start justify-between">
+          <div className="flex items-center gap-3">
+            <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+              {reply.author?.profileImage ? (
+                <div className="relative h-full w-full">
+                  <Image
+                    src={reply.author.profileImage}
+                    alt={reply.author.name}
+                    layout="fill"
+                    objectFit="cover"
+                    unoptimized
+                  />
+                </div>
+              ) : (
+                <span className="text-xs font-bold text-gray-500 dark:text-gray-400">
+                  {reply.author?.name?.charAt(0)}
+                </span>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">
+                {reply.author?.name || 'Unknown'}
               </span>
-            )}
+              <span className="text-xs text-gray-500 dark:text-gray-400">
+                {new Date(reply.createdAt).toLocaleString()}
+              </span>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-bold text-gray-900 dark:text-gray-100">
-              {reply.author?.name || 'Unknown'}
-            </span>
-            <span className="text-xs text-gray-500 dark:text-gray-400">
-              {new Date(reply.createdAt).toLocaleString()}
-            </span>
-          </div>
-        </div>
-        <div className="flex gap-3 text-xs transition-opacity duration-200">
-          {depth < 1 && ( // Max depth 1 (root -> child)
-            <button
-              type="button"
-              onClick={handleReplyClick}
-              className="text-gray-500 hover:text-point-1 font-medium"
-            >
-              {t('reply.action.reply')}
-            </button>
-          )}
-
-          {canEdit &&
-            isAuthor && ( // Only author can edit content typically
-              <button
-                type="button"
-                onClick={() => setIsEditing(!isEditing)}
-                className="text-gray-500 hover:text-point-1 font-medium"
-              >
-                {t('reply.action.edit')}
+          <div className="flex gap-2 text-xs transition-opacity duration-200">
+            {depth < 1 && (
+              <button type="button" onClick={handleReplyClick} className={actionButtonClass}>
+                {t('reply.action.reply')}
               </button>
             )}
 
-          {canDelete && (
+            {canEdit && isAuthor ? (
+              <button
+                type="button"
+                onClick={() => setIsEditing(!isEditing)}
+                className={actionButtonClass}
+              >
+                {t('reply.action.edit')}
+              </button>
+            ) : null}
+
+            {canDelete && (
+              <button
+                type="button"
+                onClick={handleDelete}
+                className="rounded-md px-2 py-1 font-medium text-zinc-500 transition-colors hover:bg-red-100 hover:text-red-500 dark:text-zinc-300 dark:hover:bg-red-900/20"
+              >
+                {t('reply.action.delete')}
+              </button>
+            )}
+
             <button
               type="button"
-              onClick={handleDelete}
-              className="text-gray-500 hover:text-red-500 font-medium"
+              onClick={handleReportClick}
+              className="rounded-md px-2 py-1 font-medium text-zinc-400 transition-colors hover:bg-red-100 hover:text-red-400 dark:text-zinc-400 dark:hover:bg-red-900/20"
             >
-              {t('reply.action.delete')}
+              {t('reply.action.report')}
             </button>
-          )}
-
-          <button
-            type="button"
-            onClick={handleReportClick}
-            className="text-gray-400 hover:text-red-400 font-medium"
-          >
-            {t('reply.action.report')}
-          </button>
-        </div>
-      </div>
-
-      <div className="ml-11 mt-2">
-        {isEditing ? (
-          <BlogReplyForm
-            urlSlug={urlSlug}
-            replyToEdit={reply}
-            onSuccess={() => {
-              setIsEditing(false);
-              onRefresh();
-            }}
-            onCancel={() => setIsEditing(false)}
-            lng={lng}
-          />
-        ) : (
-          <div
-            className={`text-base leading-relaxed whitespace-pre-wrap ${
-              reply.isDeleted ? 'text-gray-400 italic' : 'text-gray-800 dark:text-gray-200'
-            }`}
-          >
-            {reply.content}
           </div>
-        )}
+        </div>
 
-        {isReplying && (
-          <div className="mt-4">
+        <div className="ml-11 mt-3">
+          {isEditing ? (
             <BlogReplyForm
               urlSlug={urlSlug}
-              parentId={reply.id}
+              replyToEdit={reply}
               onSuccess={() => {
-                setIsReplying(false);
+                setIsEditing(false);
                 onRefresh();
               }}
-              onCancel={() => setIsReplying(false)}
+              onCancel={() => setIsEditing(false)}
               lng={lng}
             />
-          </div>
-        )}
+          ) : (
+            <div
+              className={`whitespace-pre-wrap text-base leading-relaxed ${
+                reply.isDeleted ? 'italic text-gray-400' : 'text-gray-800 dark:text-gray-200'
+              }`}
+            >
+              {reply.content}
+            </div>
+          )}
+
+          {isReplying && (
+            <div className="mt-4">
+              <BlogReplyForm
+                urlSlug={urlSlug}
+                parentId={reply.id}
+                onSuccess={() => {
+                  setIsReplying(false);
+                  onRefresh();
+                }}
+                onCancel={() => setIsReplying(false)}
+                lng={lng}
+              />
+            </div>
+          )}
+        </div>
       </div>
 
       {reply.children && reply.children.length > 0 && (

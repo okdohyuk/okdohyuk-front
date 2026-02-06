@@ -2,7 +2,9 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 import cronstrue from 'cronstrue/i18n';
+import { CircleHelp } from 'lucide-react';
 import { Text } from '@components/basic/Text';
+import ServiceInfoNotice from '@components/complex/Service/ServiceInfoNotice';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import CronExpressionInput from './CronExpressionInput';
@@ -133,15 +135,15 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
   }, [expression, lng, t]);
 
   return (
-    <div className="mx-auto w-full max-w-4xl space-y-6">
+    <div className="w-full space-y-6">
       <div className="space-y-1">
         <Text variant="d2" className="font-semibold text-gray-800 dark:text-gray-100">
           {t('builder.title')}
         </Text>
-        <Text variant="d3" color="basic-5">
-          {t('builder.description')}
-        </Text>
       </div>
+      <ServiceInfoNotice icon={<CircleHelp className="h-5 w-5" />}>
+        {t('builder.description')}
+      </ServiceInfoNotice>
 
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         <CronFieldBuilder

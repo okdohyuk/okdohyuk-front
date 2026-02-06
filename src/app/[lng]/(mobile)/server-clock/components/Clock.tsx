@@ -1,9 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
+import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { useServerTime } from '../hooks/useServerTime';
 import { useUrgentStyle } from '../hooks/useUrgentStyle';
 import { TICKETING_SITES } from '../lib/constants'; // TICKETING_SITES는 SiteSelectionButtons 내부에서 사용되므로 Clock.tsx에서는 제거해도 됩니다.
@@ -53,58 +54,49 @@ export default function Clock({ lng }: ClockProps) {
   };
 
   return (
-    <div className="container mx-auto flex min-h-[calc(100vh-200px)] flex-col justify-center p-4 text-center">
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mb-4 text-4xl font-bold text-gray-800 dark:text-white md:text-5xl"
-      >
-        {t('title')}
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-8 text-gray-500 dark:text-gray-400"
-      >
-        {t('availableSites')}
-      </motion.p>
-
-      <SiteSelectionButtons
-        selectedSite={selectedSite}
-        isLoading={isLoading}
-        handleSiteSelection={handleSiteSelection}
-        t={t}
+    <div className="mx-auto flex min-h-[calc(100vh-220px)] w-full max-w-4xl flex-col justify-center gap-4 text-center">
+      <ServicePageHeader
+        title={t('title')}
+        description={t('availableSites')}
+        badge="Real-time Sync"
       />
 
-      {selectedSite === 'custom' && (
-        <CustomUrlInput
-          inputCustomUrl={inputCustomUrl}
-          setInputCustomUrl={setInputCustomUrl}
+      <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4`}>
+        <SiteSelectionButtons
+          selectedSite={selectedSite}
           isLoading={isLoading}
-          handleCustomUrlFetch={handleCustomUrlFetch}
+          handleSiteSelection={handleSiteSelection}
           t={t}
         />
-      )}
 
-      <TimeDisplay
-        isLoading={isLoading}
-        error={error}
-        serverTime={serverTime}
-        selectedSite={selectedSite}
-        customServerUrl={customServerUrl}
-        getHostname={getHostname}
-        urgentStyle={urgentStyle}
-        showMilliseconds={showMilliseconds}
-        t={t}
-      />
+        {selectedSite === 'custom' && (
+          <CustomUrlInput
+            inputCustomUrl={inputCustomUrl}
+            setInputCustomUrl={setInputCustomUrl}
+            isLoading={isLoading}
+            handleCustomUrlFetch={handleCustomUrlFetch}
+            t={t}
+          />
+        )}
 
-      <DisplaySettings
-        showMilliseconds={showMilliseconds}
-        setShowMilliseconds={setShowMilliseconds}
-        t={t}
-      />
+        <TimeDisplay
+          isLoading={isLoading}
+          error={error}
+          serverTime={serverTime}
+          selectedSite={selectedSite}
+          customServerUrl={customServerUrl}
+          getHostname={getHostname}
+          urgentStyle={urgentStyle}
+          showMilliseconds={showMilliseconds}
+          t={t}
+        />
+
+        <DisplaySettings
+          showMilliseconds={showMilliseconds}
+          setShowMilliseconds={setShowMilliseconds}
+          t={t}
+        />
+      </section>
     </div>
   );
 }
