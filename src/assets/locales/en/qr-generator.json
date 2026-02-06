@@ -1,0 +1,21 @@
+{
+  "title": "QR Code Generator",
+  "description": "Turn any URL or text into a QR Code instantly. Useful for quick mobile sharing.",
+  "label": {
+    "input": "Enter URL or Text"
+  },
+  "placeholder": "https://example.com",
+  "helper": "Enter text to generate a QR Code immediately.",
+  "preview": {
+    "waiting": "QR Preview",
+    "empty": "Waiting for input..."
+  },
+  "button": {
+    "export": "Save Image",
+    "share": "Share"
+  },
+  "openGraph": {
+    "title": "QR Code Generator",
+    "description": "Free Online QR Code Generator. Instantly convert URLs, text, emails, and more into high-quality QR codes. No sign-up required, completely free to use. Download your QR codes as PNG images or share them directly. Create lifetime valid QR codes for personal and business use without expiration."
+  }
+}

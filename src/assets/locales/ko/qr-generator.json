@@ -1,0 +1,21 @@
+{
+  "title": "QR 코드 생성기",
+  "description": "URL이나 텍스트를 QR 코드로 즉시 변환하세요. 모바일 공유용으로 유용합니다.",
+  "label": {
+    "input": "URL 또는 텍스트 입력"
+  },
+  "placeholder": "https://example.com",
+  "helper": "텍스트를 입력하면 즉시 QR 코드가 생성됩니다.",
+  "preview": {
+    "waiting": "QR 미리보기",
+    "empty": "입력 대기 중..."
+  },
+  "button": {
+    "export": "이미지 저장",
+    "share": "공유하기"
+  },
+  "openGraph": {
+    "title": "QR 코드 생성기",
+    "description": "무료 온라인 QR 코드 생성기입니다. URL, 텍스트, 이메일 등 다양한 정보를 즉시 고화질 QR 코드로 변환하세요. 회원가입 없이 누구나 간편하게 사용할 수 있으며, 생성된 QR 코드는 PNG 이미지로 다운로드하거나 바로 공유할 수 있습니다. 개인 및 비즈니스 용도로 만료 기한 없는 평생 무료 QR 코드를 지금 바로 만들어보세요."
+  }
+}
