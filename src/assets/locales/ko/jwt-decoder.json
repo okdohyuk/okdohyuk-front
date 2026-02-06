@@ -1,0 +1,17 @@
+{
+  "title": "JWT 디코더",
+  "description": "JWT(JSON Web Token)을 디코딩하여 헤더와 페이로드를 검사합니다. 서버로 전송되지 않습니다.",
+  "label": {
+    "encodedToken": "인코딩된 토큰",
+    "header": "헤더 (Header)",
+    "payload": "페이로드 (Payload)"
+  },
+  "placeholder": "여기에 JWT를 붙여넣으세요 (Bearer ...)",
+  "error": {
+    "invalidFormat": "유효하지 않은 JWT 토큰 형식입니다."
+  },
+  "openGraph": {
+    "title": "JWT 디코더",
+    "description": "클라이언트 사이드에서 안전하게 JWT 토큰을 디코딩하고 디버깅하세요."
+  }
+}

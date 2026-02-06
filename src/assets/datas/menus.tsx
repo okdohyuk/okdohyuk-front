@@ -17,6 +17,7 @@ import {
   TextCursorInput,
   Tv,
   Youtube,
+  Key,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
@@ -53,6 +54,26 @@ const menus: Menus = {
       },
       icon: <CalendarClock />,
       link: '/cron-generator'
+    },
+    {
+      title: {
+        ko: 'JWT 디코더',
+        en: 'JWT Decoder',
+        ja: 'JWTデコーダー',
+        zh: 'JWT解码器',
+      },
+      icon: <Key />,
+      link: '/jwt-decoder',
+    },
+    {
+      title: {
+        ko: 'CSS 생성기',
+        en: 'CSS Generator',
+        ja: 'CSSジェネレーター',
+        zh: 'CSS生成器'
+      },
+      icon: <Palette />,
+      link: '/css-generator'
     },
     {
       title: {

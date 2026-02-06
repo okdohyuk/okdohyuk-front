@@ -1,0 +1,17 @@
+{
+  "title": "JWT Decoder",
+  "description": "Decode JWT tokens to inspect header and payload. No data is sent to server.",
+  "label": {
+    "encodedToken": "Encoded Token",
+    "header": "Header",
+    "payload": "Payload"
+  },
+  "placeholder": "Paste your JWT here...",
+  "error": {
+    "invalidFormat": "Invalid JWT token format."
+  },
+  "openGraph": {
+    "title": "JWT Decoder",
+    "description": "Safely decode and debug JWT tokens on the client side."
+  }
+}
