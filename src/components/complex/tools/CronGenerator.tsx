@@ -10,7 +10,7 @@ interface CronGeneratorProps {
   lng: Language;
 }
 
-const CronGenerator: React.FC<CronGeneratorProps> = ({ lng }) => {
+function CronGenerator({ lng }: CronGeneratorProps) {
   const { t } = useTranslation(lng, 'cron-generator');
   const [expression, setExpression] = useState('* * * * *');
   const [humanReadable, setHumanReadable] = useState('');
@@ -24,7 +24,7 @@ const CronGenerator: React.FC<CronGeneratorProps> = ({ lng }) => {
         setError(null);
         return;
       }
-      
+
       // Map app locales to cronstrue supported locales if necessary
       // cronstrue supports 'en', 'ko', 'zh_CN', 'ja' etc.
       let locale = 'en';
@@ -48,27 +48,23 @@ const CronGenerator: React.FC<CronGeneratorProps> = ({ lng }) => {
           htmlFor="cron-input"
           className="text-sm font-medium text-gray-700 dark:text-gray-300"
         >
-          Cron Expression
+          {t('label.expression')}
         </label>
         <Input
           id="cron-input"
           className="font-mono text-lg"
-          placeholder="* * * * *"
+          placeholder={t('placeholder')}
           value={expression}
           onChange={(e) => setExpression(e.target.value)}
         />
-        {error && (
-          <p className="text-sm text-red-500 font-medium animate-pulse">{error}</p>
-        )}
+        {error && <p className="text-sm text-red-500 font-medium animate-pulse">{error}</p>}
       </div>
 
       <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
         <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
           {t('label.result')}
         </h3>
-        <p className="text-2xl font-bold text-gray-900 dark:text-white">
-          {humanReadable || '-'}
-        </p>
+        <p className="text-2xl font-bold text-gray-900 dark:text-white">{humanReadable || '-'}</p>
       </div>
 
       <div className="grid grid-cols-5 gap-2 text-center text-xs text-gray-500 dark:text-gray-400">
@@ -95,6 +91,6 @@ const CronGenerator: React.FC<CronGeneratorProps> = ({ lng }) => {
       </div>
     </div>
   );
-};
+}
 
 export default CronGenerator;

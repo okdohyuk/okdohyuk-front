@@ -1,24 +1,17 @@
 {
   "title": "Cron 생성기",
-  "description": "Cron 표현식을 자연어로 번역하고, 스케줄을 쉽게 테스트하세요.",
+  "description": "Cron 표현식을 쉽게 만들고 설명합니다.",
   "label": {
-    "expression": "Cron 표현식"
-  },
-  "readable": {
-    "title": "설명"
+    "expression": "Cron 표현식",
+    "minute": "분",
+    "hour": "시",
+    "day": "일",
+    "month": "월",
+    "weekday": "요일",
+    "result": "결과"
   },
   "placeholder": "* * * * *",
-  "error": {
-    "invalid": "유효하지 않은 Cron 표현식입니다."
-  },
-  "guide": {
-    "minute": "분 (0-59)",
-    "hour": "시 (0-23)",
-    "day": "일 (1-31)",
-    "month": "월 (1-12)",
-    "week": "요일 (0-6)",
-    "standard": "표준 5필드 문법 (분 시 일 월 요일)"
-  },
+  "invalid": "유효하지 않은 Cron 표현식입니다.",
   "meta": {
     "title": "Cron 생성기 | Okdohyuk Multi-Tool",
     "description": "Cron 표현식을 사람이 읽을 수 있는 텍스트로 변환합니다."
