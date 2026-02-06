@@ -2,25 +2,26 @@ import React from 'react';
 import {
   Bomb,
   Calculator,
+  CalendarClock,
   Code,
   CreditCard,
   Github,
   Linkedin,
   List,
   MonitorPlay,
+  Palette,
+  QrCode,
   Server,
   Smile,
   Sparkles,
   TextCursorInput,
   Tv,
   Youtube,
+  Key,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
-type Title = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  [key in Language]: string;
-};
+type Title = Record<Language, string>;
 
 type MenuItem = {
   title: Title;
@@ -29,11 +30,61 @@ type MenuItem = {
 };
 
 type Menus = {
-  [key: string]: MenuItem[];
+  [menuKey: string]: MenuItem[];
 };
 
 const menus: Menus = {
   service: [
+    {
+      title: {
+        ko: 'QR 코드 생성기',
+        en: 'QR Code Generator',
+        ja: 'QRコード生成器',
+        zh: '二维码生成器',
+      },
+      icon: <QrCode />,
+      link: '/qr-generator',
+    },
+    {
+      title: {
+        ko: 'Cron 생성기',
+        en: 'Cron Generator',
+        ja: 'Cron生成器',
+        zh: 'Cron生成器'
+      },
+      icon: <CalendarClock />,
+      link: '/cron-generator'
+    },
+    {
+      title: {
+        ko: 'JWT 디코더',
+        en: 'JWT Decoder',
+        ja: 'JWTデコーダー',
+        zh: 'JWT解码器',
+      },
+      icon: <Key />,
+      link: '/jwt-decoder',
+    },
+    {
+      title: {
+        ko: 'CSS 생성기',
+        en: 'CSS Generator',
+        ja: 'CSSジェネレーター',
+        zh: 'CSS生成器'
+      },
+      icon: <Palette />,
+      link: '/css-generator'
+    },
+    {
+      title: {
+        ko: 'CSS 생성기',
+        en: 'CSS Generator',
+        ja: 'CSSジェネレーター',
+        zh: 'CSS生成器'
+      },
+      icon: <Palette />,
+      link: '/css-generator'
+    },
     {
       title: {
         ko: '퍼센트계산기',

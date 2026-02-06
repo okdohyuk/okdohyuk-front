@@ -17,6 +17,10 @@ import type from 'assets/locales/ko/type.json';
 import ppollong from 'assets/locales/ko/ppollong.json'; // ppollong.json 임포트 추가
 import serverClock from 'assets/locales/ko/server-clock.json';
 import choseongMaker from 'assets/locales/ko/choseong-maker.json';
+import qrGenerator from 'assets/locales/ko/qr-generator.json';
+import jwtDecoder from 'assets/locales/ko/jwt-decoder.json';
+import cronGenerator from 'assets/locales/ko/cron-generator.json';
+import cssGenerator from 'assets/locales/ko/css-generator.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -40,6 +44,10 @@ declare module 'i18next' {
       ppollong: typeof ppollong; // ppollong 네임스페이스 추가
       'server-clock': typeof serverClock;
       'choseong-maker': typeof choseongMaker;
+      'qr-generator': typeof qrGenerator;
+      'jwt-decoder': typeof jwtDecoder;
+      'cron-generator': typeof cronGenerator;
+      'css-generator': typeof cssGenerator;
     };
   }
 }
