@@ -30,5 +30,8 @@
       "delete": "삭제",
       "report": "신고"
     }
+  },
+  "navigation": {
+    "backToMenu": "메뉴로 돌아가기"
   }
 }

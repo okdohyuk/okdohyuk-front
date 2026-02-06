@@ -5,6 +5,7 @@
     "description": "okdohyuk 上有各种关于 Web 的帖子。查看 {{title}} 技术！"
   },
   "title": "博客",
+  "searchPlaceholder": "请输入搜索词",
   "resultCount": "搜索结果：",
   "filter": {
     "index": "筛选",

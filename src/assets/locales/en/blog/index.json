@@ -1,10 +1,11 @@
 {
   "openGraph": {
-    "defaultTitle": "개발자 유도혁의 블로그",
-    "defaultDescription": "okdohyuk 사이트에는 Web에 대한 다양한 포스팅이 있습니다. 궁금한 기술의 정보를 다양한 검색 필터로 확인해 보세요!",
-    "description": "okdohyuk에는 Web에 대한 다양한 포스팅이 있습니다. {{title}} 기술을 확인해 보세요!"
+    "defaultTitle": "Developer Dohyuk You's Blog",
+    "defaultDescription": "The okdohyuk site includes a variety of posts about the web. Explore the technologies you're curious about with powerful search filters.",
+    "description": "The okdohyuk site includes a variety of posts about the web. Explore topics related to {{title}}."
   },
   "title": "Blog",
+  "searchPlaceholder": "Search posts",
   "resultCount": "results : ",
   "filter": {
     "index": "Filter",

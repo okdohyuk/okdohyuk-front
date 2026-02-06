@@ -40,18 +40,20 @@ export default function ReportDialog({ open, onOpenChange, onSubmit }: ReportDia
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] rounded-2xl border-zinc-200 bg-white/95 dark:border-zinc-700 dark:bg-zinc-900">
         <DialogHeader>
-          <DialogTitle>신고하기</DialogTitle>
+          <DialogTitle className="text-zinc-900 dark:text-zinc-100">신고하기</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="flex flex-col gap-2">
-            <span className="text-sm font-medium">신고 사유를 선택해주세요.</span>
+            <span className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
+              신고 사유를 선택해주세요.
+            </span>
             <Select
               value={reason}
               onValueChange={(val) => setReason(val as BlogReplyReportRequestReasonEnum)}
             >
-              <SelectTrigger>
+              <SelectTrigger className="rounded-xl">
                 <SelectValue placeholder="사유 선택" />
               </SelectTrigger>
               <SelectContent>
@@ -68,14 +70,14 @@ export default function ReportDialog({ open, onOpenChange, onSubmit }: ReportDia
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
+            className="rounded-md px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
           >
             취소
           </button>
           <button
             type="button"
             onClick={handleSubmit}
-            className="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded-md transition-colors"
+            className="rounded-md bg-red-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-600"
           >
             신고
           </button>

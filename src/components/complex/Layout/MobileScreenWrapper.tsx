@@ -20,7 +20,7 @@ function MobileScreenWrapper({
       className={cn(
         'relative flex flex-col ',
         'mx-auto mt-safe w-full md:max-w-[512px] lg:max-w-[1024px] min-h-screen p-2 md:p-4 lg:p-6 ',
-        'bg-zinc-100 dark:bg-zinc-900 overflow-x-hidden break-words ',
+        'bg-gradient-to-br from-zinc-100 via-zinc-100 to-point-4/35 dark:from-zinc-900 dark:via-zinc-900 dark:to-point-1/15 overflow-x-hidden break-words ',
         `text-${text}`,
         ` items-${items}`,
         className,

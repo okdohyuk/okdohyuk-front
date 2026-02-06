@@ -7,6 +7,7 @@ import { useCookies } from 'react-cookie';
 import { v4 as uuidv4 } from 'uuid';
 import { blogApi } from '@api';
 import { Text } from '@components/basic/Text';
+import logger from '@utils/logger';
 import { useBlogDetail } from './BlogDetailProvider';
 
 function LikeButton() {
@@ -34,7 +35,7 @@ function LikeButton() {
         setLikeCount(data.likeCount);
         setIsLiked(data.isLiked);
       } catch (error) {
-        console.error('Failed to fetch like status', error);
+        logger.error('Failed to fetch like status', error);
       }
     };
 
@@ -64,20 +65,22 @@ function LikeButton() {
         setIsLiked(data.isLiked);
       }
     } catch (error) {
-      console.error('Failed to toggle like', error);
+      logger.error('Failed to toggle like', error);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-2 my-8">
+    <div className="my-8 flex flex-col items-center justify-center gap-2">
       <motion.button
         onClick={handleLike}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.9 }}
-        className={`p-3 rounded-full shadow-lg dark:shadow-zinc-600 transition-colors ${
-          isLiked ? 'bg-red-500 text-white' : 'bg-white text-gray-400'
+        className={`rounded-full border p-3 shadow-lg transition-colors ${
+          isLiked
+            ? 'border-red-400 bg-red-500 text-white'
+            : 'border-zinc-200 bg-white/90 text-zinc-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-500'
         }`}
         disabled={isLoading}
       >
@@ -93,7 +96,7 @@ function LikeButton() {
           </motion.div>
         </AnimatePresence>
       </motion.button>
-      <Text variant="d3" color="basic-5">
+      <Text variant="d3" color="basic-5" className="font-semibold">
         {likeCount ?? 0}
       </Text>
     </div>

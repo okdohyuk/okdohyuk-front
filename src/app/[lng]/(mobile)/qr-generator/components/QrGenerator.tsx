@@ -7,6 +7,11 @@ import { QRCodeCanvas } from 'qrcode.react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Download, Share2 } from 'lucide-react';
+import { cn } from '@utils/cn';
+import {
+  SERVICE_CARD_INTERACTIVE,
+  SERVICE_PANEL_SOFT,
+} from '@components/complex/Service/interactiveStyles';
 
 interface UrlQrGeneratorProps {
   lng: Language;
@@ -70,8 +75,8 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8">
-      <div className="space-y-4">
+    <div className="w-full space-y-8">
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <label htmlFor="url-input" className="text-sm font-medium text-gray-700 dark:text-gray-300">
           {t('label.input')}
         </label>
@@ -85,7 +90,13 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
         <p className="text-sm text-gray-500 dark:text-gray-400">{t('helper')}</p>
       </div>
 
-      <div className="p-8 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center space-y-6">
+      <div
+        className={cn(
+          SERVICE_PANEL_SOFT,
+          SERVICE_CARD_INTERACTIVE,
+          'flex flex-col items-center justify-center space-y-6 p-8',
+        )}
+      >
         <div ref={qrRef} className="bg-white p-4 rounded-lg shadow-sm">
           {url ? (
             <QRCodeCanvas value={url} size={200} level="H" includeMargin />

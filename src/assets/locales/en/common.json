@@ -31,5 +31,8 @@
       "delete": "Delete",
       "report": "Report"
     }
+  },
+  "navigation": {
+    "backToMenu": "Back to Menu"
   }
 }

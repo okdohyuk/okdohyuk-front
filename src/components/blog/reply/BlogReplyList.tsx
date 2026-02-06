@@ -26,8 +26,8 @@ function BlogReplyList({ urlSlug, lng }: BlogReplyListProps) {
   const { t } = useTranslation(lng, 'common');
 
   return (
-    <div className="mt-8 border-t pt-8 border-gray-200 dark:border-gray-700">
-      <h3 className="text-xl font-bold t-basic-1 mb-4">{t('reply.listTitle')}</h3>
+    <div className="w-full">
+      <h3 className="mb-4 text-xl font-bold t-basic-1">{t('reply.listTitle')}</h3>
 
       <BlogReplyForm urlSlug={urlSlug} onSuccess={() => refetch()} lng={lng} />
 
@@ -49,7 +49,9 @@ function BlogReplyList({ urlSlug, lng }: BlogReplyListProps) {
       </div>
 
       <div ref={ref} className="h-4">
-        {isFetchingNextPage && <div className="text-center text-gray-500">Loading more...</div>}
+        {isFetchingNextPage && (
+          <div className="mx-auto h-4 w-4 animate-spin rounded-full border-2 border-point-2 border-t-transparent" />
+        )}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import Link from '@components/basic/Link';
 import { cn } from '@utils/cn';
 import ScrollUtils from '@utils/scrollUtils';
 import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
+import { BLOG_GLASS_PANEL_SOFT } from '@components/blog/interactiveStyles';
 
 function BlogToc() {
   const { toc } = useBlogDetail();
@@ -82,18 +83,23 @@ function BlogToc() {
   if (!toc || !headingTops) return null;
 
   return (
-    <ol className="mt-8 ml-4 p-2 border-l-2 border-solid border-point-4 min-w-[150px] h-fit max-h-screen sticky top-20 overflow-y-scroll">
+    <ol
+      className={cn(
+        BLOG_GLASS_PANEL_SOFT,
+        'sticky top-20 mt-8 ml-4 h-fit max-h-[calc(100vh-110px)] min-w-[180px] overflow-y-auto p-3',
+      )}
+    >
       {toc?.map((t) => (
         <li
           key={t.id}
           className={cn(
-            'cursor-pointer transition-all hover:text-black dark:hover:text-white mb-1',
-            t.level === 0 && 'text-sm font-medium pl-0',
-            t.level === 1 && 'text-xs pl-3',
-            t.level >= 2 && 'text-xs pl-5',
+            'mb-1 cursor-pointer rounded-md px-2 py-1 transition-all hover:bg-zinc-100 dark:hover:bg-zinc-800',
+            t.level === 0 && 'text-sm font-semibold',
+            t.level === 1 && 'pl-3 text-xs',
+            t.level >= 2 && 'pl-5 text-xs',
             activeId === t.id
-              ? 'text-black dark:text-white font-bold scale-105'
-              : 'text-gray-500 dark:text-gray-400',
+              ? 'scale-[1.02] bg-point-4/50 font-bold text-zinc-900 dark:bg-point-1/20 dark:text-zinc-100'
+              : 'text-zinc-500 dark:text-zinc-400',
           )}
         >
           <Link href={`#${t.id}`}>{t.text}</Link>
