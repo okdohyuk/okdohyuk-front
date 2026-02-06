@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { jwtDecode, JwtHeader, JwtPayload } from 'jwt-decode';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
+import { cn } from '@utils/cn';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import JwtTokenInput from './JwtTokenInput';
 import JwtDecodedPanel from './JwtDecodedPanel';
 
@@ -49,7 +51,7 @@ function JwtDecoderClient({ lng }: JwtDecoderClientProps) {
   }, [token, t]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className={cn(SERVICE_PANEL_SOFT, 'w-full space-y-6 p-4')}>
       <JwtTokenInput
         label={t('label.encodedToken')}
         placeholder={t('placeholder')}

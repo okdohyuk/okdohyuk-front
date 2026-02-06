@@ -14,7 +14,7 @@ yarn install
 yarn dev
 ```
 
-- **노드 버전**: v20 이상 권장
+- **노드 버전**: v24 이상 권장
 
 ## 🧩 디자인/UX
 
@@ -78,6 +78,21 @@ NOTION_API_KEY=secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 - 기본 명령: `yarn test`
 - 커버리지 리포트: `yarn test:coverage`
 - 커스텀 설정: `vitest.config.ts` 참고
+
+### 컴포넌트 테스트 범위
+
+- `src/components/basic` 주요 공통 컴포넌트에 Vitest 테스트 추가
+- `src/components/complex` 주요 레이아웃/서비스 컴포넌트에 Vitest 테스트 추가
+- 새 테스트 파일은 `__tests__/*.test.tsx` 패턴으로 관리
+
+## 📚 Storybook
+
+- 실행: `yarn storybook`
+- 정적 빌드: `yarn build-storybook`
+- 설정 파일:
+  - `.storybook/main.ts`
+  - `.storybook/preview.ts`
+- 컴포넌트 스토리 파일은 `src/components/**/*.stories.tsx` 패턴으로 관리
 
 ## 📡 API 명세 및 테스트
 

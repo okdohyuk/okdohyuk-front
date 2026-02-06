@@ -14,6 +14,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@components/basic/Select';
+import { cn } from '@utils/cn';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 
 type PercentCalculatorCardProps = {
   calculatorName: keyof PercentCalculators;
@@ -36,7 +38,7 @@ function PercentCalculatorCard({
   }, [calculatorName, calculators]);
 
   return (
-    <div className="flex w-full flex-col space-y-4 rounded-md bg-basic-4 p-4">
+    <div className={cn(SERVICE_PANEL_SOFT, 'flex w-full flex-col space-y-4 p-4')}>
       <div className="flex">
         <h3 className="t-d-1 t-basic-1">{t(`${calculatorName}.title`)}</h3>
       </div>

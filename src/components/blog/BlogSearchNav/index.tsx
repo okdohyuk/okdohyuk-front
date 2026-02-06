@@ -7,6 +7,7 @@ import React from 'react';
 import FilterDropdown from '@components/complex/FilterDropdown';
 import useStore from '@hooks/useStore';
 import { cn } from '@utils/cn';
+import { BLOG_GLASS_PANEL_SOFT } from '@components/blog/interactiveStyles';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 
@@ -22,8 +23,11 @@ const BlogSearchNav = function BlogSearchNav({ hasMargin = false, lng }: BlogSea
   return (
     <div
       className={cn(
-        'w-[250px] bg-basic-3 p-0',
-        hasMargin ? 'h-fit mt-8 mr-4 ml-auto rounded overflow-hidden' : 'h-full overflow-y-scroll',
+        BLOG_GLASS_PANEL_SOFT,
+        'w-full p-0',
+        hasMargin
+          ? 'sticky top-20 mt-8 mr-4 ml-auto h-fit w-[280px] overflow-hidden'
+          : 'h-full overflow-y-auto',
       )}
     >
       <FilterDropdown

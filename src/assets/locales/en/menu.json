@@ -5,6 +5,9 @@
     "description": "You can check all services."
   },
   "title": "Menu",
+  "headerBadge": "Multi-tool Menu",
+  "intro": "Find the right tool instantly and move to external channels from one unified menu.",
+  "outBadge": "OUT",
   "service": "Service",
   "out": "Out Links",
   "trash": "Trash",

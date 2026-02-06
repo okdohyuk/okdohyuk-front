@@ -7,6 +7,7 @@ import { BlogComponent } from 'components/blog/BlogDetail/type';
 import { BlogDetailProvider } from 'components/blog/BlogDetail/BlogDetailProvider';
 import BlogToc from 'components/blog/BlogDetail/BlogToc';
 import BlogContent from 'components/blog/BlogDetail/BlogContent';
+import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion';
 
 import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper';
 import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
@@ -19,6 +20,7 @@ const BlogBottom = dynamic(() => import('components/blog/BlogDetail/BlogBottom')
 const BlogDetail: BlogComponent = function BlogDetail({ blog, isPreview = false, lng }) {
   const Wrapper = isPreview ? MobileScreenWrapper : AsideScreenWrapper;
   const wrapperProps = isPreview ? {} : { right: <BlogToc /> };
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     sendGAEvent('page_view', blog.title);
@@ -26,11 +28,20 @@ const BlogDetail: BlogComponent = function BlogDetail({ blog, isPreview = false,
 
   return (
     <BlogDetailProvider blog={blog} lng={lng}>
-      <Wrapper {...wrapperProps}>
-        <BlogHeader />
-        <BlogContent isPreview={isPreview} />
-        {isPreview ? null : <BlogBottom />}
-      </Wrapper>
+      <LazyMotion features={domAnimation}>
+        <Wrapper {...wrapperProps}>
+          <m.section
+            className="w-full"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.4 }}
+          >
+            <BlogHeader />
+            <BlogContent isPreview={isPreview} />
+            {isPreview ? null : <BlogBottom />}
+          </m.section>
+        </Wrapper>
+      </LazyMotion>
     </BlogDetailProvider>
   );
 };

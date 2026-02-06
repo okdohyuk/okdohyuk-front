@@ -1,10 +1,13 @@
 import React from 'react';
 import Skeleton from '@components/basic/Skeleton';
+import { BLOG_GLASS_PANEL_SOFT } from '@components/blog/interactiveStyles';
 
 function Discript() {
   return (
-    <article className="md:min-h-[200px] flex p-2 rounded-md gap-6 overflow-hidden bg-basic-3">
-      <Skeleton className="w-[100px] h-[100px] md:w-[200px] md:h-[200px] relative rounded overflow-hidden" />
+    <article
+      className={`${BLOG_GLASS_PANEL_SOFT} flex gap-4 overflow-hidden p-3 md:min-h-[200px] md:gap-6 md:p-4`}
+    >
+      <Skeleton className="relative h-[108px] w-[108px] rounded-xl md:h-[196px] md:w-[196px]" />
 
       <div className="flex flex-col flex-1 text-left justify-start overflow-hidden">
         <Skeleton className="my-1 md:my-4" h={6} />

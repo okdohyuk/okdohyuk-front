@@ -5,6 +5,9 @@
     "description": "您可以查看所有服务。"
   },
   "title": "菜单",
+  "headerBadge": "多工具菜单",
+  "intro": "可快速找到所需工具，并通过同一菜单跳转到外部频道。",
+  "outBadge": "外链",
   "service": "服务",
   "out": "外部链接",
   "trash": "回收站",

@@ -5,8 +5,9 @@ import { useTranslation } from '~/app/i18n/client';
 import { toChoseong } from '@utils/choseongUtils';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
-import { H1 } from '@components/basic/Text';
 import { Textarea } from '@components/basic/Textarea';
+import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 
 export default function ChoseongMakerPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
@@ -15,9 +16,13 @@ export default function ChoseongMakerPage({ params }: LanguageParams) {
   const [value, setValue] = useState('');
 
   return (
-    <>
-      <H1 className="mb-4 t-basic-1">{t('title')}</H1>
-      <section className="flex flex-col space-y-4">
+    <div className="space-y-4">
+      <ServicePageHeader
+        title={t('title')}
+        description={t('openGraph.description')}
+        badge="Text Utility"
+      />
+      <section className={`${SERVICE_PANEL_SOFT} flex flex-col space-y-4 p-4`}>
         <Textarea
           className="h-32 resize-none"
           placeholder={t('placeholder')}
@@ -26,6 +31,6 @@ export default function ChoseongMakerPage({ params }: LanguageParams) {
         />
         <Textarea className="h-32 resize-none" value={toChoseong(value)} readOnly />
       </section>
-    </>
+    </div>
   );
 }

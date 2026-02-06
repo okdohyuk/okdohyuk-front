@@ -5,6 +5,7 @@
     "description": "okdohyukにはWebに関する様々な投稿があります。{{title}}の技術を確認してみてください！"
   },
   "title": "ブログ",
+  "searchPlaceholder": "検索語を入力してください",
   "resultCount": "検索結果: ",
   "filter": {
     "index": "フィルター",

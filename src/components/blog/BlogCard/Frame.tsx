@@ -1,8 +1,9 @@
 import React from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import DateUtils from '@utils/dateUtils';
 import { cn } from '@utils/cn';
 import MarkdownUtils from '@utils/markdownUtils';
+import { BLOG_GLASS_PANEL_SOFT } from '@components/blog/interactiveStyles';
 import { BlogCardTypeFC } from './type';
 
 const Frame: BlogCardTypeFC = function Frame({ blog }) {
@@ -10,27 +11,33 @@ const Frame: BlogCardTypeFC = function Frame({ blog }) {
 
   return (
     <article
-      className={cn(
-        'flex flex-col h-80 md:h-96 rounded overflow-hidden bg-basic-3 hover:bg-basic-4',
-      )}
+      className={cn(BLOG_GLASS_PANEL_SOFT, 'group flex h-80 flex-col overflow-hidden md:h-96')}
     >
       {thumbnailImage ? (
-        <div className="w-full h-32 md:h-40 relative">
+        <div className="relative h-40 w-full overflow-hidden md:h-44">
           <Image
-            src={`${thumbnailImage}?w=320`}
-            blurDataURL={`${thumbnailImage}?w=50`}
+            src={`${thumbnailImage}?w=640`}
             alt={title}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover"
             unoptimized
           />
         </div>
-      ) : null}
-      <div className="flex flex-col flex-1 p-4">
-        <h2 className="t-d-1 font-bold t-basic-1 line-clamp-1">{title}</h2>
-        <p className="t-d-3 t-basic-1 line-clamp-3">{MarkdownUtils.removeMarkdown(contents)}</p>
-        <span className="mt-auto t-c-1 t-basic-2" suppressHydrationWarning>
+      ) : (
+        <div className="h-40 w-full bg-gradient-to-r from-point-4/50 via-zinc-100 to-violet-100 dark:from-point-1/15 dark:via-zinc-800 dark:to-violet-900/20 md:h-44" />
+      )}
+      <div className="flex flex-1 flex-col p-4">
+        <h2 className="line-clamp-1 text-base font-bold text-zinc-900 dark:text-zinc-100">
+          {title}
+        </h2>
+        <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+          {MarkdownUtils.removeMarkdown(contents)}
+        </p>
+        <span
+          className="mt-auto pt-3 text-xs font-semibold text-zinc-500 dark:text-zinc-400"
+          suppressHydrationWarning
+        >
           {DateUtils.foramtDate(createdAt)}
         </span>
       </div>

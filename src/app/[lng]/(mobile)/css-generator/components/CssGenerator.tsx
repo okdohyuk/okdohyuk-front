@@ -3,8 +3,10 @@
 import React, { useId, useMemo, useState } from 'react';
 import { Input } from '@components/basic/Input';
 import { Text } from '@components/basic/Text';
+import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { CodeBlock } from './CodeBlock';
 import { Control } from './Control';
 import { GeneratorTabs } from './GeneratorTabs';
@@ -194,7 +196,7 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
   };
 
   return (
-    <div className="mx-auto w-full max-w-4xl space-y-8">
+    <div className={cn(SERVICE_PANEL_SOFT, 'w-full space-y-8 p-4')}>
       <GeneratorTabs
         activeTab={activeTab}
         onTabChange={setActiveTab}

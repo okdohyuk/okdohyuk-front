@@ -1,10 +1,11 @@
 import React from 'react';
 import Skeleton from '@components/basic/Skeleton';
+import { BLOG_GLASS_PANEL_SOFT } from '@components/blog/interactiveStyles';
 
 function Frame() {
   return (
-    <article className="flex flex-col h-80 md:h-96 rounded overflow-hidden bg-basic-3">
-      <Skeleton className="w-full h-32 md:h-40 relative" />
+    <article className={`${BLOG_GLASS_PANEL_SOFT} flex h-80 flex-col overflow-hidden md:h-96`}>
+      <Skeleton className="relative h-40 w-full md:h-44" />
 
       <div className="flex flex-col flex-1 p-4">
         <Skeleton h={6} />

@@ -28,30 +28,32 @@ const CodeCopy = function CodeCopy({ children, copyString, ...props }: CodeCopyP
   }, [copyString, resetCopied]);
 
   return (
-    <div className="w-full overflow-auto min-h-[42px] h-auto my-4 relative">
+    <div className="group relative w-full overflow-hidden rounded-xl border border-zinc-200/85 bg-zinc-950 shadow-sm dark:border-zinc-700">
+      <div className="absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center">
+        <button
+          type="button"
+          className={cn(
+            'inline-flex h-8 w-8 items-center justify-center rounded-lg border transition-colors',
+            copied
+              ? 'border-point-2/70 bg-point-2/20 text-point-2'
+              : 'border-zinc-600/80 bg-zinc-900/80 text-zinc-300 hover:border-zinc-400 hover:text-zinc-100',
+          )}
+          onClick={copyToClipboard}
+          aria-label="Copy code"
+        >
+          <Copy className={cn('h-4 w-4', copied ? 'hidden' : '')} />
+          <Check className={cn('h-4 w-4', !copied ? 'hidden' : '')} />
+        </button>
+      </div>
       <pre
         {...props}
         className={cn(
-          'w-full overflow-auto min-h-[42px] h-auto p-2 rounded-md t-d-3 my-0 relative',
+          'my-0 max-h-[560px] min-h-[42px] w-full overflow-auto p-4 pr-12 text-[13px] leading-6 text-zinc-100',
+          '[&>code]:bg-transparent [&>code]:p-0',
           props.className,
         )}
       >
         {children}
-        <div className="absolute right-0 top-0 w-[42px] h-[42px] flex items-center justify-center">
-          <button
-            type="button"
-            className={cn(
-              'w-[32px] h-[32px] rounded-md bg-black border-2',
-              copied
-                ? 'border-point-2'
-                : 'border-zinc-200 hover:border-basic-5 [&>svg]:hover:t-basic-5',
-            )}
-            onClick={copyToClipboard}
-          >
-            <Copy className={cn('m-auto text-zinc-200 hover:t-basic-5', copied ? 'hidden' : '')} />
-            <Check className={cn('m-auto text-point-2', !copied ? 'hidden' : '')} />
-          </button>
-        </div>
       </pre>
     </div>
   );

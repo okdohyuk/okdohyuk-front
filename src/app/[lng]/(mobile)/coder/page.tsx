@@ -22,6 +22,8 @@ import {
 import { cn } from '@utils/cn';
 import { Input } from '@components/basic/Input';
 import { Textarea } from '@components/basic/Textarea';
+import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 
 const coderList: CoderType[] = [
   'BASE64',
@@ -90,8 +92,12 @@ function CoderPage({ params }: LanguageParams) {
 
   return (
     <div className="space-y-6">
-      <h1 className="t-t-1 t-basic-1">{t('title')}</h1>
-      <section className="space-y-4 bg-basic-7">
+      <ServicePageHeader
+        title={t('title')}
+        description={t('openGraph.description')}
+        badge="Encode · Decode"
+      />
+      <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4`}>
         <Controller
           control={control}
           name="type"

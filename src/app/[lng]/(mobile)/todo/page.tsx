@@ -9,9 +9,10 @@ import useIsClient from '@hooks/useIsClient';
 import useStore from '@hooks/useStore';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
-import { H1 } from '@components/basic/Text';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
+import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 
 const ToDoCard = dynamic(() => import('~/app/[lng]/(mobile)/todo/components/ToDoCard'), {
   ssr: false,
@@ -34,9 +35,16 @@ function TodoPage({ params }: LanguageParams) {
   };
 
   return (
-    <>
-      <H1 className="mb-4 t-basic-1">{t('title')}</H1>
-      <form onSubmit={handleSubmitTodo} className="mb-4 flex items-center gap-2">
+    <div className="space-y-4">
+      <ServicePageHeader
+        title={t('title')}
+        description={t('openGraph.description')}
+        badge="Task Hub"
+      />
+      <form
+        onSubmit={handleSubmitTodo}
+        className={`${SERVICE_PANEL_SOFT} flex items-center gap-2 p-3`}
+      >
         <Input
           className="w-full"
           placeholder={t('inputPlaceholder')}
@@ -53,7 +61,7 @@ function TodoPage({ params }: LanguageParams) {
           ? todos.map((todo) => <ToDoCard key={todo.id} todo={todo} />)
           : null}
       </div>
-    </>
+    </div>
   );
 }
 

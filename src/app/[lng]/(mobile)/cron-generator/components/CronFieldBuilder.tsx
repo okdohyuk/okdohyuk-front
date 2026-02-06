@@ -8,6 +8,11 @@ import {
   SelectValue,
 } from '@components/basic/Select';
 import { Text } from '@components/basic/Text';
+import { cn } from '@utils/cn';
+import {
+  SERVICE_CARD_INTERACTIVE,
+  SERVICE_PANEL_SOFT,
+} from '@components/complex/Service/interactiveStyles';
 
 export type CronFieldMode = 'any' | 'every' | 'at';
 
@@ -49,7 +54,7 @@ function CronFieldBuilder({
   onValueChange,
 }: CronFieldBuilderProps) {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-900">
+    <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'p-3')}>
       <div className="mb-2 flex items-center justify-between gap-2">
         <Text asChild variant="d3" className="block font-medium text-gray-700 dark:text-gray-300">
           <label htmlFor={`${idPrefix}-value`}>{label}</label>
