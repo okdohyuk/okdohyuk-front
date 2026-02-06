@@ -1,0 +1,21 @@
+{
+  "title": "QR码生成器",
+  "description": "立即将URL或文本转换为QR码。适用于移动设备快速共享。",
+  "label": {
+    "input": "输入URL或文本"
+  },
+  "placeholder": "https://example.com",
+  "helper": "输入文本即可立即生成QR码。",
+  "preview": {
+    "waiting": "QR预览",
+    "empty": "等待输入..."
+  },
+  "button": {
+    "export": "保存图片",
+    "share": "分享"
+  },
+  "openGraph": {
+    "title": "QR码生成器",
+    "description": "免费在线二维码生成器。即时将URL、文本、电子邮件等转换为高质量的二维码。无需注册，完全免费使用。生成的二维码可以下载为PNG图片或直接分享。适用于个人和商业用途，创建永久有效、无过期的二维码。Okdohyuk Multi-Tool提供快速、安全且易于使用的二维码制作工具。立即体验！"
+  }
+}

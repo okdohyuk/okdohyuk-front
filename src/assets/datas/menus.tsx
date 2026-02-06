@@ -8,6 +8,7 @@ import {
   Linkedin,
   List,
   MonitorPlay,
+  QrCode,
   Server,
   Smile,
   Sparkles,
@@ -17,10 +18,7 @@ import {
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
-type Title = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  [key in Language]: string;
-};
+type Title = Record<Language, string>;
 
 type MenuItem = {
   title: Title;
@@ -29,11 +27,21 @@ type MenuItem = {
 };
 
 type Menus = {
-  [key: string]: MenuItem[];
+  [menuKey: string]: MenuItem[];
 };
 
 const menus: Menus = {
   service: [
+    {
+      title: {
+        ko: 'QR 코드 생성기',
+        en: 'QR Code Generator',
+        ja: 'QRコード生成器',
+        zh: '二维码生成器',
+      },
+      icon: <QrCode />,
+      link: '/qr-generator',
+    },
     {
       title: {
         ko: '퍼센트계산기',
