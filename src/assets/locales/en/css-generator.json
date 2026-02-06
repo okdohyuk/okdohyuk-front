@@ -1,0 +1,36 @@
+{
+  "title": "CSS Generator",
+  "description": "Design CSS Box Shadows and Linear Gradients visually and copy the code.",
+  "tab": {
+    "shadow": "Box Shadow",
+    "gradient": "Gradient"
+  },
+  "shadow": {
+    "offsetX": "Offset X",
+    "offsetY": "Offset Y",
+    "blur": "Blur Radius",
+    "spread": "Spread Radius",
+    "color": "Color",
+    "opacity": "Opacity"
+  },
+  "gradient": {
+    "direction": "Direction",
+    "from": "From Color",
+    "to": "To Color",
+    "toRight": "To Right",
+    "toLeft": "To Left",
+    "toBottom": "To Bottom",
+    "toTop": "To Top",
+    "toBottomRight": "To Bottom Right",
+    "toTopRight": "To Top Right"
+  },
+  "code": {
+    "css": "CSS",
+    "tailwind": "Tailwind",
+    "copy": "Click to copy"
+  },
+  "openGraph": {
+    "title": "CSS Generator",
+    "description": "Free Online CSS Generator. Visually design complex CSS Box Shadows and Linear Gradients with ease. Copy the generated code with a single click. Supports both pure CSS and Tailwind CSS classes to boost your web development productivity. Create and apply your unique styles instantly."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "title": "CSSジェネレーター",
+  "description": "CSSボックスシャドウと線形グラデーションを視覚的にデザインし、コードをコピーします。",
+  "tab": {
+    "shadow": "ボックスシャドウ",
+    "gradient": "グラデーション"
+  },
+  "shadow": {
+    "offsetX": "オフセット X",
+    "offsetY": "オフセット Y",
+    "blur": "ぼかし半径",
+    "spread": "広がり半径",
+    "color": "色",
+    "opacity": "不透明度"
+  },
+  "gradient": {
+    "direction": "方向",
+    "from": "開始色",
+    "to": "終了色",
+    "toRight": "右へ",
+    "toLeft": "左へ",
+    "toBottom": "下へ",
+    "toTop": "上へ",
+    "toBottomRight": "右下へ",
+    "toTopRight": "右上へ"
+  },
+  "code": {
+    "css": "CSS",
+    "tailwind": "Tailwind",
+    "copy": "クリックしてコピー"
+  },
+  "openGraph": {
+    "title": "CSSジェネレーター",
+    "description": "無料オンラインCSSジェネレーター。複雑なCSSボックスシャドウや線形グラデーションを視覚的に簡単にデザインできます。生成されたコードはワンクリックでコピー可能。純粋なCSSだけでなく、Tailwind CSSクラスもサポートしており、Web開発の生産性を向上させます。今すぐ独自のスタイルを作成して適用しましょう。"
+  }
+}

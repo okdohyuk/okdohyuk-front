@@ -1,0 +1,36 @@
+{
+  "title": "CSS 생성기",
+  "description": "CSS Box Shadow와 Linear Gradient를 시각적으로 디자인하고 코드를 복사하세요.",
+  "tab": {
+    "shadow": "Box Shadow",
+    "gradient": "Gradient"
+  },
+  "shadow": {
+    "offsetX": "오프셋 X",
+    "offsetY": "오프셋 Y",
+    "blur": "블러 반경",
+    "spread": "확산 반경",
+    "color": "색상",
+    "opacity": "투명도"
+  },
+  "gradient": {
+    "direction": "방향",
+    "from": "시작 색상",
+    "to": "종료 색상",
+    "toRight": "오른쪽으로",
+    "toLeft": "왼쪽으로",
+    "toBottom": "아래로",
+    "toTop": "위로",
+    "toBottomRight": "오른쪽 아래로",
+    "toTopRight": "오른쪽 위로"
+  },
+  "code": {
+    "css": "CSS",
+    "tailwind": "Tailwind",
+    "copy": "복사하려면 클릭하세요"
+  },
+  "openGraph": {
+    "title": "CSS 생성기",
+    "description": "무료 온라인 CSS 생성기입니다. 복잡한 CSS Box Shadow와 Linear Gradient를 시각적으로 쉽게 디자인하고, 생성된 코드를 클릭 한 번으로 복사하세요. 순수 CSS 코드뿐만 아니라 Tailwind CSS 클래스도 지원하여 웹 개발 생산성을 높여줍니다. 지금 바로 나만의 스타일을 만들고 적용해보세요."
+  }
+}

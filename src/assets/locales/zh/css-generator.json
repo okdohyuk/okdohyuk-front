@@ -1,0 +1,36 @@
+{
+  "title": "CSS生成器",
+  "description": "可视化设计CSS方框阴影和线性渐变并复制生成代码。",
+  "tab": {
+    "shadow": "方框阴影",
+    "gradient": "渐变"
+  },
+  "shadow": {
+    "offsetX": "偏移 X",
+    "offsetY": "偏移 Y",
+    "blur": "模糊半径",
+    "spread": "扩散半径",
+    "color": "颜色",
+    "opacity": "不透明度"
+  },
+  "gradient": {
+    "direction": "方向",
+    "from": "起始颜色",
+    "to": "结束颜色",
+    "toRight": "向右",
+    "toLeft": "向左",
+    "toBottom": "向下",
+    "toTop": "向上",
+    "toBottomRight": "向右下",
+    "toTopRight": "向右上"
+  },
+  "code": {
+    "css": "CSS",
+    "tailwind": "Tailwind",
+    "copy": "点击复制"
+  },
+  "openGraph": {
+    "title": "CSS生成器",
+    "description": "免费在线CSS生成器。可视化轻松设计复杂的CSS方框阴影和线性渐变。一键复制生成的代码。支持纯CSS和Tailwind CSS类，提升您的Web开发效率。立即创建并应用您的独特风格。"
+  }
+}

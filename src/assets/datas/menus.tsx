@@ -8,6 +8,7 @@ import {
   Linkedin,
   List,
   MonitorPlay,
+  Palette,
   QrCode,
   Server,
   Smile,
@@ -41,6 +42,16 @@ const menus: Menus = {
       },
       icon: <QrCode />,
       link: '/qr-generator',
+    },
+    {
+      title: {
+        ko: 'CSS 생성기',
+        en: 'CSS Generator',
+        ja: 'CSSジェネレーター',
+        zh: 'CSS生成器',
+      },
+      icon: <Palette />,
+      link: '/css-generator',
     },
     {
       title: {
