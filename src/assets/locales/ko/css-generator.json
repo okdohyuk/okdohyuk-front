@@ -1,0 +1,80 @@
+{
+  "title": "CSS 생성기",
+  "description": "CSS Box Shadow, Linear Gradient, Border Radius, Flex, Grid를 시각적으로 디자인하고 코드를 복사하세요.",
+  "tab": {
+    "shadow": "Box Shadow",
+    "gradient": "Gradient",
+    "radius": "Border Radius",
+    "flex": "Flex",
+    "grid": "Grid"
+  },
+  "shadow": {
+    "offsetX": "오프셋 X",
+    "offsetY": "오프셋 Y",
+    "blur": "블러 반경",
+    "spread": "확산 반경",
+    "color": "색상",
+    "opacity": "투명도"
+  },
+  "gradient": {
+    "direction": "방향",
+    "from": "시작 색상",
+    "to": "종료 색상",
+    "toRight": "오른쪽으로",
+    "toLeft": "왼쪽으로",
+    "toBottom": "아래로",
+    "toTop": "위로",
+    "toBottomRight": "오른쪽 아래로",
+    "toTopRight": "오른쪽 위로"
+  },
+  "radius": {
+    "topLeft": "좌상단 반경",
+    "topRight": "우상단 반경",
+    "bottomRight": "우하단 반경",
+    "bottomLeft": "좌하단 반경"
+  },
+  "flex": {
+    "direction": "방향",
+    "wrapMode": "줄바꿈",
+    "justifyContent": "가로 정렬",
+    "alignItems": "세로 정렬",
+    "gap": "간격",
+    "row": "가로",
+    "rowReverse": "가로 반전",
+    "column": "세로",
+    "columnReverse": "세로 반전",
+    "noWrap": "줄바꿈 없음",
+    "wrap": "줄바꿈",
+    "justifyStart": "시작",
+    "justifyCenter": "가운데",
+    "justifyEnd": "끝",
+    "justifyBetween": "양끝 정렬",
+    "justifyAround": "주변 균등",
+    "justifyEvenly": "균등 배치",
+    "alignStretch": "채우기",
+    "alignStart": "시작",
+    "alignCenter": "가운데",
+    "alignEnd": "끝",
+    "alignBaseline": "베이스라인"
+  },
+  "grid": {
+    "columns": "열 수",
+    "rows": "행 수",
+    "justifyItems": "가로 정렬",
+    "alignItems": "세로 정렬",
+    "gap": "간격",
+    "stretch": "채우기",
+    "start": "시작",
+    "center": "가운데",
+    "end": "끝"
+  },
+  "code": {
+    "css": "CSS",
+    "tailwind": "Tailwind",
+    "copy": "복사하려면 클릭하세요"
+  },
+  "openGraph": {
+    "title": "CSS 생성기",
+    "description": "무료 온라인 CSS 생성기입니다. CSS Box Shadow, Linear Gradient, Border Radius, Flex, Grid를 시각적으로 쉽게 디자인하고, 생성된 코드를 클릭 한 번으로 복사하세요. 순수 CSS 코드뿐만 아니라 Tailwind CSS 클래스도 지원하여 웹 개발 생산성을 높여줍니다. 지금 바로 나만의 스타일을 만들고 적용해보세요."
+  }
+}

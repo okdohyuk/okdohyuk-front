@@ -9,6 +9,7 @@ import {
   Linkedin,
   List,
   MonitorPlay,
+  Palette,
   QrCode,
   Server,
   Smile,
@@ -48,10 +49,20 @@ const menus: Menus = {
         ko: 'Cron 생성기',
         en: 'Cron Generator',
         ja: 'Cron生成器',
-        zh: 'Cron生成器',
+        zh: 'Cron生成器'
       },
       icon: <CalendarClock />,
-      link: '/cron-generator',
+      link: '/cron-generator'
+    },
+    {
+      title: {
+        ko: 'CSS 생성기',
+        en: 'CSS Generator',
+        ja: 'CSSジェネレーター',
+        zh: 'CSS生成器'
+      },
+      icon: <Palette />,
+      link: '/css-generator'
     },
     {
       title: {
