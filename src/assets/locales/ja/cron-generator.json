@@ -1,6 +1,16 @@
 {
   "title": "Cron 生成器",
   "description": "Cron 式を簡単に作成して説明します。",
+  "builder": {
+    "title": "スケジュール設定",
+    "description": "先に各フィールドを設定すると、Cron 式が自動生成されます。",
+    "enabled": "設定を使用",
+    "mode": "モード",
+    "value": "値",
+    "any": "毎回 (*)",
+    "every": "間隔 (*/n)",
+    "at": "特定値 (n)"
+  },
   "label": {
     "expression": "Cron 式",
     "minute": "分",

@@ -1,6 +1,16 @@
 {
   "title": "Cron Generator",
   "description": "Create and explain cron expressions easily.",
+  "builder": {
+    "title": "Schedule Builder",
+    "description": "Set each field first, then the cron expression is generated automatically.",
+    "enabled": "Enable",
+    "mode": "Mode",
+    "value": "Value",
+    "any": "Any (*)",
+    "every": "Every (*/n)",
+    "at": "At (n)"
+  },
   "label": {
     "expression": "Cron Expression",
     "minute": "Minute",

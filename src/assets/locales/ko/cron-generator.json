@@ -1,6 +1,16 @@
 {
   "title": "Cron 생성기",
   "description": "Cron 표현식을 쉽게 만들고 설명합니다.",
+  "builder": {
+    "title": "스케줄 설정",
+    "description": "필드를 먼저 설정하면 Cron 표현식이 자동으로 생성됩니다.",
+    "enabled": "설정 사용",
+    "mode": "모드",
+    "value": "값",
+    "any": "매번 (*)",
+    "every": "간격 (*/n)",
+    "at": "특정 값 (n)"
+  },
   "label": {
     "expression": "Cron 표현식",
     "minute": "분",

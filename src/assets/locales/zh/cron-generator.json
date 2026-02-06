@@ -1,6 +1,16 @@
 {
   "title": "Cron 生成器",
   "description": "轻松创建和解释 Cron 表达式。",
+  "builder": {
+    "title": "计划设置",
+    "description": "先设置各字段，Cron 表达式会自动生成。",
+    "enabled": "启用设置",
+    "mode": "模式",
+    "value": "值",
+    "any": "任意 (*)",
+    "every": "间隔 (*/n)",
+    "at": "指定值 (n)"
+  },
   "label": {
     "expression": "Cron 表达式",
     "minute": "分",
