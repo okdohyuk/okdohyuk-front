@@ -1,9 +1,12 @@
 {
   "title": "CSSジェネレーター",
-  "description": "CSSボックスシャドウと線形グラデーションを視覚的にデザインし、コードをコピーします。",
+  "description": "CSSボックスシャドウ、線形グラデーション、Border Radius、Flex、Gridを視覚的にデザインし、コードをコピーします。",
   "tab": {
     "shadow": "ボックスシャドウ",
-    "gradient": "グラデーション"
+    "gradient": "グラデーション",
+    "radius": "Border Radius",
+    "flex": "Flex",
+    "grid": "Grid"
   },
   "shadow": {
     "offsetX": "オフセット X",
@@ -24,6 +27,47 @@
     "toBottomRight": "右下へ",
     "toTopRight": "右上へ"
   },
+  "radius": {
+    "topLeft": "左上の半径",
+    "topRight": "右上の半径",
+    "bottomRight": "右下の半径",
+    "bottomLeft": "左下の半径"
+  },
+  "flex": {
+    "direction": "方向",
+    "wrapMode": "折り返し",
+    "justifyContent": "横方向の配置",
+    "alignItems": "縦方向の配置",
+    "gap": "間隔",
+    "row": "横",
+    "rowReverse": "横（反転）",
+    "column": "縦",
+    "columnReverse": "縦（反転）",
+    "noWrap": "折り返しなし",
+    "wrap": "折り返し",
+    "justifyStart": "開始",
+    "justifyCenter": "中央",
+    "justifyEnd": "終了",
+    "justifyBetween": "両端揃え",
+    "justifyAround": "周囲均等",
+    "justifyEvenly": "均等配置",
+    "alignStretch": "伸縮",
+    "alignStart": "開始",
+    "alignCenter": "中央",
+    "alignEnd": "終了",
+    "alignBaseline": "ベースライン"
+  },
+  "grid": {
+    "columns": "列数",
+    "rows": "行数",
+    "justifyItems": "横方向の配置",
+    "alignItems": "縦方向の配置",
+    "gap": "間隔",
+    "stretch": "伸縮",
+    "start": "開始",
+    "center": "中央",
+    "end": "終了"
+  },
   "code": {
     "css": "CSS",
     "tailwind": "Tailwind",
@@ -31,6 +75,6 @@
   },
   "openGraph": {
     "title": "CSSジェネレーター",
-    "description": "無料オンラインCSSジェネレーター。複雑なCSSボックスシャドウや線形グラデーションを視覚的に簡単にデザインできます。生成されたコードはワンクリックでコピー可能。純粋なCSSだけでなく、Tailwind CSSクラスもサポートしており、Web開発の生産性を向上させます。今すぐ独自のスタイルを作成して適用しましょう。"
+    "description": "無料オンラインCSSジェネレーター。CSSボックスシャドウ、線形グラデーション、Border Radius、Flex、Gridを視覚的に簡単にデザインできます。生成されたコードはワンクリックでコピー可能。純粋なCSSだけでなく、Tailwind CSSクラスもサポートしており、Web開発の生産性を向上させます。今すぐ独自のスタイルを作成して適用しましょう。"
   }
 }

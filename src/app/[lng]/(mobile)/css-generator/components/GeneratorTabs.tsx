@@ -7,6 +7,9 @@ interface GeneratorTabsProps {
   onTabChange: (tab: GeneratorTab) => void;
   shadowLabel: string;
   gradientLabel: string;
+  radiusLabel: string;
+  flexLabel: string;
+  gridLabel: string;
 }
 
 export function GeneratorTabs({
@@ -14,10 +17,16 @@ export function GeneratorTabs({
   onTabChange,
   shadowLabel,
   gradientLabel,
+  radiusLabel,
+  flexLabel,
+  gridLabel,
 }: GeneratorTabsProps) {
   const tabs: Array<{ key: GeneratorTab; label: string }> = [
     { key: 'shadow', label: shadowLabel },
     { key: 'gradient', label: gradientLabel },
+    { key: 'radius', label: radiusLabel },
+    { key: 'flex', label: flexLabel },
+    { key: 'grid', label: gridLabel },
   ];
 
   return (

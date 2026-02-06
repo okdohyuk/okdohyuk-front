@@ -1,9 +1,12 @@
 {
   "title": "CSS Generator",
-  "description": "Design CSS Box Shadows and Linear Gradients visually and copy the code.",
+  "description": "Design CSS Box Shadows, Linear Gradients, Border Radius, Flex, and Grid visually and copy the code.",
   "tab": {
     "shadow": "Box Shadow",
-    "gradient": "Gradient"
+    "gradient": "Gradient",
+    "radius": "Border Radius",
+    "flex": "Flex",
+    "grid": "Grid"
   },
   "shadow": {
     "offsetX": "Offset X",
@@ -24,6 +27,47 @@
     "toBottomRight": "To Bottom Right",
     "toTopRight": "To Top Right"
   },
+  "radius": {
+    "topLeft": "Top Left Radius",
+    "topRight": "Top Right Radius",
+    "bottomRight": "Bottom Right Radius",
+    "bottomLeft": "Bottom Left Radius"
+  },
+  "flex": {
+    "direction": "Direction",
+    "wrapMode": "Wrap",
+    "justifyContent": "Justify Content",
+    "alignItems": "Align Items",
+    "gap": "Gap",
+    "row": "Row",
+    "rowReverse": "Row Reverse",
+    "column": "Column",
+    "columnReverse": "Column Reverse",
+    "noWrap": "No Wrap",
+    "wrap": "Wrap",
+    "justifyStart": "Start",
+    "justifyCenter": "Center",
+    "justifyEnd": "End",
+    "justifyBetween": "Space Between",
+    "justifyAround": "Space Around",
+    "justifyEvenly": "Space Evenly",
+    "alignStretch": "Stretch",
+    "alignStart": "Start",
+    "alignCenter": "Center",
+    "alignEnd": "End",
+    "alignBaseline": "Baseline"
+  },
+  "grid": {
+    "columns": "Columns",
+    "rows": "Rows",
+    "justifyItems": "Justify Items",
+    "alignItems": "Align Items",
+    "gap": "Gap",
+    "stretch": "Stretch",
+    "start": "Start",
+    "center": "Center",
+    "end": "End"
+  },
   "code": {
     "css": "CSS",
     "tailwind": "Tailwind",
@@ -31,6 +75,6 @@
   },
   "openGraph": {
     "title": "CSS Generator",
-    "description": "Free Online CSS Generator. Visually design complex CSS Box Shadows and Linear Gradients with ease. Copy the generated code with a single click. Supports both pure CSS and Tailwind CSS classes to boost your web development productivity. Create and apply your unique styles instantly."
+    "description": "Free Online CSS Generator. Visually design CSS Box Shadows, Linear Gradients, Border Radius, Flex, and Grid with ease. Copy the generated code with a single click. Supports both pure CSS and Tailwind CSS classes to boost your web development productivity. Create and apply your unique styles instantly."
   }
 }
