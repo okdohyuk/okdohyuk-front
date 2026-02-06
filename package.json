@@ -37,6 +37,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cookie": "^1.1.1",
+    "cronstrue": "^3.11.0",
     "date-fns": "^3",
     "framer-motion": "^12.14.0",
     "i18next": "~25.0.2",

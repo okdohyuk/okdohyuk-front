@@ -2,12 +2,14 @@ import React from 'react';
 import {
   Bomb,
   Calculator,
+  CalendarClock,
   Code,
   CreditCard,
   Github,
   Linkedin,
   List,
   MonitorPlay,
+  Palette,
   QrCode,
   Server,
   Smile,
@@ -45,6 +47,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: 'Cron 생성기',
+        en: 'Cron Generator',
+        ja: 'Cron生成器',
+        zh: 'Cron生成器'
+      },
+      icon: <CalendarClock />,
+      link: '/cron-generator'
+    },
+    {
+      title: {
         ko: 'JWT 디코더',
         en: 'JWT Decoder',
         ja: 'JWTデコーダー',
@@ -52,6 +64,26 @@ const menus: Menus = {
       },
       icon: <Key />,
       link: '/jwt-decoder',
+    },
+    {
+      title: {
+        ko: 'CSS 생성기',
+        en: 'CSS Generator',
+        ja: 'CSSジェネレーター',
+        zh: 'CSS生成器'
+      },
+      icon: <Palette />,
+      link: '/css-generator'
+    },
+    {
+      title: {
+        ko: 'CSS 생성기',
+        en: 'CSS Generator',
+        ja: 'CSSジェネレーター',
+        zh: 'CSS生成器'
+      },
+      icon: <Palette />,
+      link: '/css-generator'
     },
     {
       title: {

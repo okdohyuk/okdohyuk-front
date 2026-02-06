@@ -1,0 +1,80 @@
+{
+  "title": "CSS生成器",
+  "description": "可视化设计CSS方框阴影、线性渐变、Border Radius、Flex 和 Grid 并复制生成代码。",
+  "tab": {
+    "shadow": "方框阴影",
+    "gradient": "渐变",
+    "radius": "Border Radius",
+    "flex": "Flex",
+    "grid": "Grid"
+  },
+  "shadow": {
+    "offsetX": "偏移 X",
+    "offsetY": "偏移 Y",
+    "blur": "模糊半径",
+    "spread": "扩散半径",
+    "color": "颜色",
+    "opacity": "不透明度"
+  },
+  "gradient": {
+    "direction": "方向",
+    "from": "起始颜色",
+    "to": "结束颜色",
+    "toRight": "向右",
+    "toLeft": "向左",
+    "toBottom": "向下",
+    "toTop": "向上",
+    "toBottomRight": "向右下",
+    "toTopRight": "向右上"
+  },
+  "radius": {
+    "topLeft": "左上圆角",
+    "topRight": "右上圆角",
+    "bottomRight": "右下圆角",
+    "bottomLeft": "左下圆角"
+  },
+  "flex": {
+    "direction": "方向",
+    "wrapMode": "换行",
+    "justifyContent": "主轴对齐",
+    "alignItems": "交叉轴对齐",
+    "gap": "间距",
+    "row": "横向",
+    "rowReverse": "横向反转",
+    "column": "纵向",
+    "columnReverse": "纵向反转",
+    "noWrap": "不换行",
+    "wrap": "换行",
+    "justifyStart": "起点",
+    "justifyCenter": "居中",
+    "justifyEnd": "终点",
+    "justifyBetween": "两端对齐",
+    "justifyAround": "环绕均分",
+    "justifyEvenly": "均匀分布",
+    "alignStretch": "拉伸",
+    "alignStart": "起点",
+    "alignCenter": "居中",
+    "alignEnd": "终点",
+    "alignBaseline": "基线"
+  },
+  "grid": {
+    "columns": "列数",
+    "rows": "行数",
+    "justifyItems": "横向对齐",
+    "alignItems": "纵向对齐",
+    "gap": "间距",
+    "stretch": "拉伸",
+    "start": "起点",
+    "center": "居中",
+    "end": "终点"
+  },
+  "code": {
+    "css": "CSS",
+    "tailwind": "Tailwind",
+    "copy": "点击复制"
+  },
+  "openGraph": {
+    "title": "CSS生成器",
+    "description": "免费在线CSS生成器。可视化轻松设计CSS方框阴影、线性渐变、Border Radius、Flex 和 Grid。一键复制生成的代码。支持纯CSS和Tailwind CSS类，提升您的Web开发效率。立即创建并应用您的独特风格。"
+  }
+}

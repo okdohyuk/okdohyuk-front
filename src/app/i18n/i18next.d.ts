@@ -19,6 +19,8 @@ import serverClock from 'assets/locales/ko/server-clock.json';
 import choseongMaker from 'assets/locales/ko/choseong-maker.json';
 import qrGenerator from 'assets/locales/ko/qr-generator.json';
 import jwtDecoder from 'assets/locales/ko/jwt-decoder.json';
+import cronGenerator from 'assets/locales/ko/cron-generator.json';
+import cssGenerator from 'assets/locales/ko/css-generator.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -44,6 +46,8 @@ declare module 'i18next' {
       'choseong-maker': typeof choseongMaker;
       'qr-generator': typeof qrGenerator;
       'jwt-decoder': typeof jwtDecoder;
+      'cron-generator': typeof cronGenerator;
+      'css-generator': typeof cssGenerator;
     };
   }
 }
