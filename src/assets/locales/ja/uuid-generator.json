@@ -1,0 +1,19 @@
+{
+  "title": "UUIDジェネレーター",
+  "description": "テストやデータ用のUUID v4をすぐ生成します。",
+  "label": {
+    "count": "生成数",
+    "output": "生成されたUUID"
+  },
+  "helper": "RFC 4122 v4 UUIDを生成します。最大12件まで対応します。",
+  "button": {
+    "generate": "生成",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "empty": "UUIDを生成するとここに表示されます。",
+  "openGraph": {
+    "title": "UUIDジェネレーター",
+    "description": "RFC 4122 v4 UUIDをすぐに生成します。"
+  }
+}

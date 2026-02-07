@@ -1,0 +1,36 @@
+{
+  "title": "Base64ファイルエンコーダー",
+  "description": "ファイルをBase64に変換してコピーやダウンロードができます。",
+  "label": {
+    "file": "ファイルを選択",
+    "format": "出力形式",
+    "output": "Base64結果"
+  },
+  "helper": "最大2MBまでのファイルに対応しています。",
+  "meta": {
+    "unknown": "不明なタイプ"
+  },
+  "empty": {
+    "meta": "ファイル情報がここに表示されます。",
+    "output": "ファイルを選択するとBase64が表示されます。"
+  },
+  "formats": {
+    "dataUrl": "Data URL（MIME付き）",
+    "raw": "Raw Base64のみ"
+  },
+  "formatHelp": "Data URLはMIMEプレフィックス付き、RawはBase64文字列のみです。",
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "clear": "クリア",
+    "download": "ダウンロード"
+  },
+  "error": {
+    "size": "ファイルが大きすぎます。2MB以下のファイルを使用してください。",
+    "read": "ファイルの読み込みに失敗しました。"
+  },
+  "openGraph": {
+    "title": "Base64ファイルエンコーダー",
+    "description": "ファイルをBase64文字列に変換して共有を簡単にします。"
+  }
+}
