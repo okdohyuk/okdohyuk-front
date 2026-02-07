@@ -1,0 +1,19 @@
+{
+  "title": "UUID 生成器",
+  "description": "即时生成用于测试或数据的 UUID v4。",
+  "label": {
+    "count": "生成数量",
+    "output": "生成的 UUID"
+  },
+  "helper": "生成 RFC 4122 v4 UUID，最多一次 12 个。",
+  "button": {
+    "generate": "生成",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "empty": "生成 UUID 后会显示在这里。",
+  "openGraph": {
+    "title": "UUID 生成器",
+    "description": "按需生成 RFC 4122 v4 UUID。"
+  }
+}

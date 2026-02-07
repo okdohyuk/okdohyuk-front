@@ -1,0 +1,19 @@
+{
+  "title": "UUID Generator",
+  "description": "Create version 4 UUIDs instantly for IDs, tests, or data fixtures.",
+  "label": {
+    "count": "How many",
+    "output": "Generated UUIDs"
+  },
+  "helper": "Generates RFC 4122 v4 UUIDs. Up to 12 at a time.",
+  "button": {
+    "generate": "Generate",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Generate UUIDs to see them here.",
+  "openGraph": {
+    "title": "UUID Generator",
+    "description": "Generate RFC 4122 version 4 UUIDs on demand."
+  }
+}

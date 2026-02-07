@@ -1,0 +1,19 @@
+{
+  "title": "UUID 생성기",
+  "description": "테스트, 데이터, 식별자용 UUID v4를 즉시 생성하세요.",
+  "label": {
+    "count": "생성할 개수",
+    "output": "생성된 UUID"
+  },
+  "helper": "RFC 4122 v4 UUID를 생성합니다. 한 번에 최대 12개까지 지원합니다.",
+  "button": {
+    "generate": "새로 생성",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "empty": "UUID를 생성하면 여기에 표시됩니다.",
+  "openGraph": {
+    "title": "UUID 생성기",
+    "description": "RFC 4122 v4 UUID를 빠르게 생성하세요."
+  }
+}
