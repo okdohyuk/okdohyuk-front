@@ -1,0 +1,39 @@
+{
+  "title": "时区会议规划器",
+  "description": "设置基准时间和时区，快速对比多个地区的会议时间。",
+  "helper": "选择基准时区与时间，再添加参与者所在时区。",
+  "label": {
+    "baseTimezone": "基准时区",
+    "baseDateTime": "基准日期与时间",
+    "addTimezone": "添加参与者时区"
+  },
+  "placeholder": {
+    "selectTimezone": "选择时区",
+    "addTimezone": "选择要添加的时区"
+  },
+  "button": {
+    "useNow": "使用当前时间",
+    "reset": "重置",
+    "add": "添加",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "empty": "选择基准时间后即可查看转换结果。",
+  "table": {
+    "timezone": "时区",
+    "offset": "UTC 偏移",
+    "time": "当地时间",
+    "dayOffset": "日期差",
+    "copy": "复制"
+  },
+  "dayOffset": {
+    "same": "同一天",
+    "next": "次日 (+{{count}})",
+    "previous": "前一日 (-{{count}})"
+  },
+  "openGraph": {
+    "title": "时区会议规划器",
+    "description": "用一个基准时间对比不同地区的会议时间。",
+    "keywords": ["时区", "会议", "日程", "时间转换", "世界时钟"]
+  }
+}
