@@ -1,0 +1,33 @@
+{
+  "title": "진수 변환기",
+  "description": "10진수, 2진수, 8진수, 16진수를 즉시 변환합니다.",
+  "helper": "어느 진수든 입력하면 나머지가 자동으로 맞춰집니다. 0x 같은 접두사는 필요 없어요.",
+  "fields": {
+    "decimal": "10진수",
+    "binary": "2진수",
+    "octal": "8진수",
+    "hex": "16진수"
+  },
+  "placeholders": {
+    "decimal": "1024",
+    "binary": "10000000000",
+    "octal": "2000",
+    "hex": "400"
+  },
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "example": "예시 채우기",
+    "clear": "지우기"
+  },
+  "error": {
+    "invalid": "선택한 진수에 맞는 숫자를 입력하세요."
+  },
+  "example": {
+    "value": "1024"
+  },
+  "openGraph": {
+    "title": "진수 변환기",
+    "description": "10진수, 2진수, 8진수, 16진수를 즉시 변환합니다."
+  }
+}

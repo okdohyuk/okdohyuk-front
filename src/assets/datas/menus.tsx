@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Binary,
   Bomb,
   Calculator,
   CalendarClock,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '진수 변환기',
+        en: 'Number Base Converter',
+        ja: '基数変換ツール',
+        zh: '进制转换器',
+      },
+      icon: <Binary />,
+      link: '/number-base-converter',
     },
     {
       title: {

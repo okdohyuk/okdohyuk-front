@@ -1,0 +1,33 @@
+{
+  "title": "进制转换器",
+  "description": "快速在十进制、二进制、八进制和十六进制之间转换。",
+  "helper": "在任意进制输入即可同步其他结果，无需 0x 等前缀。",
+  "fields": {
+    "decimal": "十进制",
+    "binary": "二进制",
+    "octal": "八进制",
+    "hex": "十六进制"
+  },
+  "placeholders": {
+    "decimal": "1024",
+    "binary": "10000000000",
+    "octal": "2000",
+    "hex": "400"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "example": "填入示例",
+    "clear": "清空"
+  },
+  "error": {
+    "invalid": "请输入符合所选进制的数字。"
+  },
+  "example": {
+    "value": "1024"
+  },
+  "openGraph": {
+    "title": "进制转换器",
+    "description": "快速在十进制、二进制、八进制和十六进制之间转换。"
+  }
+}

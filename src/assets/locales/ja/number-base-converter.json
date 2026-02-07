@@ -1,0 +1,33 @@
+{
+  "title": "基数変換ツール",
+  "description": "10進数・2進数・8進数・16進数を即座に変換します。",
+  "helper": "どの基数でも入力すれば他の値が同期されます。0x などの接頭辞は不要です。",
+  "fields": {
+    "decimal": "10進数",
+    "binary": "2進数",
+    "octal": "8進数",
+    "hex": "16進数"
+  },
+  "placeholders": {
+    "decimal": "1024",
+    "binary": "10000000000",
+    "octal": "2000",
+    "hex": "400"
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー完了",
+    "example": "例を入力",
+    "clear": "クリア"
+  },
+  "error": {
+    "invalid": "選択した基数に合う数字を入力してください。"
+  },
+  "example": {
+    "value": "1024"
+  },
+  "openGraph": {
+    "title": "基数変換ツール",
+    "description": "10進数・2進数・8進数・16進数を即座に変換します。"
+  }
+}
