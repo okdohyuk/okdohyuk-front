@@ -1,0 +1,31 @@
+{
+  "title": "タイムスタンプ変換",
+  "description": "Unixタイムスタンプ（秒/ミリ秒）とローカル日時を相互に変換します。",
+  "label": {
+    "unixSeconds": "Unix秒",
+    "unixMilliseconds": "Unixミリ秒",
+    "isoLocal": "ローカル日時"
+  },
+  "placeholder": {
+    "unixSeconds": "例: 1738951200",
+    "unixMilliseconds": "例: 1738951200000"
+  },
+  "helper": {
+    "localNotice": "ISO 入出力はローカルタイムゾーン基準です。"
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "now": "現在時刻を使用",
+    "clear": "クリア"
+  },
+  "error": {
+    "invalidSeconds": "有効な Unix 秒タイムスタンプを入力してください。",
+    "invalidMilliseconds": "有効な Unix ミリ秒タイムスタンプを入力してください。",
+    "invalidIso": "有効なローカル日時を入力してください。"
+  },
+  "openGraph": {
+    "title": "タイムスタンプ変換",
+    "description": "Unixタイムスタンプをローカル日時に変換します。"
+  }
+}

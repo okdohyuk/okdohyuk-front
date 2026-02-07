@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  Clock,
   Code,
   CreditCard,
   Github,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '타임스탬프 변환기',
+        en: 'Timestamp Converter',
+        ja: 'タイムスタンプ変換',
+        zh: '时间戳转换器',
+      },
+      icon: <Clock />,
+      link: '/timestamp-converter',
     },
     {
       title: {

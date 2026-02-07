@@ -1,0 +1,31 @@
+{
+  "title": "타임스탬프 변환기",
+  "description": "유닉스 타임스탬프(초/밀리초)와 로컬 날짜/시간을 서로 변환합니다.",
+  "label": {
+    "unixSeconds": "유닉스 초",
+    "unixMilliseconds": "유닉스 밀리초",
+    "isoLocal": "로컬 날짜/시간"
+  },
+  "placeholder": {
+    "unixSeconds": "예: 1738951200",
+    "unixMilliseconds": "예: 1738951200000"
+  },
+  "helper": {
+    "localNotice": "ISO 입력/출력은 로컬 시간대 기준입니다."
+  },
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "now": "현재 시간 사용",
+    "clear": "지우기"
+  },
+  "error": {
+    "invalidSeconds": "유효한 유닉스 초 타임스탬프를 입력하세요.",
+    "invalidMilliseconds": "유효한 유닉스 밀리초 타임스탬프를 입력하세요.",
+    "invalidIso": "유효한 로컬 날짜/시간을 입력하세요."
+  },
+  "openGraph": {
+    "title": "타임스탬프 변환기",
+    "description": "유닉스 타임스탬프를 로컬 날짜/시간으로 변환합니다."
+  }
+}
