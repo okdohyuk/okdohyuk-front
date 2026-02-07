@@ -1,0 +1,35 @@
+{
+  "title": "텍스트 Diff 뷰어",
+  "description": "두 텍스트를 줄 단위로 비교해 추가·삭제·변경을 빠르게 확인합니다.",
+  "helper": "두 버전을 붙여 넣고 아래에서 차이를 확인하세요.",
+  "label": {
+    "left": "원본 텍스트",
+    "right": "변경된 텍스트",
+    "result": "비교 결과"
+  },
+  "placeholder": {
+    "left": "원본 텍스트를 붙여 넣어 주세요...",
+    "right": "변경된 텍스트를 붙여 넣어 주세요..."
+  },
+  "button": {
+    "copy": "Diff 복사",
+    "copied": "복사됨",
+    "clear": "초기화",
+    "swap": "바꾸기",
+    "example": "예시 불러오기"
+  },
+  "stats": "줄 수: {{total}} (내용 있음 {{nonEmpty}})",
+  "summary": {
+    "added": "추가: {{count}}",
+    "removed": "삭제: {{count}}",
+    "unchanged": "동일: {{count}}"
+  },
+  "empty": "두 텍스트를 입력하면 비교 결과가 표시됩니다.",
+  "warning": {
+    "largeInput": "입력량이 커서 비교를 생략했어요. 줄 수를 줄여 다시 시도해 주세요."
+  },
+  "openGraph": {
+    "title": "텍스트 Diff 뷰어",
+    "description": "두 버전의 텍스트를 줄 단위로 비교해 변경 사항을 확인하세요."
+  }
+}

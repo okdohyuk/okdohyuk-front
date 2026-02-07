@@ -1,0 +1,35 @@
+{
+  "title": "Text Diff Viewer",
+  "description": "Compare two texts line by line to spot additions, removals, and changes.",
+  "helper": "Paste two versions and review the diff below.",
+  "label": {
+    "left": "Original Text",
+    "right": "Updated Text",
+    "result": "Diff Result"
+  },
+  "placeholder": {
+    "left": "Paste the original text...",
+    "right": "Paste the updated text..."
+  },
+  "button": {
+    "copy": "Copy diff",
+    "copied": "Copied",
+    "clear": "Clear",
+    "swap": "Swap",
+    "example": "Load example"
+  },
+  "stats": "Lines: {{total}} (non-empty {{nonEmpty}})",
+  "summary": {
+    "added": "Added: {{count}}",
+    "removed": "Removed: {{count}}",
+    "unchanged": "Unchanged: {{count}}"
+  },
+  "empty": "Start by entering two texts to compare.",
+  "warning": {
+    "largeInput": "Inputs are large, so diff generation is skipped. Reduce line count to compare."
+  },
+  "openGraph": {
+    "title": "Text Diff Viewer",
+    "description": "Compare two text versions and review line-level additions and removals instantly."
+  }
+}
