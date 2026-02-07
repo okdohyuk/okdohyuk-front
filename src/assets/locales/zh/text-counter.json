@@ -1,0 +1,32 @@
+{
+  "openGraph": {
+    "title": "文本计数器",
+    "description": "在浏览器中即时统计字符数、单词数、行数和字节数。",
+    "keywords": ["文本计数器", "字符数", "单词数", "行数", "字节数", "工具"]
+  },
+  "title": "文本计数器",
+  "description": "输入文本即可即时统计字符数、单词数、行数和字节数。",
+  "badge": "快速统计",
+  "label": {
+    "input": "文本输入",
+    "stats": "统计"
+  },
+  "helper": {
+    "input": "输入时会自动更新统计结果。"
+  },
+  "button": {
+    "clear": "清空",
+    "sample": "插入示例"
+  },
+  "metric": {
+    "characters": "字符数（含空格）",
+    "charactersNoSpaces": "字符数（不含空格）",
+    "words": "单词数",
+    "lines": "行数",
+    "bytes": "字节数（UTF-8）"
+  },
+  "placeholder": {
+    "input": "在此输入或粘贴文本。"
+  },
+  "sampleText": "设计你想要的一天，然后数一数每个词。"
+}

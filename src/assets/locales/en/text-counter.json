@@ -1,0 +1,39 @@
+{
+  "openGraph": {
+    "title": "Text Counter",
+    "description": "Count characters, words, lines, and bytes instantly in your browser.",
+    "keywords": [
+      "text counter",
+      "word count",
+      "character count",
+      "line count",
+      "byte count",
+      "tool"
+    ]
+  },
+  "title": "Text Counter",
+  "description": "Paste or type text to measure characters, words, lines, and bytes instantly.",
+  "badge": "Quick Stats",
+  "label": {
+    "input": "Text input",
+    "stats": "Statistics"
+  },
+  "helper": {
+    "input": "Counts update automatically as you type."
+  },
+  "button": {
+    "clear": "Clear",
+    "sample": "Insert sample"
+  },
+  "metric": {
+    "characters": "Characters (with spaces)",
+    "charactersNoSpaces": "Characters (no spaces)",
+    "words": "Words",
+    "lines": "Lines",
+    "bytes": "Bytes (UTF-8)"
+  },
+  "placeholder": {
+    "input": "Enter or paste text here."
+  },
+  "sampleText": "Design the day you want—then count every word."
+}
