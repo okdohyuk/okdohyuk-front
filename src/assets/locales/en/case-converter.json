@@ -1,0 +1,24 @@
+{
+  "title": "Case Converter",
+  "description": "Convert text into upper, lower, title, and sentence case.",
+  "label": {
+    "input": "Source text"
+  },
+  "placeholder": "Paste or type any sentence to convert the casing.",
+  "helper": "Keep punctuation and spacing while switching cases.",
+  "output": {
+    "upper": "UPPERCASE",
+    "lower": "lowercase",
+    "title": "Title Case",
+    "sentence": "Sentence case"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Enter text to see the converted results.",
+  "openGraph": {
+    "title": "Case Converter",
+    "description": "Switch text between uppercase, lowercase, title case, and sentence case."
+  }
+}

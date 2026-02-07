@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Fingerprint,
   Github,
   Hash,
   Key,
@@ -18,6 +19,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Type,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -85,6 +87,26 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '대소문자 변환기',
+        en: 'Case Converter',
+        ja: 'ケース変換',
+        zh: '大小写转换器',
+      },
+      icon: <Type />,
+      link: '/case-converter',
+    },
+    {
+      title: {
+        ko: 'UUID 생성기',
+        en: 'UUID Generator',
+        ja: 'UUID生成器',
+        zh: 'UUID 生成器',
+      },
+      icon: <Fingerprint />,
+      link: '/uuid-generator',
     },
     {
       title: {
