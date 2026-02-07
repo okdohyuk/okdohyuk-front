@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '로렘 입숨 생성기',
+        en: 'Lorem Ipsum Generator',
+        ja: 'ロレム・イプサム生成器',
+        zh: 'Lorem Ipsum 生成器',
+      },
+      icon: <FileText />,
+      link: '/lorem-ipsum',
     },
     {
       title: {

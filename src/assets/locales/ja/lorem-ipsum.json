@@ -1,0 +1,23 @@
+{
+  "title": "ロレム・イプサム生成器",
+  "description": "段落数または単語数でダミーテキストを生成します。",
+  "badge": "ライティング支援",
+  "label": {
+    "unit": "単位",
+    "count": "個数",
+    "output": "生成結果"
+  },
+  "unit": {
+    "paragraphs": "段落",
+    "words": "単語"
+  },
+  "helper": {
+    "paragraphs": "最大{{max}}段落まで生成できます。",
+    "words": "最大{{max}}語まで生成できます。"
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "placeholder": "生成されたテキストがここに表示されます。"
+}

@@ -1,0 +1,23 @@
+{
+  "title": "로렘 입숨 생성기",
+  "description": "문단 또는 단어 수로 더미 텍스트를 생성합니다.",
+  "badge": "글쓰기 도구",
+  "label": {
+    "unit": "단위",
+    "count": "개수",
+    "output": "생성 결과"
+  },
+  "unit": {
+    "paragraphs": "문단",
+    "words": "단어"
+  },
+  "helper": {
+    "paragraphs": "최대 {{max}}개의 문단까지 생성할 수 있습니다.",
+    "words": "최대 {{max}}개의 단어까지 생성할 수 있습니다."
+  },
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "placeholder": "생성된 텍스트가 여기에 표시됩니다."
+}
