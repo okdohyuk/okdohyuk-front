@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  ArrowLeftRight,
   Github,
   Key,
   Linkedin,
@@ -104,6 +105,16 @@ const menus: Menus = {
       },
       icon: <Code />,
       link: '/coder',
+    },
+    {
+      title: {
+        ko: 'JSON ↔ YAML 변환기',
+        en: 'JSON ↔ YAML Converter',
+        ja: 'JSON ↔ YAML 変換',
+        zh: 'JSON ↔ YAML 转换器',
+      },
+      icon: <ArrowLeftRight />,
+      link: '/json-yaml-converter',
     },
     {
       title: {

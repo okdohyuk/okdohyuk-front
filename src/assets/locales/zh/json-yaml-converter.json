@@ -1,0 +1,38 @@
+{
+  "title": "JSON ↔ YAML 转换器",
+  "description": "在浏览器中将JSON与YAML相互转换。",
+  "label": {
+    "direction": "转换方向",
+    "input": "输入",
+    "output": "输出"
+  },
+  "direction": {
+    "jsonToYaml": "JSON → YAML",
+    "yamlToJson": "YAML → JSON"
+  },
+  "button": {
+    "convert": "转换",
+    "swap": "交换",
+    "clear": "清空",
+    "copy": "复制",
+    "copied": "已复制",
+    "sampleJson": "JSON示例",
+    "sampleYaml": "YAML示例"
+  },
+  "placeholder": {
+    "input": "请粘贴JSON或YAML...",
+    "output": {
+      "json": "转换后的JSON将显示在这里...",
+      "yaml": "转换后的YAML将显示在这里..."
+    }
+  },
+  "helper": "所有转换都在本地完成，数据不会发送到服务器。",
+  "error": {
+    "invalidJson": "JSON格式无效。",
+    "invalidYaml": "YAML格式无效。"
+  },
+  "openGraph": {
+    "title": "JSON ↔ YAML 转换器",
+    "description": "在客户端安全地完成JSON与YAML的互转与格式化。"
+  }
+}
