@@ -1,0 +1,22 @@
+{
+  "title": "テキストカウンター",
+  "description": "文字数・単語数・行数・バイト数をすぐに計測します。",
+  "badge": "テキストツール",
+  "label": {
+    "input": "テキスト",
+    "characters": "文字数",
+    "charactersNoSpaces": "空白を除く文字数",
+    "words": "単語数",
+    "lines": "行数",
+    "bytes": "バイト"
+  },
+  "placeholder": "ここにテキストを入力または貼り付けてください...",
+  "actions": {
+    "clear": "クリア"
+  },
+  "helper": "入力と同時にカウントが更新されます。",
+  "openGraph": {
+    "title": "テキストカウンター",
+    "description": "文字数・単語数・行数・バイト数を即時に計測。"
+  }
+}
