@@ -5,6 +5,8 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileCode2,
+  Fingerprint,
   Github,
   Hash,
   Key,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: 'UUID 생성기',
+        en: 'UUID Generator',
+        ja: 'UUIDジェネレーター',
+        zh: 'UUID 生成器',
+      },
+      icon: <Fingerprint />,
+      link: '/uuid-generator',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -115,6 +127,16 @@ const menus: Menus = {
       },
       icon: <Code />,
       link: '/coder',
+    },
+    {
+      title: {
+        ko: 'Base64 파일 인코더',
+        en: 'Base64 File Encoder',
+        ja: 'Base64ファイルエンコーダー',
+        zh: 'Base64 文件编码器',
+      },
+      icon: <FileCode2 />,
+      link: '/base64-file',
     },
     {
       title: {

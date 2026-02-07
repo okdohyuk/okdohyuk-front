@@ -1,0 +1,36 @@
+{
+  "title": "Base64 文件编码器",
+  "description": "将文件转换为 Base64，并支持复制或下载结果。",
+  "label": {
+    "file": "选择文件",
+    "format": "输出格式",
+    "output": "Base64 结果"
+  },
+  "helper": "支持最大 2MB 的文件。",
+  "meta": {
+    "unknown": "未知类型"
+  },
+  "empty": {
+    "meta": "文件信息会显示在这里。",
+    "output": "选择文件后会生成 Base64。"
+  },
+  "formats": {
+    "dataUrl": "Data URL（包含 MIME）",
+    "raw": "仅 Raw Base64"
+  },
+  "formatHelp": "Data URL 会保留 MIME 前缀，Raw 仅输出 Base64 字符串。",
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清除",
+    "download": "下载"
+  },
+  "error": {
+    "size": "文件过大，请使用 2MB 以下的文件。",
+    "read": "读取文件失败。"
+  },
+  "openGraph": {
+    "title": "Base64 文件编码器",
+    "description": "将文件转换为 Base64 字符串，方便分享与嵌入。"
+  }
+}
