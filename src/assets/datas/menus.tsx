@@ -6,6 +6,7 @@ import {
   Code,
   CreditCard,
   Github,
+  GitCompare,
   Hash,
   Key,
   Linkedin,
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 Diff 뷰어',
+        en: 'Text Diff Viewer',
+        ja: 'テキスト差分ビューア',
+        zh: '文本差异查看器',
+      },
+      icon: <GitCompare />,
+      link: '/diff-viewer',
     },
     {
       title: {

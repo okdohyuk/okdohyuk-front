@@ -1,0 +1,35 @@
+{
+  "title": "文本差异查看器",
+  "description": "按行对比两段文本，快速查看新增、删除和变更。",
+  "helper": "粘贴两个版本，然后在下方查看差异。",
+  "label": {
+    "left": "原始文本",
+    "right": "更新文本",
+    "result": "对比结果"
+  },
+  "placeholder": {
+    "left": "粘贴原始文本...",
+    "right": "粘贴更新文本..."
+  },
+  "button": {
+    "copy": "复制差异",
+    "copied": "已复制",
+    "clear": "清空",
+    "swap": "交换",
+    "example": "载入示例"
+  },
+  "stats": "行数：{{total}}（非空 {{nonEmpty}}）",
+  "summary": {
+    "added": "新增：{{count}}",
+    "removed": "删除：{{count}}",
+    "unchanged": "相同：{{count}}"
+  },
+  "empty": "请输入两段文本以查看差异。",
+  "warning": {
+    "largeInput": "输入内容过大，已跳过差异生成。请减少行数后重试。"
+  },
+  "openGraph": {
+    "title": "文本差异查看器",
+    "description": "按行比较两个文本版本，快速掌握变更内容。"
+  }
+}
