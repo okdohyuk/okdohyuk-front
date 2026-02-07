@@ -1,0 +1,38 @@
+{
+  "title": "正则表达式测试器",
+  "description": "测试正则表达式并即时查看匹配结果。",
+  "label": {
+    "pattern": "模式",
+    "flags": "标志",
+    "testText": "测试文本",
+    "results": "匹配结果",
+    "matchCount": "匹配数: {{count}}",
+    "match": "匹配",
+    "value": "值",
+    "index": "索引",
+    "groups": "命名分组"
+  },
+  "placeholder": {
+    "pattern": "输入正则表达式模式...",
+    "flags": "例如: gim",
+    "testText": "粘贴需要测试的文本..."
+  },
+  "action": {
+    "example": "加载示例",
+    "clear": "清空",
+    "copyMatches": "复制匹配项",
+    "copied": "已复制"
+  },
+  "error": {
+    "invalidFlags": "仅允许使用 g i m s u y d 标志。",
+    "invalidPattern": "无效的正则表达式模式。"
+  },
+  "example": {
+    "text": "The quick brown fox jumps over 1234 lazy dogs.\nRegex makes pattern matching efficient."
+  },
+  "empty": "暂无匹配结果，请输入模式。",
+  "openGraph": {
+    "title": "正则表达式测试器",
+    "description": "验证正则表达式和标志，并在浏览器中查看匹配结果。"
+  }
+}

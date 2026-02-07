@@ -1,0 +1,38 @@
+{
+  "title": "正規表現テスター",
+  "description": "正規表現を試して一致結果をすぐに確認できます。",
+  "label": {
+    "pattern": "パターン",
+    "flags": "フラグ",
+    "testText": "テストテキスト",
+    "results": "一致結果",
+    "matchCount": "一致数: {{count}}",
+    "match": "一致",
+    "value": "値",
+    "index": "インデックス",
+    "groups": "名前付きグループ"
+  },
+  "placeholder": {
+    "pattern": "正規表現パターンを入力...",
+    "flags": "例: gim",
+    "testText": "テストしたいテキストを貼り付けてください..."
+  },
+  "action": {
+    "example": "例を読み込む",
+    "clear": "クリア",
+    "copyMatches": "一致をコピー",
+    "copied": "コピーしました"
+  },
+  "error": {
+    "invalidFlags": "g i m s u y d フラグのみ使用できます。",
+    "invalidPattern": "無効な正規表現パターンです。"
+  },
+  "example": {
+    "text": "The quick brown fox jumps over 1234 lazy dogs.\nRegex makes pattern matching efficient."
+  },
+  "empty": "一致結果がありません。パターンを入力してください。",
+  "openGraph": {
+    "title": "正規表現テスター",
+    "description": "正規表現パターンとフラグを検証し、結果をブラウザで確認します。"
+  }
+}

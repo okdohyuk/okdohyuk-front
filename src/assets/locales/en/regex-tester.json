@@ -1,0 +1,38 @@
+{
+  "title": "Regex Tester",
+  "description": "Test regular expressions against sample text and review matches instantly.",
+  "label": {
+    "pattern": "Pattern",
+    "flags": "Flags",
+    "testText": "Test Text",
+    "results": "Matches",
+    "matchCount": "Matches: {{count}}",
+    "match": "Match",
+    "value": "Value",
+    "index": "Index",
+    "groups": "Named Groups"
+  },
+  "placeholder": {
+    "pattern": "Enter a regex pattern...",
+    "flags": "e.g. gim",
+    "testText": "Paste the text you want to test..."
+  },
+  "action": {
+    "example": "Load example",
+    "clear": "Clear",
+    "copyMatches": "Copy matches",
+    "copied": "Copied"
+  },
+  "error": {
+    "invalidFlags": "Only g i m s u y d flags are allowed.",
+    "invalidPattern": "Invalid regular expression pattern."
+  },
+  "example": {
+    "text": "The quick brown fox jumps over 1234 lazy dogs.\nRegex makes pattern matching efficient."
+  },
+  "empty": "No matches yet. Enter a pattern to start.",
+  "openGraph": {
+    "title": "Regex Tester",
+    "description": "Validate regex patterns, test flags, and inspect matches right in the browser."
+  }
+}
