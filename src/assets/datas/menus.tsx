@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Bomb,
   Calculator,
+  ArrowUpDown,
   CalendarClock,
   Code,
   CreditCard,
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '라인 정렬기',
+        en: 'Line Sorter',
+        ja: '行ソーター',
+        zh: '行排序器',
+      },
+      icon: <ArrowUpDown />,
+      link: '/line-sorter',
     },
     {
       title: {

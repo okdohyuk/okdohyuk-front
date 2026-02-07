@@ -1,0 +1,39 @@
+{
+  "title": "行ソーター",
+  "description": "テキストの行を整列し、重複削除やクリーンアップを素早く行います。",
+  "label": {
+    "input": "入力",
+    "output": "出力",
+    "options": "オプション",
+    "sortOrder": "並び順"
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "clear": "クリア",
+    "sample": "サンプル入力"
+  },
+  "option": {
+    "ascending": "昇順",
+    "descending": "降順",
+    "trimWhitespace": "前後の空白を削除",
+    "removeEmpty": "空行を削除",
+    "uniqueLines": "重複を削除",
+    "ignoreCase": "大文字小文字を無視"
+  },
+  "helper": "1行ごとに入力してください。設定は即時反映されます。",
+  "stats": {
+    "input": "入力行数",
+    "output": "出力行数"
+  },
+  "placeholder": {
+    "input": "行を入力（1行につき1項目）...",
+    "output": "整列結果がここに表示されます。"
+  },
+  "empty": "まだ行がありません。",
+  "example": "バナナ\nりんご\nチェリー\nりんご\n\n デーツ\nアプリコット",
+  "openGraph": {
+    "title": "行ソーター",
+    "description": "テキストの行を並べ替え、重複や空白を素早く整理します。"
+  }
+}

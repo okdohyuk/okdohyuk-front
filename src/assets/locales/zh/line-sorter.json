@@ -1,0 +1,39 @@
+{
+  "title": "行排序器",
+  "description": "快速排序文本行并去重、清理。",
+  "label": {
+    "input": "输入",
+    "output": "输出",
+    "options": "选项",
+    "sortOrder": "排序方式"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空",
+    "sample": "填充示例"
+  },
+  "option": {
+    "ascending": "升序",
+    "descending": "降序",
+    "trimWhitespace": "去除首尾空格",
+    "removeEmpty": "移除空行",
+    "uniqueLines": "去重",
+    "ignoreCase": "忽略大小写"
+  },
+  "helper": "每行输入一个项目，设置会即时生效。",
+  "stats": {
+    "input": "输入行数",
+    "output": "输出行数"
+  },
+  "placeholder": {
+    "input": "请输入多行文本（每行一个）...",
+    "output": "排序后的结果会显示在这里。"
+  },
+  "empty": "暂无内容。",
+  "example": "香蕉\n苹果\n樱桃\n苹果\n\n 枣\n杏子",
+  "openGraph": {
+    "title": "行排序器",
+    "description": "使用去重、清理空格等选项快速整理文本行。"
+  }
+}
