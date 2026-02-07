@@ -12,6 +12,7 @@ import {
   MonitorPlay,
   Palette,
   QrCode,
+  Search,
   Server,
   Smile,
   Sparkles,
@@ -64,6 +65,16 @@ const menus: Menus = {
       },
       icon: <Key />,
       link: '/jwt-decoder',
+    },
+    {
+      title: {
+        ko: '정규식 테스트',
+        en: 'Regex Tester',
+        ja: '正規表現テスター',
+        zh: '正则表达式测试器',
+      },
+      icon: <Search />,
+      link: '/regex-tester',
     },
     {
       title: {

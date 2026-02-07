@@ -1,0 +1,38 @@
+{
+  "title": "정규식 테스트",
+  "description": "정규식을 테스트하고 매칭 결과를 즉시 확인하세요.",
+  "label": {
+    "pattern": "패턴",
+    "flags": "플래그",
+    "testText": "테스트 텍스트",
+    "results": "매칭 결과",
+    "matchCount": "매칭 수: {{count}}",
+    "match": "매칭",
+    "value": "값",
+    "index": "인덱스",
+    "groups": "이름 있는 그룹"
+  },
+  "placeholder": {
+    "pattern": "정규식 패턴을 입력하세요...",
+    "flags": "예: gim",
+    "testText": "테스트할 텍스트를 붙여 넣으세요..."
+  },
+  "action": {
+    "example": "예제 불러오기",
+    "clear": "초기화",
+    "copyMatches": "매칭 복사",
+    "copied": "복사됨"
+  },
+  "error": {
+    "invalidFlags": "g i m s u y d 플래그만 사용할 수 있습니다.",
+    "invalidPattern": "올바르지 않은 정규식 패턴입니다."
+  },
+  "example": {
+    "text": "The quick brown fox jumps over 1234 lazy dogs.\nRegex makes pattern matching efficient."
+  },
+  "empty": "아직 매칭 결과가 없습니다. 패턴을 입력해 주세요.",
+  "openGraph": {
+    "title": "정규식 테스트",
+    "description": "정규식 패턴과 플래그를 검증하고 매칭 결과를 브라우저에서 확인하세요."
+  }
+}
