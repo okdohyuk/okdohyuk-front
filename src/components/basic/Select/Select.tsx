@@ -12,12 +12,15 @@ const SelectGroup = SelectPrimitive.Group;
 
 const SelectValue = SelectPrimitive.Value;
 
+type SelectTriggerProps = React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>;
+
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+  SelectTriggerProps
+>(({ className, children, 'aria-label': ariaLabel, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
+    aria-label={ariaLabel ?? 'Select option'}
     className={cn(
       'flex h-[32px] w-full items-center justify-between rounded-lg border border-gray-200 bg-white px-3 py-1 text-lg font-normal text-gray-900 placeholder:text-gray-500 outline-none focus:border-transparent focus:ring-2 focus:ring-point-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-400 [&>span]:line-clamp-1',
       className,
