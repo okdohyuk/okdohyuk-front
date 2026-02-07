@@ -1,0 +1,39 @@
+{
+  "title": "タイムゾーン会議プランナー",
+  "description": "基準の日時とタイムゾーンを設定し、複数地域の会議時間を比較します。",
+  "helper": "基準タイムゾーンと日時を選び、参加者の地域を追加してください。",
+  "label": {
+    "baseTimezone": "基準タイムゾーン",
+    "baseDateTime": "基準日時",
+    "addTimezone": "参加者タイムゾーンを追加"
+  },
+  "placeholder": {
+    "selectTimezone": "タイムゾーンを選択",
+    "addTimezone": "追加するタイムゾーンを選択"
+  },
+  "button": {
+    "useNow": "現在時刻を使用",
+    "reset": "リセット",
+    "add": "追加",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "empty": "基準時刻を入力すると変換結果が表示されます。",
+  "table": {
+    "timezone": "タイムゾーン",
+    "offset": "UTCオフセット",
+    "time": "現地時間",
+    "dayOffset": "日付差",
+    "copy": "コピー"
+  },
+  "dayOffset": {
+    "same": "同じ日",
+    "next": "翌日 (+{{count}})",
+    "previous": "前日 (-{{count}})"
+  },
+  "openGraph": {
+    "title": "タイムゾーン会議プランナー",
+    "description": "1つの基準時間から各地域の会議時間を比較できます。",
+    "keywords": ["タイムゾーン", "会議", "スケジュール", "時間変換", "ワールドクロック"]
+  }
+}

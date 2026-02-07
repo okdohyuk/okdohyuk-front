@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  Clock,
   Code,
   CreditCard,
   Github,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '시간대 미팅 플래너',
+        en: 'Time Zone Meeting Planner',
+        ja: 'タイムゾーン会議プランナー',
+        zh: '时区会议规划器',
+      },
+      icon: <Clock />,
+      link: '/timezone-planner',
     },
     {
       title: {

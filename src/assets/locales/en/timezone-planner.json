@@ -1,0 +1,39 @@
+{
+  "title": "Time Zone Meeting Planner",
+  "description": "Set a base time and compare meeting times across multiple regions.",
+  "helper": "Pick a base timezone and time, then add the regions you want to share.",
+  "label": {
+    "baseTimezone": "Base timezone",
+    "baseDateTime": "Base date & time",
+    "addTimezone": "Add participant timezone"
+  },
+  "placeholder": {
+    "selectTimezone": "Choose a timezone",
+    "addTimezone": "Select a timezone to add"
+  },
+  "button": {
+    "useNow": "Use now",
+    "reset": "Reset",
+    "add": "Add",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Select a base time to see conversions.",
+  "table": {
+    "timezone": "Timezone",
+    "offset": "UTC offset",
+    "time": "Local time",
+    "dayOffset": "Day",
+    "copy": "Copy"
+  },
+  "dayOffset": {
+    "same": "Same day",
+    "next": "Next day (+{{count}})",
+    "previous": "Previous day (-{{count}})"
+  },
+  "openGraph": {
+    "title": "Time Zone Meeting Planner",
+    "description": "Compare meeting times across time zones with a single base schedule.",
+    "keywords": ["timezone", "meeting planner", "time converter", "schedule", "world clock"]
+  }
+}

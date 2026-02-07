@@ -1,0 +1,39 @@
+{
+  "title": "시간대 미팅 플래너",
+  "description": "기준 시간과 시간대를 입력해 여러 지역의 미팅 시간을 한눈에 비교합니다.",
+  "helper": "기준 시간대를 선택하고 미팅 기준 시간을 입력하세요.",
+  "label": {
+    "baseTimezone": "기준 시간대",
+    "baseDateTime": "기준 날짜 및 시간",
+    "addTimezone": "참가자 시간대 추가"
+  },
+  "placeholder": {
+    "selectTimezone": "시간대를 선택하세요",
+    "addTimezone": "추가할 시간대를 선택하세요"
+  },
+  "button": {
+    "useNow": "현재 시간 사용",
+    "reset": "초기화",
+    "add": "추가",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "empty": "기준 시간을 선택하면 결과가 표시됩니다.",
+  "table": {
+    "timezone": "시간대",
+    "offset": "UTC 오프셋",
+    "time": "현지 시간",
+    "dayOffset": "날짜 차이",
+    "copy": "복사"
+  },
+  "dayOffset": {
+    "same": "같은 날",
+    "next": "다음 날 (+{{count}})",
+    "previous": "이전 날 (-{{count}})"
+  },
+  "openGraph": {
+    "title": "시간대 미팅 플래너",
+    "description": "여러 시간대의 미팅 시간을 한 화면에서 비교하세요.",
+    "keywords": ["시간대", "미팅", "스케줄", "시간 변환", "타임존"]
+  }
+}
