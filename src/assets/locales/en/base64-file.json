@@ -1,0 +1,36 @@
+{
+  "title": "Base64 File Encoder",
+  "description": "Convert any file into Base64 and copy or download the result.",
+  "label": {
+    "file": "Select file",
+    "format": "Output format",
+    "output": "Base64 result"
+  },
+  "helper": "Supports files up to 2MB.",
+  "meta": {
+    "unknown": "Unknown type"
+  },
+  "empty": {
+    "meta": "File details will appear here.",
+    "output": "Select a file to generate Base64."
+  },
+  "formats": {
+    "dataUrl": "Data URL (includes MIME)",
+    "raw": "Raw Base64 only"
+  },
+  "formatHelp": "Data URL keeps the MIME prefix, raw output is only the Base64 string.",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "download": "Download"
+  },
+  "error": {
+    "size": "File is too large. Please use a file under 2MB.",
+    "read": "Failed to read the file."
+  },
+  "openGraph": {
+    "title": "Base64 File Encoder",
+    "description": "Turn files into Base64 strings for quick sharing and embedding."
+  }
+}

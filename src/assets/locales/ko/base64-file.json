@@ -1,0 +1,36 @@
+{
+  "title": "Base64 파일 인코더",
+  "description": "파일을 Base64로 변환해 복사하거나 다운로드합니다.",
+  "label": {
+    "file": "파일 선택",
+    "format": "출력 형식",
+    "output": "Base64 결과"
+  },
+  "helper": "최대 2MB 파일까지 지원합니다.",
+  "meta": {
+    "unknown": "알 수 없는 타입"
+  },
+  "empty": {
+    "meta": "선택한 파일 정보가 여기에 표시됩니다.",
+    "output": "파일을 선택하면 Base64 결과가 표시됩니다."
+  },
+  "formats": {
+    "dataUrl": "Data URL (MIME 포함)",
+    "raw": "Raw Base64만"
+  },
+  "formatHelp": "Data URL은 MIME 정보를 포함하고, Raw는 순수 Base64 문자열입니다.",
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "초기화",
+    "download": "다운로드"
+  },
+  "error": {
+    "size": "파일이 너무 큽니다. 2MB 이하만 가능합니다.",
+    "read": "파일을 읽을 수 없습니다."
+  },
+  "openGraph": {
+    "title": "Base64 파일 인코더",
+    "description": "파일을 Base64 문자열로 변환해 간편하게 공유하세요."
+  }
+}
