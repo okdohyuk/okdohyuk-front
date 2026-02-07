@@ -1,0 +1,32 @@
+{
+  "openGraph": {
+    "title": "텍스트 카운터",
+    "description": "브라우저에서 글자 수, 단어 수, 줄 수, 바이트를 즉시 계산하세요.",
+    "keywords": ["텍스트 카운터", "글자 수", "단어 수", "줄 수", "바이트", "도구"]
+  },
+  "title": "텍스트 카운터",
+  "description": "텍스트를 입력하면 글자 수, 단어 수, 줄 수, 바이트를 즉시 계산합니다.",
+  "badge": "빠른 통계",
+  "label": {
+    "input": "텍스트 입력",
+    "stats": "통계"
+  },
+  "helper": {
+    "input": "입력과 동시에 자동으로 계산됩니다."
+  },
+  "button": {
+    "clear": "지우기",
+    "sample": "샘플 넣기"
+  },
+  "metric": {
+    "characters": "글자 수(공백 포함)",
+    "charactersNoSpaces": "글자 수(공백 제외)",
+    "words": "단어 수",
+    "lines": "줄 수",
+    "bytes": "바이트(UTF-8)"
+  },
+  "placeholder": {
+    "input": "여기에 텍스트를 입력하거나 붙여넣으세요."
+  },
+  "sampleText": "원하는 하루를 설계하고, 단어를 하나씩 세어보세요."
+}
