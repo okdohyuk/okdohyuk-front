@@ -1,0 +1,46 @@
+{
+  "title": "Markdown 表格生成器",
+  "description": "将 CSV 类文本快速转换为 Markdown 表格。",
+  "badge": "Table Builder",
+  "label": {
+    "input": "原始数据",
+    "options": "格式选项",
+    "delimiter": "分隔符",
+    "alignment": "对齐方式",
+    "header": "表头行",
+    "output": "Markdown 输出"
+  },
+  "placeholder": {
+    "input": "例如：Name,Role,Note\nAmadeus,AI,Reasoning data-based\nKurisu,Human,Original memory",
+    "delimiter": "选择分隔符",
+    "alignment": "选择对齐方式"
+  },
+  "helper": "每一行对应一行表格，请选择列分隔符。",
+  "delimiter": {
+    "comma": "逗号 ( , )",
+    "tab": "制表符",
+    "pipe": "竖线 ( | )",
+    "semicolon": "分号 ( ; )"
+  },
+  "alignment": {
+    "left": "左对齐",
+    "center": "居中",
+    "right": "右对齐"
+  },
+  "header": {
+    "useFirstRow": "使用第一行作为表头",
+    "fallback": "列"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空",
+    "example": "加载示例"
+  },
+  "empty": "输入数据后将生成表格。",
+  "emptyHelper": "暂无行，请粘贴数据。",
+  "openGraph": {
+    "title": "Markdown 表格生成器",
+    "description": "将 CSV/分隔文本转换为 Markdown 表格。"
+  }
+}

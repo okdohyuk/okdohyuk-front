@@ -1,0 +1,46 @@
+{
+  "title": "마크다운 테이블 생성기",
+  "description": "CSV 형식의 텍스트를 마크다운 표로 변환합니다.",
+  "badge": "Table Builder",
+  "label": {
+    "input": "원본 데이터",
+    "options": "포맷 옵션",
+    "delimiter": "구분자",
+    "alignment": "정렬",
+    "header": "헤더 행",
+    "output": "마크다운 결과"
+  },
+  "placeholder": {
+    "input": "예: 이름,역할,메모\nAmadeus,AI,Reasoning data-based\nKurisu,Human,Original memory",
+    "delimiter": "구분자 선택",
+    "alignment": "정렬 선택"
+  },
+  "helper": "각 줄은 한 행이 됩니다. 열 구분자를 선택하세요.",
+  "delimiter": {
+    "comma": "콤마 ( , )",
+    "tab": "탭",
+    "pipe": "파이프 ( | )",
+    "semicolon": "세미콜론 ( ; )"
+  },
+  "alignment": {
+    "left": "왼쪽",
+    "center": "가운데",
+    "right": "오른쪽"
+  },
+  "header": {
+    "useFirstRow": "첫 행을 헤더로 사용",
+    "fallback": "컬럼"
+  },
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "지우기",
+    "example": "예제 불러오기"
+  },
+  "empty": "데이터를 입력하면 표가 생성됩니다.",
+  "emptyHelper": "아직 행이 없습니다. 데이터를 붙여 넣어 주세요.",
+  "openGraph": {
+    "title": "마크다운 테이블 생성기",
+    "description": "CSV/구분자 텍스트를 마크다운 표로 변환합니다."
+  }
+}

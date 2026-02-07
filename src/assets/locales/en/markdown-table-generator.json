@@ -1,0 +1,46 @@
+{
+  "title": "Markdown Table Generator",
+  "description": "Convert CSV-like text into a clean Markdown table.",
+  "badge": "Table Builder",
+  "label": {
+    "input": "Source data",
+    "options": "Formatting options",
+    "delimiter": "Delimiter",
+    "alignment": "Alignment",
+    "header": "Header row",
+    "output": "Markdown output"
+  },
+  "placeholder": {
+    "input": "e.g. Name,Role,Note\nAmadeus,AI,Reasoning data-based\nKurisu,Human,Original memory",
+    "delimiter": "Select delimiter",
+    "alignment": "Select alignment"
+  },
+  "helper": "Each line becomes a row. Choose the delimiter used between columns.",
+  "delimiter": {
+    "comma": "Comma ( , )",
+    "tab": "Tab",
+    "pipe": "Pipe ( | )",
+    "semicolon": "Semicolon ( ; )"
+  },
+  "alignment": {
+    "left": "Left",
+    "center": "Center",
+    "right": "Right"
+  },
+  "header": {
+    "useFirstRow": "Use first row as header",
+    "fallback": "Column"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "example": "Load example"
+  },
+  "empty": "Paste data to see the Markdown table.",
+  "emptyHelper": "No rows yet. Add data to generate your table.",
+  "openGraph": {
+    "title": "Markdown Table Generator",
+    "description": "Turn CSV or delimited text into Markdown tables with alignment and headers."
+  }
+}
