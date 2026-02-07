@@ -1,0 +1,42 @@
+{
+  "title": "文本工具箱",
+  "description": "一次完成大小写、空白和行整理。",
+  "placeholder": "在此输入或粘贴文本...",
+  "helper": "选择操作会更新输出。可将输出作为输入进行多步处理。",
+  "label": {
+    "input": "输入",
+    "output": "输出",
+    "stats": "输出统计"
+  },
+  "groups": {
+    "case": "大小写",
+    "whitespace": "空白",
+    "lines": "行"
+  },
+  "actions": {
+    "upper": "转为大写",
+    "lower": "转为小写",
+    "title": "标题格式",
+    "trim": "去除首尾空白",
+    "trimLines": "去除每行空白",
+    "collapseSpaces": "合并空格",
+    "removeEmptyLines": "删除空行",
+    "dedupeLines": "删除重复行",
+    "sortLines": "行排序 (A→Z)",
+    "resetOutput": "重置输出",
+    "clearAll": "清空全部",
+    "useOutputAsInput": "输出作为输入",
+    "copyOutput": "复制输出",
+    "copied": "已复制"
+  },
+  "stats": {
+    "characters": "字符数",
+    "words": "词数",
+    "lines": "行数"
+  },
+  "empty": "请输入文本。",
+  "openGraph": {
+    "title": "文本工具箱",
+    "description": "一次完成大小写、空白和行整理。"
+  }
+}

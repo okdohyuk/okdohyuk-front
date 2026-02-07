@@ -1,0 +1,42 @@
+{
+  "title": "テキストツールキット",
+  "description": "大文字・空白・行の整形をまとめて行えます。",
+  "placeholder": "ここにテキストを入力または貼り付けてください...",
+  "helper": "操作を選ぶと出力が更新されます。出力を入力にして連続処理できます。",
+  "label": {
+    "input": "入力",
+    "output": "出力",
+    "stats": "出力の統計"
+  },
+  "groups": {
+    "case": "文字種",
+    "whitespace": "空白",
+    "lines": "行"
+  },
+  "actions": {
+    "upper": "大文字に変換",
+    "lower": "小文字に変換",
+    "title": "タイトルケース",
+    "trim": "両端の空白を削除",
+    "trimLines": "各行の空白を削除",
+    "collapseSpaces": "空白をまとめる",
+    "removeEmptyLines": "空行を削除",
+    "dedupeLines": "重複行を削除",
+    "sortLines": "行を並べ替え (A→Z)",
+    "resetOutput": "出力をリセット",
+    "clearAll": "すべてクリア",
+    "useOutputAsInput": "出力を入力へ",
+    "copyOutput": "出力をコピー",
+    "copied": "コピーしました"
+  },
+  "stats": {
+    "characters": "文字数",
+    "words": "単語数",
+    "lines": "行数"
+  },
+  "empty": "テキストを入力してください。",
+  "openGraph": {
+    "title": "テキストツールキット",
+    "description": "大文字・空白・行の整形をまとめて行えます。"
+  }
+}

@@ -18,6 +18,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Wand2,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 툴킷',
+        en: 'Text Toolkit',
+        ja: 'テキストツールキット',
+        zh: '文本工具箱',
+      },
+      icon: <Wand2 />,
+      link: '/text-toolkit',
     },
     {
       title: {
