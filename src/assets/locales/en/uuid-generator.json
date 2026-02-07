@@ -1,0 +1,32 @@
+{
+  "openGraph": {
+    "title": "UUID Generator",
+    "description": "Generate UUID v4 values instantly. Create multiple unique identifiers directly in your browser.",
+    "keywords": ["uuid", "uuid v4", "generator", "unique id", "identifier", "tool"]
+  },
+  "title": "UUID Generator",
+  "description": "Generate multiple UUID v4 values instantly. Runs entirely in your browser.",
+  "label": {
+    "count": "Count",
+    "format": "Format",
+    "output": "Generated UUIDs"
+  },
+  "helper": {
+    "count": "Generate up to {{max}} UUIDs at once.",
+    "format": "Choose the output format that fits your workflow."
+  },
+  "format": {
+    "standard": "Standard (lowercase)",
+    "noHyphens": "Compact (no hyphens)",
+    "uppercase": "Uppercase"
+  },
+  "button": {
+    "generate": "Generate",
+    "copy": "Copy",
+    "copied": "Copied!"
+  },
+  "placeholder": {
+    "format": "Select a format",
+    "output": "Generated UUIDs will appear here."
+  }
+}
