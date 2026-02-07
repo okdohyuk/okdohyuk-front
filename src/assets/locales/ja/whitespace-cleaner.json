@@ -1,0 +1,30 @@
+{
+  "title": "空白整理ツール",
+  "description": "余分な空白や空行をまとめて整形します。",
+  "label": {
+    "input": "元のテキスト",
+    "output": "整形結果"
+  },
+  "options": {
+    "trimLines": "各行の前後空白を削除",
+    "collapseSpaces": "連続スペースを縮約",
+    "removeEmptyLines": "空行を削除"
+  },
+  "placeholder": "例:  余分な  空白が  あるテキスト\n\n次の行",
+  "helper": "オプションを切り替えるとすぐに反映されます。",
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "clear": "クリア",
+    "example": "例を読み込み"
+  },
+  "empty": "テキストを入力すると結果が表示されます。",
+  "stats": {
+    "chars": "文字数: {{count}}",
+    "lines": "行数: {{count}}"
+  },
+  "openGraph": {
+    "title": "空白整理ツール",
+    "description": "余分な空白や空行を整形します。"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Whitespace Cleaner",
+  "description": "Clean up spacing, blank lines, and extra spaces with a single pass.",
+  "label": {
+    "input": "Source text",
+    "output": "Cleaned result"
+  },
+  "options": {
+    "trimLines": "Trim each line",
+    "collapseSpaces": "Collapse repeated spaces",
+    "removeEmptyLines": "Remove empty lines"
+  },
+  "placeholder": "e.g. Text   with   extra spaces\n\nMore lines here",
+  "helper": "Tweak the options to see changes instantly.",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "example": "Load example"
+  },
+  "empty": "Enter text to see the cleaned output.",
+  "stats": {
+    "chars": "Chars: {{count}}",
+    "lines": "Lines: {{count}}"
+  },
+  "openGraph": {
+    "title": "Whitespace Cleaner",
+    "description": "Clean up spacing, blank lines, and extra spaces."
+  }
+}
