@@ -21,6 +21,7 @@ import qrGenerator from 'assets/locales/ko/qr-generator.json';
 import jwtDecoder from 'assets/locales/ko/jwt-decoder.json';
 import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
+import slugGenerator from 'assets/locales/ko/slug-generator.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -48,6 +49,7 @@ declare module 'i18next' {
       'jwt-decoder': typeof jwtDecoder;
       'cron-generator': typeof cronGenerator;
       'css-generator': typeof cssGenerator;
+      'slug-generator': typeof slugGenerator;
     };
   }
 }

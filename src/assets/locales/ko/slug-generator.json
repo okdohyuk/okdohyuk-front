@@ -1,0 +1,19 @@
+{
+  "title": "슬러그 생성기",
+  "description": "문장을 URL에 적합한 슬러그로 변환합니다.",
+  "label": {
+    "input": "원문",
+    "output": "슬러그 결과"
+  },
+  "placeholder": "예: 새해 이벤트 2026 할인 코드",
+  "helper": "한글/영문/숫자만 남기고 공백을 하이픈으로 바꿉니다.",
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "empty": "텍스트를 입력하면 슬러그가 표시됩니다.",
+  "openGraph": {
+    "title": "슬러그 생성기",
+    "description": "텍스트를 URL에 적합한 슬러그로 변환합니다."
+  }
+}
