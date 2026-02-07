@@ -1,0 +1,28 @@
+{
+  "title": "Case Converter",
+  "description": "Convert text into upper, lower, title, sentence, or toggle case.",
+  "label": {
+    "input": "Source text",
+    "output": "Converted result",
+    "mode": "Conversion mode"
+  },
+  "placeholder": "Paste or type text here.",
+  "helper": "Pick a mode to transform the text instantly.",
+  "mode": {
+    "upper": "UPPERCASE",
+    "lower": "lowercase",
+    "title": "Title Case",
+    "sentence": "Sentence case",
+    "toggle": "tOGGLE cASE"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear"
+  },
+  "empty": "Enter text to see the result.",
+  "openGraph": {
+    "title": "Case Converter",
+    "description": "Instantly convert text casing for headlines, sentences, and more."
+  }
+}

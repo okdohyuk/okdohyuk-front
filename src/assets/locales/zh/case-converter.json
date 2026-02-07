@@ -1,0 +1,28 @@
+{
+  "title": "大小写转换器",
+  "description": "将文本转换为大写、小写、标题式、句首式或切换大小写。",
+  "label": {
+    "input": "原始文本",
+    "output": "转换结果",
+    "mode": "转换模式"
+  },
+  "placeholder": "在此输入文本。",
+  "helper": "选择模式即可即时转换。",
+  "mode": {
+    "upper": "大写",
+    "lower": "小写",
+    "title": "标题式",
+    "sentence": "句首式",
+    "toggle": "切换大小写"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空"
+  },
+  "empty": "输入文本后会显示结果。",
+  "openGraph": {
+    "title": "大小写转换器",
+    "description": "一键转换标题、句子等文本大小写。"
+  }
+}

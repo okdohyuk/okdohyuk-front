@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CaseSensitive,
   Code,
   CreditCard,
   Github,
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '대소문자 변환기',
+        en: 'Case Converter',
+        ja: 'ケース変換',
+        zh: '大小写转换器',
+      },
+      icon: <CaseSensitive />,
+      link: '/case-converter',
     },
     {
       title: {
