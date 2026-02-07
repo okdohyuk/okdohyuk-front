@@ -1,0 +1,46 @@
+{
+  "title": "Markdownテーブル生成器",
+  "description": "CSVのようなテキストをMarkdown表に変換します。",
+  "badge": "Table Builder",
+  "label": {
+    "input": "元データ",
+    "options": "フォーマットオプション",
+    "delimiter": "区切り文字",
+    "alignment": "整列",
+    "header": "ヘッダー行",
+    "output": "Markdown出力"
+  },
+  "placeholder": {
+    "input": "例: Name,Role,Note\nAmadeus,AI,Reasoning data-based\nKurisu,Human,Original memory",
+    "delimiter": "区切り文字を選択",
+    "alignment": "整列を選択"
+  },
+  "helper": "各行が1行になります。列の区切り文字を選んでください。",
+  "delimiter": {
+    "comma": "カンマ ( , )",
+    "tab": "タブ",
+    "pipe": "パイプ ( | )",
+    "semicolon": "セミコロン ( ; )"
+  },
+  "alignment": {
+    "left": "左",
+    "center": "中央",
+    "right": "右"
+  },
+  "header": {
+    "useFirstRow": "最初の行をヘッダーとして使う",
+    "fallback": "列"
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "clear": "クリア",
+    "example": "サンプルを読み込み"
+  },
+  "empty": "データを入力するとテーブルが生成されます。",
+  "emptyHelper": "まだ行がありません。データを貼り付けてください。",
+  "openGraph": {
+    "title": "Markdownテーブル生成器",
+    "description": "CSV/区切りテキストをMarkdown表に変換します。"
+  }
+}
