@@ -1,0 +1,36 @@
+{
+  "title": "CSV/JSON Converter",
+  "description": "Convert CSV data to JSON and back with customizable delimiters. All processing stays in your browser.",
+  "settings": {
+    "title": "Settings",
+    "delimiter": "Delimiter",
+    "customDelimiter": "Custom",
+    "delimiterPlaceholder": ",",
+    "headerRow": "First row is header"
+  },
+  "label": {
+    "csvInput": "CSV Input",
+    "jsonOutput": "JSON Output"
+  },
+  "placeholder": {
+    "csv": "Paste CSV here...",
+    "json": "Paste JSON array here..."
+  },
+  "actions": {
+    "csvToJson": "CSV → JSON",
+    "jsonToCsv": "JSON → CSV",
+    "copyCsv": "Copy CSV",
+    "copyJson": "Copy JSON",
+    "clear": "Clear",
+    "loadExample": "Load Example"
+  },
+  "error": {
+    "invalidCsv": "Could not parse the CSV. Check the delimiter and quotes.",
+    "invalidJson": "Provide a JSON array of objects.",
+    "emptyCsv": "CSV input is empty."
+  },
+  "openGraph": {
+    "title": "CSV/JSON Converter",
+    "description": "Convert CSV and JSON instantly with customizable options."
+  }
+}

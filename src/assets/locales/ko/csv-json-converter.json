@@ -1,0 +1,36 @@
+{
+  "title": "CSV/JSON 변환기",
+  "description": "CSV 데이터를 JSON으로 변환하거나 JSON을 CSV로 변환할 수 있습니다. 구분자를 자유롭게 설정하며 모든 처리는 브라우저 안에서 완료됩니다.",
+  "settings": {
+    "title": "설정",
+    "delimiter": "구분자",
+    "customDelimiter": "직접 입력",
+    "delimiterPlaceholder": ",",
+    "headerRow": "첫 줄을 헤더로 사용"
+  },
+  "label": {
+    "csvInput": "CSV 입력",
+    "jsonOutput": "JSON 출력"
+  },
+  "placeholder": {
+    "csv": "CSV를 붙여 넣으세요...",
+    "json": "JSON 배열을 붙여 넣으세요..."
+  },
+  "actions": {
+    "csvToJson": "CSV → JSON",
+    "jsonToCsv": "JSON → CSV",
+    "copyCsv": "CSV 복사",
+    "copyJson": "JSON 복사",
+    "clear": "초기화",
+    "loadExample": "예제 불러오기"
+  },
+  "error": {
+    "invalidCsv": "CSV를 해석할 수 없습니다. 구분자와 따옴표를 확인해 주세요.",
+    "invalidJson": "객체 배열 형태의 JSON을 입력해 주세요.",
+    "emptyCsv": "CSV 입력이 비어 있습니다."
+  },
+  "openGraph": {
+    "title": "CSV/JSON 변환기",
+    "description": "CSV와 JSON을 바로 변환하고 옵션을 맞춤 설정해 보세요."
+  }
+}
