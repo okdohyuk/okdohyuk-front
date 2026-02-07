@@ -1,0 +1,23 @@
+{
+  "title": "Lorem Ipsum 生成器",
+  "description": "按段落数或单词数生成占位文本。",
+  "badge": "写作助手",
+  "label": {
+    "unit": "单位",
+    "count": "数量",
+    "output": "生成结果"
+  },
+  "unit": {
+    "paragraphs": "段落",
+    "words": "单词"
+  },
+  "helper": {
+    "paragraphs": "一次最多可生成{{max}}段。",
+    "words": "一次最多可生成{{max}}个单词。"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "placeholder": "生成的文本会显示在这里。"
+}

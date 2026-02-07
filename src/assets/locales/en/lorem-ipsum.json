@@ -1,0 +1,23 @@
+{
+  "title": "Lorem Ipsum Generator",
+  "description": "Generate placeholder text by paragraph or word count.",
+  "badge": "Writing Helper",
+  "label": {
+    "unit": "Unit",
+    "count": "Count",
+    "output": "Generated text"
+  },
+  "unit": {
+    "paragraphs": "Paragraphs",
+    "words": "Words"
+  },
+  "helper": {
+    "paragraphs": "Generate up to {{max}} paragraphs at once.",
+    "words": "Generate up to {{max}} words at once."
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "placeholder": "Generated text will appear here."
+}
