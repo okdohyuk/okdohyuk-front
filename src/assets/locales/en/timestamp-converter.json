@@ -1,0 +1,31 @@
+{
+  "title": "Timestamp Converter",
+  "description": "Convert between Unix timestamps (seconds or milliseconds) and local date-time.",
+  "label": {
+    "unixSeconds": "Unix seconds",
+    "unixMilliseconds": "Unix milliseconds",
+    "isoLocal": "Local date & time"
+  },
+  "placeholder": {
+    "unixSeconds": "e.g. 1738951200",
+    "unixMilliseconds": "e.g. 1738951200000"
+  },
+  "helper": {
+    "localNotice": "ISO input/output is based on your local timezone."
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "now": "Use current time",
+    "clear": "Clear"
+  },
+  "error": {
+    "invalidSeconds": "Enter a valid Unix timestamp in seconds.",
+    "invalidMilliseconds": "Enter a valid Unix timestamp in milliseconds.",
+    "invalidIso": "Enter a valid local date and time."
+  },
+  "openGraph": {
+    "title": "Timestamp Converter",
+    "description": "Convert Unix timestamps to local date-time and back."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "时间戳转换器",
+  "description": "在 Unix 时间戳（秒/毫秒）与本地日期时间之间转换。",
+  "label": {
+    "unixSeconds": "Unix 秒",
+    "unixMilliseconds": "Unix 毫秒",
+    "isoLocal": "本地日期时间"
+  },
+  "placeholder": {
+    "unixSeconds": "例如: 1738951200",
+    "unixMilliseconds": "例如: 1738951200000"
+  },
+  "helper": {
+    "localNotice": "ISO 输入/输出基于本地时区。"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "now": "使用当前时间",
+    "clear": "清空"
+  },
+  "error": {
+    "invalidSeconds": "请输入有效的 Unix 秒时间戳。",
+    "invalidMilliseconds": "请输入有效的 Unix 毫秒时间戳。",
+    "invalidIso": "请输入有效的本地日期时间。"
+  },
+  "openGraph": {
+    "title": "时间戳转换器",
+    "description": "将 Unix 时间戳转换为本地日期时间。"
+  }
+}
