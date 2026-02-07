@@ -1,0 +1,33 @@
+{
+  "title": "Number Base Converter",
+  "description": "Convert decimal, binary, octal, and hexadecimal values instantly.",
+  "helper": "Enter a value in any base to sync the others. Prefixes like 0x are not required.",
+  "fields": {
+    "decimal": "Decimal",
+    "binary": "Binary",
+    "octal": "Octal",
+    "hex": "Hexadecimal"
+  },
+  "placeholders": {
+    "decimal": "1024",
+    "binary": "10000000000",
+    "octal": "2000",
+    "hex": "400"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "example": "Fill example",
+    "clear": "Clear"
+  },
+  "error": {
+    "invalid": "Enter digits that match the selected base."
+  },
+  "example": {
+    "value": "1024"
+  },
+  "openGraph": {
+    "title": "Number Base Converter",
+    "description": "Convert decimal, binary, octal, and hexadecimal values instantly."
+  }
+}
