@@ -3,8 +3,10 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CaseSensitive,
   Code,
   CreditCard,
+  Eraser,
   Github,
   Hash,
   Key,
@@ -85,6 +87,26 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '대소문자 변환기',
+        en: 'Case Converter',
+        ja: 'ケース変換',
+        zh: '大小写转换器',
+      },
+      icon: <CaseSensitive />,
+      link: '/case-converter',
+    },
+    {
+      title: {
+        ko: '공백 정리기',
+        en: 'Whitespace Cleaner',
+        ja: '空白整理ツール',
+        zh: '空白整理器',
+      },
+      icon: <Eraser />,
+      link: '/whitespace-cleaner',
     },
     {
       title: {

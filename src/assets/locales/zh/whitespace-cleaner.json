@@ -1,0 +1,30 @@
+{
+  "title": "空白整理器",
+  "description": "整理多余空白、空行与重复空格。",
+  "label": {
+    "input": "原始文本",
+    "output": "整理结果"
+  },
+  "options": {
+    "trimLines": "去除每行首尾空白",
+    "collapseSpaces": "合并连续空格",
+    "removeEmptyLines": "移除空行"
+  },
+  "placeholder": "例如：含有  多余  空格的文本\n\n下一行内容",
+  "helper": "调整选项后结果会立即更新。",
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空",
+    "example": "加载示例"
+  },
+  "empty": "输入文本后显示整理结果。",
+  "stats": {
+    "chars": "字符数: {{count}}",
+    "lines": "行数: {{count}}"
+  },
+  "openGraph": {
+    "title": "空白整理器",
+    "description": "整理多余空白、空行与重复空格。"
+  }
+}

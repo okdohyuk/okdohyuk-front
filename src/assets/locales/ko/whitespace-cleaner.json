@@ -1,0 +1,30 @@
+{
+  "title": "공백 정리기",
+  "description": "여러 줄 텍스트의 공백과 빈 줄을 정리합니다.",
+  "label": {
+    "input": "원본 텍스트",
+    "output": "정리된 결과"
+  },
+  "options": {
+    "trimLines": "줄 앞뒤 공백 제거",
+    "collapseSpaces": "연속 공백 줄이기",
+    "removeEmptyLines": "빈 줄 제거"
+  },
+  "placeholder": "예:  여러  공백이   섞인 텍스트\n\n다음 줄 내용",
+  "helper": "옵션을 변경하면 결과가 즉시 반영됩니다.",
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "비우기",
+    "example": "예시 불러오기"
+  },
+  "empty": "텍스트를 입력하면 결과가 표시됩니다.",
+  "stats": {
+    "chars": "문자: {{count}}",
+    "lines": "줄: {{count}}"
+  },
+  "openGraph": {
+    "title": "공백 정리기",
+    "description": "공백, 빈 줄, 중복 스페이스를 정리해 줍니다."
+  }
+}
