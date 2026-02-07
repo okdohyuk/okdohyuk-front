@@ -1,0 +1,36 @@
+{
+  "title": "HTTPステータスコード",
+  "description": "HTTPステータスコードを検索・絞り込みして素早くコピーできます。",
+  "label": {
+    "search": "コード/意味を検索",
+    "category": "カテゴリ: {{category}}"
+  },
+  "placeholder": "例: 404, gateway, unauthorized",
+  "helper": "カテゴリを選ぶか、コード/キーワードで絞り込みましょう。",
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "clear": "検索をクリア",
+    "reset": "リセット"
+  },
+  "category": {
+    "all": "すべて",
+    "1xx": "情報",
+    "2xx": "成功",
+    "3xx": "リダイレクト",
+    "4xx": "クライアントエラー",
+    "5xx": "サーバーエラー"
+  },
+  "result": {
+    "count": "{{count}}件の結果",
+    "total": "全{{count}}件"
+  },
+  "empty": {
+    "base": "カテゴリや検索でステータスコードを探してください。",
+    "search": "一致するステータスコードがありません。"
+  },
+  "openGraph": {
+    "title": "HTTPステータスコード",
+    "description": "HTTPステータスコードの意味を確認してすぐにコピー。"
+  }
+}
