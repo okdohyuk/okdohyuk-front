@@ -1,0 +1,19 @@
+{
+  "title": "Slug 生成器",
+  "description": "将文本转换为适合URL的slug。",
+  "label": {
+    "input": "原始文本",
+    "output": "Slug 结果"
+  },
+  "placeholder": "例如：2026 新年活动 折扣码",
+  "helper": "仅保留韩文/英文/数字，空格会转换为连字符。",
+  "button": {
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "empty": "输入文本后即可看到slug。",
+  "openGraph": {
+    "title": "Slug 生成器",
+    "description": "将文本转换为适合URL的slug。"
+  }
+}

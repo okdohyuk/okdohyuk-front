@@ -1,0 +1,19 @@
+{
+  "title": "Slug Generator",
+  "description": "Turn any text into a URL-friendly slug.",
+  "label": {
+    "input": "Source text",
+    "output": "Slug result"
+  },
+  "placeholder": "e.g. New Year Event 2026 Discount Code",
+  "helper": "Keeps Korean/English letters and numbers, turns spaces into hyphens.",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Enter text to see the slug.",
+  "openGraph": {
+    "title": "Slug Generator",
+    "description": "Convert text into a URL-friendly slug."
+  }
+}
