@@ -1,0 +1,39 @@
+{
+  "title": "라인 정렬기",
+  "description": "텍스트 라인을 정렬하고 중복 제거 및 정리까지 빠르게 처리합니다.",
+  "label": {
+    "input": "입력",
+    "output": "결과",
+    "options": "옵션",
+    "sortOrder": "정렬 순서"
+  },
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "지우기",
+    "sample": "예시 넣기"
+  },
+  "option": {
+    "ascending": "오름차순",
+    "descending": "내림차순",
+    "trimWhitespace": "앞뒤 공백 제거",
+    "removeEmpty": "빈 줄 제거",
+    "uniqueLines": "중복 제거",
+    "ignoreCase": "대소문자 무시"
+  },
+  "helper": "한 줄에 하나씩 입력하세요. 설정은 즉시 적용됩니다.",
+  "stats": {
+    "input": "입력 라인",
+    "output": "출력 라인"
+  },
+  "placeholder": {
+    "input": "라인을 입력하세요 (한 줄당 하나)...",
+    "output": "정렬된 결과가 여기에 표시됩니다."
+  },
+  "empty": "아직 라인이 없습니다.",
+  "example": "바나나\n사과\n체리\n사과\n\n 대추\n살구",
+  "openGraph": {
+    "title": "라인 정렬기",
+    "description": "중복 제거와 공백 정리를 포함해 텍스트 라인을 똑똑하게 정렬합니다."
+  }
+}

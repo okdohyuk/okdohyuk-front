@@ -1,0 +1,39 @@
+{
+  "title": "Line Sorter",
+  "description": "Sort, deduplicate, and clean up lines of text in seconds.",
+  "label": {
+    "input": "Input",
+    "output": "Output",
+    "options": "Options",
+    "sortOrder": "Sort order"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "sample": "Insert sample"
+  },
+  "option": {
+    "ascending": "Ascending",
+    "descending": "Descending",
+    "trimWhitespace": "Trim whitespace",
+    "removeEmpty": "Remove empty lines",
+    "uniqueLines": "Remove duplicates",
+    "ignoreCase": "Ignore case"
+  },
+  "helper": "Paste one line per item. Changes apply instantly.",
+  "stats": {
+    "input": "Lines in",
+    "output": "Lines out"
+  },
+  "placeholder": {
+    "input": "Enter lines (one per line)...",
+    "output": "Sorted lines appear here..."
+  },
+  "empty": "No lines yet.",
+  "example": "Banana\napple\nCherry\napple\n\n date\nApricot",
+  "openGraph": {
+    "title": "Line Sorter",
+    "description": "Sort and clean up text lines with smart options like dedupe and trim."
+  }
+}
