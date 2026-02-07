@@ -1,0 +1,19 @@
+{
+  "title": "UUID生成器",
+  "description": "複数のUUID v4を一度に生成してコピーできます。",
+  "label": {
+    "count": "生成数",
+    "list": "UUID一覧"
+  },
+  "helper": "{{min}}〜{{max}}個まで生成できます。",
+  "button": {
+    "generate": "生成",
+    "copy": "コピー",
+    "copyAll": "全てコピー",
+    "copied": "コピー済み"
+  },
+  "openGraph": {
+    "title": "UUID生成器",
+    "description": "UUID v4をまとめて生成し、すぐにコピーできます。"
+  }
+}

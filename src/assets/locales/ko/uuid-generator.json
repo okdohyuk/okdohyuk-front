@@ -1,0 +1,19 @@
+{
+  "title": "UUID 생성기",
+  "description": "여러 개의 UUID v4를 빠르게 생성하고 복사합니다.",
+  "label": {
+    "count": "생성 개수",
+    "list": "UUID 목록"
+  },
+  "helper": "{{min}}~{{max}}개까지 생성할 수 있습니다.",
+  "button": {
+    "generate": "새로 생성",
+    "copy": "복사",
+    "copyAll": "전체 복사",
+    "copied": "복사됨"
+  },
+  "openGraph": {
+    "title": "UUID 생성기",
+    "description": "여러 개의 UUID v4를 한 번에 생성하고 복사하세요."
+  }
+}
