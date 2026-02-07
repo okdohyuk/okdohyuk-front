@@ -10,6 +10,7 @@ import {
   Key,
   Linkedin,
   List,
+  Link2,
   MonitorPlay,
   Palette,
   QrCode,
@@ -18,6 +19,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Type,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -85,6 +87,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: 'UTM 빌더',
+        en: 'UTM Builder',
+        ja: 'UTMビルダー',
+        zh: 'UTM 构建器',
+      },
+      icon: <Link2 />,
+      link: '/utm-builder',
     },
     {
       title: {

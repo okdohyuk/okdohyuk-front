@@ -1,0 +1,43 @@
+{
+  "title": "UTM 빌더",
+  "description": "캠페인 추적을 위한 UTM 파라미터 URL을 빠르게 구성합니다.",
+  "badge": "캠페인 URL",
+  "form": {
+    "title": "UTM 파라미터"
+  },
+  "label": {
+    "baseUrl": "기본 URL",
+    "source": "캠페인 소스",
+    "medium": "캠페인 매체",
+    "campaign": "캠페인 이름",
+    "term": "캠페인 키워드",
+    "content": "캠페인 콘텐츠"
+  },
+  "placeholder": {
+    "baseUrl": "https://example.com/landing",
+    "source": "newsletter",
+    "medium": "email",
+    "campaign": "spring-sale",
+    "term": "dev-tools",
+    "content": "hero-banner"
+  },
+  "helper": {
+    "baseUrl": "https:// 또는 http:// 를 포함한 전체 URL을 입력하세요."
+  },
+  "button": {
+    "example": "예시 채우기",
+    "clear": "초기화",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "output": {
+    "title": "완성된 URL",
+    "placeholder": "UTM URL이 여기에 표시됩니다.",
+    "empty": "기본 URL을 입력하면 결과가 표시됩니다.",
+    "invalid": "유효한 URL을 입력하세요."
+  },
+  "preview": {
+    "title": "추가된 파라미터",
+    "empty": "추가된 파라미터가 없습니다."
+  }
+}

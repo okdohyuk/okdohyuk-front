@@ -1,0 +1,43 @@
+{
+  "title": "UTMビルダー",
+  "description": "解析用のUTMパラメータ付きURLを作成します。",
+  "badge": "キャンペーンURL",
+  "form": {
+    "title": "UTMパラメータ"
+  },
+  "label": {
+    "baseUrl": "ベースURL",
+    "source": "ソース",
+    "medium": "メディア",
+    "campaign": "キャンペーン",
+    "term": "キーワード",
+    "content": "コンテンツ"
+  },
+  "placeholder": {
+    "baseUrl": "https://example.com/landing",
+    "source": "newsletter",
+    "medium": "email",
+    "campaign": "spring-sale",
+    "term": "dev-tools",
+    "content": "hero-banner"
+  },
+  "helper": {
+    "baseUrl": "https:// または http:// を含むURLを入力してください。"
+  },
+  "button": {
+    "example": "例を入力",
+    "clear": "クリア",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "output": {
+    "title": "完成URL",
+    "placeholder": "UTM付きURLがここに表示されます。",
+    "empty": "ベースURLを入力すると結果が表示されます。",
+    "invalid": "有効なURLを入力してください。"
+  },
+  "preview": {
+    "title": "追加されたパラメータ",
+    "empty": "追加されたパラメータはありません。"
+  }
+}
