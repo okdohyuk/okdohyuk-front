@@ -1,0 +1,38 @@
+{
+  "title": "JSON ↔ YAML 変換",
+  "description": "ブラウザ上でJSONとYAMLを相互に変換します。",
+  "label": {
+    "direction": "変換方向",
+    "input": "入力",
+    "output": "出力"
+  },
+  "direction": {
+    "jsonToYaml": "JSON → YAML",
+    "yamlToJson": "YAML → JSON"
+  },
+  "button": {
+    "convert": "変換",
+    "swap": "入れ替え",
+    "clear": "クリア",
+    "copy": "コピー",
+    "copied": "コピーしました",
+    "sampleJson": "JSONサンプル",
+    "sampleYaml": "YAMLサンプル"
+  },
+  "placeholder": {
+    "input": "JSONまたはYAMLを貼り付けてください...",
+    "output": {
+      "json": "変換されたJSONがここに表示されます...",
+      "yaml": "変換されたYAMLがここに表示されます..."
+    }
+  },
+  "helper": "変換はすべてローカルで行われます。データは送信されません。",
+  "error": {
+    "invalidJson": "JSON形式が正しくありません。",
+    "invalidYaml": "YAML形式が正しくありません。"
+  },
+  "openGraph": {
+    "title": "JSON ↔ YAML 変換",
+    "description": "クライアント側で安全にJSONとYAMLを変換します。"
+  }
+}

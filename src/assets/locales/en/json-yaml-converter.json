@@ -1,0 +1,38 @@
+{
+  "title": "JSON ↔ YAML Converter",
+  "description": "Convert JSON to YAML and YAML to JSON locally in your browser.",
+  "label": {
+    "direction": "Conversion Direction",
+    "input": "Input",
+    "output": "Output"
+  },
+  "direction": {
+    "jsonToYaml": "JSON → YAML",
+    "yamlToJson": "YAML → JSON"
+  },
+  "button": {
+    "convert": "Convert",
+    "swap": "Swap",
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "sampleJson": "Sample JSON",
+    "sampleYaml": "Sample YAML"
+  },
+  "placeholder": {
+    "input": "Paste JSON or YAML here...",
+    "output": {
+      "json": "Converted JSON will appear here...",
+      "yaml": "Converted YAML will appear here..."
+    }
+  },
+  "helper": "All conversions run locally. No data is sent to any server.",
+  "error": {
+    "invalidJson": "Invalid JSON format.",
+    "invalidYaml": "Invalid YAML format."
+  },
+  "openGraph": {
+    "title": "JSON ↔ YAML Converter",
+    "description": "Instantly convert JSON and YAML with safe, client-side formatting."
+  }
+}

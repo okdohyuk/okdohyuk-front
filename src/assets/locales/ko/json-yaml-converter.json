@@ -1,0 +1,38 @@
+{
+  "title": "JSON ↔ YAML 변환기",
+  "description": "브라우저에서 JSON과 YAML을 서로 변환합니다.",
+  "label": {
+    "direction": "변환 방향",
+    "input": "입력",
+    "output": "출력"
+  },
+  "direction": {
+    "jsonToYaml": "JSON → YAML",
+    "yamlToJson": "YAML → JSON"
+  },
+  "button": {
+    "convert": "변환",
+    "swap": "바꾸기",
+    "clear": "초기화",
+    "copy": "복사",
+    "copied": "복사됨!",
+    "sampleJson": "JSON 예시",
+    "sampleYaml": "YAML 예시"
+  },
+  "placeholder": {
+    "input": "JSON 또는 YAML을 붙여 넣으세요...",
+    "output": {
+      "json": "변환된 JSON이 여기에 표시됩니다...",
+      "yaml": "변환된 YAML이 여기에 표시됩니다..."
+    }
+  },
+  "helper": "모든 변환은 로컬에서 실행됩니다. 데이터는 서버로 전송되지 않습니다.",
+  "error": {
+    "invalidJson": "JSON 형식이 올바르지 않습니다.",
+    "invalidYaml": "YAML 형식이 올바르지 않습니다."
+  },
+  "openGraph": {
+    "title": "JSON ↔ YAML 변환기",
+    "description": "클라이언트에서 안전하게 JSON과 YAML을 서로 변환해 보세요."
+  }
+}
