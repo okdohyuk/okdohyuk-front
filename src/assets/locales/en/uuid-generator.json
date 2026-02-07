@@ -1,0 +1,19 @@
+{
+  "title": "UUID Generator",
+  "description": "Generate multiple UUID v4 values at once and copy them easily.",
+  "label": {
+    "count": "Amount",
+    "list": "UUID List"
+  },
+  "helper": "You can generate between {{min}} and {{max}} UUIDs.",
+  "button": {
+    "generate": "Generate",
+    "copy": "Copy",
+    "copyAll": "Copy All",
+    "copied": "Copied"
+  },
+  "openGraph": {
+    "title": "UUID Generator",
+    "description": "Generate multiple UUID v4 values and copy them in one go."
+  }
+}

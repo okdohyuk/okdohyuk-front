@@ -1,0 +1,19 @@
+{
+  "title": "UUID 生成器",
+  "description": "一次生成多个 UUID v4，并快速复制。",
+  "label": {
+    "count": "生成数量",
+    "list": "UUID 列表"
+  },
+  "helper": "可生成 {{min}} 到 {{max}} 个 UUID。",
+  "button": {
+    "generate": "生成",
+    "copy": "复制",
+    "copyAll": "全部复制",
+    "copied": "已复制"
+  },
+  "openGraph": {
+    "title": "UUID 生成器",
+    "description": "批量生成 UUID v4 并一键复制。"
+  }
+}
