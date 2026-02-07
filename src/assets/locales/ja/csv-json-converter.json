@@ -1,0 +1,36 @@
+{
+  "title": "CSV/JSON変換器",
+  "description": "CSVデータをJSONへ、JSONをCSVへ変換できます。区切り文字を調整でき、処理はブラウザ内で完結します。",
+  "settings": {
+    "title": "設定",
+    "delimiter": "区切り文字",
+    "customDelimiter": "カスタム",
+    "delimiterPlaceholder": ",",
+    "headerRow": "1行目をヘッダーとして使用"
+  },
+  "label": {
+    "csvInput": "CSV入力",
+    "jsonOutput": "JSON出力"
+  },
+  "placeholder": {
+    "csv": "CSVを貼り付けてください...",
+    "json": "JSON配列を貼り付けてください..."
+  },
+  "actions": {
+    "csvToJson": "CSV → JSON",
+    "jsonToCsv": "JSON → CSV",
+    "copyCsv": "CSVをコピー",
+    "copyJson": "JSONをコピー",
+    "clear": "クリア",
+    "loadExample": "サンプル読み込み"
+  },
+  "error": {
+    "invalidCsv": "CSVを解析できません。区切り文字や引用符を確認してください。",
+    "invalidJson": "オブジェクト配列のJSONを入力してください。",
+    "emptyCsv": "CSV入力が空です。"
+  },
+  "openGraph": {
+    "title": "CSV/JSON変換器",
+    "description": "CSVとJSONを即座に変換し、オプションを調整できます。"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "title": "CSV/JSON 转换器",
+  "description": "将 CSV 数据转换为 JSON，或将 JSON 转换为 CSV。可自定义分隔符，所有处理均在浏览器内完成。",
+  "settings": {
+    "title": "设置",
+    "delimiter": "分隔符",
+    "customDelimiter": "自定义",
+    "delimiterPlaceholder": ",",
+    "headerRow": "首行作为表头"
+  },
+  "label": {
+    "csvInput": "CSV 输入",
+    "jsonOutput": "JSON 输出"
+  },
+  "placeholder": {
+    "csv": "粘贴 CSV...",
+    "json": "粘贴 JSON 数组..."
+  },
+  "actions": {
+    "csvToJson": "CSV → JSON",
+    "jsonToCsv": "JSON → CSV",
+    "copyCsv": "复制 CSV",
+    "copyJson": "复制 JSON",
+    "clear": "清空",
+    "loadExample": "加载示例"
+  },
+  "error": {
+    "invalidCsv": "无法解析 CSV，请检查分隔符和引号。",
+    "invalidJson": "请输入对象数组形式的 JSON。",
+    "emptyCsv": "CSV 输入为空。"
+  },
+  "openGraph": {
+    "title": "CSV/JSON 转换器",
+    "description": "即时转换 CSV 与 JSON，并自定义输出选项。"
+  }
+}
