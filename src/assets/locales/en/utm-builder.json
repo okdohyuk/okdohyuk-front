@@ -1,0 +1,43 @@
+{
+  "title": "UTM Builder",
+  "description": "Build campaign tracking URLs with UTM parameters for analytics.",
+  "badge": "Campaign URL",
+  "form": {
+    "title": "UTM Parameters"
+  },
+  "label": {
+    "baseUrl": "Base URL",
+    "source": "Source",
+    "medium": "Medium",
+    "campaign": "Campaign",
+    "term": "Term",
+    "content": "Content"
+  },
+  "placeholder": {
+    "baseUrl": "https://example.com/landing",
+    "source": "newsletter",
+    "medium": "email",
+    "campaign": "spring-sale",
+    "term": "dev-tools",
+    "content": "hero-banner"
+  },
+  "helper": {
+    "baseUrl": "Include https:// or http:// in the base URL."
+  },
+  "button": {
+    "example": "Use example",
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "output": {
+    "title": "Generated URL",
+    "placeholder": "Your UTM URL will appear here.",
+    "empty": "Enter a base URL to see the result.",
+    "invalid": "Please enter a valid URL."
+  },
+  "preview": {
+    "title": "Added parameters",
+    "empty": "No parameters added."
+  }
+}

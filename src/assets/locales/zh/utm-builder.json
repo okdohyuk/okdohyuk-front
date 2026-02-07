@@ -1,0 +1,43 @@
+{
+  "title": "UTM 构建器",
+  "description": "快速生成用于分析的 UTM 追踪链接。",
+  "badge": "活动链接",
+  "form": {
+    "title": "UTM 参数"
+  },
+  "label": {
+    "baseUrl": "基础 URL",
+    "source": "来源",
+    "medium": "媒介",
+    "campaign": "活动名称",
+    "term": "关键词",
+    "content": "内容"
+  },
+  "placeholder": {
+    "baseUrl": "https://example.com/landing",
+    "source": "newsletter",
+    "medium": "email",
+    "campaign": "spring-sale",
+    "term": "dev-tools",
+    "content": "hero-banner"
+  },
+  "helper": {
+    "baseUrl": "请输入包含 https:// 或 http:// 的完整 URL。"
+  },
+  "button": {
+    "example": "使用示例",
+    "clear": "清空",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "output": {
+    "title": "生成的 URL",
+    "placeholder": "UTM 链接会显示在这里。",
+    "empty": "输入基础 URL 后将显示结果。",
+    "invalid": "请输入有效的 URL。"
+  },
+  "preview": {
+    "title": "已添加的参数",
+    "empty": "未添加任何参数。"
+  }
+}
