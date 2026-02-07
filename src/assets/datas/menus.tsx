@@ -6,6 +6,7 @@ import {
   Code,
   CreditCard,
   Github,
+  Hash,
   Key,
   Linkedin,
   List,
@@ -74,6 +75,16 @@ const menus: Menus = {
       },
       icon: <Palette />,
       link: '/css-generator',
+    },
+    {
+      title: {
+        ko: '슬러그 생성기',
+        en: 'Slug Generator',
+        ja: 'スラッグ生成器',
+        zh: 'Slug 生成器',
+      },
+      icon: <Hash />,
+      link: '/slug-generator',
     },
     {
       title: {
