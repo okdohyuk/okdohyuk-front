@@ -1,0 +1,32 @@
+{
+  "openGraph": {
+    "title": "UUID ジェネレーター",
+    "description": "UUID v4 を即座に生成します。ブラウザ上で複数のユニークIDを作成できます。",
+    "keywords": ["uuid", "uuid v4", "ジェネレーター", "ユニークID", "識別子", "ツール"]
+  },
+  "title": "UUID ジェネレーター",
+  "description": "UUID v4 を即座に生成します。すべてブラウザ内で完結します。",
+  "label": {
+    "count": "件数",
+    "format": "形式",
+    "output": "生成された UUID"
+  },
+  "helper": {
+    "count": "一度に最大 {{max}} 件まで生成できます。",
+    "format": "用途に合わせて出力形式を選択してください。"
+  },
+  "format": {
+    "standard": "標準 (小文字)",
+    "noHyphens": "コンパクト (ハイフンなし)",
+    "uppercase": "大文字"
+  },
+  "button": {
+    "generate": "生成",
+    "copy": "コピー",
+    "copied": "コピーしました！"
+  },
+  "placeholder": {
+    "format": "形式を選択",
+    "output": "生成された UUID がここに表示されます。"
+  }
+}

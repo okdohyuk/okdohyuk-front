@@ -18,6 +18,7 @@ import ppollong from 'assets/locales/ko/ppollong.json'; // ppollong.json 임포�
 import serverClock from 'assets/locales/ko/server-clock.json';
 import choseongMaker from 'assets/locales/ko/choseong-maker.json';
 import qrGenerator from 'assets/locales/ko/qr-generator.json';
+import uuidGenerator from 'assets/locales/ko/uuid-generator.json';
 import jwtDecoder from 'assets/locales/ko/jwt-decoder.json';
 import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
@@ -59,6 +60,7 @@ declare module 'i18next' {
       'server-clock': typeof serverClock;
       'choseong-maker': typeof choseongMaker;
       'qr-generator': typeof qrGenerator;
+      'uuid-generator': typeof uuidGenerator;
       'jwt-decoder': typeof jwtDecoder;
       'cron-generator': typeof cronGenerator;
       'css-generator': typeof cssGenerator;

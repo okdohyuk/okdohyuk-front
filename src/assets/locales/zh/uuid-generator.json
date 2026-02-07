@@ -1,0 +1,32 @@
+{
+  "openGraph": {
+    "title": "UUID 生成器",
+    "description": "即时生成 UUID v4，可在浏览器中创建多个唯一标识符。",
+    "keywords": ["uuid", "uuid v4", "生成器", "唯一ID", "标识符", "工具"]
+  },
+  "title": "UUID 生成器",
+  "description": "即时生成 UUID v4，全部在浏览器内完成。",
+  "label": {
+    "count": "数量",
+    "format": "格式",
+    "output": "生成的 UUID"
+  },
+  "helper": {
+    "count": "一次最多生成 {{max}} 个。",
+    "format": "选择适合你的输出格式。"
+  },
+  "format": {
+    "standard": "标准（小写）",
+    "noHyphens": "精简（无连字符）",
+    "uppercase": "大写"
+  },
+  "button": {
+    "generate": "生成",
+    "copy": "复制",
+    "copied": "已复制！"
+  },
+  "placeholder": {
+    "format": "选择格式",
+    "output": "生成的 UUID 将显示在这里。"
+  }
+}

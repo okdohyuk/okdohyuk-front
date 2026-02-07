@@ -15,6 +15,7 @@ import {
   Key,
   KeyRound,
   Link2,
+  Fingerprint,
   Linkedin,
   List,
   Lock,
@@ -81,13 +82,13 @@ const menus: Menus = {
     },
     {
       title: {
-        ko: '비밀번호 생성기',
-        en: 'Password Generator',
-        ja: 'パスワード生成器',
-        zh: '密码生成器',
+        ko: 'UUID 생성기',
+        en: 'UUID Generator',
+        ja: 'UUID ジェネレーター',
+        zh: 'UUID 生成器',
       },
-      icon: <Lock />,
-      link: '/password-generator',
+      icon: <Fingerprint />,
+      link: '/uuid-generator',
     },
     {
       title: {
