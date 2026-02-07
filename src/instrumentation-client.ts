@@ -1,32 +1,63 @@
-// This file configures the initialization of Sentry on the client.
-// The added config here will be used whenever a users loads a page in their browser.
-// https://docs.sentry.io/platforms/javascript/guides/nextjs/
+// This file configures client-side Sentry initialization.
+// Keep it opt-in to avoid forcing monitoring/replay code into the critical path.
 
-import * as Sentry from '@sentry/nextjs';
+type SentryModule = typeof import('@sentry/nextjs');
 
-Sentry.init({
-  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-  tunnel: '/api/monitoring',
+const sentryEnabled =
+  process.env.NEXT_PUBLIC_ENABLE_SENTRY === 'true' && Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN);
 
-  // Add optional integrations for additional features
-  integrations: [Sentry.replayIntegration()],
+const replayEnabled = process.env.NEXT_PUBLIC_ENABLE_SENTRY_REPLAY === 'true';
 
-  // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
-  tracesSampleRate: 1,
-  // Enable logs to be sent to Sentry
-  enableLogs: true,
+let sentryModulePromise: Promise<SentryModule> | null = null;
 
-  // Define how likely Replay events are sampled.
-  // This sets the sample rate to be 10%. You may want this to be 100% while
-  // in development and sample at a lower rate in production
-  replaysSessionSampleRate: 0.1,
+const getSentryModule = async () => {
+  if (!sentryModulePromise) {
+    sentryModulePromise = import('@sentry/nextjs');
+  }
 
-  // Define how likely Replay events are sampled when an error occurs.
-  replaysOnErrorSampleRate: 1.0,
+  return sentryModulePromise;
+};
 
-  // Enable sending user PII (Personally Identifiable Information)
-  // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/options/#sendDefaultPii
-  sendDefaultPii: true,
-});
+if (sentryEnabled) {
+  // eslint-disable-next-line no-void
+  void getSentryModule().then((Sentry) => {
+    const baseConfig = {
+      dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+      tunnel: '/api/monitoring',
+      tracesSampleRate: 0.2,
+      enableLogs: false,
+      sendDefaultPii: true,
+    };
 
-export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;
+    if (replayEnabled) {
+      Sentry.init({
+        ...baseConfig,
+        integrations: [Sentry.replayIntegration()],
+        replaysSessionSampleRate: 0.1,
+        replaysOnErrorSampleRate: 1.0,
+      });
+      return;
+    }
+
+    Sentry.init({
+      ...baseConfig,
+      replaysSessionSampleRate: 0,
+      replaysOnErrorSampleRate: 0,
+    });
+  });
+}
+
+export const onRouterTransitionStart = (...args: unknown[]) => {
+  if (!sentryEnabled) {
+    return;
+  }
+
+  // eslint-disable-next-line no-void
+  void getSentryModule().then((Sentry) => {
+    const captureRouterTransitionStart = Sentry.captureRouterTransitionStart as (
+      ...transitionArgs: unknown[]
+    ) => void;
+
+    captureRouterTransitionStart(...args);
+  });
+};

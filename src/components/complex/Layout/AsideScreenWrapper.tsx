@@ -12,7 +12,11 @@ function AsideScreenWrapper({ children, left = null, right = null }: AsideScreen
   return (
     <div className="flex">
       <aside className="flex-1 hidden lg:flex">{left}</aside>
-      <MobileScreenWrapper>{children}</MobileScreenWrapper>
+      <MobileScreenWrapper>
+        <main className="w-full" id="main-content">
+          {children}
+        </main>
+      </MobileScreenWrapper>
       <aside className="flex-1 hidden lg:flex">{right}</aside>
     </div>
   );
