@@ -1,0 +1,41 @@
+{
+  "title": "URL 解析器",
+  "description": "将 URL 拆解为协议、主机、路径和查询参数。",
+  "label": {
+    "input": "URL 输入",
+    "output": "解析结果",
+    "queryParams": "查询参数"
+  },
+  "helper": "输入完整 URL 或域名，系统会自动补全 https://。",
+  "notice": {
+    "fallback": "已自动补全 https://。"
+  },
+  "button": {
+    "sample": "示例 URL",
+    "clear": "清空",
+    "copy": "复制",
+    "copyAll": "全部复制",
+    "copied": "已复制"
+  },
+  "fields": {
+    "href": "完整 URL",
+    "origin": "来源",
+    "protocol": "协议",
+    "host": "主机",
+    "hostname": "主机名",
+    "port": "端口",
+    "pathname": "路径",
+    "search": "查询字符串",
+    "hash": "哈希",
+    "username": "用户名",
+    "password": "密码"
+  },
+  "empty": "输入 URL 后即可查看解析结果。",
+  "error": {
+    "invalid": "请输入有效的 URL。"
+  },
+  "openGraph": {
+    "title": "URL 解析器",
+    "description": "快速查看 URL 组成部分与查询参数。"
+  }
+}
