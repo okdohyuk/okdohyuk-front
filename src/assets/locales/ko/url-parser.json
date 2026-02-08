@@ -1,0 +1,41 @@
+{
+  "title": "URL 파서",
+  "description": "URL을 구성 요소로 나누고 쿼리 파라미터를 확인하세요.",
+  "label": {
+    "input": "URL 입력",
+    "output": "분해 결과",
+    "queryParams": "쿼리 파라미터"
+  },
+  "helper": "전체 URL 또는 도메인을 입력하면 https://를 자동으로 보완합니다.",
+  "notice": {
+    "fallback": "https://를 자동으로 추가했어요."
+  },
+  "button": {
+    "sample": "샘플 URL",
+    "clear": "초기화",
+    "copy": "복사",
+    "copyAll": "전체 복사",
+    "copied": "복사됨"
+  },
+  "fields": {
+    "href": "전체 URL",
+    "origin": "출처",
+    "protocol": "프로토콜",
+    "host": "호스트",
+    "hostname": "호스트명",
+    "port": "포트",
+    "pathname": "경로",
+    "search": "쿼리 문자열",
+    "hash": "해시",
+    "username": "사용자명",
+    "password": "비밀번호"
+  },
+  "empty": "URL을 입력하면 결과가 표시됩니다.",
+  "error": {
+    "invalid": "유효한 URL을 입력하세요."
+  },
+  "openGraph": {
+    "title": "URL 파서",
+    "description": "URL 구성 요소와 쿼리 파라미터를 빠르게 확인하세요."
+  }
+}

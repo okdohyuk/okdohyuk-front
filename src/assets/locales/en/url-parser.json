@@ -1,0 +1,41 @@
+{
+  "title": "URL Parser",
+  "description": "Break down URLs into protocol, host, path, and query parameters.",
+  "label": {
+    "input": "URL input",
+    "output": "Parsed fields",
+    "queryParams": "Query parameters"
+  },
+  "helper": "Paste a full URL or a domain; we'll add https:// if missing.",
+  "notice": {
+    "fallback": "Added https:// automatically."
+  },
+  "button": {
+    "sample": "Sample URL",
+    "clear": "Clear",
+    "copy": "Copy",
+    "copyAll": "Copy all",
+    "copied": "Copied"
+  },
+  "fields": {
+    "href": "Full URL",
+    "origin": "Origin",
+    "protocol": "Protocol",
+    "host": "Host",
+    "hostname": "Hostname",
+    "port": "Port",
+    "pathname": "Path",
+    "search": "Query string",
+    "hash": "Hash",
+    "username": "Username",
+    "password": "Password"
+  },
+  "empty": "Enter a URL to see the parsed result.",
+  "error": {
+    "invalid": "Enter a valid URL."
+  },
+  "openGraph": {
+    "title": "URL Parser",
+    "description": "Inspect URL parts and query parameters instantly."
+  }
+}
