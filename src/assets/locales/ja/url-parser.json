@@ -1,0 +1,41 @@
+{
+  "title": "URLパーサー",
+  "description": "URLを構成要素に分解してクエリを確認できます。",
+  "label": {
+    "input": "URL入力",
+    "output": "解析結果",
+    "queryParams": "クエリパラメータ"
+  },
+  "helper": "完全なURLまたはドメインを入力すると https:// を自動で補完します。",
+  "notice": {
+    "fallback": "https:// を自動で追加しました。"
+  },
+  "button": {
+    "sample": "サンプルURL",
+    "clear": "クリア",
+    "copy": "コピー",
+    "copyAll": "すべてコピー",
+    "copied": "コピー済み"
+  },
+  "fields": {
+    "href": "全体URL",
+    "origin": "オリジン",
+    "protocol": "プロトコル",
+    "host": "ホスト",
+    "hostname": "ホスト名",
+    "port": "ポート",
+    "pathname": "パス",
+    "search": "クエリ文字列",
+    "hash": "ハッシュ",
+    "username": "ユーザー名",
+    "password": "パスワード"
+  },
+  "empty": "URLを入力すると結果が表示されます。",
+  "error": {
+    "invalid": "有効なURLを入力してください。"
+  },
+  "openGraph": {
+    "title": "URLパーサー",
+    "description": "URLの各要素とクエリをすぐに確認できます。"
+  }
+}
