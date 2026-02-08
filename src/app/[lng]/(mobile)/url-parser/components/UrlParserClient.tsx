@@ -29,6 +29,25 @@ type UrlParserClientProps = {
 type ParsedState = {
   url: URL | null;
   error: string | null;
+  usedFallback: boolean;
+};
+
+type FieldKey =
+  | 'href'
+  | 'origin'
+  | 'protocol'
+  | 'host'
+  | 'hostname'
+  | 'port'
+  | 'pathname'
+  | 'search'
+  | 'hash'
+  | 'username'
+  | 'password';
+
+type UrlField = {
+  key: FieldKey;
+  value: string;
 };
 
 const SAMPLE_URL =
@@ -91,7 +110,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
     await handleCopy(JSON.stringify(payload, null, 2), 'all');
   };
 
-  const fields = parsed.url
+  const fields: UrlField[] = parsed.url
     ? [
         { key: 'href', value: parsed.url.href },
         { key: 'origin', value: parsed.url.origin },
@@ -187,7 +206,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
               <div key={field.key} className="space-y-2">
                 <div className="flex items-center justify-between gap-2">
                   <Text variant="d3" className="font-medium text-gray-700 dark:text-gray-300">
-                    {t(`fields.${field.key}`)}
+                    {t(`fields.${field.key}` as const)}
                   </Text>
                   <Button
                     type="button"
