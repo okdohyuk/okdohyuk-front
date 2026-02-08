@@ -1,0 +1,32 @@
+{
+  "title": "Hash Generator",
+  "description": "Generate SHA hashes from text for quick verification.",
+  "badge": "Text Integrity",
+  "label": {
+    "input": "Input text",
+    "algorithm": "Algorithm",
+    "output": "Hash output"
+  },
+  "placeholder": "e.g. The quick brown fox jumps over the lazy dog.",
+  "placeholderAlgorithm": "Select algorithm",
+  "helper": "Hashes are one-way. Output updates automatically as you type.",
+  "helperOutput": "Copy the hash to verify integrity across systems.",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "sample": "Use sample"
+  },
+  "status": {
+    "loading": "Generating hash..."
+  },
+  "empty": "Enter text to generate a hash.",
+  "error": {
+    "unsupported": "Web Crypto is not supported in this browser.",
+    "failed": "Failed to generate hash. Try again."
+  },
+  "openGraph": {
+    "title": "Hash Generator",
+    "description": "Generate SHA-1, SHA-256, SHA-384, or SHA-512 hashes from text."
+  }
+}

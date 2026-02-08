@@ -1,0 +1,32 @@
+{
+  "title": "ハッシュ生成器",
+  "description": "テキストからSHAハッシュを素早く生成します。",
+  "badge": "整合性チェック",
+  "label": {
+    "input": "入力テキスト",
+    "algorithm": "アルゴリズム",
+    "output": "ハッシュ結果"
+  },
+  "placeholder": "例: The quick brown fox jumps over the lazy dog.",
+  "placeholderAlgorithm": "アルゴリズムを選択",
+  "helper": "ハッシュは一方向です。入力に応じて自動更新されます。",
+  "helperOutput": "ハッシュをコピーしてシステム間の整合性を確認できます。",
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "clear": "クリア",
+    "sample": "サンプル使用"
+  },
+  "status": {
+    "loading": "ハッシュ生成中..."
+  },
+  "empty": "ハッシュを生成するテキストを入力してください。",
+  "error": {
+    "unsupported": "このブラウザはWeb Cryptoに対応していません。",
+    "failed": "ハッシュ生成に失敗しました。再試行してください。"
+  },
+  "openGraph": {
+    "title": "ハッシュ生成器",
+    "description": "テキストをSHA-1、SHA-256、SHA-384、SHA-512ハッシュに変換します。"
+  }
+}
