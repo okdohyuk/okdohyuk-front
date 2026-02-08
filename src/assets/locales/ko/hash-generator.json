@@ -1,0 +1,32 @@
+{
+  "title": "해시 생성기",
+  "description": "텍스트에서 SHA 해시를 빠르게 생성합니다.",
+  "badge": "무결성 확인",
+  "label": {
+    "input": "입력 텍스트",
+    "algorithm": "알고리즘",
+    "output": "해시 결과"
+  },
+  "placeholder": "예: The quick brown fox jumps over the lazy dog.",
+  "placeholderAlgorithm": "알고리즘 선택",
+  "helper": "해시는 일방향입니다. 입력에 따라 자동으로 갱신됩니다.",
+  "helperOutput": "해시를 복사해 시스템 간 무결성을 확인하세요.",
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "비우기",
+    "sample": "샘플 사용"
+  },
+  "status": {
+    "loading": "해시 생성 중..."
+  },
+  "empty": "해시를 생성할 텍스트를 입력하세요.",
+  "error": {
+    "unsupported": "이 브라우저는 Web Crypto를 지원하지 않습니다.",
+    "failed": "해시 생성에 실패했습니다. 다시 시도해주세요."
+  },
+  "openGraph": {
+    "title": "해시 생성기",
+    "description": "텍스트를 SHA-1, SHA-256, SHA-384, SHA-512 해시로 변환합니다."
+  }
+}

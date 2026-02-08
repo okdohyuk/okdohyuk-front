@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Fingerprint,
   Github,
   Hash,
   Key,
@@ -65,6 +66,16 @@ const menus: Menus = {
       },
       icon: <Key />,
       link: '/jwt-decoder',
+    },
+    {
+      title: {
+        ko: '해시 생성기',
+        en: 'Hash Generator',
+        ja: 'ハッシュ生成器',
+        zh: '哈希生成器',
+      },
+      icon: <Fingerprint />,
+      link: '/hash-generator',
     },
     {
       title: {

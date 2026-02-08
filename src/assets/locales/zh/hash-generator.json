@@ -1,0 +1,32 @@
+{
+  "title": "哈希生成器",
+  "description": "从文本快速生成 SHA 哈希。",
+  "badge": "完整性校验",
+  "label": {
+    "input": "输入文本",
+    "algorithm": "算法",
+    "output": "哈希结果"
+  },
+  "placeholder": "例如：The quick brown fox jumps over the lazy dog.",
+  "placeholderAlgorithm": "选择算法",
+  "helper": "哈希是单向的，会随输入自动更新。",
+  "helperOutput": "复制哈希以便跨系统验证完整性。",
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空",
+    "sample": "使用示例"
+  },
+  "status": {
+    "loading": "正在生成哈希..."
+  },
+  "empty": "请输入文本以生成哈希。",
+  "error": {
+    "unsupported": "此浏览器不支持 Web Crypto。",
+    "failed": "哈希生成失败，请重试。"
+  },
+  "openGraph": {
+    "title": "哈希生成器",
+    "description": "将文本转换为 SHA-1、SHA-256、SHA-384、SHA-512 哈希。"
+  }
+}
