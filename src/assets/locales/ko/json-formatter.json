@@ -1,0 +1,31 @@
+{
+  "title": "JSON 포매터",
+  "description": "JSON을 보기 좋게 포맷하고 압축하며 유효성을 확인하세요.",
+  "label": {
+    "input": "JSON 입력",
+    "output": "포맷 결과"
+  },
+  "placeholder": "여기에 JSON을 붙여 넣거나 입력하세요...",
+  "helper": "표준 JSON을 지원합니다. 포맷/압축 버튼으로 유효성을 확인하세요.",
+  "button": {
+    "format": "포맷",
+    "minify": "압축",
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "지우기",
+    "sample": "예시 불러오기"
+  },
+  "empty": "포맷 또는 압축을 실행하면 결과가 표시됩니다.",
+  "error": {
+    "empty": "검증할 JSON을 입력하세요."
+  },
+  "status": {
+    "valid": "유효한 JSON입니다.",
+    "invalid": "유효하지 않은 JSON입니다."
+  },
+  "counter": "{{count}}자",
+  "openGraph": {
+    "title": "JSON 포매터",
+    "description": "JSON을 깔끔하게 정리하고 유효성을 확인하세요."
+  }
+}
