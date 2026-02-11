@@ -1,0 +1,32 @@
+{
+  "title": "HTMLエンティティ変換",
+  "description": "HTMLエンティティのエンコード・デコードで安全なマークアップを作成します。",
+  "label": {
+    "mode": "モード",
+    "input": "入力テキスト",
+    "output": "結果",
+    "length": "長さ"
+  },
+  "placeholder": "例: <div class=\"note\">Hello & 안녕</div>",
+  "helper": {
+    "encode": "<, >, &, 引用符などの特殊文字をエスケープします。",
+    "decode": "HTMLエンティティを読みやすいテキストに戻します。"
+  },
+  "option": {
+    "nonAscii": "非ASCII文字を数値エンティティに変換"
+  },
+  "button": {
+    "encode": "エンコード",
+    "decode": "デコード",
+    "copy": "コピー",
+    "copied": "コピーしました",
+    "clear": "クリア",
+    "swap": "入れ替え",
+    "example": "例を読み込む"
+  },
+  "empty": "入力すると結果が表示されます。",
+  "openGraph": {
+    "title": "HTMLエンティティ変換",
+    "description": "テキストをHTMLエンティティに変換し、逆変換も可能です。"
+  }
+}

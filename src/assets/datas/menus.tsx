@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Bomb,
+  Braces,
   Calculator,
   CalendarClock,
   Code,
@@ -115,6 +116,16 @@ const menus: Menus = {
       },
       icon: <Code />,
       link: '/coder',
+    },
+    {
+      title: {
+        ko: 'HTML 엔티티 변환기',
+        en: 'HTML Entity Converter',
+        ja: 'HTMLエンティティ変換',
+        zh: 'HTML 实体转换器',
+      },
+      icon: <Braces />,
+      link: '/html-entity',
     },
     {
       title: {
