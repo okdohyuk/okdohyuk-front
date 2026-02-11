@@ -1,0 +1,54 @@
+{
+  "title": "テキストツールボックス",
+  "description": "大小文字変換、空白整理、文字数カウントをまとめて使えます。",
+  "badge": "マルチツール",
+  "sections": {
+    "case": {
+      "title": "大小文字変換",
+      "description": "必要な表記にすばやく変換します。",
+      "inputLabel": "入力",
+      "outputLabel": "出力",
+      "placeholder": "変換したいテキストを入力してください。",
+      "outputPlaceholder": "変換結果がここに表示されます。",
+      "actions": {
+        "upper": "大文字",
+        "lower": "小文字",
+        "title": "タイトルケース",
+        "sentence": "文頭大文字"
+      },
+      "copy": "コピー",
+      "copied": "コピー済み"
+    },
+    "clean": {
+      "title": "空白整理",
+      "description": "余分な空白や空行を削除します。",
+      "inputLabel": "入力",
+      "outputLabel": "出力",
+      "placeholder": "整形したいテキストを貼り付けてください。",
+      "outputPlaceholder": "整理結果がここに表示されます。",
+      "actions": {
+        "trim": "行の空白を削除",
+        "removeEmpty": "空行を削除",
+        "collapse": "連続空白を縮小"
+      },
+      "copy": "コピー",
+      "copied": "コピー済み"
+    },
+    "counter": {
+      "title": "テキストカウンター",
+      "description": "文字数、単語数、行数をすぐに確認できます。",
+      "placeholder": "カウントするテキストを入力または貼り付けてください。",
+      "metrics": {
+        "characters": "文字数",
+        "charactersNoSpace": "空白除外文字数",
+        "words": "単語数",
+        "lines": "行数"
+      }
+    }
+  },
+  "openGraph": {
+    "title": "テキストツールボックス",
+    "description": "大小文字変換、空白整理、文字数カウントをまとめたテキストユーティリティ。",
+    "keywords": ["テキストツール", "大小文字変換", "空白整理", "文字数カウント"]
+  }
+}
