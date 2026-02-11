@@ -10,6 +10,7 @@ import {
   Key,
   Linkedin,
   List,
+  Lock,
   MonitorPlay,
   Palette,
   QrCode,
@@ -65,6 +66,16 @@ const menus: Menus = {
       },
       icon: <Key />,
       link: '/jwt-decoder',
+    },
+    {
+      title: {
+        ko: '비밀번호 생성기',
+        en: 'Password Generator',
+        ja: 'パスワード生成器',
+        zh: '密码生成器',
+      },
+      icon: <Lock />,
+      link: '/password-generator',
     },
     {
       title: {
