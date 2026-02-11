@@ -1,0 +1,38 @@
+{
+  "title": "词频统计",
+  "description": "快速统计文本中最常出现的词。",
+  "label": {
+    "input": "原始文本",
+    "results": "高频词",
+    "sort": "排序方式",
+    "case": "大小写处理",
+    "minLength": "最小长度",
+    "limit": "显示数量"
+  },
+  "placeholder": "粘贴文章、访谈或笔记...",
+  "helper": "去除标点并合并重复词语后统计。",
+  "button": {
+    "sample": "使用示例",
+    "clear": "清除",
+    "copy": "复制 CSV",
+    "copied": "已复制"
+  },
+  "option": {
+    "frequency": "按频率",
+    "alphabetical": "按字母",
+    "lower": "统一为小写",
+    "keep": "保留原样",
+    "minLength": "不少于 {count} 个字符",
+    "limit": "前 {count} 项"
+  },
+  "stats": {
+    "total": "总词数：{count}",
+    "unique": "唯一词数：{count}"
+  },
+  "empty": "输入文本后即可查看词频列表。",
+  "sample": "敏捷的棕色狐狸跳过了懒狗。敏捷的狐狸喜欢干净的数据和清晰的结果。",
+  "openGraph": {
+    "title": "词频统计",
+    "description": "找出文本中最常出现的词，并以 CSV 形式复制结果。"
+  }
+}

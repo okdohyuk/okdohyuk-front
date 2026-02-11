@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Droplet,
   Github,
   Hash,
   Key,
@@ -75,6 +76,16 @@ const menus: Menus = {
       },
       icon: <Palette />,
       link: '/css-generator',
+    },
+    {
+      title: {
+        ko: '컬러 변환기',
+        en: 'Color Converter',
+        ja: 'カラーコンバーター',
+        zh: '颜色转换器',
+      },
+      icon: <Droplet />,
+      link: '/color-converter',
     },
     {
       title: {

@@ -1,0 +1,18 @@
+{
+  "title": "颜色转换器",
+  "description": "将 HEX 颜色转换为 RGB 和 HSL。",
+  "label": {
+    "input": "HEX 颜色",
+    "preview": "预览",
+    "normalized": "规范化 HEX",
+    "rgb": "RGB",
+    "hsl": "HSL"
+  },
+  "placeholder": "#3B82F6 或 3B82F6",
+  "helper": "支持 3 位或 6 位 HEX 代码。",
+  "invalid": "请输入有效的 HEX 颜色。",
+  "openGraph": {
+    "title": "颜色转换器",
+    "description": "将 HEX 颜色转换为 RGB 和 HSL。"
+  }
+}

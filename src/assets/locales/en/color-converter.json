@@ -1,0 +1,18 @@
+{
+  "title": "Color Converter",
+  "description": "Convert HEX colors to RGB and HSL instantly.",
+  "label": {
+    "input": "HEX color",
+    "preview": "Preview",
+    "normalized": "Normalized HEX",
+    "rgb": "RGB",
+    "hsl": "HSL"
+  },
+  "placeholder": "#3B82F6 or 3B82F6",
+  "helper": "Supports 3 or 6 digit HEX values.",
+  "invalid": "Enter a valid HEX color.",
+  "openGraph": {
+    "title": "Color Converter",
+    "description": "Convert HEX colors to RGB and HSL."
+  }
+}
