@@ -1,0 +1,39 @@
+{
+  "title": "로또 번호 생성기",
+  "description": "원하는 범위에서 로또 번호를 자동으로 뽑아줍니다. 여러 장을 한 번에 생성하고 결과를 복사해 공유하세요.",
+  "settingsTitle": "추첨 설정",
+  "resultsTitle": "추첨 결과",
+  "helper": "범위와 티켓 수를 설정한 뒤 생성 버튼을 누르세요.",
+  "labels": {
+    "minNumber": "시작 번호",
+    "maxNumber": "끝 번호",
+    "picksPerTicket": "한 장당 숫자 개수",
+    "ticketCount": "티켓 수",
+    "includeBonus": "보너스 번호 포함"
+  },
+  "placeholders": {
+    "minNumber": "1",
+    "maxNumber": "45",
+    "picksPerTicket": "6",
+    "ticketCount": "5"
+  },
+  "buttons": {
+    "generate": "번호 생성",
+    "clear": "결과 지우기",
+    "copy": "결과 복사",
+    "reset": "기본값으로"
+  },
+  "status": {
+    "copied": "복사됨",
+    "empty": "아직 생성된 번호가 없어요."
+  },
+  "validation": {
+    "range": "시작 번호는 끝 번호보다 작아야 해요.",
+    "picks": "뽑는 숫자 수가 범위보다 많아요.",
+    "tickets": "티켓 수는 1~20 사이로 입력해 주세요."
+  },
+  "openGraph": {
+    "title": "로또 번호 생성기",
+    "description": "무료 온라인 로또 번호 생성기. 시작/끝 번호와 티켓 수를 설정하면 자동으로 랜덤 번호를 생성합니다. 결과를 복사해 공유하세요."
+  }
+}
