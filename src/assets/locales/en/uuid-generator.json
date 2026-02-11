@@ -1,0 +1,33 @@
+{
+  "title": "UUID Generator",
+  "description": "Create version 4 UUIDs in multiple formats.",
+  "label": {
+    "count": "Quantity",
+    "format": "Output format",
+    "output": "UUID output"
+  },
+  "helper": {
+    "count": "Generate between 1 and 10 UUIDs at once.",
+    "format": "Choose how the UUIDs should be formatted.",
+    "output": "Each UUID is separated by a new line."
+  },
+  "format": {
+    "standard": "Standard (hyphens)",
+    "uppercase": "Uppercase",
+    "compact": "Compact (no hyphens)",
+    "braces": "Braces ({uuid})"
+  },
+  "button": {
+    "generate": "Generate",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "placeholder": {
+    "format": "Select a format"
+  },
+  "empty": "UUIDs will appear here.",
+  "openGraph": {
+    "title": "UUID Generator",
+    "description": "Create version 4 UUIDs in multiple formats."
+  }
+}

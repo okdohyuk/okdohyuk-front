@@ -9,6 +9,7 @@ import {
   Github,
   Hash,
   Key,
+  Fingerprint,
   Linkedin,
   List,
   MonitorPlay,
@@ -86,6 +87,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: 'UUID 생성기',
+        en: 'UUID Generator',
+        ja: 'UUID生成器',
+        zh: 'UUID 生成器',
+      },
+      icon: <Fingerprint />,
+      link: '/uuid-generator',
     },
     {
       title: {

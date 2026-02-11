@@ -1,0 +1,33 @@
+{
+  "title": "UUID 生成器",
+  "description": "即时生成多种格式的 UUID v4。",
+  "label": {
+    "count": "生成数量",
+    "format": "输出格式",
+    "output": "UUID 结果"
+  },
+  "helper": {
+    "count": "一次可生成 1~10 个。",
+    "format": "选择标准/大写/去掉连字符/带大括号格式。",
+    "output": "每个 UUID 以换行分隔。"
+  },
+  "format": {
+    "standard": "标准（带连字符）",
+    "uppercase": "大写",
+    "compact": "去掉连字符",
+    "braces": "带大括号"
+  },
+  "button": {
+    "generate": "重新生成",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "placeholder": {
+    "format": "选择格式"
+  },
+  "empty": "UUID 将显示在这里。",
+  "openGraph": {
+    "title": "UUID 生成器",
+    "description": "即时生成多种格式的 UUID v4。"
+  }
+}
