@@ -1,0 +1,31 @@
+{
+  "title": "JSONフォーマッター",
+  "description": "JSONを整形・圧縮し、即座に検証します。",
+  "label": {
+    "input": "JSON入力",
+    "output": "整形結果"
+  },
+  "placeholder": "ここにJSONを貼り付けるか入力してください...",
+  "helper": "標準JSONに対応。整形・圧縮で検証できます。",
+  "button": {
+    "format": "整形",
+    "minify": "圧縮",
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "clear": "クリア",
+    "sample": "サンプルを読み込む"
+  },
+  "empty": "整形または圧縮を実行すると結果が表示されます。",
+  "error": {
+    "empty": "検証するJSONを入力してください。"
+  },
+  "status": {
+    "valid": "有効なJSONです。",
+    "invalid": "無効なJSONです。"
+  },
+  "counter": "{{count}}文字",
+  "openGraph": {
+    "title": "JSONフォーマッター",
+    "description": "JSONを見やすく整形し、検証できます。"
+  }
+}

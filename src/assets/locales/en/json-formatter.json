@@ -1,0 +1,31 @@
+{
+  "title": "JSON Formatter",
+  "description": "Format, minify, and validate JSON with instant feedback.",
+  "label": {
+    "input": "JSON input",
+    "output": "Formatted output"
+  },
+  "placeholder": "Paste or type JSON here...",
+  "helper": "Supports standard JSON. Use Format or Minify to validate.",
+  "button": {
+    "format": "Format",
+    "minify": "Minify",
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "sample": "Load sample"
+  },
+  "empty": "Run format or minify to see the result.",
+  "error": {
+    "empty": "Enter JSON to validate."
+  },
+  "status": {
+    "valid": "Valid JSON.",
+    "invalid": "Invalid JSON."
+  },
+  "counter": "{{count}} chars",
+  "openGraph": {
+    "title": "JSON Formatter",
+    "description": "Format and validate JSON with clean, readable output."
+  }
+}

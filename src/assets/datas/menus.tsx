@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileJson,
   Github,
   Hash,
   Key,
@@ -65,6 +66,16 @@ const menus: Menus = {
       },
       icon: <Key />,
       link: '/jwt-decoder',
+    },
+    {
+      title: {
+        ko: 'JSON 포매터',
+        en: 'JSON Formatter',
+        ja: 'JSONフォーマッター',
+        zh: 'JSON 格式化',
+      },
+      icon: <FileJson />,
+      link: '/json-formatter',
     },
     {
       title: {

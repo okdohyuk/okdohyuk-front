@@ -1,0 +1,31 @@
+{
+  "title": "JSON 格式化",
+  "description": "格式化、压缩并快速校验 JSON。",
+  "label": {
+    "input": "JSON 输入",
+    "output": "格式化结果"
+  },
+  "placeholder": "在此粘贴或输入 JSON...",
+  "helper": "支持标准 JSON，可通过格式化/压缩进行校验。",
+  "button": {
+    "format": "格式化",
+    "minify": "压缩",
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空",
+    "sample": "加载示例"
+  },
+  "empty": "执行格式化或压缩后会显示结果。",
+  "error": {
+    "empty": "请输入要校验的 JSON。"
+  },
+  "status": {
+    "valid": "JSON 有效。",
+    "invalid": "JSON 无效。"
+  },
+  "counter": "{{count}} 字符",
+  "openGraph": {
+    "title": "JSON 格式化",
+    "description": "将 JSON 整理为清晰易读的格式并校验。"
+  }
+}
