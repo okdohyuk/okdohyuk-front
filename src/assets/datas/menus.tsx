@@ -17,6 +17,7 @@ import {
   Smile,
   Sparkles,
   TextCursorInput,
+  Timer,
   Tv,
   Youtube,
 } from 'lucide-react';
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '타이머/스톱워치',
+        en: 'Timer & Stopwatch',
+        ja: 'タイマー＆ストップウォッチ',
+        zh: '计时器与秒表',
+      },
+      icon: <Timer />,
+      link: '/timer-toolbox',
     },
     {
       title: {
