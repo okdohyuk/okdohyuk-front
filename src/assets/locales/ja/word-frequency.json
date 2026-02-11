@@ -1,0 +1,38 @@
+{
+  "title": "単語頻度",
+  "description": "文章内で最も多い単語をすばやく集計します。",
+  "label": {
+    "input": "元のテキスト",
+    "results": "上位単語",
+    "sort": "並び順",
+    "case": "大文字/小文字",
+    "minLength": "最小文字数",
+    "limit": "表示件数"
+  },
+  "placeholder": "記事やメモを貼り付けてください...",
+  "helper": "句読点を除外し、重複単語をまとめて集計します。",
+  "button": {
+    "sample": "サンプル",
+    "clear": "クリア",
+    "copy": "CSVをコピー",
+    "copied": "コピー済み"
+  },
+  "option": {
+    "frequency": "頻度順",
+    "alphabetical": "アルファベット順",
+    "lower": "小文字に統一",
+    "keep": "元のまま",
+    "minLength": "{count}文字以上",
+    "limit": "上位{count}件"
+  },
+  "stats": {
+    "total": "単語数: {count}",
+    "unique": "ユニーク単語: {count}"
+  },
+  "empty": "テキストを入れると頻度リストが表示されます。",
+  "sample": "素早い茶色の狐が怠け者の犬を飛び越えます。素早い狐はきれいなデータと明確な結果が好きです。",
+  "openGraph": {
+    "title": "単語頻度アナライザー",
+    "description": "テキスト内の頻出単語を見つけてCSVでコピーできます。"
+  }
+}

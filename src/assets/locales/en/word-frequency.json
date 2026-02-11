@@ -1,0 +1,38 @@
+{
+  "title": "Word Frequency",
+  "description": "Analyze text and surface the most common words instantly.",
+  "label": {
+    "input": "Source text",
+    "results": "Top words",
+    "sort": "Sort by",
+    "case": "Case handling",
+    "minLength": "Minimum length",
+    "limit": "Show results"
+  },
+  "placeholder": "Paste an article, transcript, or note here...",
+  "helper": "Counts words across languages, removes punctuation, and groups duplicates.",
+  "button": {
+    "sample": "Use sample",
+    "clear": "Clear",
+    "copy": "Copy CSV",
+    "copied": "Copied"
+  },
+  "option": {
+    "frequency": "Frequency",
+    "alphabetical": "Alphabetical",
+    "lower": "Normalize to lowercase",
+    "keep": "Keep original case",
+    "minLength": "{count}+ letters",
+    "limit": "Top {count}"
+  },
+  "stats": {
+    "total": "Total words: {count}",
+    "unique": "Unique words: {count}"
+  },
+  "empty": "Add text to see the word frequency list.",
+  "sample": "The quick brown fox jumps over the lazy dog. The quick fox loves clean data and clear results.",
+  "openGraph": {
+    "title": "Word Frequency Analyzer",
+    "description": "Find the most common words in your text and export the results as CSV."
+  }
+}
