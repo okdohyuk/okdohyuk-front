@@ -1,0 +1,23 @@
+{
+  "title": "UUIDジェネレーター",
+  "description": "アプリやDB、テスト向けのUUID v4を生成します。",
+  "label": {
+    "count": "生成するUUIDの数",
+    "output": "生成されたUUID"
+  },
+  "placeholder": {
+    "count": "3"
+  },
+  "helper": "1〜10件までまとめて生成できます。",
+  "button": {
+    "generate": "生成",
+    "copy": "コピー",
+    "copyAll": "すべてコピー",
+    "copied": "コピー済み"
+  },
+  "empty": "UUIDを生成すると一覧が表示されます。",
+  "openGraph": {
+    "title": "UUIDジェネレーター",
+    "description": "UUID v4識別子をすぐに作成できます。"
+  }
+}

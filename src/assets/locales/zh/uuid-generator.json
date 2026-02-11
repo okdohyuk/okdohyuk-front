@@ -1,0 +1,23 @@
+{
+  "title": "UUID 生成器",
+  "description": "为应用、数据库与测试快速生成 UUID v4。",
+  "label": {
+    "count": "生成数量",
+    "output": "生成的 UUID"
+  },
+  "placeholder": {
+    "count": "3"
+  },
+  "helper": "每次可生成 1 到 10 个 UUID。",
+  "button": {
+    "generate": "生成",
+    "copy": "复制",
+    "copyAll": "全部复制",
+    "copied": "已复制"
+  },
+  "empty": "生成 UUID 后会显示列表。",
+  "openGraph": {
+    "title": "UUID 生成器",
+    "description": "即时创建 UUID v4 标识符。"
+  }
+}

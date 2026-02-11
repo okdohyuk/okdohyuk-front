@@ -1,0 +1,23 @@
+{
+  "title": "UUID Generator",
+  "description": "Generate secure UUID v4 values for apps, databases, and testing.",
+  "label": {
+    "count": "How many UUIDs?",
+    "output": "Generated UUIDs"
+  },
+  "placeholder": {
+    "count": "3"
+  },
+  "helper": "Choose between 1 and 10 UUIDs per batch.",
+  "button": {
+    "generate": "Generate",
+    "copy": "Copy",
+    "copyAll": "Copy all",
+    "copied": "Copied"
+  },
+  "empty": "Generate UUIDs to see the list.",
+  "openGraph": {
+    "title": "UUID Generator",
+    "description": "Instantly create UUID v4 identifiers."
+  }
+}
