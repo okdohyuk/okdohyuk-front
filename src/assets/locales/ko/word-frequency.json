@@ -1,0 +1,38 @@
+{
+  "title": "단어 빈도 분석기",
+  "description": "텍스트에서 가장 많이 등장하는 단어를 바로 집계합니다.",
+  "label": {
+    "input": "원문 텍스트",
+    "results": "상위 단어",
+    "sort": "정렬 기준",
+    "case": "대소문자 처리",
+    "minLength": "최소 길이",
+    "limit": "표시 개수"
+  },
+  "placeholder": "기사, 회의록, 노트를 붙여 넣어 보세요...",
+  "helper": "문장부호를 제거하고 중복 단어를 묶어 집계합니다.",
+  "button": {
+    "sample": "샘플 사용",
+    "clear": "지우기",
+    "copy": "CSV 복사",
+    "copied": "복사됨"
+  },
+  "option": {
+    "frequency": "빈도순",
+    "alphabetical": "가나다순",
+    "lower": "소문자로 통일",
+    "keep": "원문 유지",
+    "minLength": "{count}글자 이상",
+    "limit": "상위 {count}개"
+  },
+  "stats": {
+    "total": "전체 단어: {count}",
+    "unique": "고유 단어: {count}"
+  },
+  "empty": "텍스트를 입력하면 단어 빈도가 표시됩니다.",
+  "sample": "빠른 갈색 여우가 게으른 개를 뛰어넘습니다. 빠른 여우는 깔끔한 데이터와 명확한 결과를 좋아합니다.",
+  "openGraph": {
+    "title": "단어 빈도 분석기",
+    "description": "텍스트에서 가장 많이 등장하는 단어를 찾아 CSV로 복사하세요."
+  }
+}
