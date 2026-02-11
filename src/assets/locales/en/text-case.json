@@ -1,0 +1,29 @@
+{
+  "title": "Text Case Converter",
+  "description": "Switch text between uppercase, lowercase, and more.",
+  "label": {
+    "input": "Source text",
+    "output": "Converted text",
+    "format": "Case style"
+  },
+  "placeholder": "Type or paste your text here.",
+  "helper": "Snake/kebab/camel remove extra symbols and spaces before converting.",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Converted text will appear here.",
+  "case": {
+    "upper": "UPPERCASE",
+    "lower": "lowercase",
+    "title": "Title Case",
+    "sentence": "Sentence case",
+    "camel": "camelCase",
+    "snake": "snake_case",
+    "kebab": "kebab-case"
+  },
+  "openGraph": {
+    "title": "Text Case Converter",
+    "description": "Convert text into multiple case styles."
+  }
+}
