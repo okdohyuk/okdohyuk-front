@@ -1,0 +1,33 @@
+{
+  "title": "UUID生成器",
+  "description": "複数形式のUUID v4を即座に生成します。",
+  "label": {
+    "count": "生成数",
+    "format": "出力形式",
+    "output": "UUID結果"
+  },
+  "helper": {
+    "count": "1〜10件までまとめて生成できます。",
+    "format": "標準/大文字/ハイフンなし/波括弧付きから選択。",
+    "output": "UUIDは改行で区切られます。"
+  },
+  "format": {
+    "standard": "標準（ハイフンあり）",
+    "uppercase": "大文字",
+    "compact": "ハイフンなし",
+    "braces": "波括弧付き"
+  },
+  "button": {
+    "generate": "再生成",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "placeholder": {
+    "format": "形式を選択"
+  },
+  "empty": "UUIDがここに表示されます。",
+  "openGraph": {
+    "title": "UUID生成器",
+    "description": "複数形式のUUID v4を即座に生成します。"
+  }
+}

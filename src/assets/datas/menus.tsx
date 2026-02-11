@@ -5,9 +5,11 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
+  Fingerprint,
   Linkedin,
   List,
   MonitorPlay,
@@ -85,6 +87,26 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: 'UUID 생성기',
+        en: 'UUID Generator',
+        ja: 'UUID生成器',
+        zh: 'UUID 生成器',
+      },
+      icon: <Fingerprint />,
+      link: '/uuid-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 카운터',
+        en: 'Text Counter',
+        ja: 'テキストカウンター',
+        zh: '文本统计',
+      },
+      icon: <FileText />,
+      link: '/text-counter',
     },
     {
       title: {

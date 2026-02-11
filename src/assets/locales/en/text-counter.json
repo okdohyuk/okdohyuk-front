@@ -1,0 +1,23 @@
+{
+  "title": "Text Counter",
+  "description": "Count characters, words, lines, and bytes in your text.",
+  "label": {
+    "input": "Text input"
+  },
+  "placeholder": "Paste or type your text here.",
+  "helper": "Counts update instantly as you type.",
+  "button": {
+    "clear": "Clear"
+  },
+  "stats": {
+    "characters": "Characters (with spaces)",
+    "charactersNoSpace": "Characters (no spaces)",
+    "words": "Words",
+    "lines": "Lines",
+    "bytes": "Bytes"
+  },
+  "openGraph": {
+    "title": "Text Counter",
+    "description": "Count characters, words, lines, and bytes in your text."
+  }
+}

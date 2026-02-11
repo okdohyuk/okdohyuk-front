@@ -1,0 +1,23 @@
+{
+  "title": "텍스트 카운터",
+  "description": "문자, 단어, 줄, 바이트 수를 빠르게 확인하세요.",
+  "label": {
+    "input": "텍스트 입력"
+  },
+  "placeholder": "여기에 텍스트를 입력하거나 붙여넣으세요.",
+  "helper": "입력과 동시에 실시간으로 집계됩니다.",
+  "button": {
+    "clear": "비우기"
+  },
+  "stats": {
+    "characters": "공백 포함 문자",
+    "charactersNoSpace": "공백 제외 문자",
+    "words": "단어",
+    "lines": "줄",
+    "bytes": "바이트"
+  },
+  "openGraph": {
+    "title": "텍스트 카운터",
+    "description": "문자, 단어, 줄, 바이트 수를 간편하게 계산하세요."
+  }
+}
