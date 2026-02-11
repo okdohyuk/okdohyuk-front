@@ -1,0 +1,62 @@
+{
+  "title": "ISO Week Toolbox",
+  "description": "Look up ISO week numbers, date ranges, and upcoming weeks in seconds.",
+  "badge": "ISO Week",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "today": "Today",
+    "clear": "Clear"
+  },
+  "status": {
+    "invalidDate": "Select a valid date to see ISO week details.",
+    "invalidWeek": "Enter a valid ISO year and week (1-53)."
+  },
+  "section": {
+    "dateToWeek": {
+      "title": "Date → ISO Week",
+      "description": "Convert a date to ISO week number, ISO year, and week range.",
+      "label": {
+        "date": "Date",
+        "isoYear": "ISO year",
+        "isoWeek": "ISO week",
+        "weekStart": "Week start (Mon)",
+        "weekEnd": "Week end (Sun)"
+      },
+      "placeholder": "Select a date",
+      "helper": "ISO weeks start on Monday and week 1 contains the first Thursday."
+    },
+    "weekToRange": {
+      "title": "ISO Week → Date Range",
+      "description": "Get the Monday-Sunday range for a given ISO year and week.",
+      "label": {
+        "isoYear": "ISO year",
+        "isoWeek": "ISO week",
+        "start": "Start date",
+        "end": "End date"
+      },
+      "placeholder": {
+        "year": "2026",
+        "week": "12"
+      }
+    },
+    "weekList": {
+      "title": "Upcoming ISO Weeks",
+      "description": "Preview a list of ISO weeks starting from a base date.",
+      "label": {
+        "base": "Base date",
+        "count": "Count",
+        "week": "{{year}}-W{{week}}"
+      },
+      "placeholder": {
+        "base": "Pick a date",
+        "count": "4"
+      },
+      "empty": "Choose a base date to list weeks."
+    }
+  },
+  "openGraph": {
+    "title": "ISO Week Toolbox",
+    "description": "Free ISO week utility: convert dates to ISO weeks, find week ranges, and preview upcoming weeks instantly."
+  }
+}
