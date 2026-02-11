@@ -1,0 +1,18 @@
+{
+  "title": "컬러 변환기",
+  "description": "HEX 색상을 RGB와 HSL로 변환합니다.",
+  "label": {
+    "input": "HEX 색상",
+    "preview": "미리보기",
+    "normalized": "정규화된 HEX",
+    "rgb": "RGB",
+    "hsl": "HSL"
+  },
+  "placeholder": "#3B82F6 또는 3B82F6",
+  "helper": "3자리 또는 6자리 HEX 코드를 지원합니다.",
+  "invalid": "유효한 HEX 색상을 입력하세요.",
+  "openGraph": {
+    "title": "컬러 변환기",
+    "description": "HEX 색상을 RGB와 HSL로 변환합니다."
+  }
+}

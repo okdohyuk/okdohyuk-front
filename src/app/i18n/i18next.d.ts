@@ -23,6 +23,7 @@ import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import colorConverter from 'assets/locales/ko/color-converter.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
+import wordFrequency from 'assets/locales/ko/word-frequency.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -52,6 +53,7 @@ declare module 'i18next' {
       'css-generator': typeof cssGenerator;
       'color-converter': typeof colorConverter;
       'slug-generator': typeof slugGenerator;
+      'word-frequency': typeof wordFrequency;
     };
   }
 }

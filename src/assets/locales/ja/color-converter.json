@@ -1,0 +1,18 @@
+{
+  "title": "カラーコンバーター",
+  "description": "HEXカラーをRGBとHSLに変換します。",
+  "label": {
+    "input": "HEXカラー",
+    "preview": "プレビュー",
+    "normalized": "正規化HEX",
+    "rgb": "RGB",
+    "hsl": "HSL"
+  },
+  "placeholder": "#3B82F6 または 3B82F6",
+  "helper": "3桁または6桁のHEXコードに対応しています。",
+  "invalid": "有効なHEXカラーを入力してください。",
+  "openGraph": {
+    "title": "カラーコンバーター",
+    "description": "HEXカラーをRGBとHSLに変換します。"
+  }
+}
