@@ -1,0 +1,32 @@
+{
+  "title": "HTML 实体转换器",
+  "description": "对 HTML 实体进行编码或解码，获得安全的标记与可读文本。",
+  "label": {
+    "mode": "模式",
+    "input": "输入文本",
+    "output": "结果",
+    "length": "长度"
+  },
+  "placeholder": "例如：<div class=\"note\">Hello & 안녕</div>",
+  "helper": {
+    "encode": "转义 <、>、& 和引号等特殊字符。",
+    "decode": "把 HTML 实体还原为可读文本。"
+  },
+  "option": {
+    "nonAscii": "将非 ASCII 字符编码为数字实体"
+  },
+  "button": {
+    "encode": "编码",
+    "decode": "解码",
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空",
+    "swap": "互换",
+    "example": "加载示例"
+  },
+  "empty": "请输入文本查看结果。",
+  "openGraph": {
+    "title": "HTML 实体转换器",
+    "description": "将文本转换为 HTML 实体或将实体解码为文本。"
+  }
+}

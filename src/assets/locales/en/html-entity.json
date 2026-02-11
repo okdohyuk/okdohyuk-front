@@ -1,0 +1,32 @@
+{
+  "title": "HTML Entity Converter",
+  "description": "Encode or decode HTML entities for safe markup and readable text.",
+  "label": {
+    "mode": "Mode",
+    "input": "Input text",
+    "output": "Result",
+    "length": "Length"
+  },
+  "placeholder": "e.g. <div class=\"note\">Hello & 안녕</div>",
+  "helper": {
+    "encode": "Escapes special characters like <, >, &, and quotes.",
+    "decode": "Turns HTML entities back into readable text."
+  },
+  "option": {
+    "nonAscii": "Encode non-ASCII characters as numeric entities"
+  },
+  "button": {
+    "encode": "Encode",
+    "decode": "Decode",
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "swap": "Swap",
+    "example": "Load example"
+  },
+  "empty": "Enter text to see the result.",
+  "openGraph": {
+    "title": "HTML Entity Converter",
+    "description": "Convert text to HTML entities or decode entities back to text."
+  }
+}

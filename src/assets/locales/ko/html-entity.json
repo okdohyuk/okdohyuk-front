@@ -1,0 +1,32 @@
+{
+  "title": "HTML 엔티티 변환기",
+  "description": "HTML 엔티티를 인코딩하거나 디코딩해 안전한 마크업과 읽기 쉬운 텍스트를 만듭니다.",
+  "label": {
+    "mode": "모드",
+    "input": "입력 텍스트",
+    "output": "결과",
+    "length": "길이"
+  },
+  "placeholder": "예: <div class=\"note\">Hello & 안녕</div>",
+  "helper": {
+    "encode": "<, >, &, 따옴표 같은 특수 문자를 안전하게 변환합니다.",
+    "decode": "HTML 엔티티를 사람이 읽는 텍스트로 복원합니다."
+  },
+  "option": {
+    "nonAscii": "비 ASCII 문자를 숫자 엔티티로 변환"
+  },
+  "button": {
+    "encode": "인코딩",
+    "decode": "디코딩",
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "비우기",
+    "swap": "교체",
+    "example": "예시 불러오기"
+  },
+  "empty": "입력하면 결과가 표시됩니다.",
+  "openGraph": {
+    "title": "HTML 엔티티 변환기",
+    "description": "텍스트를 HTML 엔티티로 변환하거나 엔티티를 텍스트로 복원합니다."
+  }
+}
