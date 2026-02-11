@@ -1,0 +1,18 @@
+{
+  "title": "UUID Generator",
+  "description": "Generate RFC 4122 v4 UUIDs instantly.",
+  "badge": "ID Helper",
+  "label": {
+    "count": "How many UUIDs?",
+    "uppercase": "Uppercase (A-F)",
+    "results": "Generated UUIDs"
+  },
+  "button": {
+    "generate": "Generate",
+    "copy": "Copy",
+    "copyAll": "Copy all",
+    "copied": "Copied"
+  },
+  "helper": "Choose 1-10 entries, then click Generate.",
+  "empty": "Click Generate to create UUIDs."
+}
