@@ -1,0 +1,39 @@
+{
+  "title": "ロト番号ジェネレーター",
+  "description": "指定した範囲でロト番号を自動生成します。複数のチケットをまとめて作成し、結果をコピーできます。",
+  "settingsTitle": "抽選設定",
+  "resultsTitle": "生成結果",
+  "helper": "範囲とチケット数を設定して生成ボタンを押してください。",
+  "labels": {
+    "minNumber": "最小番号",
+    "maxNumber": "最大番号",
+    "picksPerTicket": "1枚あたりの数字",
+    "ticketCount": "チケット数",
+    "includeBonus": "ボーナス番号を含める"
+  },
+  "placeholders": {
+    "minNumber": "1",
+    "maxNumber": "45",
+    "picksPerTicket": "6",
+    "ticketCount": "5"
+  },
+  "buttons": {
+    "generate": "生成する",
+    "clear": "結果をクリア",
+    "copy": "結果をコピー",
+    "reset": "初期値に戻す"
+  },
+  "status": {
+    "copied": "コピーしました",
+    "empty": "まだ番号がありません。"
+  },
+  "validation": {
+    "range": "最小番号は最大番号より小さくしてください。",
+    "picks": "選ぶ数が範囲を超えています。",
+    "tickets": "チケット数は1〜20の間で入力してください。"
+  },
+  "openGraph": {
+    "title": "ロト番号ジェネレーター",
+    "description": "無料のロト番号ジェネレーター。範囲とチケット数を設定して、ランダムな番号をすぐに生成します。"
+  }
+}

@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Dices,
   Github,
   Hash,
   Key,
@@ -45,6 +46,16 @@ const menus: Menus = {
       },
       icon: <QrCode />,
       link: '/qr-generator',
+    },
+    {
+      title: {
+        ko: '로또 번호 생성기',
+        en: 'Lotto Number Generator',
+        ja: 'ロト番号ジェネレーター',
+        zh: '乐透号码生成器',
+      },
+      icon: <Dices />,
+      link: '/lotto-generator',
     },
     {
       title: {

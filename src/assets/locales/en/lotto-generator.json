@@ -1,0 +1,39 @@
+{
+  "title": "Lotto Number Generator",
+  "description": "Generate random lotto numbers within your chosen range. Create multiple tickets at once and copy the results to share.",
+  "settingsTitle": "Draw Settings",
+  "resultsTitle": "Generated Numbers",
+  "helper": "Set the range and ticket count, then tap Generate.",
+  "labels": {
+    "minNumber": "Minimum number",
+    "maxNumber": "Maximum number",
+    "picksPerTicket": "Numbers per ticket",
+    "ticketCount": "Ticket count",
+    "includeBonus": "Include bonus number"
+  },
+  "placeholders": {
+    "minNumber": "1",
+    "maxNumber": "45",
+    "picksPerTicket": "6",
+    "ticketCount": "5"
+  },
+  "buttons": {
+    "generate": "Generate",
+    "clear": "Clear results",
+    "copy": "Copy results",
+    "reset": "Reset defaults"
+  },
+  "status": {
+    "copied": "Copied",
+    "empty": "No numbers yet."
+  },
+  "validation": {
+    "range": "Minimum number must be smaller than maximum.",
+    "picks": "You are picking more numbers than the available range.",
+    "tickets": "Ticket count must be between 1 and 20."
+  },
+  "openGraph": {
+    "title": "Lotto Number Generator",
+    "description": "Free online lotto number generator. Set your range and ticket count to instantly get random picks. Copy and share your results in one tap."
+  }
+}

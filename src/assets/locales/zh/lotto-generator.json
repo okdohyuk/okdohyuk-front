@@ -1,0 +1,39 @@
+{
+  "title": "乐透号码生成器",
+  "description": "在指定范围内自动生成乐透号码，可一次创建多张并复制分享结果。",
+  "settingsTitle": "抽奖设置",
+  "resultsTitle": "生成结果",
+  "helper": "设置范围和张数后点击生成即可。",
+  "labels": {
+    "minNumber": "最小号码",
+    "maxNumber": "最大号码",
+    "picksPerTicket": "每张号码数量",
+    "ticketCount": "生成张数",
+    "includeBonus": "包含特别号"
+  },
+  "placeholders": {
+    "minNumber": "1",
+    "maxNumber": "45",
+    "picksPerTicket": "6",
+    "ticketCount": "5"
+  },
+  "buttons": {
+    "generate": "生成号码",
+    "clear": "清空结果",
+    "copy": "复制结果",
+    "reset": "恢复默认"
+  },
+  "status": {
+    "copied": "已复制",
+    "empty": "还没有生成号码。"
+  },
+  "validation": {
+    "range": "最小号码必须小于最大号码。",
+    "picks": "选取数量超过范围。",
+    "tickets": "张数需在1到20之间。"
+  },
+  "openGraph": {
+    "title": "乐透号码生成器",
+    "description": "免费在线乐透号码生成器。设置范围和张数即可生成随机号码，一键复制分享。"
+  }
+}
