@@ -1,0 +1,48 @@
+{
+  "title": "ヘッダーツールボックス",
+  "description": "HTTPヘッダーを構造化されたJSONとすぐ使えるcURLスニペットに変換します。",
+  "badge": "HTTPユーティリティ",
+  "input": {
+    "label": "生ヘッダー",
+    "placeholder": "ここにヘッダーを貼り付け",
+    "helper": "DevTools・プロキシ・cURLからコピーしたヘッダーを1行ずつ入力してください。"
+  },
+  "options": {
+    "title": "オプション",
+    "normalize": "ヘッダーの大文字小文字を正規化（Title-Case）",
+    "merge": "重複ヘッダーをカンマで結合",
+    "trim": "前後の空白を削除"
+  },
+  "actions": {
+    "sample": "サンプル使用",
+    "clear": "クリア"
+  },
+  "stats": {
+    "title": "解析サマリー",
+    "total": "行数",
+    "parsed": "解析済み",
+    "invalid": "無効",
+    "duplicates": "重複キー"
+  },
+  "output": {
+    "json": "ヘッダーJSON",
+    "curl": "cURLスニペット"
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "empty": {
+    "json": "解析結果のヘッダーがここに表示されます。",
+    "curl": "ヘッダーを生成するとcURLスニペットが表示されます。"
+  },
+  "errors": {
+    "invalidLines": "無効な行"
+  },
+  "sample": "Content-Type: application/json\nAccept: application/json\nX-Request-Id: 7b92f4\nSet-Cookie: theme=dark\nSet-Cookie: session=abc123",
+  "openGraph": {
+    "title": "ヘッダーツールボックス",
+    "description": "HTTPヘッダーをJSONと共有しやすいcURLコマンドに変換します。",
+    "keywords": ["HTTPヘッダー", "ヘッダーパーサー", "cURL", "開発者ツール"]
+  }
+}

@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -65,6 +66,16 @@ const menus: Menus = {
       },
       icon: <Key />,
       link: '/jwt-decoder',
+    },
+    {
+      title: {
+        ko: '헤더 툴박스',
+        en: 'Header Toolbox',
+        ja: 'ヘッダーツールボックス',
+        zh: 'Header 工具箱',
+      },
+      icon: <FileText />,
+      link: '/header-toolbox',
     },
     {
       title: {
