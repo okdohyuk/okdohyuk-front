@@ -1,0 +1,39 @@
+{
+  "title": "D-Day / Anniversary Counter",
+  "description": "Count days until or since a date and share the D-Day result.",
+  "label": {
+    "title": "Event name",
+    "date": "Target date",
+    "includeToday": "Include today",
+    "days": "days",
+    "weeks": "weeks (approx)",
+    "months": "months (approx)",
+    "defaultTitle": "My anniversary"
+  },
+  "placeholder": {
+    "title": "e.g. First day we met"
+  },
+  "button": {
+    "today": "Set to today",
+    "clear": "Clear",
+    "copy": "Copy result"
+  },
+  "helper": "Dates are calculated using your local timezone.",
+  "result": {
+    "empty": "Please choose a date.",
+    "dDay": "D-Day",
+    "dMinus": "D-{{count}}",
+    "dPlus": "D+{{count}}",
+    "daysRemaining": "Days remaining",
+    "daysSince": "Days since",
+    "todayLabel": "It’s today"
+  },
+  "copy": {
+    "success": "Copied to clipboard.",
+    "fail": "Copy failed."
+  },
+  "openGraph": {
+    "title": "D-Day / Anniversary Counter",
+    "description": "Calculate days until or since a date and share a clean D-Day summary."
+  }
+}

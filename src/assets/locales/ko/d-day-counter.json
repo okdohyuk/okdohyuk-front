@@ -1,0 +1,39 @@
+{
+  "title": "디데이/기념일 카운터",
+  "description": "목표 날짜까지 남은/지난 일수를 계산하고 공유 가능한 D-Day 결과를 만듭니다.",
+  "label": {
+    "title": "이벤트 이름",
+    "date": "기준 날짜",
+    "includeToday": "오늘 포함",
+    "days": "일",
+    "weeks": "주 (약)",
+    "months": "개월 (약)",
+    "defaultTitle": "나의 기념일"
+  },
+  "placeholder": {
+    "title": "예: 우리 만난 날"
+  },
+  "button": {
+    "today": "오늘로 설정",
+    "clear": "초기화",
+    "copy": "결과 복사"
+  },
+  "helper": "날짜는 현재 사용 중인 로컬 시간대를 기준으로 계산됩니다.",
+  "result": {
+    "empty": "날짜를 선택해 주세요.",
+    "dDay": "D-Day",
+    "dMinus": "D-{{count}}",
+    "dPlus": "D+{{count}}",
+    "daysRemaining": "남은 일수",
+    "daysSince": "지난 일수",
+    "todayLabel": "오늘입니다"
+  },
+  "copy": {
+    "success": "클립보드에 복사했습니다.",
+    "fail": "복사에 실패했어요."
+  },
+  "openGraph": {
+    "title": "디데이/기념일 카운터",
+    "description": "목표 날짜까지 남은/지난 일수를 계산하고 공유 가능한 D-Day 결과를 만드세요."
+  }
+}
