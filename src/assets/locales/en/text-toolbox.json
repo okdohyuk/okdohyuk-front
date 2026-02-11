@@ -1,0 +1,54 @@
+{
+  "title": "Text Toolbox",
+  "description": "Multiple text utilities in one place: case conversion, cleanup, and counters.",
+  "badge": "Multi-Tool",
+  "sections": {
+    "case": {
+      "title": "Case Converter",
+      "description": "Convert text into the casing you need in seconds.",
+      "inputLabel": "Input",
+      "outputLabel": "Output",
+      "placeholder": "Enter text to convert.",
+      "outputPlaceholder": "Converted text will appear here.",
+      "actions": {
+        "upper": "Uppercase",
+        "lower": "Lowercase",
+        "title": "Title Case",
+        "sentence": "Sentence case"
+      },
+      "copy": "Copy",
+      "copied": "Copied"
+    },
+    "clean": {
+      "title": "Whitespace Cleaner",
+      "description": "Trim, remove empty lines, and normalize spacing fast.",
+      "inputLabel": "Input",
+      "outputLabel": "Output",
+      "placeholder": "Paste messy text here.",
+      "outputPlaceholder": "Cleaned text will appear here.",
+      "actions": {
+        "trim": "Trim Lines",
+        "removeEmpty": "Remove Empty Lines",
+        "collapse": "Collapse Spaces"
+      },
+      "copy": "Copy",
+      "copied": "Copied"
+    },
+    "counter": {
+      "title": "Text Counter",
+      "description": "Instantly check character, word, and line counts.",
+      "placeholder": "Type or paste text to count.",
+      "metrics": {
+        "characters": "Characters",
+        "charactersNoSpace": "Chars (no spaces)",
+        "words": "Words",
+        "lines": "Lines"
+      }
+    }
+  },
+  "openGraph": {
+    "title": "Text Toolbox",
+    "description": "All-in-one text utilities for casing, cleanup, and quick counts.",
+    "keywords": ["text toolbox", "case converter", "whitespace cleaner", "word counter"]
+  }
+}
