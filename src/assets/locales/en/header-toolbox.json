@@ -1,0 +1,48 @@
+{
+  "title": "Header Toolbox",
+  "description": "Parse raw HTTP headers into structured JSON and ready-to-use cURL snippets.",
+  "badge": "HTTP Utilities",
+  "input": {
+    "label": "Raw headers",
+    "placeholder": "Paste headers here",
+    "helper": "Paste headers from DevTools, a proxy, or cURL. One header per line."
+  },
+  "options": {
+    "title": "Options",
+    "normalize": "Normalize header casing (Title-Case)",
+    "merge": "Merge duplicate headers with commas",
+    "trim": "Trim leading and trailing whitespace"
+  },
+  "actions": {
+    "sample": "Use sample",
+    "clear": "Clear"
+  },
+  "stats": {
+    "title": "Parse summary",
+    "total": "Lines",
+    "parsed": "Parsed",
+    "invalid": "Invalid",
+    "duplicates": "Duplicate keys"
+  },
+  "output": {
+    "json": "Headers JSON",
+    "curl": "cURL snippet"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": {
+    "json": "Parsed headers will appear here.",
+    "curl": "Generate headers to see a cURL snippet."
+  },
+  "errors": {
+    "invalidLines": "Invalid lines"
+  },
+  "sample": "Content-Type: application/json\nAccept: application/json\nX-Request-Id: 7b92f4\nSet-Cookie: theme=dark\nSet-Cookie: session=abc123",
+  "openGraph": {
+    "title": "Header Toolbox",
+    "description": "Convert raw HTTP headers into JSON and shareable cURL commands.",
+    "keywords": ["http headers", "header parser", "curl", "developer tools"]
+  }
+}

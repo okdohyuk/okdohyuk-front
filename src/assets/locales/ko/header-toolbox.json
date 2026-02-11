@@ -1,0 +1,48 @@
+{
+  "title": "헤더 툴박스",
+  "description": "HTTP 헤더를 구조화된 JSON과 바로 쓸 수 있는 cURL 스니펫으로 변환합니다.",
+  "badge": "HTTP 유틸리티",
+  "input": {
+    "label": "원본 헤더",
+    "placeholder": "여기에 헤더를 붙여넣으세요",
+    "helper": "DevTools, 프록시, cURL에서 복사한 헤더를 한 줄에 하나씩 입력하세요."
+  },
+  "options": {
+    "title": "옵션",
+    "normalize": "헤더 대소문자 정규화(Title-Case)",
+    "merge": "중복 헤더를 콤마로 합치기",
+    "trim": "앞뒤 공백 제거"
+  },
+  "actions": {
+    "sample": "예시 사용",
+    "clear": "비우기"
+  },
+  "stats": {
+    "title": "파싱 요약",
+    "total": "라인 수",
+    "parsed": "파싱됨",
+    "invalid": "오류",
+    "duplicates": "중복 키"
+  },
+  "output": {
+    "json": "헤더 JSON",
+    "curl": "cURL 스니펫"
+  },
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "empty": {
+    "json": "파싱된 헤더가 여기에 표시됩니다.",
+    "curl": "헤더를 생성하면 cURL 스니펫이 나타납니다."
+  },
+  "errors": {
+    "invalidLines": "잘못된 라인"
+  },
+  "sample": "Content-Type: application/json\nAccept: application/json\nX-Request-Id: 7b92f4\nSet-Cookie: theme=dark\nSet-Cookie: session=abc123",
+  "openGraph": {
+    "title": "헤더 툴박스",
+    "description": "HTTP 헤더를 JSON과 공유 가능한 cURL 명령으로 변환하세요.",
+    "keywords": ["HTTP 헤더", "헤더 파서", "cURL", "개발자 도구"]
+  }
+}

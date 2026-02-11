@@ -1,0 +1,48 @@
+{
+  "title": "Header 工具箱",
+  "description": "将原始 HTTP 头解析为结构化 JSON，并生成可直接使用的 cURL 片段。",
+  "badge": "HTTP 工具",
+  "input": {
+    "label": "原始头信息",
+    "placeholder": "在此粘贴头信息",
+    "helper": "从 DevTools、代理或 cURL 复制头信息，每行一个。"
+  },
+  "options": {
+    "title": "选项",
+    "normalize": "规范化头大小写（Title-Case）",
+    "merge": "合并重复头（逗号分隔）",
+    "trim": "去除首尾空格"
+  },
+  "actions": {
+    "sample": "使用示例",
+    "clear": "清空"
+  },
+  "stats": {
+    "title": "解析摘要",
+    "total": "行数",
+    "parsed": "已解析",
+    "invalid": "无效",
+    "duplicates": "重复键"
+  },
+  "output": {
+    "json": "头信息 JSON",
+    "curl": "cURL 片段"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "empty": {
+    "json": "解析后的头信息会显示在这里。",
+    "curl": "生成头信息后会显示 cURL 片段。"
+  },
+  "errors": {
+    "invalidLines": "无效行"
+  },
+  "sample": "Content-Type: application/json\nAccept: application/json\nX-Request-Id: 7b92f4\nSet-Cookie: theme=dark\nSet-Cookie: session=abc123",
+  "openGraph": {
+    "title": "Header 工具箱",
+    "description": "将 HTTP 头转换为 JSON 和可分享的 cURL 命令。",
+    "keywords": ["HTTP 头", "头解析", "cURL", "开发者工具"]
+  }
+}
