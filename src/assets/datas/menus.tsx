@@ -3,8 +3,10 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CaseSensitive,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -68,6 +70,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '헤더 툴박스',
+        en: 'Header Toolbox',
+        ja: 'ヘッダーツールボックス',
+        zh: 'Header 工具箱',
+      },
+      icon: <FileText />,
+      link: '/header-toolbox',
+    },
+    {
+      title: {
         ko: 'CSS 생성기',
         en: 'CSS Generator',
         ja: 'CSSジェネレーター',
@@ -85,6 +97,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 케이스 변환기',
+        en: 'Text Case Converter',
+        ja: 'テキストケース変換',
+        zh: '文本大小写转换器',
+      },
+      icon: <CaseSensitive />,
+      link: '/text-case',
     },
     {
       title: {
