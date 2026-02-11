@@ -1,0 +1,51 @@
+{
+  "title": "计时器与秒表",
+  "description": "在一个页面里使用倒计时与秒表，适合学习、运动或料理。",
+  "tabs": {
+    "stopwatch": "秒表",
+    "countdown": "倒计时"
+  },
+  "stopwatch": {
+    "title": "秒表",
+    "description": "记录经过时间，并快速保存圈速。",
+    "hint": "精确显示到百分之一秒。",
+    "start": "开始",
+    "pause": "暂停",
+    "resume": "继续",
+    "lap": "计圈",
+    "reset": "重置",
+    "laps": "圈速记录",
+    "emptyLaps": "暂无圈速记录。",
+    "lapNumber": "第 {{number}} 圈"
+  },
+  "countdown": {
+    "title": "倒计时",
+    "description": "可以用作专注计时器或厨房计时器。",
+    "hint": "时间归零后会自动停止。",
+    "start": "开始",
+    "pause": "暂停",
+    "resume": "继续",
+    "reset": "重置",
+    "clear": "清空输入",
+    "preset": "{{minutes}} 分",
+    "error": "请输入时间。"
+  },
+  "inputs": {
+    "hours": "小时",
+    "minutes": "分钟",
+    "seconds": "秒"
+  },
+  "common": {
+    "copy": "复制",
+    "copied": "已复制！",
+    "copyFailed": "复制失败。"
+  },
+  "tips": {
+    "title": "使用提示",
+    "body": "为休息、拉伸、学习等固定节奏设置常用计时。"
+  },
+  "openGraph": {
+    "title": "计时器与秒表",
+    "description": "免费在线计时器与秒表。倒计时与圈速记录帮助你管理专注、运动与烹饪时间。"
+  }
+}

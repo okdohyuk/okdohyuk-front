@@ -1,0 +1,51 @@
+{
+  "title": "타이머/스톱워치",
+  "description": "집중 시간, 운동, 요리를 위한 타이머와 스톱워치를 한 화면에서 사용할 수 있어요.",
+  "tabs": {
+    "stopwatch": "스톱워치",
+    "countdown": "카운트다운"
+  },
+  "stopwatch": {
+    "title": "스톱워치",
+    "description": "랩 기록과 함께 경과 시간을 측정하세요.",
+    "hint": "밀리초 단위까지 정밀하게 표시됩니다.",
+    "start": "시작",
+    "pause": "일시정지",
+    "resume": "재개",
+    "lap": "랩",
+    "reset": "초기화",
+    "laps": "랩 기록",
+    "emptyLaps": "아직 기록된 랩이 없어요.",
+    "lapNumber": "랩 {{number}}"
+  },
+  "countdown": {
+    "title": "카운트다운",
+    "description": "집중 타이머나 요리 타이머로 바로 사용할 수 있어요.",
+    "hint": "남은 시간이 0이 되면 자동으로 멈춥니다.",
+    "start": "시작",
+    "pause": "일시정지",
+    "resume": "재개",
+    "reset": "리셋",
+    "clear": "입력 초기화",
+    "preset": "{{minutes}}분",
+    "error": "시간을 입력해주세요."
+  },
+  "inputs": {
+    "hours": "시간",
+    "minutes": "분",
+    "seconds": "초"
+  },
+  "common": {
+    "copy": "복사",
+    "copied": "복사 완료!",
+    "copyFailed": "복사에 실패했어요."
+  },
+  "tips": {
+    "title": "활용 팁",
+    "body": "휴식 시간, 스트레칭, 학습 루틴 등 반복되는 일과에 맞춰 타이머를 설정해 보세요."
+  },
+  "openGraph": {
+    "title": "타이머/스톱워치",
+    "description": "무료 온라인 타이머 및 스톱워치. 카운트다운과 랩 기록 기능으로 집중, 운동, 요리 시간을 손쉽게 관리하세요."
+  }
+}

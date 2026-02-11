@@ -1,0 +1,51 @@
+{
+  "title": "Timer & Stopwatch",
+  "description": "Use a countdown timer and stopwatch on one page for study, workouts, or cooking.",
+  "tabs": {
+    "stopwatch": "Stopwatch",
+    "countdown": "Countdown"
+  },
+  "stopwatch": {
+    "title": "Stopwatch",
+    "description": "Track elapsed time with quick lap records.",
+    "hint": "Displays time down to centiseconds.",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "lap": "Lap",
+    "reset": "Reset",
+    "laps": "Lap history",
+    "emptyLaps": "No laps recorded yet.",
+    "lapNumber": "Lap {{number}}"
+  },
+  "countdown": {
+    "title": "Countdown",
+    "description": "Set a focus timer or a quick kitchen timer in seconds.",
+    "hint": "Stops automatically when time reaches zero.",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "reset": "Reset",
+    "clear": "Clear inputs",
+    "preset": "{{minutes}} min",
+    "error": "Please enter a time."
+  },
+  "inputs": {
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "common": {
+    "copy": "Copy",
+    "copied": "Copied!",
+    "copyFailed": "Copy failed."
+  },
+  "tips": {
+    "title": "Quick tip",
+    "body": "Save your favorite routines by reusing the same presets for breaks, workouts, or study blocks."
+  },
+  "openGraph": {
+    "title": "Timer & Stopwatch",
+    "description": "Free online timer and stopwatch. Manage focus, workouts, or cooking with a clean countdown and lap tracker."
+  }
+}
