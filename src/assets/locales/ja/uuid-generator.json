@@ -1,0 +1,18 @@
+{
+  "title": "UUIDジェネレーター",
+  "description": "RFC 4122 v4 UUID をすぐに生成します。",
+  "badge": "IDヘルパー",
+  "label": {
+    "count": "生成数",
+    "uppercase": "大文字 (A-F)",
+    "results": "生成されたUUID"
+  },
+  "button": {
+    "generate": "生成",
+    "copy": "コピー",
+    "copyAll": "すべてコピー",
+    "copied": "コピーしました"
+  },
+  "helper": "1〜10件を選んで生成してください。",
+  "empty": "生成ボタンでUUIDを作成できます。"
+}

@@ -1,0 +1,18 @@
+{
+  "title": "UUID 생성기",
+  "description": "RFC 4122 v4 UUID를 즉시 생성하세요.",
+  "badge": "ID 도우미",
+  "label": {
+    "count": "몇 개를 생성할까요?",
+    "uppercase": "대문자 (A-F)",
+    "results": "생성된 UUID"
+  },
+  "button": {
+    "generate": "생성",
+    "copy": "복사",
+    "copyAll": "전체 복사",
+    "copied": "복사됨"
+  },
+  "helper": "1~10개를 선택한 다음 생성 버튼을 눌러요.",
+  "empty": "생성 버튼을 눌러 UUID를 만들어보세요."
+}

@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Fingerprint,
   Github,
   Hash,
   Key,
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: 'UUID 생성기',
+        en: 'UUID Generator',
+        ja: 'UUIDジェネレーター',
+        zh: 'UUID 生成器',
+      },
+      icon: <Fingerprint />,
+      link: '/uuid-generator',
     },
     {
       title: {

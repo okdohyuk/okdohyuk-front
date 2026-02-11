@@ -1,0 +1,18 @@
+{
+  "title": "UUID 生成器",
+  "description": "即时生成 RFC 4122 v4 UUID。",
+  "badge": "ID 工具",
+  "label": {
+    "count": "生成数量",
+    "uppercase": "大写 (A-F)",
+    "results": "生成的 UUID"
+  },
+  "button": {
+    "generate": "生成",
+    "copy": "复制",
+    "copyAll": "全部复制",
+    "copied": "已复制"
+  },
+  "helper": "选择 1-10 个，然后点击生成。",
+  "empty": "点击生成按钮创建 UUID。"
+}
