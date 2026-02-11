@@ -10,6 +10,7 @@ import {
   Key,
   Linkedin,
   List,
+  KeyRound,
   MonitorPlay,
   Palette,
   QrCode,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '패스프레이즈 생성기',
+        en: 'Passphrase Generator',
+        ja: 'パスフレーズ生成',
+        zh: '口令生成器',
+      },
+      icon: <KeyRound />,
+      link: '/passphrase-generator',
     },
     {
       title: {
