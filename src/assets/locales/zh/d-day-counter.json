@@ -1,0 +1,39 @@
+{
+  "title": "D-Day／纪念日计数器",
+  "description": "计算目标日期的倒数或已过天数，并分享清晰的 D-Day 结果。",
+  "label": {
+    "title": "事件名称",
+    "date": "目标日期",
+    "includeToday": "包含今天",
+    "days": "天",
+    "weeks": "周（约）",
+    "months": "个月（约）",
+    "defaultTitle": "我的纪念日"
+  },
+  "placeholder": {
+    "title": "例如：第一次见面的日子"
+  },
+  "button": {
+    "today": "设为今天",
+    "clear": "清空",
+    "copy": "复制结果"
+  },
+  "helper": "日期将以你的本地时区进行计算。",
+  "result": {
+    "empty": "请选择日期。",
+    "dDay": "D-Day",
+    "dMinus": "D-{{count}}",
+    "dPlus": "D+{{count}}",
+    "daysRemaining": "剩余天数",
+    "daysSince": "已过天数",
+    "todayLabel": "就是今天"
+  },
+  "copy": {
+    "success": "已复制到剪贴板。",
+    "fail": "复制失败。"
+  },
+  "openGraph": {
+    "title": "D-Day／纪念日计数器",
+    "description": "计算目标日期的倒数或已过天数，并分享简洁的 D-Day 摘要。"
+  }
+}

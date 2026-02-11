@@ -1,0 +1,39 @@
+{
+  "title": "D-Day／記念日カウンター",
+  "description": "指定日までの残り日数や経過日数を計算し、D-Dayの結果を共有できます。",
+  "label": {
+    "title": "イベント名",
+    "date": "基準日",
+    "includeToday": "今日を含める",
+    "days": "日",
+    "weeks": "週（約）",
+    "months": "ヶ月（約）",
+    "defaultTitle": "私の記念日"
+  },
+  "placeholder": {
+    "title": "例：初めて会った日"
+  },
+  "button": {
+    "today": "今日に設定",
+    "clear": "リセット",
+    "copy": "結果をコピー"
+  },
+  "helper": "日付は現在のローカルタイムゾーンで計算されます。",
+  "result": {
+    "empty": "日付を選択してください。",
+    "dDay": "D-Day",
+    "dMinus": "D-{{count}}",
+    "dPlus": "D+{{count}}",
+    "daysRemaining": "残り日数",
+    "daysSince": "経過日数",
+    "todayLabel": "今日です"
+  },
+  "copy": {
+    "success": "クリップボードにコピーしました。",
+    "fail": "コピーに失敗しました。"
+  },
+  "openGraph": {
+    "title": "D-Day／記念日カウンター",
+    "description": "指定日までの残り日数や経過日数を計算し、共有できるD-Day結果を作成します。"
+  }
+}
