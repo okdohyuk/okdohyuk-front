@@ -18,6 +18,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Type,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -88,6 +89,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 툴킷',
+        en: 'Text Toolkit',
+        ja: 'テキストツールキット',
+        zh: '文本工具包',
+      },
+      icon: <Type />,
+      link: '/text-toolkit',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -95,6 +106,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '팁 계산기',
+        en: 'Tip Calculator',
+        ja: 'チップ計算機',
+        zh: '小费计算器',
+      },
+      icon: <Calculator />,
+      link: '/tip-calculator',
     },
     {
       title: {

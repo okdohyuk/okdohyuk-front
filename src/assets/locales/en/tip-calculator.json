@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "Tip Calculator",
+    "ogTitle": "Tip Calculator",
+    "description": "Quickly calculate tip, total, and split per person for restaurant bills and coffee checks."
+  },
+  "title": "Tip Calculator",
+  "description": "Calculate tip, total, and per-person amounts in seconds.",
+  "label": {
+    "billAmount": "Bill amount",
+    "tipPercent": "Tip percentage",
+    "customTip": "Custom tip (%)",
+    "people": "Number of people",
+    "result": "Result"
+  },
+  "placeholder": {
+    "billAmount": "Enter bill amount",
+    "tipPercent": "Select a tip",
+    "customTip": "Enter custom tip",
+    "people": "Enter headcount"
+  },
+  "preset": "{{value}}% tip",
+  "presetCustom": "Custom",
+  "helper": "Tip is calculated from the bill amount. Splits round to two decimals.",
+  "example": {
+    "split": "$100 split for 2",
+    "coffee": "$45 coffee",
+    "group": "$280 group dinner"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "reset": "Reset"
+  },
+  "result": {
+    "tipAmount": "Tip amount",
+    "totalAmount": "Total (bill + tip)",
+    "perPerson": "Per person"
+  },
+  "note": "Taxes and discounts are not included unless you add them to the bill amount.",
+  "copy": {
+    "summary": "Bill {{bill}}, Tip {{tipPercent}}% → Tip {{tipAmount}}, Total {{totalAmount}}, Per person {{perPerson}}"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "팁 계산기",
+    "ogTitle": "팁 계산기",
+    "description": "식사 비용에 대한 팁, 총액, 1인당 금액을 빠르게 계산하세요."
+  },
+  "title": "팁 계산기",
+  "description": "팁 금액과 총액, 인당 금액을 빠르게 계산합니다.",
+  "label": {
+    "billAmount": "청구 금액",
+    "tipPercent": "팁 비율",
+    "customTip": "직접 입력 (%)",
+    "people": "인원 수",
+    "result": "결과"
+  },
+  "placeholder": {
+    "billAmount": "청구 금액을 입력",
+    "tipPercent": "팁 비율 선택",
+    "customTip": "직접 입력",
+    "people": "인원 수 입력"
+  },
+  "preset": "{{value}}% 팁",
+  "presetCustom": "직접 입력",
+  "helper": "팁은 청구 금액 기준으로 계산됩니다. 인당 금액은 소수 둘째 자리까지 표시돼요.",
+  "example": {
+    "split": "100달러 2명 나누기",
+    "coffee": "45달러 커피",
+    "group": "280달러 회식"
+  },
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "reset": "초기화"
+  },
+  "result": {
+    "tipAmount": "팁 금액",
+    "totalAmount": "총액 (청구 + 팁)",
+    "perPerson": "1인당"
+  },
+  "note": "세금이나 할인은 청구 금액에 포함해서 입력해 주세요.",
+  "copy": {
+    "summary": "청구 {{bill}}, 팁 {{tipPercent}}% → 팁 {{tipAmount}}, 총액 {{totalAmount}}, 1인당 {{perPerson}}"
+  }
+}
