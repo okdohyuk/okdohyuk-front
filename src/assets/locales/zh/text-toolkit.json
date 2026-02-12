@@ -1,0 +1,51 @@
+{
+  "title": "文本工具箱",
+  "description": "快速清理文本、转换大小写并整理列表。",
+  "stats": {
+    "title": "文本概览",
+    "description": "快速查看长度与结构。",
+    "inputLabel": "文本",
+    "placeholder": "粘贴或输入要分析的文本...",
+    "metrics": {
+      "characters": "字符数",
+      "words": "词数",
+      "lines": "行数",
+      "sentences": "句子数"
+    }
+  },
+  "case": {
+    "title": "大小写转换",
+    "description": "一键切换文本大小写。",
+    "inputLabel": "源文本",
+    "placeholder": "输入要转换的文本...",
+    "outputLabel": "转换结果",
+    "empty": "输入文本后即可看到结果。",
+    "actions": {
+      "upper": "全大写",
+      "lower": "全小写",
+      "title": "标题式",
+      "sentence": "句首大写",
+      "swap": "大小写互换"
+    },
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "list": {
+    "title": "列表整理",
+    "description": "去空格、去重并排序列表。",
+    "inputLabel": "列表",
+    "placeholder": "每行一个条目...",
+    "outputLabel": "整理后的列表",
+    "empty": "添加条目后即可生成整理结果。",
+    "options": {
+      "trim": "去除空白",
+      "dedupe": "去重",
+      "sort": "升序排序",
+      "reverse": "反向"
+    }
+  },
+  "openGraph": {
+    "title": "文本工具箱",
+    "description": "在一个页面完成文本清理、大小写转换和列表整理。"
+  }
+}

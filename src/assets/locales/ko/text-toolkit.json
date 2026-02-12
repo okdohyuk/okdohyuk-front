@@ -1,0 +1,51 @@
+{
+  "title": "텍스트 툴킷",
+  "description": "텍스트 정리부터 케이스 변환, 리스트 정돈까지 한 번에 처리하세요.",
+  "stats": {
+    "title": "텍스트 스냅샷",
+    "description": "길이와 구조를 빠르게 확인합니다.",
+    "inputLabel": "텍스트 입력",
+    "placeholder": "분석할 텍스트를 붙여넣어 주세요...",
+    "metrics": {
+      "characters": "문자 수",
+      "words": "단어 수",
+      "lines": "줄 수",
+      "sentences": "문장 수"
+    }
+  },
+  "case": {
+    "title": "대소문자 변환",
+    "description": "원하는 케이스로 즉시 변환합니다.",
+    "inputLabel": "원문",
+    "placeholder": "변환할 텍스트를 입력하세요...",
+    "outputLabel": "변환 결과",
+    "empty": "텍스트를 입력하면 결과가 표시됩니다.",
+    "actions": {
+      "upper": "대문자",
+      "lower": "소문자",
+      "title": "타이틀 케이스",
+      "sentence": "문장형",
+      "swap": "대/소문자 반전"
+    },
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "list": {
+    "title": "리스트 정리",
+    "description": "줄 단위 목록을 정리하고 정렬합니다.",
+    "inputLabel": "목록",
+    "placeholder": "한 줄에 하나씩 입력하세요...",
+    "outputLabel": "정리된 목록",
+    "empty": "항목을 입력하면 정리된 결과가 나타납니다.",
+    "options": {
+      "trim": "공백 제거",
+      "dedupe": "중복 제거",
+      "sort": "오름차순 정렬",
+      "reverse": "역순"
+    }
+  },
+  "openGraph": {
+    "title": "텍스트 툴킷",
+    "description": "텍스트를 빠르게 정리하고 케이스를 변환하는 멀티 도구입니다."
+  }
+}

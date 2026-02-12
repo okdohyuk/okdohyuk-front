@@ -1,0 +1,51 @@
+{
+  "title": "テキストツールキット",
+  "description": "テキスト整理・大小文字変換・リスト整形をまとめて行えます。",
+  "stats": {
+    "title": "テキストスナップショット",
+    "description": "長さと構造をすばやく確認。",
+    "inputLabel": "テキスト",
+    "placeholder": "解析したいテキストを入力...",
+    "metrics": {
+      "characters": "文字数",
+      "words": "単語数",
+      "lines": "行数",
+      "sentences": "文数"
+    }
+  },
+  "case": {
+    "title": "ケース変換",
+    "description": "大小文字をワンタップで変更。",
+    "inputLabel": "元のテキスト",
+    "placeholder": "変換するテキストを入力...",
+    "outputLabel": "変換結果",
+    "empty": "入力すると結果が表示されます。",
+    "actions": {
+      "upper": "大文字",
+      "lower": "小文字",
+      "title": "タイトルケース",
+      "sentence": "文頭大文字",
+      "swap": "大小反転"
+    },
+    "copy": "コピー",
+    "copied": "コピーしました"
+  },
+  "list": {
+    "title": "リスト整形",
+    "description": "行ごとのリストを整理・整列。",
+    "inputLabel": "リスト",
+    "placeholder": "1行に1項目...",
+    "outputLabel": "整形済みリスト",
+    "empty": "項目を入力すると結果が表示されます。",
+    "options": {
+      "trim": "空白を削除",
+      "dedupe": "重複を削除",
+      "sort": "昇順ソート",
+      "reverse": "逆順"
+    }
+  },
+  "openGraph": {
+    "title": "テキストツールキット",
+    "description": "テキストの整理、ケース変換、リスト整形をまとめて行えるツールです。"
+  }
+}
