@@ -1,0 +1,26 @@
+{
+  "openGraph": {
+    "title": "Pomodoro focus timer",
+    "ogTitle": "Pomodoro focus timer",
+    "description": "Plan focused work and recovery breaks with a simple Pomodoro timer. Customize durations, track sessions, and stay on rhythm.",
+    "keywords": ["pomodoro", "focus", "timer", "break", "productivity", "study", "work"]
+  },
+  "title": "Pomodoro Focus Timer",
+  "description": "Balance focus and rest with customizable Pomodoro sessions.",
+  "mode": {
+    "focus": "Focus",
+    "break": "Break"
+  },
+  "sessionProgress": "Completed {completed}/{goal} sessions",
+  "progressHint": "Progress resets when the session switches.",
+  "start": "Start",
+  "pause": "Pause",
+  "reset": "Reset",
+  "skip": "Skip",
+  "settings": "Session settings",
+  "focusMinutes": "Focus minutes",
+  "breakMinutes": "Break minutes",
+  "goalSessions": "Goal sessions",
+  "preset": "Preset {value}",
+  "tip": "Tip: 25/5 is the classic Pomodoro rhythm. Adjust the goal to fit your day."
+}

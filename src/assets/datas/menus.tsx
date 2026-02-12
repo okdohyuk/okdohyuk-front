@@ -14,9 +14,11 @@ import {
   Palette,
   QrCode,
   Server,
+  Shuffle,
   Smile,
   Sparkles,
   TextCursorInput,
+  Timer,
   Tv,
   Youtube,
 } from 'lucide-react';
@@ -98,6 +100,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '사다리타기 추첨',
+        en: 'Ladder Draw',
+        ja: 'あみだくじ抽選',
+        zh: '阿弥陀抽签',
+      },
+      icon: <Shuffle />,
+      link: '/ladder-game',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '뽀모도로 집중 타이머',
+        en: 'Pomodoro Focus Timer',
+        ja: 'ポモドーロ集中タイマー',
+        zh: '番茄钟专注计时器',
+      },
+      icon: <Timer />,
+      link: '/pomodoro-timer',
     },
     {
       title: {

@@ -1,0 +1,26 @@
+{
+  "openGraph": {
+    "title": "뽀모도로 집중 타이머",
+    "ogTitle": "뽀모도로 집중 타이머",
+    "description": "집중과 휴식을 번갈아 계획하는 뽀모도로 타이머입니다. 시간 설정과 세션 추적으로 리듬을 유지하세요.",
+    "keywords": ["뽀모도로", "집중", "타이머", "휴식", "생산성", "공부", "업무"]
+  },
+  "title": "뽀모도로 집중 타이머",
+  "description": "집중과 휴식을 균형 있게 설계하는 뽀모도로 세션 타이머입니다.",
+  "mode": {
+    "focus": "집중",
+    "break": "휴식"
+  },
+  "sessionProgress": "완료 {completed}/{goal} 세션",
+  "progressHint": "세션 전환 시 진행률이 초기화됩니다.",
+  "start": "시작",
+  "pause": "일시정지",
+  "reset": "리셋",
+  "skip": "건너뛰기",
+  "settings": "세션 설정",
+  "focusMinutes": "집중 시간(분)",
+  "breakMinutes": "휴식 시간(분)",
+  "goalSessions": "목표 세션 수",
+  "preset": "프리셋 {value}",
+  "tip": "팁: 25/5가 기본 뽀모도로 리듬입니다. 목표 세션 수를 일정에 맞게 조정하세요."
+}
