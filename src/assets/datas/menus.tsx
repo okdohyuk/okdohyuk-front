@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Bomb,
+  Cake,
   Calculator,
   CalendarClock,
   Code,
@@ -135,6 +136,16 @@ const menus: Menus = {
       },
       icon: <Bomb />,
       link: '/ppollong',
+    },
+    {
+      title: {
+        ko: '나이 계산기',
+        en: 'Age Calculator',
+        ja: '年齢計算機',
+        zh: '年龄计算器',
+      },
+      icon: <Cake />,
+      link: '/age-calculator',
     },
     {
       title: {

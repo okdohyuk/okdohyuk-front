@@ -1,0 +1,40 @@
+{
+  "openGraph": {
+    "title": "年齢計算機",
+    "ogTitle": "年齢計算機 - 誕生日と次の誕生日カウントダウン",
+    "description": "生年月日と基準日から正確な年齢を計算し、次の誕生日までの日数を確認できます。",
+    "keywords": ["年齢", "年齢計算", "誕生日", "次の誕生日", "カウントダウン", "年", "月", "日"]
+  },
+  "title": "年齢計算機",
+  "description": "正確な年齢と次の誕生日までの期間をまとめて確認できます。",
+  "labels": {
+    "birthDate": "生年月日",
+    "referenceDate": "基準日"
+  },
+  "actions": {
+    "today": "今日に設定",
+    "clear": "リセット",
+    "copy": "要約をコピー"
+  },
+  "results": {
+    "title": "年齢サマリー",
+    "empty": "生年月日を入力すると結果が表示されます。",
+    "ageYears": "満年齢（年）",
+    "ageFullLabel": "正確な年齢",
+    "ageFull": "{{years}}年{{months}}か月{{days}}日",
+    "yearsValue": "{{years}}歳",
+    "daysUntil": "次の誕生日まで",
+    "daysUntilValue": "{{days}}日",
+    "nextBirthday": "次の誕生日: {{nextBirthday}}",
+    "summary": "年齢: {{years}}年{{months}}か月{{days}}日。次の誕生日: {{nextBirthday}}（残り{{daysUntil}}日）。"
+  },
+  "messages": {
+    "invalid": "正しい日付を入力してください。",
+    "futureBirth": "生年月日が基準日より後にはできません。",
+    "copied": "コピーしました！"
+  },
+  "example": {
+    "title": "例",
+    "text": "生年月日 1998-04-12 → 27年10か月0日（今日基準）。"
+  }
+}

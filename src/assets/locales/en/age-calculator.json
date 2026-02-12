@@ -1,0 +1,49 @@
+{
+  "openGraph": {
+    "title": "age calculator",
+    "ogTitle": "Age Calculator for Birthday & Next Birthday Countdown",
+    "description": "Calculate your exact age in years, months, and days. Check the next birthday date and the number of days remaining.",
+    "keywords": [
+      "age",
+      "calculator",
+      "birthday",
+      "next birthday",
+      "countdown",
+      "years",
+      "months",
+      "days"
+    ]
+  },
+  "title": "Age Calculator",
+  "description": "Find your exact age and see how long until your next birthday.",
+  "labels": {
+    "birthDate": "Birth date",
+    "referenceDate": "Reference date"
+  },
+  "actions": {
+    "today": "Set to today",
+    "clear": "Clear",
+    "copy": "Copy summary"
+  },
+  "results": {
+    "title": "Age Summary",
+    "empty": "Enter your birth date to see the result.",
+    "ageYears": "Age (years)",
+    "ageFullLabel": "Exact age",
+    "ageFull": "{{years}} years {{months}} months {{days}} days",
+    "yearsValue": "{{years}} years",
+    "daysUntil": "Days until next birthday",
+    "daysUntilValue": "{{days}} days",
+    "nextBirthday": "Next birthday: {{nextBirthday}}",
+    "summary": "Age: {{years}}y {{months}}m {{days}}d. Next birthday: {{nextBirthday}} ({{daysUntil}} days left)."
+  },
+  "messages": {
+    "invalid": "Please enter a valid date.",
+    "futureBirth": "Birth date cannot be later than the reference date.",
+    "copied": "Copied!"
+  },
+  "example": {
+    "title": "Example",
+    "text": "Birth date 1998-04-12 → 27 years 10 months 0 days (as of today)."
+  }
+}
