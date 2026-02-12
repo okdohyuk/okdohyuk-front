@@ -1,0 +1,20 @@
+{
+  "openGraph": {
+    "title": "口令生成器",
+    "ogTitle": "口令生成器 | 易记又安全的口令",
+    "description": "选择单词数量与分隔符，生成易记的安全口令。",
+    "keywords": ["口令", "生成器", "安全", "单词", "工具"]
+  },
+  "title": "口令生成器",
+  "wordCount": "单词数量",
+  "separator": "分隔符",
+  "options": "选项",
+  "capitalize": "单词首字母大写",
+  "includeNumber": "包含数字",
+  "includeSymbol": "包含符号",
+  "tip": "建议使用4个以上单词以兼顾安全与记忆。",
+  "generate": "生成口令",
+  "resultLabel": "生成的口令",
+  "copy": "复制",
+  "copied": "已复制"
+}

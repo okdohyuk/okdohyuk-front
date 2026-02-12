@@ -5,11 +5,13 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
   Linkedin,
   List,
+  KeyRound,
   MonitorPlay,
   Palette,
   QrCode,
@@ -148,6 +150,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '패스프레이즈 생성기',
+        en: 'Passphrase Generator',
+        ja: 'パスフレーズ生成',
+        zh: '口令生成器',
+      },
+      icon: <KeyRound />,
+      link: '/passphrase-generator',
+    },
+    {
+      title: {
         ko: '초성메이커',
         en: 'Choseong Maker',
         ja: 'チョソンメーカー',
@@ -155,6 +167,16 @@ const menus: Menus = {
       },
       icon: <TextCursorInput />,
       link: '/choseong-maker',
+    },
+    {
+      title: {
+        ko: '단어 카운터',
+        en: 'Word Counter',
+        ja: 'ワードカウンター',
+        zh: '字数统计',
+      },
+      icon: <FileText />,
+      link: '/word-counter',
     },
   ],
   out: [

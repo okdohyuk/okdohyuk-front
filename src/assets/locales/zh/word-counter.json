@@ -1,0 +1,24 @@
+{
+  "openGraph": {
+    "title": "字数统计",
+    "ogTitle": "字数统计 | 词数与行数一键统计",
+    "description": "快速统计字数、词数与行数，掌握文案长度。",
+    "keywords": ["字数统计", "词数", "行数", "文案", "工具"]
+  },
+  "title": "字数统计",
+  "label": {
+    "input": "待统计文本"
+  },
+  "placeholder": "在此粘贴或输入文本",
+  "helper": "输入后即时更新统计结果。",
+  "stats": {
+    "words": "词数",
+    "characters": "字符数（含空格）",
+    "charactersNoSpaces": "字符数（不含空格）",
+    "lines": "行数",
+    "readingTime": "预计阅读时间"
+  },
+  "units": {
+    "min": "分钟"
+  }
+}
