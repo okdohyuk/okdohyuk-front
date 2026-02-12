@@ -1,0 +1,43 @@
+{
+  "title": "랜덤 팀 나누기",
+  "description": "이름 목록을 랜덤 팀으로 나눠 균형 있게 배치합니다.",
+  "badge": "Team Shuffle",
+  "labels": {
+    "names": "참가자",
+    "mode": "나누는 방식",
+    "teamCount": "팀 수",
+    "teamSize": "팀당 인원"
+  },
+  "modes": {
+    "teamCount": "팀 수 지정",
+    "teamSize": "팀당 인원 지정"
+  },
+  "placeholder": "예)\n유도혁\n마키세\n다루",
+  "helper": "줄바꿈 또는 쉼표로 구분해 입력하세요.",
+  "buttons": {
+    "split": "팀 나누기",
+    "reshuffle": "다시 섞기",
+    "reset": "초기화",
+    "sample": "예시 채우기",
+    "copy": "결과 복사",
+    "copied": "복사됨!"
+  },
+  "status": {
+    "participants": "참가자",
+    "teams": "팀"
+  },
+  "results": {
+    "title": "팀 결과",
+    "empty": "아직 결과가 없어요.",
+    "teamLabel": "팀"
+  },
+  "errors": {
+    "needNames": "참가자를 2명 이상 입력해주세요.",
+    "invalidNumber": "유효한 숫자를 입력해주세요.",
+    "tooFewTeams": "팀은 최소 2개 이상이어야 합니다."
+  },
+  "openGraph": {
+    "title": "랜덤 팀 나누기",
+    "description": "무료 팀 나누기 도구. 이름을 입력하고 팀 수 또는 팀당 인원을 선택해 즉시 랜덤 팀을 만드세요. 모임, 수업, 게임 등에 활용할 수 있습니다."
+  }
+}

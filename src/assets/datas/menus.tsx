@@ -13,11 +13,13 @@ import {
   MonitorPlay,
   Palette,
   QrCode,
+  Repeat,
   Server,
   Smile,
   Sparkles,
   TextCursorInput,
   Tv,
+  Users,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 반복기',
+        en: 'Text Repeater',
+        ja: 'テキストリピーター',
+        zh: '文本重复器',
+      },
+      icon: <Repeat />,
+      link: '/text-repeater',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -105,6 +117,16 @@ const menus: Menus = {
       },
       icon: <List />,
       link: '/todo',
+    },
+    {
+      title: {
+        ko: '랜덤 팀 나누기',
+        en: 'Random Team Splitter',
+        ja: 'ランダムチーム分け',
+        zh: '随机分组',
+      },
+      icon: <Users />,
+      link: '/team-splitter',
     },
     {
       title: {

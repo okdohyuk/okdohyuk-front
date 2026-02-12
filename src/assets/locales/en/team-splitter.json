@@ -1,0 +1,43 @@
+{
+  "title": "Random Team Splitter",
+  "description": "Shuffle a list of names into balanced teams for games, classes, or projects.",
+  "badge": "Team Shuffle",
+  "labels": {
+    "names": "Participants",
+    "mode": "Split mode",
+    "teamCount": "Number of teams",
+    "teamSize": "Members per team"
+  },
+  "modes": {
+    "teamCount": "By number of teams",
+    "teamSize": "By team size"
+  },
+  "placeholder": "e.g.\nAlex\nJamie\nMorgan",
+  "helper": "Separate names with new lines or commas.",
+  "buttons": {
+    "split": "Split teams",
+    "reshuffle": "Reshuffle",
+    "reset": "Clear",
+    "sample": "Use sample",
+    "copy": "Copy results",
+    "copied": "Copied!"
+  },
+  "status": {
+    "participants": "Participants",
+    "teams": "Teams"
+  },
+  "results": {
+    "title": "Teams",
+    "empty": "No teams yet.",
+    "teamLabel": "Team"
+  },
+  "errors": {
+    "needNames": "Enter at least two participants.",
+    "invalidNumber": "Enter a valid number.",
+    "tooFewTeams": "You need at least two teams."
+  },
+  "openGraph": {
+    "title": "Random Team Splitter",
+    "description": "Free online team splitter. Paste names, choose the number of teams or team size, and instantly shuffle participants into balanced groups. Perfect for events, classes, and game nights."
+  }
+}
