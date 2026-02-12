@@ -1,0 +1,31 @@
+{
+  "openGraph": {
+    "title": "阿弥陀抽签",
+    "ogTitle": "阿弥陀抽签",
+    "description": "输入参与者和结果即可随机匹配的阿弥陀抽签工具，适合日常抽奖、分组与活动选择。"
+  },
+  "title": "阿弥陀抽签",
+  "description": "输入参与者和结果即可随机匹配。",
+  "participants": {
+    "label": "参与者",
+    "placeholder": "用换行或逗号输入名字",
+    "helper": "例如：小明, 小红 或每行一个"
+  },
+  "results": {
+    "label": "结果",
+    "placeholder": "用换行或逗号输入奖品/角色",
+    "helper": "留空将自动生成结果。"
+  },
+  "notice": "结果数量不足时会自动补齐，并与人数一致。",
+  "buttons": {
+    "generate": "开始抽签",
+    "reset": "重置"
+  },
+  "resultsTitle": "抽签结果",
+  "resultsCount": "共 {{count}} 个",
+  "empty": "请输入参与者和结果后再开始。",
+  "autoResult": "结果 {{index}}",
+  "error": {
+    "noParticipants": "请先输入参与者。"
+  }
+}

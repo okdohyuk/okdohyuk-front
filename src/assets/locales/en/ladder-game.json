@@ -1,0 +1,31 @@
+{
+  "openGraph": {
+    "title": "Ladder Draw",
+    "ogTitle": "Ladder Draw",
+    "description": "A simple ladder draw tool that randomly matches participants with outcomes. Use it for everyday raffles, team assignments, and event picks."
+  },
+  "title": "Ladder Draw",
+  "description": "Enter participants and outcomes to get a random match.",
+  "participants": {
+    "label": "Participants",
+    "placeholder": "Enter names with new lines or commas",
+    "helper": "Example: Alex, Jamie or one name per line"
+  },
+  "results": {
+    "label": "Outcomes",
+    "placeholder": "Enter prizes/roles with new lines or commas",
+    "helper": "Leave empty to auto-generate outcomes."
+  },
+  "notice": "If there are fewer outcomes than participants, we'll fill the rest automatically.",
+  "buttons": {
+    "generate": "Run draw",
+    "reset": "Reset"
+  },
+  "resultsTitle": "Draw results",
+  "resultsCount": "{{count}} entries",
+  "empty": "Enter participants and outcomes, then run the draw.",
+  "autoResult": "Result {{index}}",
+  "error": {
+    "noParticipants": "Please enter at least one participant."
+  }
+}

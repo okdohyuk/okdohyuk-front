@@ -1,0 +1,31 @@
+{
+  "openGraph": {
+    "title": "あみだくじ抽選",
+    "ogTitle": "あみだくじ抽選",
+    "description": "参加者と結果を入力するとランダムに割り当てられるあみだくじ抽選ツールです。日常の抽選やチーム分けにどうぞ。"
+  },
+  "title": "あみだくじ抽選",
+  "description": "参加者と結果を入力するとランダムにマッチします。",
+  "participants": {
+    "label": "参加者",
+    "placeholder": "名前を改行またはカンマで入力",
+    "helper": "例: 太郎, 花子 または1行ずつ"
+  },
+  "results": {
+    "label": "結果",
+    "placeholder": "景品/役割を改行またはカンマで入力",
+    "helper": "空欄の場合は自動で結果を埋めます。"
+  },
+  "notice": "結果が足りない場合は自動で補完し、人数に合わせます。",
+  "buttons": {
+    "generate": "抽選する",
+    "reset": "リセット"
+  },
+  "resultsTitle": "抽選結果",
+  "resultsCount": "{{count}}件",
+  "empty": "参加者と結果を入力してから実行してください。",
+  "autoResult": "結果 {{index}}",
+  "error": {
+    "noParticipants": "参加者を入力してください。"
+  }
+}

@@ -14,6 +14,7 @@ import {
   Palette,
   QrCode,
   Server,
+  Shuffle,
   Smile,
   Sparkles,
   TextCursorInput,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '사다리타기 추첨',
+        en: 'Ladder Draw',
+        ja: 'あみだくじ抽選',
+        zh: '阿弥陀抽签',
+      },
+      icon: <Shuffle />,
+      link: '/ladder-game',
     },
     {
       title: {

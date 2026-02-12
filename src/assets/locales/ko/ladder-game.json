@@ -1,0 +1,31 @@
+{
+  "openGraph": {
+    "title": "사다리타기 추첨",
+    "ogTitle": "사다리타기 추첨",
+    "description": "참가자와 결과를 입력하면 랜덤으로 매칭되는 사다리타기 추첨 도구입니다. 모임, 이벤트, 팀 배정 등 일상적인 추첨을 빠르고 공정하게 진행하세요."
+  },
+  "title": "사다리타기 추첨",
+  "description": "참가자와 결과를 입력하면 랜덤으로 매칭합니다.",
+  "participants": {
+    "label": "참가자",
+    "placeholder": "이름을 줄바꿈 또는 쉼표로 입력",
+    "helper": "예: 철수, 영희 또는 줄바꿈으로 입력"
+  },
+  "results": {
+    "label": "결과",
+    "placeholder": "상품/역할을 줄바꿈 또는 쉼표로 입력",
+    "helper": "비워두면 자동 결과가 채워집니다."
+  },
+  "notice": "결과가 부족하면 자동으로 결과를 채워서 동일한 인원 수로 맞춥니다.",
+  "buttons": {
+    "generate": "사다리타기 실행",
+    "reset": "초기화"
+  },
+  "resultsTitle": "추첨 결과",
+  "resultsCount": "총 {{count}}명",
+  "empty": "참가자와 결과를 입력한 뒤 실행해 주세요.",
+  "autoResult": "결과 {{index}}",
+  "error": {
+    "noParticipants": "참가자를 먼저 입력해 주세요."
+  }
+}
