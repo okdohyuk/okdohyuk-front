@@ -1,0 +1,63 @@
+{
+  "title": "决策助手",
+  "description": "用抽签、随机选择和抛硬币快速做决定。",
+  "sections": {
+    "ladder": {
+      "title": "抽签配对",
+      "description": "随机匹配参与者与结果。",
+      "labels": {
+        "participants": "参与者",
+        "outcomes": "结果"
+      },
+      "placeholders": {
+        "participants": "例) 小敏\n道贤\n优娜",
+        "outcomes": "例) 咖啡\n午餐\n电影"
+      },
+      "helper": "结果留空会自动生成。",
+      "button": {
+        "draw": "抽取",
+        "redraw": "再抽一次"
+      },
+      "errorParticipants": "请至少输入两位参与者。",
+      "resultTitle": "结果",
+      "defaultOutcome": "结果 {{index}}",
+      "empty": "执行抽取后会显示结果。"
+    },
+    "picker": {
+      "title": "随机选择",
+      "description": "从列表中随机选一个。",
+      "labels": {
+        "items": "列表"
+      },
+      "placeholders": {
+        "items": "例) 意面\n拉面\n沙拉"
+      },
+      "button": {
+        "pick": "抽取",
+        "repick": "再抽一次"
+      },
+      "errorItems": "请至少输入一个项目。",
+      "resultLabel": "选中结果",
+      "historyLabel": "最近结果",
+      "empty": "点击抽取按钮查看结果。"
+    },
+    "coin": {
+      "title": "抛硬币",
+      "description": "用于快速的是/否判断。",
+      "button": {
+        "flip": "抛一次",
+        "reflip": "再抛一次"
+      },
+      "resultLabel": "结果",
+      "result": {
+        "heads": "正面",
+        "tails": "反面"
+      },
+      "empty": "点击按钮进行抛硬币。"
+    }
+  },
+  "openGraph": {
+    "title": "决策助手",
+    "description": "用抽签、随机选择和抛硬币快速做决定。"
+  }
+}

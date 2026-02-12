@@ -1,0 +1,63 @@
+{
+  "title": "決定ヘルパー",
+  "description": "あみだくじ、ランダム抽選、コイントスで素早く決めましょう。",
+  "sections": {
+    "ladder": {
+      "title": "あみだくじ",
+      "description": "参加者と結果をランダムに結びつけます。",
+      "labels": {
+        "participants": "参加者",
+        "outcomes": "結果"
+      },
+      "placeholders": {
+        "participants": "例) アキ\nユナ\nソラ",
+        "outcomes": "例) コーヒー\nランチ\n映画"
+      },
+      "helper": "結果を空にすると自動で生成します。",
+      "button": {
+        "draw": "抽選",
+        "redraw": "もう一度抽選"
+      },
+      "errorParticipants": "参加者を2人以上入力してください。",
+      "resultTitle": "結果",
+      "defaultOutcome": "結果 {{index}}",
+      "empty": "抽選を実行すると結果が表示されます。"
+    },
+    "picker": {
+      "title": "ランダム抽選",
+      "description": "リストから1つをランダムに選びます。",
+      "labels": {
+        "items": "リスト"
+      },
+      "placeholders": {
+        "items": "例) パスタ\nラーメン\nサラダ"
+      },
+      "button": {
+        "pick": "抽選",
+        "repick": "もう一度抽選"
+      },
+      "errorItems": "項目を1つ以上入力してください。",
+      "resultLabel": "選択結果",
+      "historyLabel": "最近の結果",
+      "empty": "抽選ボタンを押して結果を確認してください。"
+    },
+    "coin": {
+      "title": "コイントス",
+      "description": "簡単なYes/No判断にコイントスを使います。",
+      "button": {
+        "flip": "投げる",
+        "reflip": "もう一度投げる"
+      },
+      "resultLabel": "結果",
+      "result": {
+        "heads": "表",
+        "tails": "裏"
+      },
+      "empty": "ボタンを押してコイントスしてください。"
+    }
+  },
+  "openGraph": {
+    "title": "決定ヘルパー",
+    "description": "あみだくじ、ランダム抽選、コイントスで素早く決定できます。"
+  }
+}
