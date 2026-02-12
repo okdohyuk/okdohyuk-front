@@ -1,0 +1,29 @@
+{
+  "title": "ケース変換",
+  "description": "テキストをさまざまなケースにすばやく変換します。",
+  "label": {
+    "input": "元のテキスト",
+    "output": "変換結果"
+  },
+  "placeholder": "例: Hello world from OpenClaw",
+  "helper": "入力したテキストを複数のケースでまとめて確認できます。",
+  "cases": {
+    "upper": "大文字",
+    "lower": "小文字",
+    "title": "タイトルケース",
+    "sentence": "文ケース",
+    "camel": "キャメルケース",
+    "pascal": "パスカルケース",
+    "snake": "スネークケース",
+    "kebab": "ケバブケース"
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "empty": "テキストを入力すると変換結果が表示されます。",
+  "openGraph": {
+    "title": "ケース変換",
+    "description": "テキストをさまざまなケースにすばやく変換します。"
+  }
+}

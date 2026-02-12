@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Dices,
   Github,
   Hash,
   Key,
@@ -18,6 +19,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Type,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '케이스 변환기',
+        en: 'Case Converter',
+        ja: 'ケース変換',
+        zh: '大小写转换',
+      },
+      icon: <Type />,
+      link: '/case-converter',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '주사위 굴리기',
+        en: 'Dice Roller',
+        ja: 'サイコロロール',
+        zh: '掷骰子',
+      },
+      icon: <Dices />,
+      link: '/dice-roller',
     },
     {
       title: {
