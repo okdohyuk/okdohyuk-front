@@ -1,0 +1,42 @@
+{
+  "title": "Reading Time Estimator",
+  "description": "Estimate reading time and key text stats instantly.",
+  "badge": "Text Utility",
+  "label": {
+    "input": "Text input",
+    "preview": "Title case preview"
+  },
+  "placeholder": "Paste or type your text here.",
+  "helper": "We use common reading speeds to estimate time.",
+  "previewHelper": "Preview shows the title case conversion of your text.",
+  "empty": "Type text to see the preview.",
+  "button": {
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "stats": {
+    "words": "Words",
+    "characters": "Characters (with spaces)",
+    "charactersNoSpace": "Characters (no spaces)",
+    "bytes": "Bytes"
+  },
+  "section": {
+    "readingTime": "Estimated reading time"
+  },
+  "speed": {
+    "slow": "Slow ({{wpm}} wpm)",
+    "average": "Average ({{wpm}} wpm)",
+    "fast": "Fast ({{wpm}} wpm)"
+  },
+  "time": {
+    "instant": "Instant",
+    "minutes": "{{minutes}} min",
+    "seconds": "{{seconds}} sec",
+    "minutesSeconds": "{{minutes}} min {{seconds}} sec"
+  },
+  "openGraph": {
+    "title": "Reading Time Estimator",
+    "description": "Estimate reading time and key text stats instantly."
+  }
+}

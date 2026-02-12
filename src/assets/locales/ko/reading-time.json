@@ -1,0 +1,42 @@
+{
+  "title": "읽기 시간 추정기",
+  "description": "읽기 시간을 추정하고 핵심 텍스트 통계를 즉시 확인하세요.",
+  "badge": "텍스트 유틸",
+  "label": {
+    "input": "텍스트 입력",
+    "preview": "타이틀 케이스 미리보기"
+  },
+  "placeholder": "여기에 텍스트를 붙여넣거나 입력하세요.",
+  "helper": "일반적인 읽기 속도로 시간을 계산합니다.",
+  "previewHelper": "미리보기는 텍스트를 타이틀 케이스로 변환한 결과입니다.",
+  "empty": "텍스트를 입력하면 미리보기가 표시됩니다.",
+  "button": {
+    "clear": "지우기",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "stats": {
+    "words": "단어",
+    "characters": "문자(공백 포함)",
+    "charactersNoSpace": "문자(공백 제외)",
+    "bytes": "바이트"
+  },
+  "section": {
+    "readingTime": "예상 읽기 시간"
+  },
+  "speed": {
+    "slow": "느림 ({{wpm}} wpm)",
+    "average": "보통 ({{wpm}} wpm)",
+    "fast": "빠름 ({{wpm}} wpm)"
+  },
+  "time": {
+    "instant": "즉시",
+    "minutes": "{{minutes}}분",
+    "seconds": "{{seconds}}초",
+    "minutesSeconds": "{{minutes}}분 {{seconds}}초"
+  },
+  "openGraph": {
+    "title": "읽기 시간 추정기",
+    "description": "읽기 시간을 추정하고 핵심 텍스트 통계를 즉시 확인하세요."
+  }
+}
