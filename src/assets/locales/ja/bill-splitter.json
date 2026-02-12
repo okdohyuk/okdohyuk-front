@@ -1,0 +1,34 @@
+{
+  "title": "割り勘計算",
+  "description": "チップと税金を含めて人数で素早く分割できます。",
+  "badge": "割り勘ヘルパー",
+  "label": {
+    "billAmount": "合計金額",
+    "tipPercent": "チップ(%)",
+    "taxPercent": "税(%)",
+    "people": "人数"
+  },
+  "helper": {
+    "billAmount": "チップ・税抜きの金額を入力してください。",
+    "people": "最低1人"
+  },
+  "summary": "内訳",
+  "results": {
+    "subtotal": "小計",
+    "tip": "チップ",
+    "tax": "税",
+    "total": "合計",
+    "perPerson": "1人あたり"
+  },
+  "button": {
+    "example": "例を適用",
+    "reset": "リセット",
+    "copy": "内訳をコピー",
+    "copied": "コピーしました"
+  },
+  "empty": "金額を入力すると結果が表示されます。",
+  "openGraph": {
+    "title": "割り勘計算",
+    "description": "チップと税金を含めた割り勘金額をすぐに計算できます。食事会や旅行などの共有支出に便利です。"
+  }
+}
