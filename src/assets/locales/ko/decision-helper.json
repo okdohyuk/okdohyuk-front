@@ -1,0 +1,63 @@
+{
+  "title": "결정 도우미",
+  "description": "사다리타기, 랜덤 뽑기, 동전 던지기로 빠르게 결정하세요.",
+  "sections": {
+    "ladder": {
+      "title": "사다리타기",
+      "description": "참가자와 결과를 무작위로 매칭합니다.",
+      "labels": {
+        "participants": "참가자",
+        "outcomes": "결과"
+      },
+      "placeholders": {
+        "participants": "예) 민지\n도현\n유나",
+        "outcomes": "예) 커피\n점심\n영화"
+      },
+      "helper": "결과를 비워두면 자동으로 생성됩니다.",
+      "button": {
+        "draw": "뽑기",
+        "redraw": "다시 뽑기"
+      },
+      "errorParticipants": "참가자를 2명 이상 입력하세요.",
+      "resultTitle": "결과",
+      "defaultOutcome": "결과 {{index}}",
+      "empty": "뽑기를 실행하면 결과가 표시됩니다."
+    },
+    "picker": {
+      "title": "랜덤 뽑기",
+      "description": "목록에서 한 항목을 무작위로 선택합니다.",
+      "labels": {
+        "items": "목록"
+      },
+      "placeholders": {
+        "items": "예) 파스타\n라면\n샐러드"
+      },
+      "button": {
+        "pick": "뽑기",
+        "repick": "다시 뽑기"
+      },
+      "errorItems": "항목을 1개 이상 입력하세요.",
+      "resultLabel": "선택됨",
+      "historyLabel": "최근 결과",
+      "empty": "뽑기 버튼을 눌러 결과를 확인하세요."
+    },
+    "coin": {
+      "title": "동전 던지기",
+      "description": "간단한 예/아니오 결정을 위해 동전을 던집니다.",
+      "button": {
+        "flip": "던지기",
+        "reflip": "다시 던지기"
+      },
+      "resultLabel": "결과",
+      "result": {
+        "heads": "앞면",
+        "tails": "뒷면"
+      },
+      "empty": "버튼을 눌러 동전을 던져보세요."
+    }
+  },
+  "openGraph": {
+    "title": "결정 도우미",
+    "description": "사다리타기, 랜덤 뽑기, 동전 던지기로 빠르게 결정하세요."
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "title": "Decision Helper",
+  "description": "Make quick choices with a ladder draw, random picker, and coin toss.",
+  "sections": {
+    "ladder": {
+      "title": "Ladder Draw",
+      "description": "Randomly match participants to outcomes.",
+      "labels": {
+        "participants": "Participants",
+        "outcomes": "Outcomes"
+      },
+      "placeholders": {
+        "participants": "e.g. Alex\nJamie\nMorgan",
+        "outcomes": "e.g. Coffee\nLunch\nMovie"
+      },
+      "helper": "Leave outcomes empty to auto-generate placeholders.",
+      "button": {
+        "draw": "Draw",
+        "redraw": "Draw again"
+      },
+      "errorParticipants": "Add at least two participants.",
+      "resultTitle": "Result",
+      "defaultOutcome": "Outcome {{index}}",
+      "empty": "Run the draw to see the matches."
+    },
+    "picker": {
+      "title": "Random Picker",
+      "description": "Pick one item from your list.",
+      "labels": {
+        "items": "Items"
+      },
+      "placeholders": {
+        "items": "e.g. Pasta\nRamen\nSalad"
+      },
+      "button": {
+        "pick": "Pick one",
+        "repick": "Pick again"
+      },
+      "errorItems": "Add at least one item.",
+      "resultLabel": "Selected",
+      "historyLabel": "Recent picks",
+      "empty": "Click pick to get a result."
+    },
+    "coin": {
+      "title": "Coin Toss",
+      "description": "Flip a coin for quick yes/no decisions.",
+      "button": {
+        "flip": "Flip",
+        "reflip": "Flip again"
+      },
+      "resultLabel": "Result",
+      "result": {
+        "heads": "Heads",
+        "tails": "Tails"
+      },
+      "empty": "Tap flip to toss the coin."
+    }
+  },
+  "openGraph": {
+    "title": "Decision Helper",
+    "description": "Use ladder draw, random picker, and coin toss tools to decide quickly."
+  }
+}

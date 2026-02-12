@@ -14,6 +14,7 @@ import {
   Palette,
   QrCode,
   Server,
+  Shuffle,
   Smile,
   Sparkles,
   TextCursorInput,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '결정 도우미',
+        en: 'Decision Helper',
+        ja: '決定ヘルパー',
+        zh: '决策助手',
+      },
+      icon: <Shuffle />,
+      link: '/decision-helper',
     },
     {
       title: {
