@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Dices,
   Github,
   Hash,
   Key,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '주사위 굴리기',
+        en: 'Dice Roller',
+        ja: 'サイコロロール',
+        zh: '掷骰子',
+      },
+      icon: <Dices />,
+      link: '/dice-roller',
     },
     {
       title: {

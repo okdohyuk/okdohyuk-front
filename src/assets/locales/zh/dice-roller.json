@@ -1,0 +1,35 @@
+{
+  "title": "掷骰子",
+  "headline": "一键掷出所需骰子",
+  "description": "用于桌游、会议或快速决策的在线掷骰工具，可即时分享结果。",
+  "helper": "设置面数和个数即可立即掷骰。（例如 d6、d20）",
+  "labels": {
+    "sides": "骰子面数",
+    "customSides": "自定义",
+    "count": "骰子数量",
+    "result": "结果",
+    "total": "合计",
+    "history": "最近记录",
+    "notes": "结果备注"
+  },
+  "buttons": {
+    "roll": "掷骰",
+    "example": "使用示例",
+    "clear": "重置",
+    "copy": "复制结果",
+    "clearHistory": "清空记录"
+  },
+  "messages": {
+    "invalidSides": "面数请填写 2～1000。",
+    "invalidCount": "数量请填写 1～20。",
+    "copied": "已复制！",
+    "empty": "还没有掷骰结果。",
+    "historyEmpty": "暂无记录。",
+    "exampleReady": "已设置 3 个 d6 示例。",
+    "notePlaceholder": "掷骰结果也会显示在这里。"
+  },
+  "openGraph": {
+    "title": "掷骰子",
+    "description": "在线掷骰子工具，可自定义面数和数量，即时获得结果，适合桌游、会议或快速决策。"
+  }
+}
