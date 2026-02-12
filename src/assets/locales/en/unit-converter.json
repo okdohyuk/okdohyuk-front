@@ -1,0 +1,68 @@
+{
+  "openGraph": {
+    "title": "Unit Converter",
+    "ogTitle": "Length, Weight, Temperature Unit Converter",
+    "description": "Convert length, weight, and temperature quickly with a single input.",
+    "keywords": [
+      "unit",
+      "converter",
+      "length",
+      "weight",
+      "temperature",
+      "meter",
+      "kilogram",
+      "celsius",
+      "fahrenheit"
+    ]
+  },
+  "title": "Unit Converter",
+  "description": "An all-in-one tool to convert length, weight, and temperature in one place.",
+  "badge": "Everyday Utility",
+  "label": {
+    "value": "Value",
+    "category": "Category",
+    "unit": "Base unit"
+  },
+  "placeholder": {
+    "value": "e.g. 12.5"
+  },
+  "categories": {
+    "length": "Length",
+    "weight": "Weight",
+    "temperature": "Temperature"
+  },
+  "units": {
+    "mm": "Millimeter",
+    "cm": "Centimeter",
+    "m": "Meter",
+    "km": "Kilometer",
+    "in": "Inch",
+    "ft": "Foot",
+    "yd": "Yard",
+    "mi": "Mile",
+    "g": "Gram",
+    "kg": "Kilogram",
+    "lb": "Pound",
+    "oz": "Ounce",
+    "c": "Celsius",
+    "f": "Fahrenheit",
+    "k": "Kelvin"
+  },
+  "helper": {
+    "empty": "Enter a value to see conversions.",
+    "invalid": "Please enter numbers only.",
+    "negative": "Length and weight must be zero or greater.",
+    "ready": "Conversions update as you type."
+  },
+  "quickLabel": "Quick input",
+  "button": {
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "result": {
+    "title": "Converted values",
+    "note": "Rounded to 6 decimal places",
+    "empty": "Add a value to view results."
+  }
+}
