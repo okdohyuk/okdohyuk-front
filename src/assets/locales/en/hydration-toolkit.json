@@ -1,0 +1,75 @@
+{
+  "title": "Hydration Toolkit",
+  "description": "Estimate your daily water target, create a drinking schedule, and plan bottle counts.",
+  "section": {
+    "intake": "Daily target",
+    "result": "Hydration summary",
+    "schedule": "Drink schedule",
+    "bottle": "Bottle planner"
+  },
+  "label": {
+    "weight": "Body weight (kg)",
+    "activity": "Activity level",
+    "climate": "Climate",
+    "customTarget": "Custom daily target (ml)",
+    "startTime": "Start time",
+    "endTime": "End time",
+    "interval": "Interval (minutes)",
+    "bottleSize": "Bottle size (ml)",
+    "quickBottle": "Quick sizes"
+  },
+  "placeholder": {
+    "weight": "e.g. 65",
+    "activity": "Select activity",
+    "climate": "Select climate",
+    "customTarget": "Leave blank to auto-calc",
+    "interval": "e.g. 120",
+    "bottleSize": "e.g. 500"
+  },
+  "activity": {
+    "low": "Low (mostly sitting)",
+    "medium": "Moderate (light exercise)",
+    "high": "High (intense activity)"
+  },
+  "climate": {
+    "normal": "Normal",
+    "hot": "Hot / humid"
+  },
+  "button": {
+    "example": "Example",
+    "clear": "Clear",
+    "copy": "Copy summary",
+    "copied": "Copied"
+  },
+  "result": {
+    "target": "Target",
+    "liters": "Liters",
+    "cups": "Cups",
+    "bottles": "Estimated bottles: {{count}}"
+  },
+  "helper": {
+    "custom": "If you already know your goal, enter it here to override the estimate.",
+    "result": "The estimate uses weight, activity, and climate. Adjust the target anytime.",
+    "schedule": "Per drink: about {{perDrink}}ml"
+  },
+  "errors": {
+    "weight": "Enter a valid number.",
+    "weightRange": "Please enter a weight between 20 and 200 kg.",
+    "scheduleRequired": "Enter a valid start/end time.",
+    "scheduleFormat": "Use the HH:MM format.",
+    "interval": "Interval must be greater than 0.",
+    "scheduleOrder": "End time must be later than start time.",
+    "bottle": "Bottle size must be greater than 0."
+  },
+  "summary": {
+    "target": "Daily target",
+    "cups": "Cups",
+    "schedule": "Schedule",
+    "perDrink": "per drink",
+    "bottles": "Bottle plan"
+  },
+  "openGraph": {
+    "title": "Hydration Toolkit",
+    "description": "Calculate your daily water goal, drinking schedule, and bottle plan."
+  }
+}

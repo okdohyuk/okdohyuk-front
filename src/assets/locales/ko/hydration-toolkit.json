@@ -1,0 +1,75 @@
+{
+  "title": "수분 섭취 도우미",
+  "description": "하루 물 목표를 계산하고, 마실 시간표와 병 개수를 한 번에 정리하세요.",
+  "section": {
+    "intake": "하루 목표",
+    "result": "수분 요약",
+    "schedule": "마시기 일정",
+    "bottle": "물병 계획"
+  },
+  "label": {
+    "weight": "체중 (kg)",
+    "activity": "활동량",
+    "climate": "기후",
+    "customTarget": "하루 목표 직접 입력 (ml)",
+    "startTime": "시작 시간",
+    "endTime": "종료 시간",
+    "interval": "간격 (분)",
+    "bottleSize": "물병 용량 (ml)",
+    "quickBottle": "빠른 선택"
+  },
+  "placeholder": {
+    "weight": "예: 65",
+    "activity": "활동량 선택",
+    "climate": "기후 선택",
+    "customTarget": "비워두면 자동 계산",
+    "interval": "예: 120",
+    "bottleSize": "예: 500"
+  },
+  "activity": {
+    "low": "낮음 (주로 앉아 있음)",
+    "medium": "보통 (가벼운 운동)",
+    "high": "높음 (강한 활동)"
+  },
+  "climate": {
+    "normal": "보통",
+    "hot": "더움 / 습함"
+  },
+  "button": {
+    "example": "예시",
+    "clear": "초기화",
+    "copy": "요약 복사",
+    "copied": "복사됨"
+  },
+  "result": {
+    "target": "목표",
+    "liters": "리터",
+    "cups": "컵",
+    "bottles": "예상 물병 수: {{count}}"
+  },
+  "helper": {
+    "custom": "목표를 알고 있다면 여기 입력해 자동 계산을 덮어쓸 수 있어요.",
+    "result": "체중·활동량·기후를 반영해 계산합니다. 필요하면 바로 조정하세요.",
+    "schedule": "1회 섭취량: 약 {{perDrink}}ml"
+  },
+  "errors": {
+    "weight": "올바른 숫자를 입력하세요.",
+    "weightRange": "체중은 20~200kg 범위로 입력하세요.",
+    "scheduleRequired": "시작/종료 시간을 입력하세요.",
+    "scheduleFormat": "시간은 HH:MM 형식으로 입력하세요.",
+    "interval": "간격은 0보다 커야 합니다.",
+    "scheduleOrder": "종료 시간이 시작 시간보다 늦어야 합니다.",
+    "bottle": "물병 용량은 0보다 커야 합니다."
+  },
+  "summary": {
+    "target": "하루 목표",
+    "cups": "컵",
+    "schedule": "일정",
+    "perDrink": "1회",
+    "bottles": "물병 계획"
+  },
+  "openGraph": {
+    "title": "수분 섭취 도우미",
+    "description": "하루 물 목표, 마시기 일정, 물병 계획을 한 번에 계산해 보세요."
+  }
+}
