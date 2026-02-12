@@ -13,6 +13,7 @@ import {
   MonitorPlay,
   Palette,
   QrCode,
+  Receipt,
   Server,
   Smile,
   Sparkles,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '정산 계산기',
+        en: 'Bill Splitter',
+        ja: '割り勘計算',
+        zh: 'AA分账计算器',
+      },
+      icon: <Receipt />,
+      link: '/bill-splitter',
     },
     {
       title: {
