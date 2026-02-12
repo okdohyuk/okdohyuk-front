@@ -1,0 +1,35 @@
+{
+  "title": "날짜 차이 계산기",
+  "description": "두 날짜 사이의 일수 차이와 주/평일 정보를 빠르게 계산합니다.",
+  "helper": "시작 날짜와 종료 날짜를 선택하면 결과가 즉시 표시됩니다.",
+  "label": {
+    "start": "시작 날짜",
+    "end": "종료 날짜",
+    "includeEnd": "종료 날짜 포함"
+  },
+  "button": {
+    "today": "오늘로 설정",
+    "swap": "교환",
+    "reset": "초기화",
+    "copy": "요약 복사",
+    "copied": "복사됨!"
+  },
+  "result": {
+    "title": "결과",
+    "totalDays": "총 일수",
+    "weeks": "주 + 일",
+    "weekdays": "평일",
+    "weekends": "주말",
+    "empty": "두 날짜를 선택하면 결과가 표시됩니다.",
+    "invalidRange": "종료 날짜는 시작 날짜 이후여야 합니다.",
+    "summaryTitle": "날짜 구간",
+    "unit": {
+      "day": "일",
+      "week": "주"
+    }
+  },
+  "openGraph": {
+    "title": "날짜 차이 계산기",
+    "description": "무료 날짜 차이 계산기. 두 날짜 사이의 일수, 주차, 평일/주말 수를 즉시 확인하세요."
+  }
+}
