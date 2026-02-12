@@ -1,0 +1,40 @@
+{
+  "openGraph": {
+    "title": "나이 계산기",
+    "ogTitle": "나이 계산기 - 생일 기준 나이와 다음 생일까지",
+    "description": "생년월일과 기준일로 정확한 나이를 계산하고 다음 생일까지 남은 날짜를 확인하세요.",
+    "keywords": ["나이", "나이 계산", "생일", "다음 생일", "카운트다운", "연", "개월", "일"]
+  },
+  "title": "나이 계산기",
+  "description": "정확한 나이와 다음 생일까지 남은 기간을 한 번에 확인하세요.",
+  "labels": {
+    "birthDate": "생년월일",
+    "referenceDate": "기준일"
+  },
+  "actions": {
+    "today": "오늘로 설정",
+    "clear": "초기화",
+    "copy": "요약 복사"
+  },
+  "results": {
+    "title": "나이 요약",
+    "empty": "생년월일을 입력하면 결과가 표시됩니다.",
+    "ageYears": "만 나이(년)",
+    "ageFullLabel": "정확한 나이",
+    "ageFull": "{{years}}년 {{months}}개월 {{days}}일",
+    "yearsValue": "{{years}}세",
+    "daysUntil": "다음 생일까지",
+    "daysUntilValue": "{{days}}일",
+    "nextBirthday": "다음 생일: {{nextBirthday}}",
+    "summary": "나이: {{years}}년 {{months}}개월 {{days}}일. 다음 생일: {{nextBirthday}} ({{daysUntil}}일 남음)."
+  },
+  "messages": {
+    "invalid": "올바른 날짜를 입력해주세요.",
+    "futureBirth": "생년월일이 기준일보다 늦을 수 없습니다.",
+    "copied": "복사됨!"
+  },
+  "example": {
+    "title": "예시",
+    "text": "생년월일 1998-04-12 → 27년 10개월 0일 (오늘 기준)."
+  }
+}

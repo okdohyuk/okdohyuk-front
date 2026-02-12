@@ -1,0 +1,40 @@
+{
+  "openGraph": {
+    "title": "年龄计算器",
+    "ogTitle": "年龄计算器 - 生日与下次生日倒计时",
+    "description": "根据出生日期与基准日期计算精确年龄，并查看下次生日剩余天数。",
+    "keywords": ["年龄", "年龄计算", "生日", "下次生日", "倒计时", "年", "月", "日"]
+  },
+  "title": "年龄计算器",
+  "description": "快速计算精确年龄，并查看距离下次生日的天数。",
+  "labels": {
+    "birthDate": "出生日期",
+    "referenceDate": "基准日期"
+  },
+  "actions": {
+    "today": "设为今天",
+    "clear": "重置",
+    "copy": "复制摘要"
+  },
+  "results": {
+    "title": "年龄摘要",
+    "empty": "输入出生日期后显示结果。",
+    "ageYears": "周岁（年）",
+    "ageFullLabel": "精确年龄",
+    "ageFull": "{{years}}年{{months}}个月{{days}}天",
+    "yearsValue": "{{years}}岁",
+    "daysUntil": "距离下次生日",
+    "daysUntilValue": "{{days}}天",
+    "nextBirthday": "下次生日：{{nextBirthday}}",
+    "summary": "年龄：{{years}}年{{months}}个月{{days}}天。下次生日：{{nextBirthday}}（剩余{{daysUntil}}天）。"
+  },
+  "messages": {
+    "invalid": "请输入有效日期。",
+    "futureBirth": "出生日期不能晚于基准日期。",
+    "copied": "已复制！"
+  },
+  "example": {
+    "title": "示例",
+    "text": "出生日期 1998-04-12 → 27年10个月0天（以今天为准）。"
+  }
+}
