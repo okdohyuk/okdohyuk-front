@@ -13,6 +13,7 @@ import {
   MonitorPlay,
   Palette,
   QrCode,
+  Ruler,
   Server,
   Smile,
   Sparkles,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '단위 변환기',
+        en: 'Unit Converter',
+        ja: '単位変換',
+        zh: '单位转换器',
+      },
+      icon: <Ruler />,
+      link: '/unit-converter',
     },
     {
       title: {
