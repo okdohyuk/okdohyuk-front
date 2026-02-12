@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CalendarDays,
   Code,
   CreditCard,
   Github,
@@ -135,6 +136,16 @@ const menus: Menus = {
       },
       icon: <Bomb />,
       link: '/ppollong',
+    },
+    {
+      title: {
+        ko: '날짜 차이 계산기',
+        en: 'Date Difference Calculator',
+        ja: '日付差分計算機',
+        zh: '日期差计算器',
+      },
+      icon: <CalendarDays />,
+      link: '/date-diff',
     },
     {
       title: {

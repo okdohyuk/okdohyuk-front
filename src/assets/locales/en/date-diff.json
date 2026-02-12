@@ -1,0 +1,35 @@
+{
+  "title": "Date Difference Calculator",
+  "description": "Calculate the number of days between two dates, including weeks and weekdays.",
+  "helper": "Pick a start and end date to see the difference instantly.",
+  "label": {
+    "start": "Start date",
+    "end": "End date",
+    "includeEnd": "Include the end date in the count"
+  },
+  "button": {
+    "today": "Set to today",
+    "swap": "Swap",
+    "reset": "Reset",
+    "copy": "Copy summary",
+    "copied": "Copied!"
+  },
+  "result": {
+    "title": "Result",
+    "totalDays": "Total days",
+    "weeks": "Weeks + days",
+    "weekdays": "Weekdays",
+    "weekends": "Weekends",
+    "empty": "Select both dates to see the result.",
+    "invalidRange": "End date must be the same as or after the start date.",
+    "summaryTitle": "Date range",
+    "unit": {
+      "day": "days",
+      "week": "weeks"
+    }
+  },
+  "openGraph": {
+    "title": "Date Difference Calculator",
+    "description": "Free date difference calculator. Find the number of days between two dates, plus weeks, weekdays, and weekends instantly."
+  }
+}

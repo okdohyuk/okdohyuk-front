@@ -1,0 +1,35 @@
+{
+  "title": "日付差分計算機",
+  "description": "2つの日付の差（日数、週数、平日数）をすぐに計算します。",
+  "helper": "開始日と終了日を選ぶと結果が表示されます。",
+  "label": {
+    "start": "開始日",
+    "end": "終了日",
+    "includeEnd": "終了日を含める"
+  },
+  "button": {
+    "today": "今日に設定",
+    "swap": "入れ替え",
+    "reset": "リセット",
+    "copy": "要約をコピー",
+    "copied": "コピーしました"
+  },
+  "result": {
+    "title": "結果",
+    "totalDays": "合計日数",
+    "weeks": "週 + 日",
+    "weekdays": "平日",
+    "weekends": "週末",
+    "empty": "両方の日付を選択してください。",
+    "invalidRange": "終了日は開始日以降である必要があります。",
+    "summaryTitle": "日付範囲",
+    "unit": {
+      "day": "日",
+      "week": "週"
+    }
+  },
+  "openGraph": {
+    "title": "日付差分計算機",
+    "description": "無料の日付差分計算機。2つの日付の間の日数や週数、平日・週末の数を瞬時に確認できます。"
+  }
+}
