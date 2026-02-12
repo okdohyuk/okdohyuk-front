@@ -1,0 +1,42 @@
+{
+  "title": "読書時間推定",
+  "description": "読書時間と主要なテキスト統計をすぐに確認できます。",
+  "badge": "テキストユーティリティ",
+  "label": {
+    "input": "テキスト入力",
+    "preview": "タイトルケースのプレビュー"
+  },
+  "placeholder": "ここにテキストを貼り付けるか入力してください。",
+  "helper": "一般的な読書速度で時間を算出します。",
+  "previewHelper": "プレビューはテキストをタイトルケースに変換した結果です。",
+  "empty": "テキストを入力するとプレビューが表示されます。",
+  "button": {
+    "clear": "クリア",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "stats": {
+    "words": "単語",
+    "characters": "文字数（スペース含む）",
+    "charactersNoSpace": "文字数（スペースなし）",
+    "bytes": "バイト"
+  },
+  "section": {
+    "readingTime": "推定読書時間"
+  },
+  "speed": {
+    "slow": "ゆっくり（{{wpm}} wpm）",
+    "average": "平均（{{wpm}} wpm）",
+    "fast": "速い（{{wpm}} wpm）"
+  },
+  "time": {
+    "instant": "すぐに",
+    "minutes": "{{minutes}}分",
+    "seconds": "{{seconds}}秒",
+    "minutesSeconds": "{{minutes}}分 {{seconds}}秒"
+  },
+  "openGraph": {
+    "title": "読書時間推定",
+    "description": "読書時間と主要なテキスト統計をすぐに確認できます。"
+  }
+}

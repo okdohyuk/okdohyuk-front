@@ -1,0 +1,42 @@
+{
+  "title": "阅读时间估算",
+  "description": "即时估算阅读时间并查看关键文本统计。",
+  "badge": "文本工具",
+  "label": {
+    "input": "文本输入",
+    "preview": "标题式预览"
+  },
+  "placeholder": "在此粘贴或输入文本。",
+  "helper": "使用常见阅读速度进行估算。",
+  "previewHelper": "预览会将文本转换为标题式（Title Case）。",
+  "empty": "输入文本后即可看到预览。",
+  "button": {
+    "clear": "清空",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "stats": {
+    "words": "单词",
+    "characters": "字符数（含空格）",
+    "charactersNoSpace": "字符数（不含空格）",
+    "bytes": "字节"
+  },
+  "section": {
+    "readingTime": "预计阅读时间"
+  },
+  "speed": {
+    "slow": "慢速（{{wpm}} wpm）",
+    "average": "平均（{{wpm}} wpm）",
+    "fast": "快速（{{wpm}} wpm）"
+  },
+  "time": {
+    "instant": "即时",
+    "minutes": "{{minutes}} 分钟",
+    "seconds": "{{seconds}} 秒",
+    "minutesSeconds": "{{minutes}} 分钟 {{seconds}} 秒"
+  },
+  "openGraph": {
+    "title": "阅读时间估算",
+    "description": "即时估算阅读时间并查看关键文本统计。"
+  }
+}

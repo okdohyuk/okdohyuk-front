@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Bomb,
+  BookOpen,
   Calculator,
   CalendarClock,
   Code,
@@ -13,6 +14,7 @@ import {
   MonitorPlay,
   Palette,
   QrCode,
+  Receipt,
   Server,
   Smile,
   Sparkles,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '읽기 시간 추정기',
+        en: 'Reading Time Estimator',
+        ja: '読書時間推定',
+        zh: '阅读时间估算',
+      },
+      icon: <BookOpen />,
+      link: '/reading-time',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -95,6 +107,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '정산 계산기',
+        en: 'Bill Splitter',
+        ja: '割り勘計算',
+        zh: 'AA分账计算器',
+      },
+      icon: <Receipt />,
+      link: '/bill-splitter',
     },
     {
       title: {
