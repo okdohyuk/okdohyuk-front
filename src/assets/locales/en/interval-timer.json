@@ -1,0 +1,51 @@
+{
+  "title": "Interval Timer",
+  "description": "Build a repeatable workout or focus timer with warm-up, work, rest, and cool-down phases.",
+  "helper": "Set the seconds for each phase, then start your interval routine.",
+  "labels": {
+    "presets": "Presets",
+    "settings": "Settings",
+    "warmup": "Warm-up (sec)",
+    "work": "Work (sec)",
+    "rest": "Rest (sec)",
+    "rounds": "Rounds",
+    "cooldown": "Cool-down (sec)",
+    "currentPhase": "Current Phase",
+    "totalTime": "Total Time",
+    "remaining": "Total Remaining",
+    "round": "Round",
+    "timeline": "Timeline"
+  },
+  "presets": {
+    "tabata": "Tabata 20/10 x8",
+    "quick": "Quick 30/15 x10",
+    "focus": "Focus 50/10 x4"
+  },
+  "buttons": {
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "reset": "Reset"
+  },
+  "status": {
+    "ready": "Ready to start",
+    "running": "Running",
+    "paused": "Paused",
+    "finished": "Finished"
+  },
+  "phases": {
+    "warmup": "Warm-up",
+    "work": "Work",
+    "rest": "Rest",
+    "cooldown": "Cool-down",
+    "complete": "Complete"
+  },
+  "empty": "Add at least one phase to see the timeline.",
+  "errors": {
+    "noDuration": "Please set at least one phase duration above 0 seconds."
+  },
+  "openGraph": {
+    "title": "Interval Timer",
+    "description": "Create interval routines for workouts, study sessions, or breathing exercises. Customize warm-up, work, rest, rounds, and cool-down in a clean mobile-friendly timer."
+  }
+}
