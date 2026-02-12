@@ -1,0 +1,38 @@
+{
+  "title": "Random Picker",
+  "description": "Paste your participant list and pick winners instantly with one click.",
+  "badge": "Quick Draw",
+  "labels": {
+    "items": "Items",
+    "count": "Number of winners"
+  },
+  "placeholder": {
+    "items": "Enter one item per line\nExample: Alice\nBob\nCharlie",
+    "count": "e.g. 1"
+  },
+  "helper": {
+    "items": "Separate items with commas or new lines.",
+    "count": "The number of winners cannot exceed the total items."
+  },
+  "buttons": {
+    "draw": "Pick winners",
+    "reset": "Reset"
+  },
+  "status": {
+    "itemsCount": "{{count}} items",
+    "ready": "Results will appear below."
+  },
+  "result": {
+    "title": "Results ({{count}})",
+    "empty": "No results yet."
+  },
+  "error": {
+    "empty": "Please enter at least one item.",
+    "invalidCount": "Enter a winner count of 1 or more.",
+    "tooMany": "You can pick up to {{count}} winners."
+  },
+  "openGraph": {
+    "title": "Random Picker",
+    "description": "Use the random picker to draw winners from a list. Add names separated by commas or new lines, set the number of winners, and pick instantly."
+  }
+}

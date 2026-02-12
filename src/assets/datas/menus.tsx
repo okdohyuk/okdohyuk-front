@@ -14,6 +14,7 @@ import {
   Palette,
   QrCode,
   Server,
+  Shuffle,
   Smile,
   Sparkles,
   TextCursorInput,
@@ -105,6 +106,16 @@ const menus: Menus = {
       },
       icon: <List />,
       link: '/todo',
+    },
+    {
+      title: {
+        ko: '랜덤 추첨기',
+        en: 'Random Picker',
+        ja: 'ランダム抽選',
+        zh: '随机抽选',
+      },
+      icon: <Shuffle />,
+      link: '/random-picker',
     },
     {
       title: {
