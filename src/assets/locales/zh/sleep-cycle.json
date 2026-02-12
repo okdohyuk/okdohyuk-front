@@ -1,0 +1,27 @@
+{
+  "openGraph": {
+    "title": "睡眠周期规划器",
+    "ogTitle": "睡眠周期规划器",
+    "description": "基于90分钟睡眠周期与入睡缓冲时间，计算推荐的就寝/起床时刻。"
+  },
+  "title": "睡眠周期规划器",
+  "description": "选择目标起床或就寝时间，获得基于90分钟周期的推荐时刻。",
+  "modeLabel": "规划模式",
+  "modePlaceholder": "请选择模式",
+  "modeWake": "我想在这个时间起床",
+  "modeBed": "我想在这个时间入睡",
+  "wakeTimeLabel": "起床时间",
+  "bedTimeLabel": "就寝时间",
+  "now": "现在",
+  "clear": "清除",
+  "hint": "按{{cycle}}分钟周期与{{buffer}}分钟入睡缓冲计算。",
+  "resultsTitle": "推荐时刻",
+  "copyAll": "全部复制",
+  "empty": "请选择时间以查看推荐结果。",
+  "cyclesLabel": "{{count}}个周期",
+  "sleepHours": "总睡眠: {{hours}}小时",
+  "dayOffsetPrevious": "前一天",
+  "dayOffsetNext": "次日",
+  "copy": "复制",
+  "copied": "已复制"
+}

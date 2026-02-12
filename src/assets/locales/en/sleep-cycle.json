@@ -1,0 +1,27 @@
+{
+  "openGraph": {
+    "title": "Sleep Cycle Planner",
+    "ogTitle": "Sleep Cycle Planner",
+    "description": "Plan bedtimes or wake-up times based on 90-minute sleep cycles and a gentle fall-asleep buffer."
+  },
+  "title": "Sleep Cycle Planner",
+  "description": "Pick a target wake-up or bedtime and get recommended times based on 90-minute cycles.",
+  "modeLabel": "Planning mode",
+  "modePlaceholder": "Select a mode",
+  "modeWake": "I want to wake up at",
+  "modeBed": "I want to go to bed at",
+  "wakeTimeLabel": "Wake-up time",
+  "bedTimeLabel": "Bedtime",
+  "now": "Now",
+  "clear": "Clear",
+  "hint": "Assumes {{cycle}}-minute cycles and {{buffer}} minutes to fall asleep.",
+  "resultsTitle": "Recommended times",
+  "copyAll": "Copy all",
+  "empty": "Choose a time to see your sleep cycle options.",
+  "cyclesLabel": "{{count}} cycles",
+  "sleepHours": "Total sleep: {{hours}} hours",
+  "dayOffsetPrevious": "Previous day",
+  "dayOffsetNext": "Next day",
+  "copy": "Copy",
+  "copied": "Copied"
+}
