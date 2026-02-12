@@ -1,0 +1,27 @@
+{
+  "title": "文本重复器",
+  "description": "使用自定义分隔符和次数重复文本。",
+  "label": {
+    "input": "原始文本",
+    "count": "重复次数",
+    "separator": "分隔符",
+    "output": "重复结果"
+  },
+  "placeholder": {
+    "input": "输入要重复的文本",
+    "separator": "例如：\\n 或 , "
+  },
+  "helper": {
+    "count": "最多重复 {{max}} 次。",
+    "separator": "\\n 表示换行，\\t 表示制表符。"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "empty": "输入文本即可生成重复结果。",
+  "openGraph": {
+    "title": "文本重复器",
+    "description": "使用自定义分隔符快速重复文本。"
+  }
+}

@@ -13,6 +13,7 @@ import {
   MonitorPlay,
   Palette,
   QrCode,
+  Repeat,
   Server,
   Smile,
   Sparkles,
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 반복기',
+        en: 'Text Repeater',
+        ja: 'テキストリピーター',
+        zh: '文本重复器',
+      },
+      icon: <Repeat />,
+      link: '/text-repeater',
     },
     {
       title: {

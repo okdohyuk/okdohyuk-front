@@ -1,0 +1,27 @@
+{
+  "title": "テキストリピーター",
+  "description": "任意のテキストを回数と区切り文字で繰り返します。",
+  "label": {
+    "input": "元のテキスト",
+    "count": "繰り返し回数",
+    "separator": "区切り文字",
+    "output": "繰り返し結果"
+  },
+  "placeholder": {
+    "input": "繰り返したいテキストを入力",
+    "separator": "例: \\n または , "
+  },
+  "helper": {
+    "count": "最大{{max}}回まで。",
+    "separator": "\\n は改行、\\t はタブとして使えます。"
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "empty": "テキストを入力すると結果が表示されます。",
+  "openGraph": {
+    "title": "テキストリピーター",
+    "description": "カスタム区切り文字でテキストを素早く繰り返します。"
+  }
+}
