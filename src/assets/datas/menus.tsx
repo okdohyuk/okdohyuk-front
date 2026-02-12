@@ -11,9 +11,11 @@ import {
   Linkedin,
   List,
   MonitorPlay,
+  Moon,
   Palette,
   QrCode,
   Server,
+  Shuffle,
   Smile,
   Sparkles,
   TextCursorInput,
@@ -148,6 +150,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '결정 도우미',
+        en: 'Decision Helper',
+        ja: '決定ヘルパー',
+        zh: '决策助手',
+      },
+      icon: <Shuffle />,
+      link: '/decision-helper',
+    },
+    {
+      title: {
         ko: '초성메이커',
         en: 'Choseong Maker',
         ja: 'チョソンメーカー',
@@ -155,6 +167,16 @@ const menus: Menus = {
       },
       icon: <TextCursorInput />,
       link: '/choseong-maker',
+    },
+    {
+      title: {
+        ko: '수면 사이클 플래너',
+        en: 'Sleep Cycle Planner',
+        ja: '睡眠サイクルプランナー',
+        zh: '睡眠周期规划器',
+      },
+      icon: <Moon />,
+      link: '/sleep-cycle',
     },
   ],
   out: [

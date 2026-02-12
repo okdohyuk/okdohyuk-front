@@ -1,0 +1,27 @@
+{
+  "openGraph": {
+    "title": "睡眠サイクルプランナー",
+    "ogTitle": "睡眠サイクルプランナー",
+    "description": "90分の睡眠サイクルと寝つき時間を考慮して就寝・起床時刻を計算します。"
+  },
+  "title": "睡眠サイクルプランナー",
+  "description": "起きたい時間または寝る時間を選ぶと、90分サイクルに基づくおすすめ時刻を表示します。",
+  "modeLabel": "計画モード",
+  "modePlaceholder": "モードを選択",
+  "modeWake": "この時間に起きたい",
+  "modeBed": "この時間に寝たい",
+  "wakeTimeLabel": "起床時刻",
+  "bedTimeLabel": "就寝時刻",
+  "now": "今",
+  "clear": "クリア",
+  "hint": "{{cycle}}分サイクル＋入眠{{buffer}}分で計算します。",
+  "resultsTitle": "おすすめ時刻",
+  "copyAll": "すべてコピー",
+  "empty": "時間を選ぶと結果が表示されます。",
+  "cyclesLabel": "{{count}}サイクル",
+  "sleepHours": "合計睡眠: {{hours}}時間",
+  "dayOffsetPrevious": "前日",
+  "dayOffsetNext": "翌日",
+  "copy": "コピー",
+  "copied": "コピー済み"
+}
