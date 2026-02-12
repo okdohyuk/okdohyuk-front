@@ -1,0 +1,51 @@
+{
+  "title": "Text Toolkit",
+  "description": "A compact workspace for quick text cleanup, casing, and list prep.",
+  "stats": {
+    "title": "Text Snapshot",
+    "description": "Get a quick read on length and structure.",
+    "inputLabel": "Paste text",
+    "placeholder": "Paste or type text to analyze...",
+    "metrics": {
+      "characters": "Characters",
+      "words": "Words",
+      "lines": "Lines",
+      "sentences": "Sentences"
+    }
+  },
+  "case": {
+    "title": "Case Converter",
+    "description": "Switch letter casing in one tap.",
+    "inputLabel": "Source text",
+    "placeholder": "Type any text to transform...",
+    "outputLabel": "Converted result",
+    "empty": "Start typing to see the result.",
+    "actions": {
+      "upper": "Upper",
+      "lower": "Lower",
+      "title": "Title",
+      "sentence": "Sentence",
+      "swap": "Swap"
+    },
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "list": {
+    "title": "List Cleaner",
+    "description": "Trim, dedupe, and sort line-based lists.",
+    "inputLabel": "List items",
+    "placeholder": "One item per line...",
+    "outputLabel": "Clean list",
+    "empty": "Add items to generate a cleaned list.",
+    "options": {
+      "trim": "Trim spaces",
+      "dedupe": "Remove duplicates",
+      "sort": "Sort A → Z",
+      "reverse": "Reverse order"
+    }
+  },
+  "openGraph": {
+    "title": "Text Toolkit",
+    "description": "Clean up text, convert case, and organize lists in one workspace."
+  }
+}
