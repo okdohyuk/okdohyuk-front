@@ -1,0 +1,33 @@
+{
+  "title": "随机抽签",
+  "description": "粘贴候选列表，立即抽出结果。",
+  "label": {
+    "items": "候选列表",
+    "count": "中奖人数"
+  },
+  "placeholder": {
+    "items": "用换行或逗号分隔输入姓名或项目"
+  },
+  "helper": {
+    "items": "建议每行一个项目，格式更清晰。",
+    "count": "最多可选择 {{count}} 人。"
+  },
+  "button": {
+    "pick": "抽签",
+    "copy": "复制",
+    "clear": "清空",
+    "example": "示例"
+  },
+  "result": {
+    "title": "结果",
+    "empty": "暂无结果。"
+  },
+  "error": {
+    "emptyItems": "请至少输入一个候选项。",
+    "countRange": "请选择 1 到 {{count}} 之间的人数。"
+  },
+  "openGraph": {
+    "title": "随机抽签",
+    "description": "免费的随机抽签工具。粘贴列表即可快速抽选，支持一键复制结果。"
+  }
+}

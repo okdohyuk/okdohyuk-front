@@ -1,0 +1,33 @@
+{
+  "title": "랜덤 추첨기",
+  "description": "후보 목록을 붙여 넣고 즉시 당첨자를 뽑아 보세요.",
+  "label": {
+    "items": "후보 목록",
+    "count": "당첨 인원"
+  },
+  "placeholder": {
+    "items": "이름이나 항목을 줄바꿈 또는 쉼표로 구분해 입력하세요"
+  },
+  "helper": {
+    "items": "한 줄에 하나씩 입력하는 방식이 가장 깔끔합니다.",
+    "count": "최대 {{count}}명까지 뽑을 수 있어요."
+  },
+  "button": {
+    "pick": "추첨",
+    "copy": "복사",
+    "clear": "초기화",
+    "example": "예시"
+  },
+  "result": {
+    "title": "결과",
+    "empty": "아직 결과가 없어요."
+  },
+  "error": {
+    "emptyItems": "후보를 한 명 이상 입력해 주세요.",
+    "countRange": "1명 이상 {{count}}명 이하로 선택해 주세요."
+  },
+  "openGraph": {
+    "title": "랜덤 추첨기",
+    "description": "간단한 랜덤 추첨기. 목록을 붙여 넣고 즉시 당첨자를 선택하세요. 복사 기능으로 결과 공유도 간편합니다."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "Random Picker",
+  "description": "Paste a list of candidates and draw winners instantly.",
+  "label": {
+    "items": "Candidates",
+    "count": "Number of winners"
+  },
+  "placeholder": {
+    "items": "Enter names or items separated by new lines or commas"
+  },
+  "helper": {
+    "items": "One item per line works best. Commas are also supported.",
+    "count": "Up to {{count}} can be selected."
+  },
+  "button": {
+    "pick": "Pick",
+    "copy": "Copy",
+    "clear": "Clear",
+    "example": "Example"
+  },
+  "result": {
+    "title": "Results",
+    "empty": "No results yet."
+  },
+  "error": {
+    "emptyItems": "Add at least one candidate.",
+    "countRange": "Choose between 1 and {{count}} winners."
+  },
+  "openGraph": {
+    "title": "Random Picker",
+    "description": "Free random picker for giveaways, team splits, and quick decisions. Paste your list and draw winners in seconds with instant copy support."
+  }
+}

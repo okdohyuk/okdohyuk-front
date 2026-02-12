@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -14,6 +15,7 @@ import {
   Palette,
   QrCode,
   Server,
+  Shuffle,
   Smile,
   Sparkles,
   TextCursorInput,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 카운터',
+        en: 'Text Counter',
+        ja: 'テキストカウンター',
+        zh: '文本计数器',
+      },
+      icon: <FileText />,
+      link: '/text-counter',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '랜덤 추첨기',
+        en: 'Random Picker',
+        ja: 'ランダム抽選',
+        zh: '随机抽签',
+      },
+      icon: <Shuffle />,
+      link: '/random-picker',
     },
     {
       title: {
