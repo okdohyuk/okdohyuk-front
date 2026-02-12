@@ -1,0 +1,51 @@
+{
+  "title": "间歇计时器",
+  "description": "设置热身、训练、休息与冷却时间，快速启动循环计时。",
+  "helper": "输入每个阶段的秒数，开始你的间歇计划。",
+  "labels": {
+    "presets": "预设",
+    "settings": "设置",
+    "warmup": "热身（秒）",
+    "work": "训练（秒）",
+    "rest": "休息（秒）",
+    "rounds": "轮数",
+    "cooldown": "冷却（秒）",
+    "currentPhase": "当前阶段",
+    "totalTime": "总时长",
+    "remaining": "剩余总时长",
+    "round": "轮",
+    "timeline": "时间轴"
+  },
+  "presets": {
+    "tabata": "塔巴塔 20/10 x8",
+    "quick": "快速 30/15 x10",
+    "focus": "专注 50/10 x4"
+  },
+  "buttons": {
+    "start": "开始",
+    "pause": "暂停",
+    "resume": "继续",
+    "reset": "重置"
+  },
+  "status": {
+    "ready": "准备开始",
+    "running": "进行中",
+    "paused": "已暂停",
+    "finished": "完成"
+  },
+  "phases": {
+    "warmup": "热身",
+    "work": "训练",
+    "rest": "休息",
+    "cooldown": "冷却",
+    "complete": "完成"
+  },
+  "empty": "请至少添加一个阶段以显示时间轴。",
+  "errors": {
+    "noDuration": "请设置至少一个大于 0 秒的阶段。"
+  },
+  "openGraph": {
+    "title": "间歇计时器",
+    "description": "创建适用于运动、学习或呼吸训练的间歇计时器。可自由设置热身、训练、休息、轮数与冷却时间。"
+  }
+}

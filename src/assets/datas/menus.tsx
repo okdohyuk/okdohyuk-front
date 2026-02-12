@@ -17,6 +17,7 @@ import {
   Smile,
   Sparkles,
   TextCursorInput,
+  Timer,
   Tv,
   Youtube,
 } from 'lucide-react';
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '인터벌 타이머',
+        en: 'Interval Timer',
+        ja: 'インターバルタイマー',
+        zh: '间歇计时器',
+      },
+      icon: <Timer />,
+      link: '/interval-timer',
     },
     {
       title: {

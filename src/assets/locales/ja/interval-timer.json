@@ -1,0 +1,51 @@
+{
+  "title": "インターバルタイマー",
+  "description": "ウォームアップ、運動、休憩、クールダウンを設定して反復タイマーを実行できます。",
+  "helper": "各フェーズの秒数を入力してインターバルを開始しましょう。",
+  "labels": {
+    "presets": "プリセット",
+    "settings": "設定",
+    "warmup": "ウォームアップ (秒)",
+    "work": "運動 (秒)",
+    "rest": "休憩 (秒)",
+    "rounds": "ラウンド",
+    "cooldown": "クールダウン (秒)",
+    "currentPhase": "現在のフェーズ",
+    "totalTime": "合計時間",
+    "remaining": "残り合計時間",
+    "round": "ラウンド",
+    "timeline": "タイムライン"
+  },
+  "presets": {
+    "tabata": "タバタ 20/10 x8",
+    "quick": "クイック 30/15 x10",
+    "focus": "集中 50/10 x4"
+  },
+  "buttons": {
+    "start": "開始",
+    "pause": "一時停止",
+    "resume": "再開",
+    "reset": "リセット"
+  },
+  "status": {
+    "ready": "開始準備",
+    "running": "実行中",
+    "paused": "一時停止中",
+    "finished": "完了"
+  },
+  "phases": {
+    "warmup": "ウォームアップ",
+    "work": "運動",
+    "rest": "休憩",
+    "cooldown": "クールダウン",
+    "complete": "完了"
+  },
+  "empty": "タイムラインを表示するには、少なくとも1つのフェーズを追加してください。",
+  "errors": {
+    "noDuration": "0秒以上のフェーズを設定してください。"
+  },
+  "openGraph": {
+    "title": "インターバルタイマー",
+    "description": "運動や勉強、呼吸のルーティンに使えるインターバルタイマーを作成できます。ウォームアップからクールダウンまで自由に設定可能です。"
+  }
+}

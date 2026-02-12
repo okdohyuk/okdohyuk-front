@@ -1,0 +1,51 @@
+{
+  "title": "인터벌 타이머",
+  "description": "워밍업, 운동, 휴식, 쿨다운을 설정해 반복 타이머를 간단히 실행하세요.",
+  "helper": "각 구간의 시간을 입력하고 인터벌 루틴을 시작해보세요.",
+  "labels": {
+    "presets": "프리셋",
+    "settings": "설정",
+    "warmup": "워밍업 (초)",
+    "work": "운동 (초)",
+    "rest": "휴식 (초)",
+    "rounds": "라운드",
+    "cooldown": "쿨다운 (초)",
+    "currentPhase": "현재 구간",
+    "totalTime": "총 시간",
+    "remaining": "남은 총 시간",
+    "round": "라운드",
+    "timeline": "타임라인"
+  },
+  "presets": {
+    "tabata": "타바타 20/10 x8",
+    "quick": "퀵 30/15 x10",
+    "focus": "집중 50/10 x4"
+  },
+  "buttons": {
+    "start": "시작",
+    "pause": "일시정지",
+    "resume": "재개",
+    "reset": "초기화"
+  },
+  "status": {
+    "ready": "시작 준비",
+    "running": "진행 중",
+    "paused": "일시정지",
+    "finished": "완료"
+  },
+  "phases": {
+    "warmup": "워밍업",
+    "work": "운동",
+    "rest": "휴식",
+    "cooldown": "쿨다운",
+    "complete": "완료"
+  },
+  "empty": "타임라인을 보려면 최소 한 구간을 추가하세요.",
+  "errors": {
+    "noDuration": "0초 이상으로 설정된 구간이 필요합니다."
+  },
+  "openGraph": {
+    "title": "인터벌 타이머",
+    "description": "운동, 공부, 호흡 루틴을 위한 인터벌 타이머를 만들어 보세요. 워밍업부터 쿨다운까지 맞춤 설정할 수 있습니다."
+  }
+}
