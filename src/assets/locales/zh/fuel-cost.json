@@ -1,0 +1,31 @@
+{
+  "title": "燃油费用计算器",
+  "description": "根据行驶距离、油耗和油价估算燃油费用。",
+  "badge": "出行规划",
+  "helper": "输入距离、油耗和油价，计算预计耗油量和费用。",
+  "label": {
+    "distance": "距离 (km)",
+    "efficiency": "油耗 (km/L)",
+    "fuelPrice": "油价 (每升)"
+  },
+  "placeholder": {
+    "distance": "例如 120",
+    "efficiency": "例如 12.5",
+    "fuelPrice": "例如 1700"
+  },
+  "button": {
+    "reset": "重置"
+  },
+  "result": {
+    "title": "估算结果",
+    "fuelUsed": "预计耗油量",
+    "totalCost": "总燃油费用",
+    "costPer100": "每 100 公里费用",
+    "note": "结果会因驾驶习惯和路况而有所不同。",
+    "empty": "输入所有数值后即可查看估算结果。"
+  },
+  "openGraph": {
+    "title": "燃油费用计算器",
+    "description": "根据行驶距离、油耗和油价估算燃油费用。"
+  }
+}

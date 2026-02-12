@@ -1,0 +1,31 @@
+{
+  "title": "燃料費計算機",
+  "description": "走行距離、燃費、燃料単価から燃料費を見積もります。",
+  "badge": "トリッププランナー",
+  "helper": "距離・燃費・燃料単価を入力して、燃料使用量と費用を計算します。",
+  "label": {
+    "distance": "距離 (km)",
+    "efficiency": "燃費 (km/L)",
+    "fuelPrice": "燃料単価 (1Lあたり)"
+  },
+  "placeholder": {
+    "distance": "例: 120",
+    "efficiency": "例: 12.5",
+    "fuelPrice": "例: 1700"
+  },
+  "button": {
+    "reset": "リセット"
+  },
+  "result": {
+    "title": "見積もり結果",
+    "fuelUsed": "必要燃料量",
+    "totalCost": "合計燃料費",
+    "costPer100": "100kmあたりの費用",
+    "note": "運転習慣や道路状況で変動します。",
+    "empty": "すべての値を入力すると結果が表示されます。"
+  },
+  "openGraph": {
+    "title": "燃料費計算機",
+    "description": "走行距離、燃費、燃料単価から燃料費を見積もります。"
+  }
+}

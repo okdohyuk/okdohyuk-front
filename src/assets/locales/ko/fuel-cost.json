@@ -1,0 +1,31 @@
+{
+  "title": "연료비 계산기",
+  "description": "이동 거리와 연비, 연료 단가로 예상 연료비를 계산합니다.",
+  "badge": "여행 플래너",
+  "helper": "거리, 연비, 연료 단가를 입력하면 예상 연료 사용량과 비용을 계산합니다.",
+  "label": {
+    "distance": "거리 (km)",
+    "efficiency": "연비 (km/L)",
+    "fuelPrice": "연료 단가 (L당)"
+  },
+  "placeholder": {
+    "distance": "예: 120",
+    "efficiency": "예: 12.5",
+    "fuelPrice": "예: 1700"
+  },
+  "button": {
+    "reset": "초기화"
+  },
+  "result": {
+    "title": "예상 결과",
+    "fuelUsed": "필요 연료량",
+    "totalCost": "총 연료비",
+    "costPer100": "100km당 비용",
+    "note": "주행 습관과 도로 상황에 따라 달라질 수 있어요.",
+    "empty": "모든 값을 입력하면 계산 결과가 표시됩니다."
+  },
+  "openGraph": {
+    "title": "연료비 계산기",
+    "description": "이동 거리와 연비, 연료 단가로 예상 연료비를 계산합니다."
+  }
+}

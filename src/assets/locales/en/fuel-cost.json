@@ -1,0 +1,31 @@
+{
+  "title": "Fuel Cost Calculator",
+  "description": "Estimate trip fuel cost based on distance, fuel efficiency, and fuel price.",
+  "badge": "Trip Planner",
+  "helper": "Enter trip distance, fuel efficiency, and fuel price to estimate fuel usage and cost.",
+  "label": {
+    "distance": "Distance (km)",
+    "efficiency": "Fuel efficiency (km/L)",
+    "fuelPrice": "Fuel price (per L)"
+  },
+  "placeholder": {
+    "distance": "e.g. 120",
+    "efficiency": "e.g. 12.5",
+    "fuelPrice": "e.g. 1700"
+  },
+  "button": {
+    "reset": "Reset"
+  },
+  "result": {
+    "title": "Estimate",
+    "fuelUsed": "Fuel needed",
+    "totalCost": "Total fuel cost",
+    "costPer100": "Cost per 100 km",
+    "note": "Estimates may vary with driving style and road conditions.",
+    "empty": "Enter all values to see the estimate."
+  },
+  "openGraph": {
+    "title": "Fuel Cost Calculator",
+    "description": "Estimate trip fuel cost based on distance, fuel efficiency, and fuel price."
+  }
+}

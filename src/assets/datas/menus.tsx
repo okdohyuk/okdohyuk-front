@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Fuel,
   Github,
   Hash,
   Key,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '연료비 계산기',
+        en: 'Fuel Cost Calculator',
+        ja: '燃料費計算機',
+        zh: '燃油费用计算器',
+      },
+      icon: <Fuel />,
+      link: '/fuel-cost',
     },
     {
       title: {
