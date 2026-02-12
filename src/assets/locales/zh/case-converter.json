@@ -1,0 +1,29 @@
+{
+  "title": "大小写转换",
+  "description": "将文本快速转换为常见的大小写格式。",
+  "label": {
+    "input": "原文",
+    "output": "转换结果"
+  },
+  "placeholder": "例：Hello world from OpenClaw",
+  "helper": "输入文本即可一次查看多种格式。",
+  "cases": {
+    "upper": "大写",
+    "lower": "小写",
+    "title": "标题式",
+    "sentence": "句子式",
+    "camel": "驼峰式",
+    "pascal": "帕斯卡式",
+    "snake": "下划线式",
+    "kebab": "短横线式"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "empty": "输入文本后会显示转换结果。",
+  "openGraph": {
+    "title": "大小写转换",
+    "description": "将文本快速转换为常见的大小写格式。"
+  }
+}

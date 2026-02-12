@@ -1,0 +1,29 @@
+{
+  "title": "Case Converter",
+  "description": "Convert text into common casing styles instantly.",
+  "label": {
+    "input": "Source text",
+    "output": "Converted results"
+  },
+  "placeholder": "e.g. Hello world from OpenClaw",
+  "helper": "Paste any text to get multiple case styles at once.",
+  "cases": {
+    "upper": "Uppercase",
+    "lower": "Lowercase",
+    "title": "Title Case",
+    "sentence": "Sentence case",
+    "camel": "camelCase",
+    "pascal": "PascalCase",
+    "snake": "snake_case",
+    "kebab": "kebab-case"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Enter text to see the converted outputs.",
+  "openGraph": {
+    "title": "Case Converter",
+    "description": "Convert text into common casing styles instantly."
+  }
+}
