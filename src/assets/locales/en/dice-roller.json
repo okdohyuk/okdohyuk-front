@@ -1,0 +1,35 @@
+{
+  "title": "Dice Roller",
+  "headline": "Roll the dice you need",
+  "description": "Quickly roll dice for board games, meetings, or quick decisions and share the result.",
+  "helper": "Set the number of sides and dice count, then roll instantly (e.g., d6, d20).",
+  "labels": {
+    "sides": "Dice sides",
+    "customSides": "Custom",
+    "count": "Number of dice",
+    "result": "Result",
+    "total": "Total",
+    "history": "Recent rolls",
+    "notes": "Result notes"
+  },
+  "buttons": {
+    "roll": "Roll",
+    "example": "Use example",
+    "clear": "Reset",
+    "copy": "Copy result",
+    "clearHistory": "Clear history"
+  },
+  "messages": {
+    "invalidSides": "Enter a side count between 2 and 1000.",
+    "invalidCount": "Enter a dice count between 1 and 20.",
+    "copied": "Copied!",
+    "empty": "No rolls yet.",
+    "historyEmpty": "No history yet.",
+    "exampleReady": "Example ready with 3 d6 dice.",
+    "notePlaceholder": "Your roll results will appear here too."
+  },
+  "openGraph": {
+    "title": "Dice Roller",
+    "description": "Roll any dice online with custom sides and counts. Get instant results for games, meetings, or quick decisions."
+  }
+}

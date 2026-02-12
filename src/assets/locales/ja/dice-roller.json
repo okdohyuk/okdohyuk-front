@@ -1,0 +1,35 @@
+{
+  "title": "サイコロロール",
+  "headline": "必要なサイコロを振りましょう",
+  "description": "ボードゲームや会議、ちょっとした決定に使えるオンラインサイコロです。",
+  "helper": "面数と個数を入力するとすぐに振れます。（例：d6、d20）",
+  "labels": {
+    "sides": "面数",
+    "customSides": "直接入力",
+    "count": "個数",
+    "result": "結果",
+    "total": "合計",
+    "history": "最近の記録",
+    "notes": "結果メモ"
+  },
+  "buttons": {
+    "roll": "振る",
+    "example": "例を設定",
+    "clear": "リセット",
+    "copy": "結果をコピー",
+    "clearHistory": "履歴をクリア"
+  },
+  "messages": {
+    "invalidSides": "面数は2〜1000で入力してください。",
+    "invalidCount": "個数は1〜20で入力してください。",
+    "copied": "コピーしました！",
+    "empty": "まだ結果がありません。",
+    "historyEmpty": "履歴が空です。",
+    "exampleReady": "d6を3個の例が設定されました。",
+    "notePlaceholder": "結果はここにも表示されます。"
+  },
+  "openGraph": {
+    "title": "サイコロロール",
+    "description": "面数と個数を指定してオンラインでサイコロを振れます。ゲームや意思決定にすぐ使えます。"
+  }
+}

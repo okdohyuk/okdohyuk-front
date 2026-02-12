@@ -1,0 +1,35 @@
+{
+  "title": "주사위 굴리기",
+  "headline": "원하는 주사위를 굴려보세요",
+  "description": "보드게임이나 팀 미팅용으로 간단하게 주사위를 굴리고 결과를 공유하세요.",
+  "helper": "면 수와 개수를 입력하면 즉시 굴립니다. (예: d6, d20)",
+  "labels": {
+    "sides": "주사위 면 수",
+    "customSides": "직접 입력",
+    "count": "주사위 개수",
+    "result": "굴림 결과",
+    "total": "합계",
+    "history": "최근 기록",
+    "notes": "결과 메모"
+  },
+  "buttons": {
+    "roll": "굴리기",
+    "example": "예시 설정",
+    "clear": "초기화",
+    "copy": "결과 복사",
+    "clearHistory": "기록 비우기"
+  },
+  "messages": {
+    "invalidSides": "면 수는 2 이상, 1000 이하로 입력하세요.",
+    "invalidCount": "주사위 개수는 1~20 사이로 입력하세요.",
+    "copied": "복사 완료!",
+    "empty": "아직 굴린 결과가 없습니다.",
+    "historyEmpty": "기록이 비어 있습니다.",
+    "exampleReady": "d6 주사위 3개 예시가 준비됐어요.",
+    "notePlaceholder": "굴림 결과가 여기에도 표시됩니다."
+  },
+  "openGraph": {
+    "title": "주사위 굴리기",
+    "description": "온라인 주사위 굴리기 도구로 원하는 면(d4, d6, d20 등)과 개수를 설정해 즉시 결과를 확인하세요. 보드게임, 회의, 결정 상황에 바로 활용할 수 있습니다."
+  }
+}
