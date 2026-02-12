@@ -1,0 +1,70 @@
+{
+  "title": "テキストツールキット",
+  "description": "文字数カウント、ケース変換、行整理を一箇所でまとめて実行します。",
+  "badge": "マルチツール",
+  "stats": {
+    "title": "テキスト統計",
+    "description": "文字数・単語数・行数をすばやく確認できます。",
+    "label": {
+      "input": "テキスト入力",
+      "characters": "文字数",
+      "charactersNoSpace": "空白除外の文字数",
+      "words": "単語数",
+      "lines": "行数"
+    },
+    "placeholder": "計測したいテキストを貼り付けてください"
+  },
+  "case": {
+    "title": "ケース変換",
+    "description": "大文字・小文字・タイトルケースなどに即変換します。",
+    "label": {
+      "input": "変換するテキスト",
+      "mode": "変換モード",
+      "output": "変換結果"
+    },
+    "placeholder": "テキストを入力または貼り付けてください",
+    "placeholderMode": "モードを選択してください",
+    "mode": {
+      "upper": "大文字",
+      "lower": "小文字",
+      "title": "タイトルケース",
+      "sentence": "文頭大文字",
+      "camel": "キャメルケース"
+    },
+    "button": {
+      "copy": "コピー",
+      "copied": "コピー済み"
+    },
+    "empty": "変換されたテキストがここに表示されます。"
+  },
+  "lines": {
+    "title": "行整理",
+    "description": "並び替えとフィルターでリストを整えます。",
+    "label": {
+      "input": "行入力",
+      "sort": "並び替え",
+      "options": "オプション",
+      "output": "整理された結果"
+    },
+    "placeholder": "1行に1項目ずつ入力してください",
+    "sort": {
+      "keep": "元の順序",
+      "asc": "昇順",
+      "desc": "降順"
+    },
+    "option": {
+      "trim": "空白を削除",
+      "removeEmpty": "空行を削除",
+      "unique": "重複を削除"
+    },
+    "button": {
+      "copy": "コピー",
+      "copied": "コピー済み"
+    },
+    "empty": "整理された結果がここに表示されます。"
+  },
+  "openGraph": {
+    "title": "テキストツールキット",
+    "description": "テキスト分析、ケース変換、リスト整理をすばやく行います。"
+  }
+}

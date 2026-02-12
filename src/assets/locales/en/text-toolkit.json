@@ -1,0 +1,70 @@
+{
+  "title": "Text Toolkit",
+  "description": "Run quick text utilities—stats, case conversions, and line cleanup—in one place.",
+  "badge": "Multi Tool",
+  "stats": {
+    "title": "Text stats",
+    "description": "Count characters, words, and lines instantly.",
+    "label": {
+      "input": "Text input",
+      "characters": "Characters",
+      "charactersNoSpace": "Characters (no spaces)",
+      "words": "Words",
+      "lines": "Lines"
+    },
+    "placeholder": "Paste text to measure"
+  },
+  "case": {
+    "title": "Case converter",
+    "description": "Switch between upper, lower, title, sentence, and camel case.",
+    "label": {
+      "input": "Text to convert",
+      "mode": "Conversion mode",
+      "output": "Converted result"
+    },
+    "placeholder": "Type or paste text",
+    "placeholderMode": "Choose a mode",
+    "mode": {
+      "upper": "UPPERCASE",
+      "lower": "lowercase",
+      "title": "Title Case",
+      "sentence": "Sentence case",
+      "camel": "camelCase"
+    },
+    "button": {
+      "copy": "Copy",
+      "copied": "Copied"
+    },
+    "empty": "Converted text appears here."
+  },
+  "lines": {
+    "title": "Line organizer",
+    "description": "Clean and organize lists with sorting and filters.",
+    "label": {
+      "input": "Lines input",
+      "sort": "Sort order",
+      "options": "Options",
+      "output": "Organized lines"
+    },
+    "placeholder": "Enter one item per line",
+    "sort": {
+      "keep": "Keep order",
+      "asc": "A → Z",
+      "desc": "Z → A"
+    },
+    "option": {
+      "trim": "Trim whitespace",
+      "removeEmpty": "Remove empty lines",
+      "unique": "Remove duplicates"
+    },
+    "button": {
+      "copy": "Copy",
+      "copied": "Copied"
+    },
+    "empty": "Organized lines will show here."
+  },
+  "openGraph": {
+    "title": "Text Toolkit",
+    "description": "Analyze text, convert case, and clean up lists quickly."
+  }
+}

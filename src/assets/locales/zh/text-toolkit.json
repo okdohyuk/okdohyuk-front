@@ -1,0 +1,70 @@
+{
+  "title": "文本工具包",
+  "description": "一次完成字符统计、大小写转换和行整理。",
+  "badge": "多功能",
+  "stats": {
+    "title": "文本统计",
+    "description": "快速查看字符数、单词数与行数。",
+    "label": {
+      "input": "文本输入",
+      "characters": "字符数",
+      "charactersNoSpace": "不含空格字符数",
+      "words": "单词数",
+      "lines": "行数"
+    },
+    "placeholder": "粘贴要统计的文本"
+  },
+  "case": {
+    "title": "大小写转换",
+    "description": "在大写、小写、标题格式等之间切换。",
+    "label": {
+      "input": "待转换文本",
+      "mode": "转换模式",
+      "output": "转换结果"
+    },
+    "placeholder": "输入或粘贴文本",
+    "placeholderMode": "请选择模式",
+    "mode": {
+      "upper": "大写",
+      "lower": "小写",
+      "title": "标题格式",
+      "sentence": "句首大写",
+      "camel": "驼峰"
+    },
+    "button": {
+      "copy": "复制",
+      "copied": "已复制"
+    },
+    "empty": "转换后的文本将显示在此处。"
+  },
+  "lines": {
+    "title": "行整理",
+    "description": "通过排序与筛选整理列表。",
+    "label": {
+      "input": "行输入",
+      "sort": "排序方式",
+      "options": "选项",
+      "output": "整理结果"
+    },
+    "placeholder": "每行输入一个项目",
+    "sort": {
+      "keep": "保持顺序",
+      "asc": "升序",
+      "desc": "降序"
+    },
+    "option": {
+      "trim": "去除空白",
+      "removeEmpty": "移除空行",
+      "unique": "去重"
+    },
+    "button": {
+      "copy": "复制",
+      "copied": "已复制"
+    },
+    "empty": "整理后的内容会显示在这里。"
+  },
+  "openGraph": {
+    "title": "文本工具包",
+    "description": "快速完成文本分析、大小写转换与列表整理。"
+  }
+}
