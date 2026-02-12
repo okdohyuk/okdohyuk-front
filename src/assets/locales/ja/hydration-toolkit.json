@@ -1,0 +1,75 @@
+{
+  "title": "水分補給ツールキット",
+  "description": "1日の水分目標、飲むスケジュール、ボトル本数をまとめて計算できます。",
+  "section": {
+    "intake": "1日の目標",
+    "result": "水分サマリー",
+    "schedule": "飲む予定",
+    "bottle": "ボトル計画"
+  },
+  "label": {
+    "weight": "体重 (kg)",
+    "activity": "活動量",
+    "climate": "気候",
+    "customTarget": "目標を直接入力 (ml)",
+    "startTime": "開始時間",
+    "endTime": "終了時間",
+    "interval": "間隔 (分)",
+    "bottleSize": "ボトル容量 (ml)",
+    "quickBottle": "クイック選択"
+  },
+  "placeholder": {
+    "weight": "例: 65",
+    "activity": "活動量を選択",
+    "climate": "気候を選択",
+    "customTarget": "空欄なら自動計算",
+    "interval": "例: 120",
+    "bottleSize": "例: 500"
+  },
+  "activity": {
+    "low": "低め (座り仕事中心)",
+    "medium": "普通 (軽い運動)",
+    "high": "多め (激しい活動)"
+  },
+  "climate": {
+    "normal": "普通",
+    "hot": "暑い / 湿度が高い"
+  },
+  "button": {
+    "example": "例",
+    "clear": "リセット",
+    "copy": "サマリーコピー",
+    "copied": "コピー済み"
+  },
+  "result": {
+    "target": "目標",
+    "liters": "リットル",
+    "cups": "カップ",
+    "bottles": "想定ボトル本数: {{count}}"
+  },
+  "helper": {
+    "custom": "目標が決まっている場合はここに入力して上書きできます。",
+    "result": "体重・活動量・気候で計算します。必要に応じて調整してください。",
+    "schedule": "1回あたり: 約 {{perDrink}}ml"
+  },
+  "errors": {
+    "weight": "正しい数値を入力してください。",
+    "weightRange": "体重は20〜200kgの範囲で入力してください。",
+    "scheduleRequired": "開始/終了時間を入力してください。",
+    "scheduleFormat": "時間はHH:MM形式で入力してください。",
+    "interval": "間隔は0より大きくしてください。",
+    "scheduleOrder": "終了時間は開始時間より後にしてください。",
+    "bottle": "ボトル容量は0より大きくしてください。"
+  },
+  "summary": {
+    "target": "1日の目標",
+    "cups": "カップ",
+    "schedule": "スケジュール",
+    "perDrink": "1回",
+    "bottles": "ボトル計画"
+  },
+  "openGraph": {
+    "title": "水分補給ツールキット",
+    "description": "1日の水分目標、飲む時間、ボトル計画をまとめて計算。"
+  }
+}

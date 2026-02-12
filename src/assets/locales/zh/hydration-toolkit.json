@@ -1,0 +1,75 @@
+{
+  "title": "补水工具包",
+  "description": "快速估算每日饮水目标，并生成饮水时间表与瓶装计划。",
+  "section": {
+    "intake": "每日目标",
+    "result": "补水摘要",
+    "schedule": "饮水计划",
+    "bottle": "水瓶规划"
+  },
+  "label": {
+    "weight": "体重 (kg)",
+    "activity": "活动量",
+    "climate": "气候",
+    "customTarget": "自定义目标 (ml)",
+    "startTime": "开始时间",
+    "endTime": "结束时间",
+    "interval": "间隔 (分钟)",
+    "bottleSize": "水瓶容量 (ml)",
+    "quickBottle": "快速选择"
+  },
+  "placeholder": {
+    "weight": "例如：65",
+    "activity": "选择活动量",
+    "climate": "选择气候",
+    "customTarget": "留空则自动计算",
+    "interval": "例如：120",
+    "bottleSize": "例如：500"
+  },
+  "activity": {
+    "low": "低（久坐为主）",
+    "medium": "中（轻度运动）",
+    "high": "高（强度活动）"
+  },
+  "climate": {
+    "normal": "正常",
+    "hot": "炎热 / 潮湿"
+  },
+  "button": {
+    "example": "示例",
+    "clear": "清空",
+    "copy": "复制摘要",
+    "copied": "已复制"
+  },
+  "result": {
+    "target": "目标",
+    "liters": "升",
+    "cups": "杯",
+    "bottles": "预计水瓶数：{{count}}"
+  },
+  "helper": {
+    "custom": "如果已知目标，可在此输入以覆盖自动计算。",
+    "result": "基于体重、活动量和气候估算，可随时调整。",
+    "schedule": "每次约 {{perDrink}}ml"
+  },
+  "errors": {
+    "weight": "请输入有效数字。",
+    "weightRange": "体重请输入 20~200kg 范围。",
+    "scheduleRequired": "请输入开始/结束时间。",
+    "scheduleFormat": "时间格式应为 HH:MM。",
+    "interval": "间隔需大于 0。",
+    "scheduleOrder": "结束时间必须晚于开始时间。",
+    "bottle": "水瓶容量需大于 0。"
+  },
+  "summary": {
+    "target": "每日目标",
+    "cups": "杯",
+    "schedule": "时间表",
+    "perDrink": "每次",
+    "bottles": "水瓶计划"
+  },
+  "openGraph": {
+    "title": "补水工具包",
+    "description": "计算每日饮水目标、饮水时间表与水瓶规划。"
+  }
+}
