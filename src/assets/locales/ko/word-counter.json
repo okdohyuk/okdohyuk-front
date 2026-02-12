@@ -1,0 +1,24 @@
+{
+  "openGraph": {
+    "title": "단어 카운터",
+    "ogTitle": "단어 카운터 | 글자 수·줄 수 빠른 계산",
+    "description": "입력한 글의 단어 수, 글자 수, 줄 수를 빠르게 계산합니다.",
+    "keywords": ["단어 카운터", "글자 수", "줄 수", "문장 길이", "작성 도구"]
+  },
+  "title": "단어 카운터",
+  "label": {
+    "input": "분석할 텍스트"
+  },
+  "placeholder": "텍스트를 붙여넣거나 입력하세요",
+  "helper": "입력과 동시에 카운트가 갱신됩니다.",
+  "stats": {
+    "words": "단어 수",
+    "characters": "글자 수(공백 포함)",
+    "charactersNoSpaces": "글자 수(공백 제외)",
+    "lines": "줄 수",
+    "readingTime": "예상 읽기 시간"
+  },
+  "units": {
+    "min": "분"
+  }
+}

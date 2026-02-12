@@ -1,0 +1,24 @@
+{
+  "openGraph": {
+    "title": "ワードカウンター",
+    "ogTitle": "ワードカウンター | 文字数・行数カウント",
+    "description": "入力した文章の単語数・文字数・行数をすぐに計測します。",
+    "keywords": ["ワードカウンター", "文字数", "行数", "文章作成", "ツール"]
+  },
+  "title": "ワードカウンター",
+  "label": {
+    "input": "分析するテキスト"
+  },
+  "placeholder": "ここにテキストを入力してください",
+  "helper": "入力と同時にカウントを更新します。",
+  "stats": {
+    "words": "単語数",
+    "characters": "文字数（空白含む）",
+    "charactersNoSpaces": "文字数（空白除く）",
+    "lines": "行数",
+    "readingTime": "推定読了時間"
+  },
+  "units": {
+    "min": "分"
+  }
+}

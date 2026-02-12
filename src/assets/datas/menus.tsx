@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -166,6 +167,16 @@ const menus: Menus = {
       },
       icon: <TextCursorInput />,
       link: '/choseong-maker',
+    },
+    {
+      title: {
+        ko: '단어 카운터',
+        en: 'Word Counter',
+        ja: 'ワードカウンター',
+        zh: '字数统计',
+      },
+      icon: <FileText />,
+      link: '/word-counter',
     },
   ],
   out: [

@@ -1,0 +1,24 @@
+{
+  "openGraph": {
+    "title": "word counter",
+    "ogTitle": "Word Counter | Character & Line Counts",
+    "description": "Count words, characters, and lines instantly to keep writing on track.",
+    "keywords": ["word counter", "character count", "line count", "writing tool"]
+  },
+  "title": "Word Counter",
+  "label": {
+    "input": "Text to analyze"
+  },
+  "placeholder": "Paste or type your text here",
+  "helper": "Counts update instantly as you type.",
+  "stats": {
+    "words": "Words",
+    "characters": "Characters (with spaces)",
+    "charactersNoSpaces": "Characters (no spaces)",
+    "lines": "Lines",
+    "readingTime": "Estimated reading time"
+  },
+  "units": {
+    "min": "min"
+  }
+}
