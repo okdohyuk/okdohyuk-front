@@ -22,6 +22,8 @@ import jwtDecoder from 'assets/locales/ko/jwt-decoder.json';
 import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
+import fuelCost from 'assets/locales/ko/fuel-cost.json';
+import randomPicker from 'assets/locales/ko/random-picker.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -50,6 +52,8 @@ declare module 'i18next' {
       'cron-generator': typeof cronGenerator;
       'css-generator': typeof cssGenerator;
       'slug-generator': typeof slugGenerator;
+      'fuel-cost': typeof fuelCost;
+      'random-picker': typeof randomPicker;
     };
   }
 }

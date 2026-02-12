@@ -1,0 +1,38 @@
+{
+  "title": "随机抽选器",
+  "description": "粘贴参与者列表，一键随机抽选获胜者。",
+  "badge": "快速抽选",
+  "labels": {
+    "items": "项目列表",
+    "count": "抽选人数"
+  },
+  "placeholder": {
+    "items": "每行输入一个项目\n示例：小明\n小红\n小华",
+    "count": "例如：1"
+  },
+  "helper": {
+    "items": "可用逗号或换行分隔。",
+    "count": "抽选人数不能超过项目总数。"
+  },
+  "buttons": {
+    "draw": "开始抽选",
+    "reset": "重置"
+  },
+  "status": {
+    "itemsCount": "共 {{count}} 项",
+    "ready": "结果会显示在下方。"
+  },
+  "result": {
+    "title": "抽选结果（{{count}}人）",
+    "empty": "暂无抽选结果。"
+  },
+  "error": {
+    "empty": "请先输入项目。",
+    "invalidCount": "抽选人数需大于等于 1。",
+    "tooMany": "抽选人数最多为 {{count}} 人。"
+  },
+  "openGraph": {
+    "title": "随机抽选器",
+    "description": "使用随机抽选器从名单中选出获胜者。用逗号或换行输入项目，设置人数后即可立即抽选。"
+  }
+}
