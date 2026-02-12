@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "チップ計算機",
+    "ogTitle": "チップ計算機",
+    "description": "食事代のチップ、合計、1人あたりの金額を素早く計算します。"
+  },
+  "title": "チップ計算機",
+  "description": "チップ金額と合計、1人あたりをすぐに算出します。",
+  "label": {
+    "billAmount": "請求金額",
+    "tipPercent": "チップ率",
+    "customTip": "カスタム (%)",
+    "people": "人数",
+    "result": "結果"
+  },
+  "placeholder": {
+    "billAmount": "請求金額を入力",
+    "tipPercent": "チップ率を選択",
+    "customTip": "カスタム入力",
+    "people": "人数を入力"
+  },
+  "preset": "チップ {{value}}%",
+  "presetCustom": "カスタム",
+  "helper": "チップは請求金額を基準に計算されます。1人あたりは小数2桁で表示します。",
+  "example": {
+    "split": "$100 を2人で",
+    "coffee": "$45 コーヒー",
+    "group": "$280 グループ"
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "reset": "リセット"
+  },
+  "result": {
+    "tipAmount": "チップ金額",
+    "totalAmount": "合計 (請求 + チップ)",
+    "perPerson": "1人あたり"
+  },
+  "note": "税金や割引は請求金額に含めて入力してください。",
+  "copy": {
+    "summary": "請求 {{bill}}、チップ {{tipPercent}}% → チップ {{tipAmount}}、合計 {{totalAmount}}、1人あたり {{perPerson}}"
+  }
+}

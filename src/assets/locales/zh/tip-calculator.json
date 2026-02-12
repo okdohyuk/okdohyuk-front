@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "小费计算器",
+    "ogTitle": "小费计算器",
+    "description": "快速计算餐费小费、总额与人均金额。"
+  },
+  "title": "小费计算器",
+  "description": "快速计算小费金额、总额与人均分摊。",
+  "label": {
+    "billAmount": "账单金额",
+    "tipPercent": "小费比例",
+    "customTip": "自定义 (%)",
+    "people": "人数",
+    "result": "结果"
+  },
+  "placeholder": {
+    "billAmount": "输入账单金额",
+    "tipPercent": "选择小费比例",
+    "customTip": "输入自定义比例",
+    "people": "输入人数"
+  },
+  "preset": "{{value}}% 小费",
+  "presetCustom": "自定义",
+  "helper": "小费以账单金额为基准计算。人均金额保留两位小数。",
+  "example": {
+    "split": "$100 两人平分",
+    "coffee": "$45 咖啡",
+    "group": "$280 聚餐"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "reset": "重置"
+  },
+  "result": {
+    "tipAmount": "小费金额",
+    "totalAmount": "总额（账单 + 小费）",
+    "perPerson": "人均"
+  },
+  "note": "税费与折扣请先并入账单金额。",
+  "copy": {
+    "summary": "账单 {{bill}}，小费 {{tipPercent}}% → 小费 {{tipAmount}}，总额 {{totalAmount}}，人均 {{perPerson}}"
+  }
+}
