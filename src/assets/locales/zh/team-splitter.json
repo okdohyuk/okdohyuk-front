@@ -1,0 +1,43 @@
+{
+  "title": "随机分组",
+  "description": "将姓名列表随机分组并尽量均衡分配。",
+  "badge": "Team Shuffle",
+  "labels": {
+    "names": "参与者",
+    "mode": "分组方式",
+    "teamCount": "团队数量",
+    "teamSize": "每队人数"
+  },
+  "modes": {
+    "teamCount": "按团队数量",
+    "teamSize": "按每队人数"
+  },
+  "placeholder": "例如\n宇斗赫\n真理\n达鲁",
+  "helper": "可用换行或逗号分隔姓名。",
+  "buttons": {
+    "split": "开始分组",
+    "reshuffle": "重新随机",
+    "reset": "清空",
+    "sample": "填入示例",
+    "copy": "复制结果",
+    "copied": "已复制！"
+  },
+  "status": {
+    "participants": "参与者",
+    "teams": "团队"
+  },
+  "results": {
+    "title": "分组结果",
+    "empty": "尚无结果。",
+    "teamLabel": "团队"
+  },
+  "errors": {
+    "needNames": "请输入至少两位参与者。",
+    "invalidNumber": "请输入有效数字。",
+    "tooFewTeams": "至少需要两个团队。"
+  },
+  "openGraph": {
+    "title": "随机分组",
+    "description": "免费在线随机分组工具。粘贴姓名并选择团队数量或每队人数，即可快速生成均衡分组，适合活动、课堂或游戏。"
+  }
+}

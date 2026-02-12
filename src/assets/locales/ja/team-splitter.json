@@ -1,0 +1,43 @@
+{
+  "title": "ランダムチーム分け",
+  "description": "名前リストをランダムにチーム分けしてバランスよく配置します。",
+  "badge": "Team Shuffle",
+  "labels": {
+    "names": "参加者",
+    "mode": "分け方",
+    "teamCount": "チーム数",
+    "teamSize": "チーム人数"
+  },
+  "modes": {
+    "teamCount": "チーム数で指定",
+    "teamSize": "チーム人数で指定"
+  },
+  "placeholder": "例)\nユドヒョク\nマキセ\nダル",
+  "helper": "改行またはカンマで区切って入力してください。",
+  "buttons": {
+    "split": "チーム分け",
+    "reshuffle": "もう一度シャッフル",
+    "reset": "クリア",
+    "sample": "サンプルを入れる",
+    "copy": "結果をコピー",
+    "copied": "コピーしました！"
+  },
+  "status": {
+    "participants": "参加者",
+    "teams": "チーム"
+  },
+  "results": {
+    "title": "チーム結果",
+    "empty": "まだ結果がありません。",
+    "teamLabel": "チーム"
+  },
+  "errors": {
+    "needNames": "参加者を2名以上入力してください。",
+    "invalidNumber": "有効な数字を入力してください。",
+    "tooFewTeams": "チームは2つ以上必要です。"
+  },
+  "openGraph": {
+    "title": "ランダムチーム分け",
+    "description": "無料のチーム分けツール。名前を貼り付けてチーム数やチーム人数を選ぶだけで、すぐにランダムなチームを作成できます。"
+  }
+}
