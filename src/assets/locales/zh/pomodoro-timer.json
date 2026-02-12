@@ -1,0 +1,26 @@
+{
+  "openGraph": {
+    "title": "番茄钟专注计时器",
+    "ogTitle": "番茄钟专注计时器",
+    "description": "帮助你安排专注与休息的番茄钟计时器。可自定义时长并追踪完成的会话。",
+    "keywords": ["番茄钟", "专注", "计时器", "休息", "效率", "学习", "工作"]
+  },
+  "title": "番茄钟专注计时器",
+  "description": "用可自定义的番茄钟节奏平衡专注与休息。",
+  "mode": {
+    "focus": "专注",
+    "break": "休息"
+  },
+  "sessionProgress": "已完成 {completed}/{goal} 个会话",
+  "progressHint": "切换会话时进度会重置。",
+  "start": "开始",
+  "pause": "暂停",
+  "reset": "重置",
+  "skip": "跳过",
+  "settings": "会话设置",
+  "focusMinutes": "专注时长（分钟）",
+  "breakMinutes": "休息时长（分钟）",
+  "goalSessions": "目标会话数",
+  "preset": "预设 {value}",
+  "tip": "提示：25/5 是经典番茄钟节奏，可根据计划调整目标会话数。"
+}

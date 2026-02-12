@@ -22,6 +22,8 @@ import jwtDecoder from 'assets/locales/ko/jwt-decoder.json';
 import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
+import ladderGame from 'assets/locales/ko/ladder-game.json';
+import pomodoroTimer from 'assets/locales/ko/pomodoro-timer.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -50,6 +52,8 @@ declare module 'i18next' {
       'cron-generator': typeof cronGenerator;
       'css-generator': typeof cssGenerator;
       'slug-generator': typeof slugGenerator;
+      'ladder-game': typeof ladderGame;
+      'pomodoro-timer': typeof pomodoroTimer;
     };
   }
 }
