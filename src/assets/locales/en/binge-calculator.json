@@ -1,0 +1,69 @@
+{
+  "openGraph": {
+    "title": "Binge Time Calculator",
+    "ogTitle": "Series Binge Time Calculator",
+    "description": "Estimate total watch time from episode counts and runtimes. Factor in intro skips and daily watch goals to plan your binge.",
+    "keywords": [
+      "binge",
+      "series",
+      "watch time",
+      "episode",
+      "runtime",
+      "calculator",
+      "streaming",
+      "tv"
+    ]
+  },
+  "title": "Binge Time Calculator",
+  "description": "Estimate how long a series takes based on episodes and runtime.",
+  "subtitle": "Enter total episodes or season info to see hours, days, and a finish estimate.",
+  "inputSection": {
+    "title": "Inputs",
+    "description": "If you type total episodes, season-based calculation is skipped."
+  },
+  "label": {
+    "totalEpisodes": "Total episodes (optional)",
+    "seasons": "Number of seasons",
+    "episodesPerSeason": "Episodes per season",
+    "minutesPerEpisode": "Minutes per episode",
+    "introSkip": "Intro/recap skip (minutes)",
+    "hoursPerDay": "Hours per day"
+  },
+  "helper": {
+    "totalEpisodes": "Leave empty to auto-calculate from seasons.",
+    "introSkip": "Subtract this from each episode if you skip intros."
+  },
+  "placeholder": {
+    "totalEpisodes": "36",
+    "seasons": "3",
+    "episodesPerSeason": "12",
+    "minutesPerEpisode": "50",
+    "introSkip": "1.5",
+    "hoursPerDay": "2"
+  },
+  "resultSection": {
+    "title": "Results",
+    "description": "See the total watch time and how long it takes at your pace."
+  },
+  "result": {
+    "totalEpisodes": "Total episodes",
+    "totalHours": "Total hours",
+    "totalDays": "Total days",
+    "totalWeeks": "Total weeks",
+    "finishDays": "At {{hours}} hours/day, you will finish in about {{days}} days.",
+    "empty": "Enter episodes and runtime to get a breakdown."
+  },
+  "summary": "{{episodes}} episodes · {{hours}} hours ({{days}} days)",
+  "summaryEmpty": "Complete the inputs to unlock a shareable summary.",
+  "button": {
+    "copy": "Copy summary",
+    "reset": "Reset",
+    "example": "Use example"
+  },
+  "unit": {
+    "episodes": "episodes",
+    "hours": "hours",
+    "days": "days",
+    "weeks": "weeks"
+  }
+}

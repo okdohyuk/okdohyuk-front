@@ -1,0 +1,60 @@
+{
+  "openGraph": {
+    "title": "刷剧时间计算器",
+    "ogTitle": "刷剧时间计算器",
+    "description": "根据集数和时长估算总刷剧时间。支持跳过片头/回顾和每日观看时长，轻松规划追剧进度。",
+    "keywords": ["刷剧", "剧集", "观看时间", "集数", "时长", "计算器"]
+  },
+  "title": "刷剧时间计算器",
+  "description": "根据集数和时长估算总刷剧时间。",
+  "subtitle": "输入总集数或季/每季集数，即可查看总小时数和完成天数。",
+  "inputSection": {
+    "title": "输入",
+    "description": "填写总集数后将跳过季数计算。"
+  },
+  "label": {
+    "totalEpisodes": "总集数（可选）",
+    "seasons": "季数",
+    "episodesPerSeason": "每季集数",
+    "minutesPerEpisode": "每集分钟数",
+    "introSkip": "跳过片头/回顾（分钟）",
+    "hoursPerDay": "每天观看时长"
+  },
+  "helper": {
+    "totalEpisodes": "留空则按季数自动计算。",
+    "introSkip": "每集扣除的跳过分钟数。"
+  },
+  "placeholder": {
+    "totalEpisodes": "36",
+    "seasons": "3",
+    "episodesPerSeason": "12",
+    "minutesPerEpisode": "50",
+    "introSkip": "1.5",
+    "hoursPerDay": "2"
+  },
+  "resultSection": {
+    "title": "结果",
+    "description": "展示总观看时间与预计完成天数。"
+  },
+  "result": {
+    "totalEpisodes": "总集数",
+    "totalHours": "总小时数",
+    "totalDays": "总天数",
+    "totalWeeks": "总周数",
+    "finishDays": "按每天{{hours}}小时计算，大约{{days}}天完成。",
+    "empty": "请输入集数和每集时长。"
+  },
+  "summary": "{{episodes}}集 · {{hours}}小时（{{days}}天）",
+  "summaryEmpty": "完成输入后可复制摘要。",
+  "button": {
+    "copy": "复制摘要",
+    "reset": "重置",
+    "example": "使用示例"
+  },
+  "unit": {
+    "episodes": "集",
+    "hours": "小时",
+    "days": "天",
+    "weeks": "周"
+  }
+}

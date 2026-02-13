@@ -1,0 +1,60 @@
+{
+  "openGraph": {
+    "title": "一気見時間計算",
+    "ogTitle": "一気見時間計算",
+    "description": "エピソード数と再生時間から合計視聴時間を計算します。イントロスキップや1日の視聴時間も反映して完走計画を立てましょう。",
+    "keywords": ["一気見", "シリーズ", "視聴時間", "エピソード", "ランタイム", "計算"]
+  },
+  "title": "一気見時間計算",
+  "description": "エピソード数と再生時間から合計視聴時間を見積もります。",
+  "subtitle": "総エピソード数またはシーズン情報を入力して、時間と日数を確認しましょう。",
+  "inputSection": {
+    "title": "入力",
+    "description": "総エピソード数を入力するとシーズン計算は無視されます。"
+  },
+  "label": {
+    "totalEpisodes": "総エピソード数（任意）",
+    "seasons": "シーズン数",
+    "episodesPerSeason": "1シーズンのエピソード数",
+    "minutesPerEpisode": "1話あたりの分数",
+    "introSkip": "イントロ/リキャップのスキップ（分）",
+    "hoursPerDay": "1日の視聴時間"
+  },
+  "helper": {
+    "totalEpisodes": "空欄の場合はシーズン情報から自動計算します。",
+    "introSkip": "各話から差し引く分数です。"
+  },
+  "placeholder": {
+    "totalEpisodes": "36",
+    "seasons": "3",
+    "episodesPerSeason": "12",
+    "minutesPerEpisode": "50",
+    "introSkip": "1.5",
+    "hoursPerDay": "2"
+  },
+  "resultSection": {
+    "title": "結果",
+    "description": "合計視聴時間と完走までの期間を表示します。"
+  },
+  "result": {
+    "totalEpisodes": "総エピソード",
+    "totalHours": "総時間",
+    "totalDays": "総日数",
+    "totalWeeks": "総週数",
+    "finishDays": "1日{{hours}}時間なら約{{days}}日で完走できます。",
+    "empty": "エピソード数と再生時間を入力してください。"
+  },
+  "summary": "{{episodes}}話 · {{hours}}時間（{{days}}日）",
+  "summaryEmpty": "入力を完了すると共有用サマリーが表示されます。",
+  "button": {
+    "copy": "サマリーをコピー",
+    "reset": "リセット",
+    "example": "例を入れる"
+  },
+  "unit": {
+    "episodes": "話",
+    "hours": "時間",
+    "days": "日",
+    "weeks": "週"
+  }
+}
