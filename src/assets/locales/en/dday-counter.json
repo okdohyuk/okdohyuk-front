@@ -1,0 +1,45 @@
+{
+  "title": "D-Day Counter",
+  "description": "Count how many days are left until (or since) your special date.",
+  "label": {
+    "section": "Date setup",
+    "date": "Target date",
+    "title": "Label (optional)"
+  },
+  "placeholder": {
+    "title": "e.g. Our anniversary"
+  },
+  "helper": {
+    "date": "Pick a date to calculate your D-Day.",
+    "title": "Leave it empty to use the default label."
+  },
+  "quick": {
+    "today": "Today",
+    "week": "+7 days",
+    "month": "+30 days",
+    "hundred": "+100 days"
+  },
+  "button": {
+    "copy": "Copy result",
+    "copied": "Copied",
+    "clear": "Clear"
+  },
+  "result": {
+    "title": "Result",
+    "empty": "Select a date to see the result.",
+    "defaultLabel": "D-Day",
+    "today": "D-Day",
+    "future": "D-{{days}}",
+    "past": "D+{{days}}",
+    "daysUntil": "{{days}} days left",
+    "daysSince": "{{days}} days since",
+    "date": "Target date: {{date}}"
+  },
+  "error": {
+    "invalidDate": "Please choose a valid date."
+  },
+  "openGraph": {
+    "title": "D-Day Counter",
+    "description": "Free D-Day counter for anniversaries, exams, trips, and launches. Instantly see days left or days since any date."
+  }
+}

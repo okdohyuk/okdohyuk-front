@@ -1,0 +1,45 @@
+{
+  "title": "D-Day 计数器",
+  "description": "快速计算距离重要日期还有多少天，或已经过去多少天。",
+  "label": {
+    "section": "日期设置",
+    "date": "目标日期",
+    "title": "标签（可选）"
+  },
+  "placeholder": {
+    "title": "例如：纪念日"
+  },
+  "helper": {
+    "date": "选择日期后即可计算 D-Day。",
+    "title": "留空则使用默认标签。"
+  },
+  "quick": {
+    "today": "今天",
+    "week": "+7天",
+    "month": "+30天",
+    "hundred": "+100天"
+  },
+  "button": {
+    "copy": "复制结果",
+    "copied": "已复制",
+    "clear": "清除"
+  },
+  "result": {
+    "title": "结果",
+    "empty": "请选择日期以查看结果。",
+    "defaultLabel": "D-Day",
+    "today": "D-Day",
+    "future": "D-{{days}}",
+    "past": "D+{{days}}",
+    "daysUntil": "还剩{{days}}天",
+    "daysSince": "已过去{{days}}天",
+    "date": "目标日期：{{date}}"
+  },
+  "error": {
+    "invalidDate": "请选择有效日期。"
+  },
+  "openGraph": {
+    "title": "D-Day 计数器",
+    "description": "用于纪念日、考试、旅行等重要日子的 D-Day 计数器，快速查看剩余天数或已过天数。"
+  }
+}

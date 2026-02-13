@@ -1,0 +1,45 @@
+{
+  "title": "D-Dayカウンター",
+  "description": "記念日までの残り日数、または経過日数をすぐに計算できます。",
+  "label": {
+    "section": "日付設定",
+    "date": "対象日",
+    "title": "ラベル（任意）"
+  },
+  "placeholder": {
+    "title": "例：記念日"
+  },
+  "helper": {
+    "date": "日付を選ぶとD-Dayが計算されます。",
+    "title": "未入力の場合はデフォルトラベルを使います。"
+  },
+  "quick": {
+    "today": "今日",
+    "week": "+7日",
+    "month": "+30日",
+    "hundred": "+100日"
+  },
+  "button": {
+    "copy": "結果をコピー",
+    "copied": "コピー済み",
+    "clear": "クリア"
+  },
+  "result": {
+    "title": "結果",
+    "empty": "日付を選ぶと結果が表示されます。",
+    "defaultLabel": "D-Day",
+    "today": "D-Day",
+    "future": "D-{{days}}",
+    "past": "D+{{days}}",
+    "daysUntil": "残り{{days}}日",
+    "daysSince": "{{days}}日経過",
+    "date": "対象日: {{date}}"
+  },
+  "error": {
+    "invalidDate": "有効な日付を選択してください。"
+  },
+  "openGraph": {
+    "title": "D-Dayカウンター",
+    "description": "記念日、試験、旅行などの大切な日までの残り日数・経過日数を即計算するD-Dayカウンター。"
+  }
+}

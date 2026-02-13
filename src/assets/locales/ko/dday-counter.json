@@ -1,0 +1,45 @@
+{
+  "title": "디데이 카운터",
+  "description": "중요한 날짜까지 남은/지난 일수를 바로 계산합니다.",
+  "label": {
+    "section": "날짜 설정",
+    "date": "목표 날짜",
+    "title": "라벨(선택)"
+  },
+  "placeholder": {
+    "title": "예: 우리의 기념일"
+  },
+  "helper": {
+    "date": "날짜를 선택하면 디데이를 계산합니다.",
+    "title": "비워두면 기본 라벨이 사용됩니다."
+  },
+  "quick": {
+    "today": "오늘",
+    "week": "+7일",
+    "month": "+30일",
+    "hundred": "+100일"
+  },
+  "button": {
+    "copy": "결과 복사",
+    "copied": "복사됨",
+    "clear": "초기화"
+  },
+  "result": {
+    "title": "결과",
+    "empty": "날짜를 선택하면 결과가 표시됩니다.",
+    "defaultLabel": "디데이",
+    "today": "D-DAY",
+    "future": "D-{{days}}",
+    "past": "D+{{days}}",
+    "daysUntil": "{{days}}일 남음",
+    "daysSince": "{{days}}일 지남",
+    "date": "목표 날짜: {{date}}"
+  },
+  "error": {
+    "invalidDate": "유효한 날짜를 선택하세요."
+  },
+  "openGraph": {
+    "title": "디데이 카운터",
+    "description": "기념일, 시험, 여행처럼 중요한 날짜까지 남은 일수 또는 지난 일수를 바로 계산하는 디데이 카운터입니다."
+  }
+}
