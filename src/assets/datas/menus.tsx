@@ -17,6 +17,7 @@ import {
   Smile,
   Sparkles,
   TextCursorInput,
+  Timer,
   Tv,
   Youtube,
 } from 'lucide-react';
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '정주행 시간 계산기',
+        en: 'Binge Time Calculator',
+        ja: '一気見時間計算',
+        zh: '刷剧时间计算器',
+      },
+      icon: <Timer />,
+      link: '/binge-calculator',
     },
     {
       title: {
