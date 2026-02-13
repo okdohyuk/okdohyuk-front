@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Gift,
   Github,
   Hash,
   Key,
@@ -45,6 +46,16 @@ const menus: Menus = {
       },
       icon: <QrCode />,
       link: '/qr-generator',
+    },
+    {
+      title: {
+        ko: '시크릿 산타 추첨기',
+        en: 'Secret Santa Generator',
+        ja: 'シークレットサンタ抽選',
+        zh: '秘密圣诞抽签器',
+      },
+      icon: <Gift />,
+      link: '/secret-santa',
     },
     {
       title: {
