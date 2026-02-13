@@ -1,0 +1,27 @@
+{
+  "title": "Markdown Previewer",
+  "description": "Preview Markdown as you type with quick stats.",
+  "badge": "Markdown Utility",
+  "label": {
+    "input": "Markdown input",
+    "preview": "Live preview"
+  },
+  "placeholder": "Type Markdown here...",
+  "helper": "Paste your Markdown and see the rendered result instantly.",
+  "button": {
+    "sample": "Load sample",
+    "clear": "Clear"
+  },
+  "stats": {
+    "words": "Words",
+    "characters": "Chars",
+    "noSpaces": "Chars (no spaces)",
+    "lines": "Lines"
+  },
+  "empty": "Enter Markdown to see the preview.",
+  "sample": "# Markdown Preview\n\n**Quick tips**\n- Use # for headings\n- Use **bold** for emphasis\n- Add [links](https://okdohyuk.dev)\n\n```js\nconsole.log('Hello, Markdown!');\n```",
+  "openGraph": {
+    "title": "Markdown Previewer",
+    "description": "Live preview your Markdown with instant stats."
+  }
+}

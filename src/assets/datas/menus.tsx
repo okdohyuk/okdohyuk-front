@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -75,6 +76,16 @@ const menus: Menus = {
       },
       icon: <Palette />,
       link: '/css-generator',
+    },
+    {
+      title: {
+        ko: '마크다운 미리보기',
+        en: 'Markdown Previewer',
+        ja: 'Markdownプレビュー',
+        zh: 'Markdown 预览器',
+      },
+      icon: <FileText />,
+      link: '/markdown-previewer',
     },
     {
       title: {
