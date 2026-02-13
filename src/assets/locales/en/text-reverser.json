@@ -1,0 +1,19 @@
+{
+  "title": "Text Reverser",
+  "description": "Reverse any text instantly.",
+  "label": {
+    "input": "Source text",
+    "output": "Reversed result"
+  },
+  "placeholder": "Type or paste text to reverse.",
+  "helper": "Keeps characters intact and flips the order.",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Enter text to see the reversed output.",
+  "openGraph": {
+    "title": "Text Reverser",
+    "description": "Flip text order instantly with the Text Reverser."
+  }
+}

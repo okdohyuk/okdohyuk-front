@@ -1,0 +1,19 @@
+{
+  "title": "텍스트 뒤집기",
+  "description": "입력한 텍스트를 거꾸로 뒤집어줍니다.",
+  "label": {
+    "input": "원문",
+    "output": "뒤집힌 결과"
+  },
+  "placeholder": "뒤집을 텍스트를 입력하세요.",
+  "helper": "문자의 순서를 반대로 뒤집습니다.",
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "empty": "텍스트를 입력하면 결과가 표시됩니다.",
+  "openGraph": {
+    "title": "텍스트 뒤집기",
+    "description": "텍스트를 빠르게 뒤집어주는 유틸리티입니다."
+  }
+}
