@@ -1,0 +1,40 @@
+{
+  "title": "播放列表时长计算器",
+  "description": "用歌曲数量+平均时长，或歌曲时长清单来计算总播放时间。",
+  "badge": "Playlist Helper",
+  "section": {
+    "manual": "快速估算",
+    "list": "歌曲时长清单"
+  },
+  "placeholder": {
+    "trackCount": "歌曲数量 (如 12)",
+    "avgMinutes": "平均分钟 (如 3)",
+    "avgSeconds": "平均秒 (如 30)",
+    "list": "示例: 3:45\n4:10\n2:58\n5:02"
+  },
+  "helper": {
+    "fallback": "清单为空时，将用歌曲数量和平均时长估算。",
+    "list": "每行输入 mm:ss 或 hh:mm:ss 格式。"
+  },
+  "button": {
+    "example": "填入示例",
+    "reset": "清空",
+    "copy": "复制摘要"
+  },
+  "result": {
+    "title": "摘要",
+    "total": "总播放时长",
+    "trackCount": "歌曲数量",
+    "average": "平均时长",
+    "invalid": "忽略的行数: {{count}}"
+  },
+  "unit": {
+    "hours": "小时",
+    "minutes": "分",
+    "seconds": "秒"
+  },
+  "openGraph": {
+    "title": "播放列表时长计算器",
+    "description": "输入歌曲数量或粘贴时长清单，快速计算播放列表总时长与平均时长，并支持复制摘要。"
+  }
+}

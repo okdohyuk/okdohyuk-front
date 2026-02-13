@@ -1,0 +1,40 @@
+{
+  "title": "Playlist Duration Calculator",
+  "description": "Estimate total play time with track counts or a list of durations.",
+  "badge": "Playlist Helper",
+  "section": {
+    "manual": "Quick Estimate",
+    "list": "Track Duration List"
+  },
+  "placeholder": {
+    "trackCount": "Tracks (e.g. 12)",
+    "avgMinutes": "Avg minutes (e.g. 3)",
+    "avgSeconds": "Avg seconds (e.g. 30)",
+    "list": "Example: 3:45\n4:10\n2:58\n5:02"
+  },
+  "helper": {
+    "fallback": "If the list is empty, we calculate using track count + average length.",
+    "list": "Use mm:ss or hh:mm:ss per line. "
+  },
+  "button": {
+    "example": "Fill Example",
+    "reset": "Clear",
+    "copy": "Copy Summary"
+  },
+  "result": {
+    "title": "Summary",
+    "total": "Total duration",
+    "trackCount": "Tracks",
+    "average": "Average length",
+    "invalid": "Ignored lines: {{count}}"
+  },
+  "unit": {
+    "hours": "h",
+    "minutes": "m",
+    "seconds": "s"
+  },
+  "openGraph": {
+    "title": "Playlist Duration Calculator",
+    "description": "Calculate total playlist length from track counts or pasted time lists. Estimate total duration, average track length, and copy a clean summary in seconds."
+  }
+}

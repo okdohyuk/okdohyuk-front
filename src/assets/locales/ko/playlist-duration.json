@@ -1,0 +1,40 @@
+{
+  "title": "플레이리스트 시간 계산기",
+  "description": "곡 수와 평균 길이 또는 시간 목록으로 총 재생 시간을 계산합니다.",
+  "badge": "Playlist Helper",
+  "section": {
+    "manual": "간단 계산",
+    "list": "곡 길이 목록"
+  },
+  "placeholder": {
+    "trackCount": "곡 수 (예: 12)",
+    "avgMinutes": "평균 분 (예: 3)",
+    "avgSeconds": "평균 초 (예: 30)",
+    "list": "예시: 3:45\n4:10\n2:58\n5:02"
+  },
+  "helper": {
+    "fallback": "목록이 비어 있으면 곡 수 + 평균 길이로 계산합니다.",
+    "list": "한 줄에 mm:ss 또는 hh:mm:ss 형식으로 입력하세요."
+  },
+  "button": {
+    "example": "예시 채우기",
+    "reset": "초기화",
+    "copy": "요약 복사"
+  },
+  "result": {
+    "title": "요약",
+    "total": "총 재생 시간",
+    "trackCount": "곡 수",
+    "average": "평균 길이",
+    "invalid": "무시된 라인: {{count}}개"
+  },
+  "unit": {
+    "hours": "시간",
+    "minutes": "분",
+    "seconds": "초"
+  },
+  "openGraph": {
+    "title": "플레이리스트 시간 계산기",
+    "description": "곡 수/평균 길이 또는 시간 목록으로 총 재생 시간을 계산하세요. 총 재생 시간, 평균 길이, 복사 가능한 요약을 제공합니다."
+  }
+}

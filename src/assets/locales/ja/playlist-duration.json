@@ -1,0 +1,40 @@
+{
+  "title": "プレイリスト再生時間計算機",
+  "description": "曲数と平均長、または時間リストから合計再生時間を計算します。",
+  "badge": "Playlist Helper",
+  "section": {
+    "manual": "簡易計算",
+    "list": "曲の長さリスト"
+  },
+  "placeholder": {
+    "trackCount": "曲数 (例: 12)",
+    "avgMinutes": "平均分 (例: 3)",
+    "avgSeconds": "平均秒 (例: 30)",
+    "list": "例: 3:45\n4:10\n2:58\n5:02"
+  },
+  "helper": {
+    "fallback": "リストが空の場合は曲数と平均長で計算します。",
+    "list": "1行ごとに mm:ss または hh:mm:ss 形式で入力してください。"
+  },
+  "button": {
+    "example": "例を入力",
+    "reset": "クリア",
+    "copy": "要約をコピー"
+  },
+  "result": {
+    "title": "サマリー",
+    "total": "合計再生時間",
+    "trackCount": "曲数",
+    "average": "平均長",
+    "invalid": "無視された行: {{count}}"
+  },
+  "unit": {
+    "hours": "時間",
+    "minutes": "分",
+    "seconds": "秒"
+  },
+  "openGraph": {
+    "title": "プレイリスト再生時間計算機",
+    "description": "曲数や時間リストからプレイリストの合計再生時間を計算。平均曲長やコピーメモも簡単に作成できます。"
+  }
+}
