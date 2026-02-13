@@ -1,0 +1,40 @@
+{
+  "title": "사다리타기",
+  "description": "참가자와 결과를 랜덤으로 매칭해 간단히 사다리 결과를 만들어보세요.",
+  "badge": "빠른 매칭",
+  "labels": {
+    "participants": "참가자",
+    "results": "결과"
+  },
+  "placeholder": {
+    "participants": "참가자를 한 줄에 하나씩 입력하세요\n예: 민수\n지수",
+    "results": "결과를 한 줄에 하나씩 입력하세요\n예: 당첨\n꽝"
+  },
+  "helper": {
+    "participants": "쉼표 또는 줄바꿈으로 구분합니다.",
+    "results": "비워두면 결과 1, 결과 2...로 자동 생성됩니다."
+  },
+  "buttons": {
+    "generate": "사다리 뽑기",
+    "reset": "초기화"
+  },
+  "status": {
+    "participants": "참가자 {{count}}명",
+    "ready": "아래에 결과가 표시됩니다."
+  },
+  "result": {
+    "title": "매칭 결과 ({{count}})",
+    "empty": "아직 결과가 없어요."
+  },
+  "error": {
+    "emptyParticipants": "참가자를 최소 2명 이상 입력하세요.",
+    "mismatch": "결과 수가 참가자 {{count}}명과 같아야 합니다."
+  },
+  "defaults": {
+    "result": "결과 {{index}}"
+  },
+  "openGraph": {
+    "title": "사다리타기",
+    "description": "참가자와 결과를 입력하고 사다리 매칭을 빠르게 생성하세요."
+  }
+}

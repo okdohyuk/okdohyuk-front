@@ -1,0 +1,40 @@
+{
+  "title": "あみだくじ",
+  "description": "参加者と結果をランダムに結びつけて簡単に決めましょう。",
+  "badge": "クイック抽選",
+  "labels": {
+    "participants": "参加者",
+    "results": "結果"
+  },
+  "placeholder": {
+    "participants": "参加者を1行ずつ入力\n例: アリス\nボブ",
+    "results": "結果を1行ずつ入力\n例: 当たり\nはずれ"
+  },
+  "helper": {
+    "participants": "カンマまたは改行で区切ります。",
+    "results": "空欄なら結果1、結果2...を自動生成します。"
+  },
+  "buttons": {
+    "generate": "抽選する",
+    "reset": "リセット"
+  },
+  "status": {
+    "participants": "{{count}}名",
+    "ready": "結果は下に表示されます。"
+  },
+  "result": {
+    "title": "組み合わせ ({{count}})",
+    "empty": "まだ結果がありません。"
+  },
+  "error": {
+    "emptyParticipants": "参加者を2名以上入力してください。",
+    "mismatch": "結果数は参加者{{count}}名と一致させてください。"
+  },
+  "defaults": {
+    "result": "結果 {{index}}"
+  },
+  "openGraph": {
+    "title": "あみだくじ",
+    "description": "参加者と結果を入力してランダムな組み合わせを作成します。"
+  }
+}

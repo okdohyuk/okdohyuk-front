@@ -1,0 +1,40 @@
+{
+  "title": "Ladder Game",
+  "description": "Randomly match participants with outcomes for quick ladder draws.",
+  "badge": "Quick Match",
+  "labels": {
+    "participants": "Participants",
+    "results": "Results"
+  },
+  "placeholder": {
+    "participants": "Enter participants, one per line\nExample: Alice\nBob",
+    "results": "Enter outcomes, one per line\nExample: Winner\nLoser"
+  },
+  "helper": {
+    "participants": "Separate names with commas or new lines.",
+    "results": "Leave empty to auto-generate Result 1, Result 2, and more."
+  },
+  "buttons": {
+    "generate": "Generate pairings",
+    "reset": "Reset"
+  },
+  "status": {
+    "participants": "{{count}} participants",
+    "ready": "Pairings will appear below."
+  },
+  "result": {
+    "title": "Pairings ({{count}})",
+    "empty": "No pairings yet."
+  },
+  "error": {
+    "emptyParticipants": "Add at least two participants.",
+    "mismatch": "Results must match {{count}} participants."
+  },
+  "defaults": {
+    "result": "Result {{index}}"
+  },
+  "openGraph": {
+    "title": "Ladder Game",
+    "description": "Create a quick ladder draw by matching participants with outcomes at random."
+  }
+}

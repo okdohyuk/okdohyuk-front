@@ -1,0 +1,40 @@
+{
+  "title": "梯子抽签",
+  "description": "将参与者与结果随机配对，快速完成梯子抽签。",
+  "badge": "快速配对",
+  "labels": {
+    "participants": "参与者",
+    "results": "结果"
+  },
+  "placeholder": {
+    "participants": "每行输入一个参与者\n示例：小明\n小美",
+    "results": "每行输入一个结果\n示例：中奖\n未中奖"
+  },
+  "helper": {
+    "participants": "使用逗号或换行分隔。",
+    "results": "留空将自动生成结果1、结果2..."
+  },
+  "buttons": {
+    "generate": "开始抽签",
+    "reset": "重置"
+  },
+  "status": {
+    "participants": "{{count}}人",
+    "ready": "结果将显示在下方。"
+  },
+  "result": {
+    "title": "配对结果 ({{count}})",
+    "empty": "暂无结果。"
+  },
+  "error": {
+    "emptyParticipants": "请至少输入2名参与者。",
+    "mismatch": "结果数量需与参与者{{count}}人一致。"
+  },
+  "defaults": {
+    "result": "结果 {{index}}"
+  },
+  "openGraph": {
+    "title": "梯子抽签",
+    "description": "输入参与者与结果，快速生成随机配对。"
+  }
+}
