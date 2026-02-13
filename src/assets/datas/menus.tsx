@@ -3,7 +3,9 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  ChefHat,
   Code,
+  Coffee,
   CreditCard,
   Github,
   Hash,
@@ -95,6 +97,26 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '레시피 분량 조절',
+        en: 'Recipe Portion Scaler',
+        ja: 'レシピ分量調整',
+        zh: '食谱份量调整',
+      },
+      icon: <ChefHat />,
+      link: '/recipe-scaler',
+    },
+    {
+      title: {
+        ko: '커피 비율 계산기',
+        en: 'Coffee Ratio Calculator',
+        ja: 'コーヒー比率計算機',
+        zh: '咖啡比例计算器',
+      },
+      icon: <Coffee />,
+      link: '/coffee-ratio',
     },
     {
       title: {

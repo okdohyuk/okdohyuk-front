@@ -1,0 +1,33 @@
+{
+  "title": "Recipe Portion Scaler",
+  "description": "Scale ingredient amounts instantly when changing servings.",
+  "label": {
+    "servings": "Servings",
+    "originalServings": "Original servings",
+    "targetServings": "Target servings",
+    "ingredients": "Ingredients",
+    "result": "Scaled ingredients",
+    "ratio": "Ratio",
+    "example": "Example"
+  },
+  "placeholder": {
+    "servings": "e.g. 2",
+    "ingredients": "e.g.\n1 cup rice\n2 eggs\n1/2 tsp salt"
+  },
+  "actions": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear"
+  },
+  "helper": {
+    "ratioHint": "Ratio = target servings ÷ original servings",
+    "invalidServings": "Enter servings greater than 0.",
+    "emptyResult": "Enter servings and ingredients to see the scaled result.",
+    "copyHint": "Scaled list is ready to copy.",
+    "exampleText": "Try: 2 servings → 6 servings and watch the numbers update."
+  },
+  "openGraph": {
+    "title": "Recipe Portion Scaler",
+    "description": "Scale ingredient amounts instantly when changing servings."
+  }
+}

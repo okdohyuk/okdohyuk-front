@@ -1,0 +1,33 @@
+{
+  "title": "레시피 분량 조절기",
+  "description": "인분을 바꾸면 재료 수량을 자동으로 비율 조정합니다.",
+  "label": {
+    "servings": "인분",
+    "originalServings": "기존 인분",
+    "targetServings": "목표 인분",
+    "ingredients": "재료 목록",
+    "result": "조정된 재료",
+    "ratio": "비율",
+    "example": "예시"
+  },
+  "placeholder": {
+    "servings": "예: 2",
+    "ingredients": "예:\n1 컵 쌀\n2 개 달걀\n1/2 작은술 소금"
+  },
+  "actions": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "초기화"
+  },
+  "helper": {
+    "ratioHint": "비율 = 목표 인분 ÷ 기존 인분",
+    "invalidServings": "인분은 0보다 큰 숫자로 입력하세요.",
+    "emptyResult": "인분과 재료를 입력하면 결과가 표시됩니다.",
+    "copyHint": "결과를 복사할 수 있어요.",
+    "exampleText": "예: 2인분 → 6인분으로 바꾸면 수량이 자동으로 조정됩니다."
+  },
+  "openGraph": {
+    "title": "레시피 분량 조절기",
+    "description": "인분을 바꾸면 재료 수량을 자동으로 비율 조정합니다."
+  }
+}

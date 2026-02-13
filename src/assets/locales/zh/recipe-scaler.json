@@ -1,0 +1,33 @@
+{
+  "title": "食谱份量调整",
+  "description": "更改人数后自动按比例调整食材用量。",
+  "label": {
+    "servings": "份量",
+    "originalServings": "原始份量",
+    "targetServings": "目标份量",
+    "ingredients": "食材列表",
+    "result": "调整后的食材",
+    "ratio": "比例",
+    "example": "示例"
+  },
+  "placeholder": {
+    "servings": "例: 2",
+    "ingredients": "例:\n米 1 杯\n鸡蛋 2 个\n盐 1/2 茶匙"
+  },
+  "actions": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空"
+  },
+  "helper": {
+    "ratioHint": "比例 = 目标份量 ÷ 原始份量",
+    "invalidServings": "请输入大于 0 的份量。",
+    "emptyResult": "输入份量和食材后即可查看结果。",
+    "copyHint": "结果可直接复制。",
+    "exampleText": "示例：2 份 → 6 份，数值会自动更新。"
+  },
+  "openGraph": {
+    "title": "食谱份量调整",
+    "description": "更改人数后自动按比例调整食材用量。"
+  }
+}
