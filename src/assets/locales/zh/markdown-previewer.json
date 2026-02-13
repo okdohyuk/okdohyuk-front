@@ -1,0 +1,27 @@
+{
+  "title": "Markdown 预览器",
+  "description": "输入 Markdown 即可实时预览并查看统计。",
+  "badge": "Markdown 工具",
+  "label": {
+    "input": "Markdown 输入",
+    "preview": "实时预览"
+  },
+  "placeholder": "在这里输入 Markdown...",
+  "helper": "粘贴 Markdown 后即可立即看到渲染结果。",
+  "button": {
+    "sample": "加载示例",
+    "clear": "清空"
+  },
+  "stats": {
+    "words": "单词",
+    "characters": "字符",
+    "noSpaces": "不含空格",
+    "lines": "行"
+  },
+  "empty": "输入 Markdown 即可显示预览。",
+  "sample": "# Markdown 预览\n\n**快速提示**\n- 使用 # 创建标题\n- 用 **粗体** 强调\n- 添加 [链接](https://okdohyuk.dev)\n\n```js\nconsole.log('你好，Markdown!');\n```",
+  "openGraph": {
+    "title": "Markdown 预览器",
+    "description": "实时预览 Markdown，并查看统计。"
+  }
+}

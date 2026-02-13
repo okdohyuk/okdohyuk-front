@@ -1,0 +1,27 @@
+{
+  "title": "Markdownプレビュー",
+  "description": "Markdownを入力すると即座にプレビューできます。",
+  "badge": "Markdown ツール",
+  "label": {
+    "input": "Markdown入力",
+    "preview": "ライブプレビュー"
+  },
+  "placeholder": "Markdownを入力してください...",
+  "helper": "Markdownを貼り付けるとすぐにレンダリング結果が表示されます。",
+  "button": {
+    "sample": "サンプルを読み込む",
+    "clear": "クリア"
+  },
+  "stats": {
+    "words": "単語",
+    "characters": "文字",
+    "noSpaces": "空白除外",
+    "lines": "行"
+  },
+  "empty": "Markdownを入力するとプレビューが表示されます。",
+  "sample": "# Markdownプレビュー\n\n**クイックヒント**\n- # で見出しを作成\n- **太字**で強調\n- [リンク](https://okdohyuk.dev)を追加\n\n```js\nconsole.log('こんにちは、Markdown!');\n```",
+  "openGraph": {
+    "title": "Markdownプレビュー",
+    "description": "Markdownを入力してすぐにプレビュー。"
+  }
+}
