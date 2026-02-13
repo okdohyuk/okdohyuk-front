@@ -1,0 +1,43 @@
+{
+  "title": "カウントダウンタイマー",
+  "description": "時間を設定してカウントダウンを開始します。",
+  "badge": "タイマー",
+  "label": {
+    "remaining": "残り時間",
+    "status": "状態",
+    "progress": "進捗",
+    "total": "設定時間",
+    "endTime": "終了予定",
+    "action": "クイック操作",
+    "setTime": "時間設定",
+    "hours": "時間",
+    "minutes": "分",
+    "seconds": "秒",
+    "none": "なし",
+    "preset": "{{minutes}}分"
+  },
+  "buttons": {
+    "start": "開始",
+    "pause": "一時停止",
+    "resume": "再開",
+    "reset": "リセット",
+    "clear": "クリア",
+    "copy": "概要をコピー",
+    "copied": "コピー済み",
+    "addMinute": "+1分",
+    "example": "例 (25分)"
+  },
+  "status": {
+    "ready": "待機中",
+    "running": "実行中",
+    "paused": "一時停止",
+    "finished": "完了"
+  },
+  "helper": {
+    "hint": "時間・分・秒を入力して開始を押してください。"
+  },
+  "meta": {
+    "title": "カウントダウンタイマー | Okdohyuk Multi-Tool",
+    "description": "カウントダウンを開始し、終了予定時刻を確認できます。"
+  }
+}

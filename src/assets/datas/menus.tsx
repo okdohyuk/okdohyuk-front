@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ArrowRightLeft,
   Bomb,
   Calculator,
   CalendarClock,
@@ -17,6 +18,7 @@ import {
   Smile,
   Sparkles,
   TextCursorInput,
+  Timer,
   Tv,
   Youtube,
 } from 'lucide-react';
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 뒤집기',
+        en: 'Text Reverser',
+        ja: 'テキスト反転',
+        zh: '文本反转',
+      },
+      icon: <ArrowRightLeft />,
+      link: '/text-reverser',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '카운트다운 타이머',
+        en: 'Countdown Timer',
+        ja: 'カウントダウンタイマー',
+        zh: '倒计时计时器',
+      },
+      icon: <Timer />,
+      link: '/countdown-timer',
     },
     {
       title: {

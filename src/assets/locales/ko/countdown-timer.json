@@ -1,0 +1,43 @@
+{
+  "title": "카운트다운 타이머",
+  "description": "시간을 설정하고 카운트다운을 시작하세요.",
+  "badge": "타이머",
+  "label": {
+    "remaining": "남은 시간",
+    "status": "상태",
+    "progress": "진행률",
+    "total": "설정 시간",
+    "endTime": "종료 예정",
+    "action": "빠른 작업",
+    "setTime": "시간 설정",
+    "hours": "시",
+    "minutes": "분",
+    "seconds": "초",
+    "none": "없음",
+    "preset": "{{minutes}}분"
+  },
+  "buttons": {
+    "start": "시작",
+    "pause": "일시정지",
+    "resume": "재개",
+    "reset": "리셋",
+    "clear": "초기화",
+    "copy": "요약 복사",
+    "copied": "복사됨",
+    "addMinute": "+1분",
+    "example": "예시(25분)"
+  },
+  "status": {
+    "ready": "대기 중",
+    "running": "작동 중",
+    "paused": "일시정지",
+    "finished": "완료"
+  },
+  "helper": {
+    "hint": "시/분/초를 입력한 뒤 시작을 눌러요."
+  },
+  "meta": {
+    "title": "카운트다운 타이머 | Okdohyuk Multi-Tool",
+    "description": "시간을 설정해 카운트다운하고 종료 예정 시간을 확인하세요."
+  }
+}

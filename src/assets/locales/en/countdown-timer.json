@@ -1,0 +1,43 @@
+{
+  "title": "Countdown Timer",
+  "description": "Set a duration and start a focused countdown.",
+  "badge": "Timer",
+  "label": {
+    "remaining": "Time Remaining",
+    "status": "Status",
+    "progress": "Progress",
+    "total": "Set Duration",
+    "endTime": "End Time",
+    "action": "Quick Actions",
+    "setTime": "Set Time",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "none": "None",
+    "preset": "{{minutes}} min"
+  },
+  "buttons": {
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "reset": "Reset",
+    "clear": "Clear",
+    "copy": "Copy Summary",
+    "copied": "Copied",
+    "addMinute": "+1 min",
+    "example": "Example (25 min)"
+  },
+  "status": {
+    "ready": "Ready",
+    "running": "Running",
+    "paused": "Paused",
+    "finished": "Finished"
+  },
+  "helper": {
+    "hint": "Enter hours, minutes, and seconds, then hit Start."
+  },
+  "meta": {
+    "title": "Countdown Timer | Okdohyuk Multi-Tool",
+    "description": "Start a countdown and keep track of the expected end time."
+  }
+}
