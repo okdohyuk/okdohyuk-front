@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Backpack,
   Bomb,
   Calculator,
   CalendarClock,
@@ -18,6 +19,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Type,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -95,6 +97,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '단어 카운터',
+        en: 'Word Counter',
+        ja: 'ワードカウンター',
+        zh: '字数统计',
+      },
+      icon: <Type />,
+      link: '/word-counter',
     },
     {
       title: {

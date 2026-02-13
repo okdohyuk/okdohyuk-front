@@ -1,0 +1,22 @@
+{
+  "title": "字数统计",
+  "description": "即时统计输入文本的单词数、字符数和行数。",
+  "label": {
+    "input": "文本"
+  },
+  "placeholder": "在此输入或粘贴文本...",
+  "button": {
+    "reset": "重置"
+  },
+  "notice": "统计在浏览器内完成，不会保存文本。",
+  "stats": {
+    "words": "单词数",
+    "characters": "字符数",
+    "charactersNoSpaces": "去空格字符数",
+    "lines": "行数"
+  },
+  "openGraph": {
+    "title": "字数统计",
+    "description": "快速统计文本的单词数、字符数和行数。"
+  }
+}
