@@ -1,0 +1,33 @@
+{
+  "title": "レシピ分量調整",
+  "description": "人数を変えるだけで材料の分量を自動で調整します。",
+  "label": {
+    "servings": "人数",
+    "originalServings": "元の人数",
+    "targetServings": "目標の人数",
+    "ingredients": "材料一覧",
+    "result": "調整後の材料",
+    "ratio": "倍率",
+    "example": "例"
+  },
+  "placeholder": {
+    "servings": "例: 2",
+    "ingredients": "例:\n米 1カップ\n卵 2個\n塩 小さじ1/2"
+  },
+  "actions": {
+    "copy": "コピー",
+    "copied": "コピーしました",
+    "clear": "クリア"
+  },
+  "helper": {
+    "ratioHint": "倍率 = 目標の人数 ÷ 元の人数",
+    "invalidServings": "0より大きい人数を入力してください。",
+    "emptyResult": "人数と材料を入力すると結果が表示されます。",
+    "copyHint": "結果をコピーできます。",
+    "exampleText": "例: 2人分 → 6人分で数値が更新されます。"
+  },
+  "openGraph": {
+    "title": "レシピ分量調整",
+    "description": "人数を変えるだけで材料の分量を自動で調整します。"
+  }
+}
