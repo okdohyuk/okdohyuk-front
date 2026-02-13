@@ -1,0 +1,46 @@
+{
+  "title": "贷款计算器",
+  "description": "快速估算每月还款额，或根据预算计算可贷额度。",
+  "mode": {
+    "payment": "每月还款额",
+    "maxLoan": "可贷额度"
+  },
+  "section": {
+    "payment": "每月还款额计算",
+    "maxLoan": "可贷额度计算"
+  },
+  "fields": {
+    "principal": "贷款金额",
+    "annualRate": "年利率 (%)",
+    "termYears": "贷款期限 (年)",
+    "monthlyPayment": "每月可承受还款"
+  },
+  "placeholders": {
+    "principal": "300000",
+    "annualRate": "4.2",
+    "termYears": "30",
+    "monthlyPayment": "1500"
+  },
+  "buttons": {
+    "example": "填入示例",
+    "reset": "清空",
+    "copy": "复制摘要"
+  },
+  "results": {
+    "title": "结果",
+    "monthlyPayment": "预计每月还款额",
+    "maxLoan": "预计可贷额度",
+    "totalPayment": "总还款额",
+    "totalInterest": "总利息",
+    "empty": "填写完整数值后即可查看结果。"
+  },
+  "helper": "按固定利率、每月还款计算，仅供参考。",
+  "copy": {
+    "payment": "每月还款额: {{monthly}} | 总还款额: {{total}} | 总利息: {{interest}}",
+    "maxLoan": "可贷额度: {{maxLoan}} | 总还款额: {{total}} | 总利息: {{interest}}"
+  },
+  "openGraph": {
+    "title": "贷款计算器",
+    "description": "免费贷款计算器：快速估算每月还款额或根据预算测算可贷额度。"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "title": "ローン計算機",
+  "description": "毎月の返済額を計算したり、予算から借入可能額を見積もれます。",
+  "mode": {
+    "payment": "毎月の返済額",
+    "maxLoan": "借入可能額"
+  },
+  "section": {
+    "payment": "毎月の返済額を計算",
+    "maxLoan": "借入可能額を計算"
+  },
+  "fields": {
+    "principal": "借入額",
+    "annualRate": "年利 (%)",
+    "termYears": "返済期間 (年)",
+    "monthlyPayment": "毎月の支払い上限"
+  },
+  "placeholders": {
+    "principal": "300000",
+    "annualRate": "4.2",
+    "termYears": "30",
+    "monthlyPayment": "1500"
+  },
+  "buttons": {
+    "example": "例を入力",
+    "reset": "クリア",
+    "copy": "要約をコピー"
+  },
+  "results": {
+    "title": "結果",
+    "monthlyPayment": "推定毎月返済額",
+    "maxLoan": "推定借入可能額",
+    "totalPayment": "総支払額",
+    "totalInterest": "総利息",
+    "empty": "すべての値を入力すると結果が表示されます。"
+  },
+  "helper": "固定金利・毎月返済を前提にした概算です。",
+  "copy": {
+    "payment": "毎月返済額: {{monthly}} | 総支払額: {{total}} | 総利息: {{interest}}",
+    "maxLoan": "借入可能額: {{maxLoan}} | 総支払額: {{total}} | 総利息: {{interest}}"
+  },
+  "openGraph": {
+    "title": "ローン計算機",
+    "description": "毎月の返済額や借入可能額をすばやく見積もれる無料のローン計算機。"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Loan Calculator",
+  "description": "Estimate monthly payments or find the maximum loan amount from your budget.",
+  "mode": {
+    "payment": "Monthly Payment",
+    "maxLoan": "Max Loan Amount"
+  },
+  "section": {
+    "payment": "Monthly Payment Calculator",
+    "maxLoan": "Maximum Loan Calculator"
+  },
+  "fields": {
+    "principal": "Loan Amount",
+    "annualRate": "Annual Interest Rate (%)",
+    "termYears": "Loan Term (Years)",
+    "monthlyPayment": "Monthly Payment Budget"
+  },
+  "placeholders": {
+    "principal": "300000",
+    "annualRate": "4.2",
+    "termYears": "30",
+    "monthlyPayment": "1500"
+  },
+  "buttons": {
+    "example": "Use Example",
+    "reset": "Clear",
+    "copy": "Copy Summary"
+  },
+  "results": {
+    "title": "Results",
+    "monthlyPayment": "Estimated Monthly Payment",
+    "maxLoan": "Estimated Loan Amount",
+    "totalPayment": "Total Payment",
+    "totalInterest": "Total Interest",
+    "empty": "Enter all values to see the estimate."
+  },
+  "helper": "This calculator assumes a fixed-rate loan with monthly payments. Results are estimates only.",
+  "copy": {
+    "payment": "Monthly payment: {{monthly}} | Total payment: {{total}} | Total interest: {{interest}}",
+    "maxLoan": "Max loan: {{maxLoan}} | Total payment: {{total}} | Total interest: {{interest}}"
+  },
+  "openGraph": {
+    "title": "Loan Calculator",
+    "description": "Estimate monthly loan payments or find the maximum loan size you can afford with a quick, free loan calculator."
+  }
+}

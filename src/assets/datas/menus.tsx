@@ -8,6 +8,7 @@ import {
   Github,
   Hash,
   Key,
+  Landmark,
   Linkedin,
   List,
   MonitorPlay,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '대출 계산기',
+        en: 'Loan Calculator',
+        ja: 'ローン計算機',
+        zh: '贷款计算器',
+      },
+      icon: <Landmark />,
+      link: '/loan-calculator',
     },
     {
       title: {
