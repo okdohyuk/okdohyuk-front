@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Backpack,
   Bomb,
   Calculator,
   CalendarClock,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '여행 짐 체크리스트',
+        en: 'Packing Checklist',
+        ja: '持ち物チェックリスト',
+        zh: '旅行打包清单',
+      },
+      icon: <Backpack />,
+      link: '/packing-checklist',
     },
     {
       title: {
