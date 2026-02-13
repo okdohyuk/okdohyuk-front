@@ -1,0 +1,20 @@
+{
+  "title": "텍스트 카운터",
+  "description": "텍스트의 글자 수, 단어 수, 줄 수를 빠르게 계산합니다.",
+  "label": {
+    "input": "텍스트 입력"
+  },
+  "placeholder": "여기에 텍스트를 붙여넣거나 입력하세요.",
+  "helper": "입력과 동시에 통계가 업데이트됩니다.",
+  "stats": {
+    "characters": "글자 수",
+    "charactersNoSpaces": "공백 제외 글자 수",
+    "words": "단어 수",
+    "lines": "줄 수"
+  },
+  "openGraph": {
+    "title": "텍스트 카운터",
+    "description": "텍스트의 글자 수, 단어 수, 줄 수를 즉시 계산합니다.",
+    "keywords": ["텍스트 카운터", "글자 수", "단어 수", "문자 수 계산", "라인 카운트"]
+  }
+}

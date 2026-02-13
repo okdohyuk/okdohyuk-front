@@ -6,6 +6,7 @@ import {
   Code,
   Coffee,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -166,6 +167,16 @@ const menus: Menus = {
       },
       icon: <TextCursorInput />,
       link: '/choseong-maker',
+    },
+    {
+      title: {
+        ko: '텍스트 카운터',
+        en: 'Text Counter',
+        ja: 'テキストカウンター',
+        zh: '文本计数器',
+      },
+      icon: <FileText />,
+      link: '/text-counter',
     },
   ],
   out: [

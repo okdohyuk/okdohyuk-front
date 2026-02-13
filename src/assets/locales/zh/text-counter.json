@@ -1,0 +1,20 @@
+{
+  "title": "文本计数器",
+  "description": "快速统计字符、单词和行数。",
+  "label": {
+    "input": "文本输入"
+  },
+  "placeholder": "在此输入或粘贴文本。",
+  "helper": "输入时统计会自动更新。",
+  "stats": {
+    "characters": "字符数",
+    "charactersNoSpaces": "去空格字符数",
+    "words": "单词数",
+    "lines": "行数"
+  },
+  "openGraph": {
+    "title": "文本计数器",
+    "description": "即时统计文本中的字符、单词和行数。",
+    "keywords": ["文本计数器", "字符统计", "单词统计", "行数统计", "写作工具"]
+  }
+}

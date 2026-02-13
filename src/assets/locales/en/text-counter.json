@@ -1,0 +1,20 @@
+{
+  "title": "Text Counter",
+  "description": "Count characters, words, and lines from any text.",
+  "label": {
+    "input": "Text input"
+  },
+  "placeholder": "Paste or type your text here...",
+  "helper": "Counts update instantly as you type.",
+  "stats": {
+    "characters": "Characters",
+    "charactersNoSpaces": "Characters (no spaces)",
+    "words": "Words",
+    "lines": "Lines"
+  },
+  "openGraph": {
+    "title": "Text Counter",
+    "description": "Instantly count characters, words, and lines in your text.",
+    "keywords": ["text counter", "word counter", "character count", "line count", "writing tools"]
+  }
+}
