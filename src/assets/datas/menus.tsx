@@ -5,11 +5,13 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Gauge,
   Github,
   Hash,
   Key,
   Linkedin,
   List,
+  ListChecks,
   MonitorPlay,
   Palette,
   QrCode,
@@ -98,6 +100,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '배속 시간 계산기',
+        en: 'Playback Speed Calculator',
+        ja: '再生速度計算機',
+        zh: '播放速度计算器',
+      },
+      icon: <Gauge />,
+      link: '/playback-speed',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',
@@ -105,6 +117,16 @@ const menus: Menus = {
       },
       icon: <List />,
       link: '/todo',
+    },
+    {
+      title: {
+        ko: '리스트 포맷터',
+        en: 'List Formatter',
+        ja: 'リストフォーマッター',
+        zh: '列表格式化',
+      },
+      icon: <ListChecks />,
+      link: '/list-formatter',
     },
     {
       title: {

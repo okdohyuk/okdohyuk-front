@@ -1,0 +1,36 @@
+{
+  "title": "播放速度计算器",
+  "description": "计算不同播放速度下的观看时间，并找出在目标时间内完成所需的速度。",
+  "section": {
+    "adjusted": "速度换算时间",
+    "adjustedDescription": "输入原始时长和播放速度即可计算新时长。",
+    "required": "所需速度",
+    "requiredDescription": "设置目标时长后即可得到所需速度。"
+  },
+  "label": {
+    "originalDuration": "原始时长",
+    "speed": "播放速度",
+    "adjustedResult": "换算后的时长",
+    "targetDuration": "目标时长",
+    "requiredSpeed": "所需速度"
+  },
+  "unit": {
+    "hours": "小时",
+    "minutes": "分钟",
+    "seconds": "秒"
+  },
+  "helper": {
+    "speedRange": "常用速度：1.25x、1.5x、2x",
+    "requiredSpeed": "输入目标时长即可计算所需速度。"
+  },
+  "button": {
+    "copyTime": "复制时间",
+    "copySpeed": "复制速度",
+    "reset": "重置",
+    "example": "填入示例"
+  },
+  "openGraph": {
+    "title": "播放速度计算器",
+    "description": "免费的播放速度计算器。快速计算不同速度下的观看时间，并找出目标时长所需的速度。"
+  }
+}
