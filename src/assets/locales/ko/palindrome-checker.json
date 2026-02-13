@@ -1,0 +1,28 @@
+{
+  "title": "회문 검사기",
+  "description": "문장이 앞뒤로 같은지 빠르게 확인합니다.",
+  "placeholder": "분석할 문장을 입력하세요...",
+  "helper": "공백, 문장부호, 대소문자는 무시됩니다.",
+  "empty": "표시할 내용이 없습니다.",
+  "label": {
+    "input": "입력 텍스트",
+    "result": "결과",
+    "normalized": "정규화된 텍스트",
+    "reversed": "뒤집은 텍스트",
+    "length": "정규화 길이"
+  },
+  "status": {
+    "empty": "텍스트를 입력하세요",
+    "palindrome": "회문입니다",
+    "notPalindrome": "회문이 아닙니다"
+  },
+  "button": {
+    "clear": "지우기",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "openGraph": {
+    "title": "회문 검사기",
+    "description": "정규화한 텍스트로 회문 여부를 즉시 확인합니다."
+  }
+}

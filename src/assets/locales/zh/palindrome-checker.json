@@ -1,0 +1,28 @@
+{
+  "title": "回文检测器",
+  "description": "检查文字是否前后相同。",
+  "placeholder": "输入要分析的文本...",
+  "helper": "会忽略空格、标点和大小写。",
+  "empty": "暂无内容。",
+  "label": {
+    "input": "输入文本",
+    "result": "结果",
+    "normalized": "标准化文本",
+    "reversed": "反转文本",
+    "length": "标准化长度"
+  },
+  "status": {
+    "empty": "请输入文本",
+    "palindrome": "是回文",
+    "notPalindrome": "不是回文"
+  },
+  "button": {
+    "clear": "清除",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "openGraph": {
+    "title": "回文检测器",
+    "description": "通过标准化文本快速检测回文。"
+  }
+}
