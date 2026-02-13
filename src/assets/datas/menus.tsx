@@ -18,6 +18,8 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Type,
+  Wand2,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -85,6 +87,26 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '닉네임 생성기',
+        en: 'Nickname Generator',
+        ja: 'ニックネーム生成器',
+        zh: '昵称生成器',
+      },
+      icon: <Wand2 />,
+      link: '/nickname-generator',
+    },
+    {
+      title: {
+        ko: '케이스 스타일러',
+        en: 'Case Styler',
+        ja: 'ケーススタイラー',
+        zh: '大小写样式器',
+      },
+      icon: <Type />,
+      link: '/case-styler',
     },
     {
       title: {

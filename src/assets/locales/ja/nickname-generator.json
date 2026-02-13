@@ -1,0 +1,43 @@
+{
+  "title": "ニックネーム生成器",
+  "description": "簡単な設定でニックネームをすぐに作成できます。",
+  "badge": "Nickname Lab",
+  "label": {
+    "count": "生成数",
+    "style": "スタイル",
+    "separator": "区切り",
+    "keyword": "キーワード（任意）"
+  },
+  "options": {
+    "style": {
+      "classic": "クラシック（形容詞 + 名詞）",
+      "double": "ダブル（形容詞 + 名詞 + 名詞）",
+      "minimal": "ミニマル（名詞）"
+    },
+    "separator": {
+      "space": "スペース",
+      "dash": "ダッシュ (-)",
+      "underscore": "アンダースコア (_)"
+    }
+  },
+  "placeholder": {
+    "keyword": "例：アマデウス"
+  },
+  "helper": {
+    "count": "1〜20の範囲で入力してください。",
+    "keyword": "キーワードは末尾に追加されます。"
+  },
+  "button": {
+    "generate": "生成する",
+    "numberOn": "数字: オン",
+    "numberOff": "数字: オフ",
+    "copyAll": "すべてコピー",
+    "clear": "リセット"
+  },
+  "empty": "まだニックネームがありません。",
+  "copied": "コピーしました！",
+  "openGraph": {
+    "title": "ニックネーム生成器",
+    "description": "ランダムなニックネームをすぐに生成。スタイル、区切り、キーワードを調整して自分だけの名前を作れます。"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "title": "닉네임 생성기",
+  "description": "간단한 옵션으로 다양한 닉네임을 빠르게 만들어보세요.",
+  "badge": "Nickname Lab",
+  "label": {
+    "count": "생성 개수",
+    "style": "스타일",
+    "separator": "구분자",
+    "keyword": "키워드(선택)"
+  },
+  "options": {
+    "style": {
+      "classic": "클래식 (형용사 + 명사)",
+      "double": "더블 (형용사 + 명사 + 명사)",
+      "minimal": "미니멀 (명사)"
+    },
+    "separator": {
+      "space": "공백",
+      "dash": "대시 (-)",
+      "underscore": "언더스코어 (_)"
+    }
+  },
+  "placeholder": {
+    "keyword": "예: 유도혁"
+  },
+  "helper": {
+    "count": "1~20 사이로 입력하세요.",
+    "keyword": "키워드는 닉네임 끝에 붙습니다."
+  },
+  "button": {
+    "generate": "닉네임 생성",
+    "numberOn": "숫자 포함: 켜짐",
+    "numberOff": "숫자 포함: 꺼짐",
+    "copyAll": "전체 복사",
+    "clear": "초기화"
+  },
+  "empty": "아직 생성된 닉네임이 없어요.",
+  "copied": "복사됨!",
+  "openGraph": {
+    "title": "닉네임 생성기",
+    "description": "랜덤 닉네임을 즉시 생성하세요. 스타일, 구분자, 키워드 옵션으로 나만의 닉네임을 빠르게 만들어보세요."
+  }
+}
