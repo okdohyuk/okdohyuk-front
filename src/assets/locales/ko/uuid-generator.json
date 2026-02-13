@@ -1,0 +1,18 @@
+{
+  "title": "UUID 생성기",
+  "description": "UUID v4 식별자를 즉시 생성합니다.",
+  "label": {
+    "output": "생성된 UUID",
+    "action": "빠른 동작"
+  },
+  "helper": "새 UUID v4를 생성하고 한 번에 복사하세요.",
+  "button": {
+    "generate": "생성",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "openGraph": {
+    "title": "UUID 생성기",
+    "description": "UUID v4 식별자를 빠르게 생성합니다."
+  }
+}

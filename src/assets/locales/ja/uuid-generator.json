@@ -1,0 +1,18 @@
+{
+  "title": "UUID生成器",
+  "description": "UUID v4 識別子をすばやく生成します。",
+  "label": {
+    "output": "生成されたUUID",
+    "action": "クイック操作"
+  },
+  "helper": "新しいUUID v4を生成し、ワンクリックでコピーできます。",
+  "button": {
+    "generate": "生成",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "openGraph": {
+    "title": "UUID生成器",
+    "description": "UUID v4 識別子をすばやく生成します。"
+  }
+}

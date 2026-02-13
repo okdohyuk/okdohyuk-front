@@ -1,0 +1,18 @@
+{
+  "title": "UUID Generator",
+  "description": "Generate unique UUID v4 identifiers instantly.",
+  "label": {
+    "output": "Generated UUID",
+    "action": "Quick actions"
+  },
+  "helper": "Generate a new UUID v4 and copy it with one click.",
+  "button": {
+    "generate": "Generate",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "openGraph": {
+    "title": "UUID Generator",
+    "description": "Generate UUID v4 identifiers quickly."
+  }
+}
