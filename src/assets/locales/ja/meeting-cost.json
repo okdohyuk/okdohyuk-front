@@ -1,0 +1,34 @@
+{
+  "title": "会議コスト計算機",
+  "description": "参加人数・時給・会議時間を入力して、会議の総コストを算出します。",
+  "helper": "会議時間は時間と分に分けて入力すると自動で合算されます。",
+  "label": {
+    "attendees": "参加人数",
+    "hourlyRate": "1人あたりの時給",
+    "hours": "時間",
+    "minutes": "分"
+  },
+  "placeholder": {
+    "attendees": "例: 6",
+    "hourlyRate": "例: 20,000",
+    "hours": "例: 1",
+    "minutes": "例: 30"
+  },
+  "button": {
+    "sample": "サンプル入力",
+    "clear": "リセット"
+  },
+  "result": {
+    "label": "推定会議コスト",
+    "unit": "KRW",
+    "duration": "合計会議時間 {{duration}} 時間",
+    "perPerson": "1人あたりのコスト",
+    "perHour": "1時間あたりの総コスト",
+    "attendeeCount": "参加人数",
+    "people": "人"
+  },
+  "openGraph": {
+    "title": "会議コスト計算機",
+    "description": "参加人数、時給、会議時間から会議の総コストを簡単に計算できます。合計、1人あたり、1時間あたりのコストをすぐに確認できます。"
+  }
+}

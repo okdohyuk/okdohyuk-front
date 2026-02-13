@@ -19,6 +19,7 @@ import {
   TextCursorInput,
   Tv,
   Youtube,
+  Users,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '회의 비용 계산기',
+        en: 'Meeting Cost Calculator',
+        ja: '会議コスト計算機',
+        zh: '会议成本计算器',
+      },
+      icon: <Users />,
+      link: '/meeting-cost',
     },
     {
       title: {
