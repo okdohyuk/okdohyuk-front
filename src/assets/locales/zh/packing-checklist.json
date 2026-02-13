@@ -1,0 +1,93 @@
+{
+  "title": "旅行打包清单",
+  "description": "根据出行类型加载基础清单，添加自定义物品并轻松管理。",
+  "sections": {
+    "template": "出行模板",
+    "addItem": "新增物品",
+    "list": "打包清单",
+    "actions": "快捷操作"
+  },
+  "templates": {
+    "dayTrip": "当天往返",
+    "weekend": "周末出行",
+    "week": "一周旅行",
+    "business": "商务出差"
+  },
+  "categories": {
+    "essentials": "必备",
+    "clothing": "衣物",
+    "toiletries": "洗漱",
+    "tech": "设备",
+    "documents": "证件",
+    "optional": "其他"
+  },
+  "placeholders": {
+    "template": "选择模板",
+    "category": "选择分类",
+    "item": "输入要添加的物品"
+  },
+  "helper": {
+    "template": "切换模板会重置基础清单。",
+    "checklist": "点击勾选标记已准备。"
+  },
+  "summary": {
+    "total": "总计",
+    "packed": "已准备",
+    "remaining": "未准备"
+  },
+  "actions": {
+    "add": "添加",
+    "reset": "重置为模板",
+    "clearPacked": "清除勾选",
+    "markAll": "全部勾选",
+    "copyRemaining": "复制未准备",
+    "copyAll": "复制全部"
+  },
+  "labels": {
+    "custom": "自定义"
+  },
+  "copy": {
+    "remainingDone": "已复制未准备清单。",
+    "allDone": "已复制完整清单。",
+    "failed": "复制失败，请重试。"
+  },
+  "empty": "该分类暂无物品。",
+  "items": {
+    "dayTrip": {
+      "essentials": ["手机", "钱包", "钥匙", "身份证", "充电线"],
+      "clothing": ["外套", "备用袜子"],
+      "toiletries": ["纸巾", "免洗洗手液", "润唇膏"],
+      "tech": ["充电宝", "耳机"],
+      "documents": ["预约/票据", "交通卡"],
+      "optional": ["水杯", "零食", "雨伞"]
+    },
+    "weekend": {
+      "essentials": ["手机", "钱包", "钥匙", "身份证", "充电器"],
+      "clothing": ["上衣2件", "下装1件", "内衣/袜子2套", "睡衣"],
+      "toiletries": ["牙刷", "牙膏", "洗面", "护肤品", "梳洗用品"],
+      "tech": ["充电宝", "耳机", "相机"],
+      "documents": ["住宿预订", "交通卡/通票"],
+      "optional": ["书/平板", "太阳镜", "雨伞"]
+    },
+    "week": {
+      "essentials": ["手机", "钱包", "钥匙", "身份证", "充电器"],
+      "clothing": ["上衣4-5件", "下装2-3件", "内衣/袜子5-6套", "睡衣", "外套"],
+      "toiletries": ["牙刷", "牙膏", "洗发/沐浴", "护肤品", "洗漱包"],
+      "tech": ["笔记本/平板", "充电套装", "充电宝", "耳机"],
+      "documents": ["住宿预订", "交通卡/通票", "紧急联系人"],
+      "optional": ["药品", "零食", "洗衣袋"]
+    },
+    "business": {
+      "essentials": ["手机", "钱包", "钥匙", "身份证", "充电器"],
+      "clothing": ["正装/商务装", "衬衫2件", "皮鞋", "腰带"],
+      "toiletries": ["牙刷", "牙膏", "梳洗用品", "除臭用品"],
+      "tech": ["笔记本电脑", "充电器", "演示资料", "USB/转接头"],
+      "documents": ["名片", "行程单", "票据/预订"],
+      "optional": ["降噪设备", "备用口罩", "雨伞"]
+    }
+  },
+  "openGraph": {
+    "title": "旅行打包清单",
+    "description": "面向移动端的旅行打包清单工具，支持按出行类型加载基础清单、添加自定义物品并复制未准备列表。"
+  }
+}

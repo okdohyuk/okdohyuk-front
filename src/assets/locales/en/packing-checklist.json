@@ -1,0 +1,99 @@
+{
+  "title": "Packing Checklist",
+  "description": "Load a base list for your trip, add custom items, and keep everything tidy in one place.",
+  "sections": {
+    "template": "Trip template",
+    "addItem": "Add item",
+    "list": "Packing list",
+    "actions": "Quick actions"
+  },
+  "templates": {
+    "dayTrip": "Day trip",
+    "weekend": "Weekend",
+    "week": "One week",
+    "business": "Business trip"
+  },
+  "categories": {
+    "essentials": "Essentials",
+    "clothing": "Clothing",
+    "toiletries": "Toiletries",
+    "tech": "Tech",
+    "documents": "Documents",
+    "optional": "Optional"
+  },
+  "placeholders": {
+    "template": "Choose a template",
+    "category": "Choose a category",
+    "item": "Type an item to add"
+  },
+  "helper": {
+    "template": "Switching templates resets the base list.",
+    "checklist": "Tap each box to mark items as packed."
+  },
+  "summary": {
+    "total": "Total",
+    "packed": "Packed",
+    "remaining": "Remaining"
+  },
+  "actions": {
+    "add": "Add item",
+    "reset": "Reset to template",
+    "clearPacked": "Clear checks",
+    "markAll": "Mark all",
+    "copyRemaining": "Copy remaining",
+    "copyAll": "Copy full list"
+  },
+  "labels": {
+    "custom": "Custom"
+  },
+  "copy": {
+    "remainingDone": "Remaining items copied.",
+    "allDone": "Full list copied.",
+    "failed": "Copy failed. Please try again."
+  },
+  "empty": "No items in this category yet.",
+  "items": {
+    "dayTrip": {
+      "essentials": ["Phone", "Wallet", "Keys", "ID", "Charging cable"],
+      "clothing": ["Light jacket", "Spare socks"],
+      "toiletries": ["Tissues", "Hand sanitizer", "Lip balm"],
+      "tech": ["Power bank", "Earbuds"],
+      "documents": ["Tickets/Reservation", "Transit card"],
+      "optional": ["Water bottle", "Snacks", "Umbrella"]
+    },
+    "weekend": {
+      "essentials": ["Phone", "Wallet", "Keys", "ID", "Charger"],
+      "clothing": ["2 tops", "1 bottom", "2 sets of underwear/socks", "Sleepwear"],
+      "toiletries": ["Toothbrush", "Toothpaste", "Face wash", "Skincare", "Grooming kit"],
+      "tech": ["Power bank", "Earbuds", "Camera"],
+      "documents": ["Hotel booking", "Transit pass"],
+      "optional": ["Book/Tablet", "Sunglasses", "Umbrella"]
+    },
+    "week": {
+      "essentials": ["Phone", "Wallet", "Keys", "ID", "Charger"],
+      "clothing": [
+        "4-5 tops",
+        "2-3 bottoms",
+        "5-6 sets of underwear/socks",
+        "Sleepwear",
+        "Outerwear"
+      ],
+      "toiletries": ["Toothbrush", "Toothpaste", "Shampoo/Body wash", "Skincare", "Toiletry kit"],
+      "tech": ["Laptop/Tablet", "Charging kit", "Power bank", "Earbuds"],
+      "documents": ["Hotel booking", "Transit pass", "Emergency contacts"],
+      "optional": ["Medicine", "Snacks", "Laundry pouch"]
+    },
+    "business": {
+      "essentials": ["Phone", "Wallet", "Keys", "ID", "Charger"],
+      "clothing": ["Suit/Business outfits", "2 shirts", "Dress shoes", "Belt"],
+      "toiletries": ["Toothbrush", "Toothpaste", "Grooming kit", "Deodorant"],
+      "tech": ["Laptop", "Charger", "Presentation materials", "USB/Adapter"],
+      "documents": ["Business cards", "Itinerary", "Tickets/Reservation"],
+      "optional": ["Noise-canceling", "Spare mask", "Umbrella"]
+    }
+  },
+  "openGraph": {
+    "title": "Packing Checklist",
+    "description": "A mobile packing checklist that loads a base list for each trip type, lets you add custom items, and copy the remaining items to share. Stay organized and avoid last-minute misses."
+  }
+}
