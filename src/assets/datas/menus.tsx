@@ -4,6 +4,7 @@ import {
   Calculator,
   CalendarClock,
   Code,
+  Coins,
   CreditCard,
   Github,
   Hash,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '동전 던지기',
+        en: 'Coin Toss',
+        ja: 'コイントス',
+        zh: '抛硬币',
+      },
+      icon: <Coins />,
+      link: '/coin-flip',
     },
     {
       title: {

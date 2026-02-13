@@ -1,0 +1,29 @@
+{
+  "title": "Coin Toss",
+  "description": "Flip coins instantly and get a quick heads/tails summary.",
+  "label": {
+    "count": "Number of coins"
+  },
+  "helper": "Flip up to 20 coins at once.",
+  "button": {
+    "flip": "Flip coins",
+    "reset": "Reset"
+  },
+  "result": {
+    "title": "Results",
+    "empty": "Flip the coins to see the results.",
+    "heads": "Heads",
+    "tails": "Tails",
+    "coinLabel": "Coin {{index}}"
+  },
+  "summary": {
+    "title": "Summary",
+    "total": "Total {{count}}",
+    "heads": "Heads {{count}}",
+    "tails": "Tails {{count}}"
+  },
+  "openGraph": {
+    "title": "Coin Toss",
+    "description": "Flip coins online and share the heads/tails outcome."
+  }
+}
