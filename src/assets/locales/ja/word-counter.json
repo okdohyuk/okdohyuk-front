@@ -1,0 +1,22 @@
+{
+  "title": "ワードカウンター",
+  "description": "入力したテキストの単語数・文字数・行数をすぐに計算します。",
+  "label": {
+    "input": "テキスト"
+  },
+  "placeholder": "ここにテキストを入力または貼り付けてください...",
+  "button": {
+    "reset": "リセット"
+  },
+  "notice": "計算はブラウザ内で完結します。テキストは保存されません。",
+  "stats": {
+    "words": "単語数",
+    "characters": "文字数",
+    "charactersNoSpaces": "空白除外文字数",
+    "lines": "行数"
+  },
+  "openGraph": {
+    "title": "ワードカウンター",
+    "description": "テキストの単語数・文字数・行数を瞬時にカウントします。"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "단어 카운터",
+  "description": "입력한 텍스트의 단어, 문자, 줄 수를 즉시 계산합니다.",
+  "label": {
+    "input": "텍스트"
+  },
+  "placeholder": "여기에 텍스트를 입력하거나 붙여넣으세요...",
+  "button": {
+    "reset": "초기화"
+  },
+  "notice": "모든 계산은 브라우저에서만 진행됩니다. 텍스트는 저장되지 않습니다.",
+  "stats": {
+    "words": "단어 수",
+    "characters": "문자 수",
+    "charactersNoSpaces": "공백 제외 문자 수",
+    "lines": "줄 수"
+  },
+  "openGraph": {
+    "title": "단어 카운터",
+    "description": "텍스트의 단어, 문자, 줄 수를 즉시 계산하세요."
+  }
+}

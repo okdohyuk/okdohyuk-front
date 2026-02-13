@@ -1,0 +1,22 @@
+{
+  "title": "Word Counter",
+  "description": "Count words, characters, and lines instantly while you type.",
+  "label": {
+    "input": "Text"
+  },
+  "placeholder": "Paste or type your text here...",
+  "button": {
+    "reset": "Reset"
+  },
+  "notice": "Counts update locally in your browser. No text is stored.",
+  "stats": {
+    "words": "Words",
+    "characters": "Characters",
+    "charactersNoSpaces": "Characters (no spaces)",
+    "lines": "Lines"
+  },
+  "openGraph": {
+    "title": "Word Counter",
+    "description": "Instantly count words, characters, and lines in your text."
+  }
+}
