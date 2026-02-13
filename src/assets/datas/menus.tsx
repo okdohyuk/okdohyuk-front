@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  BadgePercent,
   Bomb,
   Calculator,
   CalendarClock,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '할인 계산기',
+        en: 'Discount Calculator',
+        ja: '割引計算機',
+        zh: '折扣计算器',
+      },
+      icon: <BadgePercent />,
+      link: '/discount-calculator',
     },
     {
       title: {
