@@ -98,6 +98,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '예산 플래너',
+        en: 'Budget Planner',
+        ja: '予算プランナー',
+        zh: '预算规划器',
+      },
+      icon: <CreditCard />,
+      link: '/budget-planner',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',

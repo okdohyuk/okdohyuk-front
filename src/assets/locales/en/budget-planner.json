@@ -1,0 +1,37 @@
+{
+  "title": "Budget Planner",
+  "description": "Plan your monthly budget with the 50/30/20 rule and custom ratios.",
+  "labels": {
+    "income": "Monthly income (after tax)",
+    "needs": "Needs",
+    "wants": "Wants",
+    "savings": "Savings",
+    "percent": "{{value}}% of income"
+  },
+  "placeholders": {
+    "income": "e.g. 3,000"
+  },
+  "helper": "Tip: Use your take-home income.",
+  "buttons": {
+    "copy": "Copy breakdown",
+    "copied": "Copied",
+    "reset": "Reset"
+  },
+  "errors": {
+    "ratio": "Percentages must add up to 100."
+  },
+  "result": {
+    "title": "Budget breakdown",
+    "needs": "Needs",
+    "wants": "Wants",
+    "savings": "Savings",
+    "needsHint": "Housing, utilities, groceries",
+    "wantsHint": "Dining out, hobbies, fun",
+    "savingsHint": "Emergency fund, debt payoff"
+  },
+  "empty": "Enter income and make sure ratios add up to 100.",
+  "openGraph": {
+    "title": "Budget Planner",
+    "description": "Split your income with the 50/30/20 rule and custom ratios."
+  }
+}

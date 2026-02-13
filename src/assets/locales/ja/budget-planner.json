@@ -1,0 +1,37 @@
+{
+  "title": "予算プランナー",
+  "description": "50/30/20ルールとカスタム比率で月予算を計画します。",
+  "labels": {
+    "income": "手取りの月収",
+    "needs": "必需",
+    "wants": "娯楽",
+    "savings": "貯蓄",
+    "percent": "{{value}}% の割合"
+  },
+  "placeholders": {
+    "income": "例: 300,000"
+  },
+  "helper": "ヒント: 手取り収入を入力してください。",
+  "buttons": {
+    "copy": "内訳をコピー",
+    "copied": "コピーしました",
+    "reset": "リセット"
+  },
+  "errors": {
+    "ratio": "割合の合計は100%にしてください。"
+  },
+  "result": {
+    "title": "予算内訳",
+    "needs": "必需",
+    "wants": "娯楽",
+    "savings": "貯蓄",
+    "needsHint": "家賃、光熱費、食費",
+    "wantsHint": "外食、趣味、レジャー",
+    "savingsHint": "緊急資金、返済"
+  },
+  "empty": "収入を入力し、割合の合計が100%か確認してください。",
+  "openGraph": {
+    "title": "予算プランナー",
+    "description": "月収を50/30/20ルールとカスタム比率で分配します。"
+  }
+}

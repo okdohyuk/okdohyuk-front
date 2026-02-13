@@ -1,0 +1,37 @@
+{
+  "title": "预算规划器",
+  "description": "用50/30/20规则与自定义比例规划月度预算。",
+  "labels": {
+    "income": "月实收收入",
+    "needs": "必需",
+    "wants": "想要",
+    "savings": "储蓄",
+    "percent": "{{value}}% 比例"
+  },
+  "placeholders": {
+    "income": "例如：30000"
+  },
+  "helper": "提示：请填写税后实际收入。",
+  "buttons": {
+    "copy": "复制分配",
+    "copied": "已复制",
+    "reset": "重置"
+  },
+  "errors": {
+    "ratio": "比例合计必须为100%。"
+  },
+  "result": {
+    "title": "预算分配",
+    "needs": "必需",
+    "wants": "想要",
+    "savings": "储蓄",
+    "needsHint": "房租、水电、食品",
+    "wantsHint": "外食、爱好、娱乐",
+    "savingsHint": "应急金、还款"
+  },
+  "empty": "输入收入并确认比例合计为100%。",
+  "openGraph": {
+    "title": "预算规划器",
+    "description": "根据月收入生成50/30/20预算并支持自定义比例。"
+  }
+}
