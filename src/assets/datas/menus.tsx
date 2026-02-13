@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CalendarDays,
   Code,
   CreditCard,
   Github,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '디데이 카운터',
+        en: 'D-Day Counter',
+        ja: 'D-Dayカウンター',
+        zh: 'D-Day 计数器',
+      },
+      icon: <CalendarDays />,
+      link: '/dday-counter',
     },
     {
       title: {
