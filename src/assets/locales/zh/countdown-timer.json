@@ -1,0 +1,43 @@
+{
+  "title": "倒计时计时器",
+  "description": "设置时长并开始倒计时。",
+  "badge": "计时器",
+  "label": {
+    "remaining": "剩余时间",
+    "status": "状态",
+    "progress": "进度",
+    "total": "设定时长",
+    "endTime": "预计结束",
+    "action": "快捷操作",
+    "setTime": "时间设置",
+    "hours": "小时",
+    "minutes": "分钟",
+    "seconds": "秒",
+    "none": "无",
+    "preset": "{{minutes}} 分钟"
+  },
+  "buttons": {
+    "start": "开始",
+    "pause": "暂停",
+    "resume": "继续",
+    "reset": "重置",
+    "clear": "清空",
+    "copy": "复制摘要",
+    "copied": "已复制",
+    "addMinute": "+1 分钟",
+    "example": "示例 (25 分钟)"
+  },
+  "status": {
+    "ready": "就绪",
+    "running": "运行中",
+    "paused": "已暂停",
+    "finished": "已完成"
+  },
+  "helper": {
+    "hint": "输入时/分/秒后点击开始。"
+  },
+  "meta": {
+    "title": "倒计时计时器 | Okdohyuk Multi-Tool",
+    "description": "开始倒计时并查看预计结束时间。"
+  }
+}
