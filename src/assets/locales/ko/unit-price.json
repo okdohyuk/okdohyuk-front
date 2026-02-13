@@ -1,0 +1,52 @@
+{
+  "title": "단가 계산기",
+  "description": "상품 가격과 용량을 입력하면 기준 단가를 비교해줍니다.",
+  "label": {
+    "baseUnit": "기준 단위",
+    "currency": "통화",
+    "item": "상품 {{index}}"
+  },
+  "placeholder": {
+    "unit": "g",
+    "currency": "₩",
+    "name": "상품 이름",
+    "price": "가격",
+    "amount": "용량 ({{unit}})"
+  },
+  "helper": "기준 단위를 바꾸면 모든 상품을 같은 기준으로 비교합니다.",
+  "button": {
+    "sample": "샘플 불러오기",
+    "clear": "초기화",
+    "add": "상품 추가",
+    "remove": "삭제",
+    "copy": "요약 복사",
+    "copied": "복사됨"
+  },
+  "result": {
+    "pending": "가격과 용량을 입력해 단가를 계산하세요.",
+    "bestDeal": "최저가",
+    "summaryTitle": "기준: {{baseAmount}}{{baseUnit}} 단가",
+    "unnamed": "상품 {{index}}"
+  },
+  "sample": {
+    "baseAmount": 100,
+    "baseUnit": "g",
+    "currency": "₩",
+    "items": [
+      {
+        "name": "아몬드",
+        "price": "6500",
+        "amount": "400"
+      },
+      {
+        "name": "그래놀라",
+        "price": "8900",
+        "amount": "600"
+      }
+    ]
+  },
+  "openGraph": {
+    "title": "단가 계산기",
+    "description": "가격과 용량을 입력해 기준 단가를 빠르게 비교하세요."
+  }
+}

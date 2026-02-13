@@ -13,6 +13,7 @@ import {
   MonitorPlay,
   Palette,
   QrCode,
+  Receipt,
   Server,
   Smile,
   Sparkles,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '단가 계산기',
+        en: 'Unit Price Calculator',
+        ja: '単価計算機',
+        zh: '单价计算器',
+      },
+      icon: <Receipt />,
+      link: '/unit-price',
     },
     {
       title: {

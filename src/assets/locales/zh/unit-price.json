@@ -1,0 +1,52 @@
+{
+  "title": "单价计算器",
+  "description": "输入价格和容量，快速比较统一标准下的单价。",
+  "label": {
+    "baseUnit": "基准单位",
+    "currency": "货币",
+    "item": "商品 {{index}}"
+  },
+  "placeholder": {
+    "unit": "g",
+    "currency": "¥",
+    "name": "商品名称",
+    "price": "价格",
+    "amount": "容量 ({{unit}})"
+  },
+  "helper": "调整基准单位后，所有商品将按相同标准比较。",
+  "button": {
+    "sample": "载入示例",
+    "clear": "清空",
+    "add": "添加商品",
+    "remove": "删除",
+    "copy": "复制摘要",
+    "copied": "已复制"
+  },
+  "result": {
+    "pending": "请输入价格和容量以计算单价。",
+    "bestDeal": "最划算",
+    "summaryTitle": "基准: {{baseAmount}}{{baseUnit}} 单价",
+    "unnamed": "商品 {{index}}"
+  },
+  "sample": {
+    "baseAmount": 100,
+    "baseUnit": "g",
+    "currency": "¥",
+    "items": [
+      {
+        "name": "杏仁",
+        "price": "65",
+        "amount": "400"
+      },
+      {
+        "name": "格兰诺拉",
+        "price": "89",
+        "amount": "600"
+      }
+    ]
+  },
+  "openGraph": {
+    "title": "单价计算器",
+    "description": "按单位成本比较商品，快速找到最划算的选择。"
+  }
+}
