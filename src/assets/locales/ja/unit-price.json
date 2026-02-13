@@ -1,0 +1,52 @@
+{
+  "title": "単価計算機",
+  "description": "価格と容量を入力して、同じ基準の単価を比較できます。",
+  "label": {
+    "baseUnit": "基準単位",
+    "currency": "通貨",
+    "item": "商品 {{index}}"
+  },
+  "placeholder": {
+    "unit": "g",
+    "currency": "¥",
+    "name": "商品名",
+    "price": "価格",
+    "amount": "容量 ({{unit}})"
+  },
+  "helper": "基準単位を変更すると、すべて同じ尺度で比較できます。",
+  "button": {
+    "sample": "サンプルを読み込む",
+    "clear": "リセット",
+    "add": "商品を追加",
+    "remove": "削除",
+    "copy": "要約をコピー",
+    "copied": "コピー済み"
+  },
+  "result": {
+    "pending": "価格と容量を入力して単価を計算してください。",
+    "bestDeal": "最安値",
+    "summaryTitle": "基準: {{baseAmount}}{{baseUnit}} の単価",
+    "unnamed": "商品 {{index}}"
+  },
+  "sample": {
+    "baseAmount": 100,
+    "baseUnit": "g",
+    "currency": "¥",
+    "items": [
+      {
+        "name": "アーモンド",
+        "price": "650",
+        "amount": "400"
+      },
+      {
+        "name": "グラノーラ",
+        "price": "890",
+        "amount": "600"
+      }
+    ]
+  },
+  "openGraph": {
+    "title": "単価計算機",
+    "description": "単価を比較して、最もお得な商品をすぐに見つけましょう。"
+  }
+}

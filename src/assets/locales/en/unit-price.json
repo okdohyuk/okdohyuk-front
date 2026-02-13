@@ -1,0 +1,52 @@
+{
+  "title": "Unit Price Calculator",
+  "description": "Compare prices fairly by calculating unit cost for each item.",
+  "label": {
+    "baseUnit": "Base unit",
+    "currency": "Currency",
+    "item": "Item {{index}}"
+  },
+  "placeholder": {
+    "unit": "g",
+    "currency": "$",
+    "name": "Item name",
+    "price": "Price",
+    "amount": "Amount ({{unit}})"
+  },
+  "helper": "Change the base unit to compare everything on the same scale.",
+  "button": {
+    "sample": "Load sample",
+    "clear": "Clear",
+    "add": "Add item",
+    "remove": "Remove",
+    "copy": "Copy summary",
+    "copied": "Copied"
+  },
+  "result": {
+    "pending": "Enter price and amount to calculate unit cost.",
+    "bestDeal": "Best deal",
+    "summaryTitle": "Base: {{baseAmount}}{{baseUnit}} unit cost",
+    "unnamed": "Item {{index}}"
+  },
+  "sample": {
+    "baseAmount": 100,
+    "baseUnit": "g",
+    "currency": "$",
+    "items": [
+      {
+        "name": "Almonds",
+        "price": "6.5",
+        "amount": "400"
+      },
+      {
+        "name": "Granola",
+        "price": "8.9",
+        "amount": "600"
+      }
+    ]
+  },
+  "openGraph": {
+    "title": "Unit Price Calculator",
+    "description": "Compare items by unit cost and find the best deal quickly."
+  }
+}
