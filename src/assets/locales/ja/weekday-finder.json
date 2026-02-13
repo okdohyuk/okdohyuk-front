@@ -1,0 +1,27 @@
+{
+  "title": "曜日チェック",
+  "description": "日付を選ぶと曜日、ISO週番号、年内通算日をすぐ表示します。",
+  "label": {
+    "date": "日付を選択"
+  },
+  "helper": "昨日・今日・明日に素早く移動できます。",
+  "button": {
+    "yesterday": "昨日",
+    "today": "今日",
+    "tomorrow": "明日"
+  },
+  "result": {
+    "formattedDate": "表示日付",
+    "dayOfWeek": "曜日",
+    "isWeekend": "週末判定",
+    "weekend": "週末",
+    "weekday": "平日",
+    "isoWeek": "ISO週番号",
+    "dayOfYear": "年内通算日"
+  },
+  "empty": "—",
+  "openGraph": {
+    "title": "曜日チェック",
+    "description": "日付の曜日、ISO週番号、年内通算日をすぐ確認できる無料のオンライン曜日計算ツールです。"
+  }
+}

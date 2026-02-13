@@ -1,0 +1,27 @@
+{
+  "title": "星期查询",
+  "description": "选择日期即可查看星期、ISO 周序号以及一年中的第几天。",
+  "label": {
+    "date": "选择日期"
+  },
+  "helper": "可快速切换到昨天、今天或明天。",
+  "button": {
+    "yesterday": "昨天",
+    "today": "今天",
+    "tomorrow": "明天"
+  },
+  "result": {
+    "formattedDate": "显示日期",
+    "dayOfWeek": "星期",
+    "isWeekend": "是否周末",
+    "weekend": "周末",
+    "weekday": "工作日",
+    "isoWeek": "ISO 周序号",
+    "dayOfYear": "一年中的第几天"
+  },
+  "empty": "—",
+  "openGraph": {
+    "title": "星期查询",
+    "description": "免费的在线星期查询工具。快速查看任意日期的星期、ISO 周序号和一年中的第几天。"
+  }
+}

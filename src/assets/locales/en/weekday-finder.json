@@ -1,0 +1,27 @@
+{
+  "title": "Day of Week Finder",
+  "description": "Select a date to see the weekday, ISO week number, and day of the year at a glance.",
+  "label": {
+    "date": "Select date"
+  },
+  "helper": "Quickly move to yesterday, today, or tomorrow.",
+  "button": {
+    "yesterday": "Yesterday",
+    "today": "Today",
+    "tomorrow": "Tomorrow"
+  },
+  "result": {
+    "formattedDate": "Formatted date",
+    "dayOfWeek": "Weekday",
+    "isWeekend": "Weekend?",
+    "weekend": "Weekend",
+    "weekday": "Weekday",
+    "isoWeek": "ISO week",
+    "dayOfYear": "Day of year"
+  },
+  "empty": "—",
+  "openGraph": {
+    "title": "Day of Week Finder",
+    "description": "Free online day-of-week calculator. Instantly check the weekday, ISO week number, and day of the year for any date."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "title": "요일 계산기",
+  "description": "날짜를 선택하면 요일과 ISO 주차, 연중 일자를 바로 보여줍니다.",
+  "label": {
+    "date": "날짜 선택"
+  },
+  "helper": "어제/오늘/내일 버튼으로 빠르게 이동하세요.",
+  "button": {
+    "yesterday": "어제",
+    "today": "오늘",
+    "tomorrow": "내일"
+  },
+  "result": {
+    "formattedDate": "표시 날짜",
+    "dayOfWeek": "요일",
+    "isWeekend": "주말 여부",
+    "weekend": "주말",
+    "weekday": "평일",
+    "isoWeek": "ISO 주차",
+    "dayOfYear": "연중 일자"
+  },
+  "empty": "—",
+  "openGraph": {
+    "title": "요일 계산기",
+    "description": "날짜를 입력하면 요일, ISO 주차, 연중 일자를 한 번에 확인할 수 있는 무료 온라인 요일 계산기입니다."
+  }
+}
