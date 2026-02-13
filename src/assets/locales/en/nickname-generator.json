@@ -1,0 +1,43 @@
+{
+  "title": "Nickname Generator",
+  "description": "Create fresh nicknames in seconds with simple options.",
+  "badge": "Nickname Lab",
+  "label": {
+    "count": "Amount",
+    "style": "Style",
+    "separator": "Separator",
+    "keyword": "Keyword (optional)"
+  },
+  "options": {
+    "style": {
+      "classic": "Classic (Adjective + Noun)",
+      "double": "Double (Adjective + Noun + Noun)",
+      "minimal": "Minimal (Noun)"
+    },
+    "separator": {
+      "space": "Space",
+      "dash": "Dash (-)",
+      "underscore": "Underscore (_)"
+    }
+  },
+  "placeholder": {
+    "keyword": "e.g. Amadeus"
+  },
+  "helper": {
+    "count": "Choose between 1 and 20.",
+    "keyword": "The keyword is appended at the end."
+  },
+  "button": {
+    "generate": "Generate",
+    "numberOn": "Numbers: On",
+    "numberOff": "Numbers: Off",
+    "copyAll": "Copy All",
+    "clear": "Clear"
+  },
+  "empty": "No nicknames generated yet.",
+  "copied": "Copied!",
+  "openGraph": {
+    "title": "Nickname Generator",
+    "description": "Instantly generate random nicknames. Customize style, separators, and keywords to create your next nickname quickly."
+  }
+}

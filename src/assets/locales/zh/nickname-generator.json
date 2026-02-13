@@ -1,0 +1,43 @@
+{
+  "title": "昵称生成器",
+  "description": "用简单选项快速生成新昵称。",
+  "badge": "Nickname Lab",
+  "label": {
+    "count": "生成数量",
+    "style": "风格",
+    "separator": "分隔符",
+    "keyword": "关键词（可选）"
+  },
+  "options": {
+    "style": {
+      "classic": "经典（形容词 + 名词）",
+      "double": "双词（形容词 + 名词 + 名词）",
+      "minimal": "简洁（名词）"
+    },
+    "separator": {
+      "space": "空格",
+      "dash": "连字符 (-)",
+      "underscore": "下划线 (_)"
+    }
+  },
+  "placeholder": {
+    "keyword": "例如：阿玛迪乌斯"
+  },
+  "helper": {
+    "count": "请输入 1 到 20 之间的数字。",
+    "keyword": "关键词会追加在末尾。"
+  },
+  "button": {
+    "generate": "生成昵称",
+    "numberOn": "数字：开",
+    "numberOff": "数字：关",
+    "copyAll": "全部复制",
+    "clear": "清空"
+  },
+  "empty": "还没有生成昵称。",
+  "copied": "已复制！",
+  "openGraph": {
+    "title": "昵称生成器",
+    "description": "立即生成随机昵称。可自定义风格、分隔符和关键词，快速创建专属昵称。"
+  }
+}
