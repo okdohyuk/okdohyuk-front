@@ -5,12 +5,14 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
   Linkedin,
   List,
   MonitorPlay,
+  Music,
   Palette,
   QrCode,
   Server,
@@ -75,6 +77,16 @@ const menus: Menus = {
       },
       icon: <Palette />,
       link: '/css-generator',
+    },
+    {
+      title: {
+        ko: '마크다운 미리보기',
+        en: 'Markdown Previewer',
+        ja: 'Markdownプレビュー',
+        zh: 'Markdown 预览器',
+      },
+      icon: <FileText />,
+      link: '/markdown-previewer',
     },
     {
       title: {
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '플레이리스트 시간 계산기',
+        en: 'Playlist Duration Calculator',
+        ja: 'プレイリスト再生時間計算機',
+        zh: '播放列表时长计算器',
+      },
+      icon: <Music />,
+      link: '/playlist-duration',
     },
     {
       title: {
