@@ -1,0 +1,26 @@
+{
+  "title": "커피 비율 계산기",
+  "description": "커피 도징과 비율로 필요한 물의 양을 계산합니다.",
+  "badge": "브루 도우미",
+  "notice": "커피 도징과 비율을 입력하면 필요한 물의 양을 계산합니다.",
+  "label": {
+    "coffee": "커피 도징",
+    "ratio": "브루 비율",
+    "water": "필요한 물"
+  },
+  "placeholder": {
+    "coffee": "예: 20",
+    "ratio": "예: 15"
+  },
+  "helper": {
+    "ratio": "일반 비율: 1:15 ~ 1:18."
+  },
+  "unit": {
+    "gram": "g"
+  },
+  "resultNote": "표시는 그램 기준이며 ml와 거의 동일합니다.",
+  "openGraph": {
+    "title": "커피 비율 계산기",
+    "description": "커피 도징과 비율로 필요한 물의 양을 계산합니다."
+  }
+}

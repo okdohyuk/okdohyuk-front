@@ -4,6 +4,7 @@ import {
   Calculator,
   CalendarClock,
   Code,
+  Coffee,
   CreditCard,
   Github,
   Hash,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '커피 비율 계산기',
+        en: 'Coffee Ratio Calculator',
+        ja: 'コーヒー比率計算機',
+        zh: '咖啡比例计算器',
+      },
+      icon: <Coffee />,
+      link: '/coffee-ratio',
     },
     {
       title: {
