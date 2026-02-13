@@ -1,0 +1,42 @@
+{
+  "openGraph": {
+    "title": "discount calculator",
+    "ogTitle": "Final Price, Discount Rate, Stacked Discounts Calculator",
+    "description": "Apply multiple discount rates in order to see the final price, total savings, and effective discount.",
+    "keywords": [
+      "discount",
+      "calculator",
+      "final price",
+      "sale",
+      "rate",
+      "stacked discounts",
+      "savings"
+    ]
+  },
+  "title": "Discount Calculator",
+  "description": "Apply multiple discounts in order and instantly see the final price, total savings, and effective discount rate.",
+  "labels": {
+    "basePrice": "Original price",
+    "discounts": "Discount list",
+    "result": "Result",
+    "finalPrice": "Final price",
+    "totalDiscount": "Total discount",
+    "effectiveRate": "Effective discount rate",
+    "step": "Step"
+  },
+  "placeholder": {
+    "price": "e.g. 100,000",
+    "discount": "e.g. 10"
+  },
+  "buttons": {
+    "add": "Add discount",
+    "clear": "Reset",
+    "copy": "Copy result",
+    "copied": "Copied"
+  },
+  "helper": {
+    "tip": "You can enter numbers with commas.",
+    "discountNote": "Discounts are applied in the order you enter them."
+  },
+  "emptyResult": "Enter a price to see the results."
+}

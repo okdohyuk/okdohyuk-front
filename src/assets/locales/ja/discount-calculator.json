@@ -1,0 +1,34 @@
+{
+  "openGraph": {
+    "title": "割引計算機",
+    "ogTitle": "最終価格、割引率、重ね割引計算機",
+    "description": "複数の割引率を順番に適用して、最終価格・割引総額・実質割引率を算出します。",
+    "keywords": ["割引", "計算機", "セール", "最終価格", "割引率", "重ね割引"]
+  },
+  "title": "割引計算機",
+  "description": "複数の割引を順番に適用し、最終価格と割引総額、実質割引率をすぐに確認できます。",
+  "labels": {
+    "basePrice": "元値",
+    "discounts": "割引リスト",
+    "result": "計算結果",
+    "finalPrice": "最終価格",
+    "totalDiscount": "割引総額",
+    "effectiveRate": "実質割引率",
+    "step": "ステップ"
+  },
+  "placeholder": {
+    "price": "例: 100,000",
+    "discount": "例: 10"
+  },
+  "buttons": {
+    "add": "割引を追加",
+    "clear": "リセット",
+    "copy": "結果をコピー",
+    "copied": "コピーしました"
+  },
+  "helper": {
+    "tip": "カンマ付きの数字も入力できます。",
+    "discountNote": "割引は入力した順番で適用されます。"
+  },
+  "emptyResult": "価格を入力すると結果が表示されます。"
+}

@@ -1,0 +1,34 @@
+{
+  "openGraph": {
+    "title": "할인 계산기",
+    "ogTitle": "최종 금액, 할인율, 중복 할인 계산기",
+    "description": "여러 할인율을 순서대로 적용해 최종 금액, 총 할인액, 체감 할인율을 계산합니다.",
+    "keywords": ["할인", "할인 계산기", "중복 할인", "최종 금액", "할인율", "세일"]
+  },
+  "title": "할인 계산기",
+  "description": "여러 할인율을 순차 적용해 최종 금액과 총 할인액, 체감 할인율을 바로 확인하세요.",
+  "labels": {
+    "basePrice": "원가/정가",
+    "discounts": "할인 목록",
+    "result": "계산 결과",
+    "finalPrice": "최종 금액",
+    "totalDiscount": "총 할인액",
+    "effectiveRate": "체감 할인율",
+    "step": "단계"
+  },
+  "placeholder": {
+    "price": "예: 100,000",
+    "discount": "예: 10"
+  },
+  "buttons": {
+    "add": "할인 추가",
+    "clear": "초기화",
+    "copy": "결과 복사",
+    "copied": "복사됨"
+  },
+  "helper": {
+    "tip": "콤마(,)가 들어간 숫자도 입력할 수 있어요.",
+    "discountNote": "할인은 입력한 순서대로 차례로 적용됩니다."
+  },
+  "emptyResult": "금액을 입력하면 계산 결과가 표시됩니다."
+}
