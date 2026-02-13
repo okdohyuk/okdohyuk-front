@@ -1,0 +1,34 @@
+{
+  "title": "회의 비용 계산기",
+  "description": "참석 인원, 시간당 비용, 회의 시간을 입력하면 회의 총 비용을 계산합니다.",
+  "helper": "회의 시간을 시간/분으로 나눠 입력하면 자동으로 합산됩니다.",
+  "label": {
+    "attendees": "참석 인원",
+    "hourlyRate": "1인당 시간당 비용",
+    "hours": "시간",
+    "minutes": "분"
+  },
+  "placeholder": {
+    "attendees": "예: 6",
+    "hourlyRate": "예: 20000",
+    "hours": "예: 1",
+    "minutes": "예: 30"
+  },
+  "button": {
+    "sample": "예시 채우기",
+    "clear": "초기화"
+  },
+  "result": {
+    "label": "예상 회의 비용",
+    "unit": "원",
+    "duration": "총 회의 시간 {{duration}}시간",
+    "perPerson": "1인당 비용",
+    "perHour": "시간당 전체 비용",
+    "attendeeCount": "참석 인원",
+    "people": "명"
+  },
+  "openGraph": {
+    "title": "회의 비용 계산기",
+    "description": "참석 인원과 시간당 비용을 입력해 회의의 총 비용을 빠르게 계산하세요. 시간과 분을 나눠 입력하면 자동으로 합산되며, 1인당 비용과 시간당 비용까지 한눈에 확인할 수 있습니다."
+  }
+}

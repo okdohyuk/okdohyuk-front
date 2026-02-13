@@ -1,0 +1,34 @@
+{
+  "title": "Meeting Cost Calculator",
+  "description": "Estimate the total cost of a meeting using attendees, hourly rate, and duration.",
+  "helper": "Split the meeting time into hours and minutes to get an automatic total.",
+  "label": {
+    "attendees": "Attendees",
+    "hourlyRate": "Hourly rate per person",
+    "hours": "Hours",
+    "minutes": "Minutes"
+  },
+  "placeholder": {
+    "attendees": "e.g., 6",
+    "hourlyRate": "e.g., 20,000",
+    "hours": "e.g., 1",
+    "minutes": "e.g., 30"
+  },
+  "button": {
+    "sample": "Fill sample",
+    "clear": "Clear"
+  },
+  "result": {
+    "label": "Estimated meeting cost",
+    "unit": "KRW",
+    "duration": "Total meeting time {{duration}} hours",
+    "perPerson": "Cost per person",
+    "perHour": "Total per hour",
+    "attendeeCount": "Attendees",
+    "people": "people"
+  },
+  "openGraph": {
+    "title": "Meeting Cost Calculator",
+    "description": "Quickly calculate the total cost of a meeting with attendee count, hourly rate, and duration. View the total, per-person cost, and per-hour cost at a glance."
+  }
+}
