@@ -1,0 +1,26 @@
+{
+  "openGraph": {
+    "title": "梯子抽签",
+    "ogTitle": "梯子抽签随机分配工具",
+    "description": "输入参与者和结果，即可生成随机梯子抽签结果。"
+  },
+  "title": "梯子抽签",
+  "description": "输入参与者与结果，通过梯子随机匹配查看分配情况。",
+  "participantsLabel": "参与者",
+  "participantsPlaceholder": "每行输入一位参与者",
+  "outcomesLabel": "结果",
+  "outcomesPlaceholder": "每行输入一个结果",
+  "rungCountLabel": "横线数量",
+  "rungCountHint": "调整数量可以改变梯子的复杂度。",
+  "drawButton": "开始抽签",
+  "shuffleButton": "打乱输入",
+  "resetButton": "重置",
+  "resultTitle": "抽签结果",
+  "resultCount": "共 {{count}} 项结果",
+  "previewTitle": "梯子预览",
+  "mismatchNotice": "参与者（{{participants}}）与结果（{{outcomes}}）数量不一致，缺少的结果会自动补齐。",
+  "needsParticipants": "请至少输入 2 位参与者。",
+  "autoOutcome": "结果 {{index}}",
+  "sampleParticipants": ["小安", "小李", "小雅", "小杰"],
+  "sampleOutcomes": ["请咖啡", "请午餐", "免除", "零食"]
+}

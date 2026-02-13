@@ -1,0 +1,26 @@
+{
+  "openGraph": {
+    "title": "Ladder Game",
+    "ogTitle": "Ladder Game random draw tool",
+    "description": "Enter participants and outcomes to generate a random ladder draw result."
+  },
+  "title": "Ladder Game",
+  "description": "Add participants and outcomes, then draw a ladder to reveal random matches.",
+  "participantsLabel": "Participants",
+  "participantsPlaceholder": "Enter one name per line",
+  "outcomesLabel": "Outcomes",
+  "outcomesPlaceholder": "Enter one outcome per line",
+  "rungCountLabel": "Number of rungs",
+  "rungCountHint": "Adjust the number to change the ladder complexity.",
+  "drawButton": "Draw ladder",
+  "shuffleButton": "Shuffle inputs",
+  "resetButton": "Reset",
+  "resultTitle": "Draw results",
+  "resultCount": "{{count}} results",
+  "previewTitle": "Ladder preview",
+  "mismatchNotice": "Participants ({{participants}}) and outcomes ({{outcomes}}) do not match. Missing outcomes are auto-filled.",
+  "needsParticipants": "Add at least 2 participants.",
+  "autoOutcome": "Outcome {{index}}",
+  "sampleParticipants": ["Alex", "Sam", "Riley", "Jamie"],
+  "sampleOutcomes": ["Coffee duty", "Lunch treat", "Free pass", "Snack"]
+}

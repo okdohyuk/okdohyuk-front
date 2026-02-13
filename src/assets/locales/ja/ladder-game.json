@@ -1,0 +1,26 @@
+{
+  "openGraph": {
+    "title": "あみだくじ",
+    "ogTitle": "あみだくじ抽選ツール",
+    "description": "参加者と結果を入力して、ランダムなあみだくじ結果を作成します。"
+  },
+  "title": "あみだくじ",
+  "description": "参加者と結果を入力して、あみだくじでランダムな割り当てを確認しましょう。",
+  "participantsLabel": "参加者",
+  "participantsPlaceholder": "1行に1名ずつ入力してください",
+  "outcomesLabel": "結果",
+  "outcomesPlaceholder": "1行に1つずつ入力してください",
+  "rungCountLabel": "横線の数",
+  "rungCountHint": "数を調整すると難易度が変わります。",
+  "drawButton": "くじを引く",
+  "shuffleButton": "入力をシャッフル",
+  "resetButton": "リセット",
+  "resultTitle": "抽選結果",
+  "resultCount": "{{count}}件の結果",
+  "previewTitle": "あみだくじプレビュー",
+  "mismatchNotice": "参加者（{{participants}}）と結果（{{outcomes}}）の数が一致しません。不足分は自動で補完されます。",
+  "needsParticipants": "参加者は2名以上必要です。",
+  "autoOutcome": "結果 {{index}}",
+  "sampleParticipants": ["さくら", "ゆうき", "はる", "けん"],
+  "sampleOutcomes": ["コーヒー係", "ランチおごり", "免除", "おやつ"]
+}

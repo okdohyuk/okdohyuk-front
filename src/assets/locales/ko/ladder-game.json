@@ -1,0 +1,26 @@
+{
+  "openGraph": {
+    "title": "사다리타기",
+    "ogTitle": "사다리타기 결과 추첨 도구",
+    "description": "참가자와 결과를 입력하면 랜덤 사다리타기 결과를 만들어 줍니다."
+  },
+  "title": "사다리타기",
+  "description": "참가자와 결과를 입력하고 사다리를 그려 랜덤 매칭을 확인하세요.",
+  "participantsLabel": "참가자",
+  "participantsPlaceholder": "한 줄에 한 명씩 입력하세요",
+  "outcomesLabel": "결과",
+  "outcomesPlaceholder": "한 줄에 한 결과씩 입력하세요",
+  "rungCountLabel": "가로줄 개수",
+  "rungCountHint": "숫자를 조절하면 사다리의 난이도가 바뀝니다.",
+  "drawButton": "사다리 돌리기",
+  "shuffleButton": "입력 섞기",
+  "resetButton": "초기화",
+  "resultTitle": "추첨 결과",
+  "resultCount": "{{count}}명 결과",
+  "previewTitle": "사다리 미리보기",
+  "mismatchNotice": "참가자 {{participants}}명과 결과 {{outcomes}}개가 달라요. 부족한 결과는 자동으로 채워집니다.",
+  "needsParticipants": "참가자는 2명 이상 필요해요.",
+  "autoOutcome": "{{index}}번 결과",
+  "sampleParticipants": ["민지", "서준", "유나", "도현"],
+  "sampleOutcomes": ["커피 당첨", "점심 쏘기", "면제", "간식"]
+}
