@@ -1,0 +1,36 @@
+{
+  "title": "再生速度計算機",
+  "description": "再生速度を変えたときの視聴時間を計算し、目標時間に合わせるための速度も確認できます。",
+  "section": {
+    "adjusted": "再生時間の変換",
+    "adjustedDescription": "元の長さと再生速度を入力してください。",
+    "required": "必要な再生速度",
+    "requiredDescription": "目標時間を設定すると必要な速度を表示します。"
+  },
+  "label": {
+    "originalDuration": "元の長さ",
+    "speed": "再生速度",
+    "adjustedResult": "変換後の時間",
+    "targetDuration": "目標時間",
+    "requiredSpeed": "必要な速度"
+  },
+  "unit": {
+    "hours": "時間",
+    "minutes": "分",
+    "seconds": "秒"
+  },
+  "helper": {
+    "speedRange": "よく使われる速度: 1.25x、1.5x、2x",
+    "requiredSpeed": "目標時間を入力すると必要な速度が計算されます。"
+  },
+  "button": {
+    "copyTime": "時間をコピー",
+    "copySpeed": "速度をコピー",
+    "reset": "リセット",
+    "example": "例を入力"
+  },
+  "openGraph": {
+    "title": "再生速度計算機",
+    "description": "無料の再生速度計算機。再生速度ごとの視聴時間と、目標時間に必要な速度をすぐに計算できます。"
+  }
+}

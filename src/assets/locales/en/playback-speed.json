@@ -1,0 +1,36 @@
+{
+  "title": "Playback Speed Calculator",
+  "description": "Calculate how long a video or audio will take at any speed and find the speed you need to finish by a target time.",
+  "section": {
+    "adjusted": "Adjusted watch time",
+    "adjustedDescription": "Enter the original duration and a playback speed.",
+    "required": "Required speed",
+    "requiredDescription": "Set a target duration to see the speed you need."
+  },
+  "label": {
+    "originalDuration": "Original duration",
+    "speed": "Playback speed",
+    "adjustedResult": "Adjusted duration",
+    "targetDuration": "Target duration",
+    "requiredSpeed": "Required speed"
+  },
+  "unit": {
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "helper": {
+    "speedRange": "Tip: common speeds are 1.25x, 1.5x, and 2x.",
+    "requiredSpeed": "Enter a target duration to calculate the speed."
+  },
+  "button": {
+    "copyTime": "Copy time",
+    "copySpeed": "Copy speed",
+    "reset": "Reset",
+    "example": "Use example"
+  },
+  "openGraph": {
+    "title": "Playback Speed Calculator",
+    "description": "Free playback speed calculator. Convert video duration by speed and find the exact speed needed to finish within a target time."
+  }
+}

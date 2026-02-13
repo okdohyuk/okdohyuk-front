@@ -1,0 +1,36 @@
+{
+  "title": "배속 시간 계산기",
+  "description": "영상/오디오를 배속으로 재생할 때 걸리는 시간을 계산하고, 목표 시간에 맞추기 위한 배속을 확인하세요.",
+  "section": {
+    "adjusted": "배속 적용 시간",
+    "adjustedDescription": "원본 길이와 배속을 입력하면 새로운 재생 시간을 계산합니다.",
+    "required": "필요 배속",
+    "requiredDescription": "목표 시간을 입력하면 필요한 배속을 계산합니다."
+  },
+  "label": {
+    "originalDuration": "원본 길이",
+    "speed": "재생 배속",
+    "adjustedResult": "배속 적용 결과",
+    "targetDuration": "목표 시간",
+    "requiredSpeed": "필요 배속"
+  },
+  "unit": {
+    "hours": "시간",
+    "minutes": "분",
+    "seconds": "초"
+  },
+  "helper": {
+    "speedRange": "자주 쓰는 배속: 1.25x, 1.5x, 2x",
+    "requiredSpeed": "목표 시간을 입력하면 필요한 배속이 계산됩니다."
+  },
+  "button": {
+    "copyTime": "시간 복사",
+    "copySpeed": "배속 복사",
+    "reset": "초기화",
+    "example": "예시 입력"
+  },
+  "openGraph": {
+    "title": "배속 시간 계산기",
+    "description": "무료 배속 시간 계산기. 배속에 따른 재생 시간을 계산하고 목표 시간에 맞는 배속을 확인하세요."
+  }
+}
