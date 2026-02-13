@@ -1,0 +1,26 @@
+{
+  "title": "咖啡比例计算器",
+  "description": "根据咖啡粉量和比例计算所需水量。",
+  "badge": "冲煮助手",
+  "notice": "输入咖啡粉量与比例，即可估算所需水量。",
+  "label": {
+    "coffee": "咖啡粉量",
+    "ratio": "冲煮比例",
+    "water": "所需水量"
+  },
+  "placeholder": {
+    "coffee": "例如: 20",
+    "ratio": "例如: 15"
+  },
+  "helper": {
+    "ratio": "常见比例：1:15 到 1:18。"
+  },
+  "unit": {
+    "gram": "g"
+  },
+  "resultNote": "水量以克为单位（约等于毫升）。",
+  "openGraph": {
+    "title": "咖啡比例计算器",
+    "description": "根据咖啡粉量和比例计算所需水量。"
+  }
+}

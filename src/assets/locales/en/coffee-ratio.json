@@ -1,0 +1,26 @@
+{
+  "title": "Coffee Ratio Calculator",
+  "description": "Estimate brew water from your coffee dose and ratio.",
+  "badge": "Brew Helper",
+  "notice": "Enter your coffee dose and pick a ratio to estimate the water amount for brewing.",
+  "label": {
+    "coffee": "Coffee dose",
+    "ratio": "Brew ratio",
+    "water": "Water needed"
+  },
+  "placeholder": {
+    "coffee": "e.g. 20",
+    "ratio": "e.g. 15"
+  },
+  "helper": {
+    "ratio": "Common ratios: 1:15 to 1:18."
+  },
+  "unit": {
+    "gram": "g"
+  },
+  "resultNote": "Water amount shown in grams (≈ ml).",
+  "openGraph": {
+    "title": "Coffee Ratio Calculator",
+    "description": "Calculate brew water from coffee dose and ratio."
+  }
+}
