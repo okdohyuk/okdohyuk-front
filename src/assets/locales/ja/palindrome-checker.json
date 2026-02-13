@@ -1,0 +1,28 @@
+{
+  "title": "回文チェッカー",
+  "description": "文章が前後同じかを確認します。",
+  "placeholder": "分析するテキストを入力...",
+  "helper": "空白・記号・大文字小文字は無視します。",
+  "empty": "表示する内容がありません。",
+  "label": {
+    "input": "入力テキスト",
+    "result": "結果",
+    "normalized": "正規化テキスト",
+    "reversed": "逆順テキスト",
+    "length": "正規化の長さ"
+  },
+  "status": {
+    "empty": "テキストを入力してください",
+    "palindrome": "回文です",
+    "notPalindrome": "回文ではありません"
+  },
+  "button": {
+    "clear": "クリア",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "openGraph": {
+    "title": "回文チェッカー",
+    "description": "正規化したテキストで回文かどうかを即チェック。"
+  }
+}

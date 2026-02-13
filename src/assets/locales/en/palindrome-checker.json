@@ -1,0 +1,28 @@
+{
+  "title": "Palindrome Checker",
+  "description": "Check whether a phrase reads the same forward and backward.",
+  "placeholder": "Type or paste text to analyze...",
+  "helper": "Spaces, punctuation, and case are ignored.",
+  "empty": "Nothing to show yet.",
+  "label": {
+    "input": "Input text",
+    "result": "Result",
+    "normalized": "Normalized text",
+    "reversed": "Reversed text",
+    "length": "Normalized length"
+  },
+  "status": {
+    "empty": "Waiting for text",
+    "palindrome": "Palindrome",
+    "notPalindrome": "Not a palindrome"
+  },
+  "button": {
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "openGraph": {
+    "title": "Palindrome Checker",
+    "description": "Instantly verify palindromes with cleaned text and reverse view."
+  }
+}

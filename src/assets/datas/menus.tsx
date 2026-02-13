@@ -8,11 +8,13 @@ import {
   Github,
   Hash,
   Key,
+  Landmark,
   Linkedin,
   List,
   MonitorPlay,
   Palette,
   QrCode,
+  Repeat2,
   Server,
   Smile,
   Sparkles,
@@ -98,6 +100,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '대출 계산기',
+        en: 'Loan Calculator',
+        ja: 'ローン計算機',
+        zh: '贷款计算器',
+      },
+      icon: <Landmark />,
+      link: '/loan-calculator',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',
@@ -155,6 +167,16 @@ const menus: Menus = {
       },
       icon: <TextCursorInput />,
       link: '/choseong-maker',
+    },
+    {
+      title: {
+        ko: '회문 검사기',
+        en: 'Palindrome Checker',
+        ja: '回文チェッカー',
+        zh: '回文检测器',
+      },
+      icon: <Repeat2 />,
+      link: '/palindrome-checker',
     },
   ],
   out: [
