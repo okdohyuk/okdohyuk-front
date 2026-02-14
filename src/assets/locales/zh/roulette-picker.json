@@ -1,0 +1,33 @@
+{
+  "openGraph": {
+    "title": "转盘抽签",
+    "ogTitle": "转盘抽签",
+    "description": "输入候选项并开始转盘，即可快速抽取随机结果。适合团队抽签、菜单选择或灵感筛选。"
+  },
+  "title": "转盘抽签",
+  "description": "输入候选项并旋转转盘，快速获得随机结果。",
+  "label": {
+    "items": "候选列表",
+    "result": "抽取结果",
+    "history": "最近结果"
+  },
+  "placeholder": {
+    "items": "每行输入一个，或用逗号分隔。"
+  },
+  "button": {
+    "spin": "开始转盘",
+    "clear": "清空",
+    "example": "载入示例",
+    "copy": "复制结果",
+    "copied": "已复制"
+  },
+  "helper": {
+    "count": "当前 {{count}} 项",
+    "needMore": "至少需要 2 个候选项。",
+    "separator": "可用换行或逗号分隔。"
+  },
+  "empty": {
+    "result": "暂无结果。",
+    "history": "暂无记录。"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "openGraph": {
+    "title": "Roulette Picker",
+    "ogTitle": "Roulette Picker",
+    "description": "Drop in your options and spin to get an instant random result. Perfect for quick team picks, menu decisions, or brainstorming choices."
+  },
+  "title": "Roulette Picker",
+  "description": "Enter options and spin the roulette to draw a random result fast.",
+  "label": {
+    "items": "Option List",
+    "result": "Selected Result",
+    "history": "Recent Results"
+  },
+  "placeholder": {
+    "items": "Enter one item per line or separate with commas."
+  },
+  "button": {
+    "spin": "Spin Roulette",
+    "clear": "Clear",
+    "example": "Load Example",
+    "copy": "Copy Result",
+    "copied": "Copied"
+  },
+  "helper": {
+    "count": "{{count}} items",
+    "needMore": "Add at least 2 items to spin.",
+    "separator": "Use line breaks or commas to separate items."
+  },
+  "empty": {
+    "result": "No result yet.",
+    "history": "No history yet."
+  }
+}
