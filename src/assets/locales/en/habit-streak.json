@@ -1,0 +1,35 @@
+{
+  "title": "Habit Streak Tracker",
+  "description": "Check in once a day and keep your current streak and best record in one place.",
+  "helper": "Mark today as done to build your streak. Your data is saved in the browser.",
+  "placeholder": "New habit name (e.g., 10-minute stretch)",
+  "empty": "No habits yet. Add one above to get started.",
+  "labels": {
+    "createdAt": "Started",
+    "lastDone": "Last done",
+    "none": "None",
+    "streak": "Streak",
+    "best": "Best"
+  },
+  "buttons": {
+    "add": "Add",
+    "sample": "Load sample",
+    "clear": "Clear all",
+    "copy": "Copy summary",
+    "copied": "Copied",
+    "markToday": "Done today",
+    "done": "Completed",
+    "reset": "Reset",
+    "remove": "Remove"
+  },
+  "stats": {
+    "total": "Habits",
+    "doneToday": "Done today",
+    "totalStreak": "Total streak",
+    "bestStreak": "Best streak"
+  },
+  "openGraph": {
+    "title": "Habit Streak Tracker",
+    "description": "Track your daily habits with streaks and best records. Mark today done, copy a quick summary, and keep everything saved locally."
+  }
+}

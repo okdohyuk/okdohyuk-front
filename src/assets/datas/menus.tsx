@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Flame,
   Github,
   Hash,
   Key,
@@ -105,6 +106,16 @@ const menus: Menus = {
       },
       icon: <List />,
       link: '/todo',
+    },
+    {
+      title: {
+        ko: '습관 연속 기록기',
+        en: 'Habit Streak Tracker',
+        ja: '習慣ストリークトラッカー',
+        zh: '习惯连胜记录',
+      },
+      icon: <Flame />,
+      link: '/habit-streak',
     },
     {
       title: {
