@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Dices,
   Github,
   Hash,
   Key,
@@ -135,6 +136,26 @@ const menus: Menus = {
       },
       icon: <Bomb />,
       link: '/ppollong',
+    },
+    {
+      title: {
+        ko: '룰렛 뽑기',
+        en: 'Roulette Picker',
+        ja: 'ルーレット抽選',
+        zh: '转盘抽签',
+      },
+      icon: <Sparkles />,
+      link: '/roulette-picker',
+    },
+    {
+      title: {
+        ko: '사다리타기',
+        en: 'Ladder Game',
+        ja: 'あみだくじ',
+        zh: '梯子抽签',
+      },
+      icon: <Dices />,
+      link: '/ladder-game',
     },
     {
       title: {
