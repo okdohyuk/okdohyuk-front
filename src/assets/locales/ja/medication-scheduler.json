@@ -1,0 +1,34 @@
+{
+  "openGraph": {
+    "title": "服薬スケジューラー",
+    "ogTitle": "服薬スケジューラー",
+    "description": "開始時刻・間隔・回数を入力すると、服薬スケジュールを自動で計算します。"
+  },
+  "title": "服薬スケジューラー",
+  "description": "開始時刻と間隔を入力するだけで服薬スケジュールを作成できます。",
+  "disclaimer": "医療的助言ではありません。処方・指示を優先してください。",
+  "labels": {
+    "startTime": "最初の服薬時刻",
+    "intervalHours": "間隔（時間）",
+    "intervalMinutes": "間隔（分）",
+    "doseCount": "服薬回数"
+  },
+  "buttons": {
+    "setNow": "今に設定",
+    "copy": "スケジュールをコピー",
+    "copied": "コピーしました",
+    "reset": "リセット"
+  },
+  "doseHint": "1〜{{max}}回まで入力できます。",
+  "summary": "合計{{count}}回 • 間隔 {{interval}}",
+  "scheduleTitle": "服薬スケジュール",
+  "empty": "入力するとスケジュールが表示されます。",
+  "errors": {
+    "startTime": "最初の服薬時刻を入力してください。",
+    "interval": "間隔は1分以上にしてください。",
+    "doseCount": "服薬回数は1〜{{max}}回の範囲で入力してください。"
+  },
+  "intervalHoursText": "{{count}}時間",
+  "intervalMinutesText": "{{count}}分",
+  "intervalFallback": "0分"
+}

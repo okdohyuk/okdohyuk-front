@@ -1,0 +1,34 @@
+{
+  "openGraph": {
+    "title": "Medication Scheduler",
+    "ogTitle": "Medication Scheduler",
+    "description": "Enter a start time, interval, and dose count to generate a simple medication schedule automatically."
+  },
+  "title": "Medication Scheduler",
+  "description": "Add a start time and interval to build a medication schedule instantly.",
+  "disclaimer": "This is not medical advice. Always follow your prescription and guidance.",
+  "labels": {
+    "startTime": "First dose time",
+    "intervalHours": "Interval (hours)",
+    "intervalMinutes": "Interval (minutes)",
+    "doseCount": "Total doses"
+  },
+  "buttons": {
+    "setNow": "Set to now",
+    "copy": "Copy schedule",
+    "copied": "Copied!",
+    "reset": "Reset"
+  },
+  "doseHint": "You can enter between 1 and {{max}} doses.",
+  "summary": "Total {{count}} doses • Interval {{interval}}",
+  "scheduleTitle": "Dose schedule",
+  "empty": "Fill in the inputs to see your schedule.",
+  "errors": {
+    "startTime": "Please enter the first dose time.",
+    "interval": "Interval must be at least 1 minute.",
+    "doseCount": "Dose count must be between 1 and {{max}}."
+  },
+  "intervalHoursText": "{{count}}h",
+  "intervalMinutesText": "{{count}}m",
+  "intervalFallback": "0m"
+}
