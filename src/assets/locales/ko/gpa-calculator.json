@@ -1,0 +1,56 @@
+{
+  "openGraph": {
+    "title": "학점(GPA) 계산기",
+    "ogTitle": "학점(GPA) 계산기",
+    "description": "과목별 학점과 등급을 입력하면 평균 평점을 빠르게 계산해주는 학점(GPA) 계산기입니다. 총 학점, 총 평점, 계산된 과목 수를 한눈에 확인하고 결과를 복사해 공유할 수 있습니다."
+  },
+  "title": "학점(GPA) 계산기",
+  "description": "과목별 학점과 등급을 입력하면 평균 평점이 자동으로 계산됩니다.",
+  "table": {
+    "title": "과목 입력",
+    "subtitle": "학점과 등급을 입력하면 자동 계산됩니다.",
+    "course": "과목",
+    "credits": "학점",
+    "grade": "등급",
+    "points": "평점",
+    "coursePlaceholder": "과목명 (선택)",
+    "creditsPlaceholder": "학점",
+    "gradePlaceholder": "등급 선택",
+    "note": "4.5 만점 기준으로 계산됩니다."
+  },
+  "actions": {
+    "addRow": "과목 추가",
+    "remove": "삭제",
+    "reset": "초기화",
+    "fillSample": "예시 채우기",
+    "copy": "결과 복사"
+  },
+  "summary": {
+    "title": "계산 결과",
+    "gpa": "평균 평점(GPA)",
+    "totalCredits": "총 학점",
+    "totalPoints": "총 평점",
+    "courseCount": "계산된 과목 수",
+    "invalid": "음수 또는 잘못된 학점이 있습니다.",
+    "scaleNote": "기본 기준: 4.5 만점 (A+ 4.5 / A0 4.0)",
+    "copied": "결과를 복사했습니다.",
+    "copyFailed": "복사에 실패했습니다.",
+    "copyFormat": "GPA {{gpa}} / 4.5 (총 학점 {{totalCredits}})"
+  },
+  "grades": {
+    "A_PLUS": "A+",
+    "A_ZERO": "A0",
+    "B_PLUS": "B+",
+    "B_ZERO": "B0",
+    "C_PLUS": "C+",
+    "C_ZERO": "C0",
+    "D_PLUS": "D+",
+    "D_ZERO": "D0",
+    "F": "F"
+  },
+  "sample": {
+    "course1": "전공 기초",
+    "course2": "교양 선택",
+    "course3": "전공 심화"
+  }
+}

@@ -6,6 +6,7 @@ import {
   Code,
   CreditCard,
   Github,
+  GraduationCap,
   Hash,
   Key,
   Linkedin,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '학점 계산기',
+        en: 'GPA Calculator',
+        ja: 'GPA計算機',
+        zh: 'GPA 计算器',
+      },
+      icon: <GraduationCap />,
+      link: '/gpa-calculator',
     },
     {
       title: {

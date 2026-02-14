@@ -1,0 +1,56 @@
+{
+  "openGraph": {
+    "title": "GPA Calculator",
+    "ogTitle": "GPA Calculator",
+    "description": "Calculate your GPA quickly by entering course credits and grades. See total credits, total grade points, and copy the result to share."
+  },
+  "title": "GPA Calculator",
+  "description": "Enter course credits and grades to calculate your GPA automatically.",
+  "table": {
+    "title": "Course List",
+    "subtitle": "Fill in credits and grades to calculate instantly.",
+    "course": "Course",
+    "credits": "Credits",
+    "grade": "Grade",
+    "points": "Points",
+    "coursePlaceholder": "Course name (optional)",
+    "creditsPlaceholder": "Credits",
+    "gradePlaceholder": "Select grade",
+    "note": "Calculated on a 4.5 scale."
+  },
+  "actions": {
+    "addRow": "Add course",
+    "remove": "Remove",
+    "reset": "Reset",
+    "fillSample": "Fill sample",
+    "copy": "Copy result"
+  },
+  "summary": {
+    "title": "Summary",
+    "gpa": "GPA",
+    "totalCredits": "Total credits",
+    "totalPoints": "Total grade points",
+    "courseCount": "Courses counted",
+    "invalid": "Negative or invalid credits detected.",
+    "scaleNote": "Default scale: 4.5 (A+ 4.5 / A0 4.0)",
+    "copied": "Result copied.",
+    "copyFailed": "Copy failed.",
+    "copyFormat": "GPA {{gpa}} / 4.5 (Total credits {{totalCredits}})"
+  },
+  "grades": {
+    "A_PLUS": "A+",
+    "A_ZERO": "A0",
+    "B_PLUS": "B+",
+    "B_ZERO": "B0",
+    "C_PLUS": "C+",
+    "C_ZERO": "C0",
+    "D_PLUS": "D+",
+    "D_ZERO": "D0",
+    "F": "F"
+  },
+  "sample": {
+    "course1": "Major basics",
+    "course2": "Elective",
+    "course3": "Major advanced"
+  }
+}
