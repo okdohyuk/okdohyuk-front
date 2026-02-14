@@ -12,6 +12,7 @@ import {
   List,
   MonitorPlay,
   Palette,
+  PiggyBank,
   QrCode,
   Server,
   Smile,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '저축 목표 계산기',
+        en: 'Savings Goal Calculator',
+        ja: '貯金目標計算機',
+        zh: '储蓄目标计算器',
+      },
+      icon: <PiggyBank />,
+      link: '/savings-goal',
     },
     {
       title: {

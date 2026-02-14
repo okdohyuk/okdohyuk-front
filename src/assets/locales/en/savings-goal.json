@@ -1,0 +1,56 @@
+{
+  "openGraph": {
+    "title": "Savings Goal Calculator",
+    "ogTitle": "Savings Goal Calculator | Estimate your target date",
+    "description": "Enter a goal amount, current savings, monthly savings, and annual interest rate to estimate when you will reach your goal.",
+    "keywords": [
+      "savings goal",
+      "savings calculator",
+      "goal date",
+      "monthly savings",
+      "interest rate",
+      "financial planning",
+      "goal tracker"
+    ]
+  },
+  "title": "Savings Goal Calculator",
+  "description": "Estimate when you will reach your goal with monthly savings and interest.",
+  "badge": "Goal Planner",
+  "labels": {
+    "goalAmount": "Goal Amount",
+    "currentAmount": "Current Savings",
+    "monthlyAmount": "Monthly Savings",
+    "annualRate": "Annual Interest Rate (%)"
+  },
+  "placeholders": {
+    "goalAmount": "e.g. 5,000,000",
+    "currentAmount": "e.g. 500,000",
+    "monthlyAmount": "e.g. 300,000",
+    "annualRate": "e.g. 2.5"
+  },
+  "actions": {
+    "fillExample": "Fill Example",
+    "reset": "Reset",
+    "copySummary": "Copy Summary",
+    "copied": "Copied!"
+  },
+  "result": {
+    "title": "Results",
+    "remaining": "Remaining Amount",
+    "monthsNeeded": "Estimated Duration",
+    "monthsUnit": "months",
+    "targetDate": "Estimated Target Date"
+  },
+  "messages": {
+    "invalidGoal": "Please enter a goal amount.",
+    "unreachable": "We can’t estimate a goal date with zero monthly savings and zero interest.",
+    "alreadyReached": "You’ve already reached the goal!"
+  },
+  "summary": "Reach {{goal}} in about {{months}} months (around {{targetDate}}). Remaining {{remaining}}.",
+  "notes": {
+    "title": "Notes",
+    "item1": "The interest rate is annual and calculated monthly.",
+    "item2": "Results are estimates and may differ from actual outcomes.",
+    "item3": "If monthly savings are 0, the target date will not be shown."
+  }
+}
