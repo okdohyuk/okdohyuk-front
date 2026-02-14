@@ -1,0 +1,23 @@
+{
+  "title": "大小写转换器",
+  "description": "将输入文本一键转换为多种大小写格式。",
+  "label": {
+    "input": "文本",
+    "outputs": "转换结果"
+  },
+  "placeholder": "请输入要转换的文本",
+  "helper": "粘贴句子或关键词即可生成多种格式。",
+  "output": {
+    "upper": "大写",
+    "lower": "小写",
+    "title": "标题格式",
+    "sentence": "句子格式",
+    "camel": "驼峰格式",
+    "snake": "下划线格式"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "empty": "输入文本后即可查看结果"
+}

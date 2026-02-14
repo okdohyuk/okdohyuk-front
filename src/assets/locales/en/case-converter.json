@@ -1,0 +1,23 @@
+{
+  "title": "Case Converter",
+  "description": "Transform text into multiple cases with one click.",
+  "label": {
+    "input": "Text",
+    "outputs": "Converted cases"
+  },
+  "placeholder": "Enter text to convert",
+  "helper": "Paste a sentence or keywords to generate different formats.",
+  "output": {
+    "upper": "UPPERCASE",
+    "lower": "lowercase",
+    "title": "Title Case",
+    "sentence": "Sentence case",
+    "camel": "camelCase",
+    "snake": "snake_case"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Type text to see results"
+}

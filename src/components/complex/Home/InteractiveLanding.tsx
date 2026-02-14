@@ -7,6 +7,7 @@ import type { LucideIcon } from 'lucide-react';
 import {
   ArrowRight,
   CalendarClock,
+  CaseSensitive,
   Clock3,
   Layers3,
   QrCode,
@@ -121,7 +122,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       '즉시 실행: 추천된 툴 카드에서 바로 이동해 작업을 시작합니다.',
     ],
     metrics: [
-      { label: '활용 가능한 도구', value: '11+' },
+      { label: '활용 가능한 도구', value: '14+' },
       { label: '언어 지원', value: '4개' },
       { label: '즉시 진입 가능한 플로우', value: '3종' },
     ],
@@ -138,6 +139,13 @@ const CONTENT: Record<Language, LocalizedContent> = {
             href: '/qr-generator',
             badge: '빠른 배포',
             icon: QrCode,
+          },
+          {
+            title: 'Case Converter',
+            description: '캡션·해시태그 문구를 다양한 케이스로 빠르게 변환합니다.',
+            href: '/case-converter',
+            badge: '콘텐츠 변환',
+            icon: CaseSensitive,
           },
           {
             title: 'Choseong Maker',
@@ -243,7 +251,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       'Launch instantly: open recommended tools and execute right away.',
     ],
     metrics: [
-      { label: 'Tools available', value: '11+' },
+      { label: 'Tools available', value: '14+' },
       { label: 'Supported languages', value: '4' },
       { label: 'Instant workflow modes', value: '3' },
     ],
@@ -260,6 +268,13 @@ const CONTENT: Record<Language, LocalizedContent> = {
             href: '/qr-generator',
             badge: 'Fast distribution',
             icon: QrCode,
+          },
+          {
+            title: 'Case Converter',
+            description: 'Convert captions and hashtags into multiple casing styles fast.',
+            href: '/case-converter',
+            badge: 'Content formats',
+            icon: CaseSensitive,
           },
           {
             title: 'Choseong Maker',
@@ -364,7 +379,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       '即時実行: 推薦カードからすぐにツールへ移動。',
     ],
     metrics: [
-      { label: '利用可能ツール', value: '11+' },
+      { label: '利用可能ツール', value: '14+' },
       { label: '対応言語', value: '4' },
       { label: '即時フローモード', value: '3' },
     ],
@@ -381,6 +396,13 @@ const CONTENT: Record<Language, LocalizedContent> = {
             href: '/qr-generator',
             badge: '高速配布',
             icon: QrCode,
+          },
+          {
+            title: 'Case Converter',
+            description: 'キャプションやタグ文を複数のケースにすばやく変換します。',
+            href: '/case-converter',
+            badge: 'コンテンツ整形',
+            icon: CaseSensitive,
           },
           {
             title: 'Choseong Maker',
@@ -485,7 +507,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       '立即执行：点击推荐卡片直接进入工具。',
     ],
     metrics: [
-      { label: '可用工具', value: '11+' },
+      { label: '可用工具', value: '14+' },
       { label: '支持语言', value: '4' },
       { label: '即时流程模式', value: '3' },
     ],
@@ -502,6 +524,13 @@ const CONTENT: Record<Language, LocalizedContent> = {
             href: '/qr-generator',
             badge: '快速分发',
             icon: QrCode,
+          },
+          {
+            title: 'Case Converter',
+            description: '将文案与标签快速转换为多种大小写格式。',
+            href: '/case-converter',
+            badge: '内容格式',
+            icon: CaseSensitive,
           },
           {
             title: 'Choseong Maker',
