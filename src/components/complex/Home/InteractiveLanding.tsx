@@ -13,6 +13,7 @@ import {
   QrCode,
   Rocket,
   ShieldCheck,
+  Shuffle,
   Sparkles,
   Users2,
   Workflow,
@@ -122,7 +123,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       '즉시 실행: 추천된 툴 카드에서 바로 이동해 작업을 시작합니다.',
     ],
     metrics: [
-      { label: '활용 가능한 도구', value: '14+' },
+      { label: '활용 가능한 도구', value: '15+' },
       { label: '언어 지원', value: '4개' },
       { label: '즉시 진입 가능한 플로우', value: '3종' },
     ],
@@ -199,6 +200,13 @@ const CONTENT: Record<Language, LocalizedContent> = {
         spotlight: '흩어진 작업을 하나의 실행 루프로 연결해보세요.',
         tools: [
           {
+            title: '사다리타기',
+            description: '추첨과 랜덤 매칭을 빠르게 만들어 팀 결정을 돕습니다.',
+            href: '/ladder-game',
+            badge: '랜덤 결정',
+            icon: Shuffle,
+          },
+          {
             title: 'Todo',
             description: '개인/팀 할 일을 빠르게 정리해 우선순위를 시각화합니다.',
             href: '/todo',
@@ -251,7 +259,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       'Launch instantly: open recommended tools and execute right away.',
     ],
     metrics: [
-      { label: 'Tools available', value: '14+' },
+      { label: 'Tools available', value: '15+' },
       { label: 'Supported languages', value: '4' },
       { label: 'Instant workflow modes', value: '3' },
     ],
@@ -328,6 +336,13 @@ const CONTENT: Record<Language, LocalizedContent> = {
         spotlight: 'Connect scattered tasks into one shared execution loop.',
         tools: [
           {
+            title: 'Ladder Game',
+            description: 'Create quick random pairings for team decisions or giveaways.',
+            href: '/ladder-game',
+            badge: 'Random draw',
+            icon: Shuffle,
+          },
+          {
             title: 'Todo',
             description: 'Track priorities and keep your sprint visible.',
             href: '/todo',
@@ -379,7 +394,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       '即時実行: 推薦カードからすぐにツールへ移動。',
     ],
     metrics: [
-      { label: '利用可能ツール', value: '14+' },
+      { label: '利用可能ツール', value: '15+' },
       { label: '対応言語', value: '4' },
       { label: '即時フローモード', value: '3' },
     ],
@@ -456,6 +471,13 @@ const CONTENT: Record<Language, LocalizedContent> = {
         spotlight: '分散した作業を一つの実行ループにまとめます。',
         tools: [
           {
+            title: 'あみだくじ',
+            description: '抽選やランダム決定をすばやく作成できます。',
+            href: '/ladder-game',
+            badge: 'ランダム抽選',
+            icon: Shuffle,
+          },
+          {
             title: 'Todo',
             description: '優先順位を可視化して進行を揃えます。',
             href: '/todo',
@@ -507,7 +529,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       '立即执行：点击推荐卡片直接进入工具。',
     ],
     metrics: [
-      { label: '可用工具', value: '14+' },
+      { label: '可用工具', value: '15+' },
       { label: '支持语言', value: '4' },
       { label: '即时流程模式', value: '3' },
     ],
@@ -583,6 +605,13 @@ const CONTENT: Record<Language, LocalizedContent> = {
         summary: '帮助团队整理任务并协同执行。',
         spotlight: '将分散任务连接为统一执行链路。',
         tools: [
+          {
+            title: '梯子抽签',
+            description: '快速生成随机配对，适合抽签或团队决策。',
+            href: '/ladder-game',
+            badge: '随机抽签',
+            icon: Shuffle,
+          },
           {
             title: 'Todo',
             description: '可视化任务优先级，保持节奏一致。',

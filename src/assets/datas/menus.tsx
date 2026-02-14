@@ -15,6 +15,7 @@ import {
   Palette,
   QrCode,
   Server,
+  Shuffle,
   Smile,
   Sparkles,
   TextCursorInput,
@@ -116,6 +117,16 @@ const menus: Menus = {
       },
       icon: <List />,
       link: '/todo',
+    },
+    {
+      title: {
+        ko: '사다리타기',
+        en: 'Ladder Game',
+        ja: 'あみだくじ',
+        zh: '梯子抽签',
+      },
+      icon: <Shuffle />,
+      link: '/ladder-game',
     },
     {
       title: {

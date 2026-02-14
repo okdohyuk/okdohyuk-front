@@ -1,0 +1,37 @@
+{
+  "title": "梯子抽签",
+  "description": "输入参与者和结果，快速生成随机配对的梯子抽签。",
+  "label": {
+    "participants": "参与者",
+    "results": "结果"
+  },
+  "placeholder": {
+    "participants": "例如: 도혁\n미나\n철수",
+    "results": "例如: 咖啡\n零食\n任务"
+  },
+  "helper": {
+    "participants": "使用换行或逗号分隔。",
+    "results": "数量需与参与者一致。"
+  },
+  "summary": "参与者 {{participants}} 人 · 结果 {{results}} 个",
+  "button": {
+    "draw": "开始抽签",
+    "shuffle": "再次打乱",
+    "reset": "重置",
+    "copy": "复制结果"
+  },
+  "error": {
+    "participantsRequired": "请至少输入 2 位参与者。",
+    "resultsRequired": "请至少输入 2 个结果。",
+    "countMismatch": "参与者数量必须与结果数量一致。"
+  },
+  "result": {
+    "title": "配对结果",
+    "empty": "暂无结果。",
+    "copied": "结果已复制。"
+  },
+  "openGraph": {
+    "title": "梯子抽签",
+    "description": "输入参与者与结果即可生成随机梯子抽签，适合活动抽奖、团队分组和日常小决定。"
+  }
+}

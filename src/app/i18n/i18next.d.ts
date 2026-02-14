@@ -23,6 +23,7 @@ import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
 import caseConverter from 'assets/locales/ko/case-converter.json';
+import ladderGame from 'assets/locales/ko/ladder-game.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -52,6 +53,7 @@ declare module 'i18next' {
       'css-generator': typeof cssGenerator;
       'slug-generator': typeof slugGenerator;
       'case-converter': typeof caseConverter;
+      'ladder-game': typeof ladderGame;
     };
   }
 }

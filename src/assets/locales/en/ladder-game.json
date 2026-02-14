@@ -1,0 +1,37 @@
+{
+  "title": "Ladder Game",
+  "description": "Randomly match participants and outcomes for quick draws and decisions.",
+  "label": {
+    "participants": "Participants",
+    "results": "Outcomes"
+  },
+  "placeholder": {
+    "participants": "e.g. Alex\nMina\nChris",
+    "results": "e.g. Coffee\nSnack\nMission"
+  },
+  "helper": {
+    "participants": "Separate entries with new lines or commas.",
+    "results": "Use the same count as participants."
+  },
+  "summary": "Participants {{participants}} · Outcomes {{results}}",
+  "button": {
+    "draw": "Start draw",
+    "shuffle": "Shuffle again",
+    "reset": "Reset",
+    "copy": "Copy results"
+  },
+  "error": {
+    "participantsRequired": "Add at least 2 participants.",
+    "resultsRequired": "Add at least 2 outcomes.",
+    "countMismatch": "Participants and outcomes must match."
+  },
+  "result": {
+    "title": "Match results",
+    "empty": "No results yet.",
+    "copied": "Results copied."
+  },
+  "openGraph": {
+    "title": "Ladder Game",
+    "description": "Create a quick ladder draw by entering participants and outcomes. Perfect for team decisions, event picks, and casual giveaways—no sign-up required."
+  }
+}

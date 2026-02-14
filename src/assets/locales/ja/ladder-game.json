@@ -1,0 +1,37 @@
+{
+  "title": "あみだくじ",
+  "description": "参加者と結果を入力するとランダムにマッチングするオンラインあみだくじです。",
+  "label": {
+    "participants": "参加者",
+    "results": "結果"
+  },
+  "placeholder": {
+    "participants": "例: ドヒョク\nミナ\nチョルス",
+    "results": "例: コーヒー\nおやつ\nミッション"
+  },
+  "helper": {
+    "participants": "改行またはカンマで区切って入力してください。",
+    "results": "参加者数と同じ数で入力してください。"
+  },
+  "summary": "参加者 {{participants}}人 · 結果 {{results}}件",
+  "button": {
+    "draw": "抽選スタート",
+    "shuffle": "もう一度シャッフル",
+    "reset": "リセット",
+    "copy": "結果をコピー"
+  },
+  "error": {
+    "participantsRequired": "参加者を2人以上入力してください。",
+    "resultsRequired": "結果を2件以上入力してください。",
+    "countMismatch": "参加者数と結果数を同じにしてください。"
+  },
+  "result": {
+    "title": "マッチ結果",
+    "empty": "まだ結果がありません。",
+    "copied": "結果をコピーしました。"
+  },
+  "openGraph": {
+    "title": "あみだくじ",
+    "description": "参加者と結果を入力するだけで、オンラインで簡単にあみだくじを作成できます。イベント抽選やチーム決めに便利です。"
+  }
+}

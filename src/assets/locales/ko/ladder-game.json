@@ -1,0 +1,37 @@
+{
+  "title": "사다리타기",
+  "description": "참가자와 결과를 입력하면 랜덤으로 매칭해주는 온라인 사다리타기입니다.",
+  "label": {
+    "participants": "참가자",
+    "results": "결과"
+  },
+  "placeholder": {
+    "participants": "예: 도혁\n민지\n철수",
+    "results": "예: 커피\n간식\n미션"
+  },
+  "helper": {
+    "participants": "줄바꿈 또는 쉼표로 구분하세요.",
+    "results": "참가자 수와 동일하게 입력하세요."
+  },
+  "summary": "참가자 {{participants}}명 · 결과 {{results}}개",
+  "button": {
+    "draw": "사다리 시작",
+    "shuffle": "다시 섞기",
+    "reset": "초기화",
+    "copy": "결과 복사"
+  },
+  "error": {
+    "participantsRequired": "참가자를 2명 이상 입력하세요.",
+    "resultsRequired": "결과를 2개 이상 입력하세요.",
+    "countMismatch": "참가자 수와 결과 수를 동일하게 맞춰주세요."
+  },
+  "result": {
+    "title": "매칭 결과",
+    "empty": "아직 결과가 없어요.",
+    "copied": "결과가 복사되었습니다."
+  },
+  "openGraph": {
+    "title": "사다리타기",
+    "description": "참가자와 결과를 입력하면 즉시 랜덤 매칭을 만들어주는 온라인 사다리타기입니다. 회식 자리 결정, 팀 미션, 이벤트 추첨 등 일상적인 선택을 빠르게 해결하세요."
+  }
+}
