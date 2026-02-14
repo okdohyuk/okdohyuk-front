@@ -1,0 +1,56 @@
+{
+  "title": "Shopping Total Calculator",
+  "description": "Add item prices and quantities to calculate subtotal, discount, and tax in one place.",
+  "labels": {
+    "items": "Items",
+    "item": "Item",
+    "itemName": "Item name",
+    "price": "Price",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "tax": "Tax",
+    "total": "Total",
+    "summary": "Summary",
+    "adjustments": "Discount & tax",
+    "itemCount": "Item count",
+    "quantityTotal": "Total quantity",
+    "averagePrice": "Average price"
+  },
+  "buttons": {
+    "addItem": "Add item",
+    "remove": "Remove",
+    "clear": "Clear",
+    "sample": "Fill sample",
+    "copySummary": "Copy summary",
+    "copied": "Copied"
+  },
+  "helpers": {
+    "price": "Numbers only (e.g. 3500)",
+    "quantity": "Whole numbers only",
+    "discount": "Between 0 and 100",
+    "tax": "Between 0 and 100"
+  },
+  "placeholders": {
+    "itemName": "e.g. Milk",
+    "price": "e.g. 3500",
+    "quantity": "e.g. 2",
+    "discount": "e.g. 10",
+    "tax": "e.g. 3"
+  },
+  "messages": {
+    "emptyItems": "Add at least one item to start.",
+    "itemsHint": "You can leave item names blank and still calculate totals."
+  },
+  "unit": {
+    "currency": " USD",
+    "percent": "%"
+  },
+  "sample": {
+    "items": [{ "name": "Milk" }, { "name": "Bread" }, { "name": "Fruit" }]
+  },
+  "openGraph": {
+    "title": "Shopping Total Calculator",
+    "description": "Calculate shopping totals with prices, quantities, discounts, and tax."
+  }
+}

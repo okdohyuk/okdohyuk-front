@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Feather,
   Github,
   Hash,
   Key,
@@ -14,6 +15,7 @@ import {
   Palette,
   QrCode,
   Server,
+  ShoppingCart,
   Smile,
   Sparkles,
   TextCursorInput,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 폴리셔',
+        en: 'Text Polisher',
+        ja: 'テキストポリッシャー',
+        zh: '文本润色器',
+      },
+      icon: <Feather />,
+      link: '/text-polisher',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -95,6 +107,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '장바구니 합계 계산기',
+        en: 'Shopping Total Calculator',
+        ja: '買い物合計計算機',
+        zh: '购物合计计算器',
+      },
+      icon: <ShoppingCart />,
+      link: '/shopping-total',
     },
     {
       title: {

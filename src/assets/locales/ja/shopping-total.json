@@ -1,0 +1,56 @@
+{
+  "title": "買い物合計計算機",
+  "description": "商品ごとの価格と数量を入力して、小計・割引・税額をまとめて計算します。",
+  "labels": {
+    "items": "項目",
+    "item": "項目",
+    "itemName": "商品名",
+    "price": "価格",
+    "quantity": "数量",
+    "subtotal": "小計",
+    "discount": "割引率",
+    "tax": "税率",
+    "total": "合計",
+    "summary": "サマリー",
+    "adjustments": "割引・税",
+    "itemCount": "項目数",
+    "quantityTotal": "総数量",
+    "averagePrice": "平均単価"
+  },
+  "buttons": {
+    "addItem": "項目を追加",
+    "remove": "削除",
+    "clear": "リセット",
+    "sample": "例を入力",
+    "copySummary": "サマリーをコピー",
+    "copied": "コピー済み"
+  },
+  "helpers": {
+    "price": "数字のみ（例: 3500）",
+    "quantity": "0以上の整数",
+    "discount": "0〜100の範囲",
+    "tax": "0〜100の範囲"
+  },
+  "placeholders": {
+    "itemName": "例: 牛乳",
+    "price": "例: 3500",
+    "quantity": "例: 2",
+    "discount": "例: 10",
+    "tax": "例: 3"
+  },
+  "messages": {
+    "emptyItems": "項目を追加してください。",
+    "itemsHint": "商品名が空でも計算できます。"
+  },
+  "unit": {
+    "currency": "円",
+    "percent": "%"
+  },
+  "sample": {
+    "items": [{ "name": "牛乳" }, { "name": "パン" }, { "name": "果物" }]
+  },
+  "openGraph": {
+    "title": "買い物合計計算機",
+    "description": "価格と数量を入力して買い物合計をすばやく計算します。"
+  }
+}
