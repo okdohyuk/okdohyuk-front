@@ -1,0 +1,40 @@
+{
+  "title": "거스름돈 계산기",
+  "description": "구매 금액과 받은 금액을 입력하면 거스름돈과 권종/동전 분해를 바로 계산합니다.",
+  "badge": "거스름돈 도우미",
+  "currency": {
+    "label": "통화",
+    "placeholder": "통화를 선택하세요",
+    "krw": "KRW (₩)",
+    "usd": "USD ($)",
+    "jpy": "JPY (¥)"
+  },
+  "input": {
+    "priceLabel": "구매 금액",
+    "paidLabel": "받은 금액",
+    "pricePlaceholder": "예: 12500",
+    "paidPlaceholder": "예: 20000"
+  },
+  "helper": {
+    "price": "구매한 금액을 입력하세요.",
+    "paid": "받은 금액을 입력하세요."
+  },
+  "button": {
+    "copy": "결과 복사",
+    "clear": "초기화"
+  },
+  "note": "모든 계산은 선택한 통화({{symbol}}) 기준으로 진행됩니다.",
+  "result": {
+    "title": "계산 결과",
+    "empty": "금액을 입력하면 결과가 표시됩니다.",
+    "exact": "거스름돈이 없습니다.",
+    "insufficient": "{{amount}} 부족합니다.",
+    "summary": "구매 {{price}} · 받은 {{paid}}",
+    "breakdown": "권종/동전"
+  },
+  "copyTemplate": "구매 금액 {{price}} / 받은 금액 {{paid}} / 거스름돈 {{change}}",
+  "openGraph": {
+    "title": "거스름돈 계산기",
+    "description": "구매 금액과 받은 금액을 입력하면 거스름돈을 바로 계산해 주는 무료 온라인 도구입니다. 통화를 선택하면 권종/동전별 분해 결과도 함께 확인할 수 있어요."
+  }
+}

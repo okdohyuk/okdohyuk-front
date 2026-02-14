@@ -1,0 +1,40 @@
+{
+  "title": "找零计算器",
+  "description": "输入消费金额与实收金额，即可计算找零及纸币/硬币拆分。",
+  "badge": "找零助手",
+  "currency": {
+    "label": "货币",
+    "placeholder": "选择货币",
+    "krw": "KRW (₩)",
+    "usd": "USD ($)",
+    "jpy": "JPY (¥)"
+  },
+  "input": {
+    "priceLabel": "消费金额",
+    "paidLabel": "实收金额",
+    "pricePlaceholder": "例如: 12500",
+    "paidPlaceholder": "例如: 20000"
+  },
+  "helper": {
+    "price": "请输入消费金额。",
+    "paid": "请输入实收金额。"
+  },
+  "button": {
+    "copy": "复制结果",
+    "clear": "清除"
+  },
+  "note": "所有计算均以所选货币（{{symbol}}）为准。",
+  "result": {
+    "title": "计算结果",
+    "empty": "输入金额后即可查看结果。",
+    "exact": "无需找零。",
+    "insufficient": "还差 {{amount}}。",
+    "summary": "消费 {{price}} · 实收 {{paid}}",
+    "breakdown": "纸币/硬币拆分"
+  },
+  "copyTemplate": "消费金额 {{price}} / 实收 {{paid}} / 找零 {{change}}",
+  "openGraph": {
+    "title": "找零计算器",
+    "description": "免费在线找零计算器。输入消费金额与实收金额，立即得到应找零金额及纸币/硬币拆分明细，方便日常结账。"
+  }
+}

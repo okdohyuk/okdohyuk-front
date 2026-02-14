@@ -1,0 +1,40 @@
+{
+  "title": "Change Calculator",
+  "description": "Enter the purchase total and the amount received to get the exact change and denomination breakdown.",
+  "badge": "Change Helper",
+  "currency": {
+    "label": "Currency",
+    "placeholder": "Choose a currency",
+    "krw": "KRW (₩)",
+    "usd": "USD ($)",
+    "jpy": "JPY (¥)"
+  },
+  "input": {
+    "priceLabel": "Purchase total",
+    "paidLabel": "Amount received",
+    "pricePlaceholder": "e.g. 12.50",
+    "paidPlaceholder": "e.g. 20"
+  },
+  "helper": {
+    "price": "Enter the purchase total.",
+    "paid": "Enter the amount you received."
+  },
+  "button": {
+    "copy": "Copy result",
+    "clear": "Clear"
+  },
+  "note": "All calculations use the selected currency ({{symbol}}).",
+  "result": {
+    "title": "Result",
+    "empty": "Enter amounts to see the result.",
+    "exact": "No change is needed.",
+    "insufficient": "Short by {{amount}}.",
+    "summary": "Purchase {{price}} · Received {{paid}}",
+    "breakdown": "Denomination breakdown"
+  },
+  "copyTemplate": "Purchase {{price}} / Received {{paid}} / Change {{change}}",
+  "openGraph": {
+    "title": "Change Calculator",
+    "description": "A free online change calculator. Enter the purchase total and the amount received to see the exact change due, plus a clear bill and coin breakdown for popular currencies."
+  }
+}
