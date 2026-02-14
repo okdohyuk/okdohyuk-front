@@ -1,0 +1,41 @@
+{
+  "title": "Breathing Timer",
+  "description": "Set a simple breathing pattern to help you focus and relax.",
+  "badge": "Breathing Flow",
+  "labels": {
+    "settings": "Breathing settings",
+    "inhale": "Inhale (sec)",
+    "hold": "Hold (sec)",
+    "exhale": "Exhale (sec)",
+    "holdAfter": "Hold after exhale (sec)",
+    "cycles": "Cycles",
+    "presets": "Presets",
+    "phase": "Current phase",
+    "remaining": "Time left",
+    "cycle": "Cycle",
+    "totalPerCycle": "Time per cycle",
+    "totalSession": "Total session"
+  },
+  "phases": {
+    "ready": "Ready",
+    "inhale": "Inhale",
+    "hold": "Hold",
+    "exhale": "Exhale",
+    "holdAfter": "Hold"
+  },
+  "buttons": {
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset"
+  },
+  "presets": {
+    "box": "Box breathing 4-4-4-4",
+    "fourSevenEight": "4-7-8 breathing",
+    "calm": "Calm breathing 6-2-6-2"
+  },
+  "helper": "Set a phase to 0 seconds to skip it.",
+  "openGraph": {
+    "title": "Breathing Timer",
+    "description": "A breathing timer for focus and relaxation. Customize inhale, hold, and exhale durations or start quickly with box breathing and 4-7-8 presets."
+  }
+}

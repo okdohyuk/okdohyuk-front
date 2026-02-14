@@ -1,0 +1,41 @@
+{
+  "title": "호흡 타이머",
+  "description": "간단한 호흡 패턴을 설정해 집중과 휴식을 도와주는 타이머입니다.",
+  "badge": "Breathing Flow",
+  "labels": {
+    "settings": "호흡 설정",
+    "inhale": "들이쉬기(초)",
+    "hold": "멈춤(초)",
+    "exhale": "내쉬기(초)",
+    "holdAfter": "내쉰 후 멈춤(초)",
+    "cycles": "사이클 수",
+    "presets": "프리셋",
+    "phase": "현재 단계",
+    "remaining": "남은 시간",
+    "cycle": "사이클",
+    "totalPerCycle": "1회 총 시간",
+    "totalSession": "전체 세션"
+  },
+  "phases": {
+    "ready": "준비",
+    "inhale": "들이쉬기",
+    "hold": "멈춤",
+    "exhale": "내쉬기",
+    "holdAfter": "멈춤"
+  },
+  "buttons": {
+    "start": "시작",
+    "pause": "일시정지",
+    "reset": "초기화"
+  },
+  "presets": {
+    "box": "박스 호흡 4-4-4-4",
+    "fourSevenEight": "4-7-8 호흡",
+    "calm": "차분 호흡 6-2-6-2"
+  },
+  "helper": "각 단계 시간을 0으로 설정하면 해당 단계는 건너뜁니다.",
+  "openGraph": {
+    "title": "호흡 타이머",
+    "description": "집중과 휴식을 위한 호흡 타이머입니다. 들이쉬기·멈춤·내쉬기 시간을 자유롭게 설정하고 박스 호흡, 4-7-8 호흡 같은 프리셋으로 빠르게 시작해보세요."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "title": "呼吸计时器",
+  "description": "设置简单的呼吸节奏，帮助专注与放松。",
+  "badge": "Breathing Flow",
+  "labels": {
+    "settings": "呼吸设置",
+    "inhale": "吸气（秒）",
+    "hold": "停留（秒）",
+    "exhale": "呼气（秒）",
+    "holdAfter": "呼气后停留（秒）",
+    "cycles": "循环次数",
+    "presets": "预设",
+    "phase": "当前阶段",
+    "remaining": "剩余时间",
+    "cycle": "循环",
+    "totalPerCycle": "每次循环时间",
+    "totalSession": "总时长"
+  },
+  "phases": {
+    "ready": "准备",
+    "inhale": "吸气",
+    "hold": "停留",
+    "exhale": "呼气",
+    "holdAfter": "停留"
+  },
+  "buttons": {
+    "start": "开始",
+    "pause": "暂停",
+    "reset": "重置"
+  },
+  "presets": {
+    "box": "方盒呼吸 4-4-4-4",
+    "fourSevenEight": "4-7-8 呼吸",
+    "calm": "放松呼吸 6-2-6-2"
+  },
+  "helper": "将某个阶段设为0秒即可跳过。",
+  "openGraph": {
+    "title": "呼吸计时器",
+    "description": "用于专注与放松的呼吸计时器。可自定义吸气、停留与呼气时间，也可以使用方盒呼吸与4-7-8等预设快速开始。"
+  }
+}

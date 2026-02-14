@@ -18,7 +18,9 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Wallet,
   Youtube,
+  Wind,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
@@ -98,6 +100,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '여행 예산 플래너',
+        en: 'Trip Budget Planner',
+        ja: '旅行予算プランナー',
+        zh: '旅行预算规划器',
+      },
+      icon: <Wallet />,
+      link: '/trip-budget',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '호흡 타이머',
+        en: 'Breathing Timer',
+        ja: '呼吸タイマー',
+        zh: '呼吸计时器',
+      },
+      icon: <Wind />,
+      link: '/breathing-timer',
     },
     {
       title: {

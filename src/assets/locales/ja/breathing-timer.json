@@ -1,0 +1,41 @@
+{
+  "title": "呼吸タイマー",
+  "description": "簡単な呼吸パターンを設定して集中とリラックスをサポートします。",
+  "badge": "Breathing Flow",
+  "labels": {
+    "settings": "呼吸設定",
+    "inhale": "吸う（秒）",
+    "hold": "止める（秒）",
+    "exhale": "吐く（秒）",
+    "holdAfter": "吐いた後に止める（秒）",
+    "cycles": "サイクル数",
+    "presets": "プリセット",
+    "phase": "現在のフェーズ",
+    "remaining": "残り時間",
+    "cycle": "サイクル",
+    "totalPerCycle": "1回の合計時間",
+    "totalSession": "セッション合計"
+  },
+  "phases": {
+    "ready": "準備",
+    "inhale": "吸う",
+    "hold": "止める",
+    "exhale": "吐く",
+    "holdAfter": "止める"
+  },
+  "buttons": {
+    "start": "開始",
+    "pause": "一時停止",
+    "reset": "リセット"
+  },
+  "presets": {
+    "box": "ボックス呼吸 4-4-4-4",
+    "fourSevenEight": "4-7-8 呼吸",
+    "calm": "穏やか呼吸 6-2-6-2"
+  },
+  "helper": "各フェーズを0秒にするとスキップされます。",
+  "openGraph": {
+    "title": "呼吸タイマー",
+    "description": "集中とリラックスのための呼吸タイマー。吸う・止める・吐く時間をカスタマイズしたり、ボックス呼吸や4-7-8のプリセットで素早く開始できます。"
+  }
+}
