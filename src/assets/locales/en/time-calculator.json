@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "Time Add/Subtract Calculator",
+    "ogTitle": "Time Add/Subtract Calculator - Schedule Helper",
+    "description": "Add or subtract hours and minutes from a base date/time to get the exact result.",
+    "keywords": ["time calculator", "add time", "subtract time", "arrival time", "schedule", "date time"]
+  },
+  "title": "Time Add/Subtract Calculator",
+  "description": "Add or subtract a duration from a base date and time to see the exact result.",
+  "label": {
+    "baseDate": "Base date",
+    "baseTime": "Base time",
+    "mode": "Calculation mode",
+    "durationHours": "Hours",
+    "durationMinutes": "Minutes",
+    "result": "Result",
+    "resultDate": "Result date",
+    "resultTime": "Result time",
+    "resultWeekday": "Weekday",
+    "totalMinutes": "Total minutes"
+  },
+  "placeholder": {
+    "mode": "Select a mode",
+    "hours": "e.g. 2",
+    "minutes": "e.g. 30"
+  },
+  "mode": {
+    "add": "Add",
+    "subtract": "Subtract"
+  },
+  "helper": "Minutes over 60 are automatically converted into hours.",
+  "empty": "Enter a base date/time to see the result.",
+  "emptyHint": "Complete the inputs to see the result card.",
+  "button": {
+    "now": "Now",
+    "clear": "Clear",
+    "example": "Example",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "value": {
+    "minutes": "{{count}} min"
+  }
+}

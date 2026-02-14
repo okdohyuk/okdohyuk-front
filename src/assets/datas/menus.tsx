@@ -3,8 +3,10 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  Clock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 툴박스',
+        en: 'Text Toolbox',
+        ja: 'テキストツールボックス',
+        zh: '文本工具箱',
+      },
+      icon: <FileText />,
+      link: '/text-toolbox',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '시간 더하기/빼기',
+        en: 'Time Add/Subtract',
+        ja: '時間加算・減算',
+        zh: '时间加减',
+      },
+      icon: <Clock />,
+      link: '/time-calculator',
     },
     {
       title: {

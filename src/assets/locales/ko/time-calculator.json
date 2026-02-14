@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "시간 더하기/빼기 계산기",
+    "ogTitle": "시간 더하기/빼기 계산기 - 일정 시간 계산",
+    "description": "기준 날짜와 시간에 원하는 시간만큼 더하거나 빼서 정확한 결과를 계산합니다.",
+    "keywords": ["시간 계산", "시간 더하기", "시간 빼기", "도착 시간", "일정 계산", "시간 차이"]
+  },
+  "title": "시간 더하기/빼기 계산기",
+  "description": "기준 날짜와 시간에 원하는 시간을 더하거나 빼서 결과를 확인하세요.",
+  "label": {
+    "baseDate": "기준 날짜",
+    "baseTime": "기준 시간",
+    "mode": "계산 방식",
+    "durationHours": "시간(시)",
+    "durationMinutes": "분(분)",
+    "result": "계산 결과",
+    "resultDate": "결과 날짜",
+    "resultTime": "결과 시간",
+    "resultWeekday": "요일",
+    "totalMinutes": "총 분"
+  },
+  "placeholder": {
+    "mode": "방식을 선택하세요",
+    "hours": "예: 2",
+    "minutes": "예: 30"
+  },
+  "mode": {
+    "add": "더하기",
+    "subtract": "빼기"
+  },
+  "helper": "분이 60 이상이면 자동으로 시간에 합산됩니다.",
+  "empty": "기준 날짜/시간을 입력하면 결과가 표시됩니다.",
+  "emptyHint": "입력이 완료되면 결과 카드가 표시됩니다.",
+  "button": {
+    "now": "지금",
+    "clear": "초기화",
+    "example": "예시",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "value": {
+    "minutes": "{{count}}분"
+  }
+}

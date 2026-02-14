@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "时间加减计算器",
+    "ogTitle": "时间加减计算器 - 日程助手",
+    "description": "在基准日期时间上加减小时与分钟，快速获得结果。",
+    "keywords": ["时间计算", "时间加", "时间减", "到达时间", "日程", "日期时间"]
+  },
+  "title": "时间加减计算器",
+  "description": "在基准日期与时间上加减时长，查看准确结果。",
+  "label": {
+    "baseDate": "基准日期",
+    "baseTime": "基准时间",
+    "mode": "计算方式",
+    "durationHours": "小时",
+    "durationMinutes": "分钟",
+    "result": "计算结果",
+    "resultDate": "结果日期",
+    "resultTime": "结果时间",
+    "resultWeekday": "星期",
+    "totalMinutes": "总分钟"
+  },
+  "placeholder": {
+    "mode": "选择方式",
+    "hours": "例如 2",
+    "minutes": "例如 30"
+  },
+  "mode": {
+    "add": "加",
+    "subtract": "减"
+  },
+  "helper": "分钟超过 60 会自动换算为小时。",
+  "empty": "输入基准日期/时间后显示结果。",
+  "emptyHint": "完成输入即可看到结果卡片。",
+  "button": {
+    "now": "现在",
+    "clear": "清空",
+    "example": "示例",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "value": {
+    "minutes": "{{count}} 分钟"
+  }
+}

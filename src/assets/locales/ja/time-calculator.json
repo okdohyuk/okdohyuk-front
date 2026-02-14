@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "時間加算・減算計算機",
+    "ogTitle": "時間加算・減算計算機 - スケジュール補助",
+    "description": "基準の日時に時間を加算・減算して正確な結果を計算します。",
+    "keywords": ["時間計算", "時間加算", "時間減算", "到着時間", "スケジュール", "日時"]
+  },
+  "title": "時間加算・減算計算機",
+  "description": "基準の日時に時間を足したり引いたりして結果を確認できます。",
+  "label": {
+    "baseDate": "基準日",
+    "baseTime": "基準時刻",
+    "mode": "計算方式",
+    "durationHours": "時間",
+    "durationMinutes": "分",
+    "result": "計算結果",
+    "resultDate": "結果の日付",
+    "resultTime": "結果の時刻",
+    "resultWeekday": "曜日",
+    "totalMinutes": "合計分"
+  },
+  "placeholder": {
+    "mode": "方式を選択",
+    "hours": "例: 2",
+    "minutes": "例: 30"
+  },
+  "mode": {
+    "add": "加算",
+    "subtract": "減算"
+  },
+  "helper": "分が60以上の場合は自動で時間に換算されます。",
+  "empty": "基準日時を入力すると結果が表示されます。",
+  "emptyHint": "入力を完了すると結果カードが表示されます。",
+  "button": {
+    "now": "今",
+    "clear": "リセット",
+    "example": "例",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "value": {
+    "minutes": "{{count}}分"
+  }
+}
