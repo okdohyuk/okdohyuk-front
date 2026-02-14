@@ -1,0 +1,69 @@
+{
+  "title": "咖啡因摄入计算器",
+  "description": "汇总常见饮料的咖啡因含量，快速查看每日摄入量。",
+  "input": {
+    "title": "今天喝过的饮料",
+    "subtitle": "输入杯数即可自动计算总咖啡因。",
+    "caffeinePerCup": "每杯{{mg}}mg",
+    "countAria": "{{name}}杯数",
+    "cupUnit": "杯"
+  },
+  "custom": {
+    "title": "自定义输入",
+    "subtitle": "根据包装标注的mg填写，自定义饮料也能计算。",
+    "mgPlaceholder": "咖啡因(mg)",
+    "countPlaceholder": "杯数",
+    "mgAria": "自定义咖啡因mg",
+    "countAria": "自定义杯数"
+  },
+  "actions": {
+    "example": "填入示例",
+    "reset": "重置",
+    "copy": "复制结果"
+  },
+  "result": {
+    "title": "总摄入量",
+    "description": "查看总咖啡因和美式咖啡折算。",
+    "total": "总计{{total}}mg",
+    "equivalent": "约等于{{cups}}杯美式",
+    "copyText": "总咖啡因{{total}}mg（约等于{{cups}}杯美式）"
+  },
+  "limits": {
+    "adult": {
+      "title": "成人推荐上限",
+      "value": "每天不超过{{mg}}mg"
+    },
+    "caution": {
+      "title": "敏感人群",
+      "value": "每天不超过{{mg}}mg"
+    }
+  },
+  "status": {
+    "safe": {
+      "title": "安全范围",
+      "description": "当前摄入量在推荐范围内。"
+    },
+    "caution": {
+      "title": "注意范围",
+      "description": "已超过敏感人群建议值，请适当减少摄入。"
+    },
+    "over": {
+      "title": "超出范围",
+      "description": "已超过成人推荐上限，请减少咖啡因摄入。"
+    }
+  },
+  "drinks": {
+    "espresso": { "label": "浓缩咖啡" },
+    "americano": { "label": "美式咖啡" },
+    "latte": { "label": "拿铁" },
+    "coldBrew": { "label": "冷萃" },
+    "blackTea": { "label": "红茶" },
+    "greenTea": { "label": "绿茶" },
+    "energyDrink": { "label": "能量饮料" },
+    "cola": { "label": "可乐" }
+  },
+  "openGraph": {
+    "title": "咖啡因摄入计算器",
+    "description": "快速计算咖啡和饮料的咖啡因摄入量。输入杯数即可显示总咖啡因与美式折算。"
+  }
+}

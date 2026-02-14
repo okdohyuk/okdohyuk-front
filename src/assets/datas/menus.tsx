@@ -3,7 +3,9 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CaseSensitive,
   Code,
+  Coffee,
   CreditCard,
   Github,
   Hash,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 케이스 변환기',
+        en: 'Case Converter',
+        ja: 'ケース変換ツール',
+        zh: '大小写转换器',
+      },
+      icon: <CaseSensitive />,
+      link: '/case-converter',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '카페인 섭취 계산기',
+        en: 'Caffeine Intake Calculator',
+        ja: 'カフェイン摂取量計算機',
+        zh: '咖啡因摄入计算器',
+      },
+      icon: <Coffee />,
+      link: '/caffeine-intake',
     },
     {
       title: {

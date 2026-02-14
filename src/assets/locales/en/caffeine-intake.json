@@ -1,0 +1,69 @@
+{
+  "title": "Caffeine Intake Calculator",
+  "description": "Add up your daily caffeine from common drinks and see the total at a glance.",
+  "input": {
+    "title": "Drinks you had today",
+    "subtitle": "Enter cups to calculate your total caffeine automatically.",
+    "caffeinePerCup": "{{mg}}mg per cup",
+    "countAria": "{{name}} cups",
+    "cupUnit": "cup"
+  },
+  "custom": {
+    "title": "Custom drink",
+    "subtitle": "Use the caffeine amount on the label to calculate your own drinks.",
+    "mgPlaceholder": "Caffeine (mg)",
+    "countPlaceholder": "Cups",
+    "mgAria": "Custom caffeine mg",
+    "countAria": "Custom cup count"
+  },
+  "actions": {
+    "example": "Fill example",
+    "reset": "Reset",
+    "copy": "Copy result"
+  },
+  "result": {
+    "title": "Total intake",
+    "description": "See total caffeine and the Americano equivalent.",
+    "total": "Total {{total}}mg",
+    "equivalent": "About {{cups}} cups of Americano",
+    "copyText": "Total caffeine {{total}}mg (about {{cups}} cups of Americano)"
+  },
+  "limits": {
+    "adult": {
+      "title": "Adult recommended max",
+      "value": "Up to {{mg}}mg per day"
+    },
+    "caution": {
+      "title": "Sensitive group",
+      "value": "Up to {{mg}}mg per day"
+    }
+  },
+  "status": {
+    "safe": {
+      "title": "Within range",
+      "description": "Your intake is within the recommended range."
+    },
+    "caution": {
+      "title": "Caution",
+      "description": "You are over the sensitive-group guideline. Consider slowing down."
+    },
+    "over": {
+      "title": "Over limit",
+      "description": "You are above the adult recommended max. Please cut back on caffeine."
+    }
+  },
+  "drinks": {
+    "espresso": { "label": "Espresso" },
+    "americano": { "label": "Americano" },
+    "latte": { "label": "Latte" },
+    "coldBrew": { "label": "Cold brew" },
+    "blackTea": { "label": "Black tea" },
+    "greenTea": { "label": "Green tea" },
+    "energyDrink": { "label": "Energy drink" },
+    "cola": { "label": "Cola" }
+  },
+  "openGraph": {
+    "title": "Caffeine Intake Calculator",
+    "description": "Calculate caffeine intake from coffee and drinks in seconds. Enter cups to see total caffeine and Americano equivalents."
+  }
+}
