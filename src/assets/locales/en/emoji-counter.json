@@ -1,0 +1,30 @@
+{
+  "openGraph": {
+    "title": "Emoji & Text Counter",
+    "ogTitle": "Emoji & Text Counter",
+    "description": "Count emojis and text at once, including characters without spaces, words, and lines.",
+    "keywords": ["emoji", "text", "counter", "characters", "words", "lines", "count"]
+  },
+  "title": "Emoji & Text Counter",
+  "description": "Count emojis and text at once, including characters without spaces, words, and lines.",
+  "label": {
+    "input": "Text input"
+  },
+  "placeholder": "Type or paste text and emojis here.",
+  "helper": "Counts update instantly for characters, words, lines, and emojis.",
+  "button": {
+    "copySummary": "Copy summary",
+    "copied": "Copied",
+    "clear": "Clear",
+    "fillExample": "Fill example"
+  },
+  "summary": {
+    "totalChars": "Total characters",
+    "charsWithoutSpace": "Characters without spaces",
+    "words": "Words",
+    "lines": "Lines",
+    "emojis": "Emojis"
+  },
+  "note": "Emoji count is based on Unicode characters; combined emojis may count as multiple.",
+  "example": "Let's go! 💪\nTwo coffees today ☕️\nHappy Friday 😄🎉"
+}
