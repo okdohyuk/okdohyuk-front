@@ -22,6 +22,8 @@ import jwtDecoder from 'assets/locales/ko/jwt-decoder.json';
 import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
+import textPolisher from 'assets/locales/ko/text-polisher.json';
+import shoppingTotal from 'assets/locales/ko/shopping-total.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -50,6 +52,8 @@ declare module 'i18next' {
       'cron-generator': typeof cronGenerator;
       'css-generator': typeof cssGenerator;
       'slug-generator': typeof slugGenerator;
+      'text-polisher': typeof textPolisher;
+      'shopping-total': typeof shoppingTotal;
     };
   }
 }

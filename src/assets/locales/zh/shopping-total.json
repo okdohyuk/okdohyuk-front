@@ -1,0 +1,56 @@
+{
+  "title": "购物合计计算器",
+  "description": "输入商品价格与数量，一次性计算小计、折扣与税额。",
+  "labels": {
+    "items": "项目",
+    "item": "项目",
+    "itemName": "商品名称",
+    "price": "价格",
+    "quantity": "数量",
+    "subtotal": "小计",
+    "discount": "折扣率",
+    "tax": "税率",
+    "total": "合计",
+    "summary": "汇总",
+    "adjustments": "折扣/税",
+    "itemCount": "项目数",
+    "quantityTotal": "总数量",
+    "averagePrice": "平均单价"
+  },
+  "buttons": {
+    "addItem": "添加项目",
+    "remove": "删除",
+    "clear": "重置",
+    "sample": "填入示例",
+    "copySummary": "复制汇总",
+    "copied": "已复制"
+  },
+  "helpers": {
+    "price": "仅输入数字（例如 3500）",
+    "quantity": "0 以上整数",
+    "discount": "0 到 100 之间",
+    "tax": "0 到 100 之间"
+  },
+  "placeholders": {
+    "itemName": "例如：牛奶",
+    "price": "例如：3500",
+    "quantity": "例如：2",
+    "discount": "例如：10",
+    "tax": "例如：3"
+  },
+  "messages": {
+    "emptyItems": "请先添加项目。",
+    "itemsHint": "即使商品名为空也可以计算。"
+  },
+  "unit": {
+    "currency": "元",
+    "percent": "%"
+  },
+  "sample": {
+    "items": [{ "name": "牛奶" }, { "name": "面包" }, { "name": "水果" }]
+  },
+  "openGraph": {
+    "title": "购物合计计算器",
+    "description": "通过价格与数量快速计算购物合计。"
+  }
+}

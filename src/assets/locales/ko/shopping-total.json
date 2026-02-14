@@ -1,0 +1,56 @@
+{
+  "title": "장바구니 합계 계산기",
+  "description": "항목별 가격과 수량을 입력해 소계, 할인, 세금을 한 번에 계산하세요.",
+  "labels": {
+    "items": "항목",
+    "item": "항목",
+    "itemName": "상품명",
+    "price": "가격",
+    "quantity": "수량",
+    "subtotal": "소계",
+    "discount": "할인율",
+    "tax": "세율",
+    "total": "총합",
+    "summary": "요약",
+    "adjustments": "할인/세금",
+    "itemCount": "항목 수",
+    "quantityTotal": "총 수량",
+    "averagePrice": "평균 단가"
+  },
+  "buttons": {
+    "addItem": "항목 추가",
+    "remove": "삭제",
+    "clear": "초기화",
+    "sample": "예시 채우기",
+    "copySummary": "요약 복사",
+    "copied": "복사됨"
+  },
+  "helpers": {
+    "price": "숫자만 입력 (예: 3500)",
+    "quantity": "0 이상의 정수",
+    "discount": "0~100 사이",
+    "tax": "0~100 사이"
+  },
+  "placeholders": {
+    "itemName": "예: 우유",
+    "price": "예: 3500",
+    "quantity": "예: 2",
+    "discount": "예: 10",
+    "tax": "예: 3"
+  },
+  "messages": {
+    "emptyItems": "항목을 추가해 주세요.",
+    "itemsHint": "항목 이름이 비어도 계산은 가능합니다."
+  },
+  "unit": {
+    "currency": "원",
+    "percent": "%"
+  },
+  "sample": {
+    "items": [{ "name": "우유" }, { "name": "빵" }, { "name": "과일" }]
+  },
+  "openGraph": {
+    "title": "장바구니 합계 계산기",
+    "description": "가격과 수량을 입력해 장바구니 총합을 빠르게 계산하세요."
+  }
+}
