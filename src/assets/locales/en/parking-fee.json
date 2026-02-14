@@ -1,0 +1,48 @@
+{
+  "title": "Parking Fee Calculator",
+  "description": "Estimate parking fees using entry/exit times and pricing rules.",
+  "form": {
+    "entryTime": "Entry time",
+    "exitTime": "Exit time",
+    "baseMinutes": "Base minutes",
+    "baseFee": "Base fee",
+    "unitMinutes": "Additional unit (minutes)",
+    "unitFee": "Additional fee",
+    "dailyMax": "Daily maximum (optional)"
+  },
+  "helper": {
+    "overnight": "If the exit time is earlier than the entry time, we count it as the next day.",
+    "feeRule": "After the base time, fees are added per unit."
+  },
+  "button": {
+    "copy": "Copy fee",
+    "clear": "Reset",
+    "setNow": "Set to now"
+  },
+  "result": {
+    "title": "Estimated fee",
+    "duration": "Parking duration",
+    "fee": "Total fee",
+    "unit": {
+      "minutes": "min",
+      "won": "KRW"
+    },
+    "copied": "Copied!"
+  },
+  "validation": {
+    "missingTime": "Please enter both entry and exit times.",
+    "invalidNumber": "Fees and minutes must be 0 or higher.",
+    "unitMinutes": "Additional unit must be at least 1 minute."
+  },
+  "examples": {
+    "title": "Example",
+    "items": [
+      "Base 30 min 1,000 KRW + 500 KRW per 10 min",
+      "Daily maximum of 20,000 KRW is applied"
+    ]
+  },
+  "openGraph": {
+    "title": "Parking Fee Calculator",
+    "description": "A free parking fee calculator that estimates charges from entry/exit times and pricing rules. Factor in base time, additional units, and daily maximum caps to quickly preview how much your parking will cost."
+  }
+}

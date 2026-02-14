@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  Car,
   Code,
   CreditCard,
   Github,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '주차 요금 계산기',
+        en: 'Parking Fee Calculator',
+        ja: '駐車料金計算機',
+        zh: '停车费用计算器',
+      },
+      icon: <Car />,
+      link: '/parking-fee',
     },
     {
       title: {

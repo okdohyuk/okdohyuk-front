@@ -1,0 +1,45 @@
+{
+  "title": "停车费用计算器",
+  "description": "根据进出时间和计费规则估算停车费用。",
+  "form": {
+    "entryTime": "进场时间",
+    "exitTime": "出场时间",
+    "baseMinutes": "基本时长(分钟)",
+    "baseFee": "基本费用(元)",
+    "unitMinutes": "追加单位(分钟)",
+    "unitFee": "追加费用(元)",
+    "dailyMax": "每日上限(可选)"
+  },
+  "helper": {
+    "overnight": "如果出场时间早于进场时间，则按次日计算。",
+    "feeRule": "超过基本时长后按单位计费。"
+  },
+  "button": {
+    "copy": "复制费用",
+    "clear": "重置",
+    "setNow": "设为当前时间"
+  },
+  "result": {
+    "title": "预估费用",
+    "duration": "停车时长",
+    "fee": "总费用",
+    "unit": {
+      "minutes": "分钟",
+      "won": "元"
+    },
+    "copied": "已复制！"
+  },
+  "validation": {
+    "missingTime": "请输入进场和出场时间。",
+    "invalidNumber": "费用和时间必须为0或更大。",
+    "unitMinutes": "追加单位必须至少1分钟。"
+  },
+  "examples": {
+    "title": "示例",
+    "items": ["基本30分钟1,000元 + 每10分钟500元", "每日上限20,000元"]
+  },
+  "openGraph": {
+    "title": "停车费用计算器",
+    "description": "免费停车费用计算器，可根据进出时间与计费规则快速估算费用。支持基本时长、追加单位与每日上限设置，帮助你轻松预览停车成本。"
+  }
+}
