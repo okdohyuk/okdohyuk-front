@@ -121,7 +121,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       '즉시 실행: 추천된 툴 카드에서 바로 이동해 작업을 시작합니다.',
     ],
     metrics: [
-      { label: '활용 가능한 도구', value: '11+' },
+      { label: '활용 가능한 도구', value: '13+' },
       { label: '언어 지원', value: '4개' },
       { label: '즉시 진입 가능한 플로우', value: '3종' },
     ],
@@ -243,7 +243,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       'Launch instantly: open recommended tools and execute right away.',
     ],
     metrics: [
-      { label: 'Tools available', value: '11+' },
+      { label: 'Tools available', value: '13+' },
       { label: 'Supported languages', value: '4' },
       { label: 'Instant workflow modes', value: '3' },
     ],
@@ -364,7 +364,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       '即時実行: 推薦カードからすぐにツールへ移動。',
     ],
     metrics: [
-      { label: '利用可能ツール', value: '11+' },
+      { label: '利用可能ツール', value: '13+' },
       { label: '対応言語', value: '4' },
       { label: '即時フローモード', value: '3' },
     ],
@@ -485,7 +485,7 @@ const CONTENT: Record<Language, LocalizedContent> = {
       '立即执行：点击推荐卡片直接进入工具。',
     ],
     metrics: [
-      { label: '可用工具', value: '11+' },
+      { label: '可用工具', value: '13+' },
       { label: '支持语言', value: '4' },
       { label: '即时流程模式', value: '3' },
     ],

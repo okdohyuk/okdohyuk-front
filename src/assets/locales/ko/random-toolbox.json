@@ -1,0 +1,41 @@
+{
+  "title": "랜덤 툴박스",
+  "description": "일상에서 바로 쓰는 랜덤 도구 모음: 항목 선택, 숫자 뽑기, 예/아니오.",
+  "sections": {
+    "list": {
+      "title": "랜덤 선택기",
+      "description": "이름이나 옵션을 입력하면 무작위로 하나를 골라줘요.",
+      "label": "옵션 목록",
+      "placeholder": "예) 커피\n차\n스무디",
+      "helper": "쉼표 또는 줄바꿈으로 구분하세요.",
+      "button": "골라줘",
+      "count": "총 {{count}}개",
+      "empty": "먼저 옵션을 하나 이상 입력하세요.",
+      "resultLabel": "선택 결과",
+      "resultPlaceholder": "옵션을 입력해 주세요."
+    },
+    "number": {
+      "title": "랜덤 숫자",
+      "description": "최소~최대 범위에서 숫자를 뽑아요.",
+      "labelMin": "최소값",
+      "labelMax": "최대값",
+      "button": "숫자 뽑기",
+      "error": "유효한 범위를 입력하세요.",
+      "resultLabel": "결과",
+      "resultPlaceholder": "범위를 입력하세요."
+    },
+    "yesNo": {
+      "title": "예 / 아니오",
+      "description": "망설일 때 빠르게 결정해요.",
+      "button": "결정하기",
+      "resultLabel": "답변",
+      "resultPlaceholder": "결정이 필요할 때 눌러주세요.",
+      "yes": "예",
+      "no": "아니오"
+    }
+  },
+  "openGraph": {
+    "title": "랜덤 툴박스",
+    "description": "일상 결정을 돕는 랜덤 툴박스: 목록에서 하나를 선택하고 숫자를 뽑거나 예/아니오로 빠르게 결정하세요."
+  }
+}
