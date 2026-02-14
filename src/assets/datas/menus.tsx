@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Bomb,
+  BookOpen,
   Calculator,
   CalendarClock,
   Code,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '독서 진행률 계산기',
+        en: 'Reading Progress',
+        ja: '読書進捗計算',
+        zh: '阅读进度计算器',
+      },
+      icon: <BookOpen />,
+      link: '/reading-progress',
     },
     {
       title: {

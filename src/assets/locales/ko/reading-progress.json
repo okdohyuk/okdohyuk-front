@@ -1,0 +1,45 @@
+{
+  "title": "독서 진행률 계산기",
+  "description": "전체 페이지와 현재 읽은 페이지를 입력하면 진행률과 남은 분량, 예상 완료일을 계산해줍니다.",
+  "hint": "숫자를 입력하면 즉시 독서 진행 상황을 계산합니다.",
+  "label": {
+    "totalPages": "전체 페이지",
+    "currentPage": "현재 읽은 페이지",
+    "pagesPerDay": "하루 목표 페이지"
+  },
+  "placeholder": {
+    "totalPages": "예: 320",
+    "currentPage": "예: 118",
+    "pagesPerDay": "예: 20"
+  },
+  "helper": {
+    "pagesPerDay": "입력하면 예상 완료일과 남은 일수까지 계산됩니다."
+  },
+  "button": {
+    "example": "예시 적용",
+    "reset": "초기화"
+  },
+  "result": {
+    "title": "계산 결과",
+    "progress": "진행률",
+    "pagesLeft": "남은 페이지",
+    "daysLeft": "남은 일수",
+    "finishDate": "예상 완료일",
+    "finishDateEmpty": "하루 목표가 필요해요",
+    "empty": "입력값을 채우면 결과가 표시됩니다."
+  },
+  "unit": {
+    "pages": "페이지",
+    "days": "일"
+  },
+  "error": {
+    "totalPages": "전체 페이지 수를 1 이상으로 입력해주세요.",
+    "currentPage": "현재 페이지는 0 이상의 숫자여야 합니다.",
+    "exceedTotal": "현재 페이지가 전체 페이지를 넘을 수 없습니다.",
+    "pagesPerDay": "하루 목표 페이지는 1 이상이어야 합니다."
+  },
+  "openGraph": {
+    "title": "독서 진행률 계산기",
+    "description": "전체 페이지와 현재 페이지를 입력해 독서 진행률, 남은 페이지, 하루 목표 기준 예상 완료일을 바로 확인하세요. 간단한 입력만으로 오늘의 독서 목표를 정리할 수 있습니다."
+  }
+}

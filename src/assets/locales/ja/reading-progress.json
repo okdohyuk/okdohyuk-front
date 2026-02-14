@@ -1,0 +1,45 @@
+{
+  "title": "読書進捗計算",
+  "description": "総ページ数と現在のページを入力すると、進捗率・残りページ・完了予定日を表示します。",
+  "hint": "数値を入れると読書の進捗をすぐ計算します。",
+  "label": {
+    "totalPages": "総ページ数",
+    "currentPage": "現在のページ",
+    "pagesPerDay": "1日の目標ページ"
+  },
+  "placeholder": {
+    "totalPages": "例: 320",
+    "currentPage": "例: 118",
+    "pagesPerDay": "例: 20"
+  },
+  "helper": {
+    "pagesPerDay": "入力すると残り日数と完了予定日も計算します。"
+  },
+  "button": {
+    "example": "例を適用",
+    "reset": "リセット"
+  },
+  "result": {
+    "title": "計算結果",
+    "progress": "進捗率",
+    "pagesLeft": "残りページ",
+    "daysLeft": "残り日数",
+    "finishDate": "完了予定日",
+    "finishDateEmpty": "1日の目標が必要です",
+    "empty": "値を入力すると結果が表示されます。"
+  },
+  "unit": {
+    "pages": "ページ",
+    "days": "日"
+  },
+  "error": {
+    "totalPages": "総ページ数は1以上で入力してください。",
+    "currentPage": "現在のページは0以上である必要があります。",
+    "exceedTotal": "現在のページが総ページ数を超えています。",
+    "pagesPerDay": "1日の目標ページは1以上で入力してください。"
+  },
+  "openGraph": {
+    "title": "読書進捗計算",
+    "description": "総ページ数と現在のページから進捗率、残りページ、目標に基づく完了予定日をすぐ確認できます。"
+  }
+}
