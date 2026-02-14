@@ -1,0 +1,34 @@
+{
+  "openGraph": {
+    "title": "복용 스케줄러",
+    "ogTitle": "복용 스케줄러",
+    "description": "시작 시간과 간격, 횟수를 입력하면 복용 일정을 자동으로 계산해주는 간단한 스케줄러입니다."
+  },
+  "title": "복용 스케줄러",
+  "description": "시작 시간과 간격을 입력하면 복용 일정을 자동으로 계산합니다.",
+  "disclaimer": "의학적 조언이 아닙니다. 처방 및 복용 지시를 우선하세요.",
+  "labels": {
+    "startTime": "첫 복용 시간",
+    "intervalHours": "간격 (시간)",
+    "intervalMinutes": "간격 (분)",
+    "doseCount": "총 복용 횟수"
+  },
+  "buttons": {
+    "setNow": "지금으로 설정",
+    "copy": "일정 복사",
+    "copied": "복사됨!",
+    "reset": "초기화"
+  },
+  "doseHint": "1~{{max}}회까지 입력할 수 있어요.",
+  "summary": "총 {{count}}회 • 간격 {{interval}}",
+  "scheduleTitle": "복용 일정",
+  "empty": "입력값을 채우면 복용 일정이 표시됩니다.",
+  "errors": {
+    "startTime": "첫 복용 시간을 입력해주세요.",
+    "interval": "간격은 1분 이상이어야 합니다.",
+    "doseCount": "복용 횟수는 1~{{max}}회 사이로 입력해주세요."
+  },
+  "intervalHoursText": "{{count}}시간",
+  "intervalMinutesText": "{{count}}분",
+  "intervalFallback": "0분"
+}

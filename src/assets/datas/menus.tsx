@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  Clock,
   Code,
   CreditCard,
   Github,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '복용 스케줄러',
+        en: 'Medication Scheduler',
+        ja: '服薬スケジューラー',
+        zh: '用药计划生成器',
+      },
+      icon: <Clock />,
+      link: '/medication-scheduler',
     },
     {
       title: {
