@@ -1,0 +1,56 @@
+{
+  "openGraph": {
+    "title": "GPA 计算器",
+    "ogTitle": "GPA 计算器",
+    "description": "输入课程学分和成绩即可快速计算 GPA。查看总学分、总绩点，并可一键复制结果。"
+  },
+  "title": "GPA 计算器",
+  "description": "输入课程学分和成绩即可自动计算 GPA。",
+  "table": {
+    "title": "课程输入",
+    "subtitle": "填写学分和成绩即可即时计算。",
+    "course": "课程",
+    "credits": "学分",
+    "grade": "成绩",
+    "points": "绩点",
+    "coursePlaceholder": "课程名称（可选）",
+    "creditsPlaceholder": "学分",
+    "gradePlaceholder": "选择成绩",
+    "note": "按 4.5 满分制计算。"
+  },
+  "actions": {
+    "addRow": "添加课程",
+    "remove": "删除",
+    "reset": "重置",
+    "fillSample": "填入示例",
+    "copy": "复制结果"
+  },
+  "summary": {
+    "title": "计算结果",
+    "gpa": "GPA",
+    "totalCredits": "总学分",
+    "totalPoints": "总绩点",
+    "courseCount": "参与计算的课程数",
+    "invalid": "存在无效或负数的学分。",
+    "scaleNote": "默认标准：4.5 满分 (A+ 4.5 / A0 4.0)",
+    "copied": "结果已复制。",
+    "copyFailed": "复制失败。",
+    "copyFormat": "GPA {{gpa}} / 4.5 (总学分 {{totalCredits}})"
+  },
+  "grades": {
+    "A_PLUS": "A+",
+    "A_ZERO": "A0",
+    "B_PLUS": "B+",
+    "B_ZERO": "B0",
+    "C_PLUS": "C+",
+    "C_ZERO": "C0",
+    "D_PLUS": "D+",
+    "D_ZERO": "D0",
+    "F": "F"
+  },
+  "sample": {
+    "course1": "专业基础",
+    "course2": "通识选修",
+    "course3": "专业进阶"
+  }
+}

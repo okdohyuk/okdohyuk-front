@@ -1,0 +1,56 @@
+{
+  "openGraph": {
+    "title": "GPA計算機",
+    "ogTitle": "GPA計算機",
+    "description": "科目の単位数と成績を入力すると、GPAを素早く計算できます。総単位、総ポイントを確認し、結果をコピーして共有できます。"
+  },
+  "title": "GPA計算機",
+  "description": "単位数と成績を入力するとGPAが自動計算されます。",
+  "table": {
+    "title": "科目入力",
+    "subtitle": "単位数と成績を入力すると自動で計算されます。",
+    "course": "科目",
+    "credits": "単位",
+    "grade": "成績",
+    "points": "ポイント",
+    "coursePlaceholder": "科目名（任意）",
+    "creditsPlaceholder": "単位",
+    "gradePlaceholder": "成績を選択",
+    "note": "4.5満点で計算されます。"
+  },
+  "actions": {
+    "addRow": "科目を追加",
+    "remove": "削除",
+    "reset": "リセット",
+    "fillSample": "サンプル入力",
+    "copy": "結果をコピー"
+  },
+  "summary": {
+    "title": "計算結果",
+    "gpa": "GPA",
+    "totalCredits": "総単位",
+    "totalPoints": "総ポイント",
+    "courseCount": "計算対象科目数",
+    "invalid": "無効または負の単位数があります。",
+    "scaleNote": "基本基準: 4.5満点 (A+ 4.5 / A0 4.0)",
+    "copied": "結果をコピーしました。",
+    "copyFailed": "コピーに失敗しました。",
+    "copyFormat": "GPA {{gpa}} / 4.5 (総単位 {{totalCredits}})"
+  },
+  "grades": {
+    "A_PLUS": "A+",
+    "A_ZERO": "A0",
+    "B_PLUS": "B+",
+    "B_ZERO": "B0",
+    "C_PLUS": "C+",
+    "C_ZERO": "C0",
+    "D_PLUS": "D+",
+    "D_ZERO": "D0",
+    "F": "F"
+  },
+  "sample": {
+    "course1": "専門基礎",
+    "course2": "一般選択",
+    "course3": "専門応用"
+  }
+}
