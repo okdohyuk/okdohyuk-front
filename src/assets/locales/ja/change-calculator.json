@@ -1,0 +1,40 @@
+{
+  "title": "お釣り計算機",
+  "description": "購入金額と受け取った金額を入力すると、お釣りと紙幣/硬貨の内訳を計算します。",
+  "badge": "お釣りサポート",
+  "currency": {
+    "label": "通貨",
+    "placeholder": "通貨を選択",
+    "krw": "KRW (₩)",
+    "usd": "USD ($)",
+    "jpy": "JPY (¥)"
+  },
+  "input": {
+    "priceLabel": "購入金額",
+    "paidLabel": "受け取った金額",
+    "pricePlaceholder": "例: 12500",
+    "paidPlaceholder": "例: 20000"
+  },
+  "helper": {
+    "price": "購入金額を入力してください。",
+    "paid": "受け取った金額を入力してください。"
+  },
+  "button": {
+    "copy": "結果をコピー",
+    "clear": "クリア"
+  },
+  "note": "すべての計算は選択した通貨（{{symbol}}）で行われます。",
+  "result": {
+    "title": "計算結果",
+    "empty": "金額を入力すると結果が表示されます。",
+    "exact": "お釣りはありません。",
+    "insufficient": "{{amount}}不足しています。",
+    "summary": "購入 {{price}} · 受け取り {{paid}}",
+    "breakdown": "紙幣/硬貨の内訳"
+  },
+  "copyTemplate": "購入金額 {{price}} / 受け取り {{paid}} / お釣り {{change}}",
+  "openGraph": {
+    "title": "お釣り計算機",
+    "description": "購入金額と受け取った金額を入力するだけで、お釣りをすぐに計算できる無料オンラインツールです。通貨別の紙幣/硬貨内訳も確認できます。"
+  }
+}
