@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CalendarDays,
   Code,
   CreditCard,
   Github,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '유통기한 계산기',
+        en: 'Expiry Date Calculator',
+        ja: '賞味期限計算機',
+        zh: '保质期计算器',
+      },
+      icon: <CalendarDays />,
+      link: '/expiry-date',
     },
     {
       title: {
