@@ -1,0 +1,52 @@
+{
+  "title": "BMI計算機",
+  "description": "身長と体重を入力すると、BMIと体型分類をすぐに確認できます。",
+  "helper": "身長(cm)と体重(kg)を入力するとBMIが自動で計算されます。",
+  "label": {
+    "height": "身長 (cm)",
+    "weight": "体重 (kg)"
+  },
+  "placeholder": {
+    "height": "例: 170",
+    "weight": "例: 65"
+  },
+  "button": {
+    "reset": "リセット"
+  },
+  "result": {
+    "title": "計算結果",
+    "notice": "入力と同時に自動計算",
+    "empty": "身長と体重を入力してください。",
+    "valueLabel": "BMI",
+    "categoryLabel": "体型分類",
+    "value": "{{value}}",
+    "category": {
+      "underweight": {
+        "label": "低体重",
+        "range": "18.5未満"
+      },
+      "normal": {
+        "label": "標準",
+        "range": "18.5 〜 24.9"
+      },
+      "overweight": {
+        "label": "過体重",
+        "range": "25.0 〜 29.9"
+      },
+      "obese": {
+        "label": "肥満",
+        "range": "30.0以上"
+      }
+    }
+  },
+  "tips": {
+    "title": "活用ヒント",
+    "line1": "成人のBMI基準を使用しています。",
+    "line2": "体脂肪率などの指標も合わせて確認しましょう。",
+    "line3": "BMIは体脂肪を直接測定しません。"
+  },
+  "openGraph": {
+    "title": "BMI計算機",
+    "description": "身長と体重を入力してBMIと体型分類をすぐに確認できる無料BMI計算機です。健康管理の目安として活用してください。"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "title": "BMI 计算器",
+  "description": "输入身高和体重即可快速查看 BMI 与体型分类。",
+  "helper": "填写身高(cm)与体重(kg)后会自动计算 BMI。",
+  "label": {
+    "height": "身高 (cm)",
+    "weight": "体重 (kg)"
+  },
+  "placeholder": {
+    "height": "例如: 170",
+    "weight": "例如: 65"
+  },
+  "button": {
+    "reset": "重置"
+  },
+  "result": {
+    "title": "计算结果",
+    "notice": "输入后自动计算",
+    "empty": "请输入身高和体重。",
+    "valueLabel": "BMI",
+    "categoryLabel": "体型分类",
+    "value": "{{value}}",
+    "category": {
+      "underweight": {
+        "label": "偏瘦",
+        "range": "低于 18.5"
+      },
+      "normal": {
+        "label": "正常",
+        "range": "18.5 ～ 24.9"
+      },
+      "overweight": {
+        "label": "超重",
+        "range": "25.0 ～ 29.9"
+      },
+      "obese": {
+        "label": "肥胖",
+        "range": "30.0 及以上"
+      }
+    }
+  },
+  "tips": {
+    "title": "使用提示",
+    "line1": "区间基于成人 BMI 标准。",
+    "line2": "建议结合其他健康指标一起参考。",
+    "line3": "BMI 不是直接测量体脂的指标。"
+  },
+  "openGraph": {
+    "title": "BMI 计算器",
+    "description": "免费 BMI 计算器，输入身高和体重即可快速获得 BMI 与体型分类结果，帮助你了解体重状况并制定健康目标。"
+  }
+}

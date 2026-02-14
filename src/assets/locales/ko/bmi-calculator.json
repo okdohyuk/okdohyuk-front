@@ -1,0 +1,52 @@
+{
+  "title": "BMI 계산기",
+  "description": "키와 체중을 입력하면 BMI와 체중 분류를 즉시 확인할 수 있습니다.",
+  "helper": "키(cm)와 체중(kg)을 입력하면 BMI와 체중 상태가 자동 계산됩니다.",
+  "label": {
+    "height": "키 (cm)",
+    "weight": "체중 (kg)"
+  },
+  "placeholder": {
+    "height": "예: 170",
+    "weight": "예: 65"
+  },
+  "button": {
+    "reset": "초기화"
+  },
+  "result": {
+    "title": "계산 결과",
+    "notice": "입력 즉시 자동 계산",
+    "empty": "키와 체중을 입력해주세요.",
+    "valueLabel": "BMI",
+    "categoryLabel": "체중 분류",
+    "value": "{{value}}",
+    "category": {
+      "underweight": {
+        "label": "저체중",
+        "range": "18.5 미만"
+      },
+      "normal": {
+        "label": "정상",
+        "range": "18.5 ~ 24.9"
+      },
+      "overweight": {
+        "label": "과체중",
+        "range": "25.0 ~ 29.9"
+      },
+      "obese": {
+        "label": "비만",
+        "range": "30.0 이상"
+      }
+    }
+  },
+  "tips": {
+    "title": "활용 팁",
+    "line1": "성인 기준의 BMI 구간을 사용합니다.",
+    "line2": "정확한 체성분은 추가 지표와 함께 확인하세요.",
+    "line3": "BMI는 체지방을 직접 측정하지 않습니다."
+  },
+  "openGraph": {
+    "title": "BMI 계산기",
+    "description": "키와 체중을 입력하면 BMI와 체중 분류를 자동 계산하는 무료 BMI 계산기입니다. 건강 상태를 간단히 점검하고 목표 체중 관리를 시작해보세요."
+  }
+}

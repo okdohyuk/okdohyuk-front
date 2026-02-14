@@ -1,8 +1,10 @@
 import React from 'react';
 import {
+  Activity,
   Bomb,
   Calculator,
   CalendarClock,
+  Car,
   Code,
   CreditCard,
   Github,
@@ -95,6 +97,26 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: 'BMI 계산기',
+        en: 'BMI Calculator',
+        ja: 'BMI計算機',
+        zh: 'BMI 计算器',
+      },
+      icon: <Activity />,
+      link: '/bmi-calculator',
+    },
+    {
+      title: {
+        ko: '주차 요금 계산기',
+        en: 'Parking Fee Calculator',
+        ja: '駐車料金計算機',
+        zh: '停车费用计算器',
+      },
+      icon: <Car />,
+      link: '/parking-fee',
     },
     {
       title: {
