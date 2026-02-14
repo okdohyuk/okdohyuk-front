@@ -15,5 +15,6 @@
     "description": "去登录！",
     "logout": "退出登录",
     "logoutAll": "退出所有设备"
-  }
+  },
+  "random-toolbox": "随机工具箱"
 }

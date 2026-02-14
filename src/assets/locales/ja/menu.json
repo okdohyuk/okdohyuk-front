@@ -15,5 +15,6 @@
     "description": "ログインする",
     "logout": "ログアウト",
     "logoutAll": "すべてのデバイスからログアウト"
-  }
+  },
+  "random-toolbox": "ランダムツールボックス"
 }

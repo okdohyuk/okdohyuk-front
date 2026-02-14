@@ -1,0 +1,41 @@
+{
+  "title": "Random Toolbox",
+  "description": "Quick pickers for everyday decisions: random choice, numbers, and yes/no.",
+  "sections": {
+    "list": {
+      "title": "Random Picker",
+      "description": "Paste names or options to pick one at random.",
+      "label": "Options",
+      "placeholder": "e.g. Coffee\nTea\nSmoothie",
+      "helper": "Separate items with commas or new lines.",
+      "button": "Pick for me",
+      "count": "Total: {{count}}",
+      "empty": "Add at least one option to pick.",
+      "resultLabel": "Picked",
+      "resultPlaceholder": "Waiting for your options."
+    },
+    "number": {
+      "title": "Random Number",
+      "description": "Generate a number between a minimum and maximum.",
+      "labelMin": "Minimum",
+      "labelMax": "Maximum",
+      "button": "Generate number",
+      "error": "Enter a valid range.",
+      "resultLabel": "Result",
+      "resultPlaceholder": "Waiting for a range."
+    },
+    "yesNo": {
+      "title": "Yes or No",
+      "description": "Let fate decide with a quick yes-or-no.",
+      "button": "Decide",
+      "resultLabel": "Answer",
+      "resultPlaceholder": "Ready when you are.",
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "openGraph": {
+    "title": "Random Toolbox",
+    "description": "Random picker toolkit for daily decisions: choose one from a list, generate numbers, or flip a yes/no."
+  }
+}
