@@ -1,0 +1,42 @@
+{
+  "title": "Expiry Date Calculator",
+  "description": "Enter a start date and storage period to instantly calculate the expiry date and days remaining.",
+  "helper": "Set the period and unit to see the expiry date and remaining days right away.",
+  "label": {
+    "startDate": "Start date",
+    "amount": "Period",
+    "unit": "Unit"
+  },
+  "unit": {
+    "days": "Days",
+    "weeks": "Weeks",
+    "months": "Months"
+  },
+  "button": {
+    "reset": "Reset",
+    "today": "Use today",
+    "copy": "Copy date",
+    "copied": "Copied"
+  },
+  "result": {
+    "title": "Result",
+    "notice": "Updates as you type",
+    "empty": "Enter a date and period to calculate.",
+    "status": {
+      "today": "The expiry date is today.",
+      "expired": "The expiry date has passed.",
+      "remaining": "Days remaining until expiry."
+    },
+    "days": "{{count}} days"
+  },
+  "tips": {
+    "title": "Tips",
+    "line1": "Use the manufacture or purchase date as the start date.",
+    "line2": "Switch between days, weeks, or months for the storage period.",
+    "line3": "For safety, consider discarding a day earlier than the calculated date."
+  },
+  "openGraph": {
+    "title": "Expiry Date Calculator",
+    "description": "Free expiry date calculator that shows the expiration date and remaining days based on a start date and storage period. Ideal for pantry, fridge, or freezer planning, with quick copy to save the result."
+  }
+}
