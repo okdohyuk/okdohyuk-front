@@ -1,0 +1,45 @@
+{
+  "title": "Reading Progress Calculator",
+  "description": "Enter total pages and your current page to see progress, remaining pages, and an estimated finish date.",
+  "hint": "Fill in the numbers to calculate your reading progress instantly.",
+  "label": {
+    "totalPages": "Total pages",
+    "currentPage": "Current page",
+    "pagesPerDay": "Pages per day"
+  },
+  "placeholder": {
+    "totalPages": "e.g., 320",
+    "currentPage": "e.g., 118",
+    "pagesPerDay": "e.g., 20"
+  },
+  "helper": {
+    "pagesPerDay": "Add a daily target to estimate days left and finish date."
+  },
+  "button": {
+    "example": "Use example",
+    "reset": "Reset"
+  },
+  "result": {
+    "title": "Results",
+    "progress": "Progress",
+    "pagesLeft": "Pages left",
+    "daysLeft": "Days left",
+    "finishDate": "Estimated finish date",
+    "finishDateEmpty": "Daily target needed",
+    "empty": "Enter values to see the results."
+  },
+  "unit": {
+    "pages": "pages",
+    "days": "days"
+  },
+  "error": {
+    "totalPages": "Please enter a total page count of 1 or more.",
+    "currentPage": "Current page must be 0 or greater.",
+    "exceedTotal": "Current page cannot exceed total pages.",
+    "pagesPerDay": "Pages per day must be 1 or more."
+  },
+  "openGraph": {
+    "title": "Reading Progress Calculator",
+    "description": "Calculate reading progress, remaining pages, and a finish date based on your daily goal. Track your book progress with a few quick inputs."
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "title": "阅读进度计算器",
+  "description": "输入总页数和当前页数，即可查看进度、剩余页数与预计完成日期。",
+  "hint": "填写数字即可立即计算阅读进度。",
+  "label": {
+    "totalPages": "总页数",
+    "currentPage": "当前页数",
+    "pagesPerDay": "每日目标页数"
+  },
+  "placeholder": {
+    "totalPages": "例如：320",
+    "currentPage": "例如：118",
+    "pagesPerDay": "例如：20"
+  },
+  "helper": {
+    "pagesPerDay": "填写后会计算剩余天数与预计完成日期。"
+  },
+  "button": {
+    "example": "使用示例",
+    "reset": "重置"
+  },
+  "result": {
+    "title": "计算结果",
+    "progress": "进度",
+    "pagesLeft": "剩余页数",
+    "daysLeft": "剩余天数",
+    "finishDate": "预计完成日期",
+    "finishDateEmpty": "需要每日目标",
+    "empty": "输入数值后显示结果。"
+  },
+  "unit": {
+    "pages": "页",
+    "days": "天"
+  },
+  "error": {
+    "totalPages": "总页数必须大于等于 1。",
+    "currentPage": "当前页数必须大于等于 0。",
+    "exceedTotal": "当前页数不能超过总页数。",
+    "pagesPerDay": "每日目标页数必须大于等于 1。"
+  },
+  "openGraph": {
+    "title": "阅读进度计算器",
+    "description": "快速计算阅读进度、剩余页数，以及基于每日目标的预计完成日期。"
+  }
+}
