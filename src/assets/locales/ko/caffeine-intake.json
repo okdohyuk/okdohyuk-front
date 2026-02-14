@@ -1,0 +1,69 @@
+{
+  "title": "카페인 섭취 계산기",
+  "description": "자주 마시는 음료의 카페인을 합산해 하루 섭취량을 빠르게 확인하세요.",
+  "input": {
+    "title": "오늘 마신 음료",
+    "subtitle": "컵 수를 입력하면 총 카페인이 자동으로 계산됩니다.",
+    "caffeinePerCup": "1잔당 {{mg}}mg",
+    "countAria": "{{name}} 잔 수",
+    "cupUnit": "잔"
+  },
+  "custom": {
+    "title": "직접 입력",
+    "subtitle": "라벨에 적힌 mg를 입력해 맞춤 음료도 계산해 보세요.",
+    "mgPlaceholder": "카페인(mg)",
+    "countPlaceholder": "잔 수",
+    "mgAria": "사용자 지정 카페인 mg",
+    "countAria": "사용자 지정 잔 수"
+  },
+  "actions": {
+    "example": "예시 채우기",
+    "reset": "초기화",
+    "copy": "결과 복사"
+  },
+  "result": {
+    "title": "총 섭취량",
+    "description": "총 카페인과 아메리카노 환산 값을 확인하세요.",
+    "total": "총 {{total}}mg",
+    "equivalent": "아메리카노 약 {{cups}}잔",
+    "copyText": "총 카페인 {{total}}mg (아메리카노 약 {{cups}}잔)"
+  },
+  "limits": {
+    "adult": {
+      "title": "성인 권장 상한",
+      "value": "하루 {{mg}}mg 이하"
+    },
+    "caution": {
+      "title": "민감군 기준",
+      "value": "하루 {{mg}}mg 이하"
+    }
+  },
+  "status": {
+    "safe": {
+      "title": "안정 구간",
+      "description": "현재 섭취량은 권장 범위 안입니다."
+    },
+    "caution": {
+      "title": "주의 구간",
+      "description": "민감군 기준을 넘었습니다. 섭취량을 조절해 보세요."
+    },
+    "over": {
+      "title": "초과 구간",
+      "description": "성인 권장 상한을 초과했습니다. 당분간 카페인을 줄여 주세요."
+    }
+  },
+  "drinks": {
+    "espresso": { "label": "에스프레소" },
+    "americano": { "label": "아메리카노" },
+    "latte": { "label": "라떼" },
+    "coldBrew": { "label": "콜드브루" },
+    "blackTea": { "label": "홍차" },
+    "greenTea": { "label": "녹차" },
+    "energyDrink": { "label": "에너지 드링크" },
+    "cola": { "label": "콜라" }
+  },
+  "openGraph": {
+    "title": "카페인 섭취 계산기",
+    "description": "커피와 음료의 카페인 섭취량을 손쉽게 계산하세요. 잔 수를 입력하면 총 카페인과 아메리카노 환산 값을 보여줍니다."
+  }
+}

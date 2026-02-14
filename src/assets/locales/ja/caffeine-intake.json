@@ -1,0 +1,69 @@
+{
+  "title": "カフェイン摂取量計算機",
+  "description": "よく飲むドリンクのカフェイン量を合計して、1日の摂取量を素早く確認できます。",
+  "input": {
+    "title": "今日飲んだドリンク",
+    "subtitle": "杯数を入力すると合計カフェインを自動計算します。",
+    "caffeinePerCup": "1杯あたり{{mg}}mg",
+    "countAria": "{{name}}の杯数",
+    "cupUnit": "杯"
+  },
+  "custom": {
+    "title": "カスタム入力",
+    "subtitle": "ラベルのmgを入力してオリジナルのドリンクも計算できます。",
+    "mgPlaceholder": "カフェイン(mg)",
+    "countPlaceholder": "杯数",
+    "mgAria": "カスタムカフェインmg",
+    "countAria": "カスタム杯数"
+  },
+  "actions": {
+    "example": "例を入力",
+    "reset": "リセット",
+    "copy": "結果をコピー"
+  },
+  "result": {
+    "title": "合計摂取量",
+    "description": "合計カフェインとアメリカーノ換算を確認してください。",
+    "total": "合計{{total}}mg",
+    "equivalent": "アメリカーノ約{{cups}}杯",
+    "copyText": "合計カフェイン{{total}}mg（アメリカーノ約{{cups}}杯）"
+  },
+  "limits": {
+    "adult": {
+      "title": "成人の推奨上限",
+      "value": "1日{{mg}}mgまで"
+    },
+    "caution": {
+      "title": "敏感な方向け",
+      "value": "1日{{mg}}mgまで"
+    }
+  },
+  "status": {
+    "safe": {
+      "title": "安心ゾーン",
+      "description": "現在の摂取量は推奨範囲内です。"
+    },
+    "caution": {
+      "title": "注意ゾーン",
+      "description": "敏感な方向けの基準を超えています。調整をおすすめします。"
+    },
+    "over": {
+      "title": "超過ゾーン",
+      "description": "成人の推奨上限を超えています。カフェインを控えてください。"
+    }
+  },
+  "drinks": {
+    "espresso": { "label": "エスプレッソ" },
+    "americano": { "label": "アメリカーノ" },
+    "latte": { "label": "ラテ" },
+    "coldBrew": { "label": "コールドブリュー" },
+    "blackTea": { "label": "紅茶" },
+    "greenTea": { "label": "緑茶" },
+    "energyDrink": { "label": "エナジードリンク" },
+    "cola": { "label": "コーラ" }
+  },
+  "openGraph": {
+    "title": "カフェイン摂取量計算機",
+    "description": "コーヒーやドリンクのカフェイン摂取量を簡単に計算。杯数を入力すると合計カフェインとアメリカーノ換算を表示します。"
+  }
+}
