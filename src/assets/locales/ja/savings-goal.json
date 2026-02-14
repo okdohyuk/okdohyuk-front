@@ -1,0 +1,48 @@
+{
+  "openGraph": {
+    "title": "貯金目標計算機",
+    "ogTitle": "貯金目標計算機 | 達成時期の見積もり",
+    "description": "目標金額、現在の貯金、毎月の貯金額、年利を入力して達成時期を計算します。",
+    "keywords": ["貯金目標", "貯金計算機", "達成日", "月々の貯金", "金利", "資金計画", "目標管理"]
+  },
+  "title": "貯金目標計算機",
+  "description": "毎月の貯金額と金利から目標達成時期を見積もります。",
+  "badge": "目標プランナー",
+  "labels": {
+    "goalAmount": "目標金額",
+    "currentAmount": "現在の貯金",
+    "monthlyAmount": "月々の貯金額",
+    "annualRate": "年利(%)"
+  },
+  "placeholders": {
+    "goalAmount": "例: 5,000,000",
+    "currentAmount": "例: 500,000",
+    "monthlyAmount": "例: 300,000",
+    "annualRate": "例: 2.5"
+  },
+  "actions": {
+    "fillExample": "例を入力",
+    "reset": "リセット",
+    "copySummary": "要約をコピー",
+    "copied": "コピーしました"
+  },
+  "result": {
+    "title": "計算結果",
+    "remaining": "残り金額",
+    "monthsNeeded": "予想期間",
+    "monthsUnit": "ヶ月",
+    "targetDate": "予想達成日"
+  },
+  "messages": {
+    "invalidGoal": "目標金額を入力してください。",
+    "unreachable": "毎月の貯金額と金利が0の場合、達成時期を計算できません。",
+    "alreadyReached": "すでに目標を達成しています！"
+  },
+  "summary": "約{{months}}ヶ月後（{{targetDate}}頃）に{{goal}}を達成。残り{{remaining}}。",
+  "notes": {
+    "title": "注意",
+    "item1": "金利は年利で、月複利として計算します。",
+    "item2": "結果は目安であり、実際の値とは異なる場合があります。",
+    "item3": "月々の貯金額が0の場合、達成日は表示されません。"
+  }
+}

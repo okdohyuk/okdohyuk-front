@@ -1,0 +1,57 @@
+{
+  "openGraph": {
+    "title": "저축 목표 계산기",
+    "ogTitle": "저축 목표 계산기 | 월 저축액으로 달성 시점 계산",
+    "description": "목표 금액, 현재 저축액, 월 저축액, 연 이자율을 입력하면 예상 달성 시점을 빠르게 계산합니다.",
+    "keywords": [
+      "저축 목표",
+      "저축 계산기",
+      "목표 달성일",
+      "월 저축액",
+      "이자율",
+      "목표 금액",
+      "재무 계획",
+      "저축 플래너"
+    ]
+  },
+  "title": "저축 목표 계산기",
+  "description": "월 저축액과 이자율을 기준으로 목표 달성 시점을 계산합니다.",
+  "badge": "목표 플래너",
+  "labels": {
+    "goalAmount": "목표 금액",
+    "currentAmount": "현재 저축액",
+    "monthlyAmount": "월 저축액",
+    "annualRate": "연 이자율(%)"
+  },
+  "placeholders": {
+    "goalAmount": "예: 5,000,000",
+    "currentAmount": "예: 500,000",
+    "monthlyAmount": "예: 300,000",
+    "annualRate": "예: 2.5"
+  },
+  "actions": {
+    "fillExample": "예시 채우기",
+    "reset": "초기화",
+    "copySummary": "요약 복사",
+    "copied": "복사됨!"
+  },
+  "result": {
+    "title": "계산 결과",
+    "remaining": "남은 금액",
+    "monthsNeeded": "예상 기간",
+    "monthsUnit": "개월",
+    "targetDate": "예상 달성일"
+  },
+  "messages": {
+    "invalidGoal": "목표 금액을 입력해 주세요.",
+    "unreachable": "월 저축액 또는 이자율이 0이면 목표 달성일을 계산할 수 없습니다.",
+    "alreadyReached": "이미 목표에 도달했어요!"
+  },
+  "summary": "약 {{months}}개월 후(예상 {{targetDate}}) 목표 {{goal}}원 달성. 남은 금액 {{remaining}}원.",
+  "notes": {
+    "title": "안내",
+    "item1": "이자율은 연 기준이며 월 복리로 계산합니다.",
+    "item2": "계산 결과는 단순 추정치이며 실제 결과와 다를 수 있습니다.",
+    "item3": "월 저축액을 0으로 입력하면 예상 달성일이 표시되지 않습니다."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "openGraph": {
+    "title": "储蓄目标计算器",
+    "ogTitle": "储蓄目标计算器 | 估算达成日期",
+    "description": "输入目标金额、当前储蓄、每月储蓄和年利率，估算何时达成目标。",
+    "keywords": ["储蓄目标", "储蓄计算器", "达成日期", "每月储蓄", "利率", "理财计划", "目标管理"]
+  },
+  "title": "储蓄目标计算器",
+  "description": "根据每月储蓄和利率估算目标达成时间。",
+  "badge": "目标规划",
+  "labels": {
+    "goalAmount": "目标金额",
+    "currentAmount": "当前储蓄",
+    "monthlyAmount": "每月储蓄",
+    "annualRate": "年利率(%)"
+  },
+  "placeholders": {
+    "goalAmount": "例如: 5,000,000",
+    "currentAmount": "例如: 500,000",
+    "monthlyAmount": "例如: 300,000",
+    "annualRate": "例如: 2.5"
+  },
+  "actions": {
+    "fillExample": "填入示例",
+    "reset": "重置",
+    "copySummary": "复制摘要",
+    "copied": "已复制"
+  },
+  "result": {
+    "title": "计算结果",
+    "remaining": "剩余金额",
+    "monthsNeeded": "预计周期",
+    "monthsUnit": "个月",
+    "targetDate": "预计达成日期"
+  },
+  "messages": {
+    "invalidGoal": "请输入目标金额。",
+    "unreachable": "当每月储蓄和利率都为0时，无法估算达成日期。",
+    "alreadyReached": "已达成目标！"
+  },
+  "summary": "约{{months}}个月后（预计{{targetDate}}）达成{{goal}}，剩余{{remaining}}。",
+  "notes": {
+    "title": "说明",
+    "item1": "利率按年计，按月复利估算。",
+    "item2": "结果为估算值，可能与实际情况不同。",
+    "item3": "每月储蓄为0时，将不会显示预计达成日期。"
+  }
+}
