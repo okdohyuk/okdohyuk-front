@@ -1,0 +1,35 @@
+{
+  "title": "습관 연속 기록기",
+  "description": "하루에 한 번 체크하며 습관의 연속 일수와 최고 기록을 관리하세요.",
+  "helper": "오늘 완료를 눌러 연속 기록을 쌓아보세요. 브라우저에 자동으로 저장됩니다.",
+  "placeholder": "새 습관 이름 (예: 10분 스트레칭)",
+  "empty": "아직 등록된 습관이 없어요. 위에서 습관을 추가해 주세요.",
+  "labels": {
+    "createdAt": "시작일",
+    "lastDone": "마지막 완료",
+    "none": "없음",
+    "streak": "연속",
+    "best": "최고"
+  },
+  "buttons": {
+    "add": "추가",
+    "sample": "예시 채우기",
+    "clear": "전체 초기화",
+    "copy": "요약 복사",
+    "copied": "복사됨",
+    "markToday": "오늘 완료",
+    "done": "완료됨",
+    "reset": "리셋",
+    "remove": "삭제"
+  },
+  "stats": {
+    "total": "습관 수",
+    "doneToday": "오늘 완료",
+    "totalStreak": "총 연속일",
+    "bestStreak": "최고 기록"
+  },
+  "openGraph": {
+    "title": "습관 연속 기록기",
+    "description": "습관의 연속 일수와 최고 기록을 간단히 관리하세요. 오늘 완료 체크, 요약 복사, 자동 저장까지 지원합니다."
+  }
+}

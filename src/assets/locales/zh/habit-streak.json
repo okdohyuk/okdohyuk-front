@@ -1,0 +1,35 @@
+{
+  "title": "习惯连胜记录",
+  "description": "每天打卡一次，轻松管理连续天数与最佳记录。",
+  "helper": "点击“今日完成”累积连胜，数据会保存在浏览器中。",
+  "placeholder": "新的习惯名称（例：10分钟拉伸）",
+  "empty": "还没有习惯，请先在上方添加。",
+  "labels": {
+    "createdAt": "开始日期",
+    "lastDone": "最近完成",
+    "none": "无",
+    "streak": "连胜",
+    "best": "最佳"
+  },
+  "buttons": {
+    "add": "添加",
+    "sample": "载入示例",
+    "clear": "清空",
+    "copy": "复制摘要",
+    "copied": "已复制",
+    "markToday": "今日完成",
+    "done": "已完成",
+    "reset": "重置",
+    "remove": "删除"
+  },
+  "stats": {
+    "total": "习惯数量",
+    "doneToday": "今日完成",
+    "totalStreak": "累计连胜",
+    "bestStreak": "最佳记录"
+  },
+  "openGraph": {
+    "title": "习惯连胜记录",
+    "description": "管理每日习惯的连续天数与最佳记录，支持今日完成、摘要复制与本地保存。"
+  }
+}
