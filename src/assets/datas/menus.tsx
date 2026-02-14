@@ -148,6 +148,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '이모지/문자 카운터',
+        en: 'Emoji & Text Counter',
+        ja: '絵文字/文字カウンター',
+        zh: '表情/字符计数器',
+      },
+      icon: <TextCursorInput />,
+      link: '/emoji-counter',
+    },
+    {
+      title: {
         ko: '초성메이커',
         en: 'Choseong Maker',
         ja: 'チョソンメーカー',

@@ -1,0 +1,30 @@
+{
+  "openGraph": {
+    "title": "表情/字符计数器",
+    "ogTitle": "表情/字符计数器",
+    "description": "一次统计表情与文本数量，并查看去空格字符数、单词数和行数。",
+    "keywords": ["表情", "字符", "计数器", "字数", "单词", "行数", "统计"]
+  },
+  "title": "表情/字符计数器",
+  "description": "一次统计表情与文本数量，并查看去空格字符数、单词数和行数。",
+  "label": {
+    "input": "文本输入"
+  },
+  "placeholder": "在此输入或粘贴文本与表情。",
+  "helper": "实时计算字符、单词、行数与表情数量。",
+  "button": {
+    "copySummary": "复制摘要",
+    "copied": "已复制",
+    "clear": "清空",
+    "fillExample": "填入示例"
+  },
+  "summary": {
+    "totalChars": "总字符数",
+    "charsWithoutSpace": "去空格字符数",
+    "words": "单词数",
+    "lines": "行数",
+    "emojis": "表情数量"
+  },
+  "note": "表情数量按 Unicode 字符统计，组合表情可能会被计为多个。",
+  "example": "今天也加油！ 💪\n咖啡第二杯 ☕️\nHappy Friday 😄🎉"
+}
