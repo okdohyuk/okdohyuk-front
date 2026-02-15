@@ -19,6 +19,7 @@ import {
   TextCursorInput,
   Tv,
   Youtube,
+  Zap,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '전기 사용량 계산기',
+        en: 'Power Usage Calculator',
+        ja: '電力使用量計算機',
+        zh: '用电量计算器',
+      },
+      icon: <Zap />,
+      link: '/power-usage-calculator',
     },
     {
       title: {

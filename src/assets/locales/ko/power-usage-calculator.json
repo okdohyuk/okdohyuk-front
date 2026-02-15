@@ -1,0 +1,31 @@
+{
+  "openGraph": {
+    "title": "전기 사용량 계산기",
+    "ogTitle": "전기 사용량 계산기",
+    "description": "가전제품의 소비전력을 입력해 하루·월간·연간 전력 사용량과 예상 전기요금을 빠르게 계산하세요."
+  },
+  "title": "전기 사용량 계산기",
+  "description": "소비전력과 사용 시간을 입력하면 kWh와 예상 요금을 한 번에 계산합니다.",
+  "badge": "Power Usage",
+  "wattsLabel": "소비전력 (W)",
+  "wattsPlaceholder": "예: 60",
+  "hoursLabel": "하루 사용 시간 (시간)",
+  "hoursPlaceholder": "예: 6",
+  "daysLabel": "월 기준 일수",
+  "daysPlaceholder": "예: 30",
+  "priceLabel": "kWh 당 요금",
+  "pricePlaceholder": "예: 150",
+  "presetLaptop": "노트북",
+  "presetLed": "LED 전구",
+  "presetHeater": "전기히터",
+  "copyResult": "결과 복사",
+  "copied": "복사 완료",
+  "reset": "초기화",
+  "validationHint": "모든 입력값은 0보다 커야 합니다.",
+  "resultTitle": "계산 결과",
+  "resultDailyEnergy": "하루 사용량",
+  "resultMonthlyEnergy": "월 사용량",
+  "resultMonthlyCost": "월 예상 요금",
+  "resultYearlyCost": "연 예상 요금",
+  "currencyUnit": "원"
+}

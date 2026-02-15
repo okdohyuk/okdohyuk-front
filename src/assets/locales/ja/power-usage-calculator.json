@@ -1,0 +1,31 @@
+{
+  "openGraph": {
+    "title": "電力使用量計算機",
+    "ogTitle": "電力使用量計算機",
+    "description": "消費電力と利用時間から、日・月・年の使用量と電気料金の目安を算出します。"
+  },
+  "title": "電力使用量計算機",
+  "description": "ワット数と利用時間を入力して、kWhと料金をまとめて計算します。",
+  "badge": "Power Usage",
+  "wattsLabel": "消費電力 (W)",
+  "wattsPlaceholder": "例: 60",
+  "hoursLabel": "1日の使用時間",
+  "hoursPlaceholder": "例: 6",
+  "daysLabel": "月の日数",
+  "daysPlaceholder": "例: 30",
+  "priceLabel": "kWhあたりの料金",
+  "pricePlaceholder": "例: 30",
+  "presetLaptop": "ノートPC",
+  "presetLed": "LED電球",
+  "presetHeater": "ヒーター",
+  "copyResult": "結果をコピー",
+  "copied": "コピーしました",
+  "reset": "リセット",
+  "validationHint": "すべての入力値は0より大きくしてください。",
+  "resultTitle": "計算結果",
+  "resultDailyEnergy": "1日の使用量",
+  "resultMonthlyEnergy": "月の使用量",
+  "resultMonthlyCost": "月の料金目安",
+  "resultYearlyCost": "年の料金目安",
+  "currencyUnit": "円"
+}
