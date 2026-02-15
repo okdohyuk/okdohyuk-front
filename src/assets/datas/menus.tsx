@@ -14,6 +14,7 @@ import {
   Palette,
   QrCode,
   Server,
+  ShieldCheck,
   Smile,
   Sparkles,
   TextCursorInput,
@@ -65,6 +66,16 @@ const menus: Menus = {
       },
       icon: <Key />,
       link: '/jwt-decoder',
+    },
+    {
+      title: {
+        ko: '비밀번호 강도 검사기',
+        en: 'Password Strength Checker',
+        ja: 'パスワード強度チェッカー',
+        zh: '密码强度检测',
+      },
+      icon: <ShieldCheck />,
+      link: '/password-strength-checker',
     },
     {
       title: {
