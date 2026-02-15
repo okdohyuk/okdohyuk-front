@@ -1,0 +1,31 @@
+{
+  "openGraph": {
+    "title": "Power Usage Calculator",
+    "ogTitle": "Power Usage Calculator",
+    "description": "Estimate daily, monthly, and yearly power usage and electricity costs from wattage and usage time."
+  },
+  "title": "Power Usage Calculator",
+  "description": "Enter wattage and hours to estimate kWh usage and expected costs.",
+  "badge": "Power Usage",
+  "wattsLabel": "Wattage (W)",
+  "wattsPlaceholder": "e.g. 60",
+  "hoursLabel": "Hours per day",
+  "hoursPlaceholder": "e.g. 6",
+  "daysLabel": "Days per month",
+  "daysPlaceholder": "e.g. 30",
+  "priceLabel": "Price per kWh",
+  "pricePlaceholder": "e.g. 0.12",
+  "presetLaptop": "Laptop",
+  "presetLed": "LED bulb",
+  "presetHeater": "Heater",
+  "copyResult": "Copy results",
+  "copied": "Copied",
+  "reset": "Reset",
+  "validationHint": "All inputs must be greater than 0.",
+  "resultTitle": "Results",
+  "resultDailyEnergy": "Daily usage",
+  "resultMonthlyEnergy": "Monthly usage",
+  "resultMonthlyCost": "Monthly cost",
+  "resultYearlyCost": "Yearly cost",
+  "currencyUnit": "KRW"
+}

@@ -1,0 +1,31 @@
+{
+  "openGraph": {
+    "title": "用电量计算器",
+    "ogTitle": "用电量计算器",
+    "description": "根据设备功率和使用时间，快速估算日/月/年的用电量和费用。"
+  },
+  "title": "用电量计算器",
+  "description": "输入瓦数与使用时间，估算 kWh 用电量与电费。",
+  "badge": "Power Usage",
+  "wattsLabel": "功率 (W)",
+  "wattsPlaceholder": "例如: 60",
+  "hoursLabel": "每日使用时长",
+  "hoursPlaceholder": "例如: 6",
+  "daysLabel": "每月天数",
+  "daysPlaceholder": "例如: 30",
+  "priceLabel": "每 kWh 价格",
+  "pricePlaceholder": "例如: 0.8",
+  "presetLaptop": "笔记本电脑",
+  "presetLed": "LED 灯泡",
+  "presetHeater": "取暖器",
+  "copyResult": "复制结果",
+  "copied": "已复制",
+  "reset": "重置",
+  "validationHint": "所有输入值必须大于 0。",
+  "resultTitle": "计算结果",
+  "resultDailyEnergy": "每日用电量",
+  "resultMonthlyEnergy": "每月用电量",
+  "resultMonthlyCost": "每月费用",
+  "resultYearlyCost": "每年费用",
+  "currencyUnit": "元"
+}
