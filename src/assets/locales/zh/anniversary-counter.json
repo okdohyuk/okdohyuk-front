@@ -1,0 +1,40 @@
+{
+  "title": "纪念日 D-Day 计数器",
+  "description": "计算目标日期的剩余/已过天数，并一键复制 D-Day 标记。",
+  "label": {
+    "title": "事件名称",
+    "date": "目标日期",
+    "includeToday": "包含今天",
+    "quick": "快速设置",
+    "result": "结果"
+  },
+  "placeholder": {
+    "title": "例如：结婚纪念日"
+  },
+  "helper": "选择日期即可自动计算 D-Day。",
+  "button": {
+    "today": "今天",
+    "week": "一周后",
+    "hundred": "100 天后",
+    "reset": "重置",
+    "copy": "复制结果",
+    "copied": "已复制"
+  },
+  "result": {
+    "empty": "选择日期后会显示结果。",
+    "dday": "D-Day",
+    "ddayMinus": "D-{{count}}",
+    "ddayPlus": "D+{{count}}",
+    "daysLeft": "剩余 {{count}} 天",
+    "daysPassed": "已过 {{count}} 天",
+    "today": "今天就是 D-Day。",
+    "targetDate": "目标日期",
+    "todayDate": "今天",
+    "defaultTitle": "纪念日",
+    "copyText": "{{title}} · {{label}} ({{status}}) · {{date}}"
+  },
+  "openGraph": {
+    "title": "纪念日 D-Day 计数器",
+    "description": "快速查看纪念日、旅行或截止日期的剩余/已过天数。提供快捷日期与复制功能，轻松分享 D-Day 标记。"
+  }
+}

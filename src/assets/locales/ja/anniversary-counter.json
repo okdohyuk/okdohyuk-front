@@ -1,0 +1,40 @@
+{
+  "title": "記念日D-Dayカウンター",
+  "description": "指定した日までの残り日数・経過日数を計算し、D-Day表記をコピーできます。",
+  "label": {
+    "title": "イベント名",
+    "date": "基準日",
+    "includeToday": "今日を含める",
+    "quick": "クイック設定",
+    "result": "結果"
+  },
+  "placeholder": {
+    "title": "例: 結婚記念日"
+  },
+  "helper": "日付を選ぶとD-Dayが自動で計算されます。",
+  "button": {
+    "today": "今日",
+    "week": "1週間後",
+    "hundred": "100日後",
+    "reset": "リセット",
+    "copy": "結果をコピー",
+    "copied": "コピー済み"
+  },
+  "result": {
+    "empty": "日付を選ぶと結果が表示されます。",
+    "dday": "D-Day",
+    "ddayMinus": "D-{{count}}",
+    "ddayPlus": "D+{{count}}",
+    "daysLeft": "残り{{count}}日",
+    "daysPassed": "{{count}}日経過",
+    "today": "今日はD-Dayです。",
+    "targetDate": "基準日",
+    "todayDate": "今日",
+    "defaultTitle": "記念日",
+    "copyText": "{{title}} · {{label}} ({{status}}) · {{date}}"
+  },
+  "openGraph": {
+    "title": "記念日D-Dayカウンター",
+    "description": "記念日や旅行、締切までの残り日数・経過日数をD-Day形式で即確認。クイック設定と結果コピーで共有も簡単です。"
+  }
+}
