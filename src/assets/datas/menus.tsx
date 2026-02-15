@@ -4,7 +4,9 @@ import {
   Calculator,
   CalendarClock,
   Code,
+  Flame,
   CreditCard,
+  Droplet,
   Github,
   Hash,
   Key,
@@ -78,6 +80,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '컬러 팔레트',
+        en: 'Color Palette',
+        ja: 'カラーパレット',
+        zh: '颜色调色板',
+      },
+      icon: <Droplet />,
+      link: '/color-palette',
+    },
+    {
+      title: {
         ko: '슬러그 생성기',
         en: 'Slug Generator',
         ja: 'スラッグ生成器',
@@ -95,6 +107,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '하루 칼로리(TDEE) 계산기',
+        en: 'TDEE Calculator',
+        ja: 'TDEE計算機',
+        zh: 'TDEE 计算器',
+      },
+      icon: <Flame />,
+      link: '/tdee-calculator',
     },
     {
       title: {

@@ -1,0 +1,49 @@
+{
+  "title": "하루 칼로리(TDEE) 계산기",
+  "description": "성별, 나이, 키, 몸무게, 활동량을 입력해 기초대사량(BMR)과 하루 필요 열량을 계산합니다.",
+  "badge": "칼로리 계산",
+  "label": {
+    "sex": "성별",
+    "age": "나이(세)",
+    "height": "키(cm)",
+    "weight": "몸무게(kg)",
+    "activity": "활동량"
+  },
+  "placeholder": {
+    "age": "예: 29",
+    "height": "예: 165",
+    "weight": "예: 57"
+  },
+  "sex": {
+    "male": "남성",
+    "female": "여성"
+  },
+  "activity": {
+    "sedentary": "거의 활동 없음",
+    "light": "가벼운 활동",
+    "moderate": "보통 활동",
+    "active": "활동적",
+    "veryActive": "매우 활동적",
+    "sedentaryDesc": "대부분 앉아서 생활하는 경우",
+    "lightDesc": "주 1~3회 가벼운 운동",
+    "moderateDesc": "주 3~5회 중간 강도 운동",
+    "activeDesc": "주 6~7회 활동적 운동",
+    "veryActiveDesc": "매일 고강도 운동 또는 육체 노동"
+  },
+  "button": {
+    "fillExample": "예시 채우기",
+    "reset": "초기화"
+  },
+  "result": {
+    "bmr": "기초대사량(BMR)",
+    "tdee": "하루 필요 열량(TDEE)",
+    "kcal": "kcal/일",
+    "summary": "활동량 계수 {{factor}} 적용"
+  },
+  "empty": "값을 입력하면 결과가 표시됩니다.",
+  "notice": "참고용 계산입니다. 의학적 조언이 아닙니다.",
+  "openGraph": {
+    "title": "하루 칼로리(TDEE) 계산기",
+    "description": "성별, 나이, 키, 몸무게, 활동량으로 BMR과 하루 필요 열량(TDEE)을 빠르게 계산하세요."
+  }
+}

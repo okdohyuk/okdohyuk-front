@@ -1,0 +1,49 @@
+{
+  "title": "TDEE計算機",
+  "description": "性別・年齢・身長・体重・活動量を入力してBMRと1日の消費カロリーを計算します。",
+  "badge": "カロリー計算",
+  "label": {
+    "sex": "性別",
+    "age": "年齢(歳)",
+    "height": "身長(cm)",
+    "weight": "体重(kg)",
+    "activity": "活動量"
+  },
+  "placeholder": {
+    "age": "例: 29",
+    "height": "例: 165",
+    "weight": "例: 57"
+  },
+  "sex": {
+    "male": "男性",
+    "female": "女性"
+  },
+  "activity": {
+    "sedentary": "ほとんど活動しない",
+    "light": "軽い活動",
+    "moderate": "普通の活動",
+    "active": "活動的",
+    "veryActive": "非常に活動的",
+    "sedentaryDesc": "日中は座っていることが多い",
+    "lightDesc": "週1〜3回の軽い運動",
+    "moderateDesc": "週3〜5回の中程度の運動",
+    "activeDesc": "週6〜7回の運動",
+    "veryActiveDesc": "毎日激しい運動または肉体労働"
+  },
+  "button": {
+    "fillExample": "例を入力",
+    "reset": "リセット"
+  },
+  "result": {
+    "bmr": "基礎代謝量(BMR)",
+    "tdee": "1日の消費カロリー(TDEE)",
+    "kcal": "kcal/日",
+    "summary": "活動量係数 {{factor}} を適用"
+  },
+  "empty": "値を入力すると結果が表示されます。",
+  "notice": "参考値です。医療的助言ではありません。",
+  "openGraph": {
+    "title": "TDEE計算機",
+    "description": "性別・年齢・身長・体重・活動量からBMRと1日の消費カロリーを素早く算出します。"
+  }
+}

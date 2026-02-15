@@ -1,0 +1,49 @@
+{
+  "title": "TDEE 计算器",
+  "description": "输入性别、年龄、身高、体重和活动量，计算基础代谢率(BMR)与每日所需热量。",
+  "badge": "热量计算",
+  "label": {
+    "sex": "性别",
+    "age": "年龄(岁)",
+    "height": "身高(cm)",
+    "weight": "体重(kg)",
+    "activity": "活动量"
+  },
+  "placeholder": {
+    "age": "例如：29",
+    "height": "例如：165",
+    "weight": "例如：57"
+  },
+  "sex": {
+    "male": "男性",
+    "female": "女性"
+  },
+  "activity": {
+    "sedentary": "几乎不活动",
+    "light": "轻度活动",
+    "moderate": "中等活动",
+    "active": "较高活动",
+    "veryActive": "非常活跃",
+    "sedentaryDesc": "日常大多久坐",
+    "lightDesc": "每周 1~3 次轻度运动",
+    "moderateDesc": "每周 3~5 次中等运动",
+    "activeDesc": "每周 6~7 次运动",
+    "veryActiveDesc": "每天高强度运动或体力劳动"
+  },
+  "button": {
+    "fillExample": "填入示例",
+    "reset": "重置"
+  },
+  "result": {
+    "bmr": "基础代谢率(BMR)",
+    "tdee": "每日所需热量(TDEE)",
+    "kcal": "kcal/天",
+    "summary": "已应用活动系数 {{factor}}"
+  },
+  "empty": "输入数值后显示结果。",
+  "notice": "仅供参考，不构成医疗建议。",
+  "openGraph": {
+    "title": "TDEE 计算器",
+    "description": "根据身体数据和活动量快速估算 BMR 与每日所需热量。"
+  }
+}

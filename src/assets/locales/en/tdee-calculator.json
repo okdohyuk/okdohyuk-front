@@ -1,0 +1,49 @@
+{
+  "title": "TDEE Calculator",
+  "description": "Enter sex, age, height, weight, and activity level to estimate BMR and daily calorie needs.",
+  "badge": "Calorie Planner",
+  "label": {
+    "sex": "Sex",
+    "age": "Age (years)",
+    "height": "Height (cm)",
+    "weight": "Weight (kg)",
+    "activity": "Activity level"
+  },
+  "placeholder": {
+    "age": "e.g. 29",
+    "height": "e.g. 165",
+    "weight": "e.g. 57"
+  },
+  "sex": {
+    "male": "Male",
+    "female": "Female"
+  },
+  "activity": {
+    "sedentary": "Sedentary",
+    "light": "Lightly active",
+    "moderate": "Moderately active",
+    "active": "Active",
+    "veryActive": "Very active",
+    "sedentaryDesc": "Mostly sitting throughout the day",
+    "lightDesc": "Light exercise 1–3 days per week",
+    "moderateDesc": "Moderate exercise 3–5 days per week",
+    "activeDesc": "Hard exercise 6–7 days per week",
+    "veryActiveDesc": "Very hard exercise or physical job"
+  },
+  "button": {
+    "fillExample": "Fill example",
+    "reset": "Reset"
+  },
+  "result": {
+    "bmr": "Basal Metabolic Rate (BMR)",
+    "tdee": "Total Daily Energy Expenditure (TDEE)",
+    "kcal": "kcal/day",
+    "summary": "Activity multiplier {{factor}} applied"
+  },
+  "empty": "Enter values to see results.",
+  "notice": "For reference only. Not medical advice.",
+  "openGraph": {
+    "title": "TDEE Calculator",
+    "description": "Estimate your BMR and daily calorie needs based on your body metrics and activity level."
+  }
+}
