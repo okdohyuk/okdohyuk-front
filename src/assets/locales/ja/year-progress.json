@@ -1,0 +1,39 @@
+{
+  "openGraph": {
+    "title": "年間進捗計算機",
+    "ogTitle": "年間進捗計算機",
+    "description": "選択した日時を基準に、今年・今月・今週・今日の進捗率を表示します。"
+  },
+  "title": "年間進捗計算機",
+  "description": "選択した日時を基準に、今年/今月/今週/今日の進捗率を表示します。",
+  "labels": {
+    "date": "日付",
+    "time": "時間",
+    "weekStart": "週の開始"
+  },
+  "weekStartOptions": {
+    "monday": "月曜始まり",
+    "sunday": "日曜始まり"
+  },
+  "actions": {
+    "resetNow": "現在時刻にリセット",
+    "copySummary": "要約をコピー",
+    "copied": "コピーしました"
+  },
+  "hint": "選択した日時を基準に進捗率を計算します。",
+  "cards": {
+    "year": { "title": "今年の進捗" },
+    "month": { "title": "今月の進捗" },
+    "week": { "title": "今週の進捗" },
+    "day": { "title": "今日の進捗", "hourUnit": "時間" },
+    "progressLabel": "進捗率",
+    "passed": "経過",
+    "remaining": "残り",
+    "dayUnit": "日"
+  },
+  "summary": {
+    "title": "進捗要約",
+    "dayProgress": "{{current}}/{{total}}日",
+    "hourProgress": "{{current}}/{{total}}時間"
+  }
+}

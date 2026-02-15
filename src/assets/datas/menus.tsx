@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CalendarDays,
   Code,
   CreditCard,
   Github,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '연간 진행률 계산기',
+        en: 'Year Progress Tracker',
+        ja: '年間進捗計算機',
+        zh: '年度进度计算器',
+      },
+      icon: <CalendarDays />,
+      link: '/year-progress',
     },
     {
       title: {

@@ -1,0 +1,39 @@
+{
+  "openGraph": {
+    "title": "Year Progress Tracker",
+    "ogTitle": "Year Progress Tracker",
+    "description": "See how far through the year, month, week, and day you are based on a selected date and time."
+  },
+  "title": "Year Progress Tracker",
+  "description": "See how far through the year, month, week, and day you are based on a selected date and time.",
+  "labels": {
+    "date": "Date",
+    "time": "Time",
+    "weekStart": "Week starts on"
+  },
+  "weekStartOptions": {
+    "monday": "Monday start",
+    "sunday": "Sunday start"
+  },
+  "actions": {
+    "resetNow": "Reset to now",
+    "copySummary": "Copy summary",
+    "copied": "Copied"
+  },
+  "hint": "Progress is calculated based on the selected date and time.",
+  "cards": {
+    "year": { "title": "Year progress" },
+    "month": { "title": "Month progress" },
+    "week": { "title": "Week progress" },
+    "day": { "title": "Day progress", "hourUnit": "hours" },
+    "progressLabel": "Progress",
+    "passed": "Passed",
+    "remaining": "Remaining",
+    "dayUnit": "days"
+  },
+  "summary": {
+    "title": "Progress summary",
+    "dayProgress": "{{current}}/{{total}} days",
+    "hourProgress": "{{current}}/{{total}} hours"
+  }
+}
