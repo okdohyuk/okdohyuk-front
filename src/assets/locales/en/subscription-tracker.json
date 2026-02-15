@@ -1,0 +1,55 @@
+{
+  "title": "Subscription Cost Tracker",
+  "description": "Sum monthly and yearly subscription costs and copy a shareable summary.",
+  "labels": {
+    "currency": "Currency symbol",
+    "name": "Service",
+    "amount": "Price",
+    "cycle": "Billing cycle"
+  },
+  "placeholders": {
+    "currency": "$",
+    "name": "e.g. Netflix",
+    "amount": "e.g. 13.99"
+  },
+  "cycles": {
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "weekly": "Weekly",
+    "daily": "Daily"
+  },
+  "buttons": {
+    "add": "Add item",
+    "remove": "Remove",
+    "clear": "Clear all",
+    "sample": "Load sample",
+    "copy": "Copy summary"
+  },
+  "summary": {
+    "monthly": "Monthly total",
+    "yearly": "Yearly total",
+    "shareTitle": "Shareable summary",
+    "note": "Yearly total is calculated by converting every item to a monthly cost."
+  },
+  "messages": {
+    "copied": "Copied!"
+  },
+  "tips": "Enter numbers only. Commas and spaces are ignored.",
+  "samples": {
+    "streaming": "Video streaming",
+    "music": "Music streaming",
+    "cloud": "Cloud storage"
+  },
+  "openGraph": {
+    "title": "Subscription Cost Tracker",
+    "description": "Quickly add up subscription costs by billing cycle and get monthly or yearly totals. Create a shareable summary to manage recurring expenses in one place.",
+    "keywords": [
+      "subscription",
+      "subscription cost",
+      "monthly total",
+      "yearly total",
+      "expense tracker",
+      "recurring payments"
+    ]
+  }
+}

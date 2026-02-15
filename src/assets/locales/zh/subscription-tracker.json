@@ -1,0 +1,48 @@
+{
+  "title": "订阅费用计算器",
+  "description": "一次汇总月付/年付订阅费用，并复制可分享的摘要。",
+  "labels": {
+    "currency": "货币符号",
+    "name": "服务名称",
+    "amount": "金额",
+    "cycle": "计费周期"
+  },
+  "placeholders": {
+    "currency": "¥",
+    "name": "例如：Netflix",
+    "amount": "例如：13.99"
+  },
+  "cycles": {
+    "monthly": "每月",
+    "yearly": "每年",
+    "weekly": "每周",
+    "daily": "每天"
+  },
+  "buttons": {
+    "add": "添加项目",
+    "remove": "删除",
+    "clear": "清空全部",
+    "sample": "填充示例",
+    "copy": "复制摘要"
+  },
+  "summary": {
+    "monthly": "月度合计",
+    "yearly": "年度合计",
+    "shareTitle": "可分享摘要",
+    "note": "年度合计按各项目换算为月度费用后计算。"
+  },
+  "messages": {
+    "copied": "已复制！"
+  },
+  "tips": "只需输入数字，逗号和空格会被忽略。",
+  "samples": {
+    "streaming": "视频订阅",
+    "music": "音乐订阅",
+    "cloud": "云存储"
+  },
+  "openGraph": {
+    "title": "订阅费用计算器",
+    "description": "按计费周期快速汇总订阅费用，自动换算月度与年度合计，并生成可分享的摘要，方便管理持续支出。",
+    "keywords": ["订阅", "订阅费用", "月度合计", "年度合计", "支出管理", "订阅管理"]
+  }
+}

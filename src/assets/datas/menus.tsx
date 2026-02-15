@@ -13,6 +13,7 @@ import {
   MonitorPlay,
   Palette,
   QrCode,
+  Repeat,
   Server,
   Smile,
   Sparkles,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '구독 비용 계산기',
+        en: 'Subscription Cost Tracker',
+        ja: 'サブスク費用計算機',
+        zh: '订阅费用计算器',
+      },
+      icon: <Repeat />,
+      link: '/subscription-tracker',
     },
     {
       title: {
