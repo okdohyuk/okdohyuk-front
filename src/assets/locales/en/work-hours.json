@@ -1,0 +1,50 @@
+{
+  "title": "Work Hours Calculator",
+  "description": "Enter your start/end times and break minutes to calculate actual work hours.",
+  "labels": {
+    "startTime": "Start time",
+    "endTime": "End time",
+    "breakMinutes": "Break time (minutes)",
+    "overnight": "Count as next-day end"
+  },
+  "placeholder": {
+    "breakMinutes": "e.g. 60"
+  },
+  "helper": {
+    "breakMinutes": "Enter meal or rest breaks in minutes."
+  },
+  "result": {
+    "title": "Result",
+    "empty": "Enter times to see your work hours.",
+    "endBeforeStart": "End time is earlier than start time. Enable next-day end.",
+    "breakTooLong": "Break time is longer than the total duration."
+  },
+  "summary": {
+    "workTime": "Net work time",
+    "totalTime": "Total duration",
+    "breakTime": "Break time",
+    "decimal": "Decimal hours"
+  },
+  "unit": {
+    "hour": "h",
+    "minute": "m"
+  },
+  "button": {
+    "copy": "Copy result",
+    "reset": "Reset"
+  },
+  "toast": {
+    "copied": "Copied"
+  },
+  "examples": {
+    "title": "Examples",
+    "items": [
+      "09:00–18:00 with 60-minute break → 8 hours",
+      "22:00–06:30 with 30-minute break, next-day end → 8 hours"
+    ]
+  },
+  "openGraph": {
+    "title": "Work Hours Calculator",
+    "description": "A free tool that calculates real work hours from start/end times and breaks. Handle overnight shifts with a next-day option and get instant results."
+  }
+}
