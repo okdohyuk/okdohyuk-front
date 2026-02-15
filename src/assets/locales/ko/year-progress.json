@@ -1,0 +1,39 @@
+{
+  "openGraph": {
+    "title": "연간 진행률 계산기",
+    "ogTitle": "연간 진행률 계산기",
+    "description": "선택한 날짜와 시간 기준으로 올해, 이번 달, 이번 주, 오늘의 진행률을 한눈에 확인하세요."
+  },
+  "title": "연간 진행률 계산기",
+  "description": "선택한 날짜와 시간 기준으로 올해/이번 달/이번 주/오늘 진행률을 한눈에 확인하세요.",
+  "labels": {
+    "date": "날짜",
+    "time": "시간",
+    "weekStart": "주 시작 요일"
+  },
+  "weekStartOptions": {
+    "monday": "월요일 시작",
+    "sunday": "일요일 시작"
+  },
+  "actions": {
+    "resetNow": "지금으로 초기화",
+    "copySummary": "요약 복사",
+    "copied": "복사됨"
+  },
+  "hint": "선택한 날짜/시간을 기준으로 진행률을 계산합니다.",
+  "cards": {
+    "year": { "title": "올해 진행률" },
+    "month": { "title": "이번 달 진행률" },
+    "week": { "title": "이번 주 진행률" },
+    "day": { "title": "오늘 진행률", "hourUnit": "시간" },
+    "progressLabel": "진행률",
+    "passed": "경과",
+    "remaining": "남은",
+    "dayUnit": "일"
+  },
+  "summary": {
+    "title": "진행률 요약",
+    "dayProgress": "{{current}}/{{total}}일",
+    "hourProgress": "{{current}}/{{total}}시간"
+  }
+}

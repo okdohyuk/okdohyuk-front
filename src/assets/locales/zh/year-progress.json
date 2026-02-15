@@ -1,0 +1,39 @@
+{
+  "openGraph": {
+    "title": "年度进度计算器",
+    "ogTitle": "年度进度计算器",
+    "description": "根据选择的日期和时间查看全年、当月、本周与今日的进度。"
+  },
+  "title": "年度进度计算器",
+  "description": "根据选择的日期和时间查看全年、本月、本周与今日的进度。",
+  "labels": {
+    "date": "日期",
+    "time": "时间",
+    "weekStart": "周起始"
+  },
+  "weekStartOptions": {
+    "monday": "周一开始",
+    "sunday": "周日开始"
+  },
+  "actions": {
+    "resetNow": "重置为现在",
+    "copySummary": "复制摘要",
+    "copied": "已复制"
+  },
+  "hint": "进度基于选择的日期与时间计算。",
+  "cards": {
+    "year": { "title": "年度进度" },
+    "month": { "title": "本月进度" },
+    "week": { "title": "本周进度" },
+    "day": { "title": "今日进度", "hourUnit": "小时" },
+    "progressLabel": "进度",
+    "passed": "已过",
+    "remaining": "剩余",
+    "dayUnit": "天"
+  },
+  "summary": {
+    "title": "进度摘要",
+    "dayProgress": "{{current}}/{{total}}天",
+    "hourProgress": "{{current}}/{{total}}小时"
+  }
+}
