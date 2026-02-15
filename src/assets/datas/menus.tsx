@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  Clock,
   Code,
   CreditCard,
   Github,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '근무시간 계산기',
+        en: 'Work Hours Calculator',
+        ja: '勤務時間計算機',
+        zh: '工作时长计算器',
+      },
+      icon: <Clock />,
+      link: '/work-hours',
     },
     {
       title: {

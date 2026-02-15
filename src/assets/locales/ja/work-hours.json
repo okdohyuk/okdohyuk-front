@@ -1,0 +1,47 @@
+{
+  "title": "勤務時間計算機",
+  "description": "開始・終了時刻と休憩時間を入力して実働時間を計算します。",
+  "labels": {
+    "startTime": "開始時刻",
+    "endTime": "終了時刻",
+    "breakMinutes": "休憩時間（分）",
+    "overnight": "翌日終了として計算"
+  },
+  "placeholder": {
+    "breakMinutes": "例: 60"
+  },
+  "helper": {
+    "breakMinutes": "食事や休憩の時間を分単位で入力してください。"
+  },
+  "result": {
+    "title": "計算結果",
+    "empty": "時間を入力すると勤務時間が表示されます。",
+    "endBeforeStart": "終了時刻が開始時刻より早いです。翌日終了を有効にしてください。",
+    "breakTooLong": "休憩時間が総経過時間より長いです。"
+  },
+  "summary": {
+    "workTime": "実働時間",
+    "totalTime": "総経過時間",
+    "breakTime": "休憩時間",
+    "decimal": "小数時間"
+  },
+  "unit": {
+    "hour": "時間",
+    "minute": "分"
+  },
+  "button": {
+    "copy": "結果をコピー",
+    "reset": "リセット"
+  },
+  "toast": {
+    "copied": "コピーしました"
+  },
+  "examples": {
+    "title": "例",
+    "items": ["09:00〜18:00、休憩60分 → 8時間", "22:00〜06:30、休憩30分、翌日終了 → 8時間"]
+  },
+  "openGraph": {
+    "title": "勤務時間計算機",
+    "description": "開始・終了時刻と休憩時間から実働時間をすぐに計算できる無料ツールです。翌日終了のシフトにも対応します。"
+  }
+}

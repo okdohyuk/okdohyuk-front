@@ -1,0 +1,47 @@
+{
+  "title": "工作时长计算器",
+  "description": "输入开始/结束时间与休息分钟数，快速计算实际工作时长。",
+  "labels": {
+    "startTime": "开始时间",
+    "endTime": "结束时间",
+    "breakMinutes": "休息时间（分钟）",
+    "overnight": "按次日结束计算"
+  },
+  "placeholder": {
+    "breakMinutes": "例如：60"
+  },
+  "helper": {
+    "breakMinutes": "用分钟填写用餐或休息时间。"
+  },
+  "result": {
+    "title": "计算结果",
+    "empty": "输入时间后会显示工作时长。",
+    "endBeforeStart": "结束时间早于开始时间，请勾选次日结束。",
+    "breakTooLong": "休息时间超过总时长。"
+  },
+  "summary": {
+    "workTime": "实际工作时长",
+    "totalTime": "总时长",
+    "breakTime": "休息时间",
+    "decimal": "小数小时"
+  },
+  "unit": {
+    "hour": "小时",
+    "minute": "分钟"
+  },
+  "button": {
+    "copy": "复制结果",
+    "reset": "重置"
+  },
+  "toast": {
+    "copied": "已复制"
+  },
+  "examples": {
+    "title": "示例",
+    "items": ["09:00–18:00，休息60分钟 → 8小时", "22:00–06:30，休息30分钟，次日结束 → 8小时"]
+  },
+  "openGraph": {
+    "title": "工作时长计算器",
+    "description": "免费工具，输入开始/结束时间与休息分钟数即可计算实际工作时长，支持跨天班次的次日结束选项。"
+  }
+}
