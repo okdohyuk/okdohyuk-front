@@ -11,6 +11,7 @@ import {
   Linkedin,
   List,
   MonitorPlay,
+  Moon,
   Palette,
   QrCode,
   Server,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '수면 부채 계산기',
+        en: 'Sleep Debt Calculator',
+        ja: '睡眠負債計算機',
+        zh: '睡眠债务计算器',
+      },
+      icon: <Moon />,
+      link: '/sleep-debt',
     },
     {
       title: {

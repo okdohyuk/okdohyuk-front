@@ -1,0 +1,53 @@
+{
+  "openGraph": {
+    "title": "睡眠债务计算器",
+    "ogTitle": "睡眠债务计算器",
+    "description": "比较理想睡眠与实际睡眠时间，快速计算近期的睡眠债务或睡眠盈余。",
+    "keywords": ["睡眠", "睡眠债务", "睡眠计算器", "睡眠不足", "睡眠时间", "健康"]
+  },
+  "title": "睡眠债务计算器",
+  "description": "汇总理想与实际睡眠时间的差值，了解需要补回的睡眠量。",
+  "labels": {
+    "ideal": "理想睡眠时间（每天）",
+    "actual": "实际睡眠时间（平均）",
+    "days": "统计天数"
+  },
+  "placeholders": {
+    "ideal": "8",
+    "actual": "6.5",
+    "days": "7"
+  },
+  "helper": {
+    "ideal": "输入你感觉状态最佳的睡眠时长。",
+    "actual": "请输入近期的平均睡眠时长。",
+    "days": "输入你统计的天数。"
+  },
+  "buttons": {
+    "sample": "填入示例",
+    "clear": "重置",
+    "copy": "复制结果",
+    "copied": "已复制"
+  },
+  "result": {
+    "title": "结果概览",
+    "debt": "睡眠债务",
+    "surplus": "睡眠盈余",
+    "invalid": "请填写所有数值以查看结果。",
+    "totalLabel": "总计",
+    "perDayLabel": "每日差值",
+    "recoveryLabel": "补回估算",
+    "duration": "{{hours}}小时{{minutes}}分钟",
+    "hoursOnly": "{{value}} 小时",
+    "daysOnly": "{{value}} 天",
+    "notNeeded": "无需额外补回"
+  },
+  "notes": {
+    "title": "使用提示",
+    "items": [
+      "使用3-7天的平均值会更准确。",
+      "如果债务较大，可连续几天补充1-2小时。",
+      "感觉疲惫时也可以检查短期睡眠不足。"
+    ]
+  },
+  "copyText": "{{status}}：{{total}}（每日 {{perDay}}）"
+}
