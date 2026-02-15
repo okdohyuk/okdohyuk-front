@@ -1,0 +1,48 @@
+{
+  "title": "サブスク費用計算機",
+  "description": "月額・年額のサブスク費用をまとめて計算し、共有用の要約をコピーできます。",
+  "labels": {
+    "currency": "通貨記号",
+    "name": "サービス名",
+    "amount": "金額",
+    "cycle": "課金周期"
+  },
+  "placeholders": {
+    "currency": "¥",
+    "name": "例: Netflix",
+    "amount": "例: 1390"
+  },
+  "cycles": {
+    "monthly": "毎月",
+    "yearly": "毎年",
+    "weekly": "毎週",
+    "daily": "毎日"
+  },
+  "buttons": {
+    "add": "項目を追加",
+    "remove": "削除",
+    "clear": "すべてクリア",
+    "sample": "サンプル入力",
+    "copy": "要約をコピー"
+  },
+  "summary": {
+    "monthly": "月額合計",
+    "yearly": "年額合計",
+    "shareTitle": "共有用要約",
+    "note": "年額合計は各項目を月額に換算して算出します。"
+  },
+  "messages": {
+    "copied": "コピーしました！"
+  },
+  "tips": "数値のみ入力してください。カンマは自動で無視されます。",
+  "samples": {
+    "streaming": "動画配信",
+    "music": "音楽配信",
+    "cloud": "クラウドストレージ"
+  },
+  "openGraph": {
+    "title": "サブスク費用計算機",
+    "description": "サブスクの課金周期を入力すると、月額・年額の合計を自動計算します。共有用の要約をコピーして、定期支出の管理に役立てましょう。",
+    "keywords": ["サブスク", "定期支払い", "月額合計", "年額合計", "支出管理", "サブスク計算"]
+  }
+}
