@@ -1,0 +1,53 @@
+{
+  "openGraph": {
+    "title": "수면 부채 계산기",
+    "ogTitle": "수면 부채 계산기",
+    "description": "목표 수면 시간과 실제 수면 시간을 입력하면 최근 기간의 수면 부채(또는 여유)를 계산합니다.",
+    "keywords": ["수면", "수면 부채", "수면 계산기", "수면 부족", "수면 시간", "건강"]
+  },
+  "title": "수면 부채 계산기",
+  "description": "목표 수면 시간과 실제 수면 시간의 차이를 기간별로 합산해 수면 부채를 빠르게 확인하세요.",
+  "labels": {
+    "ideal": "목표 수면 시간 (하루)",
+    "actual": "실제 수면 시간 (하루 평균)",
+    "days": "기간 (일수)"
+  },
+  "placeholders": {
+    "ideal": "8",
+    "actual": "6.5",
+    "days": "7"
+  },
+  "helper": {
+    "ideal": "본인이 가장 컨디션이 좋은 시간을 입력하세요.",
+    "actual": "최근 평균 수면 시간을 입력하세요.",
+    "days": "며칠 동안의 기록인지 입력하세요."
+  },
+  "buttons": {
+    "sample": "예시 채우기",
+    "clear": "초기화",
+    "copy": "결과 복사",
+    "copied": "복사됨"
+  },
+  "result": {
+    "title": "요약 결과",
+    "debt": "수면 부채",
+    "surplus": "수면 여유",
+    "invalid": "모든 값을 입력하면 결과가 표시됩니다.",
+    "totalLabel": "총합",
+    "perDayLabel": "하루 차이",
+    "recoveryLabel": "회복 예상",
+    "duration": "{{hours}}시간 {{minutes}}분",
+    "hoursOnly": "{{value}}시간",
+    "daysOnly": "{{value}}일",
+    "notNeeded": "추가 회복 불필요"
+  },
+  "notes": {
+    "title": "사용 팁",
+    "items": [
+      "평균 수면 시간은 3~7일 기준으로 잡으면 더 정확합니다.",
+      "수면 부채가 크면 며칠간 1~2시간씩 보충해 보세요.",
+      "컨디션이 나쁘면 일시적인 수면 부족도 체크해 주세요."
+    ]
+  },
+  "copyText": "{{status}}: {{total}} (하루 {{perDay}})"
+}

@@ -1,0 +1,53 @@
+{
+  "openGraph": {
+    "title": "Sleep Debt Calculator",
+    "ogTitle": "Sleep Debt Calculator",
+    "description": "Compare your ideal sleep time with your actual sleep to see your recent sleep debt or surplus.",
+    "keywords": ["sleep", "sleep debt", "sleep calculator", "sleep deficit", "sleep time", "health"]
+  },
+  "title": "Sleep Debt Calculator",
+  "description": "Add up the gap between your ideal and actual sleep to see how much rest you need to catch up on.",
+  "labels": {
+    "ideal": "Ideal sleep time (per day)",
+    "actual": "Actual sleep time (daily average)",
+    "days": "Tracking period (days)"
+  },
+  "placeholders": {
+    "ideal": "8",
+    "actual": "6.5",
+    "days": "7"
+  },
+  "helper": {
+    "ideal": "Enter the sleep duration that feels best for you.",
+    "actual": "Use your recent average sleep time.",
+    "days": "How many days are you tracking?"
+  },
+  "buttons": {
+    "sample": "Fill sample",
+    "clear": "Reset",
+    "copy": "Copy result",
+    "copied": "Copied"
+  },
+  "result": {
+    "title": "Summary",
+    "debt": "Sleep debt",
+    "surplus": "Sleep surplus",
+    "invalid": "Fill in all fields to see the result.",
+    "totalLabel": "Total",
+    "perDayLabel": "Per day gap",
+    "recoveryLabel": "Catch-up estimate",
+    "duration": "{{hours}}h {{minutes}}m",
+    "hoursOnly": "{{value}} hours",
+    "daysOnly": "{{value}} days",
+    "notNeeded": "No catch-up needed"
+  },
+  "notes": {
+    "title": "Tips",
+    "items": [
+      "Use a 3-7 day average for better accuracy.",
+      "If debt is high, add 1-2 extra hours for a few nights.",
+      "Check short-term sleep loss if you feel unusually tired."
+    ]
+  },
+  "copyText": "{{status}}: {{total}} ({{perDay}} per day)"
+}

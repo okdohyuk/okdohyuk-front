@@ -1,0 +1,53 @@
+{
+  "openGraph": {
+    "title": "睡眠負債計算機",
+    "ogTitle": "睡眠負債計算機",
+    "description": "理想の睡眠時間と実際の睡眠時間を比較し、最近の睡眠負債（または余裕）を計算します。",
+    "keywords": ["睡眠", "睡眠負債", "睡眠計算", "睡眠不足", "睡眠時間", "健康"]
+  },
+  "title": "睡眠負債計算機",
+  "description": "理想と実際の睡眠時間の差を合計し、必要な回復量を確認できます。",
+  "labels": {
+    "ideal": "理想の睡眠時間（1日）",
+    "actual": "実際の睡眠時間（平均）",
+    "days": "期間（日数）"
+  },
+  "placeholders": {
+    "ideal": "8",
+    "actual": "6.5",
+    "days": "7"
+  },
+  "helper": {
+    "ideal": "最も調子が良い睡眠時間を入力してください。",
+    "actual": "最近の平均睡眠時間を入力してください。",
+    "days": "何日分の記録か入力してください。"
+  },
+  "buttons": {
+    "sample": "サンプル入力",
+    "clear": "リセット",
+    "copy": "結果をコピー",
+    "copied": "コピー完了"
+  },
+  "result": {
+    "title": "概要",
+    "debt": "睡眠負債",
+    "surplus": "睡眠余裕",
+    "invalid": "すべての値を入力すると結果が表示されます。",
+    "totalLabel": "合計",
+    "perDayLabel": "1日あたりの差",
+    "recoveryLabel": "回復目安",
+    "duration": "{{hours}}時間{{minutes}}分",
+    "hoursOnly": "{{value}}時間",
+    "daysOnly": "{{value}}日",
+    "notNeeded": "追加の回復は不要"
+  },
+  "notes": {
+    "title": "使い方のヒント",
+    "items": [
+      "3〜7日間の平均で計算すると精度が上がります。",
+      "負債が大きい場合は数日間1〜2時間ずつ補いましょう。",
+      "体調が悪いときは短期的な睡眠不足も確認してください。"
+    ]
+  },
+  "copyText": "{{status}}: {{total}}（1日あたり{{perDay}}）"
+}
