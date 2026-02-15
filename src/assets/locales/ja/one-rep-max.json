@@ -1,0 +1,46 @@
+{
+  "title": "1RM計算ツール",
+  "description": "重量と回数から1回最大重量を推定し、トレーニング比率を確認できます。",
+  "unit": {
+    "label": "単位",
+    "kg": "kg",
+    "lb": "lb"
+  },
+  "input": {
+    "weightLabel": "持ち上げた重量",
+    "repsLabel": "反復回数",
+    "weightPlaceholder": "例: 80",
+    "repsPlaceholder": "例: 5"
+  },
+  "helper": {
+    "formula": "Epley/Brzyckiの平均値で1RMを推定します。",
+    "disclaimer": "あくまで目安として、安全な範囲でご利用ください。"
+  },
+  "result": {
+    "title": "推定1RM",
+    "epley": "Epley公式",
+    "brzycki": "Brzycki公式",
+    "placeholder": "重量と回数を入力してください。"
+  },
+  "table": {
+    "title": "トレーニング比率",
+    "headerPercent": "1RMの%",
+    "headerWeight": "推奨重量"
+  },
+  "button": {
+    "copy": "結果をコピー",
+    "reset": "リセット"
+  },
+  "validation": {
+    "weight": "重量は0より大きく入力してください。",
+    "reps": "回数は1〜12の範囲で入力してください。"
+  },
+  "copy": {
+    "success": "結果をコピーしました。",
+    "fallback": "コピーできる結果がありません。"
+  },
+  "openGraph": {
+    "title": "1RM計算ツール",
+    "description": "1RMを推定し、比率ごとの推奨重量を確認できます。"
+  }
+}

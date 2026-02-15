@@ -1,0 +1,46 @@
+{
+  "title": "1RM 계산기",
+  "description": "중량과 반복 횟수로 1회 최대 중량을 추정하고 퍼센트별 훈련 중량을 제공합니다.",
+  "unit": {
+    "label": "단위",
+    "kg": "kg",
+    "lb": "lb"
+  },
+  "input": {
+    "weightLabel": "들어 올린 중량",
+    "repsLabel": "반복 횟수",
+    "weightPlaceholder": "예: 80",
+    "repsPlaceholder": "예: 5"
+  },
+  "helper": {
+    "formula": "Epley/Brzycki 공식의 평균값으로 1RM을 추정합니다.",
+    "disclaimer": "개인 컨디션에 따라 달라질 수 있으니 안전 범위 내에서 참고하세요."
+  },
+  "result": {
+    "title": "추정 1RM",
+    "epley": "Epley 공식",
+    "brzycki": "Brzycki 공식",
+    "placeholder": "중량과 반복 횟수를 입력해 주세요."
+  },
+  "table": {
+    "title": "훈련 퍼센트",
+    "headerPercent": "% 1RM",
+    "headerWeight": "권장 중량"
+  },
+  "button": {
+    "copy": "결과 복사",
+    "reset": "초기화"
+  },
+  "validation": {
+    "weight": "중량을 0보다 크게 입력하세요.",
+    "reps": "반복 횟수는 1~12 사이로 입력하세요."
+  },
+  "copy": {
+    "success": "결과를 복사했어요.",
+    "fallback": "복사할 결과가 없습니다."
+  },
+  "openGraph": {
+    "title": "1RM 계산기",
+    "description": "중량과 반복 횟수로 1RM을 추정하고 퍼센트별 훈련 중량을 확인하세요."
+  }
+}
