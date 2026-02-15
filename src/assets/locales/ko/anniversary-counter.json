@@ -1,0 +1,40 @@
+{
+  "title": "기념일 D-day 카운터",
+  "description": "원하는 날짜까지 남은/지난 일수를 계산하고 D-표기를 복사하세요.",
+  "label": {
+    "title": "이벤트 이름",
+    "date": "기준 날짜",
+    "includeToday": "오늘 포함",
+    "quick": "빠른 설정",
+    "result": "결과"
+  },
+  "placeholder": {
+    "title": "예: 우리 결혼기념일"
+  },
+  "helper": "기준 날짜를 선택하면 D-day가 자동 계산됩니다.",
+  "button": {
+    "today": "오늘",
+    "week": "1주 후",
+    "hundred": "100일 후",
+    "reset": "초기화",
+    "copy": "결과 복사",
+    "copied": "복사됨"
+  },
+  "result": {
+    "empty": "날짜를 선택하면 결과가 표시됩니다.",
+    "dday": "D-Day",
+    "ddayMinus": "D-{{count}}",
+    "ddayPlus": "D+{{count}}",
+    "daysLeft": "{{count}}일 남음",
+    "daysPassed": "{{count}}일 지남",
+    "today": "오늘이 D-day입니다.",
+    "targetDate": "기준 날짜",
+    "todayDate": "오늘",
+    "defaultTitle": "기념일",
+    "copyText": "{{title}} · {{label}} ({{status}}) · {{date}}"
+  },
+  "openGraph": {
+    "title": "기념일 D-day 카운터",
+    "description": "기념일, 여행, 프로젝트 마감일까지 남은/지난 일수를 D-day 형식으로 바로 확인하세요. 오늘 포함 옵션과 빠른 날짜 설정을 제공하며, 계산된 결과를 복사해 손쉽게 공유할 수 있습니다."
+  }
+}
