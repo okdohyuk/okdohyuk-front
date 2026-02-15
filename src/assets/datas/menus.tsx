@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -14,6 +15,7 @@ import {
   Palette,
   QrCode,
   Server,
+  Shuffle,
   Smile,
   Sparkles,
   TextCursorInput,
@@ -98,6 +100,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 카운터',
+        en: 'Text Counter',
+        ja: 'テキストカウンター',
+        zh: '文本计数器',
+      },
+      icon: <FileText />,
+      link: '/text-counter',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',
@@ -105,6 +117,16 @@ const menus: Menus = {
       },
       icon: <List />,
       link: '/todo',
+    },
+    {
+      title: {
+        ko: '순서 섞기',
+        en: 'Order Shuffler',
+        ja: '順番シャッフル',
+        zh: '顺序打乱',
+      },
+      icon: <Shuffle />,
+      link: '/order-shuffler',
     },
     {
       title: {

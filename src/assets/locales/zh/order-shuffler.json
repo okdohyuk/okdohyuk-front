@@ -1,0 +1,34 @@
+{
+  "title": "顺序打乱",
+  "description": "输入姓名或项目，立即生成随机顺序。",
+  "label": {
+    "items": "姓名 / 项目列表"
+  },
+  "placeholder": "例如: 민수\n지연\n현우\n소희",
+  "helper": "可用换行或逗号分隔项目。",
+  "button": {
+    "shuffle": "打乱顺序",
+    "example": "填充示例",
+    "clear": "清空",
+    "copy": "复制结果"
+  },
+  "result": {
+    "title": "打乱后的顺序",
+    "count": "{{count}} 个项目",
+    "empty": "还没有结果，请先打乱顺序。"
+  },
+  "validation": {
+    "min": "请至少输入 2 个项目。"
+  },
+  "toast": {
+    "copied": "已复制结果到剪贴板。",
+    "noResult": "没有可复制的结果。"
+  },
+  "example": {
+    "text": "민수\n지연\n현우\n소희\n은지"
+  },
+  "openGraph": {
+    "title": "顺序打乱",
+    "description": "输入姓名或项目，即可生成随机顺序。适合发言顺序、轮值安排等日常场景。"
+  }
+}

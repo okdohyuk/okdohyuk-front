@@ -1,0 +1,34 @@
+{
+  "title": "Order Shuffler",
+  "description": "Enter names or items and generate a random order instantly.",
+  "label": {
+    "items": "Names / Items"
+  },
+  "placeholder": "e.g. Alex\nJina\nChris\nSophie",
+  "helper": "Separate items with new lines or commas.",
+  "button": {
+    "shuffle": "Shuffle Order",
+    "example": "Fill Example",
+    "clear": "Clear",
+    "copy": "Copy Result"
+  },
+  "result": {
+    "title": "Shuffled Order",
+    "count": "{{count}} items",
+    "empty": "No result yet. Shuffle the list to generate an order."
+  },
+  "validation": {
+    "min": "Please enter at least two items."
+  },
+  "toast": {
+    "copied": "Copied the result to the clipboard.",
+    "noResult": "There is no result to copy."
+  },
+  "example": {
+    "text": "Alex\nJina\nChris\nSophie\nMina"
+  },
+  "openGraph": {
+    "title": "Order Shuffler",
+    "description": "Create a random order from your list of names or items. Perfect for presentation order, team rotations, and everyday decision making."
+  }
+}
