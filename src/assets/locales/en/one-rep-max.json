@@ -1,0 +1,46 @@
+{
+  "title": "1RM Calculator",
+  "description": "Estimate your one-rep max from weight and reps, then review training percentages.",
+  "unit": {
+    "label": "Unit",
+    "kg": "kg",
+    "lb": "lb"
+  },
+  "input": {
+    "weightLabel": "Lifted weight",
+    "repsLabel": "Repetitions",
+    "weightPlaceholder": "e.g. 80",
+    "repsPlaceholder": "e.g. 5"
+  },
+  "helper": {
+    "formula": "Uses the average of the Epley and Brzycki formulas.",
+    "disclaimer": "Treat this as an estimate and train within a safe range."
+  },
+  "result": {
+    "title": "Estimated 1RM",
+    "epley": "Epley formula",
+    "brzycki": "Brzycki formula",
+    "placeholder": "Enter weight and repetitions to calculate."
+  },
+  "table": {
+    "title": "Training percentages",
+    "headerPercent": "% of 1RM",
+    "headerWeight": "Suggested load"
+  },
+  "button": {
+    "copy": "Copy results",
+    "reset": "Reset"
+  },
+  "validation": {
+    "weight": "Enter a weight greater than 0.",
+    "reps": "Repetitions must be between 1 and 12."
+  },
+  "copy": {
+    "success": "Results copied.",
+    "fallback": "No results available to copy."
+  },
+  "openGraph": {
+    "title": "1RM Calculator",
+    "description": "Estimate your one-rep max and get suggested training loads by percentage."
+  }
+}

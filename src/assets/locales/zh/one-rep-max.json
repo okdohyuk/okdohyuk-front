@@ -1,0 +1,46 @@
+{
+  "title": "1RM 计算器",
+  "description": "根据重量与次数估算一次最大重量，并查看训练百分比。",
+  "unit": {
+    "label": "单位",
+    "kg": "kg",
+    "lb": "lb"
+  },
+  "input": {
+    "weightLabel": "举起重量",
+    "repsLabel": "重复次数",
+    "weightPlaceholder": "例如：80",
+    "repsPlaceholder": "例如：5"
+  },
+  "helper": {
+    "formula": "使用 Epley 与 Brzycki 公式的平均值进行估算。",
+    "disclaimer": "结果仅供参考，请在安全范围内训练。"
+  },
+  "result": {
+    "title": "估算 1RM",
+    "epley": "Epley 公式",
+    "brzycki": "Brzycki 公式",
+    "placeholder": "请输入重量与次数。"
+  },
+  "table": {
+    "title": "训练百分比",
+    "headerPercent": "1RM 百分比",
+    "headerWeight": "建议重量"
+  },
+  "button": {
+    "copy": "复制结果",
+    "reset": "重置"
+  },
+  "validation": {
+    "weight": "请输入大于 0 的重量。",
+    "reps": "次数需在 1 到 12 之间。"
+  },
+  "copy": {
+    "success": "结果已复制。",
+    "fallback": "没有可复制的结果。"
+  },
+  "openGraph": {
+    "title": "1RM 计算器",
+    "description": "估算一次最大重量，并获取对应百分比的训练负重。"
+  }
+}

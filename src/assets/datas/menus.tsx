@@ -5,6 +5,8 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Dumbbell,
+  Filter,
   Github,
   Hash,
   Key,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '중복 줄 제거기',
+        en: 'Duplicate Line Remover',
+        ja: '重複行削除ツール',
+        zh: '重复行清理器',
+      },
+      icon: <Filter />,
+      link: '/duplicate-line-remover',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -95,6 +107,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '1RM 계산기',
+        en: '1RM Calculator',
+        ja: '1RM計算ツール',
+        zh: '1RM 计算器',
+      },
+      icon: <Dumbbell />,
+      link: '/one-rep-max',
     },
     {
       title: {
