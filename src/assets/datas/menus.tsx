@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -16,6 +17,7 @@ import {
   Server,
   Smile,
   Sparkles,
+  Star,
   TextCursorInput,
   Tv,
   Youtube,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 카운터',
+        en: 'Text Counter',
+        ja: 'テキストカウンター',
+        zh: '文本计数器',
+      },
+      icon: <FileText />,
+      link: '/text-counter',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '별자리 찾기',
+        en: 'Zodiac Finder',
+        ja: '星座診断',
+        zh: '星座查询',
+      },
+      icon: <Star />,
+      link: '/zodiac-finder',
     },
     {
       title: {
