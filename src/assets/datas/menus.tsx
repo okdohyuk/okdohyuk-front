@@ -18,6 +18,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  UtensilsCrossed,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '점심 메뉴 추천기',
+        en: 'Lunch Menu Recommender',
+        ja: 'ランチメニューおすすめ',
+        zh: '午餐推荐',
+      },
+      icon: <UtensilsCrossed />,
+      link: '/lunch-recommender',
     },
     {
       title: {
