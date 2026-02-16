@@ -12,6 +12,7 @@ import {
   List,
   MonitorPlay,
   Palette,
+  PawPrint,
   QrCode,
   Server,
   Smile,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '반려동물 나이 변환기',
+        en: 'Pet Age Converter',
+        ja: 'ペット年齢換算',
+        zh: '宠物年龄换算器',
+      },
+      icon: <PawPrint />,
+      link: '/pet-age-converter',
     },
     {
       title: {

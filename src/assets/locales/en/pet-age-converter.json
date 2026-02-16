@@ -1,0 +1,40 @@
+{
+  "title": "Pet Age Converter",
+  "description": "Estimate your dog's or cat's age in human years.",
+  "label": {
+    "petType": "Pet type",
+    "age": "Pet age (years)"
+  },
+  "petType": {
+    "dog": "Dog",
+    "cat": "Cat"
+  },
+  "placeholder": {
+    "age": "e.g. 2.5"
+  },
+  "helper": "Supports decimals. Typical max: dogs 30, cats 25.",
+  "empty": "Enter an age to get the result.",
+  "error": {
+    "invalid": "Enter a valid age (0 or higher).",
+    "max": "Enter an age under {max}."
+  },
+  "result": {
+    "title": "Human-age estimate",
+    "yearUnit": "human years",
+    "stage": "Life stage: {stage}",
+    "empty": "Select a pet type and age to see the estimate."
+  },
+  "stages": {
+    "puppy": "Puppy",
+    "kitten": "Kitten",
+    "youngAdult": "Young adult",
+    "adult": "Adult",
+    "mature": "Mature",
+    "senior": "Senior",
+    "geriatric": "Geriatric"
+  },
+  "openGraph": {
+    "title": "Pet Age Converter",
+    "description": "Estimate dog and cat ages in human years with life stages."
+  }
+}
