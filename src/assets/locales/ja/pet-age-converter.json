@@ -1,0 +1,40 @@
+{
+  "title": "ペット年齢換算",
+  "description": "犬・猫の年齢を人間年齢でざっくり換算します。",
+  "label": {
+    "petType": "ペットの種類",
+    "age": "ペットの年齢（年）"
+  },
+  "petType": {
+    "dog": "犬",
+    "cat": "猫"
+  },
+  "placeholder": {
+    "age": "例: 2.5"
+  },
+  "helper": "小数点入力可。目安の上限: 犬30歳、猫25歳。",
+  "empty": "年齢を入力してください。",
+  "error": {
+    "invalid": "0以上の正しい年齢を入力してください。",
+    "max": "{max}歳以下で入力してください。"
+  },
+  "result": {
+    "title": "人間年齢の目安",
+    "yearUnit": "人間年齢",
+    "stage": "ライフステージ: {stage}",
+    "empty": "種類と年齢を選ぶと結果が表示されます。"
+  },
+  "stages": {
+    "puppy": "パピー期",
+    "kitten": "子猫期",
+    "youngAdult": "若年期",
+    "adult": "成犬・成猫期",
+    "mature": "成熟期",
+    "senior": "シニア期",
+    "geriatric": "高齢期"
+  },
+  "openGraph": {
+    "title": "ペット年齢換算",
+    "description": "犬・猫の年齢を人間年齢で換算し、ライフステージも確認できます。"
+  }
+}

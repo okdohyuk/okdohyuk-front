@@ -1,0 +1,40 @@
+{
+  "title": "宠物年龄换算器",
+  "description": "将狗或猫的年龄换算成人类年龄。",
+  "label": {
+    "petType": "宠物类型",
+    "age": "宠物年龄（岁）"
+  },
+  "petType": {
+    "dog": "狗",
+    "cat": "猫"
+  },
+  "placeholder": {
+    "age": "例如：2.5"
+  },
+  "helper": "支持小数输入。参考上限：狗30岁，猫25岁。",
+  "empty": "请输入年龄以查看结果。",
+  "error": {
+    "invalid": "请输入0以上的有效年龄。",
+    "max": "请输入不超过{max}岁。"
+  },
+  "result": {
+    "title": "人类年龄估算",
+    "yearUnit": "人类岁",
+    "stage": "生命周期：{stage}",
+    "empty": "选择类型并输入年龄即可查看估算。"
+  },
+  "stages": {
+    "puppy": "幼犬期",
+    "kitten": "幼猫期",
+    "youngAdult": "青年期",
+    "adult": "成年期",
+    "mature": "成熟期",
+    "senior": "老年期",
+    "geriatric": "高龄期"
+  },
+  "openGraph": {
+    "title": "宠物年龄换算器",
+    "description": "将狗和猫的年龄换算成人类年龄，并查看生命周期阶段。"
+  }
+}
