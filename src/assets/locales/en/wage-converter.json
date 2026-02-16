@@ -1,0 +1,41 @@
+{
+  "openGraph": {
+    "title": "Hourly to Salary Converter",
+    "ogTitle": "Hourly to Salary Converter",
+    "description": "Convert hourly wage and weekly hours into weekly, monthly, and yearly pay estimates."
+  },
+  "title": "Hourly to Salary Converter",
+  "description": "Convert hourly wage and weekly hours into weekly, monthly, and yearly pay estimates.",
+  "label": {
+    "hourlyWage": "Hourly wage",
+    "hoursPerWeek": "Hours per week",
+    "workingDays": "Working days per week",
+    "weeksPerMonth": "Weeks per month"
+  },
+  "placeholder": {
+    "hourlyWage": "e.g. 15",
+    "hoursPerWeek": "e.g. 40",
+    "workingDays": "e.g. 5",
+    "weeksPerMonth": "default 4.345"
+  },
+  "helper": {
+    "weeksPerMonth": "One month is calculated as roughly 4.345 weeks on average."
+  },
+  "actions": {
+    "example": "Use example",
+    "reset": "Reset",
+    "copySummary": "Copy summary",
+    "copied": "Copied"
+  },
+  "result": {
+    "title": "Converted pay",
+    "description": "Estimated amounts based on your inputs.",
+    "weekly": "Weekly",
+    "daily": "Daily",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "unit": "KRW",
+    "summary": "Based on {{hourly}}{{unit}} hourly, weekly {{weekly}}{{unit}}, monthly {{monthly}}{{unit}}, yearly {{yearly}}{{unit}}",
+    "empty": "Enter numbers to see results."
+  }
+}

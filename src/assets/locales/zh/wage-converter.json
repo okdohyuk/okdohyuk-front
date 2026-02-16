@@ -1,0 +1,41 @@
+{
+  "openGraph": {
+    "title": "时薪-月薪换算器",
+    "ogTitle": "时薪-月薪换算器",
+    "description": "输入时薪与每周工时，快速换算周薪、月薪和年薪。"
+  },
+  "title": "时薪-月薪换算器",
+  "description": "输入时薪与每周工时，快速换算周薪、月薪和年薪。",
+  "label": {
+    "hourlyWage": "时薪",
+    "hoursPerWeek": "每周工时",
+    "workingDays": "每周工作天数",
+    "weeksPerMonth": "每月换算周数"
+  },
+  "placeholder": {
+    "hourlyWage": "例如: 20",
+    "hoursPerWeek": "例如: 40",
+    "workingDays": "例如: 5",
+    "weeksPerMonth": "默认 4.345"
+  },
+  "helper": {
+    "weeksPerMonth": "平均每月约为 4.345 周。"
+  },
+  "actions": {
+    "example": "使用示例",
+    "reset": "重置",
+    "copySummary": "复制摘要",
+    "copied": "已复制"
+  },
+  "result": {
+    "title": "换算结果",
+    "description": "基于输入值的估算结果。",
+    "weekly": "周薪",
+    "daily": "日薪",
+    "monthly": "月薪",
+    "yearly": "年薪",
+    "unit": "KRW",
+    "summary": "按时薪 {{hourly}}{{unit}} 计算，周薪 {{weekly}}{{unit}}，月薪 {{monthly}}{{unit}}，年薪 {{yearly}}{{unit}}",
+    "empty": "输入数值即可看到结果。"
+  }
+}

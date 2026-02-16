@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -18,6 +19,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Wallet,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 워크벤치',
+        en: 'Text Workbench',
+        ja: 'テキストワークベンチ',
+        zh: '文本工作台',
+      },
+      icon: <FileText />,
+      link: '/text-workbench',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -95,6 +107,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '시급-월급 변환기',
+        en: 'Hourly to Salary Converter',
+        ja: '時給・月給換算ツール',
+        zh: '时薪-月薪换算器',
+      },
+      icon: <Wallet />,
+      link: '/wage-converter',
     },
     {
       title: {
