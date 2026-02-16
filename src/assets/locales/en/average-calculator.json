@@ -1,0 +1,47 @@
+{
+  "openGraph": {
+    "title": "Average Calculator",
+    "ogTitle": "Average, Sum, and Median Calculator",
+    "description": "Paste a list of numbers and instantly see the sum, average, median, min, and max.",
+    "keywords": [
+      "average calculator",
+      "sum",
+      "median",
+      "statistics",
+      "number list",
+      "minimum",
+      "maximum"
+    ]
+  },
+  "title": "Average Calculator",
+  "description": "Paste a list of numbers to get the sum, average, median, min, and max right away.",
+  "label": {
+    "input": "Number input",
+    "decimals": "Decimal places",
+    "summary": "Summary"
+  },
+  "helper": {
+    "input": "Supports numbers separated by newlines, spaces, or commas.",
+    "decimals": "Set between 0 and 6."
+  },
+  "placeholder": {
+    "input": "e.g. 12, 24, 35.5, 7\nor\n12\n24\n35.5"
+  },
+  "button": {
+    "sample": "Fill sample",
+    "clear": "Clear",
+    "copy": "Copy results"
+  },
+  "message": {
+    "copied": "Copied"
+  },
+  "stats": {
+    "count": "Count",
+    "sum": "Sum",
+    "average": "Average",
+    "median": "Median",
+    "min": "Min",
+    "max": "Max"
+  },
+  "empty": "Enter numbers to see the results."
+}
