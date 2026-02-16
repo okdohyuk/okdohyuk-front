@@ -6,6 +6,7 @@ import {
   Code,
   CreditCard,
   Github,
+  Globe,
   Hash,
   Key,
   Linkedin,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '세계 시계',
+        en: 'World Clock',
+        ja: '世界時計',
+        zh: '世界时钟',
+      },
+      icon: <Globe />,
+      link: '/world-clock',
     },
     {
       title: {

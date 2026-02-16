@@ -1,0 +1,37 @@
+{
+  "openGraph": {
+    "title": "World Clock",
+    "ogTitle": "World Clock",
+    "description": "Compare current times across major cities at a glance and quickly switch date and 12/24-hour formats."
+  },
+  "title": "World Clock",
+  "description": "Compare current times across major cities at a glance.",
+  "badge": "World Clock",
+  "addCity": "Add city",
+  "selectCity": "Select a city",
+  "add": "Add",
+  "settings": "Display options",
+  "showDate": "Show date",
+  "hideDate": "Hide date",
+  "use12Hour": "12-hour",
+  "use24Hour": "24-hour",
+  "reset": "Reset",
+  "copy": "Copy",
+  "copied": "Copied",
+  "remove": "Remove",
+  "empty": "No cities are displayed yet. Add a city to get started.",
+  "cities": {
+    "seoul": "Seoul",
+    "tokyo": "Tokyo",
+    "beijing": "Beijing",
+    "singapore": "Singapore",
+    "sydney": "Sydney",
+    "losAngeles": "Los Angeles",
+    "newYork": "New York",
+    "london": "London",
+    "paris": "Paris",
+    "berlin": "Berlin",
+    "dubai": "Dubai",
+    "saoPaulo": "São Paulo"
+  }
+}
