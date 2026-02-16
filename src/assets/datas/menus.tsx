@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -12,6 +13,7 @@ import {
   List,
   MonitorPlay,
   Palette,
+  Phone,
   QrCode,
   Server,
   Smile,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '줄 중복 제거기',
+        en: 'Line Deduplicator',
+        ja: '行の重複除去',
+        zh: '去重行工具',
+      },
+      icon: <FileText />,
+      link: '/line-deduplicator',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '전화번호 포맷터',
+        en: 'Phone Number Formatter',
+        ja: '電話番号フォーマッター',
+        zh: '电话号码格式化',
+      },
+      icon: <Phone />,
+      link: '/phone-number-formatter',
     },
     {
       title: {
