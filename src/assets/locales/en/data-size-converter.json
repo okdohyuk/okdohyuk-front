@@ -1,0 +1,37 @@
+{
+  "title": "Data Size Converter",
+  "description": "Convert storage sizes from bytes to petabytes.",
+  "label": {
+    "input": "Value to convert"
+  },
+  "placeholder": "e.g. 128",
+  "helper": "Choose the decimal (1,000) or binary (1,024) standard.",
+  "standard": {
+    "decimal": "Decimal (1,000)",
+    "binary": "Binary (1,024)"
+  },
+  "units": {
+    "byte": "Byte",
+    "kilobyte": "Kilobyte",
+    "megabyte": "Megabyte",
+    "gigabyte": "Gigabyte",
+    "terabyte": "Terabyte",
+    "petabyte": "Petabyte"
+  },
+  "unitShort": {
+    "byte": "B",
+    "kilobyte": "KB",
+    "megabyte": "MB",
+    "gigabyte": "GB",
+    "terabyte": "TB",
+    "petabyte": "PB"
+  },
+  "result": {
+    "title": "Converted sizes",
+    "empty": "Enter a number to see the conversions."
+  },
+  "openGraph": {
+    "title": "Data Size Converter",
+    "description": "Convert between bytes, KB, MB, GB, and more."
+  }
+}

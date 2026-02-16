@@ -1,0 +1,37 @@
+{
+  "title": "データ容量変換",
+  "description": "バイトからペタバイトまで容量を変換します。",
+  "label": {
+    "input": "変換する容量"
+  },
+  "placeholder": "例: 128",
+  "helper": "10進(1,000)または2進(1,024)基準を選択してください。",
+  "standard": {
+    "decimal": "10進 (1,000)",
+    "binary": "2進 (1,024)"
+  },
+  "units": {
+    "byte": "バイト",
+    "kilobyte": "キロバイト",
+    "megabyte": "メガバイト",
+    "gigabyte": "ギガバイト",
+    "terabyte": "テラバイト",
+    "petabyte": "ペタバイト"
+  },
+  "unitShort": {
+    "byte": "B",
+    "kilobyte": "KB",
+    "megabyte": "MB",
+    "gigabyte": "GB",
+    "terabyte": "TB",
+    "petabyte": "PB"
+  },
+  "result": {
+    "title": "変換結果",
+    "empty": "数値を入力すると結果が表示されます。"
+  },
+  "openGraph": {
+    "title": "データ容量変換",
+    "description": "バイトからペタバイトまで素早く変換します。"
+  }
+}

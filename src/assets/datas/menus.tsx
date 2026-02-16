@@ -5,8 +5,10 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Crop,
   Github,
   Hash,
+  HardDrive,
   Key,
   Linkedin,
   List,
@@ -145,6 +147,26 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '데이터 용량 변환기',
+        en: 'Data Size Converter',
+        ja: 'データ容量変換',
+        zh: '数据容量转换器',
+      },
+      icon: <HardDrive />,
+      link: '/data-size-converter',
+    },
+    {
+      title: {
+        ko: '이미지 비율 계산기',
+        en: 'Aspect Ratio Calculator',
+        ja: 'アスペクト比計算機',
+        zh: '图像比例计算器',
+      },
+      icon: <Crop />,
+      link: '/aspect-ratio',
     },
     {
       title: {

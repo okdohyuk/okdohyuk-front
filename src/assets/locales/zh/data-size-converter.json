@@ -1,0 +1,37 @@
+{
+  "title": "数据容量转换器",
+  "description": "在字节到拍字节之间转换容量。",
+  "label": {
+    "input": "转换数值"
+  },
+  "placeholder": "例如: 128",
+  "helper": "请选择十进制(1,000)或二进制(1,024)标准。",
+  "standard": {
+    "decimal": "十进制 (1,000)",
+    "binary": "二进制 (1,024)"
+  },
+  "units": {
+    "byte": "字节",
+    "kilobyte": "千字节",
+    "megabyte": "兆字节",
+    "gigabyte": "吉字节",
+    "terabyte": "太字节",
+    "petabyte": "拍字节"
+  },
+  "unitShort": {
+    "byte": "B",
+    "kilobyte": "KB",
+    "megabyte": "MB",
+    "gigabyte": "GB",
+    "terabyte": "TB",
+    "petabyte": "PB"
+  },
+  "result": {
+    "title": "转换结果",
+    "empty": "输入数值后显示转换结果。"
+  },
+  "openGraph": {
+    "title": "数据容量转换器",
+    "description": "在字节、KB、MB、GB 等单位之间转换。"
+  }
+}
