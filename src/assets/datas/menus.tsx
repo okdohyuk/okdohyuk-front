@@ -98,6 +98,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '평균 계산기',
+        en: 'Average Calculator',
+        ja: '平均計算機',
+        zh: '平均值计算器',
+      },
+      icon: <Calculator />,
+      link: '/average-calculator',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',
