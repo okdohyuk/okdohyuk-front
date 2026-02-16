@@ -1,0 +1,40 @@
+{
+  "title": "Typing Speed Test",
+  "description": "Type the prompt and check your WPM and accuracy in real time.",
+  "badge": "Typing Lab",
+  "labels": {
+    "sample": "Sample text",
+    "input": "Typing input",
+    "status": "Status",
+    "time": "Elapsed time",
+    "wpm": "WPM",
+    "accuracy": "Accuracy",
+    "progress": "Progress"
+  },
+  "status": {
+    "ready": "Ready",
+    "running": "Measuring",
+    "done": "Finished"
+  },
+  "buttons": {
+    "reset": "Reset",
+    "newSample": "New sample",
+    "copyResult": "Copy result"
+  },
+  "placeholder": "Start typing here.",
+  "helper": "The timer starts automatically when you type the first character.",
+  "result": {
+    "format": "Typing result - WPM {{wpm}}, Accuracy {{accuracy}}%, Time {{time}}, Correct/Total {{correct}}/{{total}}"
+  },
+  "samples": [
+    "Focus on accuracy first, speed will follow naturally.",
+    "Small habits grow into meaningful changes over time.",
+    "Take a deep breath and keep your rhythm steady.",
+    "A short break can help you stay sharp and relaxed.",
+    "Finish the sentence to see your final stats."
+  ],
+  "openGraph": {
+    "title": "Typing Speed Test",
+    "description": "Practice with a sample sentence and instantly see WPM and accuracy."
+  }
+}

@@ -8,6 +8,7 @@ import {
   Github,
   Hash,
   Key,
+  Keyboard,
   Linkedin,
   List,
   MonitorPlay,
@@ -155,6 +156,16 @@ const menus: Menus = {
       },
       icon: <TextCursorInput />,
       link: '/choseong-maker',
+    },
+    {
+      title: {
+        ko: '타자 속도 테스트',
+        en: 'Typing Speed Test',
+        ja: 'タイピング速度テスト',
+        zh: '打字速度测试',
+      },
+      icon: <Keyboard />,
+      link: '/typing-speed-test',
     },
   ],
   out: [

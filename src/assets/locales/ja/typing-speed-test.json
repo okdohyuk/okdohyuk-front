@@ -1,0 +1,40 @@
+{
+  "title": "タイピング速度テスト",
+  "description": "お手本の文章を入力してWPMと正確さを確認できます。",
+  "badge": "Typing Lab",
+  "labels": {
+    "sample": "サンプル文",
+    "input": "入力欄",
+    "status": "状態",
+    "time": "経過時間",
+    "wpm": "WPM",
+    "accuracy": "正確度",
+    "progress": "進捗"
+  },
+  "status": {
+    "ready": "準備完了",
+    "running": "計測中",
+    "done": "完了"
+  },
+  "buttons": {
+    "reset": "リセット",
+    "newSample": "新しい文章",
+    "copyResult": "結果をコピー"
+  },
+  "placeholder": "ここに入力してください。",
+  "helper": "最初の文字を入力するとタイマーが自動で始まります。",
+  "result": {
+    "format": "タイピング結果 - WPM {{wpm}}, 正確度 {{accuracy}}%, 時間 {{time}}, 正解/全体 {{correct}}/{{total}}"
+  },
+  "samples": [
+    "正確さを意識すれば速度も自然に伸びます。",
+    "小さな習慣は大きな変化へとつながります。",
+    "深呼吸してリズムを整えましょう。",
+    "短い休憩は集中力を保つ助けになります。",
+    "最後まで入力すると結果が表示されます。"
+  ],
+  "openGraph": {
+    "title": "タイピング速度テスト",
+    "description": "サンプル文で練習し、WPMと正確度をすぐに確認できます。"
+  }
+}

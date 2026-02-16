@@ -1,0 +1,40 @@
+{
+  "title": "타자 속도 테스트",
+  "description": "문장을 따라 입력하며 WPM과 정확도를 확인합니다.",
+  "badge": "Typing Lab",
+  "labels": {
+    "sample": "샘플 문장",
+    "input": "타이핑 입력",
+    "status": "상태",
+    "time": "경과 시간",
+    "wpm": "분당 타자 수(WPM)",
+    "accuracy": "정확도",
+    "progress": "진행도"
+  },
+  "status": {
+    "ready": "준비됨",
+    "running": "측정 중",
+    "done": "완료"
+  },
+  "buttons": {
+    "reset": "초기화",
+    "newSample": "새 문장",
+    "copyResult": "결과 복사"
+  },
+  "placeholder": "여기에 따라 입력하세요.",
+  "helper": "첫 글자를 입력하면 타이머가 자동으로 시작됩니다.",
+  "result": {
+    "format": "타자 속도 결과 - WPM {{wpm}}, 정확도 {{accuracy}}%, 시간 {{time}}, 정확/전체 {{correct}}/{{total}}"
+  },
+  "samples": [
+    "오늘은 집중해서 정확하게 타이핑해 볼까요?",
+    "작은 습관이 모여 큰 변화를 만든다고 합니다.",
+    "속도보다 정확도가 먼저라는 걸 잊지 마세요.",
+    "커피 한 잔과 함께 짧은 휴식도 필요하죠.",
+    "문장을 끝까지 입력하면 결과가 계산됩니다."
+  ],
+  "openGraph": {
+    "title": "타자 속도 테스트",
+    "description": "샘플 문장을 입력해 타자 속도(WPM)와 정확도를 빠르게 확인하세요."
+  }
+}
