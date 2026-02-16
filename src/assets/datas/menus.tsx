@@ -1,10 +1,12 @@
 import React from 'react';
 import {
+  BatteryCharging,
   Bomb,
   Calculator,
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 카운터',
+        en: 'Text Counter',
+        ja: 'テキストカウンター',
+        zh: '文本计数器',
+      },
+      icon: <FileText />,
+      link: '/text-counter',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '배터리 충전 시간 계산기',
+        en: 'Battery Charge Time Estimator',
+        ja: 'バッテリー充電時間計算',
+        zh: '电池充电时间计算器',
+      },
+      icon: <BatteryCharging />,
+      link: '/battery-charge-time',
     },
     {
       title: {
