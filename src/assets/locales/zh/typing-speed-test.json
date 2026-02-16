@@ -1,0 +1,40 @@
+{
+  "title": "打字速度测试",
+  "description": "输入示例文字，即时查看WPM和准确率。",
+  "badge": "Typing Lab",
+  "labels": {
+    "sample": "示例文本",
+    "input": "输入区域",
+    "status": "状态",
+    "time": "用时",
+    "wpm": "WPM",
+    "accuracy": "准确率",
+    "progress": "进度"
+  },
+  "status": {
+    "ready": "准备就绪",
+    "running": "测量中",
+    "done": "完成"
+  },
+  "buttons": {
+    "reset": "重置",
+    "newSample": "换一句",
+    "copyResult": "复制结果"
+  },
+  "placeholder": "从这里开始输入。",
+  "helper": "输入第一个字符后计时会自动开始。",
+  "result": {
+    "format": "打字结果 - WPM {{wpm}}, 准确率 {{accuracy}}%, 时间 {{time}}, 正确/总计 {{correct}}/{{total}}"
+  },
+  "samples": [
+    "先追求准确，再自然提升速度。",
+    "微小的习惯会带来显著的改变。",
+    "深呼吸，保持稳定节奏。",
+    "短暂休息能让注意力更持久。",
+    "输入完整句子即可看到结果。"
+  ],
+  "openGraph": {
+    "title": "打字速度测试",
+    "description": "用示例文本练习，快速查看你的WPM与准确率。"
+  }
+}
