@@ -1,0 +1,56 @@
+{
+  "title": "Affirmation Generator",
+  "description": "Pick an affirmation that matches your moment and reset your mind.",
+  "badge": "Mind Care",
+  "label": {
+    "category": "Choose a mood",
+    "result": "Today’s affirmation",
+    "history": "Recent picks"
+  },
+  "placeholder": {
+    "category": "Select a category"
+  },
+  "button": {
+    "generate": "Draw an affirmation",
+    "copy": "Copy",
+    "copied": "Copied",
+    "again": "Draw again"
+  },
+  "empty": "Select a category and draw a message.",
+  "categories": {
+    "calm": {
+      "label": "Calm",
+      "description": "Release tension and settle your thoughts.",
+      "items": [
+        "I breathe and move forward slowly.",
+        "I focus on this moment.",
+        "My mind is safe and steady.",
+        "Today is enough for me."
+      ]
+    },
+    "focus": {
+      "label": "Focus",
+      "description": "Get ready to sink into what matters.",
+      "items": [
+        "I can focus on what matters most.",
+        "Small steps create big change.",
+        "I am fully present with my work.",
+        "My focus grows stronger every day."
+      ]
+    },
+    "energy": {
+      "label": "Energy",
+      "description": "Fuel yourself for the day ahead.",
+      "items": [
+        "My body is full of energy.",
+        "I have the strength to finish today’s tasks.",
+        "My choices brighten my day.",
+        "I give myself the power I need."
+      ]
+    }
+  },
+  "openGraph": {
+    "title": "Affirmation Generator",
+    "description": "Pick an affirmation that matches your moment and reset your mind."
+  }
+}
