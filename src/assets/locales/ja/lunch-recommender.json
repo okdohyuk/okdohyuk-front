@@ -1,0 +1,68 @@
+{
+  "title": "ランチメニューおすすめ",
+  "description": "気分や好みに合わせて今日のランチを提案します。",
+  "badge": "Lunch Pick",
+  "filters": {
+    "cuisine": {
+      "title": "ジャンル",
+      "korean": "韓国料理",
+      "japanese": "和食",
+      "chinese": "中華",
+      "western": "洋食",
+      "snack": "軽食",
+      "cafe": "カフェ/ブランチ"
+    },
+    "preference": {
+      "title": "気分",
+      "spicy": "辛め",
+      "light": "軽め",
+      "hearty": "しっかり",
+      "healthy": "ヘルシー",
+      "vegetarian": "ベジタリアン",
+      "quick": "手早く",
+      "warm": "温かい"
+    }
+  },
+  "actions": {
+    "recommend": "おすすめを見る",
+    "reroll": "もう一度",
+    "copy": "結果をコピー",
+    "reset": "リセット"
+  },
+  "result": {
+    "label": "今日のおすすめ",
+    "empty": "まだおすすめがありません。ボタンを押してください。",
+    "copied": "おすすめをコピーしました。",
+    "copyFailed": "コピーに失敗しました。もう一度お試しください。",
+    "count": "現在の条件で{{count}}件あります。"
+  },
+  "tips": {
+    "title": "使い方のヒント",
+    "first": "フィルターを空にすると全メニューから選びます。",
+    "second": "気に入らない場合はもう一度を押してください。",
+    "third": "結果をコピーして友だちと共有できます。"
+  },
+  "error": {
+    "noResult": "条件に合うメニューがありません。フィルターを減らしてください。"
+  },
+  "menu": {
+    "bibimbap": "ビビンバ",
+    "kimchi-stew": "キムチチゲ",
+    "bulgogi": "プルコギ",
+    "sushi": "寿司",
+    "ramen": "ラーメン",
+    "udon": "うどん",
+    "jjamppong": "チャンポン",
+    "fried-rice": "チャーハン",
+    "pasta": "パスタ",
+    "salad-bowl": "サラダボウル",
+    "burger": "バーガー",
+    "sandwich": "サンドイッチ",
+    "kimbap": "キンパ",
+    "brunch": "ブランチプレート"
+  },
+  "openGraph": {
+    "title": "ランチメニューおすすめ",
+    "description": "好みに合わせたランチ候補をすぐに提案し、共有できます。"
+  }
+}

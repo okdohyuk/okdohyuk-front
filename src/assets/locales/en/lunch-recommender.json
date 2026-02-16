@@ -1,0 +1,68 @@
+{
+  "title": "Lunch Menu Recommender",
+  "description": "Pick your mood and preferences, and get a lunch idea for today.",
+  "badge": "Lunch Pick",
+  "filters": {
+    "cuisine": {
+      "title": "Cuisine",
+      "korean": "Korean",
+      "japanese": "Japanese",
+      "chinese": "Chinese",
+      "western": "Western",
+      "snack": "Snacks",
+      "cafe": "Cafe/Brunch"
+    },
+    "preference": {
+      "title": "Mood",
+      "spicy": "Spicy",
+      "light": "Light",
+      "hearty": "Hearty",
+      "healthy": "Healthy",
+      "vegetarian": "Vegetarian",
+      "quick": "Quick",
+      "warm": "Warm"
+    }
+  },
+  "actions": {
+    "recommend": "Get Recommendation",
+    "reroll": "Try Another",
+    "copy": "Copy Result",
+    "reset": "Reset"
+  },
+  "result": {
+    "label": "Today’s Pick",
+    "empty": "No recommendation yet. Tap the button to get one.",
+    "copied": "Recommendation copied to clipboard.",
+    "copyFailed": "Copy failed. Please try again.",
+    "count": "There are {{count}} options for your filters."
+  },
+  "tips": {
+    "title": "Tips",
+    "first": "Leave filters empty to pick from the full list.",
+    "second": "If you don’t like it, tap try another.",
+    "third": "Copy the result to share with friends."
+  },
+  "error": {
+    "noResult": "No menu fits your filters. Try fewer filters."
+  },
+  "menu": {
+    "bibimbap": "Bibimbap",
+    "kimchi-stew": "Kimchi Stew",
+    "bulgogi": "Bulgogi",
+    "sushi": "Sushi",
+    "ramen": "Ramen",
+    "udon": "Udon",
+    "jjamppong": "Jjamppong",
+    "fried-rice": "Fried Rice",
+    "pasta": "Pasta",
+    "salad-bowl": "Salad Bowl",
+    "burger": "Burger",
+    "sandwich": "Sandwich",
+    "kimbap": "Kimbap",
+    "brunch": "Brunch Plate"
+  },
+  "openGraph": {
+    "title": "Lunch Menu Recommender",
+    "description": "Get a quick lunch idea based on your preferences and share it easily."
+  }
+}
