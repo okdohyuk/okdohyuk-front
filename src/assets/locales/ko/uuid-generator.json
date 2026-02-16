@@ -1,0 +1,18 @@
+{
+  "title": "UUID 생성기",
+  "description": "버튼 클릭 한 번으로 UUID v4 값을 생성합니다.",
+  "label": {
+    "output": "생성된 UUID"
+  },
+  "helper": "RFC 4122 v4 형식으로 생성됩니다.",
+  "button": {
+    "generate": "새로 생성",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "empty": "UUID를 생성해 보세요.",
+  "openGraph": {
+    "title": "UUID 생성기",
+    "description": "UUID v4 값을 빠르게 생성합니다."
+  }
+}

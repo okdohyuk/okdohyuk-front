@@ -1,0 +1,18 @@
+{
+  "title": "UUID Generator",
+  "description": "Generate UUID v4 values with a single click.",
+  "label": {
+    "output": "Generated UUID"
+  },
+  "helper": "Creates RFC 4122 version 4 identifiers.",
+  "button": {
+    "generate": "Generate new",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Generate a UUID to get started.",
+  "openGraph": {
+    "title": "UUID Generator",
+    "description": "Generate UUID v4 values quickly."
+  }
+}

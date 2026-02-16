@@ -1,0 +1,18 @@
+{
+  "title": "UUID 生成器",
+  "description": "一键生成 UUID v4 值。",
+  "label": {
+    "output": "生成的 UUID"
+  },
+  "helper": "以 RFC 4122 v4 格式生成。",
+  "button": {
+    "generate": "重新生成",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "empty": "请先生成 UUID。",
+  "openGraph": {
+    "title": "UUID 生成器",
+    "description": "快速生成 UUID v4。"
+  }
+}

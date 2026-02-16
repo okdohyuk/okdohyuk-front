@@ -1,0 +1,18 @@
+{
+  "title": "UUIDジェネレーター",
+  "description": "クリック一つで UUID v4 を生成します。",
+  "label": {
+    "output": "生成された UUID"
+  },
+  "helper": "RFC 4122 v4 形式で生成されます。",
+  "button": {
+    "generate": "新しく生成",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "empty": "UUID を生成してください。",
+  "openGraph": {
+    "title": "UUIDジェネレーター",
+    "description": "UUID v4 をすばやく生成します。"
+  }
+}
