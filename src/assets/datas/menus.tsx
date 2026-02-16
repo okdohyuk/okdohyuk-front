@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Bomb,
+  BookOpen,
   Calculator,
   CalendarClock,
   Code,
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '읽기 시간 계산기',
+        en: 'Reading Time Estimator',
+        ja: '読書時間計算機',
+        zh: '阅读时间计算器',
+      },
+      icon: <BookOpen />,
+      link: '/reading-time',
     },
     {
       title: {

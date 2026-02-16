@@ -1,0 +1,29 @@
+{
+  "title": "Reading Time Estimator",
+  "description": "Estimate how long it takes to read any text.",
+  "label": {
+    "text": "Reading text",
+    "speed": "Reading speed (WPM)",
+    "words": "Word count",
+    "result": "Estimated reading time"
+  },
+  "placeholder": "e.g. Paste a script or article here.",
+  "helper": {
+    "text": "Counts words by whitespace and estimates the time based on your speed.",
+    "speed": "Most adults read around 200–250 WPM."
+  },
+  "result": {
+    "empty": "Enter text to calculate the reading time.",
+    "time": "{{minutes}}m {{seconds}}s"
+  },
+  "tipsTitle": "Tips",
+  "tips": [
+    "Split long articles into sections for accuracy.",
+    "For scripts, use a slightly faster WPM than speaking speed.",
+    "Adjust the WPM to match your audience."
+  ],
+  "openGraph": {
+    "title": "Reading Time Estimator",
+    "description": "Estimate how long it takes to read any text."
+  }
+}
