@@ -148,6 +148,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '로또 번호 생성기',
+        en: 'Lotto Number Generator',
+        ja: 'ロト番号ジェネレーター',
+        zh: '乐透号码生成器',
+      },
+      icon: <Sparkles />,
+      link: '/lotto-generator',
+    },
+    {
+      title: {
         ko: '초성메이커',
         en: 'Choseong Maker',
         ja: 'チョソンメーカー',
