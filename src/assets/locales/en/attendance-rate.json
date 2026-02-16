@@ -1,0 +1,33 @@
+{
+  "title": "Attendance Rate Calculator",
+  "description": "Enter total classes and attendance/absence counts to calculate your current attendance rate and remaining requirements.",
+  "label": {
+    "mode": "Input mode",
+    "total": "Total classes",
+    "attended": "Classes attended",
+    "missed": "Classes missed",
+    "threshold": "Target attendance (%)"
+  },
+  "mode": {
+    "attended": "Enter attended",
+    "missed": "Enter missed"
+  },
+  "helper": "Based on total classes, we calculate attendance rate and the remaining classes needed to reach your target.",
+  "summary": {
+    "title": "Attendance summary",
+    "attendanceRate": "Current attendance rate",
+    "requiredAttendance": "Minimum required attendance",
+    "remainingAbsences": "Remaining allowable absences",
+    "needAttend": "Additional attendance needed"
+  },
+  "button": {
+    "copy": "Copy summary",
+    "copied": "Copied",
+    "reset": "Reset",
+    "example": "Fill example"
+  },
+  "openGraph": {
+    "title": "Attendance Rate Calculator",
+    "description": "Calculate attendance rate, minimum required attendance, and remaining allowable absences from your class totals and target attendance. A simple tool for students and course participants."
+  }
+}

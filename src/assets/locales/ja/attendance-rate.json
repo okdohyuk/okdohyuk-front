@@ -1,0 +1,33 @@
+{
+  "title": "出席率計算機",
+  "description": "総授業数と出席/欠席数を入力して、現在の出席率と必要な出席回数を計算します。",
+  "label": {
+    "mode": "入力方式",
+    "total": "総授業数",
+    "attended": "出席回数",
+    "missed": "欠席回数",
+    "threshold": "目標出席率(%)"
+  },
+  "mode": {
+    "attended": "出席回数を入力",
+    "missed": "欠席回数を入力"
+  },
+  "helper": "総授業数を基準に、出席率と目標達成までの残り出席回数を計算します。",
+  "summary": {
+    "title": "出席状況",
+    "attendanceRate": "現在の出席率",
+    "requiredAttendance": "必要最低出席回数",
+    "remainingAbsences": "残り欠席可能回数",
+    "needAttend": "追加で必要な出席回数"
+  },
+  "button": {
+    "copy": "要約をコピー",
+    "copied": "コピー済み",
+    "reset": "リセット",
+    "example": "例を入力"
+  },
+  "openGraph": {
+    "title": "出席率計算機",
+    "description": "出席/欠席回数と目標出席率から、現在の出席率や必要最低出席回数、残り欠席可能回数をまとめて確認できます。学生向けのシンプルな出席管理ツールです。"
+  }
+}

@@ -2,9 +2,11 @@ import React from 'react';
 import {
   Bomb,
   Calculator,
+  CalendarCheck,
   CalendarClock,
   Code,
   CreditCard,
+  Droplets,
   Github,
   Hash,
   Key,
@@ -95,6 +97,26 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '수분 섭취 계산기',
+        en: 'Water Intake Planner',
+        ja: '水分摂取量プランナー',
+        zh: '饮水量规划器',
+      },
+      icon: <Droplets />,
+      link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '출석률 계산기',
+        en: 'Attendance Rate',
+        ja: '出席率計算機',
+        zh: '出勤率计算器',
+      },
+      icon: <CalendarCheck />,
+      link: '/attendance-rate',
     },
     {
       title: {

@@ -1,0 +1,33 @@
+{
+  "title": "出勤率计算器",
+  "description": "输入总课次与出勤/缺勤次数，计算当前出勤率与达标所需出勤次数。",
+  "label": {
+    "mode": "输入方式",
+    "total": "总课次",
+    "attended": "出勤次数",
+    "missed": "缺勤次数",
+    "threshold": "目标出勤率(%)"
+  },
+  "mode": {
+    "attended": "输入出勤次数",
+    "missed": "输入缺勤次数"
+  },
+  "helper": "基于总课次计算出勤率，并给出达标所需的剩余出勤次数。",
+  "summary": {
+    "title": "出勤概览",
+    "attendanceRate": "当前出勤率",
+    "requiredAttendance": "最低需要出勤次数",
+    "remainingAbsences": "剩余可缺勤次数",
+    "needAttend": "还需出勤次数"
+  },
+  "button": {
+    "copy": "复制摘要",
+    "copied": "已复制",
+    "reset": "重置",
+    "example": "填入示例"
+  },
+  "openGraph": {
+    "title": "出勤率计算器",
+    "description": "根据总课次、出勤与缺勤次数，快速计算出勤率、最低出勤要求与剩余可缺勤次数。适合学生与课程参与者使用。"
+  }
+}
