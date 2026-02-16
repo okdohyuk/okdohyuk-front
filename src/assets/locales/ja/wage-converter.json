@@ -1,0 +1,41 @@
+{
+  "openGraph": {
+    "title": "時給・月給換算ツール",
+    "ogTitle": "時給・月給換算ツール",
+    "description": "時給と週の勤務時間から、週・月・年の給与を素早く換算します。"
+  },
+  "title": "時給・月給換算ツール",
+  "description": "時給と週の勤務時間から、週・月・年の給与を素早く換算します。",
+  "label": {
+    "hourlyWage": "時給",
+    "hoursPerWeek": "週の勤務時間",
+    "workingDays": "週の勤務日数",
+    "weeksPerMonth": "月換算の週数"
+  },
+  "placeholder": {
+    "hourlyWage": "例: 1000",
+    "hoursPerWeek": "例: 40",
+    "workingDays": "例: 5",
+    "weeksPerMonth": "既定 4.345"
+  },
+  "helper": {
+    "weeksPerMonth": "1か月は平均で約4.345週として計算します。"
+  },
+  "actions": {
+    "example": "例を適用",
+    "reset": "リセット",
+    "copySummary": "要約をコピー",
+    "copied": "コピー済み"
+  },
+  "result": {
+    "title": "換算結果",
+    "description": "入力値に基づく概算です。",
+    "weekly": "週給",
+    "daily": "日給",
+    "monthly": "月給",
+    "yearly": "年収",
+    "unit": "KRW",
+    "summary": "時給 {{hourly}}{{unit}} を基準に、週 {{weekly}}{{unit}}、月 {{monthly}}{{unit}}、年 {{yearly}}{{unit}}",
+    "empty": "数値を入力すると結果が表示されます。"
+  }
+}

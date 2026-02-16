@@ -1,0 +1,41 @@
+{
+  "openGraph": {
+    "title": "시급-월급 변환기",
+    "ogTitle": "시급-월급 변환기",
+    "description": "시급과 주 근무시간을 입력하면 주/월/연 급여를 빠르게 환산합니다."
+  },
+  "title": "시급-월급 변환기",
+  "description": "시급과 주 근무시간으로 주/월/연 급여를 빠르게 환산합니다.",
+  "label": {
+    "hourlyWage": "시급",
+    "hoursPerWeek": "주 근무시간",
+    "workingDays": "주 근무일수",
+    "weeksPerMonth": "월 환산 주수"
+  },
+  "placeholder": {
+    "hourlyWage": "예: 10000",
+    "hoursPerWeek": "예: 40",
+    "workingDays": "예: 5",
+    "weeksPerMonth": "기본 4.345"
+  },
+  "helper": {
+    "weeksPerMonth": "평균 한 달은 약 4.345주로 계산합니다."
+  },
+  "actions": {
+    "example": "예시 적용",
+    "reset": "초기화",
+    "copySummary": "요약 복사",
+    "copied": "복사됨"
+  },
+  "result": {
+    "title": "환산 결과",
+    "description": "입력값 기준 예상 금액입니다.",
+    "weekly": "주급",
+    "daily": "일급",
+    "monthly": "월급",
+    "yearly": "연봉",
+    "unit": "원",
+    "summary": "시급 {{hourly}}{{unit}} 기준 주 {{weekly}}{{unit}}, 월 {{monthly}}{{unit}}, 연 {{yearly}}{{unit}}",
+    "empty": "숫자를 입력하면 결과가 표시됩니다."
+  }
+}
