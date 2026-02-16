@@ -1,0 +1,36 @@
+{
+  "title": "HTTP Status Codes",
+  "description": "Search, filter, and copy HTTP status codes with quick explanations.",
+  "label": {
+    "search": "Search code or meaning",
+    "category": "Category: {{category}}"
+  },
+  "placeholder": "e.g. 404, gateway, unauthorized",
+  "helper": "Filter by category or type a code/keyword to narrow results.",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear search",
+    "reset": "Reset"
+  },
+  "category": {
+    "all": "All",
+    "1xx": "Informational",
+    "2xx": "Success",
+    "3xx": "Redirect",
+    "4xx": "Client Error",
+    "5xx": "Server Error"
+  },
+  "result": {
+    "count": "{{count}} results",
+    "total": "{{count}} total"
+  },
+  "empty": {
+    "base": "Pick a category or search to explore status codes.",
+    "search": "No status codes match your search."
+  },
+  "openGraph": {
+    "title": "HTTP Status Codes",
+    "description": "Find the meaning of HTTP status codes and copy them in one tap."
+  }
+}

@@ -7,6 +7,7 @@ import {
   CreditCard,
   Github,
   Hash,
+  Info,
   Key,
   Linkedin,
   List,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: 'HTTP 상태 코드',
+        en: 'HTTP Status Codes',
+        ja: 'HTTPステータスコード',
+        zh: 'HTTP 状态码',
+      },
+      icon: <Info />,
+      link: '/http-status',
     },
     {
       title: {

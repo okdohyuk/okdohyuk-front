@@ -1,0 +1,36 @@
+{
+  "title": "HTTP 상태 코드",
+  "description": "HTTP 상태 코드를 검색하고 필터링해 빠르게 복사하세요.",
+  "label": {
+    "search": "코드/의미 검색",
+    "category": "카테고리: {{category}}"
+  },
+  "placeholder": "예: 404, 게이트웨이, 인증",
+  "helper": "카테고리를 선택하거나 코드/키워드로 좁혀보세요.",
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "검색 지우기",
+    "reset": "초기화"
+  },
+  "category": {
+    "all": "전체",
+    "1xx": "정보",
+    "2xx": "성공",
+    "3xx": "리다이렉트",
+    "4xx": "클라이언트 오류",
+    "5xx": "서버 오류"
+  },
+  "result": {
+    "count": "결과 {{count}}개",
+    "total": "전체 {{count}}개"
+  },
+  "empty": {
+    "base": "카테고리나 검색으로 상태 코드를 찾아보세요.",
+    "search": "조건에 맞는 상태 코드가 없습니다."
+  },
+  "openGraph": {
+    "title": "HTTP 상태 코드",
+    "description": "HTTP 상태 코드 의미를 빠르게 확인하고 복사하세요."
+  }
+}
