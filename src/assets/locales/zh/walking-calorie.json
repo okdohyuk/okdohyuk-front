@@ -1,0 +1,44 @@
+{
+  "title": "步行消耗卡路里计算器",
+  "description": "通过步数或距离快速估算步行消耗的卡路里。",
+  "mode": {
+    "label": "输入方式",
+    "distance": "按距离",
+    "steps": "按步数"
+  },
+  "inputs": {
+    "distance": "距离 (km)",
+    "steps": "步数",
+    "stride": "步幅 (cm)",
+    "weight": "体重 (kg)"
+  },
+  "placeholders": {
+    "distance": "例如: 3.5",
+    "steps": "例如: 7000",
+    "stride": "例如: 70",
+    "weight": "例如: 60"
+  },
+  "helper": {
+    "stride": "不知道步幅时，默认使用70cm。",
+    "weight": "未填写体重时默认按60kg计算。"
+  },
+  "actions": {
+    "reset": "重置",
+    "copy": "复制结果",
+    "copied": "已复制"
+  },
+  "results": {
+    "distance": "预计行走距离",
+    "calorie": "预计消耗卡路里",
+    "formula": "公式：距离(km) × 体重(kg) × 1.036",
+    "empty": "请输入距离或步数以查看结果。"
+  },
+  "notes": {
+    "defaultStride": "默认步幅：70cm",
+    "defaultWeight": "默认体重：60kg"
+  },
+  "openGraph": {
+    "title": "步行消耗卡路里计算器",
+    "description": "输入步数或距离，快速估算步行消耗的卡路里。"
+  }
+}

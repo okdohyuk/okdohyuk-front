@@ -1,0 +1,44 @@
+{
+  "title": "ウォーキング消費カロリー計算",
+  "description": "歩数や距離から消費カロリーを簡単に推定します。",
+  "mode": {
+    "label": "入力方式",
+    "distance": "距離で入力",
+    "steps": "歩数で入力"
+  },
+  "inputs": {
+    "distance": "移動距離 (km)",
+    "steps": "歩数",
+    "stride": "歩幅 (cm)",
+    "weight": "体重 (kg)"
+  },
+  "placeholders": {
+    "distance": "例: 3.5",
+    "steps": "例: 7000",
+    "stride": "例: 70",
+    "weight": "例: 60"
+  },
+  "helper": {
+    "stride": "不明な場合は平均70cmで計算します。",
+    "weight": "未入力の場合は60kgで計算します。"
+  },
+  "actions": {
+    "reset": "リセット",
+    "copy": "結果をコピー",
+    "copied": "コピーしました"
+  },
+  "results": {
+    "distance": "推定移動距離",
+    "calorie": "推定消費カロリー",
+    "formula": "式: 距離(km) × 体重(kg) × 1.036",
+    "empty": "距離または歩数を入力してください。"
+  },
+  "notes": {
+    "defaultStride": "標準歩幅: 70cm",
+    "defaultWeight": "標準体重: 60kg"
+  },
+  "openGraph": {
+    "title": "ウォーキング消費カロリー計算",
+    "description": "歩数や距離を入力して、ウォーキングで消費したカロリーを簡単に推定できます。"
+  }
+}

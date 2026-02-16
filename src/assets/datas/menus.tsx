@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Footprints,
   Github,
   Hash,
   Key,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '걷기 칼로리 계산기',
+        en: 'Walking Calorie Calculator',
+        ja: 'ウォーキング消費カロリー計算',
+        zh: '步行消耗卡路里计算器',
+      },
+      icon: <Footprints />,
+      link: '/walking-calorie',
     },
     {
       title: {

@@ -1,0 +1,44 @@
+{
+  "title": "걷기 칼로리 계산기",
+  "description": "걸음 수나 이동 거리로 걷기 소모 칼로리를 빠르게 추정하세요.",
+  "mode": {
+    "label": "입력 방식",
+    "distance": "거리로 입력",
+    "steps": "걸음 수로 입력"
+  },
+  "inputs": {
+    "distance": "이동 거리 (km)",
+    "steps": "걸음 수",
+    "stride": "보폭 (cm)",
+    "weight": "체중 (kg)"
+  },
+  "placeholders": {
+    "distance": "예: 3.5",
+    "steps": "예: 7000",
+    "stride": "예: 70",
+    "weight": "예: 60"
+  },
+  "helper": {
+    "stride": "보폭을 모르면 평균 70cm로 계산됩니다.",
+    "weight": "체중을 입력하지 않으면 60kg 기준으로 계산됩니다."
+  },
+  "actions": {
+    "reset": "초기화",
+    "copy": "결과 복사",
+    "copied": "복사됨"
+  },
+  "results": {
+    "distance": "추정 이동 거리",
+    "calorie": "예상 소모 칼로리",
+    "formula": "공식: 거리(km) × 체중(kg) × 1.036",
+    "empty": "거리나 걸음 수를 입력해 결과를 확인하세요."
+  },
+  "notes": {
+    "defaultStride": "기본 보폭: 70cm",
+    "defaultWeight": "기본 체중: 60kg"
+  },
+  "openGraph": {
+    "title": "걷기 칼로리 계산기",
+    "description": "걷기 운동으로 얼마나 칼로리를 소모했는지 간단히 계산해 보세요. 걸음 수 또는 이동 거리를 입력하면 체중 기준으로 칼로리를 추정해 줍니다."
+  }
+}
