@@ -1,0 +1,23 @@
+{
+  "title": "テキストカウンター",
+  "description": "文字数・単語数・バイト数をまとめて確認できます。",
+  "badge": "テキスト分析",
+  "label": {
+    "input": "テキスト入力",
+    "stats": "統計サマリー"
+  },
+  "placeholder": "ここにテキストを入力してください。",
+  "helper": "空白や改行の有無によって結果が変わります。",
+  "metrics": {
+    "characters": "文字数",
+    "charactersNoSpace": "空白除外の文字数",
+    "words": "単語数",
+    "lines": "行数",
+    "bytes": "バイト数"
+  },
+  "empty": "テキストを入力すると統計が表示されます。",
+  "openGraph": {
+    "title": "テキストカウンター",
+    "description": "文字数・単語数・バイト数をすばやく計算します。"
+  }
+}

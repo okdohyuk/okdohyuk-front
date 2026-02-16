@@ -1,0 +1,23 @@
+{
+  "title": "Text Counter",
+  "description": "Count characters, words, and bytes in a single glance.",
+  "badge": "Text Insight",
+  "label": {
+    "input": "Input text",
+    "stats": "Summary stats"
+  },
+  "placeholder": "Type or paste your text here.",
+  "helper": "Results change depending on whether spaces and line breaks are included.",
+  "metrics": {
+    "characters": "Characters",
+    "charactersNoSpace": "Characters (no spaces)",
+    "words": "Words",
+    "lines": "Lines",
+    "bytes": "Bytes"
+  },
+  "empty": "Enter text to see the statistics.",
+  "openGraph": {
+    "title": "Text Counter",
+    "description": "Quickly calculate characters, words, and byte size."
+  }
+}

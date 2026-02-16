@@ -1,0 +1,23 @@
+{
+  "title": "文本计数器",
+  "description": "一次性统计字符数、单词数与字节数。",
+  "badge": "文本分析",
+  "label": {
+    "input": "输入文本",
+    "stats": "统计摘要"
+  },
+  "placeholder": "在此输入或粘贴文本。",
+  "helper": "是否包含空格与换行会影响结果。",
+  "metrics": {
+    "characters": "字符数",
+    "charactersNoSpace": "不含空格字符数",
+    "words": "单词数",
+    "lines": "行数",
+    "bytes": "字节数"
+  },
+  "empty": "输入文本后将显示统计结果。",
+  "openGraph": {
+    "title": "文本计数器",
+    "description": "快速计算字符数、单词数与字节大小。"
+  }
+}

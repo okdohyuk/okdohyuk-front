@@ -1,0 +1,23 @@
+{
+  "title": "텍스트 카운터",
+  "description": "문자 수, 단어 수, 바이트 수를 한 번에 계산합니다.",
+  "badge": "텍스트 분석",
+  "label": {
+    "input": "텍스트 입력",
+    "stats": "통계 요약"
+  },
+  "placeholder": "여기에 텍스트를 입력하세요.",
+  "helper": "공백과 줄바꿈 포함 여부에 따라 결과가 달라집니다.",
+  "metrics": {
+    "characters": "문자 수",
+    "charactersNoSpace": "공백 제외 문자 수",
+    "words": "단어 수",
+    "lines": "줄 수",
+    "bytes": "바이트 수"
+  },
+  "empty": "텍스트를 입력하면 통계가 표시됩니다.",
+  "openGraph": {
+    "title": "텍스트 카운터",
+    "description": "문자 수와 단어 수, 바이트 수를 빠르게 계산합니다."
+  }
+}
