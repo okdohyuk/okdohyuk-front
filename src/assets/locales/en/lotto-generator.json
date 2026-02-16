@@ -1,0 +1,30 @@
+{
+  "openGraph": {
+    "title": "Lotto Number Generator",
+    "ogTitle": "Lotto Number Generator | Random Lucky Picks",
+    "description": "Pick how many numbers you need and generate random lotto sets instantly.",
+    "keywords": ["lotto", "lotto numbers", "random generator", "lucky numbers", "number picker"]
+  },
+  "title": "Lotto Number Generator",
+  "description": "Choose a range and generate random lotto numbers in seconds.",
+  "label": {
+    "count": "Numbers per set",
+    "max": "Maximum number"
+  },
+  "helper": "Current setting: pick {{count}} numbers between 1 and {{max}}.",
+  "button": {
+    "generateOne": "Generate 1 set",
+    "generateBatch": "Generate 5 sets",
+    "clear": "Clear all",
+    "copy": "Copy all",
+    "copied": "Copied"
+  },
+  "result": {
+    "title": "Generated numbers",
+    "ready": "Here are your lucky picks!",
+    "helper": "Up to 20 sets will be saved.",
+    "empty": "No numbers yet",
+    "emptyHelper": "Generate a set to see the results here.",
+    "preview": "Generated sets will appear as cards."
+  }
+}

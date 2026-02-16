@@ -1,0 +1,30 @@
+{
+  "openGraph": {
+    "title": "乐透号码生成器",
+    "ogTitle": "乐透号码生成器 | 随机抽号",
+    "description": "设置数量与范围，快速生成随机乐透号码。",
+    "keywords": ["乐透", "随机号码", "号码生成器", "抽号", "幸运数字"]
+  },
+  "title": "乐透号码生成器",
+  "description": "选择数量和最大值，一键生成乐透号码。",
+  "label": {
+    "count": "抽取数量",
+    "max": "最大数字"
+  },
+  "helper": "当前设置：从 1 到 {{max}} 中随机抽取 {{count}} 个数字。",
+  "button": {
+    "generateOne": "生成 1 组",
+    "generateBatch": "生成 5 组",
+    "clear": "全部清除",
+    "copy": "复制全部",
+    "copied": "已复制"
+  },
+  "result": {
+    "title": "生成结果",
+    "ready": "你的幸运号码已准备好！",
+    "helper": "最多保留 20 组记录。",
+    "empty": "还没有生成号码",
+    "emptyHelper": "生成一组号码后将显示在这里。",
+    "preview": "生成的号码会以卡片形式展示。"
+  }
+}
