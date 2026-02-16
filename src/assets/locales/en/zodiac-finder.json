@@ -1,0 +1,97 @@
+{
+  "title": "Zodiac Finder",
+  "description": "Enter your birth date to see your Western zodiac sign.",
+  "label": {
+    "birthDate": "Birth date"
+  },
+  "buttons": {
+    "today": "Use today",
+    "clear": "Clear",
+    "copy": "Copy result",
+    "copied": "Copied"
+  },
+  "hint": "Example: 1996-02-14",
+  "result": {
+    "title": "Your zodiac",
+    "traits": "Traits",
+    "empty": "Enter a birth date to see your zodiac sign."
+  },
+  "signs": {
+    "aries": {
+      "name": "Aries",
+      "emoji": "♈️",
+      "range": "3/21 - 4/19",
+      "traits": ["Bold", "Passionate", "Direct"]
+    },
+    "taurus": {
+      "name": "Taurus",
+      "emoji": "♉️",
+      "range": "4/20 - 5/20",
+      "traits": ["Steady", "Practical", "Persistent"]
+    },
+    "gemini": {
+      "name": "Gemini",
+      "emoji": "♊️",
+      "range": "5/21 - 6/20",
+      "traits": ["Curious", "Adaptable", "Communicative"]
+    },
+    "cancer": {
+      "name": "Cancer",
+      "emoji": "♋️",
+      "range": "6/21 - 7/22",
+      "traits": ["Empathetic", "Protective", "Thoughtful"]
+    },
+    "leo": {
+      "name": "Leo",
+      "emoji": "♌️",
+      "range": "7/23 - 8/22",
+      "traits": ["Confident", "Leader", "Generous"]
+    },
+    "virgo": {
+      "name": "Virgo",
+      "emoji": "♍️",
+      "range": "8/23 - 9/22",
+      "traits": ["Analytical", "Detail-oriented", "Practical"]
+    },
+    "libra": {
+      "name": "Libra",
+      "emoji": "♎️",
+      "range": "9/23 - 10/22",
+      "traits": ["Balanced", "Cooperative", "Refined"]
+    },
+    "scorpio": {
+      "name": "Scorpio",
+      "emoji": "♏️",
+      "range": "10/23 - 11/21",
+      "traits": ["Focused", "Strong-willed", "Deep"]
+    },
+    "sagittarius": {
+      "name": "Sagittarius",
+      "emoji": "♐️",
+      "range": "11/22 - 12/21",
+      "traits": ["Free-spirited", "Optimistic", "Adventurous"]
+    },
+    "capricorn": {
+      "name": "Capricorn",
+      "emoji": "♑️",
+      "range": "12/22 - 1/19",
+      "traits": ["Responsible", "Goal-oriented", "Reliable"]
+    },
+    "aquarius": {
+      "name": "Aquarius",
+      "emoji": "♒️",
+      "range": "1/20 - 2/18",
+      "traits": ["Creative", "Independent", "Innovative"]
+    },
+    "pisces": {
+      "name": "Pisces",
+      "emoji": "♓️",
+      "range": "2/19 - 3/20",
+      "traits": ["Sensitive", "Intuitive", "Imaginative"]
+    }
+  },
+  "openGraph": {
+    "title": "Zodiac Finder",
+    "description": "Find your Western zodiac sign quickly with your birth date."
+  }
+}
