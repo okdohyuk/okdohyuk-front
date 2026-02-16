@@ -5,11 +5,13 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Fingerprint,
   Github,
   Hash,
   Key,
   Linkedin,
   List,
+  MessageCircleQuestion,
   MonitorPlay,
   Palette,
   QrCode,
@@ -45,6 +47,16 @@ const menus: Menus = {
       },
       icon: <QrCode />,
       link: '/qr-generator',
+    },
+    {
+      title: {
+        ko: '대화 주제 생성기',
+        en: 'Conversation Starter',
+        ja: '会話トピック生成',
+        zh: '对话话题生成器',
+      },
+      icon: <MessageCircleQuestion />,
+      link: '/conversation-starter',
     },
     {
       title: {
@@ -85,6 +97,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: 'UUID 생성기',
+        en: 'UUID Generator',
+        ja: 'UUIDジェネレーター',
+        zh: 'UUID 生成器',
+      },
+      icon: <Fingerprint />,
+      link: '/uuid-generator',
     },
     {
       title: {

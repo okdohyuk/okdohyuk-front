@@ -1,0 +1,77 @@
+{
+  "title": "Conversation Starter",
+  "description": "Pick a question that fits the moment and kick off a great conversation. Random prompts are grouped by category.",
+  "label": {
+    "category": "Choose a category",
+    "current": "Today’s question",
+    "history": "Recent picks"
+  },
+  "button": {
+    "pick": "Pick a question",
+    "next": "Next question",
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear history"
+  },
+  "helper": "Copy and share any question you like.",
+  "empty": "No question picked yet.",
+  "history": {
+    "empty": "No history yet."
+  },
+  "category": {
+    "all": {
+      "title": "All random",
+      "description": "Mix every category and draw a random question."
+    },
+    "ice": {
+      "title": "Icebreaker",
+      "description": "Light prompts to warm up the room."
+    },
+    "friends": {
+      "title": "Friends / Group",
+      "description": "Great for casual hangouts and group chats."
+    },
+    "family": {
+      "title": "Partner / Family",
+      "description": "Questions that help you share feelings together."
+    },
+    "self": {
+      "title": "Self reflection",
+      "description": "Quiet prompts to check in with yourself."
+    }
+  },
+  "prompt": {
+    "ice": {
+      "1": "What hobby are you into lately?",
+      "2": "Which song have you been playing on repeat?",
+      "3": "Is there something you always do in the morning?",
+      "4": "What small goal do you want to achieve this year?",
+      "5": "What does a perfect rest day look like to you?"
+    },
+    "friends": {
+      "1": "What activity should we all try together next?",
+      "2": "If we had roles in a group, which one would you pick?",
+      "3": "Share the funniest thing that happened to you recently.",
+      "4": "If we’re picking snacks today, what should we get?",
+      "5": "What’s your favorite weekend routine?"
+    },
+    "family": {
+      "1": "Can we each share a moment we felt grateful for?",
+      "2": "What’s your most memorable travel scene?",
+      "3": "Is there a small kindness you want from each other lately?",
+      "4": "If we made a tradition, what would it be?",
+      "5": "What’s the one thing you want to hear when you’re tired?"
+    },
+    "self": {
+      "1": "What experience helped you grow recently?",
+      "2": "Which value do you want to focus on right now?",
+      "3": "What was the best choice you made today?",
+      "4": "How do you calm yourself when things feel messy?",
+      "5": "What would you like to tell your future self?"
+    }
+  },
+  "openGraph": {
+    "title": "Conversation Starter",
+    "description": "A free conversation starter that recommends random questions whenever a chat feels stuck. Choose from icebreakers, friends/group, partner/family, or self reflection, then copy and share your favorite prompt instantly."
+  }
+}
