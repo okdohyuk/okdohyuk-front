@@ -1,0 +1,26 @@
+{
+  "title": "Phone Number Formatter",
+  "description": "Enter digits to get a hyphenated and masked phone number instantly.",
+  "label": {
+    "input": "Phone number",
+    "formatted": "Hyphenated",
+    "masked": "Masked"
+  },
+  "placeholder": "e.g. 01012345678",
+  "helper": "Automatically detects common KR formats like 02/031/070/010/1588.",
+  "hint": "Detected {count} digits",
+  "hintEmpty": "Type digits to format immediately.",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear"
+  },
+  "empty": {
+    "formatted": "Formatted number will appear here.",
+    "masked": "Masked result will appear here."
+  },
+  "openGraph": {
+    "title": "Phone Number Formatter",
+    "description": "Quickly format KR phone numbers with hyphens and masking."
+  }
+}

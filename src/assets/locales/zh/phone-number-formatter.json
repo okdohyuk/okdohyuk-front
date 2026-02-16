@@ -1,0 +1,26 @@
+{
+  "title": "电话号码格式化",
+  "description": "输入数字即可快速生成带连字符与脱敏的号码。",
+  "label": {
+    "input": "电话号码输入",
+    "formatted": "连字符格式",
+    "masked": "脱敏格式"
+  },
+  "placeholder": "例如 01012345678",
+  "helper": "自动识别 02/031/070/010/1588 等韩国常见格式。",
+  "hint": "已识别 {count} 位数字",
+  "hintEmpty": "输入数字即可自动格式化。",
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清除"
+  },
+  "empty": {
+    "formatted": "输入后会显示格式化结果。",
+    "masked": "脱敏结果会显示在这里。"
+  },
+  "openGraph": {
+    "title": "电话号码格式化",
+    "description": "快速将韩国电话号码转换为连字符与脱敏格式。"
+  }
+}
