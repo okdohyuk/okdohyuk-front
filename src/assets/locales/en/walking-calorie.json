@@ -1,0 +1,44 @@
+{
+  "title": "Walking Calorie Calculator",
+  "description": "Estimate calories burned from your steps or walking distance.",
+  "mode": {
+    "label": "Input mode",
+    "distance": "By distance",
+    "steps": "By steps"
+  },
+  "inputs": {
+    "distance": "Distance (km)",
+    "steps": "Steps",
+    "stride": "Stride length (cm)",
+    "weight": "Weight (kg)"
+  },
+  "placeholders": {
+    "distance": "e.g. 3.5",
+    "steps": "e.g. 7000",
+    "stride": "e.g. 70",
+    "weight": "e.g. 60"
+  },
+  "helper": {
+    "stride": "If unknown, we use an average of 70 cm.",
+    "weight": "If left blank, we assume 60 kg."
+  },
+  "actions": {
+    "reset": "Reset",
+    "copy": "Copy result",
+    "copied": "Copied"
+  },
+  "results": {
+    "distance": "Estimated distance",
+    "calorie": "Estimated calories",
+    "formula": "Formula: distance(km) × weight(kg) × 1.036",
+    "empty": "Enter distance or steps to see the result."
+  },
+  "notes": {
+    "defaultStride": "Default stride: 70 cm",
+    "defaultWeight": "Default weight: 60 kg"
+  },
+  "openGraph": {
+    "title": "Walking Calorie Calculator",
+    "description": "Estimate calories burned from walking in seconds. Enter steps or distance, and we calculate calories based on your weight."
+  }
+}
