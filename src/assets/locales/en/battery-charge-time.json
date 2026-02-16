@@ -1,0 +1,30 @@
+{
+  "openGraph": {
+    "title": "Battery Charge Time Estimator",
+    "ogTitle": "Battery Charge Time Estimator",
+    "description": "Estimate charging time from battery capacity, charger power, and efficiency. Use quick presets for fast checks."
+  },
+  "title": "Battery Charge Time Estimator",
+  "description": "Estimate the charging time based on battery capacity and charger output.",
+  "capacityLabel": "Battery capacity (mAh)",
+  "capacityPlaceholder": "e.g. 4500",
+  "capacityHint": "Check your device settings or product specs.",
+  "chargerPowerLabel": "Charger power (W)",
+  "chargerPowerPlaceholder": "e.g. 20",
+  "efficiencyLabel": "Charging efficiency (%)",
+  "efficiencyPlaceholder": "e.g. 85",
+  "efficiencyHint": "Accounts for cable/heat loss. (Typically 80–90%)",
+  "voltageLabel": "Average battery voltage (V)",
+  "voltagePlaceholder": "e.g. 3.85",
+  "voltageHint": "Li-ion batteries are usually around 3.7–3.85V.",
+  "applyExample": "Apply example",
+  "clear": "Reset",
+  "resultTitle": "Estimated charge time",
+  "resultValue": "About {{hours}}h {{minutes}}m",
+  "resultDetail": "Based on {{wh}}Wh / {{hours}}h",
+  "resultEmpty": "Enter capacity, power, efficiency, and voltage to see the result.",
+  "copySummary": "Copy summary",
+  "copied": "Copied",
+  "copyHint": "Paste the summary into notes or share it.",
+  "summary": "Battery {{capacity}}mAh, charger {{chargerPower}}W, efficiency {{efficiency}}% → about {{hours}}h {{minutes}}m"
+}

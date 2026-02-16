@@ -1,0 +1,30 @@
+{
+  "openGraph": {
+    "title": "バッテリー充電時間計算",
+    "ogTitle": "バッテリー充電時間計算",
+    "description": "バッテリー容量、充電器の出力、効率から充電時間を見積もります。プリセットで素早く確認できます。"
+  },
+  "title": "バッテリー充電時間計算",
+  "description": "バッテリー容量と充電器出力からおおよその充電時間を計算します。",
+  "capacityLabel": "バッテリー容量 (mAh)",
+  "capacityPlaceholder": "例: 4500",
+  "capacityHint": "端末設定または製品仕様で確認できます。",
+  "chargerPowerLabel": "充電器出力 (W)",
+  "chargerPowerPlaceholder": "例: 20",
+  "efficiencyLabel": "充電効率 (%)",
+  "efficiencyPlaceholder": "例: 85",
+  "efficiencyHint": "ケーブルや発熱ロスを考慮した効率です。(一般的に80〜90%)",
+  "voltageLabel": "バッテリー平均電圧 (V)",
+  "voltagePlaceholder": "例: 3.85",
+  "voltageHint": "リチウムイオンは通常 3.7〜3.85V です。",
+  "applyExample": "例を適用",
+  "clear": "リセット",
+  "resultTitle": "推定充電時間",
+  "resultValue": "約 {{hours}}時間 {{minutes}}分",
+  "resultDetail": "計算基準: {{wh}}Wh / {{hours}}時間",
+  "resultEmpty": "容量・出力・効率・電圧を入力すると結果が表示されます。",
+  "copySummary": "要約をコピー",
+  "copied": "コピーしました",
+  "copyHint": "メモや共有に貼り付けられます。",
+  "summary": "バッテリー {{capacity}}mAh、充電器 {{chargerPower}}W、効率 {{efficiency}}% → 約 {{hours}}時間 {{minutes}}分"
+}

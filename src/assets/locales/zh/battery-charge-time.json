@@ -1,0 +1,30 @@
+{
+  "openGraph": {
+    "title": "电池充电时间计算器",
+    "ogTitle": "电池充电时间计算器",
+    "description": "输入电池容量、充电器功率与效率，估算充电所需时间。支持常用功率预设。"
+  },
+  "title": "电池充电时间计算器",
+  "description": "根据电池容量和充电器输出估算充电时间。",
+  "capacityLabel": "电池容量 (mAh)",
+  "capacityPlaceholder": "例如: 4500",
+  "capacityHint": "可在设备设置或产品规格中查看。",
+  "chargerPowerLabel": "充电器功率 (W)",
+  "chargerPowerPlaceholder": "例如: 20",
+  "efficiencyLabel": "充电效率 (%)",
+  "efficiencyPlaceholder": "例如: 85",
+  "efficiencyHint": "考虑线材与发热损耗的效率值。(通常 80–90%)",
+  "voltageLabel": "电池平均电压 (V)",
+  "voltagePlaceholder": "例如: 3.85",
+  "voltageHint": "锂电池通常在 3.7–3.85V 之间。",
+  "applyExample": "应用示例",
+  "clear": "重置",
+  "resultTitle": "预计充电时间",
+  "resultValue": "约 {{hours}}小时 {{minutes}}分钟",
+  "resultDetail": "计算依据: {{wh}}Wh / {{hours}}小时",
+  "resultEmpty": "请输入容量、功率、效率与电压以查看结果。",
+  "copySummary": "复制摘要",
+  "copied": "已复制",
+  "copyHint": "可粘贴到笔记或分享使用。",
+  "summary": "电池 {{capacity}}mAh，充电器 {{chargerPower}}W，效率 {{efficiency}}% → 约 {{hours}}小时 {{minutes}}分钟"
+}

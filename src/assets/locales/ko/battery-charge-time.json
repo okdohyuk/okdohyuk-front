@@ -1,0 +1,30 @@
+{
+  "openGraph": {
+    "title": "배터리 충전 시간 계산기",
+    "ogTitle": "배터리 충전 시간 계산기",
+    "description": "배터리 용량과 충전기 출력, 효율을 입력하면 예상 충전 시간을 계산합니다. 간단한 예시와 프리셋으로 빠르게 확인하세요."
+  },
+  "title": "배터리 충전 시간 계산기",
+  "description": "배터리 용량과 충전기 출력을 입력해 대략적인 충전 시간을 계산합니다.",
+  "capacityLabel": "배터리 용량 (mAh)",
+  "capacityPlaceholder": "예: 4500",
+  "capacityHint": "스마트폰 설정 또는 제품 사양에서 확인할 수 있어요.",
+  "chargerPowerLabel": "충전기 출력 (W)",
+  "chargerPowerPlaceholder": "예: 20",
+  "efficiencyLabel": "충전 효율 (%)",
+  "efficiencyPlaceholder": "예: 85",
+  "efficiencyHint": "케이블/열손실을 고려한 효율 값입니다. (일반적으로 80~90%)",
+  "voltageLabel": "배터리 평균 전압 (V)",
+  "voltagePlaceholder": "예: 3.85",
+  "voltageHint": "리튬이온 배터리는 보통 3.7~3.85V입니다.",
+  "applyExample": "예시 적용",
+  "clear": "초기화",
+  "resultTitle": "예상 충전 시간",
+  "resultValue": "약 {{hours}}시간 {{minutes}}분",
+  "resultDetail": "계산 기준: {{wh}}Wh / {{hours}}시간",
+  "resultEmpty": "용량, 출력, 효율, 전압을 입력하면 결과가 표시됩니다.",
+  "copySummary": "요약 복사",
+  "copied": "복사 완료",
+  "copyHint": "결과를 메모나 공유에 붙여넣을 수 있어요.",
+  "summary": "배터리 {{capacity}}mAh, 충전기 {{chargerPower}}W, 효율 {{efficiency}}% → 약 {{hours}}시간 {{minutes}}분"
+}
