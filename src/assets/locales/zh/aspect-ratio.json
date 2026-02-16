@@ -1,0 +1,39 @@
+{
+  "title": "图像比例计算器",
+  "description": "输入原始宽高，填写一侧尺寸即可按比例计算新的尺寸。",
+  "section": {
+    "original": "原始尺寸",
+    "target": "目标尺寸",
+    "result": "计算结果"
+  },
+  "label": {
+    "originalWidth": "原始宽度",
+    "originalHeight": "原始高度",
+    "targetWidth": "目标宽度",
+    "targetHeight": "目标高度",
+    "lockRatio": "锁定比例",
+    "ratio": "当前比例",
+    "result": "计算后的尺寸"
+  },
+  "placeholder": {
+    "width": "例如 1920",
+    "height": "例如 1080"
+  },
+  "helper": {
+    "original": "请输入原始图片的像素尺寸。",
+    "target": "只需填写一侧，另一侧会按比例自动计算。",
+    "result": "结果会保持原始比例，可直接复制使用。"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "reset": "重置",
+    "sample": "填写示例"
+  },
+  "empty": "输入数值后会显示结果。",
+  "openGraph": {
+    "title": "图像比例计算器",
+    "description": "快速计算保持比例的图片尺寸，适合照片、横幅和社交媒体图像缩放。",
+    "keywords": ["图像比例", "宽高", "尺寸计算", "图片缩放", "比例保持", "尺寸调整"]
+  }
+}

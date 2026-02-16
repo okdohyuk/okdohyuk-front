@@ -1,0 +1,47 @@
+{
+  "title": "Aspect Ratio Calculator",
+  "description": "Enter the original width and height, then set one side to calculate a new size while keeping the same ratio.",
+  "section": {
+    "original": "Original Size",
+    "target": "Target Size",
+    "result": "Calculated Result"
+  },
+  "label": {
+    "originalWidth": "Original Width",
+    "originalHeight": "Original Height",
+    "targetWidth": "Target Width",
+    "targetHeight": "Target Height",
+    "lockRatio": "Lock Ratio",
+    "ratio": "Current Ratio",
+    "result": "Calculated Size"
+  },
+  "placeholder": {
+    "width": "e.g. 1920",
+    "height": "e.g. 1080"
+  },
+  "helper": {
+    "original": "Enter the pixel size of your original image.",
+    "target": "Type one side to auto-calculate the other while keeping the ratio.",
+    "result": "This keeps the original aspect ratio. Copy when ready."
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "reset": "Reset",
+    "sample": "Fill Sample"
+  },
+  "empty": "Results appear after you enter values.",
+  "openGraph": {
+    "title": "Aspect Ratio Calculator",
+    "description": "Quickly calculate new image sizes that preserve aspect ratio. Perfect for resizing photos, banners, and social media graphics.",
+    "keywords": [
+      "aspect ratio",
+      "image resize",
+      "width height",
+      "proportions",
+      "scale",
+      "image size",
+      "resize calculator"
+    ]
+  }
+}

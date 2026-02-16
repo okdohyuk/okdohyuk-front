@@ -1,0 +1,48 @@
+{
+  "title": "이미지 비율 계산기",
+  "description": "원본 가로/세로를 입력하고 원하는 한쪽 길이를 지정하면 비율을 유지한 크기를 계산합니다.",
+  "section": {
+    "original": "원본 크기",
+    "target": "변환 크기",
+    "result": "계산 결과"
+  },
+  "label": {
+    "originalWidth": "원본 가로",
+    "originalHeight": "원본 세로",
+    "targetWidth": "변환 가로",
+    "targetHeight": "변환 세로",
+    "lockRatio": "비율 고정",
+    "ratio": "현재 비율",
+    "result": "계산된 크기"
+  },
+  "placeholder": {
+    "width": "예: 1920",
+    "height": "예: 1080"
+  },
+  "helper": {
+    "original": "원본 이미지의 가로/세로 픽셀을 입력하세요.",
+    "target": "한쪽 길이만 입력해도 비율을 맞춰 자동 계산됩니다.",
+    "result": "비율을 유지한 결과입니다. 필요하면 복사해서 사용하세요."
+  },
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "reset": "초기화",
+    "sample": "샘플 입력"
+  },
+  "empty": "값을 입력하면 결과가 표시됩니다.",
+  "openGraph": {
+    "title": "이미지 비율 계산기",
+    "description": "이미지 비율 계산기로 원본 가로/세로를 기준으로 비율을 유지한 새로운 크기를 빠르게 계산하세요.",
+    "keywords": [
+      "이미지 비율",
+      "가로 세로",
+      "크기 변환",
+      "리사이즈",
+      "이미지 사이즈",
+      "aspect ratio",
+      "비율 유지",
+      "픽셀 계산"
+    ]
+  }
+}
