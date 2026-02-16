@@ -1,0 +1,33 @@
+{
+  "title": "출석률 계산기",
+  "description": "총 수업 수와 출석/결석을 입력해 현재 출석률과 목표 달성까지 필요한 출석 횟수를 계산하세요.",
+  "label": {
+    "mode": "입력 방식",
+    "total": "총 수업 횟수",
+    "attended": "출석한 횟수",
+    "missed": "결석한 횟수",
+    "threshold": "목표 출석률(%)"
+  },
+  "mode": {
+    "attended": "출석 횟수 입력",
+    "missed": "결석 횟수 입력"
+  },
+  "helper": "총 수업 수를 기준으로 출석률과 목표 달성까지 남은 출석 횟수를 계산합니다.",
+  "summary": {
+    "title": "출석 현황",
+    "attendanceRate": "현재 출석률",
+    "requiredAttendance": "필요 최소 출석 횟수",
+    "remainingAbsences": "남은 결석 가능 횟수",
+    "needAttend": "추가로 필요한 출석 횟수"
+  },
+  "button": {
+    "copy": "요약 복사",
+    "copied": "복사됨",
+    "reset": "초기화",
+    "example": "예시 입력"
+  },
+  "openGraph": {
+    "title": "출석률 계산기",
+    "description": "출석/결석 횟수와 목표 출석률을 입력해 현재 출석률, 최소 출석 횟수, 남은 결석 가능 횟수를 한 번에 확인하세요. 학생과 강의 참여자에게 유용한 출석 관리 도구입니다."
+  }
+}
