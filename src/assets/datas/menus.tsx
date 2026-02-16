@@ -3,10 +3,12 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CalendarDays,
   Code,
   CreditCard,
   Github,
   Hash,
+  Heart,
   Key,
   Linkedin,
   List,
@@ -148,6 +150,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '디데이 카운터',
+        en: 'D-Day Counter',
+        ja: 'D-Dayカウンター',
+        zh: 'D-Day 计数器',
+      },
+      icon: <CalendarDays />,
+      link: '/dday-counter',
+    },
+    {
+      title: {
         ko: '초성메이커',
         en: 'Choseong Maker',
         ja: 'チョソンメーカー',
@@ -155,6 +167,16 @@ const menus: Menus = {
       },
       icon: <TextCursorInput />,
       link: '/choseong-maker',
+    },
+    {
+      title: {
+        ko: '긍정 문구 생성기',
+        en: 'Affirmation Generator',
+        ja: 'アファメーション生成器',
+        zh: '积极语句生成器',
+      },
+      icon: <Heart />,
+      link: '/affirmation-generator',
     },
   ],
   out: [
