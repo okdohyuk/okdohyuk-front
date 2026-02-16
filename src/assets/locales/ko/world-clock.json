@@ -1,0 +1,37 @@
+{
+  "openGraph": {
+    "title": "세계 시계",
+    "ogTitle": "세계 시계",
+    "description": "주요 도시의 현재 시간을 한눈에 비교하고, 12/24시간제와 날짜 표시를 손쉽게 전환하세요."
+  },
+  "title": "세계 시계",
+  "description": "주요 도시의 현재 시간을 빠르게 비교하세요.",
+  "badge": "World Clock",
+  "addCity": "도시 추가",
+  "selectCity": "도시 선택",
+  "add": "추가",
+  "settings": "표시 옵션",
+  "showDate": "날짜 표시",
+  "hideDate": "날짜 숨김",
+  "use12Hour": "12시간제",
+  "use24Hour": "24시간제",
+  "reset": "초기화",
+  "copy": "복사",
+  "copied": "복사됨",
+  "remove": "삭제",
+  "empty": "표시 중인 도시가 없습니다. 도시를 추가해 주세요.",
+  "cities": {
+    "seoul": "서울",
+    "tokyo": "도쿄",
+    "beijing": "베이징",
+    "singapore": "싱가포르",
+    "sydney": "시드니",
+    "losAngeles": "로스앤젤레스",
+    "newYork": "뉴욕",
+    "london": "런던",
+    "paris": "파리",
+    "berlin": "베를린",
+    "dubai": "두바이",
+    "saoPaulo": "상파울루"
+  }
+}
