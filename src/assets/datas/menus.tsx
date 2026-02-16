@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Crop,
   Github,
   Hash,
   Key,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '이미지 비율 계산기',
+        en: 'Aspect Ratio Calculator',
+        ja: 'アスペクト比計算機',
+        zh: '图像比例计算器',
+      },
+      icon: <Crop />,
+      link: '/aspect-ratio',
     },
     {
       title: {
