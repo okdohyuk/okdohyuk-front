@@ -1,0 +1,18 @@
+{
+  "title": "文本指标",
+  "description": "快速测量文本长度与结构信息。",
+  "placeholder": "在此输入或粘贴文本。",
+  "helper": "自动统计字符、单词、行数、段落和字节数。",
+  "labels": {
+    "characters": "字符数",
+    "charactersNoSpace": "去空格字符",
+    "words": "单词数",
+    "lines": "行数",
+    "paragraphs": "段落数",
+    "bytes": "字节"
+  },
+  "openGraph": {
+    "title": "文本指标",
+    "description": "一站式查看文本长度、单词、行数与字节。"
+  }
+}

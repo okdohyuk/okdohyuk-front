@@ -1,0 +1,18 @@
+{
+  "title": "텍스트 메트릭",
+  "description": "텍스트 길이와 구성 요소를 빠르게 측정합니다.",
+  "placeholder": "여기에 텍스트를 입력하세요.",
+  "helper": "문자, 단어, 줄, 문단, 바이트 수를 자동으로 계산합니다.",
+  "labels": {
+    "characters": "문자 수",
+    "charactersNoSpace": "공백 제외 문자",
+    "words": "단어 수",
+    "lines": "줄 수",
+    "paragraphs": "문단 수",
+    "bytes": "바이트"
+  },
+  "openGraph": {
+    "title": "텍스트 메트릭",
+    "description": "텍스트의 길이와 구성 요소를 한눈에 확인하세요."
+  }
+}

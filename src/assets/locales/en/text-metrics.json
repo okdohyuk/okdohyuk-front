@@ -1,0 +1,18 @@
+{
+  "title": "Text Metrics",
+  "description": "Measure the length and structure of your text at a glance.",
+  "placeholder": "Type or paste your text here.",
+  "helper": "Automatically counts characters, words, lines, paragraphs, and bytes.",
+  "labels": {
+    "characters": "Characters",
+    "charactersNoSpace": "Characters (no spaces)",
+    "words": "Words",
+    "lines": "Lines",
+    "paragraphs": "Paragraphs",
+    "bytes": "Bytes"
+  },
+  "openGraph": {
+    "title": "Text Metrics",
+    "description": "Check text length, words, lines, and bytes in one place."
+  }
+}
