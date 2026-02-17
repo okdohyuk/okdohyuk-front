@@ -1,0 +1,36 @@
+{
+  "title": "감사 일기",
+  "description": "오늘 고마웠던 순간을 정리하고 내일의 작은 약속을 남겨보세요.",
+  "helper": "한 줄씩 기록해 두면 마음이 훨씬 가벼워집니다.",
+  "section": {
+    "date": "날짜",
+    "gratitude": "오늘 감사한 일",
+    "proud": "내가 잘한 일",
+    "intention": "내일을 위한 작은 약속"
+  },
+  "placeholder": {
+    "gratitude": "예: 따뜻한 커피 한 잔",
+    "proud": "예: 끝내 미뤘던 일을 완료",
+    "intention": "예: 10분 산책하기"
+  },
+  "button": {
+    "add": "추가",
+    "remove": "삭제",
+    "reset": "초기화",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "summary": {
+    "title": "요약",
+    "helper": "기록을 복사해서 공유하거나 저장하세요.",
+    "filled": "채운 항목",
+    "remaining": "남은 항목",
+    "emptyState": "아직 작성된 내용이 없습니다.",
+    "emptyItem": "미작성",
+    "emptyIntention": "아직 약속을 적지 않았어요"
+  },
+  "openGraph": {
+    "title": "감사 일기",
+    "description": "하루의 감사와 성취를 간단히 정리해 보세요."
+  }
+}

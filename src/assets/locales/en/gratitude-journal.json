@@ -1,0 +1,36 @@
+{
+  "title": "Gratitude Journal",
+  "description": "Capture what you appreciated today and leave a small promise for tomorrow.",
+  "helper": "A few short lines can lift the day.",
+  "section": {
+    "date": "Date",
+    "gratitude": "Things I'm grateful for",
+    "proud": "What I did well",
+    "intention": "A small promise for tomorrow"
+  },
+  "placeholder": {
+    "gratitude": "e.g. warm coffee in the morning",
+    "proud": "e.g. finished a delayed task",
+    "intention": "e.g. take a 10-minute walk"
+  },
+  "button": {
+    "add": "Add",
+    "remove": "Remove",
+    "reset": "Reset",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "summary": {
+    "title": "Summary",
+    "helper": "Copy the notes to share or save.",
+    "filled": "Filled entries",
+    "remaining": "Remaining",
+    "emptyState": "No entries yet.",
+    "emptyItem": "Not filled",
+    "emptyIntention": "No promise added yet"
+  },
+  "openGraph": {
+    "title": "Gratitude Journal",
+    "description": "Reflect on the day with a simple gratitude checklist."
+  }
+}

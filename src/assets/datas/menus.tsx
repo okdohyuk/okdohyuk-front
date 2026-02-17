@@ -7,6 +7,7 @@ import {
   CreditCard,
   Github,
   Hash,
+  Heart,
   Key,
   Linkedin,
   List,
@@ -105,6 +106,16 @@ const menus: Menus = {
       },
       icon: <List />,
       link: '/todo',
+    },
+    {
+      title: {
+        ko: '감사 일기',
+        en: 'Gratitude Journal',
+        ja: '感謝日記',
+        zh: '感恩日记',
+      },
+      icon: <Heart />,
+      link: '/gratitude-journal',
     },
     {
       title: {

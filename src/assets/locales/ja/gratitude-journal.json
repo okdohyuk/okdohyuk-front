@@ -1,0 +1,36 @@
+{
+  "title": "感謝日記",
+  "description": "今日の感謝を書き留め、明日の小さな約束を残しましょう。",
+  "helper": "短い一文でも心が軽くなります。",
+  "section": {
+    "date": "日付",
+    "gratitude": "今日感謝したこと",
+    "proud": "うまくできたこと",
+    "intention": "明日の小さな約束"
+  },
+  "placeholder": {
+    "gratitude": "例：朝の温かいコーヒー",
+    "proud": "例：後回しにしていた仕事を完了",
+    "intention": "例：10分散歩する"
+  },
+  "button": {
+    "add": "追加",
+    "remove": "削除",
+    "reset": "リセット",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "summary": {
+    "title": "まとめ",
+    "helper": "記録をコピーして共有や保存ができます。",
+    "filled": "記入済み",
+    "remaining": "未記入",
+    "emptyState": "まだ記録がありません。",
+    "emptyItem": "未記入",
+    "emptyIntention": "まだ約束を記入していません"
+  },
+  "openGraph": {
+    "title": "感謝日記",
+    "description": "一日の感謝と達成を簡単にまとめましょう。"
+  }
+}

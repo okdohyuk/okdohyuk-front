@@ -1,0 +1,36 @@
+{
+  "title": "感恩日记",
+  "description": "记录今天的感激时刻，并为明天写下一个小承诺。",
+  "helper": "简短几句也能让心情更轻松。",
+  "section": {
+    "date": "日期",
+    "gratitude": "今天感恩的事情",
+    "proud": "做得好的事情",
+    "intention": "给明天的小承诺"
+  },
+  "placeholder": {
+    "gratitude": "例如：清晨的一杯热咖啡",
+    "proud": "例如：完成了拖延的任务",
+    "intention": "例如：散步10分钟"
+  },
+  "button": {
+    "add": "添加",
+    "remove": "删除",
+    "reset": "重置",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "summary": {
+    "title": "摘要",
+    "helper": "复制记录以便分享或保存。",
+    "filled": "已填写",
+    "remaining": "未填写",
+    "emptyState": "还没有记录。",
+    "emptyItem": "未填写",
+    "emptyIntention": "尚未写下承诺"
+  },
+  "openGraph": {
+    "title": "感恩日记",
+    "description": "用简洁的方式回顾一天的感恩与成就。"
+  }
+}
