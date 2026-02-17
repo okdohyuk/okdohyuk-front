@@ -1,0 +1,47 @@
+{
+  "title": "Team Name Generator",
+  "description": "Pick keywords and a vibe to get instant team name ideas.",
+  "openGraph": {
+    "title": "Team Name Generator",
+    "description": "Combine keywords and tone to suggest team or project names fast."
+  },
+  "label": {
+    "keywords": "Keywords",
+    "tone": "Tone",
+    "count": "Count",
+    "number": "Add numbers",
+    "results": "Results"
+  },
+  "placeholder": {
+    "keywords": "e.g. ocean, sprint, spark",
+    "results": "Generate names to see the list."
+  },
+  "helper": {
+    "keywords": "Separate multiple keywords with commas or new lines.",
+    "count": "Generate between 1 and 20 names.",
+    "results": "Total {{count}} results"
+  },
+  "tone": {
+    "fun": "Playful",
+    "bold": "Bold",
+    "cute": "Cute",
+    "pro": "Professional",
+    "random": "Random"
+  },
+  "number": {
+    "none": "None",
+    "optional": "Sometimes",
+    "always": "Always"
+  },
+  "button": {
+    "generate": "Generate",
+    "shuffle": "Shuffle",
+    "example": "Try example",
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "example": {
+    "keywords": "ocean, spark, blue"
+  }
+}

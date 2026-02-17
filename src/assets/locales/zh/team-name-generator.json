@@ -1,0 +1,47 @@
+{
+  "title": "团队名称生成器",
+  "description": "选择关键词与风格，快速获得团队名称灵感。",
+  "openGraph": {
+    "title": "团队名称生成器",
+    "description": "组合关键词与语气，快速生成团队或项目名称。"
+  },
+  "label": {
+    "keywords": "关键词",
+    "tone": "风格",
+    "count": "数量",
+    "number": "添加编号",
+    "results": "结果"
+  },
+  "placeholder": {
+    "keywords": "例如：海洋，冲刺，火花",
+    "results": "请先生成名称。"
+  },
+  "helper": {
+    "keywords": "可用逗号或换行输入多个关键词。",
+    "count": "可生成 1~20 个名称。",
+    "results": "共 {{count}} 个结果"
+  },
+  "tone": {
+    "fun": "活泼",
+    "bold": "强势",
+    "cute": "可爱",
+    "pro": "专业",
+    "random": "随机"
+  },
+  "number": {
+    "none": "不添加",
+    "optional": "偶尔",
+    "always": "总是"
+  },
+  "button": {
+    "generate": "生成名称",
+    "shuffle": "重新生成",
+    "example": "示例输入",
+    "clear": "清除",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "example": {
+    "keywords": "海洋，火花，蓝"
+  }
+}
