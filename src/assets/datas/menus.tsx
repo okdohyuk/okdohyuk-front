@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Droplet,
   Github,
   Hash,
   Key,
@@ -18,6 +19,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Wallet,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -95,6 +97,26 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '물 섭취량 계산기',
+        en: 'Water Intake Calculator',
+        ja: '水分摂取量計算機',
+        zh: '饮水量计算器',
+      },
+      icon: <Droplet />,
+      link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '여행 예산 분배기',
+        en: 'Travel Budget Splitter',
+        ja: '旅行予算分配',
+        zh: '旅行预算分配器',
+      },
+      icon: <Wallet />,
+      link: '/budget-splitter',
     },
     {
       title: {
