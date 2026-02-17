@@ -1,0 +1,26 @@
+{
+  "title": "文解析ツール",
+  "description": "文章・単語・文字数をすぐに集計します。",
+  "label": {
+    "input": "解析するテキスト",
+    "summary": "サマリー"
+  },
+  "placeholder": "ここにテキストを入力してください。",
+  "helper": "「.」「!」「?」などの句読点で文を推定します。",
+  "summaryHint": "入力に合わせてリアルタイム更新。",
+  "stats": {
+    "sentences": "文数",
+    "words": "単語数",
+    "characters": "文字数（空白含む）",
+    "charactersNoSpaces": "文字数（空白除外）",
+    "lines": "行数",
+    "bytes": "バイト数",
+    "averageWords": "文あたりの平均単語",
+    "averageChars": "文あたりの平均文字"
+  },
+  "empty": "テキストを入力すると集計結果が表示されます。",
+  "openGraph": {
+    "title": "文解析ツール",
+    "description": "文数・単語数・文字数をすぐに確認できます。"
+  }
+}

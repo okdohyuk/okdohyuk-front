@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  AlignLeft,
   Bomb,
   Calculator,
   CalendarClock,
@@ -13,6 +14,7 @@ import {
   MonitorPlay,
   Palette,
   QrCode,
+  Repeat,
   Server,
   Smile,
   Sparkles,
@@ -85,6 +87,26 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 뒤집기',
+        en: 'Text Reverser',
+        ja: 'テキスト反転',
+        zh: '文本反转器',
+      },
+      icon: <Repeat />,
+      link: '/text-reverser',
+    },
+    {
+      title: {
+        ko: '문장 분석기',
+        en: 'Sentence Analyzer',
+        ja: '文解析ツール',
+        zh: '句子分析器',
+      },
+      icon: <AlignLeft />,
+      link: '/sentence-analyzer',
     },
     {
       title: {

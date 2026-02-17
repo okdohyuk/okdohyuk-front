@@ -1,0 +1,26 @@
+{
+  "title": "句子分析器",
+  "description": "快速统计句子、单词和字符数量。",
+  "label": {
+    "input": "要分析的文本",
+    "summary": "汇总"
+  },
+  "placeholder": "在此粘贴或输入文本。",
+  "helper": "使用 . ! ? 等标点来估算句子。",
+  "summaryHint": "输入时实时更新。",
+  "stats": {
+    "sentences": "句子数",
+    "words": "单词数",
+    "characters": "字符数（含空格）",
+    "charactersNoSpaces": "字符数（不含空格）",
+    "lines": "行数",
+    "bytes": "字节数",
+    "averageWords": "每句平均单词",
+    "averageChars": "每句平均字符"
+  },
+  "empty": "输入文本即可查看分析结果。",
+  "openGraph": {
+    "title": "句子分析器",
+    "description": "即时分析句子、单词和字符数量。"
+  }
+}

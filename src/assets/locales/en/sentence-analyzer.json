@@ -1,0 +1,26 @@
+{
+  "title": "Sentence Analyzer",
+  "description": "Measure sentences, words, and characters in a snap.",
+  "label": {
+    "input": "Text to analyze",
+    "summary": "Summary"
+  },
+  "placeholder": "Paste or type your text here.",
+  "helper": "We estimate sentences using punctuation like . ! ?",
+  "summaryHint": "Counts update live as you type.",
+  "stats": {
+    "sentences": "Sentences",
+    "words": "Words",
+    "characters": "Characters (with spaces)",
+    "charactersNoSpaces": "Characters (no spaces)",
+    "lines": "Lines",
+    "bytes": "Bytes",
+    "averageWords": "Avg. words per sentence",
+    "averageChars": "Avg. characters per sentence"
+  },
+  "empty": "Enter text to see the analysis.",
+  "openGraph": {
+    "title": "Sentence Analyzer",
+    "description": "Analyze sentences, words, and character counts instantly."
+  }
+}

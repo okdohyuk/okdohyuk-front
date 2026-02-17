@@ -1,0 +1,26 @@
+{
+  "title": "문장 분석기",
+  "description": "문장, 단어, 글자 수를 빠르게 확인해요.",
+  "label": {
+    "input": "분석할 텍스트",
+    "summary": "요약"
+  },
+  "placeholder": "여기에 텍스트를 붙여넣거나 입력하세요.",
+  "helper": "마침표/물음표/느낌표 등을 기준으로 문장을 추정합니다.",
+  "summaryHint": "입력과 동시에 집계돼요.",
+  "stats": {
+    "sentences": "문장 수",
+    "words": "단어 수",
+    "characters": "글자 수(공백 포함)",
+    "charactersNoSpaces": "글자 수(공백 제외)",
+    "lines": "줄 수",
+    "bytes": "바이트",
+    "averageWords": "문장당 평균 단어",
+    "averageChars": "문장당 평균 글자"
+  },
+  "empty": "텍스트를 입력하면 분석 결과가 표시됩니다.",
+  "openGraph": {
+    "title": "문장 분석기",
+    "description": "문장과 단어, 글자 수를 빠르게 분석하세요."
+  }
+}
