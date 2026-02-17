@@ -1,0 +1,27 @@
+{
+  "openGraph": {
+    "title": "Plant watering planner",
+    "ogTitle": "Plant watering planner for healthy routines",
+    "description": "Plan watering days, track intervals, and avoid overwatering with a simple plant care checklist.",
+    "keywords": ["plant", "watering", "planner", "houseplant", "schedule", "care", "tracker"]
+  },
+  "title": "Plant Watering Planner",
+  "description": "Track last watered dates and see the next watering day at a glance.",
+  "form": {
+    "nameLabel": "Plant name",
+    "namePlaceholder": "e.g. Monstera",
+    "lastWateredLabel": "Last watered",
+    "intervalLabel": "Watering interval (days)",
+    "today": "Today",
+    "add": "Add"
+  },
+  "list": {
+    "empty": "Add your first plant to start tracking watering days.",
+    "lastWatered": "Last watered",
+    "nextWatering": "Next watering",
+    "today": "Water today",
+    "daysLeft": "{{count}} days left",
+    "overdue": "{{count}} days overdue",
+    "remove": "Remove"
+  }
+}

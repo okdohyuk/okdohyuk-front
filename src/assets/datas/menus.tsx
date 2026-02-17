@@ -8,6 +8,7 @@ import {
   Github,
   Hash,
   Key,
+  Leaf,
   Linkedin,
   List,
   MonitorPlay,
@@ -145,6 +146,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '식물 물주기 플래너',
+        en: 'Plant Watering Planner',
+        ja: '植物の水やりプランナー',
+        zh: '植物浇水计划器',
+      },
+      icon: <Leaf />,
+      link: '/plant-watering',
     },
     {
       title: {

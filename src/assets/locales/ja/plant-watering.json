@@ -1,0 +1,27 @@
+{
+  "openGraph": {
+    "title": "植物の水やりプランナー",
+    "ogTitle": "植物の水やりプランナー",
+    "description": "前回の水やり日と間隔を記録し、次の水やり日を簡単に確認できます。",
+    "keywords": ["植物", "水やり", "プランナー", "スケジュール", "観葉植物", "管理", "チェック"]
+  },
+  "title": "植物の水やりプランナー",
+  "description": "前回の水やり日を記録して次の水やり日を一覧で確認します。",
+  "form": {
+    "nameLabel": "植物名",
+    "namePlaceholder": "例: モンステラ",
+    "lastWateredLabel": "前回の水やり",
+    "intervalLabel": "水やり間隔（日）",
+    "today": "今日",
+    "add": "追加"
+  },
+  "list": {
+    "empty": "最初の植物を追加して水やり日を管理しましょう。",
+    "lastWatered": "前回の水やり",
+    "nextWatering": "次の水やり",
+    "today": "今日は水やり",
+    "daysLeft": "あと{{count}}日",
+    "overdue": "{{count}}日遅れ",
+    "remove": "削除"
+  }
+}

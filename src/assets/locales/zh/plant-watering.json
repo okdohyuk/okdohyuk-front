@@ -1,0 +1,27 @@
+{
+  "openGraph": {
+    "title": "植物浇水计划器",
+    "ogTitle": "植物浇水计划器",
+    "description": "记录上次浇水日期与间隔，快速查看下一次浇水日程。",
+    "keywords": ["植物", "浇水", "计划", "日程", "绿植", "管理", "清单"]
+  },
+  "title": "植物浇水计划器",
+  "description": "记录上次浇水日期，轻松查看下一次浇水日。",
+  "form": {
+    "nameLabel": "植物名称",
+    "namePlaceholder": "例如：龟背竹",
+    "lastWateredLabel": "上次浇水",
+    "intervalLabel": "浇水间隔（天）",
+    "today": "今天",
+    "add": "添加"
+  },
+  "list": {
+    "empty": "先添加一株植物开始管理浇水日程吧。",
+    "lastWatered": "上次浇水",
+    "nextWatering": "下一次浇水",
+    "today": "今天浇水",
+    "daysLeft": "还剩{{count}}天",
+    "overdue": "已超{{count}}天",
+    "remove": "删除"
+  }
+}

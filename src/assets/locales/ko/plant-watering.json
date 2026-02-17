@@ -1,0 +1,27 @@
+{
+  "openGraph": {
+    "title": "식물 물주기 플래너",
+    "ogTitle": "식물 물주기 플래너",
+    "description": "마지막 물 준 날짜와 간격을 기록해 다음 물주기 일정을 간편하게 확인하세요.",
+    "keywords": ["식물", "물주기", "플래너", "스케줄", "반려식물", "관리", "체크리스트"]
+  },
+  "title": "식물 물주기 플래너",
+  "description": "마지막 물 준 날짜를 기록하고 다음 물주기 일정을 한눈에 확인하세요.",
+  "form": {
+    "nameLabel": "식물 이름",
+    "namePlaceholder": "예: 몬스테라",
+    "lastWateredLabel": "마지막 물 준 날",
+    "intervalLabel": "물주기 간격(일)",
+    "today": "오늘",
+    "add": "추가"
+  },
+  "list": {
+    "empty": "식물을 추가해 물주기 일정을 관리해 보세요.",
+    "lastWatered": "마지막 물 준 날",
+    "nextWatering": "다음 물주기",
+    "today": "오늘 물주기",
+    "daysLeft": "{{count}}일 남음",
+    "overdue": "{{count}}일 지남",
+    "remove": "삭제"
+  }
+}
