@@ -1,0 +1,74 @@
+{
+  "title": "기분 체크인",
+  "description": "오늘의 기분을 기록하고 에너지/스트레스 상태를 한 줄 요약으로 남겨보세요.",
+  "openGraph": {
+    "title": "기분 체크인",
+    "description": "기분, 에너지, 스트레스, 메모를 간단히 정리해 공유할 수 있는 체크인 도구입니다."
+  },
+  "sections": {
+    "mood": "지금 기분",
+    "energy": "에너지",
+    "stress": "스트레스",
+    "note": "한 줄 메모"
+  },
+  "labels": {
+    "select": "선택"
+  },
+  "moods": {
+    "great": {
+      "label": "아주 좋아요",
+      "description": "가볍고 에너지가 넘쳐요"
+    },
+    "good": {
+      "label": "좋아요",
+      "description": "안정적이고 괜찮아요"
+    },
+    "okay": {
+      "label": "그럭저럭",
+      "description": "평소와 비슷해요"
+    },
+    "down": {
+      "label": "조금 다운",
+      "description": "피곤하거나 집중이 어려워요"
+    },
+    "rough": {
+      "label": "힘들어요",
+      "description": "쉬거나 도움이 필요해요"
+    }
+  },
+  "levels": {
+    "1": "매우 낮음",
+    "2": "낮음",
+    "3": "보통",
+    "4": "높음",
+    "5": "매우 높음"
+  },
+  "note": {
+    "placeholder": "오늘 있었던 일이나 감정을 간단히 적어보세요"
+  },
+  "actions": {
+    "generate": "요약 만들기",
+    "copy": "요약 복사",
+    "reset": "초기화",
+    "example": "예시 입력"
+  },
+  "summary": {
+    "title": "체크인 요약",
+    "prefix": "현재 기분: {{mood}}",
+    "energy": "에너지: {{level}}",
+    "stress": "스트레스: {{level}}",
+    "note": "메모: {{note}}",
+    "noteEmpty": "메모: 없음",
+    "time": "시간: {{time}}",
+    "empty": "아직 생성된 요약이 없어요. 기분을 선택하고 요약을 만들어보세요."
+  },
+  "validation": {
+    "mood": "기분을 하나 선택해주세요."
+  },
+  "status": {
+    "copied": "클립보드에 복사했어요."
+  },
+  "example": {
+    "note": "오전 회의가 끝나서 한결 여유가 생겼어요."
+  }
+}

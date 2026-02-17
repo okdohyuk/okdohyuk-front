@@ -1,0 +1,74 @@
+{
+  "title": "気分チェックイン",
+  "description": "今日の気分を記録し、エネルギーとストレスを簡単にまとめましょう。",
+  "openGraph": {
+    "title": "気分チェックイン",
+    "description": "気分・エネルギー・ストレス・メモを一目で共有できるチェックインツール。"
+  },
+  "sections": {
+    "mood": "今の気分",
+    "energy": "エネルギー",
+    "stress": "ストレス",
+    "note": "ひと言メモ"
+  },
+  "labels": {
+    "select": "選択"
+  },
+  "moods": {
+    "great": {
+      "label": "最高",
+      "description": "軽やかで元気"
+    },
+    "good": {
+      "label": "いい感じ",
+      "description": "安定している"
+    },
+    "okay": {
+      "label": "まあまあ",
+      "description": "いつも通り"
+    },
+    "down": {
+      "label": "少し落ち込み",
+      "description": "疲れ気味・集中しづらい"
+    },
+    "rough": {
+      "label": "しんどい",
+      "description": "休憩やサポートが必要"
+    }
+  },
+  "levels": {
+    "1": "とても低い",
+    "2": "低い",
+    "3": "普通",
+    "4": "高い",
+    "5": "とても高い"
+  },
+  "note": {
+    "placeholder": "今日の出来事や気持ちを一言で"
+  },
+  "actions": {
+    "generate": "要約を作成",
+    "copy": "要約をコピー",
+    "reset": "リセット",
+    "example": "例を入力"
+  },
+  "summary": {
+    "title": "チェックイン要約",
+    "prefix": "気分: {{mood}}",
+    "energy": "エネルギー: {{level}}",
+    "stress": "ストレス: {{level}}",
+    "note": "メモ: {{note}}",
+    "noteEmpty": "メモ: なし",
+    "time": "時間: {{time}}",
+    "empty": "まだ要約がありません。気分を選んで作成してください。"
+  },
+  "validation": {
+    "mood": "気分を選択してください。"
+  },
+  "status": {
+    "copied": "クリップボードにコピーしました。"
+  },
+  "example": {
+    "note": "午前の会議が終わって少し気が楽になりました。"
+  }
+}

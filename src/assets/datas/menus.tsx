@@ -5,8 +5,10 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
+  HeartPulse,
   Key,
   Linkedin,
   List,
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 분석기',
+        en: 'Text Analyzer',
+        ja: 'テキスト解析',
+        zh: '文本分析器',
+      },
+      icon: <FileText />,
+      link: '/text-analyzer',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '기분 체크인',
+        en: 'Mood Check-in',
+        ja: '気分チェックイン',
+        zh: '心情打卡',
+      },
+      icon: <HeartPulse />,
+      link: '/mood-checkin',
     },
     {
       title: {

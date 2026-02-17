@@ -1,0 +1,74 @@
+{
+  "title": "Mood Check-in",
+  "description": "Capture today's mood and turn your energy & stress into a simple shareable snapshot.",
+  "openGraph": {
+    "title": "Mood Check-in",
+    "description": "A quick check-in tool to summarize your mood, energy, stress, and notes in one glance."
+  },
+  "sections": {
+    "mood": "Current mood",
+    "energy": "Energy",
+    "stress": "Stress",
+    "note": "Quick note"
+  },
+  "labels": {
+    "select": "Select"
+  },
+  "moods": {
+    "great": {
+      "label": "Feeling great",
+      "description": "Light and energized"
+    },
+    "good": {
+      "label": "Feeling good",
+      "description": "Steady and okay"
+    },
+    "okay": {
+      "label": "Just okay",
+      "description": "About the usual"
+    },
+    "down": {
+      "label": "A bit down",
+      "description": "Tired or unfocused"
+    },
+    "rough": {
+      "label": "Rough day",
+      "description": "Needs rest or support"
+    }
+  },
+  "levels": {
+    "1": "Very low",
+    "2": "Low",
+    "3": "Moderate",
+    "4": "High",
+    "5": "Very high"
+  },
+  "note": {
+    "placeholder": "Write a quick highlight or feeling from today"
+  },
+  "actions": {
+    "generate": "Create summary",
+    "copy": "Copy summary",
+    "reset": "Reset",
+    "example": "Use example"
+  },
+  "summary": {
+    "title": "Check-in summary",
+    "prefix": "Mood: {{mood}}",
+    "energy": "Energy: {{level}}",
+    "stress": "Stress: {{level}}",
+    "note": "Note: {{note}}",
+    "noteEmpty": "Note: none",
+    "time": "Time: {{time}}",
+    "empty": "No summary yet. Pick a mood and generate one."
+  },
+  "validation": {
+    "mood": "Please select a mood first."
+  },
+  "status": {
+    "copied": "Copied to clipboard."
+  },
+  "example": {
+    "note": "Wrapped up a morning meeting and felt lighter afterward."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "title": "心情打卡",
+  "description": "记录今天的心情，把能量与压力整理成可分享的摘要。",
+  "openGraph": {
+    "title": "心情打卡",
+    "description": "快速汇总心情、能量、压力和备注的打卡工具。"
+  },
+  "sections": {
+    "mood": "当前心情",
+    "energy": "能量",
+    "stress": "压力",
+    "note": "简短备注"
+  },
+  "labels": {
+    "select": "选择"
+  },
+  "moods": {
+    "great": {
+      "label": "状态很好",
+      "description": "轻松且充满能量"
+    },
+    "good": {
+      "label": "感觉不错",
+      "description": "稳定还可以"
+    },
+    "okay": {
+      "label": "一般般",
+      "description": "和平常差不多"
+    },
+    "down": {
+      "label": "有点低落",
+      "description": "疲惫或不太专注"
+    },
+    "rough": {
+      "label": "有点难熬",
+      "description": "需要休息或支持"
+    }
+  },
+  "levels": {
+    "1": "非常低",
+    "2": "低",
+    "3": "一般",
+    "4": "高",
+    "5": "非常高"
+  },
+  "note": {
+    "placeholder": "写下今天的一件事或感受"
+  },
+  "actions": {
+    "generate": "生成摘要",
+    "copy": "复制摘要",
+    "reset": "重置",
+    "example": "示例输入"
+  },
+  "summary": {
+    "title": "打卡摘要",
+    "prefix": "心情：{{mood}}",
+    "energy": "能量：{{level}}",
+    "stress": "压力：{{level}}",
+    "note": "备注：{{note}}",
+    "noteEmpty": "备注：无",
+    "time": "时间：{{time}}",
+    "empty": "还没有摘要，请选择心情并生成。"
+  },
+  "validation": {
+    "mood": "请先选择心情。"
+  },
+  "status": {
+    "copied": "已复制到剪贴板。"
+  },
+  "example": {
+    "note": "上午会议结束后感觉轻松了不少。"
+  }
+}
