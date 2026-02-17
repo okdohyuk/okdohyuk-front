@@ -1,0 +1,63 @@
+{
+  "openGraph": {
+    "title": "有給残日数計算",
+    "ogTitle": "有給残日数計算 - 残り日数と使用率",
+    "description": "総有給日数、繰越、有給使用/予定日数を入力して、残り日数と使用率をすぐに確認できます。",
+    "keywords": [
+      "有給",
+      "有給残日数",
+      "有給計算",
+      "休暇",
+      "休暇計算",
+      "有給使用率",
+      "繰越有給",
+      "半休",
+      "PTO",
+      "休暇管理"
+    ]
+  },
+  "title": "有給残日数計算",
+  "description": "総有給日数、繰越、有給使用/予定日数を入力して残り日数と使用率を確認しましょう。",
+  "labels": {
+    "totalDays": "総有給日数",
+    "carryoverDays": "繰越有給",
+    "usedDays": "使用済み有給",
+    "usedHalfDays": "使用済み半休",
+    "plannedDays": "予定有給"
+  },
+  "placeholders": {
+    "totalDays": "15",
+    "carryoverDays": "2",
+    "usedDays": "6",
+    "usedHalfDays": "1",
+    "plannedDays": "3"
+  },
+  "hint": "半休は0.5単位で入力できます。",
+  "actions": {
+    "sample": "サンプル入力",
+    "reset": "リセット",
+    "copy": "要約をコピー",
+    "copySuccess": "コピーしました",
+    "copyError": "コピー失敗"
+  },
+  "results": {
+    "title": "計算結果",
+    "availableTotal": "利用可能な有給合計",
+    "usedTotal": "使用済み有給合計",
+    "remaining": "残り有給",
+    "remainingAfterPlan": "予定反映後の残り",
+    "usedPercent": "使用率"
+  },
+  "warnings": {
+    "invalidTotal": "総有給が0以下です。入力値を確認してください。",
+    "overUsed": "使用済み有給が総有給を超えています。",
+    "negativeRemaining": "予定を反映すると残り有給がマイナスになります。"
+  },
+  "summary": {
+    "title": "有給サマリー",
+    "used": "使用",
+    "remaining": "残り",
+    "remainingAfterPlan": "予定反映後の残り",
+    "days": "日"
+  }
+}

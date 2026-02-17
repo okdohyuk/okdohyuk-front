@@ -1,0 +1,63 @@
+{
+  "openGraph": {
+    "title": "연차 잔여 계산기",
+    "ogTitle": "연차 잔여 계산기 - 남은 연차와 사용률 확인",
+    "description": "총 연차, 이월 연차, 사용/예정 연차를 입력해 남은 연차와 사용률을 간편하게 확인하세요.",
+    "keywords": [
+      "연차",
+      "연차 계산",
+      "연차 잔여",
+      "휴가",
+      "휴가 계산기",
+      "연차 사용률",
+      "연차 관리",
+      "반차",
+      "이월 연차",
+      "연차 계획"
+    ]
+  },
+  "title": "연차 잔여 계산기",
+  "description": "총 연차, 이월 연차, 사용/예정 연차를 입력해 남은 연차와 사용률을 한 번에 확인하세요.",
+  "labels": {
+    "totalDays": "총 연차 일수",
+    "carryoverDays": "이월 연차",
+    "usedDays": "사용한 연차",
+    "usedHalfDays": "사용한 반차",
+    "plannedDays": "예정 연차"
+  },
+  "placeholders": {
+    "totalDays": "15",
+    "carryoverDays": "2",
+    "usedDays": "6",
+    "usedHalfDays": "1",
+    "plannedDays": "3"
+  },
+  "hint": "반차는 0.5 단위로 입력할 수 있어요.",
+  "actions": {
+    "sample": "예시 입력",
+    "reset": "초기화",
+    "copy": "요약 복사",
+    "copySuccess": "복사 완료",
+    "copyError": "복사 실패"
+  },
+  "results": {
+    "title": "계산 결과",
+    "availableTotal": "총 사용 가능 연차",
+    "usedTotal": "사용한 연차 합계",
+    "remaining": "남은 연차",
+    "remainingAfterPlan": "예정 반영 후 남은 연차",
+    "usedPercent": "사용률"
+  },
+  "warnings": {
+    "invalidTotal": "총 연차가 0 이하입니다. 입력값을 확인하세요.",
+    "overUsed": "사용한 연차가 총 연차를 초과했습니다.",
+    "negativeRemaining": "예정 연차까지 반영하면 잔여 연차가 마이너스입니다."
+  },
+  "summary": {
+    "title": "연차 요약",
+    "used": "사용",
+    "remaining": "잔여",
+    "remainingAfterPlan": "예정 반영 후 잔여",
+    "days": "일"
+  }
+}

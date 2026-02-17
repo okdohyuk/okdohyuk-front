@@ -1,0 +1,63 @@
+{
+  "openGraph": {
+    "title": "Leave Balance Calculator",
+    "ogTitle": "Leave Balance Calculator - Track remaining days",
+    "description": "Enter your total leave, carryover, used, and planned days to check remaining balance and usage rate instantly.",
+    "keywords": [
+      "leave balance",
+      "annual leave",
+      "vacation days",
+      "leave calculator",
+      "leave usage",
+      "carryover leave",
+      "half day",
+      "vacation planner",
+      "PTO",
+      "leave management"
+    ]
+  },
+  "title": "Leave Balance Calculator",
+  "description": "Enter total leave, carryover, used, and planned days to see remaining balance and usage rate at a glance.",
+  "labels": {
+    "totalDays": "Total leave days",
+    "carryoverDays": "Carryover leave",
+    "usedDays": "Used leave",
+    "usedHalfDays": "Used half-days",
+    "plannedDays": "Planned leave"
+  },
+  "placeholders": {
+    "totalDays": "15",
+    "carryoverDays": "2",
+    "usedDays": "6",
+    "usedHalfDays": "1",
+    "plannedDays": "3"
+  },
+  "hint": "Half-days can be entered as 0.5.",
+  "actions": {
+    "sample": "Fill sample",
+    "reset": "Reset",
+    "copy": "Copy summary",
+    "copySuccess": "Copied",
+    "copyError": "Copy failed"
+  },
+  "results": {
+    "title": "Results",
+    "availableTotal": "Total available leave",
+    "usedTotal": "Total used leave",
+    "remaining": "Remaining leave",
+    "remainingAfterPlan": "Remaining after plan",
+    "usedPercent": "Usage rate"
+  },
+  "warnings": {
+    "invalidTotal": "Total available leave is zero or less. Please check your inputs.",
+    "overUsed": "Used leave exceeds total available leave.",
+    "negativeRemaining": "Remaining leave becomes negative after applying planned days."
+  },
+  "summary": {
+    "title": "Leave Summary",
+    "used": "Used",
+    "remaining": "Remaining",
+    "remainingAfterPlan": "Remaining after plan",
+    "days": "days"
+  }
+}

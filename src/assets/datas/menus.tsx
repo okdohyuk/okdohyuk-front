@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Bomb,
   Calculator,
+  CalendarCheck,
   CalendarClock,
   Code,
   CreditCard,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '연차 잔여 계산기',
+        en: 'Leave Balance Calculator',
+        ja: '有給残日数計算',
+        zh: '年假余额计算器',
+      },
+      icon: <CalendarCheck />,
+      link: '/leave-balance',
     },
     {
       title: {
