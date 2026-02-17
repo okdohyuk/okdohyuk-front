@@ -98,6 +98,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '팁 계산기',
+        en: 'Gratuity Calculator',
+        ja: 'チップ計算機',
+        zh: '小费计算器',
+      },
+      icon: <CreditCard />,
+      link: '/gratuity-calculator',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',
@@ -176,27 +186,7 @@ const menus: Menus = {
         zh: 'Tistory',
       },
       icon: <MonitorPlay />,
-      link: 'https://blog.okdohyuk.dev/',
-    },
-    {
-      title: {
-        ko: '깃허브',
-        en: 'Github',
-        ja: 'GitHub',
-        zh: 'GitHub',
-      },
-      icon: <Github />,
-      link: 'https://github.com/okdohyuk',
-    },
-    {
-      title: {
-        ko: '링크드인',
-        en: 'LinkedIn',
-        ja: 'LinkedIn',
-        zh: '领英',
-      },
-      icon: <Linkedin />,
-      link: 'https://www.linkedin.com/in/okdohyuk/',
+      link: 'https://okdohyuk.tistory.com/',
     },
     {
       title: {
@@ -210,28 +200,39 @@ const menus: Menus = {
     },
     {
       title: {
-        ko: '후원하기',
-        en: 'Donate',
-        ja: '寄付する',
-        zh: '赞助',
+        ko: '깃허브',
+        en: 'GitHub',
+        ja: 'GitHub',
+        zh: 'GitHub',
       },
-      icon: <CreditCard />,
-      link: 'https://github.com/sponsors/okdohyuk?frequency=recurring',
+      icon: <Github />,
+      link: 'https://github.com/okdohyuk',
     },
-  ],
-  trash: [
     {
       title: {
-        ko: '해몽',
-        en: 'Dream Resolver',
-        ja: '夢占い',
-        zh: '解梦',
+        ko: '링크드인',
+        en: 'LinkedIn',
+        ja: 'LinkedIn',
+        zh: 'LinkedIn',
+      },
+      icon: <Linkedin />,
+      link: 'https://www.linkedin.com/in/okdohyuk/',
+    },
+  ],
+  info: [
+    {
+      title: {
+        ko: '한 줄 명언',
+        en: 'Quote',
+        ja: '一言名言',
+        zh: '一句名言',
       },
       icon: <Sparkles />,
-      link: '/dream-resolver',
+      link: '/quote',
     },
   ],
 };
 
-export type { MenuItem, Menus };
+export type { MenuItem, Menus, Title };
+
 export { menus };

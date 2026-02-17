@@ -1,0 +1,36 @@
+{
+  "title": "チップ計算機",
+  "description": "請求金額とチップ率から合計と1人あたりの金額をすぐに計算します。",
+  "label": {
+    "bill": "請求金額",
+    "tipRate": "チップ率 (%)",
+    "people": "人数",
+    "currency": "通貨",
+    "quickRates": "クイック選択"
+  },
+  "placeholder": {
+    "bill": "例: 4,850",
+    "tipRate": "例: 15",
+    "people": "例: 2"
+  },
+  "currency": {
+    "krw": "KRW (₩)",
+    "usd": "USD ($)",
+    "jpy": "JPY (¥)",
+    "cny": "CNY (¥)"
+  },
+  "result": {
+    "title": "サマリー",
+    "tip": "チップ額",
+    "total": "合計金額",
+    "perPerson": "1人あたり",
+    "tipPerPerson": "1人あたりのチップ"
+  },
+  "helper": {
+    "split": "合計金額は人数で均等に分けられます。"
+  },
+  "openGraph": {
+    "title": "チップ計算機",
+    "description": "請求金額とチップ率から合計と1人あたりの金額をすぐに計算します。"
+  }
+}
