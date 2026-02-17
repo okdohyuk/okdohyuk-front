@@ -1,0 +1,71 @@
+{
+  "openGraph": {
+    "title": "Commute Cost Toolkit",
+    "ogTitle": "Commute time cost, fuel spend, and carbon estimate",
+    "description": "Estimate monthly time cost, fuel spend, and CO₂ emissions from your commute in seconds.",
+    "keywords": [
+      "commute",
+      "time cost",
+      "fuel cost",
+      "carbon emission",
+      "monthly budget",
+      "commute calculator",
+      "lifestyle tool"
+    ]
+  },
+  "title": "Commute Cost Toolkit",
+  "description": "Calculate monthly time cost, fuel spend, and carbon emissions from your commute.",
+  "badge": "Lifestyle Tool",
+  "helper": "Enter your commute details to calculate time value, fuel cost, and emissions together.",
+  "timeCost": {
+    "title": "Time Value",
+    "description": "Convert commute minutes into monthly time cost.",
+    "fields": {
+      "minutesPerDay": "Round-trip commute minutes per day",
+      "workdays": "Workdays per month",
+      "hourlyWage": "Hourly value"
+    },
+    "placeholders": {
+      "minutesPerDay": "70",
+      "workdays": "20",
+      "hourlyWage": "12000"
+    },
+    "resultLabel": "Monthly time cost"
+  },
+  "fuelCost": {
+    "title": "Fuel Cost Estimate",
+    "description": "Calculate monthly fuel spend from distance and efficiency.",
+    "fields": {
+      "distanceOneWay": "One-way distance (km)",
+      "workdays": "Workdays per month",
+      "fuelEfficiency": "Fuel efficiency (km/L)",
+      "fuelPrice": "Fuel price (per L)"
+    },
+    "placeholders": {
+      "distanceOneWay": "12",
+      "workdays": "20",
+      "fuelEfficiency": "12",
+      "fuelPrice": "1700"
+    },
+    "resultLabel": "Monthly fuel cost"
+  },
+  "carbon": {
+    "title": "Carbon Estimate",
+    "description": "Estimate monthly CO₂ emissions based on distance.",
+    "fields": {
+      "distanceOneWay": "One-way distance (km)",
+      "workdays": "Workdays per month",
+      "emissionPerKm": "Emission per km (g CO₂)"
+    },
+    "placeholders": {
+      "distanceOneWay": "12",
+      "workdays": "20",
+      "emissionPerKm": "120"
+    },
+    "resultLabel": "Monthly emissions"
+  },
+  "unit": {
+    "currency": "KRW",
+    "kgCo2": "kg CO₂"
+  }
+}

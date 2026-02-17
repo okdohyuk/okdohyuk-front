@@ -1,0 +1,72 @@
+{
+  "openGraph": {
+    "title": "通勤成本工具包",
+    "ogTitle": "通勤时间成本、油费与碳排放估算",
+    "description": "根据通勤时间和距离快速估算月度时间成本、油费与 CO₂ 排放量。",
+    "keywords": [
+      "通勤",
+      "通勤成本",
+      "时间成本",
+      "油费",
+      "碳排放",
+      "月度成本",
+      "通勤计算",
+      "生活工具"
+    ]
+  },
+  "title": "通勤成本工具包",
+  "description": "根据通勤时间与距离计算月度时间成本、油费和碳排放。",
+  "badge": "生活工具",
+  "helper": "输入通勤信息即可同时计算时间成本、油费和排放量。",
+  "timeCost": {
+    "title": "时间价值计算",
+    "description": "将通勤分钟数换算为月度时间成本。",
+    "fields": {
+      "minutesPerDay": "每日往返通勤时间 (分钟)",
+      "workdays": "每月工作日数",
+      "hourlyWage": "每小时价值 (韩元)"
+    },
+    "placeholders": {
+      "minutesPerDay": "70",
+      "workdays": "20",
+      "hourlyWage": "12000"
+    },
+    "resultLabel": "月度时间成本"
+  },
+  "fuelCost": {
+    "title": "油费估算",
+    "description": "根据距离和油耗计算月度油费。",
+    "fields": {
+      "distanceOneWay": "单程距离 (km)",
+      "workdays": "每月工作日数",
+      "fuelEfficiency": "油耗 (km/L)",
+      "fuelPrice": "燃油单价 (韩元/L)"
+    },
+    "placeholders": {
+      "distanceOneWay": "12",
+      "workdays": "20",
+      "fuelEfficiency": "12",
+      "fuelPrice": "1700"
+    },
+    "resultLabel": "月度油费"
+  },
+  "carbon": {
+    "title": "碳排放估算",
+    "description": "根据行驶距离估算月度排放量。",
+    "fields": {
+      "distanceOneWay": "单程距离 (km)",
+      "workdays": "每月工作日数",
+      "emissionPerKm": "每公里排放量 (g CO₂)"
+    },
+    "placeholders": {
+      "distanceOneWay": "12",
+      "workdays": "20",
+      "emissionPerKm": "120"
+    },
+    "resultLabel": "月度排放量"
+  },
+  "unit": {
+    "currency": "韩元",
+    "kgCo2": "kg CO₂"
+  }
+}
