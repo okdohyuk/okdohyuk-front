@@ -7,6 +7,7 @@ import {
   CreditCard,
   Github,
   Hash,
+  Home,
   Key,
   Linkedin,
   List,
@@ -105,6 +106,16 @@ const menus: Menus = {
       },
       icon: <List />,
       link: '/todo',
+    },
+    {
+      title: {
+        ko: '이사 준비 체크리스트',
+        en: 'Moving Checklist',
+        ja: '引っ越し準備チェックリスト',
+        zh: '搬家准备清单',
+      },
+      icon: <Home />,
+      link: '/moving-checklist',
     },
     {
       title: {

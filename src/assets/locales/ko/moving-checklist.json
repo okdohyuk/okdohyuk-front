@@ -1,0 +1,56 @@
+{
+  "openGraph": {
+    "title": "이사 준비 체크리스트",
+    "ogTitle": "이사 준비 체크리스트, 일정, 포장, 체크리스트",
+    "description": "이사 날짜와 집 규모를 입력하면 준비 일정과 체크리스트가 자동으로 만들어집니다.",
+    "keywords": ["이사", "체크리스트", "이사 준비", "포장", "이사 일정", "정리", "생활"]
+  },
+  "title": "이사 준비 체크리스트",
+  "form": {
+    "moveDate": "이사 날짜",
+    "moveDateHint": "날짜를 입력하면 일정이 자동 계산됩니다.",
+    "homeSize": "집 규모"
+  },
+  "size": {
+    "studio": "원룸/오피스텔",
+    "small": "1~2룸",
+    "large": "3룸 이상"
+  },
+  "summary": {
+    "title": "요약",
+    "boxes": "예상 박스 수",
+    "tasks": "총 체크리스트 수"
+  },
+  "actions": {
+    "sample": "예시 입력",
+    "reset": "초기화",
+    "copy": "요약 복사",
+    "copied": "복사됨"
+  },
+  "result": {
+    "title": "체크리스트",
+    "empty": "이사 날짜를 입력하면 날짜별로 정리됩니다."
+  },
+  "labels": {
+    "dayBefore": "D-{days}",
+    "dayAfter": "D+{days}",
+    "moveDay": "D-day"
+  },
+  "tasks": {
+    "compareQuotes": "이사 업체/차량 견적 비교",
+    "declutter": "버릴 것/기증할 것 정리",
+    "packingSupplies": "박스·포장재 준비",
+    "addressChange": "주소 변경/서류 정리",
+    "utilityTransfer": "공과금 이전 예약",
+    "packing": "본격 포장 시작",
+    "essentialsBag": "당일 필수품 가방",
+    "moveDay": "이사 진행",
+    "cleaning": "청소 및 점검",
+    "unpack": "우선순위 짐 정리",
+    "neighbors": "이웃/관리실 인사",
+    "bulkTrash": "대형 폐기물 배출 예약",
+    "elevatorReservation": "엘리베이터/주차 예약"
+  },
+  "copyFormat": "이사 날짜: {date}\n집 규모: {size}\n예상 박스 수: {boxes}\n총 체크리스트: {tasks}",
+  "copyNoDate": "미정"
+}

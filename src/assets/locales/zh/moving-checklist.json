@@ -1,0 +1,56 @@
+{
+  "openGraph": {
+    "title": "搬家准备清单",
+    "ogTitle": "搬家准备清单、打包时间表、搬家规划",
+    "description": "输入搬家日期和房型规模，自动生成搬家准备清单与时间表。",
+    "keywords": ["搬家", "清单", "打包", "时间表", "搬家日", "整理"]
+  },
+  "title": "搬家准备清单",
+  "form": {
+    "moveDate": "搬家日期",
+    "moveDateHint": "输入日期后将自动计算安排。",
+    "homeSize": "房型规模"
+  },
+  "size": {
+    "studio": "单间/开间",
+    "small": "1–2居",
+    "large": "3居以上"
+  },
+  "summary": {
+    "title": "摘要",
+    "boxes": "预计箱数",
+    "tasks": "清单总数"
+  },
+  "actions": {
+    "sample": "示例输入",
+    "reset": "重置",
+    "copy": "复制摘要",
+    "copied": "已复制"
+  },
+  "result": {
+    "title": "清单",
+    "empty": "输入搬家日期后将按日期显示。"
+  },
+  "labels": {
+    "dayBefore": "D-{days}",
+    "dayAfter": "D+{days}",
+    "moveDay": "D-day"
+  },
+  "tasks": {
+    "compareQuotes": "对比搬家公司/车辆报价",
+    "declutter": "整理与断舍离",
+    "packingSupplies": "准备打包材料",
+    "addressChange": "地址变更与证件整理",
+    "utilityTransfer": "预约水电网迁移",
+    "packing": "开始打包",
+    "essentialsBag": "准备当天必需品包",
+    "moveDay": "搬家当天",
+    "cleaning": "清洁与检查",
+    "unpack": "优先物品拆箱",
+    "neighbors": "与邻居/物业打招呼",
+    "bulkTrash": "预约大件垃圾清运",
+    "elevatorReservation": "预约电梯/停车位"
+  },
+  "copyFormat": "搬家日期: {date}\n房型规模: {size}\n预计箱数: {boxes}\n清单总数: {tasks}",
+  "copyNoDate": "未设置"
+}
