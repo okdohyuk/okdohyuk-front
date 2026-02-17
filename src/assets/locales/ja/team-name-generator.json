@@ -1,0 +1,47 @@
+{
+  "title": "チーム名ジェネレーター",
+  "description": "キーワードと雰囲気を選ぶだけでチーム名候補を作れます。",
+  "openGraph": {
+    "title": "チーム名ジェネレーター",
+    "description": "キーワードとトーンを組み合わせてチーム名をすばやく提案します。"
+  },
+  "label": {
+    "keywords": "キーワード",
+    "tone": "トーン",
+    "count": "件数",
+    "number": "番号を追加",
+    "results": "結果"
+  },
+  "placeholder": {
+    "keywords": "例: 海, スプリント, スパーク",
+    "results": "まずは名前を生成してください。"
+  },
+  "helper": {
+    "keywords": "カンマや改行で複数のキーワードを入力できます。",
+    "count": "1〜20件まで生成できます。",
+    "results": "合計{{count}}件"
+  },
+  "tone": {
+    "fun": "楽しい",
+    "bold": "力強い",
+    "cute": "かわいい",
+    "pro": "プロ向け",
+    "random": "ランダム"
+  },
+  "number": {
+    "none": "なし",
+    "optional": "ときどき",
+    "always": "常に"
+  },
+  "button": {
+    "generate": "生成する",
+    "shuffle": "シャッフル",
+    "example": "例を入れる",
+    "clear": "リセット",
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "example": {
+    "keywords": "海, スパーク, ブルー"
+  }
+}

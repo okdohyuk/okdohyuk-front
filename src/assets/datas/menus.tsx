@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -18,6 +19,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  UsersRound,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -85,6 +87,26 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '팀 이름 생성기',
+        en: 'Team Name Generator',
+        ja: 'チーム名ジェネレーター',
+        zh: '团队名称生成器',
+      },
+      icon: <UsersRound />,
+      link: '/team-name-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 클리너',
+        en: 'Text Cleaner',
+        ja: 'テキストクリーナー',
+        zh: '文本清理器',
+      },
+      icon: <FileText />,
+      link: '/text-cleaner',
     },
     {
       title: {

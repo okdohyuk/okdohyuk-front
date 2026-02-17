@@ -1,0 +1,47 @@
+{
+  "title": "팀 이름 생성기",
+  "description": "키워드와 분위기를 선택해 팀 이름 후보를 바로 만들어요.",
+  "openGraph": {
+    "title": "팀 이름 생성기",
+    "description": "키워드와 톤을 조합해 팀/프로젝트 이름을 빠르게 추천합니다."
+  },
+  "label": {
+    "keywords": "키워드",
+    "tone": "톤",
+    "count": "개수",
+    "number": "번호 추가",
+    "results": "추천 결과"
+  },
+  "placeholder": {
+    "keywords": "예: 바다, 레이스, 스파크",
+    "results": "먼저 이름을 생성해 주세요."
+  },
+  "helper": {
+    "keywords": "쉼표나 줄바꿈으로 여러 키워드를 넣을 수 있어요.",
+    "count": "1~20개까지 생성 가능합니다.",
+    "results": "총 {{count}}개 결과"
+  },
+  "tone": {
+    "fun": "유쾌함",
+    "bold": "강렬함",
+    "cute": "귀여움",
+    "pro": "프로 느낌",
+    "random": "랜덤"
+  },
+  "number": {
+    "none": "없음",
+    "optional": "가끔",
+    "always": "항상"
+  },
+  "button": {
+    "generate": "이름 생성",
+    "shuffle": "다시 섞기",
+    "example": "예시 입력",
+    "clear": "초기화",
+    "copy": "복사",
+    "copied": "복사됨"
+  },
+  "example": {
+    "keywords": "바다, 스파크, 블루"
+  }
+}
