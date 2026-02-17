@@ -1,0 +1,35 @@
+{
+  "openGraph": {
+    "title": "환율 계산기",
+    "ogTitle": "환율 계산기, 여행 환전, 수수료 계산",
+    "description": "환율과 수수료를 입력해 환전 금액을 빠르게 계산하세요.",
+    "keywords": ["환율", "환전", "수수료", "여행", "통화", "계산기"]
+  },
+  "title": "환율 계산기",
+  "description": "원하는 환율과 수수료를 입력해 환전 금액을 빠르게 계산하세요.",
+  "badge": "여행 머니",
+  "quick": {
+    "title": "빠른 환율 변환",
+    "description": "기준 통화를 입력하면 대상 통화 금액을 계산합니다."
+  },
+  "fee": {
+    "title": "수수료 포함 환전",
+    "description": "환전 수수료를 반영한 실수령액을 계산합니다.",
+    "feePlaceholder": "수수료 (%)",
+    "afterFee": "수수료 적용 후: {{amount}} {{currency}}",
+    "converted": "환전 결과: {{amount}} {{currency}}"
+  },
+  "reverse": {
+    "title": "목표 금액 역산",
+    "description": "목표 금액을 받기 위해 필요한 기준 통화를 계산합니다.",
+    "targetPlaceholder": "받고 싶은 금액",
+    "result": "필요한 기준 통화: {{amount}} {{currency}}"
+  },
+  "labels": {
+    "baseCurrency": "기준 통화 (예: USD)",
+    "targetCurrency": "대상 통화 (예: KRW)",
+    "ratePlaceholder": "환율 (1 기준 통화 = ? 대상 통화)",
+    "amountPlaceholder": "금액",
+    "empty": "값을 입력하면 결과가 표시됩니다."
+  }
+}

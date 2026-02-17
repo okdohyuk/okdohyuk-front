@@ -1,0 +1,35 @@
+{
+  "openGraph": {
+    "title": "Currency Converter",
+    "ogTitle": "Currency Converter, Exchange Fee, Travel Money",
+    "description": "Calculate exchange results quickly with your rate and fees.",
+    "keywords": ["currency", "exchange", "rate", "fee", "travel", "converter"]
+  },
+  "title": "Currency Converter",
+  "description": "Enter your rate and fee to estimate exchange results in seconds.",
+  "badge": "Travel Money",
+  "quick": {
+    "title": "Quick conversion",
+    "description": "Convert from your base currency to the target currency."
+  },
+  "fee": {
+    "title": "Fee included",
+    "description": "See the amount after exchange fees are applied.",
+    "feePlaceholder": "Fee (%)",
+    "afterFee": "After fee: {{amount}} {{currency}}",
+    "converted": "Converted: {{amount}} {{currency}}"
+  },
+  "reverse": {
+    "title": "Reverse target",
+    "description": "Find the base currency needed to reach your target amount.",
+    "targetPlaceholder": "Target amount",
+    "result": "Base needed: {{amount}} {{currency}}"
+  },
+  "labels": {
+    "baseCurrency": "Base currency (e.g., USD)",
+    "targetCurrency": "Target currency (e.g., KRW)",
+    "ratePlaceholder": "Rate (1 base = ? target)",
+    "amountPlaceholder": "Amount",
+    "empty": "Enter values to see results."
+  }
+}

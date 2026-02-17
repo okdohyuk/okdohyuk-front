@@ -1,0 +1,35 @@
+{
+  "openGraph": {
+    "title": "為替計算機",
+    "ogTitle": "為替計算機、両替手数料、旅行マネー",
+    "description": "為替レートと手数料を入力して両替結果をすばやく計算します。",
+    "keywords": ["為替", "両替", "レート", "手数料", "旅行", "計算機"]
+  },
+  "title": "為替計算機",
+  "description": "為替レートと手数料を入力して両替結果を素早く確認できます。",
+  "badge": "旅行マネー",
+  "quick": {
+    "title": "クイック変換",
+    "description": "基準通貨から対象通貨への金額を計算します。"
+  },
+  "fee": {
+    "title": "手数料込み",
+    "description": "両替手数料を反映した受取額を計算します。",
+    "feePlaceholder": "手数料 (%)",
+    "afterFee": "手数料後: {{amount}} {{currency}}",
+    "converted": "変換結果: {{amount}} {{currency}}"
+  },
+  "reverse": {
+    "title": "目標額の逆算",
+    "description": "目標額に必要な基準通貨を計算します。",
+    "targetPlaceholder": "受け取りたい金額",
+    "result": "必要な基準通貨: {{amount}} {{currency}}"
+  },
+  "labels": {
+    "baseCurrency": "基準通貨 (例: USD)",
+    "targetCurrency": "対象通貨 (例: KRW)",
+    "ratePlaceholder": "レート (1 基準 = ? 対象)",
+    "amountPlaceholder": "金額",
+    "empty": "値を入力すると結果が表示されます。"
+  }
+}

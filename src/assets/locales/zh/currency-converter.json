@@ -1,0 +1,35 @@
+{
+  "openGraph": {
+    "title": "汇率计算器",
+    "ogTitle": "汇率计算器、换汇手续费、旅行资金",
+    "description": "输入汇率与手续费，快速估算换汇结果。",
+    "keywords": ["汇率", "换汇", "手续费", "旅行", "货币", "计算器"]
+  },
+  "title": "汇率计算器",
+  "description": "输入汇率与手续费，快速估算换汇结果。",
+  "badge": "旅行资金",
+  "quick": {
+    "title": "快速换算",
+    "description": "从基准货币换算到目标货币。"
+  },
+  "fee": {
+    "title": "含手续费",
+    "description": "计算扣除手续费后的到账金额。",
+    "feePlaceholder": "手续费 (%)",
+    "afterFee": "扣费后: {{amount}} {{currency}}",
+    "converted": "换算结果: {{amount}} {{currency}}"
+  },
+  "reverse": {
+    "title": "目标金额反推",
+    "description": "计算达成目标金额所需的基准货币。",
+    "targetPlaceholder": "想收到的金额",
+    "result": "所需基准货币: {{amount}} {{currency}}"
+  },
+  "labels": {
+    "baseCurrency": "基准货币 (例如 USD)",
+    "targetCurrency": "目标货币 (例如 KRW)",
+    "ratePlaceholder": "汇率 (1 基准 = ? 目标)",
+    "amountPlaceholder": "金额",
+    "empty": "输入数值即可显示结果。"
+  }
+}
