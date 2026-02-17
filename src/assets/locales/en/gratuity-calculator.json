@@ -1,0 +1,36 @@
+{
+  "title": "Gratuity Calculator",
+  "description": "Calculate tip amount and per-person totals in seconds.",
+  "label": {
+    "bill": "Bill amount",
+    "tipRate": "Tip rate (%)",
+    "people": "Number of people",
+    "currency": "Currency",
+    "quickRates": "Quick rates"
+  },
+  "placeholder": {
+    "bill": "e.g., 48.50",
+    "tipRate": "e.g., 15",
+    "people": "e.g., 2"
+  },
+  "currency": {
+    "krw": "KRW (₩)",
+    "usd": "USD ($)",
+    "jpy": "JPY (¥)",
+    "cny": "CNY (¥)"
+  },
+  "result": {
+    "title": "Summary",
+    "tip": "Tip amount",
+    "total": "Total amount",
+    "perPerson": "Per person",
+    "tipPerPerson": "Tip per person"
+  },
+  "helper": {
+    "split": "Totals are split evenly across people."
+  },
+  "openGraph": {
+    "title": "Gratuity Calculator",
+    "description": "Calculate tip amount and per-person totals in seconds."
+  }
+}

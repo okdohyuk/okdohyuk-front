@@ -1,0 +1,36 @@
+{
+  "title": "팁 계산기",
+  "description": "청구 금액과 팁 비율로 총액과 1인당 금액을 빠르게 계산해요.",
+  "label": {
+    "bill": "청구 금액",
+    "tipRate": "팁 비율 (%)",
+    "people": "인원 수",
+    "currency": "통화",
+    "quickRates": "빠른 선택"
+  },
+  "placeholder": {
+    "bill": "예: 48,500",
+    "tipRate": "예: 15",
+    "people": "예: 2"
+  },
+  "currency": {
+    "krw": "KRW (₩)",
+    "usd": "USD ($)",
+    "jpy": "JPY (¥)",
+    "cny": "CNY (¥)"
+  },
+  "result": {
+    "title": "요약",
+    "tip": "팁 금액",
+    "total": "총 금액",
+    "perPerson": "1인당",
+    "tipPerPerson": "1인당 팁"
+  },
+  "helper": {
+    "split": "총액은 인원 수로 균등하게 나눠집니다."
+  },
+  "openGraph": {
+    "title": "팁 계산기",
+    "description": "청구 금액과 팁 비율로 총액과 1인당 금액을 빠르게 계산해요."
+  }
+}

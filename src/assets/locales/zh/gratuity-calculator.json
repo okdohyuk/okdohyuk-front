@@ -1,0 +1,36 @@
+{
+  "title": "小费计算器",
+  "description": "根据账单金额和小费比例快速计算总额与人均金额。",
+  "label": {
+    "bill": "账单金额",
+    "tipRate": "小费比例 (%)",
+    "people": "人数",
+    "currency": "货币",
+    "quickRates": "快速选择"
+  },
+  "placeholder": {
+    "bill": "例如: 48.50",
+    "tipRate": "例如: 15",
+    "people": "例如: 2"
+  },
+  "currency": {
+    "krw": "KRW (₩)",
+    "usd": "USD ($)",
+    "jpy": "JPY (¥)",
+    "cny": "CNY (¥)"
+  },
+  "result": {
+    "title": "汇总",
+    "tip": "小费金额",
+    "total": "总金额",
+    "perPerson": "人均金额",
+    "tipPerPerson": "人均小费"
+  },
+  "helper": {
+    "split": "总金额将按人数平均分摊。"
+  },
+  "openGraph": {
+    "title": "小费计算器",
+    "description": "根据账单金额和小费比例快速计算总额与人均金额。"
+  }
+}
