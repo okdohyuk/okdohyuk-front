@@ -1,0 +1,49 @@
+{
+  "title": "饮水量计算器",
+  "description": "根据体重、活动量和气候估算每日推荐饮水量。",
+  "label": {
+    "weight": "体重 (kg)",
+    "activity": "活动量",
+    "climate": "天气/环境",
+    "cupSize": "杯子容量 (ml)"
+  },
+  "placeholder": {
+    "weight": "例如 65",
+    "cupSize": "例如 250"
+  },
+  "helper": "常见马克杯容量约为 200–300 ml。",
+  "activity": {
+    "low": "轻量",
+    "moderate": "中等",
+    "high": "高强度"
+  },
+  "climate": {
+    "normal": "普通",
+    "hot": "炎热/干燥"
+  },
+  "result": {
+    "title": "推荐摄入量",
+    "total": "每日总量",
+    "cups": "约 {{count}} 杯",
+    "base": "体重基础量",
+    "baseNote": "体重 × 0.033 L",
+    "activity": "活动补偿",
+    "climate": "环境补偿"
+  },
+  "unit": {
+    "liter": "L"
+  },
+  "tips": {
+    "title": "补水建议",
+    "items": [
+      "起床后先喝一杯水。",
+      "含咖啡因饮料不能完全替代饮水。",
+      "运动前后各补充 200–300 ml。",
+      "少量多次饮水比一次大量饮水更好。"
+    ]
+  },
+  "openGraph": {
+    "title": "饮水量计算器",
+    "description": "根据体重、活动量和气候估算每日推荐饮水量。"
+  }
+}

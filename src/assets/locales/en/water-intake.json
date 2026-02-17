@@ -1,0 +1,49 @@
+{
+  "title": "Water Intake Calculator",
+  "description": "Estimate your daily water intake using weight, activity level, and climate.",
+  "label": {
+    "weight": "Weight (kg)",
+    "activity": "Activity level",
+    "climate": "Weather/Climate",
+    "cupSize": "Cup size (ml)"
+  },
+  "placeholder": {
+    "weight": "e.g., 65",
+    "cupSize": "e.g., 250"
+  },
+  "helper": "Try 200–300 ml for a typical mug size.",
+  "activity": {
+    "low": "Light",
+    "moderate": "Moderate",
+    "high": "High"
+  },
+  "climate": {
+    "normal": "Normal",
+    "hot": "Hot/Dry"
+  },
+  "result": {
+    "title": "Recommended intake",
+    "total": "Total per day",
+    "cups": "About {{count}} cups",
+    "base": "Base from body weight",
+    "baseNote": "Weight × 0.033 L",
+    "activity": "Activity adjustment",
+    "climate": "Climate adjustment"
+  },
+  "unit": {
+    "liter": "L"
+  },
+  "tips": {
+    "title": "Hydration tips",
+    "items": [
+      "Start your day with a glass of water.",
+      "Caffeinated drinks do not fully replace water.",
+      "Add 200–300 ml around workouts.",
+      "Sip throughout the day instead of chugging at once."
+    ]
+  },
+  "openGraph": {
+    "title": "Water Intake Calculator",
+    "description": "Estimate your daily water intake using weight, activity level, and climate."
+  }
+}
