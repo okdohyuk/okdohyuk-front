@@ -18,6 +18,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Wallet,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '여행 예산 분배기',
+        en: 'Travel Budget Splitter',
+        ja: '旅行予算分配',
+        zh: '旅行预算分配器',
+      },
+      icon: <Wallet />,
+      link: '/budget-splitter',
     },
     {
       title: {

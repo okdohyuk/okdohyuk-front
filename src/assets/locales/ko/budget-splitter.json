@@ -1,0 +1,32 @@
+{
+  "title": "여행 예산 분배기",
+  "description": "총 예산을 인원과 일수로 나누고 여유분까지 자동 계산합니다.",
+  "label": {
+    "totalBudget": "총 예산",
+    "days": "여행 일수",
+    "people": "인원 수",
+    "bufferPercent": "여유분(%)"
+  },
+  "placeholder": {
+    "totalBudget": "예: 1500000",
+    "days": "예: 3",
+    "people": "예: 2",
+    "bufferPercent": "예: 10"
+  },
+  "helper": "예상치 못한 지출을 대비해 0~90% 여유분을 추천합니다.",
+  "result": {
+    "title": "계산 결과",
+    "usableBudget": "실사용 예산",
+    "reserveAmount": "여유분으로 따로 빼둘 금액",
+    "perDay": "하루당 예산",
+    "perPerson": "1인당 예산",
+    "perPersonPerDay": "1인 1일 예산"
+  },
+  "unit": {
+    "currency": "원"
+  },
+  "openGraph": {
+    "title": "여행 예산 분배기",
+    "description": "총 예산을 인원과 일수로 나누고 여유분까지 자동 계산합니다."
+  }
+}
