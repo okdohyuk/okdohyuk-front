@@ -18,6 +18,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Type,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -155,6 +156,16 @@ const menus: Menus = {
       },
       icon: <TextCursorInput />,
       link: '/choseong-maker',
+    },
+    {
+      title: {
+        ko: '텍스트 메트릭',
+        en: 'Text Metrics',
+        ja: 'テキスト指標',
+        zh: '文本指标',
+      },
+      icon: <Type />,
+      link: '/text-metrics',
     },
   ],
   out: [

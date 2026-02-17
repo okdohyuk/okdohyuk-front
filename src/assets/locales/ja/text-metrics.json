@@ -1,0 +1,18 @@
+{
+  "title": "テキスト指標",
+  "description": "テキストの長さと構成をすばやく測定します。",
+  "placeholder": "ここにテキストを入力してください。",
+  "helper": "文字数、単語数、行数、段落数、バイト数を自動で計算します。",
+  "labels": {
+    "characters": "文字数",
+    "charactersNoSpace": "空白除外の文字",
+    "words": "単語数",
+    "lines": "行数",
+    "paragraphs": "段落数",
+    "bytes": "バイト"
+  },
+  "openGraph": {
+    "title": "テキスト指標",
+    "description": "テキストの長さや構成を一目で確認できます。"
+  }
+}
