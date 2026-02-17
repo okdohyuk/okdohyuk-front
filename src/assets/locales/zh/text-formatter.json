@@ -1,0 +1,43 @@
+{
+  "title": "文本格式化工具",
+  "description": "在一个页面内完成大小写转换、空格整理、行处理与统计。",
+  "input": {
+    "label": "输入文本",
+    "placeholder": "在此输入或粘贴文本。",
+    "helper": "将输入内容以多种方式整理，并可立即复制结果。"
+  },
+  "sections": {
+    "case": {
+      "title": "大小写转换",
+      "upper": "全部大写",
+      "lower": "全部小写",
+      "titleCase": "标题格式"
+    },
+    "cleanup": {
+      "title": "空格整理",
+      "trim": "去除首尾空格",
+      "collapse": "合并连续空格"
+    },
+    "lines": {
+      "title": "行工具",
+      "sorted": "升序排序",
+      "deduped": "去重"
+    },
+    "stats": {
+      "title": "长度统计",
+      "characters": "字符数",
+      "charactersNoSpaces": "字符数（不含空格）",
+      "words": "单词数",
+      "lines": "行数"
+    }
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "empty": "暂无内容。",
+  "openGraph": {
+    "title": "文本格式化工具",
+    "description": "集合大小写转换、空格整理、行处理与统计的文本多功能工具。"
+  }
+}
