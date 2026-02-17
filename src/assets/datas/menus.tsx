@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Bomb,
+  Bus,
   Calculator,
   CalendarClock,
   Code,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '통근 비용 툴킷',
+        en: 'Commute Cost Toolkit',
+        ja: '通勤コストツールキット',
+        zh: '通勤成本工具包',
+      },
+      icon: <Bus />,
+      link: '/commute-helper',
     },
     {
       title: {

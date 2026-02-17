@@ -1,0 +1,73 @@
+{
+  "openGraph": {
+    "title": "통근 비용 툴킷",
+    "ogTitle": "통근 시간 비용, 연료비, 탄소 배출 계산",
+    "description": "통근 시간과 거리 기반으로 월간 시간 비용, 연료비, 탄소 배출량을 빠르게 계산해 보세요.",
+    "keywords": [
+      "통근",
+      "통근 비용",
+      "시간 비용",
+      "연료비",
+      "탄소 배출",
+      "월간 비용",
+      "통근 계산기",
+      "통근 거리",
+      "생활 도구"
+    ]
+  },
+  "title": "통근 비용 툴킷",
+  "description": "통근 시간과 거리로 월간 시간 비용, 연료비, 탄소 배출을 계산합니다.",
+  "badge": "생활 도구",
+  "helper": "통근 정보를 입력하면 시간 비용, 연료비, 탄소 배출을 동시에 계산합니다.",
+  "timeCost": {
+    "title": "시간 가치 계산",
+    "description": "왕복 통근 시간을 시간당 가치로 환산합니다.",
+    "fields": {
+      "minutesPerDay": "하루 왕복 통근 시간 (분)",
+      "workdays": "월 근무일 수",
+      "hourlyWage": "시간당 가치 (원)"
+    },
+    "placeholders": {
+      "minutesPerDay": "70",
+      "workdays": "20",
+      "hourlyWage": "12000"
+    },
+    "resultLabel": "월간 시간 비용"
+  },
+  "fuelCost": {
+    "title": "연료비 추정",
+    "description": "거리와 연비로 월간 연료비를 계산합니다.",
+    "fields": {
+      "distanceOneWay": "편도 거리 (km)",
+      "workdays": "월 근무일 수",
+      "fuelEfficiency": "연비 (km/L)",
+      "fuelPrice": "연료 단가 (원/L)"
+    },
+    "placeholders": {
+      "distanceOneWay": "12",
+      "workdays": "20",
+      "fuelEfficiency": "12",
+      "fuelPrice": "1700"
+    },
+    "resultLabel": "월간 연료비"
+  },
+  "carbon": {
+    "title": "탄소 배출 추정",
+    "description": "주행 거리 기준으로 월간 배출량을 계산합니다.",
+    "fields": {
+      "distanceOneWay": "편도 거리 (km)",
+      "workdays": "월 근무일 수",
+      "emissionPerKm": "km당 배출량 (g CO₂)"
+    },
+    "placeholders": {
+      "distanceOneWay": "12",
+      "workdays": "20",
+      "emissionPerKm": "120"
+    },
+    "resultLabel": "월간 배출량"
+  },
+  "unit": {
+    "currency": "원",
+    "kgCo2": "kg CO₂"
+  }
+}
