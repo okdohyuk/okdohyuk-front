@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "饮水量计算器",
+    "ogTitle": "饮水量计算器，日常补水目标",
+    "description": "根据体重、活动量和气候估算每日饮水量。",
+    "keywords": ["饮水", "补水", "健康", "计算器", "水分"]
+  },
+  "title": "饮水量计算器",
+  "description": "根据体重、活动量和气候估算每日饮水量。",
+  "badge": "健康管理",
+  "inputs": {
+    "title": "输入基础信息",
+    "description": "选择体重和条件即可计算建议饮水量。",
+    "weightPlaceholder": "体重 (kg)",
+    "activity": "活动量",
+    "climate": "气候"
+  },
+  "activity": {
+    "low": "轻度活动",
+    "medium": "中等活动",
+    "high": "高强度活动"
+  },
+  "climate": {
+    "cool": "凉爽",
+    "normal": "正常",
+    "hot": "炎热"
+  },
+  "result": {
+    "dailyTarget": "每日目标: {{amount}} L",
+    "cups": "约 {{amount}} 杯 (250ml)",
+    "bottles": "约 {{amount}} 瓶 (500ml)",
+    "empty": "输入数值后显示建议量。"
+  },
+  "tips": {
+    "title": "补水小贴士",
+    "description": "帮助你轻松坚持的建议。",
+    "items": [
+      "早晨起床先喝一杯水。",
+      "喝了咖啡或茶后适当多补水。",
+      "运动前后比平时多喝一点。",
+      "在口渴前就开始小口补水。"
+    ]
+  }
+}

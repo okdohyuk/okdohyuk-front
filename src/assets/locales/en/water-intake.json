@@ -1,0 +1,44 @@
+{
+  "openGraph": {
+    "title": "Water Intake Calculator",
+    "ogTitle": "Water Intake Calculator, Daily Hydration Target",
+    "description": "Estimate your daily water intake using weight, activity, and climate.",
+    "keywords": ["water", "hydration", "intake", "health", "calculator"]
+  },
+  "title": "Water Intake Calculator",
+  "description": "Estimate your daily water intake using weight, activity, and climate.",
+  "badge": "Wellness",
+  "inputs": {
+    "title": "Enter your basics",
+    "description": "Select weight and conditions to calculate a hydration target.",
+    "weightPlaceholder": "Weight (kg)",
+    "activity": "Activity",
+    "climate": "Climate"
+  },
+  "activity": {
+    "low": "Light activity",
+    "medium": "Moderate activity",
+    "high": "High activity"
+  },
+  "climate": {
+    "cool": "Cool",
+    "normal": "Normal",
+    "hot": "Hot"
+  },
+  "result": {
+    "dailyTarget": "Daily target: {{amount}} L",
+    "cups": "About {{amount}} cups (250ml)",
+    "bottles": "About {{amount}} bottles (500ml)",
+    "empty": "Enter values to see your target."
+  },
+  "tips": {
+    "title": "Hydration tips",
+    "description": "Simple ways to stay hydrated throughout the day.",
+    "items": [
+      "Start the day with a glass of water.",
+      "Add extra water when you have caffeinated drinks.",
+      "Drink a bit more before and after exercise.",
+      "Sip regularly before you feel thirsty."
+    ]
+  }
+}
