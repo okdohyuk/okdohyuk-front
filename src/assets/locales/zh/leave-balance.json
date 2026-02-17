@@ -1,0 +1,63 @@
+{
+  "openGraph": {
+    "title": "年假余额计算器",
+    "ogTitle": "年假余额计算器 - 查看剩余与使用率",
+    "description": "输入总年假、结转、已用与计划年假，快速查看剩余额度和使用率。",
+    "keywords": [
+      "年假",
+      "年假余额",
+      "年假计算",
+      "休假",
+      "休假计算器",
+      "年假使用率",
+      "结转年假",
+      "半天假",
+      "PTO",
+      "休假管理"
+    ]
+  },
+  "title": "年假余额计算器",
+  "description": "输入总年假、结转、已用与计划年假，快速查看剩余额度和使用率。",
+  "labels": {
+    "totalDays": "总年假天数",
+    "carryoverDays": "结转年假",
+    "usedDays": "已用年假",
+    "usedHalfDays": "已用半天假",
+    "plannedDays": "计划年假"
+  },
+  "placeholders": {
+    "totalDays": "15",
+    "carryoverDays": "2",
+    "usedDays": "6",
+    "usedHalfDays": "1",
+    "plannedDays": "3"
+  },
+  "hint": "半天假可以输入 0.5。",
+  "actions": {
+    "sample": "填入示例",
+    "reset": "重置",
+    "copy": "复制摘要",
+    "copySuccess": "已复制",
+    "copyError": "复制失败"
+  },
+  "results": {
+    "title": "计算结果",
+    "availableTotal": "可用年假总计",
+    "usedTotal": "已用年假总计",
+    "remaining": "剩余年假",
+    "remainingAfterPlan": "计划后剩余",
+    "usedPercent": "使用率"
+  },
+  "warnings": {
+    "invalidTotal": "总年假为0或更少，请检查输入。",
+    "overUsed": "已用年假超过可用总计。",
+    "negativeRemaining": "计划后剩余年假为负数。"
+  },
+  "summary": {
+    "title": "年假摘要",
+    "used": "已用",
+    "remaining": "剩余",
+    "remainingAfterPlan": "计划后剩余",
+    "days": "天"
+  }
+}
