@@ -1,0 +1,33 @@
+{
+  "title": "韩文金额转换器",
+  "description": "将数字转换为韩文金额表述，适合合同与收据填写。",
+  "label": {
+    "amount": "金额输入"
+  },
+  "placeholder": "例如：123456789",
+  "helper": {
+    "empty": "输入数字即可生成韩文金额表述。",
+    "invalid": "请只输入数字。",
+    "valid": "已转换为韩文金额表述。"
+  },
+  "option": {
+    "currency": "包含韩元后缀"
+  },
+  "unit": {
+    "currency": "원"
+  },
+  "result": {
+    "title": "转换结果",
+    "placeholder": "结果会显示在这里。",
+    "tip": "复制后直接粘贴使用。输入时会自动加上逗号。"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清除"
+  },
+  "openGraph": {
+    "title": "韩文金额转换器",
+    "description": "快速把数字转换成韩文金额表述，合同、收据、报价单填写更省时。"
+  }
+}

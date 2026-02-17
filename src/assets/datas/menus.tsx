@@ -4,6 +4,7 @@ import {
   Calculator,
   CalendarClock,
   Code,
+  Coins,
   CreditCard,
   Github,
   Hash,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '한글 금액 변환기',
+        en: 'Korean Amount Converter',
+        ja: '韓国語金額変換',
+        zh: '韩文金额转换器',
+      },
+      icon: <Coins />,
+      link: '/korean-amount',
     },
     {
       title: {
