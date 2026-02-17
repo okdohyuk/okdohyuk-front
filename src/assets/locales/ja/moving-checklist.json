@@ -1,0 +1,56 @@
+{
+  "openGraph": {
+    "title": "引っ越し準備チェックリスト",
+    "ogTitle": "引っ越し準備チェックリスト・荷造りスケジュール・引っ越しプラン",
+    "description": "引っ越し日と住まいの規模を入力すると、準備スケジュールとチェックリストが自動で作成されます。",
+    "keywords": ["引っ越し", "チェックリスト", "荷造り", "スケジュール", "引っ越し日", "整理"]
+  },
+  "title": "引っ越し準備チェックリスト",
+  "form": {
+    "moveDate": "引っ越し日",
+    "moveDateHint": "日付を入力すると予定が自動計算されます。",
+    "homeSize": "住まいの規模"
+  },
+  "size": {
+    "studio": "ワンルーム",
+    "small": "1〜2部屋",
+    "large": "3部屋以上"
+  },
+  "summary": {
+    "title": "サマリー",
+    "boxes": "予想ダンボール数",
+    "tasks": "チェックリスト数"
+  },
+  "actions": {
+    "sample": "サンプル入力",
+    "reset": "リセット",
+    "copy": "サマリーをコピー",
+    "copied": "コピーしました"
+  },
+  "result": {
+    "title": "チェックリスト",
+    "empty": "引っ越し日を入力すると日付付きで表示されます。"
+  },
+  "labels": {
+    "dayBefore": "D-{days}",
+    "dayAfter": "D+{days}",
+    "moveDay": "D-day"
+  },
+  "tasks": {
+    "compareQuotes": "業者・車両の見積もり比較",
+    "declutter": "不要品の整理",
+    "packingSupplies": "梱包資材の準備",
+    "addressChange": "住所変更と書類整理",
+    "utilityTransfer": "公共料金の移転予約",
+    "packing": "本格的に梱包開始",
+    "essentialsBag": "当日用バッグ準備",
+    "moveDay": "引っ越し当日",
+    "cleaning": "掃除と確認",
+    "unpack": "優先荷物の開梱",
+    "neighbors": "近隣への挨拶",
+    "bulkTrash": "粗大ごみ回収の予約",
+    "elevatorReservation": "エレベーター／駐車場予約"
+  },
+  "copyFormat": "引っ越し日: {date}\n住まいの規模: {size}\n予想ダンボール数: {boxes}\nチェックリスト数: {tasks}",
+  "copyNoDate": "未設定"
+}

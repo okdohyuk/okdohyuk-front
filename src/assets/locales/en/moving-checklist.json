@@ -1,0 +1,64 @@
+{
+  "openGraph": {
+    "title": "Moving Checklist",
+    "ogTitle": "Moving Checklist, Packing Timeline, Move Day Planner",
+    "description": "Enter your move date and home size to generate a moving checklist and timeline.",
+    "keywords": [
+      "moving checklist",
+      "moving",
+      "packing",
+      "timeline",
+      "move day",
+      "planner",
+      "checklist"
+    ]
+  },
+  "title": "Moving Checklist",
+  "form": {
+    "moveDate": "Move date",
+    "moveDateHint": "Dates are calculated automatically.",
+    "homeSize": "Home size"
+  },
+  "size": {
+    "studio": "Studio / One-room",
+    "small": "1–2 rooms",
+    "large": "3+ rooms"
+  },
+  "summary": {
+    "title": "Summary",
+    "boxes": "Estimated boxes",
+    "tasks": "Total tasks"
+  },
+  "actions": {
+    "sample": "Use sample",
+    "reset": "Reset",
+    "copy": "Copy summary",
+    "copied": "Copied"
+  },
+  "result": {
+    "title": "Checklist",
+    "empty": "Add a move date to see dates by task."
+  },
+  "labels": {
+    "dayBefore": "D-{days}",
+    "dayAfter": "D+{days}",
+    "moveDay": "D-day"
+  },
+  "tasks": {
+    "compareQuotes": "Compare moving quotes",
+    "declutter": "Sort & declutter",
+    "packingSupplies": "Buy packing supplies",
+    "addressChange": "Change address & documents",
+    "utilityTransfer": "Schedule utility transfer",
+    "packing": "Start packing",
+    "essentialsBag": "Pack essentials bag",
+    "moveDay": "Moving day",
+    "cleaning": "Clean & check",
+    "unpack": "Unpack priority items",
+    "neighbors": "Say hello to neighbors",
+    "bulkTrash": "Schedule bulky trash pickup",
+    "elevatorReservation": "Reserve elevator / parking"
+  },
+  "copyFormat": "Move date: {date}\nHome size: {size}\nEstimated boxes: {boxes}\nTotal tasks: {tasks}",
+  "copyNoDate": "Not set"
+}
