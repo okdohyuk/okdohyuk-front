@@ -1,0 +1,41 @@
+{
+  "openGraph": {
+    "title": "电影结束时间计算器",
+    "ogTitle": "电影结束时间计算器 | 上映结束与片长",
+    "description": "输入上映开始时间、片长、预告片与片尾字幕时间，即可快速估算本片开始与结束时间。",
+    "keywords": ["电影结束时间", "上映结束", "片长", "预告片", "片尾字幕", "电影排期"]
+  },
+  "title": "电影结束时间计算器",
+  "description": "根据上映开始时间与片长估算本片开始/结束时间。",
+  "section": {
+    "input": "时间输入",
+    "result": "计算结果"
+  },
+  "label": {
+    "startTime": "上映开始时间",
+    "runtime": "正片片长（分钟）",
+    "trailers": "预告片/广告（分钟）",
+    "credits": "片尾字幕（分钟）"
+  },
+  "placeholder": {
+    "runtime": "例如：120",
+    "trailers": "例如：10",
+    "credits": "例如：5"
+  },
+  "helper": {
+    "runtime": "请输入正片时长（分钟）。",
+    "trailers": "包含预告片/广告更准确。",
+    "credits": "若计划观看彩蛋请加上片尾字幕时间。",
+    "note": "以官方上映开始时间（含预告片）为基准计算。"
+  },
+  "result": {
+    "totalDuration": "总时长",
+    "movieStart": "正片开始时间",
+    "endTime": "结束时间"
+  },
+  "unit": {
+    "hour": "小时",
+    "minute": "分钟"
+  },
+  "empty": "请输入数值查看结果。"
+}

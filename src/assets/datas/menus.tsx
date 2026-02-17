@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Film,
   Github,
   Hash,
   Key,
@@ -88,6 +89,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 툴킷',
+        en: 'Text Toolkit',
+        ja: 'テキストツールキット',
+        zh: '文本工具箱',
+      },
+      icon: <TextCursorInput />,
+      link: '/text-toolkit',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -145,6 +156,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '영화 종료 시간 계산기',
+        en: 'Movie End Time Calculator',
+        ja: '映画終了時刻計算',
+        zh: '电影结束时间计算器',
+      },
+      icon: <Film />,
+      link: '/movie-end-time',
     },
     {
       title: {
