@@ -1,0 +1,24 @@
+{
+  "title": "文本分析器",
+  "description": "一次查看字数、词数与预计阅读时间。",
+  "label": {
+    "input": "文本输入",
+    "stats": "文本洞察"
+  },
+  "placeholder": "粘贴你的草稿或文案来分析...",
+  "helper": "换行会作为段落，标点用于统计句子数量。",
+  "statsHint": "输入后会立即更新。",
+  "stats": {
+    "words": "词数",
+    "characters": "字符数",
+    "charactersNoSpaces": "去空格字符数",
+    "sentences": "句子数",
+    "paragraphs": "段落数",
+    "readingTime": "预计阅读时间",
+    "minutes": "分钟"
+  },
+  "openGraph": {
+    "title": "文本分析器",
+    "description": "快速了解字数、词数与阅读时间。"
+  }
+}
