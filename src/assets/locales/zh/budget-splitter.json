@@ -1,0 +1,32 @@
+{
+  "title": "旅行预算分配器",
+  "description": "按人数和天数拆分总预算，并预留缓冲金。",
+  "label": {
+    "totalBudget": "总预算",
+    "days": "旅行天数",
+    "people": "人数",
+    "bufferPercent": "缓冲比例(%)"
+  },
+  "placeholder": {
+    "totalBudget": "例如: 1500000",
+    "days": "例如: 3",
+    "people": "例如: 2",
+    "bufferPercent": "例如: 10"
+  },
+  "helper": "建议预留0–90%的缓冲金，以应对意外开销。",
+  "result": {
+    "title": "计算结果",
+    "usableBudget": "可用预算",
+    "reserveAmount": "预留缓冲金",
+    "perDay": "每日预算",
+    "perPerson": "人均预算",
+    "perPersonPerDay": "人均每日预算"
+  },
+  "unit": {
+    "currency": "元"
+  },
+  "openGraph": {
+    "title": "旅行预算分配器",
+    "description": "按人数和天数拆分总预算，并预留缓冲金。"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "title": "旅行予算分配",
+  "description": "合計予算を人数と日数で割り、余裕分まで計算します。",
+  "label": {
+    "totalBudget": "合計予算",
+    "days": "旅行日数",
+    "people": "人数",
+    "bufferPercent": "余裕分(%)"
+  },
+  "placeholder": {
+    "totalBudget": "例: 1500000",
+    "days": "例: 3",
+    "people": "例: 2",
+    "bufferPercent": "例: 10"
+  },
+  "helper": "予期せぬ出費に備えて0〜90%の余裕分をおすすめします。",
+  "result": {
+    "title": "計算結果",
+    "usableBudget": "実際に使える予算",
+    "reserveAmount": "余裕分として確保する金額",
+    "perDay": "1日あたりの予算",
+    "perPerson": "1人あたりの予算",
+    "perPersonPerDay": "1人1日あたりの予算"
+  },
+  "unit": {
+    "currency": "円"
+  },
+  "openGraph": {
+    "title": "旅行予算分配",
+    "description": "合計予算を人数と日数で割り、余裕分まで計算します。"
+  }
+}

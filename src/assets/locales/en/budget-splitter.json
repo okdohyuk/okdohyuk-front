@@ -1,0 +1,32 @@
+{
+  "title": "Travel Budget Splitter",
+  "description": "Split a total budget by people and days with an extra buffer.",
+  "label": {
+    "totalBudget": "Total budget",
+    "days": "Number of days",
+    "people": "Number of people",
+    "bufferPercent": "Buffer (%)"
+  },
+  "placeholder": {
+    "totalBudget": "e.g. 1500000",
+    "days": "e.g. 3",
+    "people": "e.g. 2",
+    "bufferPercent": "e.g. 10"
+  },
+  "helper": "Keep 0–90% as a safety buffer for unexpected expenses.",
+  "result": {
+    "title": "Results",
+    "usableBudget": "Usable budget",
+    "reserveAmount": "Reserved buffer",
+    "perDay": "Per-day budget",
+    "perPerson": "Per-person budget",
+    "perPersonPerDay": "Per person per day"
+  },
+  "unit": {
+    "currency": "currency"
+  },
+  "openGraph": {
+    "title": "Travel Budget Splitter",
+    "description": "Split a total budget by people and days with a buffer amount."
+  }
+}
