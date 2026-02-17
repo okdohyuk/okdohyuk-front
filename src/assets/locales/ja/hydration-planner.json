@@ -1,0 +1,43 @@
+{
+  "openGraph": {
+    "title": "水分摂取プランナー",
+    "ogTitle": "水分摂取プランナー",
+    "description": "体重と生活リズムから、1日の水分量と摂取間隔を算出します。"
+  },
+  "title": "水分摂取プランナー",
+  "description": "体重と生活リズムから、1日の水分量と摂取間隔を算出します。",
+  "inputs": {
+    "title": "基本情報",
+    "weightLabel": "体重",
+    "weightPlaceholder": "例: 65",
+    "weightHint": "30ml/kg を基準に計算します。",
+    "activityLabel": "活動量",
+    "activityHint": "活動量が多いほど目標が増えます。",
+    "wakeLabel": "起床時間",
+    "sleepLabel": "就寝時間",
+    "bottleLabel": "カップ/ボトル容量",
+    "bottlePlaceholder": "例: 500"
+  },
+  "activity": {
+    "low": "少ない",
+    "moderate": "普通",
+    "high": "多い"
+  },
+  "results": {
+    "title": "結果",
+    "dailyGoal": "1日の目標量",
+    "bottleCount": "必要回数",
+    "perBottle": "1回の量",
+    "interval": "通知間隔",
+    "awakeHours": "活動時間",
+    "schedule": "おすすめ時間",
+    "scheduleNote": "{total}回のうち{shown}回を表示"
+  },
+  "units": {
+    "kg": "kg",
+    "ml": "ml",
+    "liters": "L",
+    "minutes": "分",
+    "hours": "時間"
+  }
+}

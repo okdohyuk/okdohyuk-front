@@ -1,0 +1,43 @@
+{
+  "openGraph": {
+    "title": "수분 섭취 플래너",
+    "ogTitle": "수분 섭취 플래너",
+    "description": "체중과 생활 패턴을 바탕으로 하루 권장 수분 섭취량과 섭취 간격을 계산해요."
+  },
+  "title": "수분 섭취 플래너",
+  "description": "체중과 생활 패턴을 바탕으로 하루 권장 수분 섭취량과 섭취 간격을 계산해요.",
+  "inputs": {
+    "title": "기본 정보",
+    "weightLabel": "체중",
+    "weightPlaceholder": "예: 65",
+    "weightHint": "권장량은 30ml/kg 기준으로 계산돼요.",
+    "activityLabel": "활동량",
+    "activityHint": "활동량이 높을수록 권장량이 늘어나요.",
+    "wakeLabel": "기상 시간",
+    "sleepLabel": "취침 시간",
+    "bottleLabel": "컵/병 용량",
+    "bottlePlaceholder": "예: 500"
+  },
+  "activity": {
+    "low": "낮음",
+    "moderate": "보통",
+    "high": "높음"
+  },
+  "results": {
+    "title": "추천 결과",
+    "dailyGoal": "하루 권장량",
+    "bottleCount": "필요한 섭취 횟수",
+    "perBottle": "1회 섭취량",
+    "interval": "알림 간격",
+    "awakeHours": "활동 시간",
+    "schedule": "추천 섭취 시간",
+    "scheduleNote": "표시: 하루 {total}회 중 {shown}회"
+  },
+  "units": {
+    "kg": "kg",
+    "ml": "ml",
+    "liters": "L",
+    "minutes": "분",
+    "hours": "시간"
+  }
+}
