@@ -19,6 +19,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Type,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -86,6 +87,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 포매터',
+        en: 'Text Formatter',
+        ja: 'テキストフォーマッター',
+        zh: '文本格式化工具',
+      },
+      icon: <Type />,
+      link: '/text-formatter',
     },
     {
       title: {
