@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Droplets,
   Github,
   Hash,
   Key,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '수분 섭취 플래너',
+        en: 'Hydration Planner',
+        ja: '水分摂取プランナー',
+        zh: '饮水计划器',
+      },
+      icon: <Droplets />,
+      link: '/hydration-planner',
     },
     {
       title: {

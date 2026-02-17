@@ -1,0 +1,43 @@
+{
+  "openGraph": {
+    "title": "饮水计划器",
+    "ogTitle": "饮水计划器",
+    "description": "根据体重与作息估算每日饮水量与提醒间隔。"
+  },
+  "title": "饮水计划器",
+  "description": "根据体重与作息估算每日饮水量与提醒间隔。",
+  "inputs": {
+    "title": "基础信息",
+    "weightLabel": "体重",
+    "weightPlaceholder": "例如: 65",
+    "weightHint": "按 30ml/公斤 估算。",
+    "activityLabel": "活动量",
+    "activityHint": "活动越多，目标越高。",
+    "wakeLabel": "起床时间",
+    "sleepLabel": "睡觉时间",
+    "bottleLabel": "杯/瓶容量",
+    "bottlePlaceholder": "例如: 500"
+  },
+  "activity": {
+    "low": "低",
+    "moderate": "中",
+    "high": "高"
+  },
+  "results": {
+    "title": "结果",
+    "dailyGoal": "每日目标",
+    "bottleCount": "需要次数",
+    "perBottle": "每次饮用量",
+    "interval": "提醒间隔",
+    "awakeHours": "清醒时长",
+    "schedule": "建议时间",
+    "scheduleNote": "显示 {total} 次中的 {shown} 次"
+  },
+  "units": {
+    "kg": "kg",
+    "ml": "ml",
+    "liters": "L",
+    "minutes": "分钟",
+    "hours": "小时"
+  }
+}

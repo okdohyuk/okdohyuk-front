@@ -1,0 +1,43 @@
+{
+  "openGraph": {
+    "title": "Hydration Planner",
+    "ogTitle": "Hydration Planner",
+    "description": "Estimate daily water intake and reminder intervals based on your weight and routine."
+  },
+  "title": "Hydration Planner",
+  "description": "Estimate daily water intake and reminder intervals based on your weight and routine.",
+  "inputs": {
+    "title": "Basics",
+    "weightLabel": "Weight",
+    "weightPlaceholder": "e.g. 65",
+    "weightHint": "Based on 30 ml per kg of body weight.",
+    "activityLabel": "Activity level",
+    "activityHint": "More activity increases the target.",
+    "wakeLabel": "Wake time",
+    "sleepLabel": "Sleep time",
+    "bottleLabel": "Cup / bottle size",
+    "bottlePlaceholder": "e.g. 500"
+  },
+  "activity": {
+    "low": "Low",
+    "moderate": "Moderate",
+    "high": "High"
+  },
+  "results": {
+    "title": "Results",
+    "dailyGoal": "Daily goal",
+    "bottleCount": "Servings needed",
+    "perBottle": "Per serving",
+    "interval": "Reminder interval",
+    "awakeHours": "Awake time",
+    "schedule": "Suggested times",
+    "scheduleNote": "Showing {shown} of {total} servings"
+  },
+  "units": {
+    "kg": "kg",
+    "ml": "ml",
+    "liters": "L",
+    "minutes": "min",
+    "hours": "hrs"
+  }
+}
