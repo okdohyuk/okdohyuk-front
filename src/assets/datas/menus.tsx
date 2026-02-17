@@ -11,6 +11,7 @@ import {
   Linkedin,
   List,
   MonitorPlay,
+  Moon,
   Palette,
   QrCode,
   Server,
@@ -95,6 +96,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '취침 시간 플래너',
+        en: 'Bedtime Planner',
+        ja: '就寝時間プランナー',
+        zh: '就寝时间规划器',
+      },
+      icon: <Moon />,
+      link: '/bedtime-planner',
     },
     {
       title: {

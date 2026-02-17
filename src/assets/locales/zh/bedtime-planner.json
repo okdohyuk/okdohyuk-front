@@ -1,0 +1,35 @@
+{
+  "title": "就寝时间规划器",
+  "description": "基于90分钟睡眠周期计算推荐入睡或起床时间。",
+  "label": {
+    "mode": "计算方式",
+    "wakeTime": "起床时间",
+    "sleepTime": "入睡时间"
+  },
+  "helper": "假设入睡需要约15分钟。",
+  "mode": {
+    "wake": "按起床时间计算",
+    "sleep": "按入睡时间计算"
+  },
+  "result": {
+    "sleepTimes": "推荐入睡时间",
+    "wakeTimes": "推荐起床时间",
+    "cycle": "{{count}}个睡眠周期",
+    "sleepHours": "约{{hours}}小时",
+    "previousDay": "前一天",
+    "nextDay": "次日"
+  },
+  "tips": {
+    "title": "睡眠小贴士",
+    "items": [
+      "尽量保持固定的作息时间。",
+      "睡前6小时减少咖啡因摄入。",
+      "晚上降低灯光与屏幕亮度。",
+      "多数成年人适合4到6个周期(6到9小时)。"
+    ]
+  },
+  "openGraph": {
+    "title": "就寝时间规划器",
+    "description": "基于90分钟睡眠周期计算推荐入睡或起床时间。"
+  }
+}
