@@ -1,0 +1,43 @@
+{
+  "title": "Text Formatter",
+  "description": "Handle case conversion, whitespace cleanup, line sorting, and stats in one place.",
+  "input": {
+    "label": "Input text",
+    "placeholder": "Type or paste your text here.",
+    "helper": "Format the input in multiple ways and copy results instantly."
+  },
+  "sections": {
+    "case": {
+      "title": "Case conversion",
+      "upper": "UPPERCASE",
+      "lower": "lowercase",
+      "titleCase": "Title Case"
+    },
+    "cleanup": {
+      "title": "Whitespace cleanup",
+      "trim": "Trim edges",
+      "collapse": "Collapse spaces"
+    },
+    "lines": {
+      "title": "Line tools",
+      "sorted": "Sort ascending",
+      "deduped": "Remove duplicates"
+    },
+    "stats": {
+      "title": "Length stats",
+      "characters": "Characters",
+      "charactersNoSpaces": "Characters (no spaces)",
+      "words": "Words",
+      "lines": "Lines"
+    }
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Nothing to show yet.",
+  "openGraph": {
+    "title": "Text Formatter",
+    "description": "A multi-tool for case conversion, whitespace cleanup, line sorting, and text stats."
+  }
+}

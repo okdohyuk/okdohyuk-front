@@ -1,0 +1,43 @@
+{
+  "title": "テキストフォーマッター",
+  "description": "大文字・小文字変換、空白整理、行の整理、統計をまとめて行えます。",
+  "input": {
+    "label": "入力テキスト",
+    "placeholder": "ここにテキストを入力してください。",
+    "helper": "入力内容を複数の形式で整形し、すぐにコピーできます。"
+  },
+  "sections": {
+    "case": {
+      "title": "大文字・小文字変換",
+      "upper": "すべて大文字",
+      "lower": "すべて小文字",
+      "titleCase": "タイトルケース"
+    },
+    "cleanup": {
+      "title": "空白整理",
+      "trim": "前後の空白削除",
+      "collapse": "連続空白の整理"
+    },
+    "lines": {
+      "title": "行ツール",
+      "sorted": "昇順ソート",
+      "deduped": "重複削除"
+    },
+    "stats": {
+      "title": "長さ統計",
+      "characters": "文字数",
+      "charactersNoSpaces": "空白除外文字数",
+      "words": "単語数",
+      "lines": "行数"
+    }
+  },
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み"
+  },
+  "empty": "表示する内容がありません。",
+  "openGraph": {
+    "title": "テキストフォーマッター",
+    "description": "大文字・小文字変換から行整理までまとめたテキストユーティリティです。"
+  }
+}

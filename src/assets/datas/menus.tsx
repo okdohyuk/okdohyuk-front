@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Droplet,
   Github,
   Hash,
   Key,
@@ -18,6 +19,7 @@ import {
   Sparkles,
   TextCursorInput,
   Tv,
+  Type,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -88,6 +90,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '텍스트 포매터',
+        en: 'Text Formatter',
+        ja: 'テキストフォーマッター',
+        zh: '文本格式化工具',
+      },
+      icon: <Type />,
+      link: '/text-formatter',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -95,6 +107,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '물 섭취량 계산기',
+        en: 'Water Intake Calculator',
+        ja: '水分摂取量計算機',
+        zh: '饮水量计算器',
+      },
+      icon: <Droplet />,
+      link: '/water-intake',
     },
     {
       title: {
