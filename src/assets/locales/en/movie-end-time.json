@@ -1,0 +1,48 @@
+{
+  "openGraph": {
+    "title": "Movie End Time Calculator",
+    "ogTitle": "Movie End Time Calculator | Runtime & Finish Time",
+    "description": "Enter the listed start time, runtime, trailers, and credits to estimate when the feature starts and ends.",
+    "keywords": [
+      "movie end time",
+      "movie runtime",
+      "trailers",
+      "credits",
+      "showtime",
+      "film schedule"
+    ]
+  },
+  "title": "Movie End Time Calculator",
+  "description": "Estimate when the feature starts and ends from the listed showtime.",
+  "section": {
+    "input": "Time inputs",
+    "result": "Results"
+  },
+  "label": {
+    "startTime": "Listed start time",
+    "runtime": "Feature runtime (min)",
+    "trailers": "Trailers/ads (min)",
+    "credits": "End credits (min)"
+  },
+  "placeholder": {
+    "runtime": "e.g. 120",
+    "trailers": "e.g. 10",
+    "credits": "e.g. 5"
+  },
+  "helper": {
+    "runtime": "Enter the movie runtime in minutes.",
+    "trailers": "Include trailers/ads for better accuracy.",
+    "credits": "Add credits time if you plan to stay for post-credit scenes.",
+    "note": "Calculated from the listed showtime (including trailers)."
+  },
+  "result": {
+    "totalDuration": "Total duration",
+    "movieStart": "Feature start",
+    "endTime": "End time"
+  },
+  "unit": {
+    "hour": "h",
+    "minute": "m"
+  },
+  "empty": "Enter values to see the results."
+}
