@@ -1,0 +1,35 @@
+{
+  "title": "Bedtime Planner",
+  "description": "Calculate ideal sleep or wake times based on 90-minute sleep cycles.",
+  "label": {
+    "mode": "Calculation mode",
+    "wakeTime": "Wake-up time",
+    "sleepTime": "Bedtime"
+  },
+  "helper": "Assumes it takes about 15 minutes to fall asleep.",
+  "mode": {
+    "wake": "Plan from wake-up time",
+    "sleep": "Plan from bedtime"
+  },
+  "result": {
+    "sleepTimes": "Recommended bedtimes",
+    "wakeTimes": "Recommended wake times",
+    "cycle": "{{count}} sleep cycles",
+    "sleepHours": "about {{hours}} hours",
+    "previousDay": "Previous day",
+    "nextDay": "Next day"
+  },
+  "tips": {
+    "title": "Sleep tips",
+    "items": [
+      "Keep a consistent sleep schedule when possible.",
+      "Avoid caffeine for 6 hours before bedtime.",
+      "Dim the lights and screen brightness in the evening.",
+      "Aim for 4–6 cycles (6–9 hours) for most adults."
+    ]
+  },
+  "openGraph": {
+    "title": "Bedtime Planner",
+    "description": "Calculate ideal sleep or wake times based on 90-minute sleep cycles."
+  }
+}
