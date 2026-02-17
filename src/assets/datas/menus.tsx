@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 분석기',
+        en: 'Text Analyzer',
+        ja: 'テキスト解析',
+        zh: '文本分析器',
+      },
+      icon: <FileText />,
+      link: '/text-analyzer',
     },
     {
       title: {

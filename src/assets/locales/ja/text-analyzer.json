@@ -1,0 +1,24 @@
+{
+  "title": "テキスト解析",
+  "description": "文字数・単語数・読了時間をまとめてチェックできます。",
+  "label": {
+    "input": "テキスト入力",
+    "stats": "テキストインサイト"
+  },
+  "placeholder": "下書きやキャプションを貼り付けて分析しましょう...",
+  "helper": "改行は段落、句読点は文章数の算出に利用します。",
+  "statsHint": "入力内容に合わせて即時更新されます。",
+  "stats": {
+    "words": "単語数",
+    "characters": "文字数",
+    "charactersNoSpaces": "空白除く文字数",
+    "sentences": "文数",
+    "paragraphs": "段落数",
+    "readingTime": "推定読了時間",
+    "minutes": "分"
+  },
+  "openGraph": {
+    "title": "テキスト解析",
+    "description": "文字数、単語数、読了時間を素早く把握。"
+  }
+}

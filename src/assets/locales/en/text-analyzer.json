@@ -1,0 +1,24 @@
+{
+  "title": "Text Analyzer",
+  "description": "Count words, characters, and reading time from any text.",
+  "label": {
+    "input": "Text input",
+    "stats": "Text insights"
+  },
+  "placeholder": "Paste a draft, caption, or article to analyze...",
+  "helper": "Tip: line breaks create new paragraphs, and punctuation helps sentence detection.",
+  "statsHint": "Updates instantly as you type.",
+  "stats": {
+    "words": "Words",
+    "characters": "Characters",
+    "charactersNoSpaces": "Characters (no spaces)",
+    "sentences": "Sentences",
+    "paragraphs": "Paragraphs",
+    "readingTime": "Estimated reading time",
+    "minutes": " min"
+  },
+  "openGraph": {
+    "title": "Text Analyzer",
+    "description": "Analyze word count, characters, and reading time."
+  }
+}
