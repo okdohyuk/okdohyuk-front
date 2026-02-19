@@ -1,0 +1,29 @@
+{
+  "title": "동전 던지기",
+  "description": "원하는 횟수만큼 동전을 던져 앞/뒤 결과를 빠르게 확인하세요.",
+  "label": {
+    "count": "동전 개수"
+  },
+  "helper": "최대 20개까지 한 번에 던질 수 있어요.",
+  "button": {
+    "flip": "던지기",
+    "reset": "초기화"
+  },
+  "result": {
+    "title": "결과",
+    "empty": "동전을 던져 결과를 확인하세요.",
+    "heads": "앞면",
+    "tails": "뒷면",
+    "coinLabel": "동전 {{index}}"
+  },
+  "summary": {
+    "title": "요약",
+    "total": "총 {{count}}개",
+    "heads": "앞면 {{count}}개",
+    "tails": "뒷면 {{count}}개"
+  },
+  "openGraph": {
+    "title": "동전 던지기",
+    "description": "온라인에서 동전 던지기를 간편하게 실행하세요."
+  }
+}

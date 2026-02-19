@@ -1,0 +1,29 @@
+{
+  "title": "コイントス",
+  "description": "コインを一気に投げて、表・裏の結果をすぐ確認できます。",
+  "label": {
+    "count": "コイン枚数"
+  },
+  "helper": "最大20枚までまとめて投げられます。",
+  "button": {
+    "flip": "投げる",
+    "reset": "リセット"
+  },
+  "result": {
+    "title": "結果",
+    "empty": "コインを投げて結果を確認しましょう。",
+    "heads": "表",
+    "tails": "裏",
+    "coinLabel": "コイン {{index}}"
+  },
+  "summary": {
+    "title": "サマリー",
+    "total": "合計 {{count}}",
+    "heads": "表 {{count}}",
+    "tails": "裏 {{count}}"
+  },
+  "openGraph": {
+    "title": "コイントス",
+    "description": "オンラインでコイントスを実行して結果をシェア。"
+  }
+}

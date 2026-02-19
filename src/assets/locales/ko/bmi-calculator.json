@@ -1,0 +1,40 @@
+{
+  "title": "BMI 계산기",
+  "description": "무료 BMI 계산기(체질량지수 계산기)로 키와 몸무게를 입력해 BMI 수치와 체중 범주를 즉시 확인하세요.",
+  "label": {
+    "height": "키 (cm)",
+    "weight": "몸무게 (kg)"
+  },
+  "placeholder": {
+    "height": "예: 170",
+    "weight": "예: 65"
+  },
+  "helper": "키(cm)와 몸무게(kg)를 입력하세요. 소수점도 가능합니다.",
+  "button": {
+    "reset": "초기화",
+    "copy": "결과 복사",
+    "copied": "복사됨"
+  },
+  "result": {
+    "title": "BMI 결과",
+    "bmi": "BMI",
+    "empty": "값을 입력하면 결과가 표시돼요.",
+    "invalid": "0보다 큰 값을 입력해주세요."
+  },
+  "category": {
+    "underweight": "저체중",
+    "normal": "정상",
+    "overweight": "과체중",
+    "obese": "비만"
+  },
+  "range": {
+    "title": "BMI 분류 기준",
+    "between": "{{min}}–{{max}}",
+    "over": "{{value}} 이상",
+    "note": "BMI는 참고 지표이며 개인 건강 상태에 따라 해석이 달라질 수 있어요."
+  },
+  "openGraph": {
+    "title": "BMI 계산기",
+    "description": "무료 온라인 BMI 계산기입니다. 키(cm)와 몸무게(kg)로 체질량지수(BMI)를 빠르게 계산하고 저체중·정상·과체중·비만 범위를 확인해 건강 및 다이어트 목표 관리에 활용하세요."
+  }
+}

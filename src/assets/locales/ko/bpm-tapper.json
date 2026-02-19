@@ -1,0 +1,18 @@
+{
+  "openGraph": {
+    "title": "BPM 탭 템포",
+    "ogTitle": "BPM 탭 템포 - 친구와 탭 속도 대결",
+    "description": "버튼을 탭해 BPM 기록을 측정하고 친구와 속도 경쟁하세요. 최고 기록 비교, 챌린지 공유, 손가락 스피드 대결에 적합한 무료 온라인 BPM 탭 도구입니다.",
+    "keywords": ["BPM", "탭 템포", "속도 대결", "기록 경쟁", "탭 챌린지", "스피드 게임"]
+  },
+  "title": "BPM 탭 템포",
+  "description": "탭으로 리듬을 입력하면 평균 BPM을 계산합니다.",
+  "hint": "버튼을 박자에 맞춰 탭하세요.",
+  "helper": "2번 이상 탭하면 평균 BPM이 표시됩니다.",
+  "tapButton": "탭하기",
+  "taps": "탭 횟수",
+  "averageInterval": "평균 간격",
+  "resetButton": "초기화",
+  "copyButton": "BPM 복사",
+  "copied": "복사됨!"
+}
