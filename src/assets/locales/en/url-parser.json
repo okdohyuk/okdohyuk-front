@@ -1,0 +1,41 @@
+{
+  "title": "URL Parser",
+  "description": "Use this free online URL parser to break any URL into protocol, host, path, hash, and query parameters instantly.",
+  "label": {
+    "input": "URL input",
+    "output": "Parsed fields",
+    "queryParams": "Query parameters"
+  },
+  "helper": "Paste a full URL or a domain; we'll add https:// if missing.",
+  "notice": {
+    "fallback": "Added https:// automatically."
+  },
+  "button": {
+    "sample": "Sample URL",
+    "clear": "Clear",
+    "copy": "Copy",
+    "copyAll": "Copy all",
+    "copied": "Copied"
+  },
+  "fields": {
+    "href": "Full URL",
+    "origin": "Origin",
+    "protocol": "Protocol",
+    "host": "Host",
+    "hostname": "Hostname",
+    "port": "Port",
+    "pathname": "Path",
+    "search": "Query string",
+    "hash": "Hash",
+    "username": "Username",
+    "password": "Password"
+  },
+  "empty": "Enter a URL to see the parsed result.",
+  "error": {
+    "invalid": "Enter a valid URL."
+  },
+  "openGraph": {
+    "title": "URL Parser",
+    "description": "Free URL parsing tool for inspecting protocol, domain, port, path, and query parameters. Validate tracking links, debug redirects, and review SEO-friendly URL structures in seconds."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "openGraph": {
+    "title": "BPM Tapper",
+    "ogTitle": "BPM Tapper - Compete in Tap Speed Battles",
+    "description": "Measure your BPM by tapping and compete with friends for faster records. Perfect for score challenges, reaction-speed battles, and shareable tap speed competitions.",
+    "keywords": [
+      "BPM",
+      "tap tempo",
+      "speed challenge",
+      "tap battle",
+      "record competition",
+      "finger speed game"
+    ]
+  },
+  "title": "BPM Tapper",
+  "description": "Tap your rhythm to calculate the average BPM.",
+  "hint": "Tap the button in time with the beat.",
+  "helper": "Tap at least twice to see the average BPM.",
+  "tapButton": "Tap",
+  "taps": "Tap Count",
+  "averageInterval": "Average Interval",
+  "resetButton": "Reset",
+  "copyButton": "Copy BPM",
+  "copied": "Copied!"
+}

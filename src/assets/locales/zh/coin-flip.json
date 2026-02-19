@@ -1,0 +1,29 @@
+{
+  "title": "抛硬币",
+  "description": "一次抛出多枚硬币，快速查看正反结果。",
+  "label": {
+    "count": "硬币数量"
+  },
+  "helper": "最多可一次抛 20 枚硬币。",
+  "button": {
+    "flip": "抛硬币",
+    "reset": "重置"
+  },
+  "result": {
+    "title": "结果",
+    "empty": "抛出硬币后即可查看结果。",
+    "heads": "正面",
+    "tails": "反面",
+    "coinLabel": "硬币 {{index}}"
+  },
+  "summary": {
+    "title": "汇总",
+    "total": "共 {{count}} 枚",
+    "heads": "正面 {{count}}",
+    "tails": "反面 {{count}}"
+  },
+  "openGraph": {
+    "title": "抛硬币",
+    "description": "在线抛硬币，快速获得正反面结果。"
+  }
+}

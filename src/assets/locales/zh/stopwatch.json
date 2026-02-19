@@ -1,0 +1,25 @@
+{
+  "title": "秒表",
+  "description": "轻松计时、记录分段并一键复制结果。",
+  "helper": "点击开始即可计时，使用分段记录每一段时间。",
+  "label": {
+    "currentTime": "当前时间",
+    "laps": "分段记录",
+    "lap": "分段",
+    "total": "共 {{count}} 条"
+  },
+  "empty": "暂时没有分段记录。",
+  "button": {
+    "start": "开始",
+    "pause": "暂停",
+    "resume": "继续",
+    "lap": "分段",
+    "reset": "重置",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "openGraph": {
+    "title": "秒表",
+    "description": "免费在线秒表，支持开始、暂停、继续、分段（Lap）记录与结果复制，适合运动、学习和工作场景的精确计时管理。"
+  }
+}
