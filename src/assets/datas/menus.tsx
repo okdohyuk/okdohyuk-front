@@ -5,6 +5,7 @@ import {
   Calculator,
   CalendarClock,
   Code,
+  Coins,
   CreditCard,
   Droplet,
   FileText,
@@ -18,6 +19,7 @@ import {
   List,
   Lock,
   MonitorPlay,
+  Music,
   Palette,
   QrCode,
   Repeat,
@@ -255,6 +257,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: 'BPM 탭 템포',
+        en: 'BPM Tapper',
+        ja: 'BPMタップテンポ',
+        zh: 'BPM 点击节拍',
+      },
+      icon: <Music />,
+      link: '/bpm-tapper',
     },
     {
       title: {

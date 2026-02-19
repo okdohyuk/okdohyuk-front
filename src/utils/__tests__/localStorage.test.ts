@@ -1,18 +1,29 @@
 import { vi } from 'vitest';
 import LocalStorage from '../localStorage';
 
+const createLocalStorageMock = () => {
+  let store: Record<string, string> = {};
+  return {
+    clear: vi.fn(() => {
+      store = {};
+    }),
+    getItem: vi.fn((key: string) => store[key] ?? null),
+    setItem: vi.fn((key: string, value: string) => {
+      store[key] = value;
+    }),
+    removeItem: vi.fn((key: string) => {
+      delete store[key];
+    }),
+  } as unknown as Storage;
+};
+
 describe('LocalStorage', () => {
-  // 각 테스트 전에 localStorage를 초기화합니다.
   beforeEach(() => {
-    localStorage.clear();
-    // Vitest가 localStorage의 각 메서드 호출을 감시하도록 spy를 설정합니다.
-    vi.spyOn(Storage.prototype, 'setItem');
-    vi.spyOn(Storage.prototype, 'getItem');
-    vi.spyOn(Storage.prototype, 'removeItem');
+    vi.stubGlobal('localStorage', createLocalStorageMock());
   });
 
-  // 각 테스트 후에 spy를 복원합니다.
   afterEach(() => {
+    vi.unstubAllGlobals();
     vi.restoreAllMocks();
   });
 
