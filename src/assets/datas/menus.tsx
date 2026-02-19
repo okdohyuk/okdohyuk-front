@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CalendarDays,
   Code,
   CreditCard,
   Github,
@@ -17,6 +18,7 @@ import {
   Smile,
   Sparkles,
   TextCursorInput,
+  Timer,
   Tv,
   Youtube,
 } from 'lucide-react';
@@ -98,6 +100,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '스톱워치',
+        en: 'Stopwatch',
+        ja: 'ストップウォッチ',
+        zh: '秒表',
+      },
+      icon: <Timer />,
+      link: '/stopwatch',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',
@@ -145,6 +157,16 @@ const menus: Menus = {
       },
       icon: <Server />,
       link: '/server-clock',
+    },
+    {
+      title: {
+        ko: '요일 계산기',
+        en: 'Day of Week Finder',
+        ja: '曜日チェック',
+        zh: '星期查询',
+      },
+      icon: <CalendarDays />,
+      link: '/weekday-finder',
     },
     {
       title: {

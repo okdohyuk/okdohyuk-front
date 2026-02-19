@@ -1,0 +1,25 @@
+{
+  "title": "Stopwatch",
+  "description": "Track time, capture laps, and copy results instantly.",
+  "helper": "Tap Start to begin. Use Lap to record splits.",
+  "label": {
+    "currentTime": "Current Time",
+    "laps": "Lap Records",
+    "lap": "Lap",
+    "total": "Total {{count}}"
+  },
+  "empty": "No laps recorded yet.",
+  "button": {
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "lap": "Lap",
+    "reset": "Reset",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "openGraph": {
+    "title": "Stopwatch",
+    "description": "Free online stopwatch with start, pause, resume, and lap/split tracking. Measure workouts, study sessions, and tasks precisely, then copy results instantly on mobile or desktop."
+  }
+}
