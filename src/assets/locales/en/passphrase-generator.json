@@ -1,0 +1,20 @@
+{
+  "openGraph": {
+    "title": "passphrase generator",
+    "ogTitle": "Passphrase Generator | Secure Word-based Passwords",
+    "description": "Free passphrase generator to create secure, memorable word-based passwords with customizable word count, separators, capitalization, numbers, and symbols.",
+    "keywords": ["passphrase", "generator", "security", "words", "tool"]
+  },
+  "title": "Passphrase Generator",
+  "wordCount": "Word count",
+  "separator": "Separator",
+  "options": "Options",
+  "capitalize": "Capitalize words",
+  "includeNumber": "Include number",
+  "includeSymbol": "Include symbol",
+  "tip": "Tip: 4+ words provide strong protection and are easier to remember.",
+  "generate": "Generate passphrase",
+  "resultLabel": "Generated passphrase",
+  "copy": "Copy",
+  "copied": "Copied"
+}
