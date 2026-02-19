@@ -1,0 +1,42 @@
+{
+  "title": "Text Toolkit",
+  "description": "Apply case, whitespace, and line transforms in one place.",
+  "placeholder": "Paste or type your text here...",
+  "helper": "Pick an action to update the output. You can chain steps by using the output as input.",
+  "label": {
+    "input": "Input",
+    "output": "Output",
+    "stats": "Output stats"
+  },
+  "groups": {
+    "case": "Case",
+    "whitespace": "Whitespace",
+    "lines": "Lines"
+  },
+  "actions": {
+    "upper": "UPPERCASE",
+    "lower": "lowercase",
+    "title": "Title Case",
+    "trim": "Trim edges",
+    "trimLines": "Trim each line",
+    "collapseSpaces": "Collapse spaces",
+    "removeEmptyLines": "Remove empty lines",
+    "dedupeLines": "Remove duplicate lines",
+    "sortLines": "Sort lines (A→Z)",
+    "resetOutput": "Reset output",
+    "clearAll": "Clear all",
+    "useOutputAsInput": "Use output as input",
+    "copyOutput": "Copy output",
+    "copied": "Copied"
+  },
+  "stats": {
+    "characters": "Characters",
+    "words": "Words",
+    "lines": "Lines"
+  },
+  "empty": "Enter text to see the result.",
+  "openGraph": {
+    "title": "Text Toolkit",
+    "description": "Apply case, whitespace, and line transforms in one place."
+  }
+}
