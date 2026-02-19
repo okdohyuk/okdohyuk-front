@@ -7,9 +7,11 @@ import {
   CreditCard,
   Github,
   Hash,
+  HeartPulse,
   Key,
   Linkedin,
   List,
+  Lock,
   MonitorPlay,
   Palette,
   QrCode,
@@ -68,6 +70,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '비밀번호 생성기',
+        en: 'Password Generator',
+        ja: 'パスワード生成器',
+        zh: '密码生成器',
+      },
+      icon: <Lock />,
+      link: '/password-generator',
+    },
+    {
+      title: {
         ko: 'CSS 생성기',
         en: 'CSS Generator',
         ja: 'CSSジェネレーター',
@@ -95,6 +107,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: 'BMI 계산기',
+        en: 'BMI Calculator',
+        ja: 'BMI計算機',
+        zh: 'BMI 计算器',
+      },
+      icon: <HeartPulse />,
+      link: '/bmi-calculator',
     },
     {
       title: {
