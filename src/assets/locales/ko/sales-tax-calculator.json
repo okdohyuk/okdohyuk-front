@@ -1,0 +1,35 @@
+{
+  "title": "판매세 계산기",
+  "description": "가격, 세율, 수량을 입력하면 세금과 총액을 바로 계산합니다.",
+  "inputs": {
+    "price": {
+      "label": "세전 가격",
+      "placeholder": "예: 12,500",
+      "helper": "세금이 적용되기 전 단가를 입력하세요."
+    },
+    "taxRate": {
+      "label": "세율(%)",
+      "placeholder": "예: 10"
+    },
+    "quantity": {
+      "label": "수량",
+      "placeholder": "예: 1"
+    }
+  },
+  "actions": {
+    "reset": "초기화"
+  },
+  "summary": {
+    "title": "계산 결과",
+    "subtotal": "소계",
+    "tax": "세금",
+    "total": "총액",
+    "totalPerItem": "개당 총액",
+    "currency": "원",
+    "helper": "수량은 최소 1로 계산됩니다."
+  },
+  "openGraph": {
+    "title": "판매세 계산기",
+    "description": "무료 온라인 판매세 계산기입니다. 세전 가격, 세율(%), 수량을 입력해 세금, 소계, 총액, 개당 총액을 즉시 계산하고 쇼핑·견적·예산 계산에 활용하세요."
+  }
+}

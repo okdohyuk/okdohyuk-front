@@ -1,0 +1,35 @@
+{
+  "title": "Sales Tax Calculator",
+  "description": "Enter a price, tax rate, and quantity to calculate tax and totals instantly.",
+  "inputs": {
+    "price": {
+      "label": "Price before tax",
+      "placeholder": "e.g. 12,500",
+      "helper": "Use the unit price before tax is applied."
+    },
+    "taxRate": {
+      "label": "Tax rate (%)",
+      "placeholder": "e.g. 10"
+    },
+    "quantity": {
+      "label": "Quantity",
+      "placeholder": "e.g. 1"
+    }
+  },
+  "actions": {
+    "reset": "Reset"
+  },
+  "summary": {
+    "title": "Summary",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "total": "Total",
+    "totalPerItem": "Total per item",
+    "currency": "$",
+    "helper": "Quantity is calculated with a minimum of 1."
+  },
+  "openGraph": {
+    "title": "Sales Tax Calculator",
+    "description": "Free online sales tax calculator to instantly compute tax amount, subtotal, total, and per-item total from pre-tax price, tax rate, and quantity. Great for shopping, invoices, and budget estimates."
+  }
+}
