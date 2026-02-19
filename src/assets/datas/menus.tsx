@@ -6,21 +6,30 @@ import {
   CalendarDays,
   Code,
   CreditCard,
+  Droplet,
+  FileText,
   Github,
   Hash,
+  HeartPulse,
   Key,
+  Link2,
   Linkedin,
   List,
+  Lock,
+  KeyRound,
   MonitorPlay,
   Palette,
   QrCode,
+  Repeat,
   Server,
   Smile,
   Sparkles,
+  ScrollText,
   TextCursorInput,
   Timer,
   Tv,
   Youtube,
+  ArrowLeftRight,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
@@ -70,6 +79,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '비밀번호 생성기',
+        en: 'Password Generator',
+        ja: 'パスワード生成器',
+        zh: '密码生成器',
+      },
+      icon: <Lock />,
+      link: '/password-generator',
+    },
+    {
+      title: {
         ko: 'CSS 생성기',
         en: 'CSS Generator',
         ja: 'CSSジェネレーター',
@@ -80,6 +99,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: 'CSV/JSON 변환기',
+        en: 'CSV/JSON Converter',
+        ja: 'CSV/JSON変換器',
+        zh: 'CSV/JSON 转换器',
+      },
+      icon: <ArrowLeftRight />,
+      link: '/csv-json-converter',
+    },
+    {
+      title: {
         ko: '슬러그 생성기',
         en: 'Slug Generator',
         ja: 'スラッグ生成器',
@@ -87,6 +116,46 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 반복기',
+        en: 'Text Repeater',
+        ja: 'テキストリピーター',
+        zh: '文本重复器',
+      },
+      icon: <Repeat />,
+      link: '/text-repeater',
+    },
+    {
+      title: {
+        ko: '로마 숫자 변환기',
+        en: 'Roman Numeral Converter',
+        ja: 'ローマ数字コンバーター',
+        zh: '罗马数字转换器',
+      },
+      icon: <ScrollText />,
+      link: '/roman-converter',
+    },
+    {
+      title: {
+        ko: 'URL 파서',
+        en: 'URL Parser',
+        ja: 'URLパーサー',
+        zh: 'URL 解析器',
+      },
+      icon: <Link2 />,
+      link: '/url-parser',
+    },
+    {
+      title: {
+        ko: '텍스트 카운터',
+        en: 'Text Counter',
+        ja: 'テキストカウンター',
+        zh: '文本计数器',
+      },
+      icon: <FileText />,
+      link: '/text-counter',
     },
     {
       title: {
@@ -107,6 +176,26 @@ const menus: Menus = {
       },
       icon: <Timer />,
       link: '/stopwatch',
+    },
+    {
+      title: {
+        ko: '물 섭취량 계산기',
+        en: 'Water Intake Calculator',
+        ja: '水分摂取量計算',
+        zh: '饮水量计算器',
+      },
+      icon: <Droplet />,
+      link: '/water-intake',
+    },
+    {
+      title: {
+        ko: 'BMI 계산기',
+        en: 'BMI Calculator',
+        ja: 'BMI計算機',
+        zh: 'BMI 计算器',
+      },
+      icon: <HeartPulse />,
+      link: '/bmi-calculator',
     },
     {
       title: {
@@ -160,13 +249,13 @@ const menus: Menus = {
     },
     {
       title: {
-        ko: '요일 계산기',
-        en: 'Day of Week Finder',
-        ja: '曜日チェック',
-        zh: '星期查询',
+        ko: '패스프레이즈 생성기',
+        en: 'Passphrase Generator',
+        ja: 'パスフレーズ生成',
+        zh: '口令生成器',
       },
-      icon: <CalendarDays />,
-      link: '/weekday-finder',
+      icon: <KeyRound />,
+      link: '/passphrase-generator',
     },
     {
       title: {

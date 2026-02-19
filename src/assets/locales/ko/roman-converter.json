@@ -1,0 +1,40 @@
+{
+  "title": "로마 숫자 변환기",
+  "description": "숫자를 로마 숫자(I, V, X …)로 바꾸거나 로마 숫자를 숫자로 변환합니다.",
+  "helper": {
+    "text": "지원 범위: 1–3999. 로마 숫자는 유효성을 검사하고 표준(정규) 형태로 안내합니다.",
+    "canonical": "표준 형태: {{value}}"
+  },
+  "section": {
+    "numberToRoman": "숫자 → 로마 숫자",
+    "romanToNumber": "로마 숫자 → 숫자"
+  },
+  "label": {
+    "number": "숫자",
+    "roman": "로마 숫자"
+  },
+  "placeholder": {
+    "number": "예: 2026",
+    "roman": "예: MMXXVI"
+  },
+  "button": {
+    "copy": "복사",
+    "copied": "복사됨",
+    "reset": "초기화"
+  },
+  "empty": "값을 입력하면 결과가 표시됩니다.",
+  "error": {
+    "number": {
+      "integer": "정수를 입력해 주세요.",
+      "range": "1부터 3999 사이의 숫자를 입력해 주세요."
+    },
+    "roman": {
+      "characters": "로마 숫자 문자(I, V, X, L, C, D, M)만 입력할 수 있어요.",
+      "invalid": "올바르지 않은 로마 숫자입니다."
+    }
+  },
+  "openGraph": {
+    "title": "로마 숫자 변환기",
+    "description": "무료 로마 숫자 변환기입니다. 숫자→로마 숫자, 로마 숫자→숫자 변환을 1–3999 범위에서 빠르게 처리하고 유효성 검사와 표준(정규) 형태 확인까지 지원합니다."
+  }
+}
