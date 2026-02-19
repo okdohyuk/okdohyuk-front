@@ -23,6 +23,7 @@ import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import textCounter from 'assets/locales/ko/text-counter.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
+import textReverser from 'assets/locales/ko/text-reverser.json';
 import stopwatch from 'assets/locales/ko/stopwatch.json';
 import waterIntake from 'assets/locales/ko/water-intake.json';
 import textRepeater from 'assets/locales/ko/text-repeater.json';
@@ -60,6 +61,7 @@ declare module 'i18next' {
       'css-generator': typeof cssGenerator;
       'text-counter': typeof textCounter;
       'slug-generator': typeof slugGenerator;
+      'text-reverser': typeof textReverser;
       stopwatch: typeof stopwatch;
       'water-intake': typeof waterIntake;
       'text-repeater': typeof textRepeater;

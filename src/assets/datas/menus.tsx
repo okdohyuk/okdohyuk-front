@@ -1,9 +1,9 @@
 import React from 'react';
 import {
+  ArrowLeftRight,
   Bomb,
   Calculator,
   CalendarClock,
-  CalendarDays,
   Code,
   CreditCard,
   Droplet,
@@ -12,24 +12,23 @@ import {
   Hash,
   HeartPulse,
   Key,
+  KeyRound,
   Link2,
   Linkedin,
   List,
   Lock,
-  KeyRound,
   MonitorPlay,
   Palette,
   QrCode,
   Repeat,
+  ScrollText,
   Server,
   Smile,
   Sparkles,
-  ScrollText,
   TextCursorInput,
   Timer,
   Tv,
   Youtube,
-  ArrowLeftRight,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
@@ -116,6 +115,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 뒤집기',
+        en: 'Text Reverser',
+        ja: 'テキスト反転',
+        zh: '文本反转',
+      },
+      icon: <ArrowLeftRight />,
+      link: '/text-reverser',
     },
     {
       title: {
