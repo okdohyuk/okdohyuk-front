@@ -1,0 +1,18 @@
+{
+  "openGraph": {
+    "title": "BPM 点击节拍",
+    "ogTitle": "BPM 点击节拍 - 与好友进行点击速度对决",
+    "description": "通过点击测量 BPM 记录，并与好友展开速度竞争。适合最高分比较、挑战分享和手速对决的免费在线 BPM 工具。",
+    "keywords": ["BPM", "点击节拍", "速度对决", "记录竞争", "点击挑战", "手速游戏"]
+  },
+  "title": "BPM 点击节拍",
+  "description": "通过点击输入节奏并计算平均 BPM。",
+  "hint": "跟着节拍点击按钮。",
+  "helper": "至少点击两次即可显示平均 BPM。",
+  "tapButton": "点击",
+  "taps": "点击次数",
+  "averageInterval": "平均间隔",
+  "resetButton": "重置",
+  "copyButton": "复制 BPM",
+  "copied": "已复制！"
+}

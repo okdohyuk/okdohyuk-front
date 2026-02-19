@@ -23,6 +23,7 @@ import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
 import coinFlip from 'assets/locales/ko/coin-flip.json';
+import bpmTapper from 'assets/locales/ko/bpm-tapper.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -52,6 +53,7 @@ declare module 'i18next' {
       'css-generator': typeof cssGenerator;
       'slug-generator': typeof slugGenerator;
       'coin-flip': typeof coinFlip;
+      'bpm-tapper': typeof bpmTapper;
     };
   }
 }
