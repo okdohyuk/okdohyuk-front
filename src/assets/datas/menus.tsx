@@ -9,6 +9,7 @@ import {
   Github,
   Hash,
   Key,
+  Link2,
   Linkedin,
   List,
   MonitorPlay,
@@ -97,6 +98,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: 'URL 파서',
+        en: 'URL Parser',
+        ja: 'URLパーサー',
+        zh: 'URL 解析器',
+      },
+      icon: <Link2 />,
+      link: '/url-parser',
     },
     {
       title: {
