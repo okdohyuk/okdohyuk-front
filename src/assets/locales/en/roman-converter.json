@@ -1,0 +1,40 @@
+{
+  "title": "Roman Numeral Converter",
+  "description": "Convert numbers to Roman numerals and back (I, V, X…).",
+  "helper": {
+    "text": "Supported range: 1–3999. Roman numerals are validated and normalized to the canonical form.",
+    "canonical": "Canonical: {{value}}"
+  },
+  "section": {
+    "numberToRoman": "Number → Roman",
+    "romanToNumber": "Roman → Number"
+  },
+  "label": {
+    "number": "Number",
+    "roman": "Roman numeral"
+  },
+  "placeholder": {
+    "number": "e.g. 2026",
+    "roman": "e.g. MMXXVI"
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "reset": "Reset"
+  },
+  "empty": "Enter a value to see the result.",
+  "error": {
+    "number": {
+      "integer": "Please enter an integer.",
+      "range": "Please enter a number between 1 and 3999."
+    },
+    "roman": {
+      "characters": "Only Roman numeral letters are allowed (I, V, X, L, C, D, M).",
+      "invalid": "Invalid Roman numeral."
+    }
+  },
+  "openGraph": {
+    "title": "Roman Numeral Converter",
+    "description": "Free Roman numeral converter for fast number-to-Roman and Roman-to-number conversion (1–3999), with validation and canonical form guidance for accurate results."
+  }
+}
