@@ -23,6 +23,7 @@ import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import textCounter from 'assets/locales/ko/text-counter.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
+import romanConverter from 'assets/locales/ko/roman-converter.json';
 import bmiCalculator from 'assets/locales/ko/bmi-calculator.json';
 import passphraseGenerator from 'assets/locales/ko/passphrase-generator.json';
 import urlParser from 'assets/locales/ko/url-parser.json';
@@ -56,6 +57,7 @@ declare module 'i18next' {
       'css-generator': typeof cssGenerator;
       'text-counter': typeof textCounter;
       'slug-generator': typeof slugGenerator;
+      'roman-converter': typeof romanConverter;
       'bmi-calculator': typeof bmiCalculator;
       'passphrase-generator': typeof passphraseGenerator;
       'url-parser': typeof urlParser;

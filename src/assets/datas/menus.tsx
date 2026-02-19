@@ -21,6 +21,7 @@ import {
   Server,
   Smile,
   Sparkles,
+  ScrollText,
   TextCursorInput,
   Tv,
   Youtube,
@@ -111,6 +112,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '로마 숫자 변환기',
+        en: 'Roman Numeral Converter',
+        ja: 'ローマ数字コンバーター',
+        zh: '罗马数字转换器',
+      },
+      icon: <ScrollText />,
+      link: '/roman-converter',
     },
     {
       title: {
