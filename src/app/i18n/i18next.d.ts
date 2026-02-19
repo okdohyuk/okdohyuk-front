@@ -23,6 +23,7 @@ import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import textCounter from 'assets/locales/ko/text-counter.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
+import passwordGenerator from 'assets/locales/ko/password-generator.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -52,6 +53,7 @@ declare module 'i18next' {
       'css-generator': typeof cssGenerator;
       'text-counter': typeof textCounter;
       'slug-generator': typeof slugGenerator;
+      'password-generator': typeof passwordGenerator;
     };
   }
 }
