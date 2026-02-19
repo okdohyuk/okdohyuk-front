@@ -1,0 +1,40 @@
+{
+  "title": "BMI Calculator",
+  "description": "Use this free online BMI calculator to instantly compute your Body Mass Index and weight category from height and weight.",
+  "label": {
+    "height": "Height (cm)",
+    "weight": "Weight (kg)"
+  },
+  "placeholder": {
+    "height": "e.g. 170",
+    "weight": "e.g. 65"
+  },
+  "helper": "Enter your height in centimeters and weight in kilograms. Decimals are supported.",
+  "button": {
+    "reset": "Reset",
+    "copy": "Copy result",
+    "copied": "Copied"
+  },
+  "result": {
+    "title": "Your BMI",
+    "bmi": "BMI",
+    "empty": "Add your numbers to see the result.",
+    "invalid": "Please enter values greater than 0."
+  },
+  "category": {
+    "underweight": "Underweight",
+    "normal": "Normal",
+    "overweight": "Overweight",
+    "obese": "Obese"
+  },
+  "range": {
+    "title": "BMI Categories",
+    "between": "{{min}}–{{max}}",
+    "over": "{{value}} and above",
+    "note": "BMI is a general guide and should be interpreted with individual health context."
+  },
+  "openGraph": {
+    "title": "BMI Calculator",
+    "description": "Free BMI calculator for quick Body Mass Index checks. Enter height (cm) and weight (kg) to see underweight, normal, overweight, and obese ranges for everyday fitness and weight-management tracking."
+  }
+}

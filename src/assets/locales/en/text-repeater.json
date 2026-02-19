@@ -1,0 +1,27 @@
+{
+  "title": "Text Repeater",
+  "description": "Repeat any text with custom separators for quick lists or patterns.",
+  "label": {
+    "input": "Source text",
+    "count": "Repeat count",
+    "separator": "Separator",
+    "output": "Repeated result"
+  },
+  "placeholder": {
+    "input": "Type or paste text to repeat",
+    "separator": "e.g. \\n or , "
+  },
+  "helper": {
+    "count": "Max {{max}} repeats.",
+    "separator": "Use \\n for line breaks and \\t for tabs."
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Enter text to generate repeats.",
+  "openGraph": {
+    "title": "Text Repeater",
+    "description": "Free online text repeater to duplicate any text with custom repeat count and separators. Supports line-break and tab-style separators for lists, test data, and patterned strings in seconds."
+  }
+}

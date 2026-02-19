@@ -1,0 +1,22 @@
+{
+  "title": "Text Counter",
+  "description": "Use this free online text counter to instantly calculate characters, characters without spaces, words, lines, and bytes.",
+  "badge": "Text Utility",
+  "label": {
+    "input": "Text",
+    "characters": "Characters",
+    "charactersNoSpaces": "Characters (no spaces)",
+    "words": "Words",
+    "lines": "Lines",
+    "bytes": "Bytes"
+  },
+  "placeholder": "Paste or type your text here...",
+  "actions": {
+    "clear": "Clear"
+  },
+  "helper": "Counts update automatically as you type.",
+  "openGraph": {
+    "title": "Text Counter",
+    "description": "Free online text counter for accurate character count, word count, line count, and byte count. Check writing length instantly for essays, social posts, metadata, and SEO content optimization."
+  }
+}

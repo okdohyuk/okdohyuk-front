@@ -1,0 +1,31 @@
+{
+  "title": "饮水量计算器",
+  "description": "根据体重和活动量估算每日饮水量。",
+  "badge": "补水助手",
+  "helper": "按体重每公斤33ml + 运动每30分钟350ml计算。",
+  "label": {
+    "weight": "体重 (kg)",
+    "activity": "运动时间 (分钟)",
+    "bottle": "瓶/杯容量 (ml)"
+  },
+  "placeholder": {
+    "weight": "例如: 65",
+    "activity": "例如: 30",
+    "bottle": "例如: 500"
+  },
+  "button": {
+    "reset": "重置"
+  },
+  "result": {
+    "title": "推荐饮水量",
+    "liters": "每日升数",
+    "cups": "杯数 (250ml)",
+    "bottles": "瓶数 ({{size}}ml)",
+    "note": "这是简单估算值，请根据气候和健康状况调整。",
+    "empty": "输入体重即可查看结果。"
+  },
+  "openGraph": {
+    "title": "饮水量计算器",
+    "description": "免费饮水量计算器，可根据体重和运动时间快速估算每日补水目标，并换算为升数、杯数和瓶数，便于日常饮水管理。"
+  }
+}
