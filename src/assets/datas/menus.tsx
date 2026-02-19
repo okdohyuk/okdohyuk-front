@@ -5,6 +5,7 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  Droplet,
   FileText,
   Github,
   Hash,
@@ -163,6 +164,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '물 섭취량 계산기',
+        en: 'Water Intake Calculator',
+        ja: '水分摂取量計算',
+        zh: '饮水量计算器',
+      },
+      icon: <Droplet />,
+      link: '/water-intake',
     },
     {
       title: {
