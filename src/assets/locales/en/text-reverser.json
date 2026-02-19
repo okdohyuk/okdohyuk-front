@@ -1,0 +1,19 @@
+{
+  "title": "Text Reverser",
+  "description": "Use this free online text reverser to instantly flip sentences, words, emojis, and symbols.",
+  "label": {
+    "input": "Original text",
+    "output": "Reversed text"
+  },
+  "placeholder": "Type or paste text to reverse",
+  "helper": "Supports emojis, symbols, and multi-language characters.",
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "empty": "Enter text to see the reversed result.",
+  "openGraph": {
+    "title": "Text Reverser",
+    "description": "Free online text reverser for instantly converting text into reverse order. Works with emojis, symbols, and multilingual characters, and lets you copy results for testing or content workflows."
+  }
+}

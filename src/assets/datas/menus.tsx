@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ArrowLeftRight,
   Bomb,
   Calculator,
   CalendarClock,
@@ -85,6 +86,16 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: '텍스트 뒤집기',
+        en: 'Text Reverser',
+        ja: 'テキスト反転',
+        zh: '文本反转',
+      },
+      icon: <ArrowLeftRight />,
+      link: '/text-reverser',
     },
     {
       title: {
