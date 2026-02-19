@@ -1,0 +1,22 @@
+{
+  "title": "文本计数器",
+  "description": "使用免费文本计数器，实时统计字符数、去空格字符数、单词数、行数和字节数。",
+  "badge": "文本工具",
+  "label": {
+    "input": "文本",
+    "characters": "字符数",
+    "charactersNoSpaces": "去空格字符数",
+    "words": "单词数",
+    "lines": "行数",
+    "bytes": "字节"
+  },
+  "placeholder": "在此输入或粘贴文本...",
+  "actions": {
+    "clear": "清空"
+  },
+  "helper": "输入后会自动更新统计结果。",
+  "openGraph": {
+    "title": "文本计数器",
+    "description": "免费在线文本计数器，精准统计字符数、单词数、行数和字节数。可快速检查文章、社媒文案与SEO内容长度，提升发布效率。"
+  }
+}

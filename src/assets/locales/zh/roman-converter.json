@@ -1,0 +1,40 @@
+{
+  "title": "罗马数字转换器",
+  "description": "在数字与罗马数字（I, V, X …）之间互相转换。",
+  "helper": {
+    "text": "支持范围：1–3999。会校验罗马数字并提示其标准（规范）形式。",
+    "canonical": "标准形式：{{value}}"
+  },
+  "section": {
+    "numberToRoman": "数字 → 罗马数字",
+    "romanToNumber": "罗马数字 → 数字"
+  },
+  "label": {
+    "number": "数字",
+    "roman": "罗马数字"
+  },
+  "placeholder": {
+    "number": "例如：2026",
+    "roman": "例如：MMXXVI"
+  },
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "reset": "重置"
+  },
+  "empty": "请输入值以查看结果。",
+  "error": {
+    "number": {
+      "integer": "请输入整数。",
+      "range": "请输入 1 到 3999 之间的数字。"
+    },
+    "roman": {
+      "characters": "仅允许罗马数字字符（I, V, X, L, C, D, M）。",
+      "invalid": "无效的罗马数字。"
+    }
+  },
+  "openGraph": {
+    "title": "罗马数字转换器",
+    "description": "免费罗马数字转换器，支持 1–3999 范围内数字与罗马数字双向转换，并提供输入校验与标准形式提示，结果更准确。"
+  }
+}
