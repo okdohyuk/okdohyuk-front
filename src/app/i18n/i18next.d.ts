@@ -23,6 +23,7 @@ import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import textCounter from 'assets/locales/ko/text-counter.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
+import csvJsonConverter from 'assets/locales/ko/csv-json-converter.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -52,6 +53,7 @@ declare module 'i18next' {
       'css-generator': typeof cssGenerator;
       'text-counter': typeof textCounter;
       'slug-generator': typeof slugGenerator;
+      'csv-json-converter': typeof csvJsonConverter;
     };
   }
 }

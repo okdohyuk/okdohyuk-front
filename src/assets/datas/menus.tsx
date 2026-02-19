@@ -20,6 +20,7 @@ import {
   TextCursorInput,
   Tv,
   Youtube,
+  ArrowLeftRight,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
@@ -76,6 +77,16 @@ const menus: Menus = {
       },
       icon: <Palette />,
       link: '/css-generator',
+    },
+    {
+      title: {
+        ko: 'CSV/JSON 변환기',
+        en: 'CSV/JSON Converter',
+        ja: 'CSV/JSON変換器',
+        zh: 'CSV/JSON 转换器',
+      },
+      icon: <ArrowLeftRight />,
+      link: '/csv-json-converter',
     },
     {
       title: {
