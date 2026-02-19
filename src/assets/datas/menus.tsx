@@ -5,9 +5,11 @@ import {
   CalendarClock,
   Code,
   CreditCard,
+  FileText,
   Github,
   Hash,
   Key,
+  Link2,
   Linkedin,
   List,
   KeyRound,
@@ -20,6 +22,7 @@ import {
   TextCursorInput,
   Tv,
   Youtube,
+  ArrowLeftRight,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
 
@@ -79,6 +82,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: 'CSV/JSON 변환기',
+        en: 'CSV/JSON Converter',
+        ja: 'CSV/JSON変換器',
+        zh: 'CSV/JSON 转换器',
+      },
+      icon: <ArrowLeftRight />,
+      link: '/csv-json-converter',
+    },
+    {
+      title: {
         ko: '슬러그 생성기',
         en: 'Slug Generator',
         ja: 'スラッグ生成器',
@@ -86,6 +99,26 @@ const menus: Menus = {
       },
       icon: <Hash />,
       link: '/slug-generator',
+    },
+    {
+      title: {
+        ko: 'URL 파서',
+        en: 'URL Parser',
+        ja: 'URLパーサー',
+        zh: 'URL 解析器',
+      },
+      icon: <Link2 />,
+      link: '/url-parser',
+    },
+    {
+      title: {
+        ko: '텍스트 카운터',
+        en: 'Text Counter',
+        ja: 'テキストカウンター',
+        zh: '文本计数器',
+      },
+      icon: <FileText />,
+      link: '/text-counter',
     },
     {
       title: {

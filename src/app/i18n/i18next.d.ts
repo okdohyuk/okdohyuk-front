@@ -21,8 +21,11 @@ import qrGenerator from 'assets/locales/ko/qr-generator.json';
 import jwtDecoder from 'assets/locales/ko/jwt-decoder.json';
 import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
+import textCounter from 'assets/locales/ko/text-counter.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
 import passphraseGenerator from 'assets/locales/ko/passphrase-generator.json';
+import urlParser from 'assets/locales/ko/url-parser.json';
+import csvJsonConverter from 'assets/locales/ko/csv-json-converter.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -50,8 +53,11 @@ declare module 'i18next' {
       'jwt-decoder': typeof jwtDecoder;
       'cron-generator': typeof cronGenerator;
       'css-generator': typeof cssGenerator;
+      'text-counter': typeof textCounter;
       'slug-generator': typeof slugGenerator;
       'passphrase-generator': typeof passphraseGenerator;
+      'url-parser': typeof urlParser;
+      'csv-json-converter': typeof csvJsonConverter;
     };
   }
 }
