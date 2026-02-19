@@ -3,6 +3,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CalendarDays,
   Code,
   CreditCard,
   Droplet,
@@ -25,6 +26,7 @@ import {
   Sparkles,
   ScrollText,
   TextCursorInput,
+  Timer,
   Tv,
   Youtube,
   ArrowLeftRight,
@@ -164,6 +166,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '스톱워치',
+        en: 'Stopwatch',
+        ja: 'ストップウォッチ',
+        zh: '秒表',
+      },
+      icon: <Timer />,
+      link: '/stopwatch',
     },
     {
       title: {
