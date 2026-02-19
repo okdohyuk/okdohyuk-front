@@ -23,6 +23,7 @@ import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
 import textCounter from 'assets/locales/ko/text-counter.json';
 import slugGenerator from 'assets/locales/ko/slug-generator.json';
+import salesTaxCalculator from 'assets/locales/ko/sales-tax-calculator.json';
 import coinFlip from 'assets/locales/ko/coin-flip.json';
 import bpmTapper from 'assets/locales/ko/bpm-tapper.json';
 import textReverser from 'assets/locales/ko/text-reverser.json';
@@ -63,6 +64,7 @@ declare module 'i18next' {
       'css-generator': typeof cssGenerator;
       'text-counter': typeof textCounter;
       'slug-generator': typeof slugGenerator;
+      'sales-tax-calculator': typeof salesTaxCalculator;
       'coin-flip': typeof coinFlip;
       'bpm-tapper': typeof bpmTapper;
       'text-reverser': typeof textReverser;

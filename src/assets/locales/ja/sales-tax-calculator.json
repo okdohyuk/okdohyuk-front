@@ -1,0 +1,35 @@
+{
+  "title": "消費税計算機",
+  "description": "価格・税率・数量を入力すると、税額と合計をすぐに計算します。",
+  "inputs": {
+    "price": {
+      "label": "税抜価格",
+      "placeholder": "例: 12,500",
+      "helper": "税金が加算される前の単価を入力してください。"
+    },
+    "taxRate": {
+      "label": "税率(%)",
+      "placeholder": "例: 10"
+    },
+    "quantity": {
+      "label": "数量",
+      "placeholder": "例: 1"
+    }
+  },
+  "actions": {
+    "reset": "リセット"
+  },
+  "summary": {
+    "title": "計算結果",
+    "subtotal": "小計",
+    "tax": "税額",
+    "total": "合計",
+    "totalPerItem": "1個あたり合計",
+    "currency": "円",
+    "helper": "数量は最低1で計算されます。"
+  },
+  "openGraph": {
+    "title": "消費税計算機",
+    "description": "無料のオンライン消費税計算機です。税抜価格・税率(%)・数量を入力するだけで、税額、小計、合計、1個あたり合計を即時計算でき、買い物や見積もりの確認に便利です。"
+  }
+}

@@ -22,6 +22,7 @@ import {
   Music,
   Palette,
   QrCode,
+  Receipt,
   Repeat,
   ScrollText,
   Server,
@@ -177,6 +178,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '판매세 계산기',
+        en: 'Sales Tax Calculator',
+        ja: '消費税計算機',
+        zh: '销售税计算器',
+      },
+      icon: <Receipt />,
+      link: '/sales-tax-calculator',
     },
     {
       title: {

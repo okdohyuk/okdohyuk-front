@@ -1,0 +1,35 @@
+{
+  "title": "销售税计算器",
+  "description": "输入价格、税率和数量，即可快速计算税额与总价。",
+  "inputs": {
+    "price": {
+      "label": "税前价格",
+      "placeholder": "例如：12,500",
+      "helper": "请输入未加税的单价。"
+    },
+    "taxRate": {
+      "label": "税率(%)",
+      "placeholder": "例如：10"
+    },
+    "quantity": {
+      "label": "数量",
+      "placeholder": "例如：1"
+    }
+  },
+  "actions": {
+    "reset": "重置"
+  },
+  "summary": {
+    "title": "计算结果",
+    "subtotal": "小计",
+    "tax": "税额",
+    "total": "总计",
+    "totalPerItem": "单件总价",
+    "currency": "元",
+    "helper": "数量至少按 1 计算。"
+  },
+  "openGraph": {
+    "title": "销售税计算器",
+    "description": "免费在线销售税计算器，输入税前价格、税率(%)和数量即可即时计算税额、小计、总计与单件总价，适合购物结算、报价和预算核算。"
+  }
+}
