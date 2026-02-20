@@ -5,9 +5,9 @@ import {
   Calculator,
   CalendarClock,
   Code,
-  Coins,
   CreditCard,
   Droplet,
+  Eye,
   FileText,
   Github,
   Hash,
@@ -99,6 +99,16 @@ const menus: Menus = {
       },
       icon: <Palette />,
       link: '/css-generator',
+    },
+    {
+      title: {
+        ko: '컬러 대비 검사기',
+        en: 'Color Contrast Checker',
+        ja: 'カラーコントラストチェッカー',
+        zh: '颜色对比度检查器',
+      },
+      icon: <Eye />,
+      link: '/contrast-checker',
     },
     {
       title: {

@@ -1,0 +1,44 @@
+{
+  "title": "カラーコントラストチェッカー",
+  "description": "色のコントラスト比を計算し、WCAG AA/AAA を確認します。",
+  "label": {
+    "foreground": "テキスト色",
+    "background": "背景色",
+    "ratio": "コントラスト比",
+    "ratioUnit": ":1",
+    "normalText": "通常テキスト（18pt 未満）",
+    "largeText": "大きいテキスト（18pt+ または 14pt 太字+）"
+  },
+  "action": {
+    "swap": "色を入れ替える",
+    "reset": "リセット",
+    "copyRatio": "比率をコピー",
+    "copied": "コピー済み"
+  },
+  "examples": {
+    "darkOnLight": "明るい背景 + 濃い文字",
+    "lightOnDark": "暗い背景 + 明るい文字",
+    "brandPair": "ブランド配色"
+  },
+  "status": {
+    "passAA": "AA 合格",
+    "failAA": "AA 不合格",
+    "passAAA": "AAA 合格",
+    "failAAA": "AAA 不合格"
+  },
+  "helper": {
+    "note": "WCAG 2.1 基準: AA（通常 4.5:1 / 大きい文字 3:1）、AAA（通常 7:1 / 大きい文字 4.5:1）。"
+  },
+  "preview": {
+    "title": "プレビュー文字",
+    "subtitle": "サブ見出しサンプル",
+    "body": "小さな本文で可読性をチェックできます。"
+  },
+  "error": {
+    "invalidHex": "有効な16進カラーを入力してください（例: #1f2937 または #fff）。"
+  },
+  "openGraph": {
+    "title": "カラーコントラストチェッカー",
+    "description": "無料のカラーコントラストチェッカーです。テキストと背景色の比率を即時計算し、WCAG 2.1 AA/AAA のアクセシビリティ基準を満たしているかを素早く確認できます。"
+  }
+}

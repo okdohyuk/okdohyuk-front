@@ -36,6 +36,7 @@ import bmiCalculator from 'assets/locales/ko/bmi-calculator.json';
 import passphraseGenerator from 'assets/locales/ko/passphrase-generator.json';
 import urlParser from 'assets/locales/ko/url-parser.json';
 import csvJsonConverter from 'assets/locales/ko/csv-json-converter.json';
+import contrastChecker from 'assets/locales/ko/contrast-checker.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -78,6 +79,7 @@ declare module 'i18next' {
       'passphrase-generator': typeof passphraseGenerator;
       'url-parser': typeof urlParser;
       'csv-json-converter': typeof csvJsonConverter;
+      'contrast-checker': typeof contrastChecker;
     };
   }
 }
