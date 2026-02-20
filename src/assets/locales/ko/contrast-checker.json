@@ -1,0 +1,44 @@
+{
+  "title": "컬러 대비 검사기",
+  "description": "색상 대비비율을 계산하고 WCAG AA/AAA 기준을 확인합니다.",
+  "label": {
+    "foreground": "텍스트 색상",
+    "background": "배경 색상",
+    "ratio": "대비 비율",
+    "ratioUnit": ":1",
+    "normalText": "일반 텍스트 (18pt 미만)",
+    "largeText": "큰 텍스트 (18pt+ 또는 14pt 볼드+)"
+  },
+  "action": {
+    "swap": "색상 바꾸기",
+    "reset": "초기화",
+    "copyRatio": "비율 복사",
+    "copied": "복사됨"
+  },
+  "examples": {
+    "darkOnLight": "밝은 배경 + 진한 글자",
+    "lightOnDark": "어두운 배경 + 밝은 글자",
+    "brandPair": "브랜드 조합"
+  },
+  "status": {
+    "passAA": "AA 통과",
+    "failAA": "AA 실패",
+    "passAAA": "AAA 통과",
+    "failAAA": "AAA 실패"
+  },
+  "helper": {
+    "note": "WCAG 2.1 기준: AA (일반 4.5:1 / 큰 글자 3:1), AAA (일반 7:1 / 큰 글자 4.5:1)."
+  },
+  "preview": {
+    "title": "미리보기 텍스트",
+    "subtitle": "서브 타이틀 샘플",
+    "body": "작은 본문 문장으로 가독성을 빠르게 확인하세요."
+  },
+  "error": {
+    "invalidHex": "유효한 헥스 색상을 입력하세요 (#1f2937 또는 #fff)."
+  },
+  "openGraph": {
+    "title": "컬러 대비 검사기",
+    "description": "무료 컬러 대비 검사기로 텍스트·배경 색상의 대비 비율을 즉시 계산하고 WCAG 2.1 AA/AAA 접근성 기준 충족 여부를 빠르게 확인하세요."
+  }
+}
