@@ -7,6 +7,8 @@ import { Language } from '~/app/i18n/settings';
 import { Button } from '@components/basic/Button';
 import { Input } from '@components/basic/Input';
 import { Textarea } from '@components/basic/Textarea';
+import { Check, Copy, RefreshCw } from 'lucide-react';
+import { cn } from '@utils/cn';
 import {
   Select,
   SelectContent,
@@ -15,6 +17,10 @@ import {
   SelectValue,
 } from '@components/basic/Select';
 import { Text } from '@components/basic/Text';
+import {
+  SERVICE_CARD_INTERACTIVE,
+  SERVICE_PANEL_SOFT,
+} from '@components/complex/Service/interactiveStyles';
 
 const MAX_COUNT = 20;
 const MIN_COUNT = 1;
@@ -75,64 +81,76 @@ export default function UuidGeneratorClient({ lng }: { lng: Language }) {
   };
 
   return (
-    <section className="space-y-4">
-      <div className="grid gap-4 md:grid-cols-[160px_1fr_180px]">
-        <div className="space-y-2">
-          <Text className="t-basic-1" variant="t3">
-            {t('label.count')}
-          </Text>
-          <Input
-            type="number"
-            min={MIN_COUNT}
-            max={MAX_COUNT}
-            value={count}
-            onChange={(event) => setCount(Number(event.target.value))}
-          />
-          <Text className="t-basic-1/60" variant="c1">
-            {t('helper.count', { max: MAX_COUNT })}
-          </Text>
-        </div>
+    <div className="w-full space-y-4">
+      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
+        <div className="grid gap-4 md:grid-cols-[160px_1fr_auto]">
+          <div className="space-y-2">
+            <Text className="t-basic-1" variant="t3">
+              {t('label.count')}
+            </Text>
+            <Input
+              type="number"
+              min={MIN_COUNT}
+              max={MAX_COUNT}
+              value={count}
+              onChange={(event) => setCount(Number(event.target.value))}
+            />
+            <Text className="t-basic-1/60" variant="c1">
+              {t('helper.count', { max: MAX_COUNT })}
+            </Text>
+          </div>
 
-        <div className="space-y-2">
-          <Text className="t-basic-1" variant="t3">
-            {t('label.format')}
-          </Text>
-          <Select value={format} onValueChange={(value) => setFormat(value as FormatOption)}>
-            <SelectTrigger>
-              <SelectValue placeholder={t('placeholder.format')} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="standard">{t('format.standard')}</SelectItem>
-              <SelectItem value="noHyphens">{t('format.noHyphens')}</SelectItem>
-              <SelectItem value="uppercase">{t('format.uppercase')}</SelectItem>
-            </SelectContent>
-          </Select>
-          <Text className="t-basic-1/60" variant="c1">
-            {t('helper.format')}
-          </Text>
-        </div>
+          <div className="space-y-2">
+            <Text className="t-basic-1" variant="t3">
+              {t('label.format')}
+            </Text>
+            <Select value={format} onValueChange={(value) => setFormat(value as FormatOption)}>
+              <SelectTrigger>
+                <SelectValue placeholder={t('placeholder.format')} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="standard">{t('format.standard')}</SelectItem>
+                <SelectItem value="noHyphens">{t('format.noHyphens')}</SelectItem>
+                <SelectItem value="uppercase">{t('format.uppercase')}</SelectItem>
+              </SelectContent>
+            </Select>
+            <Text className="t-basic-1/60" variant="c1">
+              {t('helper.format')}
+            </Text>
+          </div>
 
-        <div className="flex flex-col gap-2">
-          <Button type="button" onClick={handleGenerate}>
-            {t('button.generate')}
-          </Button>
-          <Button type="button" variant="outline" onClick={handleCopy}>
-            {copied ? t('button.copied') : t('button.copy')}
-          </Button>
+          <div className="flex items-start gap-2 md:justify-self-end">
+            <Button
+              type="button"
+              onClick={handleGenerate}
+              className="gap-2 px-3 py-1 text-sm whitespace-nowrap mt-[42px]"
+            >
+              <RefreshCw className="h-4 w-4" />
+              {t('button.generate')}
+            </Button>
+            <Button
+              type="button"
+              onClick={handleCopy}
+              className="gap-2 px-3 py-1 text-sm whitespace-nowrap"
+            >
+              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              {copied ? t('button.copied') : t('button.copy')}
+            </Button>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="space-y-2">
+      <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-2 p-4')}>
         <Text className="t-basic-1" variant="t3">
           {t('label.output')}
         </Text>
         <Textarea
-          className="min-h-[200px]"
+          className="min-h-[220px] font-mono text-sm"
           readOnly
           value={uuids.join('\n')}
           placeholder={t('placeholder.output')}
         />
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
