@@ -262,6 +262,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: 'JSON ↔ YAML 변환기',
+        en: 'JSON ↔ YAML Converter',
+        ja: 'JSON ↔ YAML 変換',
+        zh: 'JSON ↔ YAML 转换器',
+      },
+      icon: <ArrowLeftRight />,
+      link: '/json-yaml-converter',
+    },
+    {
+      title: {
         ko: '멀티라이브',
         en: 'MultiLive',
         ja: 'マルチライブ',
