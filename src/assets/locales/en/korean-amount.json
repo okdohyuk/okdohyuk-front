@@ -1,0 +1,33 @@
+{
+  "title": "Korean Amount Converter",
+  "description": "Convert numbers into Korean currency text for contracts and receipts.",
+  "label": {
+    "amount": "Amount"
+  },
+  "placeholder": "e.g. 123456789",
+  "helper": {
+    "empty": "Enter a number to generate Korean amount text.",
+    "invalid": "Please enter digits only.",
+    "valid": "Converted the number into Korean amount text."
+  },
+  "option": {
+    "currency": "Include KRW suffix"
+  },
+  "unit": {
+    "currency": "원"
+  },
+  "result": {
+    "title": "Result",
+    "placeholder": "Your result will appear here.",
+    "tip": "Copy and paste as needed. Commas are applied automatically for readability."
+  },
+  "button": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear"
+  },
+  "openGraph": {
+    "title": "Korean Amount Converter",
+    "description": "Free Korean amount converter that instantly turns numbers into Korean currency wording for contracts, receipts, and invoices. Copy ready-to-use text in one click."
+  }
+}
