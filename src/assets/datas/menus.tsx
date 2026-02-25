@@ -5,10 +5,11 @@ import {
   Calculator,
   CalendarClock,
   Code,
-  Coins,
   CreditCard,
   Droplet,
+  Eye,
   FileText,
+  Fingerprint,
   Github,
   Hash,
   HeartPulse,
@@ -17,7 +18,6 @@ import {
   Link2,
   Linkedin,
   List,
-  Lock,
   MonitorPlay,
   Music,
   Palette,
@@ -28,6 +28,7 @@ import {
   Server,
   Smile,
   Sparkles,
+  Table,
   TextCursorInput,
   Timer,
   Tv,
@@ -81,13 +82,13 @@ const menus: Menus = {
     },
     {
       title: {
-        ko: '비밀번호 생성기',
-        en: 'Password Generator',
-        ja: 'パスワード生成器',
-        zh: '密码生成器',
+        ko: 'UUID 생성기',
+        en: 'UUID Generator',
+        ja: 'UUID ジェネレーター',
+        zh: 'UUID 生成器',
       },
-      icon: <Lock />,
-      link: '/password-generator',
+      icon: <Fingerprint />,
+      link: '/uuid-generator',
     },
     {
       title: {
@@ -98,6 +99,16 @@ const menus: Menus = {
       },
       icon: <Palette />,
       link: '/css-generator',
+    },
+    {
+      title: {
+        ko: '컬러 대비 검사기',
+        en: 'Color Contrast Checker',
+        ja: 'カラーコントラストチェッカー',
+        zh: '颜色对比度检查器',
+      },
+      icon: <Eye />,
+      link: '/contrast-checker',
     },
     {
       title: {
@@ -171,6 +182,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '마크다운 테이블 생성기',
+        en: 'Markdown Table Generator',
+        ja: 'Markdownテーブル生成器',
+        zh: 'Markdown 表格生成器',
+      },
+      icon: <Table />,
+      link: '/markdown-table-generator',
+    },
+    {
+      title: {
         ko: '퍼센트계산기',
         en: 'Percent Calculator',
         ja: 'パーセント計算機',
@@ -238,6 +259,16 @@ const menus: Menus = {
       },
       icon: <Code />,
       link: '/coder',
+    },
+    {
+      title: {
+        ko: 'JSON ↔ YAML 변환기',
+        en: 'JSON ↔ YAML Converter',
+        ja: 'JSON ↔ YAML 変換',
+        zh: 'JSON ↔ YAML 转换器',
+      },
+      icon: <ArrowLeftRight />,
+      link: '/json-yaml-converter',
     },
     {
       title: {

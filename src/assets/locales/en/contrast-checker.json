@@ -1,0 +1,44 @@
+{
+  "title": "Color Contrast Checker",
+  "description": "Measure color contrast and verify WCAG AA/AAA compliance for text.",
+  "label": {
+    "foreground": "Text color",
+    "background": "Background color",
+    "ratio": "Contrast ratio",
+    "ratioUnit": ":1",
+    "normalText": "Normal text (under 18pt)",
+    "largeText": "Large text (18pt+ or 14pt bold+)"
+  },
+  "action": {
+    "swap": "Swap colors",
+    "reset": "Reset",
+    "copyRatio": "Copy ratio",
+    "copied": "Copied"
+  },
+  "examples": {
+    "darkOnLight": "Dark on light",
+    "lightOnDark": "Light on dark",
+    "brandPair": "Brand pair"
+  },
+  "status": {
+    "passAA": "AA Pass",
+    "failAA": "AA Fail",
+    "passAAA": "AAA Pass",
+    "failAAA": "AAA Fail"
+  },
+  "helper": {
+    "note": "WCAG 2.1 thresholds: AA (4.5:1 normal / 3:1 large), AAA (7:1 normal / 4.5:1 large)."
+  },
+  "preview": {
+    "title": "Preview text",
+    "subtitle": "Subheading sample",
+    "body": "Smaller body copy for quick readability checks."
+  },
+  "error": {
+    "invalidHex": "Enter a valid hex color (e.g. #1f2937 or #fff)."
+  },
+  "openGraph": {
+    "title": "Color Contrast Checker",
+    "description": "Free color contrast checker to instantly calculate text/background contrast ratios and verify WCAG 2.1 AA/AAA accessibility compliance for UI design and content readability."
+  }
+}

@@ -18,6 +18,7 @@ import ppollong from 'assets/locales/ko/ppollong.json'; // ppollong.json 임포�
 import serverClock from 'assets/locales/ko/server-clock.json';
 import choseongMaker from 'assets/locales/ko/choseong-maker.json';
 import qrGenerator from 'assets/locales/ko/qr-generator.json';
+import uuidGenerator from 'assets/locales/ko/uuid-generator.json';
 import jwtDecoder from 'assets/locales/ko/jwt-decoder.json';
 import cronGenerator from 'assets/locales/ko/cron-generator.json';
 import cssGenerator from 'assets/locales/ko/css-generator.json';
@@ -35,6 +36,9 @@ import bmiCalculator from 'assets/locales/ko/bmi-calculator.json';
 import passphraseGenerator from 'assets/locales/ko/passphrase-generator.json';
 import urlParser from 'assets/locales/ko/url-parser.json';
 import csvJsonConverter from 'assets/locales/ko/csv-json-converter.json';
+import contrastChecker from 'assets/locales/ko/contrast-checker.json';
+import markdownTableGenerator from 'assets/locales/ko/markdown-table-generator.json';
+import jsonYamlConverter from 'assets/locales/ko/json-yaml-converter.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -59,6 +63,7 @@ declare module 'i18next' {
       'server-clock': typeof serverClock;
       'choseong-maker': typeof choseongMaker;
       'qr-generator': typeof qrGenerator;
+      'uuid-generator': typeof uuidGenerator;
       'jwt-decoder': typeof jwtDecoder;
       'cron-generator': typeof cronGenerator;
       'css-generator': typeof cssGenerator;
@@ -76,6 +81,9 @@ declare module 'i18next' {
       'passphrase-generator': typeof passphraseGenerator;
       'url-parser': typeof urlParser;
       'csv-json-converter': typeof csvJsonConverter;
+      'contrast-checker': typeof contrastChecker;
+      'markdown-table-generator': typeof markdownTableGenerator;
+      'json-yaml-converter': typeof jsonYamlConverter;
     };
   }
 }

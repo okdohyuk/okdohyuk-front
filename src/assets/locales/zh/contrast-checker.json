@@ -1,0 +1,44 @@
+{
+  "title": "颜色对比度检查器",
+  "description": "计算颜色对比度并检查 WCAG AA/AAA 合规性。",
+  "label": {
+    "foreground": "文字颜色",
+    "background": "背景颜色",
+    "ratio": "对比度",
+    "ratioUnit": ":1",
+    "normalText": "常规文字（18pt 以下）",
+    "largeText": "大号文字（18pt+ 或 14pt 加粗+）"
+  },
+  "action": {
+    "swap": "交换颜色",
+    "reset": "重置",
+    "copyRatio": "复制比率",
+    "copied": "已复制"
+  },
+  "examples": {
+    "darkOnLight": "浅底深字",
+    "lightOnDark": "深底浅字",
+    "brandPair": "品牌配色"
+  },
+  "status": {
+    "passAA": "AA 通过",
+    "failAA": "AA 未通过",
+    "passAAA": "AAA 通过",
+    "failAAA": "AAA 未通过"
+  },
+  "helper": {
+    "note": "WCAG 2.1 标准：AA（常规 4.5:1 / 大号 3:1），AAA（常规 7:1 / 大号 4.5:1）。"
+  },
+  "preview": {
+    "title": "预览文本",
+    "subtitle": "副标题示例",
+    "body": "用更小的正文快速检查可读性。"
+  },
+  "error": {
+    "invalidHex": "请输入有效的十六进制颜色（如 #1f2937 或 #fff）。"
+  },
+  "openGraph": {
+    "title": "颜色对比度检查器",
+    "description": "免费颜色对比度检查器，可即时计算文字与背景的对比度比率，并快速判断是否符合 WCAG 2.1 AA/AAA 无障碍标准。"
+  }
+}
