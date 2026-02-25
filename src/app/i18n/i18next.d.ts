@@ -37,6 +37,7 @@ import passphraseGenerator from 'assets/locales/ko/passphrase-generator.json';
 import urlParser from 'assets/locales/ko/url-parser.json';
 import csvJsonConverter from 'assets/locales/ko/csv-json-converter.json';
 import contrastChecker from 'assets/locales/ko/contrast-checker.json';
+import markdownTableGenerator from 'assets/locales/ko/markdown-table-generator.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -80,6 +81,7 @@ declare module 'i18next' {
       'url-parser': typeof urlParser;
       'csv-json-converter': typeof csvJsonConverter;
       'contrast-checker': typeof contrastChecker;
+      'markdown-table-generator': typeof markdownTableGenerator;
     };
   }
 }
