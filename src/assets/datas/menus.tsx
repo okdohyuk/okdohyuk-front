@@ -21,6 +21,7 @@ import {
   List,
   MonitorPlay,
   Music,
+  Moon,
   Palette,
   QrCode,
   Receipt,
@@ -250,6 +251,16 @@ const menus: Menus = {
       },
       icon: <Coins />,
       link: '/korean-amount',
+    },
+    {
+      title: {
+        ko: '취침 시간 플래너',
+        en: 'Bedtime Planner',
+        ja: '就寝時間プランナー',
+        zh: '就寝时间规划器',
+      },
+      icon: <Moon />,
+      link: '/bedtime-planner',
     },
     {
       title: {
