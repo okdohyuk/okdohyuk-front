@@ -41,6 +41,7 @@ import markdownTableGenerator from 'assets/locales/ko/markdown-table-generator.j
 import jsonYamlConverter from 'assets/locales/ko/json-yaml-converter.json';
 import koreanAmount from 'assets/locales/ko/korean-amount.json';
 import bedtimePlanner from 'assets/locales/ko/bedtime-planner.json';
+import dataSizeConverter from 'assets/locales/ko/data-size-converter.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -88,6 +89,7 @@ declare module 'i18next' {
       'json-yaml-converter': typeof jsonYamlConverter;
       'korean-amount': typeof koreanAmount;
       'bedtime-planner': typeof bedtimePlanner;
+      'data-size-converter': typeof dataSizeConverter;
     };
   }
 }

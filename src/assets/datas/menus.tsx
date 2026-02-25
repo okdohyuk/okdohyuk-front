@@ -14,6 +14,7 @@ import {
   Github,
   Hash,
   HeartPulse,
+  HardDrive,
   Key,
   KeyRound,
   Link2,
@@ -341,6 +342,16 @@ const menus: Menus = {
       },
       icon: <KeyRound />,
       link: '/passphrase-generator',
+    },
+    {
+      title: {
+        ko: '데이터 용량 변환기',
+        en: 'Data Size Converter',
+        ja: 'データ容量変換',
+        zh: '数据容量转换器',
+      },
+      icon: <HardDrive />,
+      link: '/data-size-converter',
     },
     {
       title: {
