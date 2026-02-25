@@ -28,6 +28,7 @@ import {
   Server,
   Smile,
   Sparkles,
+  Table,
   TextCursorInput,
   Timer,
   Tv,
@@ -178,6 +179,16 @@ const menus: Menus = {
       },
       icon: <FileText />,
       link: '/text-counter',
+    },
+    {
+      title: {
+        ko: '마크다운 테이블 생성기',
+        en: 'Markdown Table Generator',
+        ja: 'Markdownテーブル生成器',
+        zh: 'Markdown 表格生成器',
+      },
+      icon: <Table />,
+      link: '/markdown-table-generator',
     },
     {
       title: {
