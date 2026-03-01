@@ -1,0 +1,62 @@
+{
+  "title": "ISO 周工具箱",
+  "description": "快速查询 ISO 周编号、日期范围与后续周列表。",
+  "badge": "ISO 周",
+  "button": {
+    "copy": "复制",
+    "copied": "已复制",
+    "today": "今天",
+    "clear": "清空"
+  },
+  "status": {
+    "invalidDate": "请选择有效的日期。",
+    "invalidWeek": "请输入正确的 ISO 年和周编号(1-53)。"
+  },
+  "section": {
+    "dateToWeek": {
+      "title": "日期 → ISO 周",
+      "description": "将日期转换为 ISO 周编号、ISO 年和周范围。",
+      "label": {
+        "date": "日期",
+        "isoYear": "ISO 年",
+        "isoWeek": "ISO 周",
+        "weekStart": "周开始(周一)",
+        "weekEnd": "周结束(周日)"
+      },
+      "placeholder": "选择日期",
+      "helper": "ISO 周从周一开始，第一周包含当年的第一个周四。"
+    },
+    "weekToRange": {
+      "title": "ISO 周 → 日期范围",
+      "description": "根据 ISO 年与周编号获取周一到周日的日期范围。",
+      "label": {
+        "isoYear": "ISO 年",
+        "isoWeek": "ISO 周",
+        "start": "开始日期",
+        "end": "结束日期"
+      },
+      "placeholder": {
+        "year": "2026",
+        "week": "12"
+      }
+    },
+    "weekList": {
+      "title": "后续 ISO 周",
+      "description": "从基准日期开始查看 ISO 周列表。",
+      "label": {
+        "base": "基准日期",
+        "count": "数量",
+        "week": "{{year}}-W{{week}}"
+      },
+      "placeholder": {
+        "base": "选择日期",
+        "count": "4"
+      },
+      "empty": "请选择基准日期。"
+    }
+  },
+  "openGraph": {
+    "title": "ISO 周工具箱",
+    "description": "免费 ISO 周工具：日期转周编号、查询周范围与后续周列表。"
+  }
+}

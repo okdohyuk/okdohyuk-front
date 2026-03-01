@@ -4,6 +4,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CalendarDays,
   Code,
   Coins,
   CreditCard,
@@ -72,6 +73,26 @@ const menus: Menus = {
       },
       icon: <CalendarClock />,
       link: '/cron-generator',
+    },
+    {
+      title: {
+        ko: '날짜 도구함',
+        en: 'Date Toolbox',
+        ja: '日付ツールボックス',
+        zh: '日期工具箱',
+      },
+      icon: <CalendarDays />,
+      link: '/date-toolbox',
+    },
+    {
+      title: {
+        ko: 'ISO 주차 툴박스',
+        en: 'ISO Week Toolbox',
+        ja: 'ISO週ツールボックス',
+        zh: 'ISO 周工具箱',
+      },
+      icon: <CalendarDays />,
+      link: '/iso-week-toolbox',
     },
     {
       title: {

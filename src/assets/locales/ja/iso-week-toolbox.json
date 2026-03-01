@@ -1,0 +1,62 @@
+{
+  "title": "ISO週ツールボックス",
+  "description": "ISO週番号、日付範囲、次の週一覧をすばやく確認できます。",
+  "badge": "ISO週",
+  "button": {
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "today": "今日",
+    "clear": "クリア"
+  },
+  "status": {
+    "invalidDate": "有効な日付を選択してください。",
+    "invalidWeek": "正しいISO年と週番号(1-53)を入力してください。"
+  },
+  "section": {
+    "dateToWeek": {
+      "title": "日付 → ISO週",
+      "description": "日付をISO週番号、ISO年、週の範囲に変換します。",
+      "label": {
+        "date": "日付",
+        "isoYear": "ISO年",
+        "isoWeek": "ISO週",
+        "weekStart": "週の開始(月)",
+        "weekEnd": "週の終了(日)"
+      },
+      "placeholder": "日付を選択してください",
+      "helper": "ISO週は月曜始まりで、1週目は最初の木曜日を含みます。"
+    },
+    "weekToRange": {
+      "title": "ISO週 → 日付範囲",
+      "description": "ISO年と週番号から月〜日の日付範囲を取得します。",
+      "label": {
+        "isoYear": "ISO年",
+        "isoWeek": "ISO週",
+        "start": "開始日",
+        "end": "終了日"
+      },
+      "placeholder": {
+        "year": "2026",
+        "week": "12"
+      }
+    },
+    "weekList": {
+      "title": "次のISO週",
+      "description": "基準日からのISO週一覧を確認できます。",
+      "label": {
+        "base": "基準日",
+        "count": "件数",
+        "week": "{{year}}-W{{week}}"
+      },
+      "placeholder": {
+        "base": "日付を選択",
+        "count": "4"
+      },
+      "empty": "基準日を選択してください。"
+    }
+  },
+  "openGraph": {
+    "title": "ISO週ツールボックス",
+    "description": "ISO週変換、週の範囲取得、次の週一覧をまとめた無料ユーティリティ。"
+  }
+}
