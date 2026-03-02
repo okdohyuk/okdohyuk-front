@@ -5,6 +5,7 @@ import {
   Calculator,
   CalendarClock,
   Code,
+  Coins,
   CreditCard,
   Droplet,
   Eye,
@@ -13,6 +14,7 @@ import {
   Github,
   Hash,
   HeartPulse,
+  HardDrive,
   Key,
   KeyRound,
   Link2,
@@ -20,6 +22,7 @@ import {
   List,
   MonitorPlay,
   Music,
+  Moon,
   Palette,
   QrCode,
   Receipt,
@@ -242,6 +245,26 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '한글 금액 변환기',
+        en: 'Korean Amount Converter',
+        ja: '韓国語金額変換',
+        zh: '韩文金额转换器',
+      },
+      icon: <Coins />,
+      link: '/korean-amount',
+    },
+    {
+      title: {
+        ko: '취침 시간 플래너',
+        en: 'Bedtime Planner',
+        ja: '就寝時間プランナー',
+        zh: '就寝时间规划器',
+      },
+      icon: <Moon />,
+      link: '/bedtime-planner',
+    },
+    {
+      title: {
         ko: '할일',
         en: 'Todo',
         ja: 'やること',
@@ -319,6 +342,16 @@ const menus: Menus = {
       },
       icon: <KeyRound />,
       link: '/passphrase-generator',
+    },
+    {
+      title: {
+        ko: '데이터 용량 변환기',
+        en: 'Data Size Converter',
+        ja: 'データ容量変換',
+        zh: '数据容量转换器',
+      },
+      icon: <HardDrive />,
+      link: '/data-size-converter',
     },
     {
       title: {

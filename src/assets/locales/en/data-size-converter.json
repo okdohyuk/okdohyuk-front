@@ -1,0 +1,43 @@
+{
+  "title": "Data Size Converter",
+  "description": "Convert storage sizes from bytes to yottabytes.",
+  "label": {
+    "input": "Value to convert"
+  },
+  "placeholder": "e.g. 128",
+  "helper": "Choose the decimal (1,000) or binary (1,024) standard.",
+  "standard": {
+    "decimal": "Decimal (1,000)",
+    "binary": "Binary (1,024)"
+  },
+  "units": {
+    "byte": "Byte",
+    "kilobyte": "Kilobyte",
+    "megabyte": "Megabyte",
+    "gigabyte": "Gigabyte",
+    "terabyte": "Terabyte",
+    "petabyte": "Petabyte",
+    "exabyte": "Exabyte",
+    "zettabyte": "Zettabyte",
+    "yottabyte": "Yottabyte"
+  },
+  "unitShort": {
+    "byte": "B",
+    "kilobyte": "KB",
+    "megabyte": "MB",
+    "gigabyte": "GB",
+    "terabyte": "TB",
+    "petabyte": "PB",
+    "exabyte": "EB",
+    "zettabyte": "ZB",
+    "yottabyte": "YB"
+  },
+  "result": {
+    "title": "Converted sizes",
+    "empty": "Enter a number to see the conversions."
+  },
+  "openGraph": {
+    "title": "Data Size Converter",
+    "description": "Free data size converter for instant conversion from bytes (B) to yottabytes (YB), starting with binary mode (1,024) by default and supporting decimal mode (1,000)."
+  }
+}

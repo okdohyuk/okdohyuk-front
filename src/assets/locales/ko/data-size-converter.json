@@ -1,0 +1,43 @@
+{
+  "title": "데이터 용량 변환기",
+  "description": "입력한 용량을 바이트부터 요타바이트까지 변환합니다.",
+  "label": {
+    "input": "변환할 용량"
+  },
+  "placeholder": "예: 128",
+  "helper": "10진(1,000) 또는 2진(1,024) 기준을 선택하세요.",
+  "standard": {
+    "decimal": "10진 (1,000)",
+    "binary": "2진 (1,024)"
+  },
+  "units": {
+    "byte": "바이트",
+    "kilobyte": "킬로바이트",
+    "megabyte": "메가바이트",
+    "gigabyte": "기가바이트",
+    "terabyte": "테라바이트",
+    "petabyte": "페타바이트",
+    "exabyte": "엑사바이트",
+    "zettabyte": "제타바이트",
+    "yottabyte": "요타바이트"
+  },
+  "unitShort": {
+    "byte": "B",
+    "kilobyte": "KB",
+    "megabyte": "MB",
+    "gigabyte": "GB",
+    "terabyte": "TB",
+    "petabyte": "PB",
+    "exabyte": "EB",
+    "zettabyte": "ZB",
+    "yottabyte": "YB"
+  },
+  "result": {
+    "title": "변환 결과",
+    "empty": "숫자를 입력하면 변환 결과가 표시됩니다."
+  },
+  "openGraph": {
+    "title": "데이터 용량 변환기",
+    "description": "무료 데이터 용량 변환기입니다. 바이트(B)부터 요타바이트(YB)까지 즉시 변환하고, 기본 2진(1,024) 기준에서 10진(1,000) 비교도 지원합니다."
+  }
+}

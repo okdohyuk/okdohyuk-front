@@ -1,31 +1,44 @@
 {
-  "title": "Water Intake Calculator",
-  "description": "Estimate your daily water intake based on body weight and activity.",
-  "badge": "Hydration Helper",
-  "helper": "Based on common guidance: 33 ml per kg + 350 ml per 30 minutes of activity.",
-  "label": {
-    "weight": "Body weight (kg)",
-    "activity": "Activity minutes",
-    "bottle": "Bottle size (ml)"
-  },
-  "placeholder": {
-    "weight": "e.g. 65",
-    "activity": "e.g. 30",
-    "bottle": "e.g. 500"
-  },
-  "button": {
-    "reset": "Reset"
-  },
-  "result": {
-    "title": "Recommended intake",
-    "liters": "Liters per day",
-    "cups": "Cups (250 ml)",
-    "bottles": "Bottles ({{size}} ml)",
-    "note": "Results are a simple estimate. Adjust for climate and health.",
-    "empty": "Enter your body weight to see the estimate."
-  },
   "openGraph": {
     "title": "Water Intake Calculator",
-    "description": "Free water intake calculator to estimate your daily hydration target from body weight and activity minutes. Instantly view liters, cups, and bottle count for practical hydration planning."
+    "ogTitle": "Water Intake Calculator, Daily Hydration Target",
+    "description": "Free water intake calculator that estimates a personalized daily hydration target from your weight, activity level, and climate. View results in liters, cups, and bottles to build a consistent hydration routine.",
+    "keywords": ["water", "hydration", "intake", "health", "calculator"]
+  },
+  "title": "Water Intake Calculator",
+  "description": "Estimate your daily water intake using weight, activity, and climate.",
+  "badge": "Wellness",
+  "inputs": {
+    "title": "Enter your basics",
+    "description": "Select weight and conditions to calculate a hydration target.",
+    "weightPlaceholder": "Weight (kg)",
+    "activity": "Activity",
+    "climate": "Climate"
+  },
+  "activity": {
+    "low": "Light activity",
+    "medium": "Moderate activity",
+    "high": "High activity"
+  },
+  "climate": {
+    "cool": "Cool",
+    "normal": "Normal",
+    "hot": "Hot"
+  },
+  "result": {
+    "dailyTarget": "Daily target: {{amount}} L",
+    "cups": "About {{amount}} cups (250ml)",
+    "bottles": "About {{amount}} bottles (500ml)",
+    "empty": "Enter values to see your target."
+  },
+  "tips": {
+    "title": "Hydration tips",
+    "description": "Simple ways to stay hydrated throughout the day.",
+    "items": [
+      "Start the day with a glass of water.",
+      "Add extra water when you have caffeinated drinks.",
+      "Drink a bit more before and after exercise.",
+      "Sip regularly before you feel thirsty."
+    ]
   }
 }
