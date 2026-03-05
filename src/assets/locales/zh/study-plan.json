@@ -1,0 +1,21 @@
+{
+  "title": "学习计划生成",
+  "description": "输入学习主题即可生成按天学习计划。",
+  "badge": "Study",
+  "openGraph": {
+    "title": "学习计划生成",
+    "description": "输入学习主题即可生成按天学习计划。"
+  },
+  "topicsLabel": "学习主题",
+  "topicsPlaceholder": "例如：函数\n概率\n微积分",
+  "daysLabel": "学习天数",
+  "sessionsLabel": "每日学习次数",
+  "tips": "主题不足时将自动重复安排。",
+  "generate": "生成计划",
+  "shuffle": "重新生成",
+  "reset": "重置",
+  "planTitle": "学习计划",
+  "emptyState": "请输入主题并生成计划。",
+  "dayNames": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+  "dayPrefix": "Day"
+}

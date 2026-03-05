@@ -1,0 +1,21 @@
+{
+  "title": "학습 계획 생성기",
+  "description": "학습 주제를 입력하면 기간별 학습 계획을 만들어드립니다.",
+  "badge": "Study",
+  "openGraph": {
+    "title": "학습 계획 생성기",
+    "description": "학습 주제를 입력하면 기간별 학습 계획을 만들어드립니다."
+  },
+  "topicsLabel": "학습 주제",
+  "topicsPlaceholder": "예) 함수\n확률\n미적분",
+  "daysLabel": "학습 기간(일)",
+  "sessionsLabel": "하루 학습 세션 수",
+  "tips": "주제가 부족하면 자동으로 반복 배정됩니다.",
+  "generate": "계획 만들기",
+  "shuffle": "다시 생성",
+  "reset": "초기화",
+  "planTitle": "학습 계획",
+  "emptyState": "학습 주제를 입력하고 계획 만들기를 눌러주세요.",
+  "dayNames": ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"],
+  "dayPrefix": "Day"
+}

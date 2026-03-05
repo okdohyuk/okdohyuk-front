@@ -1,0 +1,21 @@
+{
+  "title": "学習プラン作成",
+  "description": "学習トピックを入力すると日別の学習計画を作成します。",
+  "badge": "Study",
+  "openGraph": {
+    "title": "学習プラン作成",
+    "description": "学習トピックを入力すると日別の学習計画を作成します。"
+  },
+  "topicsLabel": "学習トピック",
+  "topicsPlaceholder": "例) 関数\n確率\n微積分",
+  "daysLabel": "学習期間(日)",
+  "sessionsLabel": "1日の学習セッション数",
+  "tips": "トピックが少ない場合は自動で繰り返し配置されます。",
+  "generate": "計画作成",
+  "shuffle": "再生成",
+  "reset": "リセット",
+  "planTitle": "学習計画",
+  "emptyState": "トピックを入力して計画を作成してください。",
+  "dayNames": ["月", "火", "水", "木", "金", "土", "日"],
+  "dayPrefix": "Day"
+}

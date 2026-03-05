@@ -1,0 +1,21 @@
+{
+  "title": "Study Plan Builder",
+  "description": "Turn your topics into a day-by-day study plan.",
+  "badge": "Study",
+  "openGraph": {
+    "title": "Study Plan Builder",
+    "description": "Turn your topics into a day-by-day study plan."
+  },
+  "topicsLabel": "Study topics",
+  "topicsPlaceholder": "e.g. Functions\nProbability\nCalculus",
+  "daysLabel": "Study days",
+  "sessionsLabel": "Sessions per day",
+  "tips": "If topics are fewer than sessions, they will repeat.",
+  "generate": "Create plan",
+  "shuffle": "Regenerate",
+  "reset": "Reset",
+  "planTitle": "Study plan",
+  "emptyState": "Add topics and create a plan.",
+  "dayNames": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  "dayPrefix": "Day"
+}

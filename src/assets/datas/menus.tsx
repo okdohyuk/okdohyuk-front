@@ -14,6 +14,7 @@ import {
   Github,
   Hash,
   HeartPulse,
+  NotebookPen,
   HardDrive,
   Key,
   KeyRound,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '학습 계획 생성기',
+        en: 'Study Plan Builder',
+        ja: '学習プラン作成',
+        zh: '学习计划生成',
+      },
+      icon: <NotebookPen />,
+      link: '/study-plan',
     },
     {
       title: {
