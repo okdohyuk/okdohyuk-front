@@ -1,0 +1,19 @@
+{
+  "title": "テレビ設置高さ計算",
+  "description": "画面サイズと目線の高さから設置高さを計算します。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "テレビ設置高さ計算",
+    "description": "画面サイズと目線の高さから設置高さを計算します。"
+  },
+  "diagonalLabel": "テレビサイズ(インチ)",
+  "eyeHeightLabel": "目線の高さ(cm)",
+  "offsetLabel": "中心位置の補正(cm)",
+  "tips": "基本は画面中心を目線の高さに合わせます。",
+  "reset": "リセット",
+  "screenHeightLabel": "画面の高さ",
+  "centerHeightLabel": "中心高さ",
+  "topHeightLabel": "上端の高さ",
+  "bottomHeightLabel": "下端の高さ",
+  "cmValue": "{{value}} cm"
+}

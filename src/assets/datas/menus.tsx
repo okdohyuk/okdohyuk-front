@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   ArrowLeftRight,
+  ArrowUpDown,
   Bomb,
   Calculator,
   CalendarClock,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: 'TV 거치 높이 계산기',
+        en: 'TV Mount Height Calculator',
+        ja: 'テレビ設置高さ計算',
+        zh: '电视安装高度计算',
+      },
+      icon: <ArrowUpDown />,
+      link: '/tv-mount-height',
     },
     {
       title: {

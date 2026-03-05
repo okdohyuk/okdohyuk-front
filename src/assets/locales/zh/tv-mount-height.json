@@ -1,0 +1,19 @@
+{
+  "title": "电视安装高度计算",
+  "description": "根据屏幕尺寸与眼平高度计算电视中心高度。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "电视安装高度计算",
+    "description": "根据屏幕尺寸与眼平高度计算电视中心高度。"
+  },
+  "diagonalLabel": "电视尺寸(英寸)",
+  "eyeHeightLabel": "眼平高度(cm)",
+  "offsetLabel": "中心偏移(cm)",
+  "tips": "默认让屏幕中心与眼平高度一致。",
+  "reset": "重置",
+  "screenHeightLabel": "屏幕高度",
+  "centerHeightLabel": "中心高度",
+  "topHeightLabel": "上边高度",
+  "bottomHeightLabel": "下边高度",
+  "cmValue": "{{value}} cm"
+}
