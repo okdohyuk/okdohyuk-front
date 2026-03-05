@@ -1,0 +1,19 @@
+{
+  "title": "TV 거치 높이 계산기",
+  "description": "화면 크기와 눈높이로 TV 중심 높이를 계산하세요.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "TV 거치 높이 계산기",
+    "description": "화면 크기와 눈높이로 TV 중심 높이를 계산하세요."
+  },
+  "diagonalLabel": "TV 크기(인치)",
+  "eyeHeightLabel": "눈높이(cm)",
+  "offsetLabel": "중심 높이 보정(cm)",
+  "tips": "기본은 TV 중심을 눈높이에 맞추는 방식입니다.",
+  "reset": "초기화",
+  "screenHeightLabel": "화면 높이",
+  "centerHeightLabel": "권장 중심 높이",
+  "topHeightLabel": "상단 높이",
+  "bottomHeightLabel": "하단 높이",
+  "cmValue": "{{value}} cm"
+}

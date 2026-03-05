@@ -1,0 +1,19 @@
+{
+  "title": "TV Mount Height Calculator",
+  "description": "Find the TV center height from screen size and eye level.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "TV Mount Height Calculator",
+    "description": "Find the TV center height from screen size and eye level."
+  },
+  "diagonalLabel": "TV size (inch)",
+  "eyeHeightLabel": "Eye height (cm)",
+  "offsetLabel": "Center offset (cm)",
+  "tips": "Default aligns the screen center with your eye level.",
+  "reset": "Reset",
+  "screenHeightLabel": "Screen height",
+  "centerHeightLabel": "Center height",
+  "topHeightLabel": "Top height",
+  "bottomHeightLabel": "Bottom height",
+  "cmValue": "{{value}} cm"
+}
