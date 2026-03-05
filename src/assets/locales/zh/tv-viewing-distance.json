@@ -1,0 +1,17 @@
+{
+  "title": "电视观看距离计算",
+  "description": "根据屏幕尺寸计算推荐观看距离。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "电视观看距离计算",
+    "description": "根据屏幕尺寸计算推荐观看距离。"
+  },
+  "screenLabel": "屏幕尺寸(英寸)",
+  "screenPlaceholder": "例如：55",
+  "tips": "常见建议为对角线长度的 1.5–2.5 倍。",
+  "reset": "重置",
+  "diagonalLabel": "对角线长度",
+  "cinemaLabel": "沉浸距离(1.5 倍)",
+  "standardLabel": "标准距离(2.5 倍)",
+  "cmValue": "{{value}} cm"
+}
