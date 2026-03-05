@@ -1,0 +1,24 @@
+{
+  "title": "ラッピング計算",
+  "description": "箱のサイズと用紙幅から必要な長さを計算します。",
+  "badge": "Gift",
+  "openGraph": {
+    "title": "ラッピング計算",
+    "description": "箱のサイズと用紙幅から必要な長さを計算します。"
+  },
+  "lengthLabel": "箱の長さ(cm)",
+  "lengthPlaceholder": "例) 25",
+  "widthLabel": "箱の幅(cm)",
+  "widthPlaceholder": "例) 18",
+  "heightLabel": "箱の高さ(cm)",
+  "heightPlaceholder": "例) 10",
+  "rollWidthLabel": "用紙の幅(cm)",
+  "wasteLabel": "余裕率(%)",
+  "tips": "折り返しのために5〜15%の余裕をおすすめします。",
+  "reset": "リセット",
+  "surfaceAreaLabel": "表面積",
+  "totalAreaLabel": "余裕込み面積",
+  "rollLengthLabel": "必要な長さ",
+  "areaValue": "{{value}} ㎠",
+  "cmValue": "{{value}} cm"
+}

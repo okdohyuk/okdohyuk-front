@@ -1,0 +1,24 @@
+{
+  "title": "선물 포장지 계산기",
+  "description": "박스 크기와 포장지 폭으로 필요한 길이를 계산하세요.",
+  "badge": "Gift",
+  "openGraph": {
+    "title": "선물 포장지 계산기",
+    "description": "박스 크기와 포장지 폭으로 필요한 길이를 계산하세요."
+  },
+  "lengthLabel": "박스 길이(cm)",
+  "lengthPlaceholder": "예) 25",
+  "widthLabel": "박스 너비(cm)",
+  "widthPlaceholder": "예) 18",
+  "heightLabel": "박스 높이(cm)",
+  "heightPlaceholder": "예) 10",
+  "rollWidthLabel": "포장지 폭(cm)",
+  "wasteLabel": "여유율(%)",
+  "tips": "모서리 접기나 겹침을 위해 5~15% 여유를 추천합니다.",
+  "reset": "초기화",
+  "surfaceAreaLabel": "박스 표면적",
+  "totalAreaLabel": "여유 포함 면적",
+  "rollLengthLabel": "필요 포장지 길이",
+  "areaValue": "{{value}} ㎠",
+  "cmValue": "{{value}} cm"
+}
