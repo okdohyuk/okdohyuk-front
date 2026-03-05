@@ -1,0 +1,16 @@
+{
+  "title": "感恩日记",
+  "description": "写下今天最感谢的三件事。",
+  "badge": "Mindset",
+  "openGraph": {
+    "title": "感恩日记",
+    "description": "写下今天最感谢的三件事。"
+  },
+  "inputLabel": "今日感恩",
+  "placeholder": "简单写一句即可。",
+  "prompts": ["今天第一件感恩的事", "今天第二件感恩的事", "今天第三件感恩的事"],
+  "tips": "睡前花三分钟回顾一天。",
+  "reset": "重置",
+  "summaryTitle": "总结",
+  "emptyState": "输入后会在这里整理显示。"
+}

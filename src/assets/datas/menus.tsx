@@ -12,6 +12,7 @@ import {
   FileText,
   Fingerprint,
   Github,
+  Heart,
   Hash,
   HeartPulse,
   HardDrive,
@@ -232,6 +233,16 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '감사 일기',
+        en: 'Gratitude Journal',
+        ja: '感謝日記',
+        zh: '感恩日记',
+      },
+      icon: <Heart />,
+      link: '/gratitude-journal',
     },
     {
       title: {

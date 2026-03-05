@@ -1,0 +1,16 @@
+{
+  "title": "감사 일기",
+  "description": "오늘 감사한 일 세 가지를 기록하며 마음을 정리해보세요.",
+  "badge": "Mindset",
+  "openGraph": {
+    "title": "감사 일기",
+    "description": "오늘 감사한 일 세 가지를 기록하며 마음을 정리해보세요."
+  },
+  "inputLabel": "오늘 감사한 것",
+  "placeholder": "짧게 적어보세요.",
+  "prompts": ["오늘 감사한 첫 번째 순간", "오늘 감사한 두 번째 순간", "오늘 감사한 세 번째 순간"],
+  "tips": "하루를 마무리할 때 3분만 투자해보세요.",
+  "reset": "초기화",
+  "summaryTitle": "요약",
+  "emptyState": "감사한 일을 입력하면 여기에 정리됩니다."
+}

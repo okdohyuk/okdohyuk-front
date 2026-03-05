@@ -1,0 +1,20 @@
+{
+  "title": "Gratitude Journal",
+  "description": "Write down three things you feel grateful for today.",
+  "badge": "Mindset",
+  "openGraph": {
+    "title": "Gratitude Journal",
+    "description": "Write down three things you feel grateful for today."
+  },
+  "inputLabel": "Today's gratitude",
+  "placeholder": "Keep it short and warm.",
+  "prompts": [
+    "One moment I'm grateful for",
+    "A second moment I'm grateful for",
+    "A third moment I'm grateful for"
+  ],
+  "tips": "Spend three minutes before bed to reflect.",
+  "reset": "Reset",
+  "summaryTitle": "Summary",
+  "emptyState": "Your gratitude list will appear here."
+}
