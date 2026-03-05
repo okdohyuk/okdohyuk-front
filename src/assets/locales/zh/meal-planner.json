@@ -1,0 +1,27 @@
+{
+  "title": "每周餐单规划",
+  "description": "用常吃的菜品快速生成一周餐单。",
+  "badge": "Meal Planner",
+  "openGraph": {
+    "title": "每周餐单规划",
+    "description": "用常吃的菜品快速生成一周餐单。"
+  },
+  "inputLabel": "菜品列表",
+  "inputPlaceholder": "例如：拌饭\n沙拉\n泡菜汤",
+  "daysLabel": "天数",
+  "mealsLabel": "每天餐次",
+  "mealOptions": {
+    "breakfast": "早餐",
+    "lunch": "午餐",
+    "dinner": "晚餐",
+    "snack": "加餐"
+  },
+  "dayNames": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+  "dayPrefix": "Day",
+  "tips": "菜品不足时可能会重复。",
+  "generate": "生成餐单",
+  "shuffle": "重新随机",
+  "clear": "重置",
+  "planTitle": "餐单",
+  "emptyState": "请输入菜品并生成餐单。"
+}
