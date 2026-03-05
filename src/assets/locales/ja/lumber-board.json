@@ -1,0 +1,25 @@
+{
+  "title": "木材板数計算",
+  "description": "パネルと板材のサイズから必要枚数を計算します。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "木材板数計算",
+    "description": "パネルと板材のサイズから必要枚数を計算します。"
+  },
+  "panelWidthLabel": "パネル幅(m)",
+  "panelWidthPlaceholder": "例) 1.8",
+  "panelLengthLabel": "パネル長さ(m)",
+  "panelLengthPlaceholder": "例) 2.4",
+  "boardWidthLabel": "板材幅(cm)",
+  "boardWidthPlaceholder": "例) 30",
+  "boardLengthLabel": "板材長さ(cm)",
+  "boardLengthPlaceholder": "例) 240",
+  "wasteLabel": "予備率(%)",
+  "tips": "カットや破損に備えて5〜15%を加えるのがおすすめです。",
+  "reset": "リセット",
+  "panelAreaLabel": "パネル面積",
+  "boardAreaLabel": "板材面積",
+  "totalBoardsLabel": "必要枚数",
+  "areaValue": "{{value}} ㎡",
+  "boardsValue": "{{value}} 枚"
+}

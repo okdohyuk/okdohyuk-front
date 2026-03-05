@@ -22,6 +22,7 @@ import {
   List,
   MonitorPlay,
   Music,
+  RectangleHorizontal,
   Moon,
   Palette,
   QrCode,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '목재 판재 계산기',
+        en: 'Lumber Board Calculator',
+        ja: '木材板数計算',
+        zh: '板材数量计算',
+      },
+      icon: <RectangleHorizontal />,
+      link: '/lumber-board',
     },
     {
       title: {

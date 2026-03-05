@@ -1,0 +1,25 @@
+{
+  "title": "Lumber Board Calculator",
+  "description": "Estimate boards needed based on panel and board sizes.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "Lumber Board Calculator",
+    "description": "Estimate boards needed based on panel and board sizes."
+  },
+  "panelWidthLabel": "Panel width (m)",
+  "panelWidthPlaceholder": "e.g. 1.8",
+  "panelLengthLabel": "Panel length (m)",
+  "panelLengthPlaceholder": "e.g. 2.4",
+  "boardWidthLabel": "Board width (cm)",
+  "boardWidthPlaceholder": "e.g. 30",
+  "boardLengthLabel": "Board length (cm)",
+  "boardLengthPlaceholder": "e.g. 240",
+  "wasteLabel": "Waste allowance (%)",
+  "tips": "A 5–15% allowance covers cuts and breakage.",
+  "reset": "Reset",
+  "panelAreaLabel": "Panel area",
+  "boardAreaLabel": "Board area",
+  "totalBoardsLabel": "Boards needed",
+  "areaValue": "{{value}} ㎡",
+  "boardsValue": "{{value}} boards"
+}
