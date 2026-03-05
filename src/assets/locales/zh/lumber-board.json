@@ -1,0 +1,25 @@
+{
+  "title": "板材数量计算",
+  "description": "根据面板和板材尺寸估算所需板材数量。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "板材数量计算",
+    "description": "根据面板和板材尺寸估算所需板材数量。"
+  },
+  "panelWidthLabel": "面板宽度(m)",
+  "panelWidthPlaceholder": "例如：1.8",
+  "panelLengthLabel": "面板长度(m)",
+  "panelLengthPlaceholder": "例如：2.4",
+  "boardWidthLabel": "板材宽度(cm)",
+  "boardWidthPlaceholder": "例如：30",
+  "boardLengthLabel": "板材长度(cm)",
+  "boardLengthPlaceholder": "例如：240",
+  "wasteLabel": "损耗率(%)",
+  "tips": "建议预留 5–15% 作为切割损耗。",
+  "reset": "重置",
+  "panelAreaLabel": "面板面积",
+  "boardAreaLabel": "板材面积",
+  "totalBoardsLabel": "所需板材数",
+  "areaValue": "{{value}} ㎡",
+  "boardsValue": "{{value}} 块"
+}

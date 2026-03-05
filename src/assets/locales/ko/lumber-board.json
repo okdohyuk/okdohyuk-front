@@ -1,0 +1,25 @@
+{
+  "title": "목재 판재 계산기",
+  "description": "패널 크기와 판재 크기로 필요한 판재 수를 계산하세요.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "목재 판재 계산기",
+    "description": "패널 크기와 판재 크기로 필요한 판재 수를 계산하세요."
+  },
+  "panelWidthLabel": "패널 가로(m)",
+  "panelWidthPlaceholder": "예) 1.8",
+  "panelLengthLabel": "패널 세로(m)",
+  "panelLengthPlaceholder": "예) 2.4",
+  "boardWidthLabel": "판재 가로(cm)",
+  "boardWidthPlaceholder": "예) 30",
+  "boardLengthLabel": "판재 세로(cm)",
+  "boardLengthPlaceholder": "예) 240",
+  "wasteLabel": "여유율(%)",
+  "tips": "여유율은 절단/파손 대비 5~15%를 권장합니다.",
+  "reset": "초기화",
+  "panelAreaLabel": "패널 면적",
+  "boardAreaLabel": "판재 면적",
+  "totalBoardsLabel": "필요 판재 수",
+  "areaValue": "{{value}} ㎡",
+  "boardsValue": "{{value}} 장"
+}
