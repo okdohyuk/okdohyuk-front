@@ -1,0 +1,22 @@
+{
+  "title": "Cleaning Routine Planner",
+  "description": "Build a weekly cleaning routine from your chore list.",
+  "badge": "Home Routine",
+  "openGraph": {
+    "title": "Cleaning Routine Planner",
+    "description": "Build a weekly cleaning routine from your chore list."
+  },
+  "inputLabel": "Chore list",
+  "inputPlaceholder": "e.g. Vacuum\nBathroom wipe\nRecycling",
+  "daysLabel": "Cleaning days per week",
+  "tipsTitle": "Quick tip",
+  "tips": "Tasks are evenly distributed across selected days.",
+  "generate": "Create routine",
+  "shuffle": "Shuffle again",
+  "reset": "Reset",
+  "planTitle": "This week's routine",
+  "restLabel": "Rest day",
+  "taskLabel": "Today's task",
+  "dayNames": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  "emptyState": "Add chores and create your routine."
+}

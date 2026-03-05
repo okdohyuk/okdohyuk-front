@@ -2,6 +2,7 @@ import React from 'react';
 import {
   ArrowLeftRight,
   Bomb,
+  Brush,
   Calculator,
   CalendarClock,
   Code,
@@ -232,6 +233,16 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '청소 루틴 플래너',
+        en: 'Cleaning Routine Planner',
+        ja: '掃除ルーティンプランナー',
+        zh: '清洁例行规划',
+      },
+      icon: <Brush />,
+      link: '/cleaning-routine',
     },
     {
       title: {

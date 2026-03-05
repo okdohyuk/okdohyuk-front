@@ -1,0 +1,22 @@
+{
+  "title": "청소 루틴 플래너",
+  "description": "집안일 목록으로 일주일 청소 루틴을 쉽게 구성하세요.",
+  "badge": "Home Routine",
+  "openGraph": {
+    "title": "청소 루틴 플래너",
+    "description": "집안일 목록으로 일주일 청소 루틴을 쉽게 구성하세요."
+  },
+  "inputLabel": "청소할 일 목록",
+  "inputPlaceholder": "예) 바닥 청소\n욕실 정리\n분리수거",
+  "daysLabel": "주간 청소 횟수",
+  "tipsTitle": "작은 팁",
+  "tips": "입력한 일은 선택된 요일에 균등하게 배분됩니다.",
+  "generate": "루틴 만들기",
+  "shuffle": "다시 섞기",
+  "reset": "초기화",
+  "planTitle": "이번 주 루틴",
+  "restLabel": "휴식 데이",
+  "taskLabel": "오늘 할 일",
+  "dayNames": ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"],
+  "emptyState": "청소 목록을 입력하고 루틴 만들기를 눌러주세요."
+}

@@ -1,0 +1,22 @@
+{
+  "title": "清洁例行规划",
+  "description": "用家务清单快速生成一周清洁计划。",
+  "badge": "Home Routine",
+  "openGraph": {
+    "title": "清洁例行规划",
+    "description": "用家务清单快速生成一周清洁计划。"
+  },
+  "inputLabel": "家务清单",
+  "inputPlaceholder": "例如：吸尘\n擦浴室\n回收分类",
+  "daysLabel": "每周清洁次数",
+  "tipsTitle": "小提示",
+  "tips": "任务会平均分配到所选日期。",
+  "generate": "生成计划",
+  "shuffle": "重新随机",
+  "reset": "重置",
+  "planTitle": "本周计划",
+  "restLabel": "休息日",
+  "taskLabel": "今日任务",
+  "dayNames": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+  "emptyState": "请输入家务并生成计划。"
+}
