@@ -1,0 +1,25 @@
+{
+  "title": "涂料用量计算",
+  "description": "根据墙面尺寸和涂刷次数估算所需涂料。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "涂料用量计算",
+    "description": "根据墙面尺寸和涂刷次数估算所需涂料。"
+  },
+  "wallWidthLabel": "墙面宽度(米)",
+  "wallWidthPlaceholder": "例如：3.5",
+  "wallHeightLabel": "墙面高度(米)",
+  "wallHeightPlaceholder": "例如：2.4",
+  "wallsLabel": "墙面数量",
+  "coatsLabel": "涂刷次数",
+  "coverageLabel": "每升覆盖面积(㎡)",
+  "canSizeLabel": "桶容量(L)",
+  "tips": "不同涂料和墙面会影响覆盖面积。",
+  "reset": "重置",
+  "areaLabel": "总涂刷面积",
+  "litersLabel": "所需涂料(L)",
+  "cansLabel": "需要桶数",
+  "areaValue": "{{value}} ㎡",
+  "litersValue": "{{value}} L",
+  "cansValue": "{{value}} 桶"
+}
