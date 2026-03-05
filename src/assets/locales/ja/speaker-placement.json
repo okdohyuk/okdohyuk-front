@@ -1,0 +1,17 @@
+{
+  "title": "スピーカー配置計算",
+  "description": "リスニング距離からスピーカー間隔と角度を計算します。",
+  "badge": "Audio",
+  "openGraph": {
+    "title": "スピーカー配置計算",
+    "description": "リスニング距離からスピーカー間隔と角度を計算します。"
+  },
+  "distanceLabel": "リスニング距離(m)",
+  "ratioLabel": "配置比率",
+  "tips": "一般的に距離の0.8〜0.9倍が目安です。",
+  "reset": "リセット",
+  "speakerDistanceLabel": "スピーカー間隔",
+  "angleLabel": "推奨角度",
+  "meterValue": "{{value}} m",
+  "degreeValue": "{{value}}°"
+}

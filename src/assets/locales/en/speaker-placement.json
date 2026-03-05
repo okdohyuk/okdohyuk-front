@@ -1,0 +1,17 @@
+{
+  "title": "Speaker Placement Calculator",
+  "description": "Calculate speaker spacing and angle from listening distance.",
+  "badge": "Audio",
+  "openGraph": {
+    "title": "Speaker Placement Calculator",
+    "description": "Calculate speaker spacing and angle from listening distance."
+  },
+  "distanceLabel": "Listening distance (m)",
+  "ratioLabel": "Placement ratio",
+  "tips": "A common ratio is 0.8–0.9 of the listening distance.",
+  "reset": "Reset",
+  "speakerDistanceLabel": "Speaker spacing",
+  "angleLabel": "Recommended angle",
+  "meterValue": "{{value}} m",
+  "degreeValue": "{{value}}°"
+}

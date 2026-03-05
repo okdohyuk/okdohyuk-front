@@ -30,6 +30,7 @@ import {
   ScrollText,
   Server,
   Smile,
+  Speaker,
   Sparkles,
   Table,
   TextCursorInput,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '스피커 배치 계산기',
+        en: 'Speaker Placement Calculator',
+        ja: 'スピーカー配置計算',
+        zh: '音箱摆位计算',
+      },
+      icon: <Speaker />,
+      link: '/speaker-placement',
     },
     {
       title: {

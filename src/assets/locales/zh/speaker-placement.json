@@ -1,0 +1,17 @@
+{
+  "title": "音箱摆位计算",
+  "description": "根据聆听距离计算音箱间距与角度。",
+  "badge": "Audio",
+  "openGraph": {
+    "title": "音箱摆位计算",
+    "description": "根据聆听距离计算音箱间距与角度。"
+  },
+  "distanceLabel": "聆听距离(m)",
+  "ratioLabel": "摆位比例",
+  "tips": "常见比例为聆听距离的 0.8–0.9。",
+  "reset": "重置",
+  "speakerDistanceLabel": "音箱间距",
+  "angleLabel": "推荐角度",
+  "meterValue": "{{value}} m",
+  "degreeValue": "{{value}}°"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "스피커 배치 계산기",
+  "description": "청취 거리와 배치 비율로 스피커 간격과 각도를 계산하세요.",
+  "badge": "Audio",
+  "openGraph": {
+    "title": "스피커 배치 계산기",
+    "description": "청취 거리와 배치 비율로 스피커 간격과 각도를 계산하세요."
+  },
+  "distanceLabel": "청취 거리(m)",
+  "ratioLabel": "배치 비율",
+  "tips": "일반적으로 스피커 간격은 청취 거리의 0.8~0.9배를 사용합니다.",
+  "reset": "초기화",
+  "speakerDistanceLabel": "스피커 간격",
+  "angleLabel": "권장 각도",
+  "meterValue": "{{value}} m",
+  "degreeValue": "{{value}}°"
+}
