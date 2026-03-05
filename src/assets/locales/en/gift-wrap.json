@@ -1,0 +1,24 @@
+{
+  "title": "Gift Wrap Calculator",
+  "description": "Estimate wrapping paper length from box size and roll width.",
+  "badge": "Gift",
+  "openGraph": {
+    "title": "Gift Wrap Calculator",
+    "description": "Estimate wrapping paper length from box size and roll width."
+  },
+  "lengthLabel": "Box length (cm)",
+  "lengthPlaceholder": "e.g. 25",
+  "widthLabel": "Box width (cm)",
+  "widthPlaceholder": "e.g. 18",
+  "heightLabel": "Box height (cm)",
+  "heightPlaceholder": "e.g. 10",
+  "rollWidthLabel": "Paper roll width (cm)",
+  "wasteLabel": "Waste allowance (%)",
+  "tips": "Add 5–15% for folds and overlap.",
+  "reset": "Reset",
+  "surfaceAreaLabel": "Surface area",
+  "totalAreaLabel": "Area with allowance",
+  "rollLengthLabel": "Paper length needed",
+  "areaValue": "{{value}} ㎠",
+  "cmValue": "{{value}} cm"
+}

@@ -1,0 +1,24 @@
+{
+  "title": "礼品包装纸计算",
+  "description": "根据盒子尺寸与纸张宽度估算所需长度。",
+  "badge": "Gift",
+  "openGraph": {
+    "title": "礼品包装纸计算",
+    "description": "根据盒子尺寸与纸张宽度估算所需长度。"
+  },
+  "lengthLabel": "盒子长度(cm)",
+  "lengthPlaceholder": "例如：25",
+  "widthLabel": "盒子宽度(cm)",
+  "widthPlaceholder": "例如：18",
+  "heightLabel": "盒子高度(cm)",
+  "heightPlaceholder": "例如：10",
+  "rollWidthLabel": "包装纸宽度(cm)",
+  "wasteLabel": "损耗率(%)",
+  "tips": "折叠和重叠建议预留 5–15%。",
+  "reset": "重置",
+  "surfaceAreaLabel": "表面积",
+  "totalAreaLabel": "含损耗面积",
+  "rollLengthLabel": "所需纸张长度",
+  "areaValue": "{{value}} ㎠",
+  "cmValue": "{{value}} cm"
+}

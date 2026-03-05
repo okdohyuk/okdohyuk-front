@@ -11,6 +11,7 @@ import {
   Eye,
   FileText,
   Fingerprint,
+  Gift,
   Github,
   Hash,
   HeartPulse,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '선물 포장지 계산기',
+        en: 'Gift Wrap Calculator',
+        ja: 'ラッピング計算',
+        zh: '礼品包装纸计算',
+      },
+      icon: <Gift />,
+      link: '/gift-wrap',
     },
     {
       title: {
