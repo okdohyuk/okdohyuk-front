@@ -11,6 +11,7 @@ import {
   Eye,
   FileText,
   Fingerprint,
+  Flower2,
   Github,
   Hash,
   HeartPulse,
@@ -232,6 +233,16 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '긍정 확언 생성기',
+        en: 'Affirmation Generator',
+        ja: 'アファメーション生成器',
+        zh: '积极宣言生成器',
+      },
+      icon: <Flower2 />,
+      link: '/affirmation-generator',
     },
     {
       title: {

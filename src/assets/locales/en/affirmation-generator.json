@@ -1,0 +1,65 @@
+{
+  "title": "Affirmation Generator",
+  "description": "Create short affirmations that match your mood today.",
+  "badge": "Mindset",
+  "openGraph": {
+    "title": "Affirmation Generator",
+    "description": "Create short affirmations that match your mood today."
+  },
+  "categoryLabel": "Category",
+  "nameLabel": "Name (optional)",
+  "namePlaceholder": "Add a name to personalize the affirmation.",
+  "shuffle": "New affirmation",
+  "reset": "Reset",
+  "emptyState": "Pick a category to generate an affirmation.",
+  "tipsTitle": "Tips",
+  "tips": [
+    "Read it three times in the morning or before bed.",
+    "Adding your name makes it more personal.",
+    "Save the line that resonates with you most."
+  ],
+  "categories": {
+    "confidence": "Confidence",
+    "calm": "Calm",
+    "focus": "Focus",
+    "gratitude": "Gratitude",
+    "growth": "Growth"
+  },
+  "affirmations": {
+    "confidence": [
+      "{name} I trust my choices today.",
+      "{name} I am more than capable.",
+      "{name} My pace is exactly right for me.",
+      "{name} I can show my strengths calmly.",
+      "{name} My potential keeps expanding."
+    ],
+    "calm": [
+      "{name} I breathe deeply and let things settle.",
+      "{name} I return to the present moment.",
+      "{name} Calm finds me naturally.",
+      "{name} I move through the day gently.",
+      "{name} My breath steadies me."
+    ],
+    "focus": [
+      "{name} I am clear on today’s priorities.",
+      "{name} I focus on one thing at a time.",
+      "{name} My focus grows stronger each day.",
+      "{name} Small progress still matters.",
+      "{name} I complete the important tasks first."
+    ],
+    "gratitude": [
+      "{name} I appreciate what I have today.",
+      "{name} I notice small moments of joy.",
+      "{name} I thank the people who support me.",
+      "{name} Today’s experience helps me grow.",
+      "{name} Gratitude brightens my energy."
+    ],
+    "growth": [
+      "{name} I grow a little every day.",
+      "{name} Even setbacks make me stronger.",
+      "{name} Today’s learning shapes tomorrow’s me.",
+      "{name} I speak kindly to myself.",
+      "{name} Change brings me opportunity."
+    ]
+  }
+}
