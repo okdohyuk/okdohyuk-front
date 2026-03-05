@@ -1,0 +1,27 @@
+{
+  "title": "주간 식단 플래너",
+  "description": "즐겨 먹는 메뉴로 일주일 식단을 빠르게 구성해요.",
+  "badge": "Meal Planner",
+  "openGraph": {
+    "title": "주간 식단 플래너",
+    "description": "즐겨 먹는 메뉴로 일주일 식단을 빠르게 구성해요."
+  },
+  "inputLabel": "메뉴 목록",
+  "inputPlaceholder": "예) 비빔밥\n샐러드\n김치찌개",
+  "daysLabel": "기간(일)",
+  "mealsLabel": "하루 끼니",
+  "mealOptions": {
+    "breakfast": "아침",
+    "lunch": "점심",
+    "dinner": "저녁",
+    "snack": "간식"
+  },
+  "dayNames": ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"],
+  "dayPrefix": "Day",
+  "tips": "메뉴가 부족하면 자동으로 반복될 수 있어요.",
+  "generate": "식단 만들기",
+  "shuffle": "다시 섞기",
+  "clear": "초기화",
+  "planTitle": "식단",
+  "emptyState": "메뉴를 입력하고 식단 만들기를 눌러주세요."
+}

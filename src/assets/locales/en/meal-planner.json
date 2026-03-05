@@ -1,0 +1,27 @@
+{
+  "title": "Weekly Meal Planner",
+  "description": "Build a quick weekly meal plan from your favorite dishes.",
+  "badge": "Meal Planner",
+  "openGraph": {
+    "title": "Weekly Meal Planner",
+    "description": "Build a quick weekly meal plan from your favorite dishes."
+  },
+  "inputLabel": "Meal list",
+  "inputPlaceholder": "e.g. Bibimbap\nSalad\nKimchi stew",
+  "daysLabel": "Days",
+  "mealsLabel": "Meals per day",
+  "mealOptions": {
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "snack": "Snack"
+  },
+  "dayNames": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  "dayPrefix": "Day",
+  "tips": "If the list is short, meals may repeat.",
+  "generate": "Create plan",
+  "shuffle": "Shuffle again",
+  "clear": "Reset",
+  "planTitle": "Plan",
+  "emptyState": "Add your meals and create a plan."
+}

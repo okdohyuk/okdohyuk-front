@@ -35,6 +35,7 @@ import {
   TextCursorInput,
   Timer,
   Tv,
+  Utensils,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -232,6 +233,16 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '주간 식단 플래너',
+        en: 'Weekly Meal Planner',
+        ja: '週間食事プランナー',
+        zh: '每周餐单规划',
+      },
+      icon: <Utensils />,
+      link: '/meal-planner',
     },
     {
       title: {

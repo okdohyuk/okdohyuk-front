@@ -1,0 +1,27 @@
+{
+  "title": "週間食事プランナー",
+  "description": "お気に入りのメニューで1週間分の食事をすぐに作成します。",
+  "badge": "Meal Planner",
+  "openGraph": {
+    "title": "週間食事プランナー",
+    "description": "お気に入りのメニューで1週間分の食事をすぐに作成します。"
+  },
+  "inputLabel": "メニュー一覧",
+  "inputPlaceholder": "例) ビビンバ\nサラダ\nキムチチゲ",
+  "daysLabel": "期間(日)",
+  "mealsLabel": "1日の食事",
+  "mealOptions": {
+    "breakfast": "朝食",
+    "lunch": "昼食",
+    "dinner": "夕食",
+    "snack": "間食"
+  },
+  "dayNames": ["月", "火", "水", "木", "金", "土", "日"],
+  "dayPrefix": "Day",
+  "tips": "メニューが足りない場合は繰り返しになることがあります。",
+  "generate": "食事プラン作成",
+  "shuffle": "もう一度シャッフル",
+  "clear": "リセット",
+  "planTitle": "プラン",
+  "emptyState": "メニューを入力してプランを作成してください。"
+}
