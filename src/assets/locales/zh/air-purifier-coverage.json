@@ -1,0 +1,29 @@
+{
+  "title": "空气净化器覆盖范围",
+  "description": "根据房间大小和换气次数估算所需 CADR。",
+  "badge": "生活",
+  "input": {
+    "area": "地面面积 (㎡)",
+    "height": "层高 (m)",
+    "ach": "每小时换气次数 (ACH)",
+    "cadr": "当前 CADR (m³/h)"
+  },
+  "placeholder": {
+    "area": "例如：18",
+    "height": "例如：2.4",
+    "ach": "例如：5",
+    "cadr": "例如：250"
+  },
+  "helper": "输入面积、高度和 ACH 计算所需 CADR，输入 CADR 可估算最大覆盖面积。",
+  "tips": {
+    "ach": "家用通常选择 4–6 ACH。",
+    "cadr": "CADR 是产品参数中的洁净空气输出量。"
+  },
+  "result": {
+    "title": "计算结果",
+    "volume": "房间体积",
+    "requiredCadr": "所需 CADR",
+    "maxArea": "估算覆盖面积",
+    "none": "填写输入后即可查看结果。"
+  }
+}

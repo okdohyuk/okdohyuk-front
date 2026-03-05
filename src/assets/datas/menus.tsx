@@ -8,6 +8,7 @@ import {
   Coins,
   CreditCard,
   Droplet,
+  Wind,
   Eye,
   FileText,
   Fingerprint,
@@ -232,6 +233,16 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '공기청정기 커버리지 계산기',
+        en: 'Air Purifier Coverage',
+        ja: '空気清浄機カバレッジ計算',
+        zh: '空气净化器覆盖范围',
+      },
+      icon: <Wind />,
+      link: '/air-purifier-coverage',
     },
     {
       title: {

@@ -1,0 +1,29 @@
+{
+  "title": "공기청정기 커버리지 계산기",
+  "description": "공간 크기와 환기 횟수로 필요한 CADR을 계산합니다.",
+  "badge": "생활",
+  "input": {
+    "area": "바닥 면적 (㎡)",
+    "height": "천장 높이 (m)",
+    "ach": "시간당 공기 교환 횟수(ACH)",
+    "cadr": "보유 CADR (m³/h)"
+  },
+  "placeholder": {
+    "area": "예: 18",
+    "height": "예: 2.4",
+    "ach": "예: 5",
+    "cadr": "예: 250"
+  },
+  "helper": "면적·높이·ACH를 입력하면 필요한 CADR을 계산하고, CADR을 입력하면 커버 가능한 면적을 추정합니다.",
+  "tips": {
+    "ach": "가정용은 보통 4~6 ACH 범위를 사용합니다.",
+    "cadr": "CADR 수치는 제품 사양표의 청정 공기 제공량입니다."
+  },
+  "result": {
+    "title": "계산 결과",
+    "volume": "공간 부피",
+    "requiredCadr": "필요 CADR",
+    "maxArea": "추정 커버 면적",
+    "none": "입력을 채우면 결과가 표시됩니다."
+  }
+}
