@@ -1,0 +1,19 @@
+{
+  "title": "園芸用土計算",
+  "description": "面積と深さから必要な土の量を計算します。",
+  "badge": "Garden",
+  "openGraph": {
+    "title": "園芸用土計算",
+    "description": "面積と深さから必要な土の量を計算します。"
+  },
+  "areaLabel": "面積(㎡)",
+  "areaPlaceholder": "例) 5",
+  "depthLabel": "土の厚さ(cm)",
+  "bagLabel": "袋容量(L)",
+  "tips": "表土や排水層を考慮して調整してください。",
+  "reset": "リセット",
+  "volumeLabel": "必要な土の量",
+  "bagsLabel": "必要な袋数",
+  "literValue": "{{value}} L",
+  "bagsValue": "{{value}} 袋"
+}

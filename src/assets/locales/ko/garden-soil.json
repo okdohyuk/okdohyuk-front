@@ -1,0 +1,19 @@
+{
+  "title": "정원 흙 계산기",
+  "description": "면적과 깊이를 입력해 필요한 흙 부피를 계산하세요.",
+  "badge": "Garden",
+  "openGraph": {
+    "title": "정원 흙 계산기",
+    "description": "면적과 깊이를 입력해 필요한 흙 부피를 계산하세요."
+  },
+  "areaLabel": "면적(㎡)",
+  "areaPlaceholder": "예) 5",
+  "depthLabel": "흙 두께(cm)",
+  "bagLabel": "흙 1포 용량(L)",
+  "tips": "표토, 배수층 등을 고려해 깊이를 조정하세요.",
+  "reset": "초기화",
+  "volumeLabel": "필요 흙 용량",
+  "bagsLabel": "필요 포대 수",
+  "literValue": "{{value}} L",
+  "bagsValue": "{{value}} 포대"
+}

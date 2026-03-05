@@ -22,6 +22,7 @@ import {
   List,
   MonitorPlay,
   Music,
+  Shovel,
   Moon,
   Palette,
   QrCode,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '정원 흙 계산기',
+        en: 'Garden Soil Calculator',
+        ja: '園芸用土計算',
+        zh: '花园土壤计算',
+      },
+      icon: <Shovel />,
+      link: '/garden-soil',
     },
     {
       title: {
