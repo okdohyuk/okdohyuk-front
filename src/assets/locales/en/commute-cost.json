@@ -1,0 +1,22 @@
+{
+  "title": "Commute Cost Planner",
+  "description": "Estimate monthly commute costs and compare a pass.",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "Commute Cost Planner",
+    "description": "Estimate monthly commute costs and compare a pass."
+  },
+  "roundTripLabel": "Round-trip fare",
+  "roundTripPlaceholder": "e.g. 6.5",
+  "daysLabel": "Commute days per week",
+  "weeksLabel": "Weeks per month",
+  "passLabel": "Monthly pass cost",
+  "passPlaceholder": "Leave blank if none",
+  "tips": "If a pass cost is provided, monthly/annual totals use that value.",
+  "reset": "Reset",
+  "monthlyCostLabel": "Monthly commute cost",
+  "passCostLabel": "Monthly cost with pass",
+  "dailyAverageLabel": "Daily average cost",
+  "annualCostLabel": "Annual commute cost",
+  "currency": "${{value}}"
+}
