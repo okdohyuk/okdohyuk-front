@@ -1,0 +1,22 @@
+{
+  "title": "通勤成本规划",
+  "description": "快速估算每月通勤费用并对比通勤卡。",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "通勤成本规划",
+    "description": "快速估算每月通勤费用并对比通勤卡。"
+  },
+  "roundTripLabel": "往返费用",
+  "roundTripPlaceholder": "例如：12",
+  "daysLabel": "每周通勤天数",
+  "weeksLabel": "每月周数",
+  "passLabel": "月通勤卡费用",
+  "passPlaceholder": "没有可留空",
+  "tips": "填写通勤卡费用后，月/年成本将以该值计算。",
+  "reset": "重置",
+  "monthlyCostLabel": "每月通勤费用",
+  "passCostLabel": "通勤卡月费用",
+  "dailyAverageLabel": "每日平均费用",
+  "annualCostLabel": "全年通勤费用",
+  "currency": "¥{{value}}"
+}
