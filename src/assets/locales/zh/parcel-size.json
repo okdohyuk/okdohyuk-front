@@ -1,0 +1,23 @@
+{
+  "title": "包裹计费重量计算",
+  "description": "根据箱体尺寸和实际重量计算计费重量。",
+  "badge": "Logistics",
+  "openGraph": {
+    "title": "包裹计费重量计算",
+    "description": "根据箱体尺寸和实际重量计算计费重量。"
+  },
+  "lengthLabel": "长度(cm)",
+  "lengthPlaceholder": "例如：30",
+  "widthLabel": "宽度(cm)",
+  "widthPlaceholder": "例如：20",
+  "heightLabel": "高度(cm)",
+  "heightPlaceholder": "例如：15",
+  "weightLabel": "实际重量(kg)",
+  "weightPlaceholder": "例如：2.3",
+  "divisorLabel": "体积重量系数",
+  "tips": "常见公式为 (长×宽×高)/5000。",
+  "reset": "重置",
+  "volumeWeightLabel": "体积重量",
+  "chargeableWeightLabel": "计费重量",
+  "kgValue": "{{value}} kg"
+}

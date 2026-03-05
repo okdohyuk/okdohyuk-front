@@ -1,0 +1,23 @@
+{
+  "title": "택배 부피무게 계산기",
+  "description": "박스 치수와 실제 무게로 과금 무게를 계산하세요.",
+  "badge": "Logistics",
+  "openGraph": {
+    "title": "택배 부피무게 계산기",
+    "description": "박스 치수와 실제 무게로 과금 무게를 계산하세요."
+  },
+  "lengthLabel": "길이(cm)",
+  "lengthPlaceholder": "예) 30",
+  "widthLabel": "너비(cm)",
+  "widthPlaceholder": "예) 20",
+  "heightLabel": "높이(cm)",
+  "heightPlaceholder": "예) 15",
+  "weightLabel": "실제 무게(kg)",
+  "weightPlaceholder": "예) 2.3",
+  "divisorLabel": "부피무게 기준값",
+  "tips": "보통 (가로×세로×높이)/5000 계산식을 사용합니다.",
+  "reset": "초기화",
+  "volumeWeightLabel": "부피무게",
+  "chargeableWeightLabel": "과금 무게",
+  "kgValue": "{{value}} kg"
+}
