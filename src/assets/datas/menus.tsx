@@ -23,6 +23,7 @@ import {
   MonitorPlay,
   Music,
   Moon,
+  Paintbrush,
   Palette,
   QrCode,
   Receipt,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '페인트 양 계산기',
+        en: 'Paint Estimator',
+        ja: 'ペイント量計算機',
+        zh: '涂料用量计算',
+      },
+      icon: <Paintbrush />,
+      link: '/paint-estimator',
     },
     {
       title: {

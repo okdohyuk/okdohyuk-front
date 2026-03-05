@@ -1,0 +1,25 @@
+{
+  "title": "Paint Estimator",
+  "description": "Estimate how much paint you need based on wall size and coats.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "Paint Estimator",
+    "description": "Estimate how much paint you need based on wall size and coats."
+  },
+  "wallWidthLabel": "Wall width (m)",
+  "wallWidthPlaceholder": "e.g. 3.5",
+  "wallHeightLabel": "Wall height (m)",
+  "wallHeightPlaceholder": "e.g. 2.4",
+  "wallsLabel": "Number of walls",
+  "coatsLabel": "Number of coats",
+  "coverageLabel": "Coverage per liter (㎡)",
+  "canSizeLabel": "Can size (L)",
+  "tips": "Coverage varies by paint type and surface.",
+  "reset": "Reset",
+  "areaLabel": "Total paint area",
+  "litersLabel": "Paint needed (L)",
+  "cansLabel": "Cans needed",
+  "areaValue": "{{value}} ㎡",
+  "litersValue": "{{value}} L",
+  "cansValue": "{{value}} cans"
+}

@@ -1,0 +1,25 @@
+{
+  "title": "페인트 양 계산기",
+  "description": "벽 크기와 도장 횟수를 입력해 필요한 페인트 양을 계산하세요.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "페인트 양 계산기",
+    "description": "벽 크기와 도장 횟수를 입력해 필요한 페인트 양을 계산하세요."
+  },
+  "wallWidthLabel": "벽 가로(m)",
+  "wallWidthPlaceholder": "예) 3.5",
+  "wallHeightLabel": "벽 세로(m)",
+  "wallHeightPlaceholder": "예) 2.4",
+  "wallsLabel": "벽 개수",
+  "coatsLabel": "도장 횟수",
+  "coverageLabel": "리터당 면적(㎡)",
+  "canSizeLabel": "캔 용량(L)",
+  "tips": "페인트 종류에 따라 리터당 면적이 다를 수 있어요.",
+  "reset": "초기화",
+  "areaLabel": "총 도장 면적",
+  "litersLabel": "필요 페인트(L)",
+  "cansLabel": "필요 캔 수",
+  "areaValue": "{{value}} ㎡",
+  "litersValue": "{{value}} L",
+  "cansValue": "{{value}} 캔"
+}

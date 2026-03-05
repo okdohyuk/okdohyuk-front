@@ -1,0 +1,25 @@
+{
+  "title": "ペイント量計算機",
+  "description": "壁のサイズと塗り回数から必要なペイント量を計算します。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "ペイント量計算機",
+    "description": "壁のサイズと塗り回数から必要なペイント量を計算します。"
+  },
+  "wallWidthLabel": "壁の幅(m)",
+  "wallWidthPlaceholder": "例) 3.5",
+  "wallHeightLabel": "壁の高さ(m)",
+  "wallHeightPlaceholder": "例) 2.4",
+  "wallsLabel": "壁の枚数",
+  "coatsLabel": "塗り回数",
+  "coverageLabel": "1Lあたりの面積(㎡)",
+  "canSizeLabel": "缶容量(L)",
+  "tips": "塗料や下地によって塗布面積が異なります。",
+  "reset": "リセット",
+  "areaLabel": "総塗装面積",
+  "litersLabel": "必要ペイント(L)",
+  "cansLabel": "必要缶数",
+  "areaValue": "{{value}} ㎡",
+  "litersValue": "{{value}} L",
+  "cansValue": "{{value}} 缶"
+}
