@@ -31,6 +31,7 @@ import {
   Server,
   Smile,
   Sparkles,
+  Steps,
   Table,
   TextCursorInput,
   Timer,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '계단 수 계산기',
+        en: 'Stair Step Calculator',
+        ja: '階段段数計算',
+        zh: '楼梯台阶计算',
+      },
+      icon: <Steps />,
+      link: '/stair-calculator',
     },
     {
       title: {
