@@ -1,0 +1,17 @@
+{
+  "title": "烤箱温度换算",
+  "description": "快速在摄氏与华氏之间转换，方便烘焙使用。",
+  "badge": "Kitchen",
+  "openGraph": {
+    "title": "烤箱温度换算",
+    "description": "快速在摄氏与华氏之间转换，方便烘焙使用。"
+  },
+  "modeLabel": "转换模式",
+  "cToF": "摄氏 → 华氏",
+  "fToC": "华氏 → 摄氏",
+  "tempLabel": "温度",
+  "quickLabel": "常用温度",
+  "tips": "当食谱单位不同步时可快速换算。",
+  "reset": "重置",
+  "resultLabel": "转换结果"
+}

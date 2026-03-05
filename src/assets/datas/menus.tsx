@@ -22,6 +22,7 @@ import {
   List,
   MonitorPlay,
   Music,
+  UtensilsCrossed,
   Moon,
   Palette,
   QrCode,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '오븐 온도 변환기',
+        en: 'Oven Temperature Converter',
+        ja: 'オーブン温度変換',
+        zh: '烤箱温度换算',
+      },
+      icon: <UtensilsCrossed />,
+      link: '/oven-converter',
     },
     {
       title: {

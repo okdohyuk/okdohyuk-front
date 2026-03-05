@@ -1,0 +1,17 @@
+{
+  "title": "오븐 온도 변환기",
+  "description": "섭씨·화씨 온도를 빠르게 변환해 베이킹에 활용하세요.",
+  "badge": "Kitchen",
+  "openGraph": {
+    "title": "오븐 온도 변환기",
+    "description": "섭씨·화씨 온도를 빠르게 변환해 베이킹에 활용하세요."
+  },
+  "modeLabel": "변환 모드",
+  "cToF": "섭씨 → 화씨",
+  "fToC": "화씨 → 섭씨",
+  "tempLabel": "온도",
+  "quickLabel": "자주 쓰는 온도",
+  "tips": "레시피 표기가 다를 때 빠르게 변환하세요.",
+  "reset": "초기화",
+  "resultLabel": "변환 결과"
+}
