@@ -1,0 +1,22 @@
+{
+  "title": "LED Strip Power Calculator",
+  "description": "Estimate power supply needs from length and wattage.",
+  "badge": "Lighting",
+  "openGraph": {
+    "title": "LED Strip Power Calculator",
+    "description": "Estimate power supply needs from length and wattage."
+  },
+  "lengthLabel": "Length (m)",
+  "lengthPlaceholder": "e.g. 5",
+  "powerLabel": "Power per meter (W)",
+  "powerPlaceholder": "e.g. 12",
+  "voltageLabel": "Voltage (V)",
+  "marginLabel": "Safety margin (%)",
+  "tips": "Add 10–30% margin for stable power supply.",
+  "reset": "Reset",
+  "basePowerLabel": "Base power",
+  "recommendedPowerLabel": "Recommended power",
+  "currentLabel": "Current needed",
+  "wattValue": "{{value}} W",
+  "ampValue": "{{value}} A"
+}
