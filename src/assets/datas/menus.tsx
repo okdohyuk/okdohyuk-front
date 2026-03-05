@@ -24,6 +24,7 @@ import {
   Music,
   Moon,
   Palette,
+  Grid2X2,
   QrCode,
   Receipt,
   Repeat,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '타일 수량 계산기',
+        en: 'Tile Calculator',
+        ja: 'タイル枚数計算',
+        zh: '瓷砖数量计算',
+      },
+      icon: <Grid2X2 />,
+      link: '/tile-calculator',
     },
     {
       title: {

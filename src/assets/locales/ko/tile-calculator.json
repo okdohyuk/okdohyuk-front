@@ -1,0 +1,28 @@
+{
+  "title": "타일 수량 계산기",
+  "description": "방 크기와 타일 크기를 입력해 필요한 타일 수량을 계산하세요.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "타일 수량 계산기",
+    "description": "방 크기와 타일 크기를 입력해 필요한 타일 수량을 계산하세요."
+  },
+  "roomWidthLabel": "방 가로(m)",
+  "roomWidthPlaceholder": "예) 3.6",
+  "roomLengthLabel": "방 세로(m)",
+  "roomLengthPlaceholder": "예) 4.2",
+  "tileWidthLabel": "타일 가로(cm)",
+  "tileWidthPlaceholder": "예) 60",
+  "tileLengthLabel": "타일 세로(cm)",
+  "tileLengthPlaceholder": "예) 60",
+  "wasteLabel": "여유율(%)",
+  "tilesPerBoxLabel": "박스당 타일 수",
+  "tips": "여유율은 절단/파손 대비 5~10%를 권장합니다.",
+  "reset": "초기화",
+  "roomAreaLabel": "방 면적",
+  "tileAreaLabel": "타일 면적",
+  "totalTilesLabel": "필요 타일 수",
+  "boxesLabel": "필요 박스 수",
+  "areaValue": "{{value}} ㎡",
+  "tilesValue": "{{value}} 장",
+  "boxesValue": "{{value}} 박스"
+}

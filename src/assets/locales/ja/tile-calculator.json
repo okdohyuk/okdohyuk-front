@@ -1,0 +1,28 @@
+{
+  "title": "タイル枚数計算",
+  "description": "部屋とタイルのサイズから必要枚数を計算します。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "タイル枚数計算",
+    "description": "部屋とタイルのサイズから必要枚数を計算します。"
+  },
+  "roomWidthLabel": "部屋の幅(m)",
+  "roomWidthPlaceholder": "例) 3.6",
+  "roomLengthLabel": "部屋の長さ(m)",
+  "roomLengthPlaceholder": "例) 4.2",
+  "tileWidthLabel": "タイル幅(cm)",
+  "tileWidthPlaceholder": "例) 60",
+  "tileLengthLabel": "タイル長さ(cm)",
+  "tileLengthPlaceholder": "例) 60",
+  "wasteLabel": "予備率(%)",
+  "tilesPerBoxLabel": "1箱あたりの枚数",
+  "tips": "カットや破損に備えて5〜10%を加えるのが一般的です。",
+  "reset": "リセット",
+  "roomAreaLabel": "部屋の面積",
+  "tileAreaLabel": "タイル面積",
+  "totalTilesLabel": "必要枚数",
+  "boxesLabel": "必要箱数",
+  "areaValue": "{{value}} ㎡",
+  "tilesValue": "{{value}} 枚",
+  "boxesValue": "{{value}} 箱"
+}

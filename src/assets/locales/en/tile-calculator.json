@@ -1,0 +1,28 @@
+{
+  "title": "Tile Calculator",
+  "description": "Estimate tile quantity from room and tile size.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "Tile Calculator",
+    "description": "Estimate tile quantity from room and tile size."
+  },
+  "roomWidthLabel": "Room width (m)",
+  "roomWidthPlaceholder": "e.g. 3.6",
+  "roomLengthLabel": "Room length (m)",
+  "roomLengthPlaceholder": "e.g. 4.2",
+  "tileWidthLabel": "Tile width (cm)",
+  "tileWidthPlaceholder": "e.g. 60",
+  "tileLengthLabel": "Tile length (cm)",
+  "tileLengthPlaceholder": "e.g. 60",
+  "wasteLabel": "Waste allowance (%)",
+  "tilesPerBoxLabel": "Tiles per box",
+  "tips": "A 5–10% allowance is common for cuts and breakage.",
+  "reset": "Reset",
+  "roomAreaLabel": "Room area",
+  "tileAreaLabel": "Tile area",
+  "totalTilesLabel": "Tiles needed",
+  "boxesLabel": "Boxes needed",
+  "areaValue": "{{value}} ㎡",
+  "tilesValue": "{{value}} tiles",
+  "boxesValue": "{{value}} boxes"
+}

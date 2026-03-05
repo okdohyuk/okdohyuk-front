@@ -1,0 +1,28 @@
+{
+  "title": "瓷砖数量计算",
+  "description": "根据房间和瓷砖尺寸估算所需数量。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "瓷砖数量计算",
+    "description": "根据房间和瓷砖尺寸估算所需数量。"
+  },
+  "roomWidthLabel": "房间宽度(m)",
+  "roomWidthPlaceholder": "例如：3.6",
+  "roomLengthLabel": "房间长度(m)",
+  "roomLengthPlaceholder": "例如：4.2",
+  "tileWidthLabel": "瓷砖宽度(cm)",
+  "tileWidthPlaceholder": "例如：60",
+  "tileLengthLabel": "瓷砖长度(cm)",
+  "tileLengthPlaceholder": "例如：60",
+  "wasteLabel": "损耗率(%)",
+  "tilesPerBoxLabel": "每箱瓷砖数",
+  "tips": "通常建议预留 5–10% 作为损耗。",
+  "reset": "重置",
+  "roomAreaLabel": "房间面积",
+  "tileAreaLabel": "瓷砖面积",
+  "totalTilesLabel": "所需瓷砖数",
+  "boxesLabel": "所需箱数",
+  "areaValue": "{{value}} ㎡",
+  "tilesValue": "{{value}} 块",
+  "boxesValue": "{{value}} 箱"
+}
