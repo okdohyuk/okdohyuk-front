@@ -1,0 +1,33 @@
+{
+  "title": "体感温度计算器",
+  "description": "输入气温、湿度和风速，计算体感温度。",
+  "badge": "天气",
+  "input": {
+    "temperature": "气温 (°C)",
+    "humidity": "湿度 (%)",
+    "windSpeed": "风速"
+  },
+  "placeholder": {
+    "temperature": "例如：28",
+    "humidity": "例如：60",
+    "windSpeed": "例如：3"
+  },
+  "windUnit": {
+    "mps": "m/s",
+    "kmh": "km/h"
+  },
+  "helper": "湿度为0–100%，风速可用 m/s 或 km/h 输入。",
+  "tips": {
+    "heat": "气温和湿度越高，感觉越热。",
+    "cold": "气温越低、风越大，感觉越冷。"
+  },
+  "result": {
+    "title": "计算结果",
+    "feelsLike": "体感温度",
+    "formula": "应用公式",
+    "none": "填写输入后即可查看体感温度。",
+    "heatIndex": "热指数 (Heat Index)",
+    "windChill": "风寒 (Wind Chill)",
+    "actual": "实际气温（无修正）"
+  }
+}
