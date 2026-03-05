@@ -1,0 +1,21 @@
+{
+  "title": "Meeting Agenda Builder",
+  "description": "Create a timed agenda from your meeting topics.",
+  "badge": "Work",
+  "openGraph": {
+    "title": "Meeting Agenda Builder",
+    "description": "Create a timed agenda from your meeting topics."
+  },
+  "titleLabel": "Meeting title",
+  "titlePlaceholder": "e.g. Weekly standup",
+  "totalMinutesLabel": "Total meeting time (min)",
+  "bufferMinutesLabel": "Buffer time (min)",
+  "topicsLabel": "Agenda topics",
+  "topicsPlaceholder": "e.g. Progress updates\nIssues\nNext steps",
+  "tips": "Buffer time keeps space for Q&A or wrap-up.",
+  "reset": "Reset",
+  "agendaTitle": "Agenda",
+  "agendaFallback": "Meeting title is empty.",
+  "minutes": "{{value}} min",
+  "emptyState": "Add topics to generate the agenda."
+}

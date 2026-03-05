@@ -1,0 +1,21 @@
+{
+  "title": "会议议程生成器",
+  "description": "输入会议主题即可生成时间分配议程。",
+  "badge": "Work",
+  "openGraph": {
+    "title": "会议议程生成器",
+    "description": "输入会议主题即可生成时间分配议程。"
+  },
+  "titleLabel": "会议标题",
+  "titlePlaceholder": "例如：每周站会",
+  "totalMinutesLabel": "会议总时长(分钟)",
+  "bufferMinutesLabel": "缓冲时间(分钟)",
+  "topicsLabel": "会议主题",
+  "topicsPlaceholder": "例如：进度更新\n问题整理\n下一步行动",
+  "tips": "预留缓冲可用于问答或总结。",
+  "reset": "重置",
+  "agendaTitle": "议程",
+  "agendaFallback": "会议标题为空。",
+  "minutes": "{{value}}分钟",
+  "emptyState": "请输入主题生成议程。"
+}
