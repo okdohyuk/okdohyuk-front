@@ -25,6 +25,7 @@ import {
   Moon,
   Palette,
   QrCode,
+  Wallpaper,
   Receipt,
   Repeat,
   ScrollText,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '벽지 롤 계산기',
+        en: 'Wallpaper Roll Calculator',
+        ja: '壁紙ロール計算',
+        zh: '壁纸卷数计算',
+      },
+      icon: <Wallpaper />,
+      link: '/wallpaper-roll',
     },
     {
       title: {

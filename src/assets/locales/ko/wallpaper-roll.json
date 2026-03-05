@@ -1,0 +1,24 @@
+{
+  "title": "벽지 롤 계산기",
+  "description": "벽 크기와 롤 규격을 입력해 필요한 벽지 롤 수를 계산하세요.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "벽지 롤 계산기",
+    "description": "벽 크기와 롤 규격을 입력해 필요한 벽지 롤 수를 계산하세요."
+  },
+  "wallWidthLabel": "벽 가로(m)",
+  "wallWidthPlaceholder": "예) 3.6",
+  "wallHeightLabel": "벽 세로(m)",
+  "wallHeightPlaceholder": "예) 2.4",
+  "wallsLabel": "벽 개수",
+  "rollWidthLabel": "롤 폭(cm)",
+  "rollLengthLabel": "롤 길이(m)",
+  "wasteLabel": "여유율(%)",
+  "tips": "여유율은 5~15%를 권장합니다.",
+  "reset": "초기화",
+  "wallAreaLabel": "총 벽 면적",
+  "rollAreaLabel": "롤 1개 면적",
+  "rollsLabel": "필요 롤 수",
+  "areaValue": "{{value}} ㎡",
+  "rollsValue": "{{value}} 롤"
+}

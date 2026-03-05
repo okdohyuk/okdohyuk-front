@@ -1,0 +1,24 @@
+{
+  "title": "Wallpaper Roll Calculator",
+  "description": "Estimate wallpaper rolls from wall size and roll specs.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "Wallpaper Roll Calculator",
+    "description": "Estimate wallpaper rolls from wall size and roll specs."
+  },
+  "wallWidthLabel": "Wall width (m)",
+  "wallWidthPlaceholder": "e.g. 3.6",
+  "wallHeightLabel": "Wall height (m)",
+  "wallHeightPlaceholder": "e.g. 2.4",
+  "wallsLabel": "Number of walls",
+  "rollWidthLabel": "Roll width (cm)",
+  "rollLengthLabel": "Roll length (m)",
+  "wasteLabel": "Waste allowance (%)",
+  "tips": "A 5–15% allowance helps cover trimming.",
+  "reset": "Reset",
+  "wallAreaLabel": "Total wall area",
+  "rollAreaLabel": "Area per roll",
+  "rollsLabel": "Rolls needed",
+  "areaValue": "{{value}} ㎡",
+  "rollsValue": "{{value}} rolls"
+}

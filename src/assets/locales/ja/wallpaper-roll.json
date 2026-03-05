@@ -1,0 +1,24 @@
+{
+  "title": "壁紙ロール計算",
+  "description": "壁のサイズとロール規格から必要な壁紙ロール数を計算します。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "壁紙ロール計算",
+    "description": "壁のサイズとロール規格から必要な壁紙ロール数を計算します。"
+  },
+  "wallWidthLabel": "壁の幅(m)",
+  "wallWidthPlaceholder": "例) 3.6",
+  "wallHeightLabel": "壁の高さ(m)",
+  "wallHeightPlaceholder": "例) 2.4",
+  "wallsLabel": "壁の枚数",
+  "rollWidthLabel": "ロール幅(cm)",
+  "rollLengthLabel": "ロール長さ(m)",
+  "wasteLabel": "予備率(%)",
+  "tips": "5〜15%の予備を見込むのがおすすめです。",
+  "reset": "リセット",
+  "wallAreaLabel": "総壁面積",
+  "rollAreaLabel": "ロール1本の面積",
+  "rollsLabel": "必要ロール数",
+  "areaValue": "{{value}} ㎡",
+  "rollsValue": "{{value}} ロール"
+}
