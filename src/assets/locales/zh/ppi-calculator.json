@@ -1,0 +1,25 @@
+{
+  "title": "像素密度计算",
+  "description": "根据屏幕尺寸与分辨率计算 PPI。",
+  "badge": "Display",
+  "openGraph": {
+    "title": "像素密度计算",
+    "description": "根据屏幕尺寸与分辨率计算 PPI。"
+  },
+  "diagonalLabel": "屏幕尺寸(英寸)",
+  "diagonalPlaceholder": "例如：27",
+  "widthLabel": "水平分辨率(px)",
+  "widthPlaceholder": "例如：2560",
+  "heightLabel": "垂直分辨率(px)",
+  "heightPlaceholder": "例如：1440",
+  "tips": "PPI 用于比较屏幕清晰度。",
+  "reset": "重置",
+  "diagonalPixelsLabel": "对角像素数",
+  "ppiLabel": "像素密度(PPI)",
+  "pixelPitchLabel": "像素间距(mm)",
+  "diagonalCmLabel": "对角长度(cm)",
+  "pixelsValue": "{{value}} px",
+  "ppiValue": "{{value}} PPI",
+  "mmValue": "{{value}} mm",
+  "cmValue": "{{value}} cm"
+}

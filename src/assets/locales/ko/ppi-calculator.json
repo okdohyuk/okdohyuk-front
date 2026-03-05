@@ -1,0 +1,25 @@
+{
+  "title": "픽셀 밀도 계산기",
+  "description": "화면 크기와 해상도로 PPI를 계산하세요.",
+  "badge": "Display",
+  "openGraph": {
+    "title": "픽셀 밀도 계산기",
+    "description": "화면 크기와 해상도로 PPI를 계산하세요."
+  },
+  "diagonalLabel": "화면 크기(인치)",
+  "diagonalPlaceholder": "예) 27",
+  "widthLabel": "가로 해상도(px)",
+  "widthPlaceholder": "예) 2560",
+  "heightLabel": "세로 해상도(px)",
+  "heightPlaceholder": "예) 1440",
+  "tips": "PPI는 화면 선명도를 비교하는 지표입니다.",
+  "reset": "초기화",
+  "diagonalPixelsLabel": "대각선 픽셀 수",
+  "ppiLabel": "픽셀 밀도(PPI)",
+  "pixelPitchLabel": "픽셀 피치(mm)",
+  "diagonalCmLabel": "화면 대각선(cm)",
+  "pixelsValue": "{{value}} px",
+  "ppiValue": "{{value}} PPI",
+  "mmValue": "{{value}} mm",
+  "cmValue": "{{value}} cm"
+}

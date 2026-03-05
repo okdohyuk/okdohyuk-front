@@ -26,6 +26,7 @@ import {
   Palette,
   QrCode,
   Receipt,
+  ScanLine,
   Repeat,
   ScrollText,
   Server,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '픽셀 밀도 계산기',
+        en: 'PPI Calculator',
+        ja: 'PPI計算機',
+        zh: '像素密度计算',
+      },
+      icon: <ScanLine />,
+      link: '/ppi-calculator',
     },
     {
       title: {

@@ -1,0 +1,25 @@
+{
+  "title": "PPI計算機",
+  "description": "画面サイズと解像度からPPIを計算します。",
+  "badge": "Display",
+  "openGraph": {
+    "title": "PPI計算機",
+    "description": "画面サイズと解像度からPPIを計算します。"
+  },
+  "diagonalLabel": "画面サイズ(インチ)",
+  "diagonalPlaceholder": "例) 27",
+  "widthLabel": "横解像度(px)",
+  "widthPlaceholder": "例) 2560",
+  "heightLabel": "縦解像度(px)",
+  "heightPlaceholder": "例) 1440",
+  "tips": "PPIは画面の精細さを比較する指標です。",
+  "reset": "リセット",
+  "diagonalPixelsLabel": "対角ピクセル数",
+  "ppiLabel": "ピクセル密度(PPI)",
+  "pixelPitchLabel": "ピクセルピッチ(mm)",
+  "diagonalCmLabel": "対角長さ(cm)",
+  "pixelsValue": "{{value}} px",
+  "ppiValue": "{{value}} PPI",
+  "mmValue": "{{value}} mm",
+  "cmValue": "{{value}} cm"
+}
