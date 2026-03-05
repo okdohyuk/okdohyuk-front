@@ -1,0 +1,18 @@
+{
+  "title": "선반 간격 계산기",
+  "description": "총 높이와 선반 수로 균등 간격을 계산하세요.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "선반 간격 계산기",
+    "description": "총 높이와 선반 수로 균등 간격을 계산하세요."
+  },
+  "heightLabel": "총 높이(cm)",
+  "heightPlaceholder": "예) 200",
+  "shelvesLabel": "선반 수",
+  "thicknessLabel": "선반 두께(cm)",
+  "tips": "선반 두께를 제외한 높이를 균등 배분합니다.",
+  "reset": "초기화",
+  "usableHeightLabel": "사용 가능한 높이",
+  "gapLabel": "선반 간격",
+  "cmValue": "{{value}} cm"
+}

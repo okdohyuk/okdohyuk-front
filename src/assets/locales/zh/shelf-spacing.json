@@ -1,0 +1,18 @@
+{
+  "title": "层板间距计算",
+  "description": "根据总高度与层板数量计算均匀间距。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "层板间距计算",
+    "description": "根据总高度与层板数量计算均匀间距。"
+  },
+  "heightLabel": "总高度(cm)",
+  "heightPlaceholder": "例如：200",
+  "shelvesLabel": "层板数量",
+  "thicknessLabel": "层板厚度(cm)",
+  "tips": "会先扣除层板厚度再平均分配间距。",
+  "reset": "重置",
+  "usableHeightLabel": "可用高度",
+  "gapLabel": "层板间距",
+  "cmValue": "{{value}} cm"
+}

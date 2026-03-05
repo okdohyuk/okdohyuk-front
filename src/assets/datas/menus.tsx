@@ -29,6 +29,7 @@ import {
   Repeat,
   ScrollText,
   Server,
+  Shelves,
   Smile,
   Sparkles,
   Table,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '선반 간격 계산기',
+        en: 'Shelf Spacing Calculator',
+        ja: '棚間隔計算',
+        zh: '层板间距计算',
+      },
+      icon: <Shelves />,
+      link: '/shelf-spacing',
     },
     {
       title: {

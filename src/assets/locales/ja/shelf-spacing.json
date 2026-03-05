@@ -1,0 +1,18 @@
+{
+  "title": "棚間隔計算",
+  "description": "総高さと棚数から均等な間隔を計算します。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "棚間隔計算",
+    "description": "総高さと棚数から均等な間隔を計算します。"
+  },
+  "heightLabel": "総高さ(cm)",
+  "heightPlaceholder": "例) 200",
+  "shelvesLabel": "棚の数",
+  "thicknessLabel": "棚の厚さ(cm)",
+  "tips": "棚の厚さを差し引いた高さを均等に配分します。",
+  "reset": "リセット",
+  "usableHeightLabel": "使用可能高さ",
+  "gapLabel": "棚間隔",
+  "cmValue": "{{value}} cm"
+}

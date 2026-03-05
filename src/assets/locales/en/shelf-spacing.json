@@ -1,0 +1,18 @@
+{
+  "title": "Shelf Spacing Calculator",
+  "description": "Calculate even shelf spacing from total height.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "Shelf Spacing Calculator",
+    "description": "Calculate even shelf spacing from total height."
+  },
+  "heightLabel": "Total height (cm)",
+  "heightPlaceholder": "e.g. 200",
+  "shelvesLabel": "Number of shelves",
+  "thicknessLabel": "Shelf thickness (cm)",
+  "tips": "Spacing is calculated after subtracting shelf thickness.",
+  "reset": "Reset",
+  "usableHeightLabel": "Usable height",
+  "gapLabel": "Shelf spacing",
+  "cmValue": "{{value}} cm"
+}
