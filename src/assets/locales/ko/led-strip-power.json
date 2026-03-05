@@ -1,0 +1,22 @@
+{
+  "title": "LED 스트립 전력 계산기",
+  "description": "길이와 소비전력으로 필요한 전원 용량을 계산하세요.",
+  "badge": "Lighting",
+  "openGraph": {
+    "title": "LED 스트립 전력 계산기",
+    "description": "길이와 소비전력으로 필요한 전원 용량을 계산하세요."
+  },
+  "lengthLabel": "길이(m)",
+  "lengthPlaceholder": "예) 5",
+  "powerLabel": "1m당 소비전력(W)",
+  "powerPlaceholder": "예) 12",
+  "voltageLabel": "전압(V)",
+  "marginLabel": "여유율(%)",
+  "tips": "여유율 10~30%를 두면 안정적으로 사용할 수 있어요.",
+  "reset": "초기화",
+  "basePowerLabel": "기본 전력",
+  "recommendedPowerLabel": "권장 전원 용량",
+  "currentLabel": "필요 전류",
+  "wattValue": "{{value}} W",
+  "ampValue": "{{value}} A"
+}

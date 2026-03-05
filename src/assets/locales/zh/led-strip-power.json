@@ -1,0 +1,22 @@
+{
+  "title": "LED灯带功率计算",
+  "description": "根据长度与功耗估算电源容量。",
+  "badge": "Lighting",
+  "openGraph": {
+    "title": "LED灯带功率计算",
+    "description": "根据长度与功耗估算电源容量。"
+  },
+  "lengthLabel": "长度(m)",
+  "lengthPlaceholder": "例如：5",
+  "powerLabel": "每米功耗(W)",
+  "powerPlaceholder": "例如：12",
+  "voltageLabel": "电压(V)",
+  "marginLabel": "安全余量(%)",
+  "tips": "建议预留 10–30% 余量以保证稳定供电。",
+  "reset": "重置",
+  "basePowerLabel": "基础功率",
+  "recommendedPowerLabel": "推荐电源容量",
+  "currentLabel": "所需电流",
+  "wattValue": "{{value}} W",
+  "ampValue": "{{value}} A"
+}

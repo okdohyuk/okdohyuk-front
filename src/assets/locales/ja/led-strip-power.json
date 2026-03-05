@@ -1,0 +1,22 @@
+{
+  "title": "LEDストリップ電力計算",
+  "description": "長さと消費電力から必要な電源容量を計算します。",
+  "badge": "Lighting",
+  "openGraph": {
+    "title": "LEDストリップ電力計算",
+    "description": "長さと消費電力から必要な電源容量を計算します。"
+  },
+  "lengthLabel": "長さ(m)",
+  "lengthPlaceholder": "例) 5",
+  "powerLabel": "1mあたりの消費電力(W)",
+  "powerPlaceholder": "例) 12",
+  "voltageLabel": "電圧(V)",
+  "marginLabel": "余裕率(%)",
+  "tips": "安定動作のために10〜30%の余裕をおすすめします。",
+  "reset": "リセット",
+  "basePowerLabel": "基本電力",
+  "recommendedPowerLabel": "推奨電源容量",
+  "currentLabel": "必要電流",
+  "wattValue": "{{value}} W",
+  "ampValue": "{{value}} A"
+}

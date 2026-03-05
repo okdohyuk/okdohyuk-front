@@ -18,6 +18,7 @@ import {
   Key,
   KeyRound,
   Link2,
+  Lightbulb,
   Linkedin,
   List,
   MonitorPlay,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: 'LED 스트립 전력 계산기',
+        en: 'LED Strip Power Calculator',
+        ja: 'LEDストリップ電力計算',
+        zh: 'LED灯带功率计算',
+      },
+      icon: <Lightbulb />,
+      link: '/led-strip-power',
     },
     {
       title: {
