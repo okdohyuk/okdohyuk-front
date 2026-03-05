@@ -1,0 +1,19 @@
+{
+  "title": "Garden Soil Calculator",
+  "description": "Estimate soil volume from area and depth.",
+  "badge": "Garden",
+  "openGraph": {
+    "title": "Garden Soil Calculator",
+    "description": "Estimate soil volume from area and depth."
+  },
+  "areaLabel": "Area (㎡)",
+  "areaPlaceholder": "e.g. 5",
+  "depthLabel": "Soil depth (cm)",
+  "bagLabel": "Bag volume (L)",
+  "tips": "Adjust depth for topsoil and drainage layers.",
+  "reset": "Reset",
+  "volumeLabel": "Soil volume needed",
+  "bagsLabel": "Bags needed",
+  "literValue": "{{value}} L",
+  "bagsValue": "{{value}} bags"
+}

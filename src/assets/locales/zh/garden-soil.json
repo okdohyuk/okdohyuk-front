@@ -1,0 +1,19 @@
+{
+  "title": "花园土壤计算",
+  "description": "根据面积和深度估算所需土壤体积。",
+  "badge": "Garden",
+  "openGraph": {
+    "title": "花园土壤计算",
+    "description": "根据面积和深度估算所需土壤体积。"
+  },
+  "areaLabel": "面积(㎡)",
+  "areaPlaceholder": "例如：5",
+  "depthLabel": "土壤厚度(cm)",
+  "bagLabel": "每袋体积(L)",
+  "tips": "可根据表土或排水层调整深度。",
+  "reset": "重置",
+  "volumeLabel": "所需土壤体积",
+  "bagsLabel": "所需袋数",
+  "literValue": "{{value}} L",
+  "bagsValue": "{{value}} 袋"
+}
