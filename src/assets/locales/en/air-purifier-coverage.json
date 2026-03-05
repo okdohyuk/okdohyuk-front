@@ -1,0 +1,29 @@
+{
+  "title": "Air Purifier Coverage",
+  "description": "Estimate the CADR you need from room size and air changes per hour.",
+  "badge": "Lifestyle",
+  "input": {
+    "area": "Floor area (㎡)",
+    "height": "Ceiling height (m)",
+    "ach": "Air changes per hour (ACH)",
+    "cadr": "Your CADR (m³/h)"
+  },
+  "placeholder": {
+    "area": "e.g. 18",
+    "height": "e.g. 2.4",
+    "ach": "e.g. 5",
+    "cadr": "e.g. 250"
+  },
+  "helper": "Enter area, height, and ACH to get the required CADR. Enter CADR to estimate max coverage.",
+  "tips": {
+    "ach": "Most homes target around 4–6 ACH.",
+    "cadr": "CADR is the clean air delivery rate from the product spec sheet."
+  },
+  "result": {
+    "title": "Result",
+    "volume": "Room volume",
+    "requiredCadr": "Required CADR",
+    "maxArea": "Estimated max area",
+    "none": "Fill in the inputs to see results."
+  }
+}

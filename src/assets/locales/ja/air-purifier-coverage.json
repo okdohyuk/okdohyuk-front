@@ -1,0 +1,29 @@
+{
+  "title": "空気清浄機カバレッジ計算",
+  "description": "部屋サイズと換気回数から必要なCADRを計算します。",
+  "badge": "生活",
+  "input": {
+    "area": "床面積 (㎡)",
+    "height": "天井高さ (m)",
+    "ach": "1時間あたりの空気交換回数(ACH)",
+    "cadr": "保有CADR (m³/h)"
+  },
+  "placeholder": {
+    "area": "例: 18",
+    "height": "例: 2.4",
+    "ach": "例: 5",
+    "cadr": "例: 250"
+  },
+  "helper": "面積・高さ・ACHを入力すると必要CADRを計算し、CADRを入力するとカバー可能面積を推定します。",
+  "tips": {
+    "ach": "家庭用は4〜6 ACHが目安です。",
+    "cadr": "CADRは製品仕様に記載された清浄空気供給量です。"
+  },
+  "result": {
+    "title": "計算結果",
+    "volume": "部屋の体積",
+    "requiredCadr": "必要CADR",
+    "maxArea": "推定カバー面積",
+    "none": "入力すると結果が表示されます。"
+  }
+}
