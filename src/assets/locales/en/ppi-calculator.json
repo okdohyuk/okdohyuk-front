@@ -1,0 +1,25 @@
+{
+  "title": "PPI Calculator",
+  "description": "Calculate pixel density from screen size and resolution.",
+  "badge": "Display",
+  "openGraph": {
+    "title": "PPI Calculator",
+    "description": "Calculate pixel density from screen size and resolution."
+  },
+  "diagonalLabel": "Screen size (inch)",
+  "diagonalPlaceholder": "e.g. 27",
+  "widthLabel": "Horizontal resolution (px)",
+  "widthPlaceholder": "e.g. 2560",
+  "heightLabel": "Vertical resolution (px)",
+  "heightPlaceholder": "e.g. 1440",
+  "tips": "PPI helps compare screen sharpness.",
+  "reset": "Reset",
+  "diagonalPixelsLabel": "Diagonal pixels",
+  "ppiLabel": "Pixel density (PPI)",
+  "pixelPitchLabel": "Pixel pitch (mm)",
+  "diagonalCmLabel": "Diagonal length (cm)",
+  "pixelsValue": "{{value}} px",
+  "ppiValue": "{{value}} PPI",
+  "mmValue": "{{value}} mm",
+  "cmValue": "{{value}} cm"
+}
