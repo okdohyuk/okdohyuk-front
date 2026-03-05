@@ -1,0 +1,23 @@
+{
+  "title": "カーテンサイズ計算",
+  "description": "窓のサイズとヒダの倍率から必要なカーテン寸法を計算します。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "カーテンサイズ計算",
+    "description": "窓のサイズとヒダの倍率から必要なカーテン寸法を計算します。"
+  },
+  "windowWidthLabel": "窓の幅(cm)",
+  "windowWidthPlaceholder": "例) 200",
+  "windowHeightLabel": "窓の高さ(cm)",
+  "windowHeightPlaceholder": "例) 230",
+  "fullnessLabel": "ヒダ倍率",
+  "panelsLabel": "パネル数",
+  "hemLabel": "裾の余裕(cm)",
+  "topLabel": "上部の余裕(cm)",
+  "tips": "ヒダ倍率は1.5〜2.5倍が一般的です。",
+  "reset": "リセット",
+  "totalWidthLabel": "総生地幅",
+  "panelWidthLabel": "パネルごとの幅",
+  "lengthLabel": "完成丈",
+  "cmValue": "{{value}} cm"
+}

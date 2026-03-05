@@ -1,0 +1,23 @@
+{
+  "title": "Curtain Size Calculator",
+  "description": "Estimate curtain measurements based on window size and fullness.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "Curtain Size Calculator",
+    "description": "Estimate curtain measurements based on window size and fullness."
+  },
+  "windowWidthLabel": "Window width (cm)",
+  "windowWidthPlaceholder": "e.g. 200",
+  "windowHeightLabel": "Window height (cm)",
+  "windowHeightPlaceholder": "e.g. 230",
+  "fullnessLabel": "Fullness multiplier",
+  "panelsLabel": "Number of panels",
+  "hemLabel": "Bottom hem allowance (cm)",
+  "topLabel": "Top allowance (cm)",
+  "tips": "Common fullness is 1.5–2.5x depending on style.",
+  "reset": "Reset",
+  "totalWidthLabel": "Total fabric width",
+  "panelWidthLabel": "Width per panel",
+  "lengthLabel": "Finished length",
+  "cmValue": "{{value}} cm"
+}
