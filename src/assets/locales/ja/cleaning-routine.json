@@ -1,0 +1,22 @@
+{
+  "title": "掃除ルーティンプランナー",
+  "description": "家事リストから1週間の掃除ルーティンを作成します。",
+  "badge": "Home Routine",
+  "openGraph": {
+    "title": "掃除ルーティンプランナー",
+    "description": "家事リストから1週間の掃除ルーティンを作成します。"
+  },
+  "inputLabel": "掃除リスト",
+  "inputPlaceholder": "例) 掃除機\n浴室拭き\nリサイクル",
+  "daysLabel": "週の掃除回数",
+  "tipsTitle": "ヒント",
+  "tips": "タスクは選択した曜日に均等に割り当てられます。",
+  "generate": "ルーティン作成",
+  "shuffle": "もう一度シャッフル",
+  "reset": "リセット",
+  "planTitle": "今週のルーティン",
+  "restLabel": "休息日",
+  "taskLabel": "今日のタスク",
+  "dayNames": ["月", "火", "水", "木", "金", "土", "日"],
+  "emptyState": "掃除リストを入力してルーティンを作成してください。"
+}
