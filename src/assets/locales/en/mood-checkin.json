@@ -1,0 +1,62 @@
+{
+  "title": "Mood Check-in",
+  "description": "Log your mood, energy, and stress in a few taps.",
+  "badge": "Wellness",
+  "openGraph": {
+    "title": "Mood Check-in",
+    "description": "Log your mood, energy, and stress in a few taps."
+  },
+  "moodLabel": "Mood",
+  "energyLabel": "Energy",
+  "stressLabel": "Stress",
+  "moodOptions": {
+    "veryLow": "Very low",
+    "low": "Low",
+    "neutral": "Neutral",
+    "high": "High",
+    "veryHigh": "Very high"
+  },
+  "energyOptions": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "stressOptions": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "promptLabel": "Daily prompt",
+  "shufflePrompt": "New prompt",
+  "prompts": [
+    "What made you feel grateful today?",
+    "What sensation in your body or mind is most noticeable right now?",
+    "What small promise do you want to keep today?",
+    "Leave a short note for your future self."
+  ],
+  "noteLabel": "Notes",
+  "notePlaceholder": "Write a short note.",
+  "reset": "Reset",
+  "summaryTitle": "Summary",
+  "summary": "Mood is {{mood}}, energy is {{energy}}, and stress is {{stress}}.",
+  "suggestionsTitle": "Suggested care",
+  "suggestions": {
+    "lowMood": [
+      "Take a short walk and reset your breathing.",
+      "Play one song that feels comforting."
+    ],
+    "goodMood": ["Stay hydrated to keep the momentum.", "Capture today's good moment in writing."],
+    "lowEnergy": [
+      "Do a quick stretch to wake up your body.",
+      "Sip a warm drink to reset your rhythm."
+    ],
+    "highStress": [
+      "Slow down with five minutes of deep breathing.",
+      "List only three must-do tasks for today."
+    ],
+    "neutral": [
+      "Pick the one most important task for today.",
+      "Relax your shoulders and close your eyes for a moment."
+    ]
+  }
+}
