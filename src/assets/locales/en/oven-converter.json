@@ -1,0 +1,17 @@
+{
+  "title": "Oven Temperature Converter",
+  "description": "Convert between Celsius and Fahrenheit for baking.",
+  "badge": "Kitchen",
+  "openGraph": {
+    "title": "Oven Temperature Converter",
+    "description": "Convert between Celsius and Fahrenheit for baking."
+  },
+  "modeLabel": "Conversion mode",
+  "cToF": "Celsius → Fahrenheit",
+  "fToC": "Fahrenheit → Celsius",
+  "tempLabel": "Temperature",
+  "quickLabel": "Common temperatures",
+  "tips": "Switch units quickly when recipes differ.",
+  "reset": "Reset",
+  "resultLabel": "Result"
+}

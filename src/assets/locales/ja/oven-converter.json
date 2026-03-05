@@ -1,0 +1,17 @@
+{
+  "title": "オーブン温度変換",
+  "description": "摂氏・華氏を素早く変換して焼き時間に活用します。",
+  "badge": "Kitchen",
+  "openGraph": {
+    "title": "オーブン温度変換",
+    "description": "摂氏・華氏を素早く変換して焼き時間に活用します。"
+  },
+  "modeLabel": "変換モード",
+  "cToF": "摂氏 → 華氏",
+  "fToC": "華氏 → 摂氏",
+  "tempLabel": "温度",
+  "quickLabel": "よく使う温度",
+  "tips": "レシピの単位が異なるときに役立ちます。",
+  "reset": "リセット",
+  "resultLabel": "変換結果"
+}
