@@ -1,0 +1,17 @@
+{
+  "title": "TV Viewing Distance",
+  "description": "Calculate recommended viewing distance based on screen size.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "TV Viewing Distance",
+    "description": "Calculate recommended viewing distance based on screen size."
+  },
+  "screenLabel": "Screen size (inch)",
+  "screenPlaceholder": "e.g. 55",
+  "tips": "A common guideline is 1.5–2.5x the diagonal size.",
+  "reset": "Reset",
+  "diagonalLabel": "Diagonal length",
+  "cinemaLabel": "Cinematic distance (1.5x)",
+  "standardLabel": "Standard distance (2.5x)",
+  "cmValue": "{{value}} cm"
+}

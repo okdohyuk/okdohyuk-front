@@ -1,0 +1,17 @@
+{
+  "title": "視聴距離計算",
+  "description": "画面サイズからおすすめの視聴距離を計算します。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "視聴距離計算",
+    "description": "画面サイズからおすすめの視聴距離を計算します。"
+  },
+  "screenLabel": "画面サイズ(インチ)",
+  "screenPlaceholder": "例) 55",
+  "tips": "目安は画面対角の1.5〜2.5倍です。",
+  "reset": "リセット",
+  "diagonalLabel": "画面対角の長さ",
+  "cinemaLabel": "没入距離(1.5倍)",
+  "standardLabel": "標準距離(2.5倍)",
+  "cmValue": "{{value}} cm"
+}

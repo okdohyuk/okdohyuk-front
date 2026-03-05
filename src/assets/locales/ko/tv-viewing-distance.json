@@ -1,0 +1,17 @@
+{
+  "title": "TV 시청 거리 계산기",
+  "description": "화면 크기를 입력해 추천 시청 거리를 계산하세요.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "TV 시청 거리 계산기",
+    "description": "화면 크기를 입력해 추천 시청 거리를 계산하세요."
+  },
+  "screenLabel": "화면 크기(인치)",
+  "screenPlaceholder": "예) 55",
+  "tips": "추천 거리는 대각선 길이의 1.5~2.5배를 기준으로 합니다.",
+  "reset": "초기화",
+  "diagonalLabel": "화면 대각선 길이",
+  "cinemaLabel": "몰입형 거리(1.5배)",
+  "standardLabel": "일반 거리(2.5배)",
+  "cmValue": "{{value}} cm"
+}

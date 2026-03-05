@@ -26,6 +26,7 @@ import {
   Palette,
   QrCode,
   Receipt,
+  Ruler,
   Repeat,
   ScrollText,
   Server,
@@ -202,6 +203,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: 'TV 시청 거리 계산기',
+        en: 'TV Viewing Distance',
+        ja: '視聴距離計算',
+        zh: '电视观看距离计算',
+      },
+      icon: <Ruler />,
+      link: '/tv-viewing-distance',
     },
     {
       title: {
