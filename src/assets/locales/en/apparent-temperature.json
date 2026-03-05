@@ -1,0 +1,33 @@
+{
+  "title": "Feels Like Temperature",
+  "description": "Calculate the apparent temperature using air temperature, humidity, and wind speed.",
+  "badge": "Weather",
+  "input": {
+    "temperature": "Air temperature (°C)",
+    "humidity": "Humidity (%)",
+    "windSpeed": "Wind speed"
+  },
+  "placeholder": {
+    "temperature": "e.g. 28",
+    "humidity": "e.g. 60",
+    "windSpeed": "e.g. 3"
+  },
+  "windUnit": {
+    "mps": "m/s",
+    "kmh": "km/h"
+  },
+  "helper": "Enter humidity from 0–100% and wind speed in m/s or km/h.",
+  "tips": {
+    "heat": "Higher heat and humidity make it feel hotter.",
+    "cold": "Lower temperatures and stronger winds feel colder."
+  },
+  "result": {
+    "title": "Result",
+    "feelsLike": "Feels like",
+    "formula": "Applied formula",
+    "none": "Fill in the inputs to see the apparent temperature.",
+    "heatIndex": "Heat Index",
+    "windChill": "Wind Chill",
+    "actual": "Actual temperature (no adjustment)"
+  }
+}

@@ -33,6 +33,7 @@ import {
   Sparkles,
   Table,
   TextCursorInput,
+  Thermometer,
   Timer,
   Tv,
   Youtube,
@@ -232,6 +233,16 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '체감온도 계산기',
+        en: 'Feels Like Temperature',
+        ja: '体感温度計算',
+        zh: '体感温度计算器',
+      },
+      icon: <Thermometer />,
+      link: '/apparent-temperature',
     },
     {
       title: {

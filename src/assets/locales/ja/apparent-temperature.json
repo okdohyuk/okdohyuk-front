@@ -1,0 +1,33 @@
+{
+  "title": "体感温度計算",
+  "description": "気温・湿度・風速から体感温度を計算します。",
+  "badge": "天気",
+  "input": {
+    "temperature": "気温 (°C)",
+    "humidity": "湿度 (%)",
+    "windSpeed": "風速"
+  },
+  "placeholder": {
+    "temperature": "例: 28",
+    "humidity": "例: 60",
+    "windSpeed": "例: 3"
+  },
+  "windUnit": {
+    "mps": "m/s",
+    "kmh": "km/h"
+  },
+  "helper": "湿度は0〜100%、風速はm/sまたはkm/hで入力してください。",
+  "tips": {
+    "heat": "気温と湿度が高いほど暑く感じます。",
+    "cold": "気温が低く風が強いほど寒く感じます。"
+  },
+  "result": {
+    "title": "計算結果",
+    "feelsLike": "体感温度",
+    "formula": "適用式",
+    "none": "入力すると体感温度が表示されます。",
+    "heatIndex": "暑さ指数 (Heat Index)",
+    "windChill": "風冷え (Wind Chill)",
+    "actual": "実際の気温 (補正なし)"
+  }
+}

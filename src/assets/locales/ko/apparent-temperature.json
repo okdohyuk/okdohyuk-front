@@ -1,0 +1,33 @@
+{
+  "title": "체감온도 계산기",
+  "description": "기온, 습도, 바람을 입력해 체감온도를 계산합니다.",
+  "badge": "날씨",
+  "input": {
+    "temperature": "기온 (°C)",
+    "humidity": "습도 (%)",
+    "windSpeed": "풍속"
+  },
+  "placeholder": {
+    "temperature": "예: 28",
+    "humidity": "예: 60",
+    "windSpeed": "예: 3"
+  },
+  "windUnit": {
+    "mps": "m/s",
+    "kmh": "km/h"
+  },
+  "helper": "습도는 0~100%, 풍속은 m/s 또는 km/h로 입력하세요.",
+  "tips": {
+    "heat": "기온이 높고 습도가 높으면 더 덥게 느껴집니다.",
+    "cold": "기온이 낮고 바람이 강하면 더 춥게 느껴집니다."
+  },
+  "result": {
+    "title": "계산 결과",
+    "feelsLike": "체감온도",
+    "formula": "적용 공식",
+    "none": "입력을 채우면 체감온도가 표시됩니다.",
+    "heatIndex": "열지수(Heat Index)",
+    "windChill": "바람추위(Wind Chill)",
+    "actual": "실제 기온(보정 없음)"
+  }
+}
