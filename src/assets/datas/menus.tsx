@@ -31,6 +31,7 @@ import {
   Server,
   Smile,
   Sparkles,
+  SmilePlus,
   Table,
   TextCursorInput,
   Timer,
@@ -232,6 +233,16 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '감정 체크인',
+        en: 'Mood Check-in',
+        ja: '感情チェックイン',
+        zh: '情绪打卡',
+      },
+      icon: <SmilePlus />,
+      link: '/mood-checkin',
     },
     {
       title: {

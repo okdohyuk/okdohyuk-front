@@ -1,0 +1,59 @@
+{
+  "title": "감정 체크인",
+  "description": "오늘의 기분, 에너지, 스트레스를 간단히 기록하세요.",
+  "badge": "Wellness",
+  "openGraph": {
+    "title": "감정 체크인",
+    "description": "오늘의 기분, 에너지, 스트레스를 간단히 기록하세요."
+  },
+  "moodLabel": "오늘의 기분",
+  "energyLabel": "에너지",
+  "stressLabel": "스트레스",
+  "moodOptions": {
+    "veryLow": "매우 안좋음",
+    "low": "안좋음",
+    "neutral": "보통",
+    "high": "좋음",
+    "veryHigh": "매우 좋음"
+  },
+  "energyOptions": {
+    "low": "낮음",
+    "medium": "보통",
+    "high": "높음"
+  },
+  "stressOptions": {
+    "low": "낮음",
+    "medium": "보통",
+    "high": "높음"
+  },
+  "promptLabel": "오늘의 질문",
+  "shufflePrompt": "질문 바꾸기",
+  "prompts": [
+    "오늘 가장 감사한 일은 무엇인가요?",
+    "지금 몸이나 마음에서 가장 크게 느껴지는 감각은 무엇인가요?",
+    "오늘 꼭 지키고 싶은 작은 약속은 무엇인가요?",
+    "내일의 나에게 한마디를 남긴다면?"
+  ],
+  "noteLabel": "메모",
+  "notePlaceholder": "간단한 메모를 남겨보세요.",
+  "reset": "초기화",
+  "summaryTitle": "요약",
+  "summary": "기분은 {{mood}}, 에너지는 {{energy}}, 스트레스는 {{stress}} 상태입니다.",
+  "suggestionsTitle": "추천 케어",
+  "suggestions": {
+    "lowMood": ["가벼운 산책으로 호흡을 정리해보세요.", "마음에 드는 음악 한 곡을 틀어보세요."],
+    "goodMood": [
+      "좋은 컨디션을 유지할 수 있게 수분을 챙겨주세요.",
+      "오늘의 좋은 순간을 기록해보세요."
+    ],
+    "lowEnergy": ["짧은 스트레칭으로 몸을 깨워보세요.", "따뜻한 음료로 리듬을 맞춰보세요."],
+    "highStress": [
+      "5분간 심호흡하며 속도를 늦춰보세요.",
+      "오늘 해야 할 일을 3가지로만 정리해보세요."
+    ],
+    "neutral": [
+      "오늘 해야 할 가장 중요한 일 한 가지를 정해보세요.",
+      "잠깐 눈을 감고 어깨 힘을 풀어주세요."
+    ]
+  }
+}

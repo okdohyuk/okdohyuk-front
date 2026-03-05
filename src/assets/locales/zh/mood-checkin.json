@@ -1,0 +1,50 @@
+{
+  "title": "情绪打卡",
+  "description": "轻松记录今日的心情、精力与压力。",
+  "badge": "Wellness",
+  "openGraph": {
+    "title": "情绪打卡",
+    "description": "轻松记录今日的心情、精力与压力。"
+  },
+  "moodLabel": "心情",
+  "energyLabel": "精力",
+  "stressLabel": "压力",
+  "moodOptions": {
+    "veryLow": "很低",
+    "low": "较低",
+    "neutral": "一般",
+    "high": "较高",
+    "veryHigh": "很高"
+  },
+  "energyOptions": {
+    "low": "低",
+    "medium": "中",
+    "high": "高"
+  },
+  "stressOptions": {
+    "low": "低",
+    "medium": "中",
+    "high": "高"
+  },
+  "promptLabel": "今日问题",
+  "shufflePrompt": "更换问题",
+  "prompts": [
+    "今天最让你感恩的一件事是什么？",
+    "此刻你最明显的感受是什么？",
+    "今天想守住的一个小承诺是什么？",
+    "给未来的自己留一句话吧。"
+  ],
+  "noteLabel": "备注",
+  "notePlaceholder": "写下简短记录。",
+  "reset": "重置",
+  "summaryTitle": "总结",
+  "summary": "心情是{{mood}}，精力是{{energy}}，压力是{{stress}}。",
+  "suggestionsTitle": "建议",
+  "suggestions": {
+    "lowMood": ["出去散散步，调整呼吸。", "放一首让你安心的歌。"],
+    "goodMood": ["补充水分，保持好状态。", "记录下今天的好瞬间。"],
+    "lowEnergy": ["做个简短伸展唤醒身体。", "喝杯热饮调整节奏。"],
+    "highStress": ["用5分钟深呼吸放慢节奏。", "把今天必须做的事限制在3件。"],
+    "neutral": ["确定今天最重要的一件事。", "闭眼放松肩膀几秒。"]
+  }
+}

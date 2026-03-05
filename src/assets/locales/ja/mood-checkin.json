@@ -1,0 +1,53 @@
+{
+  "title": "感情チェックイン",
+  "description": "気分・エネルギー・ストレスを手軽に記録しましょう。",
+  "badge": "Wellness",
+  "openGraph": {
+    "title": "感情チェックイン",
+    "description": "気分・エネルギー・ストレスを手軽に記録しましょう。"
+  },
+  "moodLabel": "気分",
+  "energyLabel": "エネルギー",
+  "stressLabel": "ストレス",
+  "moodOptions": {
+    "veryLow": "とても低い",
+    "low": "低い",
+    "neutral": "普通",
+    "high": "高い",
+    "veryHigh": "とても高い"
+  },
+  "energyOptions": {
+    "low": "低い",
+    "medium": "普通",
+    "high": "高い"
+  },
+  "stressOptions": {
+    "low": "低い",
+    "medium": "普通",
+    "high": "高い"
+  },
+  "promptLabel": "今日の質問",
+  "shufflePrompt": "質問を変更",
+  "prompts": [
+    "今日感謝したいことは何ですか？",
+    "今一番強く感じる感覚は何ですか？",
+    "今日守りたい小さな約束は何ですか？",
+    "未来の自分に一言残すなら？"
+  ],
+  "noteLabel": "メモ",
+  "notePlaceholder": "短いメモを書いてください。",
+  "reset": "リセット",
+  "summaryTitle": "まとめ",
+  "summary": "気分は{{mood}}、エネルギーは{{energy}}、ストレスは{{stress}}です。",
+  "suggestionsTitle": "おすすめケア",
+  "suggestions": {
+    "lowMood": ["軽い散歩で呼吸を整えましょう。", "心地よい曲を1曲流してみましょう。"],
+    "goodMood": ["水分補給で良い流れを維持しましょう。", "良かった瞬間を記録しておきましょう。"],
+    "lowEnergy": ["短いストレッチで体を起こしましょう。", "温かい飲み物でリズムを整えましょう。"],
+    "highStress": [
+      "5分間深呼吸してペースを落としましょう。",
+      "今日の必須タスクを3つに絞りましょう。"
+    ],
+    "neutral": ["今日の最重要タスクを1つ決めましょう。", "肩の力を抜いて目を閉じてみましょう。"]
+  }
+}
