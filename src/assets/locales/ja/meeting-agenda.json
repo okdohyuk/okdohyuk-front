@@ -1,0 +1,21 @@
+{
+  "title": "会議アジェンダ作成",
+  "description": "会議トピックを入力して時間配分アジェンダを作成します。",
+  "badge": "Work",
+  "openGraph": {
+    "title": "会議アジェンダ作成",
+    "description": "会議トピックを入力して時間配分アジェンダを作成します。"
+  },
+  "titleLabel": "会議タイトル",
+  "titlePlaceholder": "例) 週次スタンドアップ",
+  "totalMinutesLabel": "会議時間(分)",
+  "bufferMinutesLabel": "バッファ時間(分)",
+  "topicsLabel": "議題",
+  "topicsPlaceholder": "例) 進捗共有\n課題整理\n次のアクション",
+  "tips": "バッファを入れると質疑やまとめの時間を確保できます。",
+  "reset": "リセット",
+  "agendaTitle": "アジェンダ",
+  "agendaFallback": "会議タイトルが未入力です。",
+  "minutes": "{{value}}分",
+  "emptyState": "議題を入力するとアジェンダが表示されます。"
+}

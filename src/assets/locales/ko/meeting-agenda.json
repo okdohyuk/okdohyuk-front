@@ -1,0 +1,21 @@
+{
+  "title": "회의 아젠다 생성기",
+  "description": "회의 주제를 입력하면 시간 배분 아젠다를 만들어드립니다.",
+  "badge": "Work",
+  "openGraph": {
+    "title": "회의 아젠다 생성기",
+    "description": "회의 주제를 입력하면 시간 배분 아젠다를 만들어드립니다."
+  },
+  "titleLabel": "회의 제목",
+  "titlePlaceholder": "예) 주간 스탠드업",
+  "totalMinutesLabel": "전체 회의 시간(분)",
+  "bufferMinutesLabel": "버퍼 시간(분)",
+  "topicsLabel": "회의 주제",
+  "topicsPlaceholder": "예) 진행 상황 공유\n이슈 정리\n다음 액션",
+  "tips": "버퍼 시간을 남겨두면 마무리/질문 시간을 확보할 수 있어요.",
+  "reset": "초기화",
+  "agendaTitle": "아젠다",
+  "agendaFallback": "회의 제목이 비어있습니다.",
+  "minutes": "{{value}}분",
+  "emptyState": "회의 주제를 입력하면 아젠다가 표시됩니다."
+}

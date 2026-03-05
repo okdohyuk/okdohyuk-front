@@ -22,6 +22,7 @@ import {
   List,
   MonitorPlay,
   Music,
+  NotebookText,
   Moon,
   Palette,
   QrCode,
@@ -212,6 +213,16 @@ const menus: Menus = {
       },
       icon: <Receipt />,
       link: '/sales-tax-calculator',
+    },
+    {
+      title: {
+        ko: '회의 아젠다 생성기',
+        en: 'Meeting Agenda Builder',
+        ja: '会議アジェンダ作成',
+        zh: '会议议程生成器',
+      },
+      icon: <NotebookText />,
+      link: '/meeting-agenda',
     },
     {
       title: {
