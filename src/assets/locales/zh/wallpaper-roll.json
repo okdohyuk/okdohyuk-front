@@ -1,0 +1,24 @@
+{
+  "title": "壁纸卷数计算",
+  "description": "根据墙面尺寸和卷材规格估算壁纸卷数。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "壁纸卷数计算",
+    "description": "根据墙面尺寸和卷材规格估算壁纸卷数。"
+  },
+  "wallWidthLabel": "墙面宽度(m)",
+  "wallWidthPlaceholder": "例如：3.6",
+  "wallHeightLabel": "墙面高度(m)",
+  "wallHeightPlaceholder": "例如：2.4",
+  "wallsLabel": "墙面数量",
+  "rollWidthLabel": "卷材宽度(cm)",
+  "rollLengthLabel": "卷材长度(m)",
+  "wasteLabel": "损耗率(%)",
+  "tips": "建议预留 5–15% 的损耗。",
+  "reset": "重置",
+  "wallAreaLabel": "总墙面面积",
+  "rollAreaLabel": "单卷面积",
+  "rollsLabel": "所需卷数",
+  "areaValue": "{{value}} ㎡",
+  "rollsValue": "{{value}} 卷"
+}
