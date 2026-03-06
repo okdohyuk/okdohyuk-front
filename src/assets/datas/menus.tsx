@@ -245,6 +245,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '러닝 페이스 계산기',
+        en: 'Running Pace Calculator',
+        ja: 'ランニングペース計算機',
+        zh: '跑步配速计算器',
+      },
+      icon: <Timer />,
+      link: '/running-pace-calculator',
+    },
+    {
+      title: {
         ko: '한글 금액 변환기',
         en: 'Korean Amount Converter',
         ja: '韓国語金額変換',

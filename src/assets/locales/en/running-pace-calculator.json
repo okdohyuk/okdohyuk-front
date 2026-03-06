@@ -1,0 +1,37 @@
+{
+  "title": "Running Pace Calculator",
+  "description": "Enter any two of distance, finish time, and pace to instantly calculate the third.",
+  "mode": {
+    "time": "Find Finish Time",
+    "pace": "Find Pace",
+    "distance": "Find Distance"
+  },
+  "label": {
+    "distance": "Distance (km)",
+    "pace": "Pace (min:sec / km)",
+    "time": "Total Time (hh:mm:ss)"
+  },
+  "preset": {
+    "5k": "5K",
+    "10k": "10K",
+    "half": "Half",
+    "full": "Full"
+  },
+  "helper": {
+    "time": "Enter distance and target pace to estimate your finish time.",
+    "pace": "Enter distance and finish time to calculate average pace per kilometer.",
+    "distance": "Enter pace and finish time to estimate how far you can run."
+  },
+  "result": {
+    "title": "Result",
+    "invalid": "Please check your input. Minute/second fields must be between 0 and 59.",
+    "totalTime": "Estimated time: {{value}}",
+    "pace": "Pace: {{value}} /km",
+    "pacePerKm": "Average pace: {{value}} /km",
+    "distance": "Estimated distance: {{value}} km"
+  },
+  "openGraph": {
+    "title": "Running Pace Calculator",
+    "description": "Quickly calculate running distance, time, and pace."
+  }
+}

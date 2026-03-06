@@ -1,0 +1,37 @@
+{
+  "title": "跑步配速计算器",
+  "description": "输入距离、总时间、配速中的任意两项，即可立即计算第三项。",
+  "mode": {
+    "time": "计算完赛时间",
+    "pace": "计算配速",
+    "distance": "计算距离"
+  },
+  "label": {
+    "distance": "距离 (km)",
+    "pace": "配速 (分:秒 / km)",
+    "time": "总时间 (时:分:秒)"
+  },
+  "preset": {
+    "5k": "5K",
+    "10k": "10K",
+    "half": "半马",
+    "full": "全马"
+  },
+  "helper": {
+    "time": "输入距离和目标配速，估算完赛时间。",
+    "pace": "输入距离和完赛时间，计算每公里平均配速。",
+    "distance": "输入配速和总时间，估算可跑距离。"
+  },
+  "result": {
+    "title": "计算结果",
+    "invalid": "请检查输入。分/秒字段必须在 0 到 59 之间。",
+    "totalTime": "预计时间：{{value}}",
+    "pace": "配速：{{value}} /km",
+    "pacePerKm": "平均配速：{{value}} /km",
+    "distance": "预计距离：{{value}} km"
+  },
+  "openGraph": {
+    "title": "跑步配速计算器",
+    "description": "快速计算跑步距离、时间与配速。"
+  }
+}
