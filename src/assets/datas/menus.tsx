@@ -18,6 +18,7 @@ import {
   HardDrive,
   Key,
   KeyRound,
+  Lightbulb,
   Link2,
   Linkedin,
   List,
@@ -243,6 +244,16 @@ const menus: Menus = {
       },
       icon: <Droplets />,
       link: '/shower-water-cost',
+    },
+    {
+      title: {
+        ko: '조도·루멘 계산기',
+        en: 'Lux & Lumen Calculator',
+        ja: '照度・ルーメン計算',
+        zh: '照度与流明计算器',
+      },
+      icon: <Lightbulb />,
+      link: '/lux-lumen-calculator',
     },
     {
       title: {

@@ -1,0 +1,27 @@
+{
+  "title": "照度与流明计算器",
+  "description": "根据面积和目标照度估算所需流明。",
+  "badge": "生活",
+  "input": {
+    "area": "房间面积 (㎡)",
+    "targetLux": "目标照度 (lx)",
+    "lumens": "现有流明 (lm)"
+  },
+  "placeholder": {
+    "area": "例如：12",
+    "targetLux": "例如：300",
+    "lumens": "例如：2400"
+  },
+  "helper": "输入面积和目标照度可得到所需流明，输入流明可查看预计照度与覆盖面积。",
+  "tips": {
+    "target": "客厅常用 150–300 lx，阅读为 300–500 lx。",
+    "lumens": "将房间内所有灯具的流明值相加输入。"
+  },
+  "result": {
+    "title": "计算结果",
+    "requiredLumens": "所需流明",
+    "achievedLux": "预计照度",
+    "coverage": "预计覆盖面积",
+    "none": "填写输入后即可查看结果。"
+  }
+}

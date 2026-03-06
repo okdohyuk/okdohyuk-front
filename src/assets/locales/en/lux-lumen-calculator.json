@@ -1,0 +1,27 @@
+{
+  "title": "Lux & Lumen Calculator",
+  "description": "Estimate required lumens from room area and target illuminance.",
+  "badge": "Lifestyle",
+  "input": {
+    "area": "Room area (㎡)",
+    "targetLux": "Target lux (lx)",
+    "lumens": "Available lumens (lm)"
+  },
+  "placeholder": {
+    "area": "e.g. 12",
+    "targetLux": "e.g. 300",
+    "lumens": "e.g. 2400"
+  },
+  "helper": "Enter area and target lux to get required lumens. Add lumens to see estimated lux and coverage.",
+  "tips": {
+    "target": "Living rooms often use 150–300 lx, reading 300–500 lx.",
+    "lumens": "Add up the lumens from all light sources in the room."
+  },
+  "result": {
+    "title": "Result",
+    "requiredLumens": "Required lumens",
+    "achievedLux": "Estimated lux",
+    "coverage": "Estimated coverage",
+    "none": "Fill in the inputs to see results."
+  }
+}
