@@ -1,0 +1,28 @@
+{
+  "title": "时区重叠查找器",
+  "description": "一次输入多个城市的可用时段，快速找到所有人都能参加的共同时间。",
+  "inputs": {
+    "memberCount": "参与人数",
+    "memberCountHint": "可设置 2 到 4 人。",
+    "start": "可用开始",
+    "end": "可用结束",
+    "reset": "重置为默认值"
+  },
+  "members": {
+    "a": "参与者 A",
+    "b": "参与者 B",
+    "c": "参与者 C",
+    "d": "参与者 D"
+  },
+  "result": {
+    "title": "共同可用时间",
+    "utcRange": "UTC {{start}} - {{end}}",
+    "duration": "总计 {{hour}}小时 {{minute}}分钟",
+    "none": "暂时没有共同时段。请微调每位参与者的开始/结束时间。"
+  },
+  "footnote": "时区偏移按当前日期计算。夏令时切换期间请再次确认。",
+  "openGraph": {
+    "title": "时区重叠查找器",
+    "description": "快速找到跨时区团队/朋友都方便的会议时间。"
+  }
+}
