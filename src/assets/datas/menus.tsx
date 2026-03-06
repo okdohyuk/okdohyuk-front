@@ -8,6 +8,7 @@ import {
   Coins,
   CreditCard,
   Droplet,
+  Droplets,
   Eye,
   FileText,
   Fingerprint,
@@ -232,6 +233,16 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '샤워 물 사용량·요금 계산기',
+        en: 'Shower Water Use & Cost',
+        ja: 'シャワー水量・料金計算',
+        zh: '淋浴用水与费用计算',
+      },
+      icon: <Droplets />,
+      link: '/shower-water-cost',
     },
     {
       title: {
