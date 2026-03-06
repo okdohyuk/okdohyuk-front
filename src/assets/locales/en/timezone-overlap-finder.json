@@ -1,0 +1,28 @@
+{
+  "title": "Timezone Overlap Finder",
+  "description": "Enter availability windows for multiple cities and quickly find shared meeting time.",
+  "inputs": {
+    "memberCount": "Participants",
+    "memberCountHint": "Set from 2 to 4 participants.",
+    "start": "Available from",
+    "end": "Available until",
+    "reset": "Reset to defaults"
+  },
+  "members": {
+    "a": "Participant A",
+    "b": "Participant B",
+    "c": "Participant C",
+    "d": "Participant D"
+  },
+  "result": {
+    "title": "Shared availability",
+    "utcRange": "UTC {{start}} - {{end}}",
+    "duration": "Total {{hour}}h {{minute}}m",
+    "none": "No shared window yet. Try adjusting each participant's start/end times."
+  },
+  "footnote": "Timezone offsets are calculated using the current date. Recheck around daylight-saving transitions.",
+  "openGraph": {
+    "title": "Timezone Overlap Finder",
+    "description": "Find common meeting slots across global time zones in seconds."
+  }
+}

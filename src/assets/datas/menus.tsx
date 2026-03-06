@@ -325,6 +325,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '시간대 겹침 찾기',
+        en: 'Timezone Overlap Finder',
+        ja: 'タイムゾーン重なり検索',
+        zh: '时区重叠查找器',
+      },
+      icon: <CalendarClock />,
+      link: '/timezone-overlap-finder',
+    },
+    {
+      title: {
         ko: 'BPM 탭 템포',
         en: 'BPM Tapper',
         ja: 'BPMタップテンポ',
