@@ -1,0 +1,30 @@
+{
+  "title": "淋浴用水与费用计算",
+  "description": "根据流量和时间估算淋浴用水量与费用。",
+  "badge": "生活",
+  "input": {
+    "flowRate": "淋浴流量 (L/分)",
+    "duration": "淋浴时间 (分)",
+    "price": "水费单价 (每 m³)"
+  },
+  "placeholder": {
+    "flowRate": "例如：9",
+    "duration": "例如：10",
+    "price": "例如：1.2"
+  },
+  "unit": {
+    "currency": ""
+  },
+  "helper": "可使用花洒规格或简单测量得到的流量值。",
+  "tips": {
+    "flow": "节水花洒一般为 6–9 L/分。",
+    "price": "参考当地自来水收费标准。"
+  },
+  "result": {
+    "title": "计算结果",
+    "liters": "用水量 (升)",
+    "cubicMeters": "用水量 (m³)",
+    "cost": "预计费用",
+    "none": "填写输入后即可查看结果。"
+  }
+}

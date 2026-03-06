@@ -1,0 +1,30 @@
+{
+  "title": "Shower Water Use & Cost",
+  "description": "Estimate shower water usage and cost from flow rate and time.",
+  "badge": "Lifestyle",
+  "input": {
+    "flowRate": "Shower flow rate (L/min)",
+    "duration": "Shower time (min)",
+    "price": "Water price (per m³)"
+  },
+  "placeholder": {
+    "flowRate": "e.g. 9",
+    "duration": "e.g. 10",
+    "price": "e.g. 1.2"
+  },
+  "unit": {
+    "currency": ""
+  },
+  "helper": "Use the flow rate from your shower head spec or a quick measurement.",
+  "tips": {
+    "flow": "Low-flow showers are often around 6–9 L/min.",
+    "price": "Refer to your local utility water tariff."
+  },
+  "result": {
+    "title": "Result",
+    "liters": "Usage (liters)",
+    "cubicMeters": "Usage (m³)",
+    "cost": "Estimated cost",
+    "none": "Fill in the inputs to see results."
+  }
+}
