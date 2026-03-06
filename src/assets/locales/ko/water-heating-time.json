@@ -1,0 +1,37 @@
+{
+  "title": "물 끓이기 시간 계산기",
+  "description": "물의 양, 시작 온도, 목표 온도, 전력으로 예상 끓임 시간을 계산합니다.",
+  "badge": "생활",
+  "input": {
+    "volume": "물의 양",
+    "power": "가열 전력 (W)",
+    "startTemp": "시작 온도 (°C)",
+    "targetTemp": "목표 온도 (°C)",
+    "efficiency": "가열 효율 (%)"
+  },
+  "placeholder": {
+    "volume": "예: 500",
+    "power": "예: 1500",
+    "startTemp": "예: 20",
+    "targetTemp": "예: 100",
+    "efficiency": "예: 85"
+  },
+  "unit": {
+    "ml": "mL",
+    "l": "L",
+    "min": "분",
+    "sec": "초"
+  },
+  "helper": "가열 효율은 열 손실을 고려한 값입니다. 보통 70~90% 범위를 사용합니다.",
+  "tips": {
+    "power": "전력은 전기포트나 인덕션의 정격 소비전력을 입력하세요.",
+    "loss": "뚜껑 여부와 주변 온도에 따라 실제 시간은 달라질 수 있습니다."
+  },
+  "result": {
+    "title": "계산 결과",
+    "time": "예상 시간",
+    "energy": "필요 에너지",
+    "effectivePower": "유효 전력",
+    "none": "입력을 채우면 결과가 표시됩니다."
+  }
+}

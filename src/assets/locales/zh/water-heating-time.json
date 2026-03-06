@@ -1,0 +1,37 @@
+{
+  "title": "烧水时间计算器",
+  "description": "根据水量、起始温度、目标温度和功率估算烧水时间。",
+  "badge": "生活",
+  "input": {
+    "volume": "水量",
+    "power": "加热功率 (W)",
+    "startTemp": "起始温度 (°C)",
+    "targetTemp": "目标温度 (°C)",
+    "efficiency": "加热效率 (%)"
+  },
+  "placeholder": {
+    "volume": "例如：500",
+    "power": "例如：1500",
+    "startTemp": "例如：20",
+    "targetTemp": "例如：100",
+    "efficiency": "例如：85"
+  },
+  "unit": {
+    "ml": "mL",
+    "l": "L",
+    "min": "分",
+    "sec": "秒"
+  },
+  "helper": "效率用于估算热损失，通常取 70–90%。",
+  "tips": {
+    "power": "输入电热水壶或电磁炉的额定功率。",
+    "loss": "是否加盖、环境温度等因素会影响实际时间。"
+  },
+  "result": {
+    "title": "计算结果",
+    "time": "预计时间",
+    "energy": "所需能量",
+    "effectivePower": "有效功率",
+    "none": "填写输入后即可查看结果。"
+  }
+}

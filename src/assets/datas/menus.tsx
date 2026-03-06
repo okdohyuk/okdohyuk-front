@@ -11,6 +11,7 @@ import {
   Eye,
   FileText,
   Fingerprint,
+  Flame,
   Github,
   Hash,
   HeartPulse,
@@ -232,6 +233,16 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '물 끓이기 시간 계산기',
+        en: 'Water Boiling Time',
+        ja: 'お湯沸かし時間計算',
+        zh: '烧水时间计算器',
+      },
+      icon: <Flame />,
+      link: '/water-heating-time',
     },
     {
       title: {

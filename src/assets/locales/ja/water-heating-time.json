@@ -1,0 +1,37 @@
+{
+  "title": "お湯沸かし時間計算",
+  "description": "水量、開始温度、目標温度、消費電力から沸かし時間を推定します。",
+  "badge": "生活",
+  "input": {
+    "volume": "水の量",
+    "power": "加熱出力 (W)",
+    "startTemp": "開始温度 (°C)",
+    "targetTemp": "目標温度 (°C)",
+    "efficiency": "加熱効率 (%)"
+  },
+  "placeholder": {
+    "volume": "例: 500",
+    "power": "例: 1500",
+    "startTemp": "例: 20",
+    "targetTemp": "例: 100",
+    "efficiency": "例: 85"
+  },
+  "unit": {
+    "ml": "mL",
+    "l": "L",
+    "min": "分",
+    "sec": "秒"
+  },
+  "helper": "加熱効率は熱損失を考慮した値です。一般的に70〜90%を使用します。",
+  "tips": {
+    "power": "電気ケトルやIHの定格消費電力を入力してください。",
+    "loss": "ふたの有無や周囲温度で実際の時間は変わります。"
+  },
+  "result": {
+    "title": "計算結果",
+    "time": "推定時間",
+    "energy": "必要エネルギー",
+    "effectivePower": "有効出力",
+    "none": "入力すると結果が表示されます。"
+  }
+}
