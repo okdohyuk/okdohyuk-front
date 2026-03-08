@@ -4,6 +4,7 @@ import {
   Bomb,
   Calculator,
   CalendarClock,
+  CalendarDays,
   Code,
   Coins,
   CreditCard,
@@ -352,6 +353,16 @@ const menus: Menus = {
       },
       icon: <HardDrive />,
       link: '/data-size-converter',
+    },
+    {
+      title: {
+        ko: '기념일 D-day 카운터',
+        en: 'Anniversary D-Day Counter',
+        ja: '記念日D-Dayカウンター',
+        zh: '纪念日 D-Day 计数器',
+      },
+      icon: <CalendarDays />,
+      link: '/anniversary-counter',
     },
     {
       title: {
