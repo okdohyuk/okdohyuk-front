@@ -5,6 +5,7 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import CsvJsonConverterClient from '~/app/[lng]/(mobile)/csv-json-converter/components/CsvJsonConverterClient';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -17,10 +18,11 @@ export default async function CsvJsonConverterPage({ params }: LanguageParams) {
   const { lng } = await params;
   const language = lng as Language;
   const { t } = await getTranslations(language, 'csv-json-converter');
+  const badge = getServiceCategoryBadge(language, '/csv-json-converter');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} badge="Data Tools" />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <CsvJsonConverterClient lng={language} />
     </div>
   );

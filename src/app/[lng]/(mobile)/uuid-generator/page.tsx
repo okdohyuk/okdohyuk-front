@@ -4,6 +4,7 @@ import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetad
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import UuidGeneratorClient from '~/app/[lng]/(mobile)/uuid-generator/components/UuidGeneratorClient';
 
 export async function generateStaticParams() {
@@ -18,10 +19,11 @@ export default async function UuidGeneratorPage({ params }: LanguageParams) {
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'uuid-generator');
+  const badge = getServiceCategoryBadge(language, '/uuid-generator');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} badge="ID Utility" />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <UuidGeneratorClient lng={language} />
     </div>
   );

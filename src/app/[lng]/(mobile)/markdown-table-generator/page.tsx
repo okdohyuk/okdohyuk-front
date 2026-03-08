@@ -5,6 +5,7 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import MarkdownTableGeneratorClient from '~/app/[lng]/(mobile)/markdown-table-generator/components/MarkdownTableGeneratorClient';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -18,10 +19,11 @@ export default async function MarkdownTableGeneratorPage({ params }: LanguagePar
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'markdown-table-generator');
+  const badge = getServiceCategoryBadge(language, '/markdown-table-generator');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} badge={t('badge')} />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <MarkdownTableGeneratorClient lng={language} />
     </div>
   );

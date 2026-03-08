@@ -4,6 +4,7 @@ import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetad
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import KoreanAmountClient from '~/app/[lng]/(mobile)/korean-amount/components/KoreanAmountClient';
 
 export async function generateStaticParams() {
@@ -18,10 +19,11 @@ export default async function KoreanAmountPage({ params }: LanguageParams) {
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'korean-amount');
+  const badge = getServiceCategoryBadge(language, '/korean-amount');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} badge="Korean Text" />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <KoreanAmountClient lng={language} />
     </div>
   );

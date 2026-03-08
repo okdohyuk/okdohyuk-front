@@ -4,6 +4,7 @@ import { getTranslations } from '~/app/i18n';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import StopwatchClient from './components/StopwatchClient';
 
 export async function generateStaticParams() {
@@ -17,10 +18,11 @@ export default async function StopwatchPage({ params }: LanguageParams) {
   const { lng } = await params;
   const language = lng as Language;
   const { t } = await getTranslations(language, 'stopwatch');
+  const badge = getServiceCategoryBadge(language, '/stopwatch');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <StopwatchClient lng={language} />
     </div>
   );

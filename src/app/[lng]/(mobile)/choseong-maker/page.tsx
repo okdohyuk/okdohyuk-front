@@ -5,6 +5,7 @@ import { useTranslation } from '~/app/i18n/client';
 import { toChoseong } from '@utils/choseongUtils';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import { Textarea } from '@components/basic/Textarea';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
@@ -13,6 +14,7 @@ export default function ChoseongMakerPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
   const language = lng as Language;
   const { t } = useTranslation(language, 'choseong-maker');
+  const badge = getServiceCategoryBadge(language, '/choseong-maker');
   const [value, setValue] = useState('');
 
   return (
@@ -20,7 +22,7 @@ export default function ChoseongMakerPage({ params }: LanguageParams) {
       <ServicePageHeader
         title={t('title')}
         description={t('openGraph.description')}
-        badge="Text Utility"
+        badge={badge}
       />
       <section className={`${SERVICE_PANEL_SOFT} flex flex-col space-y-4 p-4`}>
         <Textarea

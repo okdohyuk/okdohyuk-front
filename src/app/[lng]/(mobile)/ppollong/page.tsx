@@ -8,6 +8,7 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import { cn } from '@utils/cn';
 import {
   SERVICE_CARD_INTERACTIVE,
@@ -24,6 +25,7 @@ export default function PpollongPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
   const language = lng as Language;
   const { t } = useTranslation(language, 'ppollong');
+  const badge = getServiceCategoryBadge(language, '/ppollong');
   const shouldReduceMotion = useReducedMotion();
 
   const [maxNumber, setMaxNumber] = useState<number>(0);
@@ -140,7 +142,11 @@ export default function PpollongPage({ params }: LanguageParams) {
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('openGraph.description')} />
+      <ServicePageHeader
+        title={t('title')}
+        description={t('openGraph.description')}
+        badge={badge}
+      />
 
       <motion.section
         className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}

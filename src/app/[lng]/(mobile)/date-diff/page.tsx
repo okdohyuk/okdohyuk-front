@@ -4,6 +4,7 @@ import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetad
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import DateDiffClient from './components/DateDiffClient';
 
 export async function generateStaticParams() {
@@ -18,10 +19,11 @@ export default async function DateDiffPage({ params }: LanguageParams) {
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'date-diff');
+  const badge = getServiceCategoryBadge(language, '/date-diff');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <DateDiffClient
         labels={{
           helper: t('helper'),

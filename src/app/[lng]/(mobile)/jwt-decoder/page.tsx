@@ -5,6 +5,7 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import JwtDecoderClient from '~/app/[lng]/(mobile)/jwt-decoder/components/JwtDecoderClient';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -18,14 +19,11 @@ export default async function JwtDecoderPage({ params }: LanguageParams) {
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'jwt-decoder');
+  const badge = getServiceCategoryBadge(language, '/jwt-decoder');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader
-        title={t('title')}
-        description={t('description')}
-        badge="Token Inspector"
-      />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <JwtDecoderClient lng={language} />
     </div>
   );

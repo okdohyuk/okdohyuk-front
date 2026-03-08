@@ -12,6 +12,7 @@ import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 
 const ToDoCard = dynamic(() => import('~/app/[lng]/(mobile)/todo/components/ToDoCard'), {
@@ -23,6 +24,7 @@ function TodoPage({ params }: LanguageParams) {
   const language = lng as Language;
   const { todos, addTodo } = useStore('todoStore');
   const { t } = useTranslation(language, 'todo');
+  const badge = getServiceCategoryBadge(language, '/todo');
   const { onChange, value, reset } = useInput('');
   const isClient = useIsClient();
 
@@ -39,7 +41,7 @@ function TodoPage({ params }: LanguageParams) {
       <ServicePageHeader
         title={t('title')}
         description={t('openGraph.description')}
-        badge="Task Hub"
+        badge={badge}
       />
       <form
         onSubmit={handleSubmitTodo}
