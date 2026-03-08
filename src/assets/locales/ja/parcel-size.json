@@ -1,0 +1,23 @@
+{
+  "title": "配送容積重量計算",
+  "description": "箱サイズと実重量から課金重量を計算します。",
+  "badge": "Logistics",
+  "openGraph": {
+    "title": "配送容積重量計算",
+    "description": "箱サイズと実重量から課金重量を計算します。"
+  },
+  "lengthLabel": "長さ(cm)",
+  "lengthPlaceholder": "例) 30",
+  "widthLabel": "幅(cm)",
+  "widthPlaceholder": "例) 20",
+  "heightLabel": "高さ(cm)",
+  "heightPlaceholder": "例) 15",
+  "weightLabel": "実重量(kg)",
+  "weightPlaceholder": "例) 2.3",
+  "divisorLabel": "容積重量の基準値",
+  "tips": "一般的に (縦×横×高さ)/5000 を使います。",
+  "reset": "リセット",
+  "volumeWeightLabel": "容積重量",
+  "chargeableWeightLabel": "課金重量",
+  "kgValue": "{{value}} kg"
+}

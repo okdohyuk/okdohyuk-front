@@ -25,6 +25,7 @@ import {
   Music,
   Moon,
   Palette,
+  Package,
   QrCode,
   Receipt,
   Repeat,
@@ -203,6 +204,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '택배 부피무게 계산기',
+        en: 'Parcel Size Calculator',
+        ja: '配送容積重量計算',
+        zh: '包裹计费重量计算',
+      },
+      icon: <Package />,
+      link: '/parcel-size',
     },
     {
       title: {

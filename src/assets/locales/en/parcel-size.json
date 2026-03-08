@@ -1,0 +1,23 @@
+{
+  "title": "Parcel Size Calculator",
+  "description": "Calculate chargeable weight from box size and actual weight.",
+  "badge": "Logistics",
+  "openGraph": {
+    "title": "Parcel Size Calculator",
+    "description": "Calculate chargeable weight from box size and actual weight."
+  },
+  "lengthLabel": "Length (cm)",
+  "lengthPlaceholder": "e.g. 30",
+  "widthLabel": "Width (cm)",
+  "widthPlaceholder": "e.g. 20",
+  "heightLabel": "Height (cm)",
+  "heightPlaceholder": "e.g. 15",
+  "weightLabel": "Actual weight (kg)",
+  "weightPlaceholder": "e.g. 2.3",
+  "divisorLabel": "Dimensional divisor",
+  "tips": "A common formula is (L×W×H)/5000.",
+  "reset": "Reset",
+  "volumeWeightLabel": "Dimensional weight",
+  "chargeableWeightLabel": "Chargeable weight",
+  "kgValue": "{{value}} kg"
+}
