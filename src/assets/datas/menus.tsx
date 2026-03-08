@@ -27,6 +27,7 @@ import {
   Palette,
   QrCode,
   Receipt,
+  Ruler,
   Repeat,
   ScrollText,
   Server,
@@ -203,6 +204,16 @@ const menus: Menus = {
       },
       icon: <Calculator />,
       link: '/percent',
+    },
+    {
+      title: {
+        ko: '커튼 치수 계산기',
+        en: 'Curtain Size Calculator',
+        ja: 'カーテンサイズ計算',
+        zh: '窗帘尺寸计算',
+      },
+      icon: <Ruler />,
+      link: '/curtain-size',
     },
     {
       title: {

@@ -1,0 +1,23 @@
+{
+  "title": "커튼 치수 계산기",
+  "description": "창문 크기와 주름 정도를 입력해 필요한 커튼 치수를 계산하세요.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "커튼 치수 계산기",
+    "description": "창문 크기와 주름 정도를 입력해 필요한 커튼 치수를 계산하세요."
+  },
+  "windowWidthLabel": "창문 가로(cm)",
+  "windowWidthPlaceholder": "예) 200",
+  "windowHeightLabel": "창문 세로(cm)",
+  "windowHeightPlaceholder": "예) 230",
+  "fullnessLabel": "주름 배수",
+  "panelsLabel": "패널 수",
+  "hemLabel": "밑단 여유(cm)",
+  "topLabel": "상단 여유(cm)",
+  "tips": "주름 배수는 1.5~2.5배를 많이 사용합니다.",
+  "reset": "초기화",
+  "totalWidthLabel": "전체 원단 폭",
+  "panelWidthLabel": "패널당 폭",
+  "lengthLabel": "완성 길이",
+  "cmValue": "{{value}} cm"
+}

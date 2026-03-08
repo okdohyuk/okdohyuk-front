@@ -1,0 +1,23 @@
+{
+  "title": "窗帘尺寸计算",
+  "description": "根据窗户尺寸和褶皱倍数估算窗帘尺寸。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "窗帘尺寸计算",
+    "description": "根据窗户尺寸和褶皱倍数估算窗帘尺寸。"
+  },
+  "windowWidthLabel": "窗户宽度(cm)",
+  "windowWidthPlaceholder": "例如：200",
+  "windowHeightLabel": "窗户高度(cm)",
+  "windowHeightPlaceholder": "例如：230",
+  "fullnessLabel": "褶皱倍数",
+  "panelsLabel": "窗帘片数",
+  "hemLabel": "下摆预留(cm)",
+  "topLabel": "顶部预留(cm)",
+  "tips": "褶皱倍数通常为 1.5–2.5 倍。",
+  "reset": "重置",
+  "totalWidthLabel": "总布料宽度",
+  "panelWidthLabel": "单片宽度",
+  "lengthLabel": "成品长度",
+  "cmValue": "{{value}} cm"
+}
