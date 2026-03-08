@@ -3,7 +3,7 @@ import { getTranslations } from '~/app/i18n';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
-import { H1, Text } from '@components/basic/Text';
+import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import DateDiffClient from './components/DateDiffClient';
 
 export async function generateStaticParams() {
@@ -21,10 +21,7 @@ export default async function DateDiffPage({ params }: LanguageParams) {
 
   return (
     <div className="space-y-4">
-      <header className="space-y-2">
-        <H1>{t('title')}</H1>
-        <Text className="text-sm text-gray-600 dark:text-gray-300">{t('description')}</Text>
-      </header>
+      <ServicePageHeader title={t('title')} description={t('description')} />
       <DateDiffClient
         labels={{
           helper: t('helper'),
