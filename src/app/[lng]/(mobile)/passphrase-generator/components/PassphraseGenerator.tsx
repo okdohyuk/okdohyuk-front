@@ -5,10 +5,12 @@ import { Check, Copy, RefreshCw } from 'lucide-react';
 
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import { Input } from '@components/basic/Input';
 import { Textarea } from '@components/basic/Textarea';
+import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import { cn } from '@utils/cn';
-import { H1, Text } from '@components/basic/Text';
+import { Text } from '@components/basic/Text';
 
 type PassphraseGeneratorProps = {
   lng: Language;
@@ -108,6 +110,7 @@ const buildPassphrase = (wordCount: number, separator: string, options: Passphra
 
 export default function PassphraseGenerator({ lng }: PassphraseGeneratorProps) {
   const { t } = useTranslation(lng, 'passphrase-generator');
+  const badge = getServiceCategoryBadge(lng, '/passphrase-generator');
 
   const [wordCount, setWordCount] = useState(DEFAULT_WORDS);
   const [separator, setSeparator] = useState(DEFAULT_SEPARATOR);
@@ -162,7 +165,11 @@ export default function PassphraseGenerator({ lng }: PassphraseGeneratorProps) {
 
   return (
     <div className="space-y-6">
-      <H1 className="t-t-1 t-basic-1">{t('title')}</H1>
+      <ServicePageHeader
+        title={t('title')}
+        description={t('openGraph.description')}
+        badge={badge}
+      />
       <section className="space-y-4 rounded-md bg-basic-7 p-4">
         <div className="space-y-2">
           <label htmlFor="passphrase-word-count" className="t-d-1 t-basic-0">

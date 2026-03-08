@@ -4,6 +4,7 @@ import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetad
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import SalesTaxCalculatorClient from '~/app/[lng]/(mobile)/sales-tax-calculator/components/SalesTaxCalculatorClient';
 
 export async function generateStaticParams() {
@@ -18,10 +19,11 @@ export default async function SalesTaxCalculatorPage({ params }: LanguageParams)
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'sales-tax-calculator');
+  const badge = getServiceCategoryBadge(language, '/sales-tax-calculator');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} badge="Money Helper" />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <SalesTaxCalculatorClient lng={language} />
     </div>
   );

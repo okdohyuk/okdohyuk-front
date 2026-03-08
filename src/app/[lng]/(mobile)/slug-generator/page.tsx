@@ -5,6 +5,7 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import SlugGeneratorClient from '~/app/[lng]/(mobile)/slug-generator/components/SlugGeneratorClient';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -18,10 +19,11 @@ export default async function SlugGeneratorPage({ params }: LanguageParams) {
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'slug-generator');
+  const badge = getServiceCategoryBadge(language, '/slug-generator');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} badge="URL Helper" />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <SlugGeneratorClient lng={language} />
     </div>
   );

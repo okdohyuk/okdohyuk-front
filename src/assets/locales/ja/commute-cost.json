@@ -1,0 +1,22 @@
+{
+  "title": "通勤コストプランナー",
+  "description": "通勤の月間コストと定期券比較を素早く確認します。",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "通勤コストプランナー",
+    "description": "通勤の月間コストと定期券比較を素早く確認します。"
+  },
+  "roundTripLabel": "往復運賃",
+  "roundTripPlaceholder": "例) 520",
+  "daysLabel": "週の通勤回数",
+  "weeksLabel": "月の週数",
+  "passLabel": "定期券の月額",
+  "passPlaceholder": "なければ空欄",
+  "tips": "定期券の金額を入れると、その値で月/年コストを計算します。",
+  "reset": "リセット",
+  "monthlyCostLabel": "月間通勤コスト",
+  "passCostLabel": "定期券適用の月コスト",
+  "dailyAverageLabel": "1日平均コスト",
+  "annualCostLabel": "年間通勤コスト",
+  "currency": "¥{{value}}"
+}

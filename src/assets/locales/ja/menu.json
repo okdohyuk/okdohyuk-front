@@ -2,12 +2,55 @@
   "openGraph": {
     "title": "メニュー",
     "ogTitle": "メニュー",
-    "description": "すべてのサービスを確認できます。"
+    "description": "カテゴリ別に整理された全ツールを一覧でき、検索で必要なサービスをすばやく見つけられるマルチツールメニューです。計算機、生成ツール、テキスト系ツール、開発ユーティリティ、外部リンクまで1か所から移動できます。"
   },
   "title": "メニュー",
   "headerBadge": "マルチツールメニュー",
   "intro": "必要なツールをすぐに見つけ、外部チャンネルにも1つのメニューから移動できます。",
   "outBadge": "外部",
+  "search": {
+    "label": "ツール検索",
+    "placeholder": "ツール名やパスで検索",
+    "browse": "全{{count}}件のメニューをまとめて探せます。",
+    "results": "検索結果 {{count}}件",
+    "clear": "検索語をクリア",
+    "emptyTitle": "該当するツールが見つかりません。",
+    "emptyDescription": "別のキーワードで検索するか、他のカテゴリを確認してください。"
+  },
+  "group": {
+    "planning": {
+      "title": "日程・時間",
+      "description": "日付、予定、時間の流れを扱うツール"
+    },
+    "finance": {
+      "title": "計算・金融",
+      "description": "費用、比率、給与などの計算ツール"
+    },
+    "generator": {
+      "title": "生成・自動化",
+      "description": "コード、番号、セキュア文字列をすばやく生成"
+    },
+    "textData": {
+      "title": "テキスト・データ",
+      "description": "テキスト編集とデータ変換の作業に便利"
+    },
+    "devUtility": {
+      "title": "開発・ユーティリティ",
+      "description": "開発中によく使う検査とデコードツール"
+    },
+    "lifestyle": {
+      "title": "ライフ・その他",
+      "description": "健康、リズム、軽量ユーティリティや遊び向けツール"
+    },
+    "external": {
+      "title": "外部リンク",
+      "description": "プロフィールや外部チャンネルへ移動"
+    },
+    "archive": {
+      "title": "保管庫",
+      "description": "以前の実験的なサービス"
+    }
+  },
   "service": "サービス",
   "out": "外部リンク",
   "trash": "ゴミ箱",

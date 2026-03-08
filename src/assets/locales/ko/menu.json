@@ -2,12 +2,55 @@
   "openGraph": {
     "title": "메뉴서랍",
     "ogTitle": "메뉴서랍",
-    "description": "모든 서비스를 확인하실 수 있습니다."
+    "description": "카테고리별로 정리된 전체 도구를 한눈에 탐색하고, 검색으로 원하는 서비스를 빠르게 찾을 수 있는 멀티툴 메뉴입니다. 계산기, 생성기, 텍스트 도구, 개발 유틸리티와 외부 링크까지 한곳에서 이동할 수 있습니다."
   },
   "title": "메뉴서랍",
   "headerBadge": "멀티툴 메뉴",
   "intro": "필요한 도구를 바로 찾고, 외부 채널까지 하나의 메뉴에서 이동할 수 있습니다.",
   "outBadge": "외부",
+  "search": {
+    "label": "서비스 검색",
+    "placeholder": "도구 이름이나 경로로 검색",
+    "browse": "총 {{count}}개 메뉴를 한 번에 찾아보세요.",
+    "results": "검색 결과 {{count}}개",
+    "clear": "검색어 지우기",
+    "emptyTitle": "검색 결과가 없습니다.",
+    "emptyDescription": "다른 키워드로 검색하거나 카테고리를 다시 확인해보세요."
+  },
+  "group": {
+    "planning": {
+      "title": "일정/시간",
+      "description": "날짜, 일정, 시간 흐름을 다루는 도구"
+    },
+    "finance": {
+      "title": "계산/금융",
+      "description": "비용, 비율, 급여와 같은 계산 도구"
+    },
+    "generator": {
+      "title": "생성/자동화",
+      "description": "코드, 번호, 보안 문자열을 빠르게 생성"
+    },
+    "textData": {
+      "title": "텍스트/데이터",
+      "description": "텍스트 편집과 데이터 변환 작업"
+    },
+    "devUtility": {
+      "title": "개발/유틸리티",
+      "description": "개발 중 자주 쓰는 검사와 디코딩 도구"
+    },
+    "lifestyle": {
+      "title": "라이프/기타",
+      "description": "건강, 리듬, 가벼운 유틸리티와 놀이 도구"
+    },
+    "external": {
+      "title": "외부 링크",
+      "description": "프로필과 외부 채널로 이동"
+    },
+    "archive": {
+      "title": "보관함",
+      "description": "이전 실험성 서비스"
+    }
+  },
   "service": "서비스",
   "out": "외부 링크",
   "trash": "휴지통",

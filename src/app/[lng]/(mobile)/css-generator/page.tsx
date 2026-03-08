@@ -5,6 +5,7 @@ import { useTranslation as getServerTranslation } from '~/app/i18n';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export const generateMetadata: GenerateMetadata = async ({ params }) => {
   return translationsMetadata({
@@ -17,14 +18,11 @@ export default async function CssGeneratorPage({ params }: LanguageParams) {
   const { lng } = await params;
   const language = lng as Language;
   const { t } = await getServerTranslation(language, 'css-generator');
+  const badge = getServiceCategoryBadge(language, '/css-generator');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader
-        title={t('title')}
-        description={t('description')}
-        badge="Design Playground"
-      />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <CssGenerator lng={language} />
     </div>
   );

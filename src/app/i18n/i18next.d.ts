@@ -42,6 +42,12 @@ import jsonYamlConverter from 'assets/locales/ko/json-yaml-converter.json';
 import koreanAmount from 'assets/locales/ko/korean-amount.json';
 import bedtimePlanner from 'assets/locales/ko/bedtime-planner.json';
 import dataSizeConverter from 'assets/locales/ko/data-size-converter.json';
+import commuteCost from 'assets/locales/ko/commute-cost.json';
+import salaryConverter from 'assets/locales/ko/salary-converter.json';
+import anniversaryCounter from 'assets/locales/ko/anniversary-counter.json';
+import lottoGenerator from 'assets/locales/ko/lotto-generator.json';
+import ageCalculator from 'assets/locales/ko/age-calculator.json';
+import dateDiff from 'assets/locales/ko/date-diff.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -90,6 +96,12 @@ declare module 'i18next' {
       'korean-amount': typeof koreanAmount;
       'bedtime-planner': typeof bedtimePlanner;
       'data-size-converter': typeof dataSizeConverter;
+      'commute-cost': typeof commuteCost;
+      'salary-converter': typeof salaryConverter;
+      'anniversary-counter': typeof anniversaryCounter;
+      'lotto-generator': typeof lottoGenerator;
+      'age-calculator': typeof ageCalculator;
+      'date-diff': typeof dateDiff;
     };
   }
 }

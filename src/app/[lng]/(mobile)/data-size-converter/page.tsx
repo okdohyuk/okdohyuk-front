@@ -5,6 +5,7 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import DataSizeConverterClient from '~/app/[lng]/(mobile)/data-size-converter/components/DataSizeConverterClient';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -18,14 +19,11 @@ export default async function DataSizeConverterPage({ params }: LanguageParams) 
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'data-size-converter');
+  const badge = getServiceCategoryBadge(language, '/data-size-converter');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader
-        title={t('title')}
-        description={t('description')}
-        badge="Storage Utility"
-      />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <DataSizeConverterClient lng={language} />
     </div>
   );

@@ -2,27 +2,31 @@ import React from 'react';
 import {
   ArrowLeftRight,
   Bomb,
+  Cake,
   Calculator,
   CalendarClock,
+  CalendarDays,
+  Car,
   Code,
   Coins,
   CreditCard,
+  Dices,
   Droplet,
   Eye,
   FileText,
   Fingerprint,
   Github,
+  HardDrive,
   Hash,
   HeartPulse,
-  HardDrive,
   Key,
   KeyRound,
   Link2,
   Linkedin,
   List,
   MonitorPlay,
-  Music,
   Moon,
+  Music,
   Palette,
   QrCode,
   Receipt,
@@ -35,6 +39,7 @@ import {
   TextCursorInput,
   Timer,
   Tv,
+  Wallet,
   Youtube,
 } from 'lucide-react';
 import { Language } from '~/app/i18n/settings';
@@ -62,6 +67,16 @@ const menus: Menus = {
       },
       icon: <QrCode />,
       link: '/qr-generator',
+    },
+    {
+      title: {
+        ko: '로또 번호 생성기',
+        en: 'Lotto Number Generator',
+        ja: 'ロト番号ジェネレーター',
+        zh: '乐透号码生成器',
+      },
+      icon: <Dices />,
+      link: '/lotto-generator',
     },
     {
       title: {
@@ -215,6 +230,26 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '통근 비용 계산기',
+        en: 'Commute Cost Planner',
+        ja: '通勤コストプランナー',
+        zh: '通勤成本规划',
+      },
+      icon: <Car />,
+      link: '/commute-cost',
+    },
+    {
+      title: {
+        ko: '월급/시급/연봉 변환기',
+        en: 'Salary Converter',
+        ja: '給与コンバーター',
+        zh: '薪资换算器',
+      },
+      icon: <Wallet />,
+      link: '/salary-converter',
+    },
+    {
+      title: {
         ko: '스톱워치',
         en: 'Stopwatch',
         ja: 'ストップウォッチ',
@@ -315,6 +350,26 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '나이 계산기',
+        en: 'Age Calculator',
+        ja: '年齢計算機',
+        zh: '年龄计算器',
+      },
+      icon: <Cake />,
+      link: '/age-calculator',
+    },
+    {
+      title: {
+        ko: '날짜 차이 계산기',
+        en: 'Date Difference Calculator',
+        ja: '日付差分計算機',
+        zh: '日期差计算器',
+      },
+      icon: <CalendarDays />,
+      link: '/date-diff',
+    },
+    {
+      title: {
         ko: '온라인 서버 시간 조회',
         en: 'Online Server Time Checker',
         ja: 'オンラインサーバー時間確認',
@@ -352,6 +407,16 @@ const menus: Menus = {
       },
       icon: <HardDrive />,
       link: '/data-size-converter',
+    },
+    {
+      title: {
+        ko: '기념일 D-day 카운터',
+        en: 'Anniversary D-Day Counter',
+        ja: '記念日D-Dayカウンター',
+        zh: '纪念日 D-Day 计数器',
+      },
+      icon: <CalendarDays />,
+      link: '/anniversary-counter',
     },
     {
       title: {

@@ -23,6 +23,7 @@ import { cn } from '@utils/cn';
 import { Input } from '@components/basic/Input';
 import { Textarea } from '@components/basic/Textarea';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 
 const coderList: CoderType[] = [
@@ -39,6 +40,7 @@ function CoderPage({ params }: LanguageParams) {
   const { lng } = React.use(params);
   const language = lng as Language;
   const { t } = useTranslation(language, 'coder');
+  const badge = getServiceCategoryBadge(language, '/coder');
   const [copied, setCopied] = useState<boolean>(false);
 
   const {
@@ -95,7 +97,7 @@ function CoderPage({ params }: LanguageParams) {
       <ServicePageHeader
         title={t('title')}
         description={t('openGraph.description')}
-        badge="Encode · Decode"
+        badge={badge}
       />
       <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4`}>
         <Controller

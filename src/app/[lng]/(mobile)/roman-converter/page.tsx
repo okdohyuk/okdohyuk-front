@@ -5,6 +5,7 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import RomanConverterClient from '~/app/[lng]/(mobile)/roman-converter/components/RomanConverterClient';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -18,10 +19,11 @@ export default async function RomanConverterPage({ params }: LanguageParams) {
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'roman-converter');
+  const badge = getServiceCategoryBadge(language, '/roman-converter');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} badge="Converter" />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <RomanConverterClient lng={language} />
     </div>
   );

@@ -6,6 +6,7 @@ import { PercentCalculators } from '@stores/PercentStore/type';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -19,6 +20,7 @@ export default async function PercentPage({ params }: LanguageParams) {
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'percent');
+  const badge = getServiceCategoryBadge(language, '/percent');
 
   const calculators: (keyof PercentCalculators)[] = [
     'percentageOfTotal',
@@ -33,7 +35,7 @@ export default async function PercentPage({ params }: LanguageParams) {
       <ServicePageHeader
         title={t('title')}
         description={t('openGraph.description')}
-        badge="Insight Tool"
+        badge={badge}
       />
       <section className="w-full space-y-4">
         {calculators.map((name) => (

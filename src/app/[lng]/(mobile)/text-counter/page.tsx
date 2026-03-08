@@ -5,6 +5,7 @@ import { getTranslations } from '~/app/i18n';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -17,10 +18,11 @@ export default async function TextCounterPage({ params }: LanguageParams) {
   const { lng } = await params;
   const language = lng as Language;
   const { t } = await getTranslations(language, 'text-counter');
+  const badge = getServiceCategoryBadge(language, '/text-counter');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} badge={t('badge')} />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <TextCounterClient lng={language} />
     </div>
   );
