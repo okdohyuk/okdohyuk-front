@@ -46,6 +46,7 @@ import commuteCost from 'assets/locales/ko/commute-cost.json';
 import salaryConverter from 'assets/locales/ko/salary-converter.json';
 import anniversaryCounter from 'assets/locales/ko/anniversary-counter.json';
 import lottoGenerator from 'assets/locales/ko/lotto-generator.json';
+import ageCalculator from 'assets/locales/ko/age-calculator.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -98,6 +99,7 @@ declare module 'i18next' {
       'salary-converter': typeof salaryConverter;
       'anniversary-counter': typeof anniversaryCounter;
       'lotto-generator': typeof lottoGenerator;
+      'age-calculator': typeof ageCalculator;
     };
   }
 }
