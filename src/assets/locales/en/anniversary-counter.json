@@ -1,0 +1,35 @@
+{
+  "title": "Anniversary D-Day Counter",
+  "description": "Calculate days remaining or elapsed and copy the D-Day label in one tap.",
+  "label": {
+    "date": "Target date",
+    "includeToday": "Include today",
+    "quick": "Quick set",
+    "result": "Result"
+  },
+  "helper": "Pick a date to calculate the D-Day automatically.",
+  "button": {
+    "today": "Today",
+    "week": "In 1 week",
+    "hundred": "In 100 days",
+    "reset": "Reset",
+    "copy": "Copy result",
+    "copied": "Copied"
+  },
+  "result": {
+    "empty": "Select a date to see the result.",
+    "dday": "D-Day",
+    "ddayMinus": "D-{{count}}",
+    "ddayPlus": "D+{{count}}",
+    "daysLeft": "{{count}} days left",
+    "daysPassed": "{{count}} days passed",
+    "today": "Today is the D-Day.",
+    "targetDate": "Target date",
+    "todayDate": "Today",
+    "copyText": "{{label}} · {{status}} · {{date}}"
+  },
+  "openGraph": {
+    "title": "Anniversary D-Day Counter",
+    "description": "Track the exact number of days until or since an anniversary, trip, exam, launch, or deadline with an accurate D-Day counter. Toggle inclusive counting, jump to common target dates, and copy the final result for messages, notes, or social posts."
+  }
+}
