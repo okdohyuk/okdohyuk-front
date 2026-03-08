@@ -1,0 +1,18 @@
+{
+  "title": "階段段数計算",
+  "description": "全体の高さと段の高さから段数を計算します。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "階段段数計算",
+    "description": "全体の高さと段の高さから段数を計算します。"
+  },
+  "totalRiseLabel": "総高さ(cm)",
+  "totalRisePlaceholder": "例) 280",
+  "desiredRiserLabel": "希望する段高さ(cm)",
+  "tips": "段高さは15〜18cmが一般的です。",
+  "reset": "リセット",
+  "stepsLabel": "必要段数",
+  "actualRiserLabel": "実際の段高さ",
+  "stepsValue": "{{value}} 段",
+  "cmValue": "{{value}} cm"
+}

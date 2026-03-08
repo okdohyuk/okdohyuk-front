@@ -1,0 +1,18 @@
+{
+  "title": "楼梯台阶计算",
+  "description": "根据总高度与单阶高度计算台阶数量。",
+  "badge": "Home",
+  "openGraph": {
+    "title": "楼梯台阶计算",
+    "description": "根据总高度与单阶高度计算台阶数量。"
+  },
+  "totalRiseLabel": "总高度(cm)",
+  "totalRisePlaceholder": "例如：280",
+  "desiredRiserLabel": "期望台阶高度(cm)",
+  "tips": "常见台阶高度为 15–18 cm。",
+  "reset": "重置",
+  "stepsLabel": "所需台阶数",
+  "actualRiserLabel": "实际台阶高度",
+  "stepsValue": "{{value}} 级",
+  "cmValue": "{{value}} cm"
+}
