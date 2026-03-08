@@ -1,0 +1,30 @@
+{
+  "title": "給与コンバーター",
+  "description": "勤務条件を反映して月給・時給・年収を換算します。",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "給与コンバーター",
+    "description": "週の勤務日数、1日の勤務時間、月の週数をもとに月給・時給・年収を正確に換算できます。年収基準の計算にも対応し、時給・日給・週給・月給・年収をまとめて比較できます。"
+  },
+  "modeLabel": "計算基準",
+  "modeMonthly": "月給基準",
+  "modeHourly": "時給基準",
+  "modeAnnual": "年収基準",
+  "monthlyLabel": "月給",
+  "monthlyPlaceholder": "例) 300000",
+  "hourlyLabel": "時給",
+  "hourlyPlaceholder": "例) 1200",
+  "annualLabel": "年収",
+  "annualPlaceholder": "例) 4500000",
+  "daysLabel": "週の勤務日数",
+  "hoursLabel": "1日の勤務時間",
+  "weeksLabel": "月の週数",
+  "tips": "既定では平均値の4.345週を使用し、月給・時給・年収を相互に換算します。",
+  "reset": "リセット",
+  "hourlyResult": "時給",
+  "dailyResult": "日給",
+  "weeklyResult": "週給",
+  "monthlyResult": "月給",
+  "annualResult": "年収",
+  "currency": "¥{{value}}"
+}

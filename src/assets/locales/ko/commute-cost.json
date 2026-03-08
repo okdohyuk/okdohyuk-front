@@ -1,0 +1,22 @@
+{
+  "title": "통근 비용 계산기",
+  "description": "월간 통근 비용과 정기권 비교를 빠르게 확인하세요.",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "통근 비용 계산기",
+    "description": "월간 통근 비용과 정기권 비교를 빠르게 확인하세요."
+  },
+  "roundTripLabel": "왕복 교통비",
+  "roundTripPlaceholder": "예) 5200",
+  "daysLabel": "주간 통근 횟수",
+  "weeksLabel": "월 기준 주 수",
+  "passLabel": "월 정기권 비용",
+  "passPlaceholder": "없으면 비워두세요",
+  "tips": "정기권 비용을 입력하면 그 값으로 월/연 비용을 계산합니다.",
+  "reset": "초기화",
+  "monthlyCostLabel": "월간 통근 비용",
+  "passCostLabel": "정기권 적용 월 비용",
+  "dailyAverageLabel": "하루 평균 비용",
+  "annualCostLabel": "연간 통근 비용",
+  "currency": "₩{{value}}"
+}

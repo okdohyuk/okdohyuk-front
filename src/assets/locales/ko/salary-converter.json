@@ -1,0 +1,30 @@
+{
+  "title": "월급/시급/연봉 변환기",
+  "description": "근무 조건을 반영해 월급, 시급, 연봉을 서로 계산하세요.",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "월급/시급/연봉 변환기",
+    "description": "주 근무일, 하루 근무시간, 월 기준 주 수를 반영해 월급, 시급, 연봉을 정확하게 환산하세요. 시급 기준과 월급 기준은 물론 연봉 기준 계산까지 지원해 일급, 주급, 월급, 연봉을 한 번에 비교할 수 있습니다."
+  },
+  "modeLabel": "계산 기준",
+  "modeMonthly": "월급 기준",
+  "modeHourly": "시급 기준",
+  "modeAnnual": "연봉 기준",
+  "monthlyLabel": "월급",
+  "monthlyPlaceholder": "예) 3000000",
+  "hourlyLabel": "시급",
+  "hourlyPlaceholder": "예) 12000",
+  "annualLabel": "연봉",
+  "annualPlaceholder": "예) 42000000",
+  "daysLabel": "주 근무일",
+  "hoursLabel": "하루 근무시간",
+  "weeksLabel": "월 기준 주 수",
+  "tips": "주 수는 평균값(4.345주)을 기본으로 사용하며, 월급·시급·연봉 기준을 서로 환산합니다.",
+  "reset": "초기화",
+  "hourlyResult": "시급",
+  "dailyResult": "일급",
+  "weeklyResult": "주급",
+  "monthlyResult": "월급",
+  "annualResult": "연봉",
+  "currency": "₩{{value}}"
+}

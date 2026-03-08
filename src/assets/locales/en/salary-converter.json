@@ -1,0 +1,30 @@
+{
+  "title": "Salary Converter",
+  "description": "Convert monthly salary, hourly wage, and annual pay with your work schedule.",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "Salary Converter",
+    "description": "Convert hourly pay, monthly salary, and annual income with your exact work schedule. Adjust workdays, hours per day, and average weeks per month to compare hourly, daily, weekly, monthly, and yearly earnings in one place."
+  },
+  "modeLabel": "Calculation mode",
+  "modeMonthly": "Monthly salary",
+  "modeHourly": "Hourly wage",
+  "modeAnnual": "Annual salary",
+  "monthlyLabel": "Monthly salary",
+  "monthlyPlaceholder": "e.g. 3200",
+  "hourlyLabel": "Hourly wage",
+  "hourlyPlaceholder": "e.g. 18",
+  "annualLabel": "Annual salary",
+  "annualPlaceholder": "e.g. 48000",
+  "daysLabel": "Workdays per week",
+  "hoursLabel": "Hours per day",
+  "weeksLabel": "Weeks per month",
+  "tips": "Uses the monthly average of 4.345 weeks by default and converts between hourly, monthly, and annual pay.",
+  "reset": "Reset",
+  "hourlyResult": "Hourly",
+  "dailyResult": "Daily",
+  "weeklyResult": "Weekly",
+  "monthlyResult": "Monthly",
+  "annualResult": "Annual",
+  "currency": "${{value}}"
+}

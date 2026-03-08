@@ -3,8 +3,10 @@ import {
   ArrowLeftRight,
   Bomb,
   Calculator,
+  Car,
   CalendarClock,
   CalendarDays,
+  Wallet,
   Code,
   Coins,
   CreditCard,
@@ -213,6 +215,26 @@ const menus: Menus = {
       },
       icon: <Receipt />,
       link: '/sales-tax-calculator',
+    },
+    {
+      title: {
+        ko: '통근 비용 계산기',
+        en: 'Commute Cost Planner',
+        ja: '通勤コストプランナー',
+        zh: '通勤成本规划',
+      },
+      icon: <Car />,
+      link: '/commute-cost',
+    },
+    {
+      title: {
+        ko: '월급/시급/연봉 변환기',
+        en: 'Salary Converter',
+        ja: '給与コンバーター',
+        zh: '薪资换算器',
+      },
+      icon: <Wallet />,
+      link: '/salary-converter',
     },
     {
       title: {
