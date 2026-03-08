@@ -6,6 +6,7 @@ import {
   Car,
   CalendarClock,
   CalendarDays,
+  Wallet,
   Code,
   Coins,
   CreditCard,
@@ -224,6 +225,16 @@ const menus: Menus = {
       },
       icon: <Car />,
       link: '/commute-cost',
+    },
+    {
+      title: {
+        ko: '월급/시급/연봉 변환기',
+        en: 'Salary Converter',
+        ja: '給与コンバーター',
+        zh: '薪资换算器',
+      },
+      icon: <Wallet />,
+      link: '/salary-converter',
     },
     {
       title: {

@@ -1,0 +1,30 @@
+{
+  "title": "薪资换算器",
+  "description": "根据工作条件换算月薪、时薪与年薪。",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "薪资换算器",
+    "description": "根据每周工作天数、每日工时和每月周数，精确换算月薪、时薪与年薪。支持按年薪、月薪或时薪为基准计算，并同时查看时薪、日薪、周薪、月薪和年薪结果。"
+  },
+  "modeLabel": "计算模式",
+  "modeMonthly": "按月薪",
+  "modeHourly": "按时薪",
+  "modeAnnual": "按年薪",
+  "monthlyLabel": "月薪",
+  "monthlyPlaceholder": "例如：30000",
+  "hourlyLabel": "时薪",
+  "hourlyPlaceholder": "例如：18",
+  "annualLabel": "年薪",
+  "annualPlaceholder": "例如：360000",
+  "daysLabel": "每周工作天数",
+  "hoursLabel": "每日工时",
+  "weeksLabel": "每月周数",
+  "tips": "默认使用平均值 4.345 周，并支持月薪、时薪、年薪之间相互换算。",
+  "reset": "重置",
+  "hourlyResult": "时薪",
+  "dailyResult": "日薪",
+  "weeklyResult": "周薪",
+  "monthlyResult": "月薪",
+  "annualResult": "年薪",
+  "currency": "¥{{value}}"
+}
