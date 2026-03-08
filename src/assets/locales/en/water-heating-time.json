@@ -1,0 +1,37 @@
+{
+  "title": "Water Boiling Time",
+  "description": "Estimate boiling time from water volume, temperatures, and heating power.",
+  "badge": "Lifestyle",
+  "input": {
+    "volume": "Water volume",
+    "power": "Heating power (W)",
+    "startTemp": "Start temperature (°C)",
+    "targetTemp": "Target temperature (°C)",
+    "efficiency": "Heating efficiency (%)"
+  },
+  "placeholder": {
+    "volume": "e.g. 500",
+    "power": "e.g. 1500",
+    "startTemp": "e.g. 20",
+    "targetTemp": "e.g. 100",
+    "efficiency": "e.g. 85"
+  },
+  "unit": {
+    "ml": "mL",
+    "l": "L",
+    "min": "min",
+    "sec": "sec"
+  },
+  "helper": "Efficiency accounts for heat loss. Use a typical range of 70–90%.",
+  "tips": {
+    "power": "Use the rated wattage of your kettle or induction cooker.",
+    "loss": "Actual time varies with lid, airflow, and ambient temperature."
+  },
+  "result": {
+    "title": "Result",
+    "time": "Estimated time",
+    "energy": "Required energy",
+    "effectivePower": "Effective power",
+    "none": "Fill in the inputs to see results."
+  }
+}
