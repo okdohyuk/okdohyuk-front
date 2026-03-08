@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { useServerTime } from '../hooks/useServerTime';
 import { useUrgentStyle } from '../hooks/useUrgentStyle';
@@ -20,6 +21,7 @@ interface ClockProps {
 
 export default function Clock({ lng }: ClockProps) {
   const { t } = useTranslation(lng, 'server-clock');
+  const badge = getServiceCategoryBadge(lng, '/server-clock');
   const [selectedSite, setSelectedSite] = useState(TICKETING_SITES[0]);
   const [customServerUrl, setCustomServerUrl] = useState<string>('');
   const [inputCustomUrl, setInputCustomUrl] = useState<string>('');
@@ -55,11 +57,7 @@ export default function Clock({ lng }: ClockProps) {
 
   return (
     <div className="mx-auto flex min-h-[calc(100vh-220px)] w-full max-w-4xl flex-col justify-center gap-4 text-center">
-      <ServicePageHeader
-        title={t('title')}
-        description={t('availableSites')}
-        badge="Real-time Sync"
-      />
+      <ServicePageHeader title={t('title')} description={t('availableSites')} badge={badge} />
 
       <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4`}>
         <SiteSelectionButtons

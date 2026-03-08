@@ -2,12 +2,55 @@
   "openGraph": {
     "title": "Menu",
     "ogTitle": "Menu",
-    "description": "You can check all services."
+    "description": "Explore the full multi-tool directory in categorized sections and find any service fast with built-in search. Browse calculators, generators, text tools, developer utilities, and external links from one organized menu."
   },
   "title": "Menu",
   "headerBadge": "Multi-tool Menu",
   "intro": "Find the right tool instantly and move to external channels from one unified menu.",
   "outBadge": "OUT",
+  "search": {
+    "label": "Search tools",
+    "placeholder": "Search by tool name or path",
+    "browse": "Browse all {{count}} menu items in one place.",
+    "results": "{{count}} search results",
+    "clear": "Clear search",
+    "emptyTitle": "No matching tools found.",
+    "emptyDescription": "Try a different keyword or browse another category."
+  },
+  "group": {
+    "planning": {
+      "title": "Planning & Time",
+      "description": "Tools for dates, schedules, and time-based workflows"
+    },
+    "finance": {
+      "title": "Calculation & Finance",
+      "description": "Cost, rate, salary, and numeric planning tools"
+    },
+    "generator": {
+      "title": "Generators & Automation",
+      "description": "Create codes, IDs, random picks, and secure strings quickly"
+    },
+    "textData": {
+      "title": "Text & Data",
+      "description": "Text editing, formatting, and data conversion utilities"
+    },
+    "devUtility": {
+      "title": "Developer Utilities",
+      "description": "Debugging, decoding, and inspection tools for development"
+    },
+    "lifestyle": {
+      "title": "Lifestyle & Misc",
+      "description": "Health, rhythm, and lightweight utility tools"
+    },
+    "external": {
+      "title": "External Links",
+      "description": "Jump to profile pages and external channels"
+    },
+    "archive": {
+      "title": "Archive",
+      "description": "Older or experimental services"
+    }
+  },
   "service": "Service",
   "out": "Out Links",
   "trash": "Trash",

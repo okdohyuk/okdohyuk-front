@@ -3,7 +3,8 @@ import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetad
 import { getTranslations } from '~/app/i18n';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
-import { H1, Text } from '@components/basic/Text';
+import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import LottoGenerator from '~/app/[lng]/(mobile)/lotto-generator/components/LottoGenerator';
 
 export async function generateStaticParams() {
@@ -17,6 +18,7 @@ export default async function LottoGeneratorPage({ params }: LanguageParams) {
   const { lng } = await params;
   const language = lng as Language;
   const { t } = await getTranslations(language, 'lotto-generator');
+  const badge = getServiceCategoryBadge(language, '/lotto-generator');
 
   const strings = {
     settingsTitle: t('settingsTitle'),
@@ -54,10 +56,7 @@ export default async function LottoGeneratorPage({ params }: LanguageParams) {
 
   return (
     <div className="space-y-6">
-      <header className="space-y-2">
-        <H1 className="text-balance text-zinc-900 dark:text-zinc-100">{t('title')}</H1>
-        <Text className="text-sm text-zinc-600 dark:text-zinc-300">{t('description')}</Text>
-      </header>
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <LottoGenerator strings={strings} />
     </div>
   );

@@ -5,6 +5,7 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import AgeCalculatorClient from '~/app/[lng]/(mobile)/age-calculator/components/AgeCalculatorClient';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -18,10 +19,11 @@ export default async function AgeCalculatorPage({ params }: LanguageParams) {
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'age-calculator');
+  const badge = getServiceCategoryBadge(language, '/age-calculator');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader title={t('title')} description={t('description')} badge="Life Timing" />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <AgeCalculatorClient lng={language} />
     </div>
   );

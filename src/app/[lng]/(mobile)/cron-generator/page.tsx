@@ -5,6 +5,7 @@ import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
 import CronGeneratorClient from '~/app/[lng]/(mobile)/cron-generator/components/CronGeneratorClient';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -18,14 +19,11 @@ export default async function CronGeneratorPage({ params }: LanguageParams) {
   const language = lng as Language;
 
   const { t } = await getTranslations(language, 'cron-generator');
+  const badge = getServiceCategoryBadge(language, '/cron-generator');
 
   return (
     <div className="space-y-4">
-      <ServicePageHeader
-        title={t('title')}
-        description={t('description')}
-        badge="Automation Tool"
-      />
+      <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
       <CronGeneratorClient lng={language} />
     </div>
   );
