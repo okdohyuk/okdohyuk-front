@@ -9,6 +9,7 @@ import {
   Coins,
   CreditCard,
   Droplet,
+  Droplets,
   Eye,
   FileText,
   Fingerprint,
@@ -18,6 +19,7 @@ import {
   HardDrive,
   Key,
   KeyRound,
+  Lightbulb,
   Link2,
   Linkedin,
   List,
@@ -233,6 +235,26 @@ const menus: Menus = {
       },
       icon: <Droplet />,
       link: '/water-intake',
+    },
+    {
+      title: {
+        ko: '샤워 물 사용량·요금 계산기',
+        en: 'Shower Water Use & Cost',
+        ja: 'シャワー水量・料金計算',
+        zh: '淋浴用水与费用计算',
+      },
+      icon: <Droplets />,
+      link: '/shower-water-cost',
+    },
+    {
+      title: {
+        ko: '조도·루멘 계산기',
+        en: 'Lux & Lumen Calculator',
+        ja: '照度・ルーメン計算',
+        zh: '照度与流明计算器',
+      },
+      icon: <Lightbulb />,
+      link: '/lux-lumen-calculator',
     },
     {
       title: {
