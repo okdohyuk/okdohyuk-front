@@ -1,0 +1,41 @@
+{
+  "title": "随机工具箱",
+  "description": "日常决策用的随机工具：名单抽选、数字、是/否。",
+  "sections": {
+    "list": {
+      "title": "随机抽选",
+      "description": "输入名字或选项，随机选一个。",
+      "label": "选项列表",
+      "placeholder": "例如：咖啡\n茶\n冰沙",
+      "helper": "用逗号或换行分隔。",
+      "button": "帮我选",
+      "count": "共 {{count}} 项",
+      "empty": "请先输入至少一个选项。",
+      "resultLabel": "抽选结果",
+      "resultPlaceholder": "等待输入选项。"
+    },
+    "number": {
+      "title": "随机数字",
+      "description": "在最小值到最大值之间生成数字。",
+      "labelMin": "最小值",
+      "labelMax": "最大值",
+      "button": "生成数字",
+      "error": "请输入有效范围。",
+      "resultLabel": "结果",
+      "resultPlaceholder": "请输入范围。"
+    },
+    "yesNo": {
+      "title": "是 / 否",
+      "description": "让随机帮你快速决定。",
+      "button": "做决定",
+      "resultLabel": "答案",
+      "resultPlaceholder": "点击按钮生成答案。",
+      "yes": "是",
+      "no": "否"
+    }
+  },
+  "openGraph": {
+    "title": "随机工具箱",
+    "description": "日常随机工具：从列表抽选、生成数字或快速做出是/否决定。"
+  }
+}

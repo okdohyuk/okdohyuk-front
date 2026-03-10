@@ -1,0 +1,41 @@
+{
+  "title": "ランダムツールボックス",
+  "description": "日常で使えるランダム機能まとめ：項目抽選、数字、はい/いいえ。",
+  "sections": {
+    "list": {
+      "title": "ランダム抽選",
+      "description": "名前や候補を入れて1つを選びます。",
+      "label": "候補",
+      "placeholder": "例) コーヒー\n紅茶\nスムージー",
+      "helper": "カンマまたは改行で区切ってください。",
+      "button": "選ぶ",
+      "count": "合計 {{count}}件",
+      "empty": "候補を1つ以上入力してください。",
+      "resultLabel": "結果",
+      "resultPlaceholder": "候補を入力してください。"
+    },
+    "number": {
+      "title": "ランダム数字",
+      "description": "最小〜最大の範囲で数字を生成します。",
+      "labelMin": "最小値",
+      "labelMax": "最大値",
+      "button": "数字を生成",
+      "error": "正しい範囲を入力してください。",
+      "resultLabel": "結果",
+      "resultPlaceholder": "範囲を入力してください。"
+    },
+    "yesNo": {
+      "title": "はい / いいえ",
+      "description": "迷ったときにサッと決めます。",
+      "button": "決める",
+      "resultLabel": "答え",
+      "resultPlaceholder": "ボタンで決定します。",
+      "yes": "はい",
+      "no": "いいえ"
+    }
+  },
+  "openGraph": {
+    "title": "ランダムツールボックス",
+    "description": "リスト抽選・数字生成・はい/いいえで日常の決断をサポートするランダムツールキット。"
+  }
+}

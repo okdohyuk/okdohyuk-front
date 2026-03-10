@@ -58,5 +58,6 @@
     "description": "Go to Login!",
     "logout": "Logout",
     "logoutAll": "Logout All"
-  }
+  },
+  "random-toolbox": "Random Toolbox"
 }
