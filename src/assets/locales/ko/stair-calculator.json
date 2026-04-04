@@ -1,0 +1,18 @@
+{
+  "title": "계단 수 계산기",
+  "description": "총 높이와 원하는 단높이로 계단 단수를 계산하세요.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "계단 수 계산기",
+    "description": "총 높이와 원하는 단높이로 계단 단수를 계산하세요."
+  },
+  "totalRiseLabel": "총 높이(cm)",
+  "totalRisePlaceholder": "예) 280",
+  "desiredRiserLabel": "원하는 단높이(cm)",
+  "tips": "단높이는 일반적으로 15~18cm를 권장합니다.",
+  "reset": "초기화",
+  "stepsLabel": "필요 단수",
+  "actualRiserLabel": "실제 단높이",
+  "stepsValue": "{{value}} 단",
+  "cmValue": "{{value}} cm"
+}

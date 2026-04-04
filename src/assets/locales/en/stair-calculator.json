@@ -1,0 +1,18 @@
+{
+  "title": "Stair Step Calculator",
+  "description": "Calculate stair steps from total rise and riser height.",
+  "badge": "Home",
+  "openGraph": {
+    "title": "Stair Step Calculator",
+    "description": "Calculate stair steps from total rise and riser height."
+  },
+  "totalRiseLabel": "Total rise (cm)",
+  "totalRisePlaceholder": "e.g. 280",
+  "desiredRiserLabel": "Desired riser height (cm)",
+  "tips": "A common riser height is 15–18 cm.",
+  "reset": "Reset",
+  "stepsLabel": "Steps needed",
+  "actualRiserLabel": "Actual riser height",
+  "stepsValue": "{{value}} steps",
+  "cmValue": "{{value}} cm"
+}
