@@ -35,6 +35,7 @@ import {
   Server,
   Smile,
   Sparkles,
+  Swords,
   Table,
   TextCursorInput,
   Timer,
@@ -427,6 +428,16 @@ const menus: Menus = {
       },
       icon: <TextCursorInput />,
       link: '/choseong-maker',
+    },
+    {
+      title: {
+        ko: '포켓몬 타입 계산기',
+        en: 'Pokemon Type Calculator',
+        ja: 'ポケモン タイプ計算機',
+        zh: '宝可梦属性计算器',
+      },
+      icon: <Swords />,
+      link: '/pokemon-type-calculator',
     },
   ],
   out: [
