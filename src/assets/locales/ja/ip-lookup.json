@@ -1,0 +1,77 @@
+{
+  "openGraph": {
+    "title": "自分のIPアドレスを調べる",
+    "ogTitle": "パブリックIPアドレス確認 - 位置情報・ISP・ポートスキャン",
+    "description": "自分のパブリックIPアドレスを瞬時に確認。国・都市・座標などの位置情報、ISP、ASN、ホスト名、プロキシ検出、ポートスキャンを一括提供します。",
+    "keywords": ["IPアドレス", "自分のIP", "パブリックIP", "位置情報", "ISP", "ポートスキャン", "ネットワーク情報", "IP調査"]
+  },
+  "title": "IP アドレス確認",
+  "description": "自分のパブリックIPと位置・ネットワーク・ポート情報を一目で確認。",
+  "hero": {
+    "label": "あなたのパブリック IP アドレス",
+    "loading": "IPアドレスを取得中…",
+    "error": "IPアドレスを取得できませんでした。"
+  },
+  "badges": {
+    "proxy": "プロキシ / VPN",
+    "hosting": "ホスティング / データセンター",
+    "mobile": "モバイル接続",
+    "clean": "通常接続"
+  },
+  "actions": {
+    "copyIp": "IPをコピー",
+    "copied": "コピー済み!",
+    "refresh": "再読込",
+    "startScan": "ポートスキャン開始",
+    "rescan": "再スキャン"
+  },
+  "sections": {
+    "location": "位置情報",
+    "network": "ネットワーク情報",
+    "connectionType": "接続タイプ",
+    "portScan": "ポートスキャン"
+  },
+  "fields": {
+    "country": "国",
+    "continent": "大陸",
+    "region": "地域 / 州",
+    "city": "都市",
+    "district": "区",
+    "postalCode": "郵便番号",
+    "coordinates": "座標",
+    "timezone": "タイムゾーン",
+    "utcOffset": "UTC オフセット",
+    "currency": "通貨",
+    "isp": "ISP",
+    "org": "組織",
+    "asn": "AS番号",
+    "asnName": "AS名",
+    "hostname": "ホスト名 (PTR)",
+    "proxy": "プロキシ / VPN",
+    "hosting": "ホスティング / IDC",
+    "mobile": "モバイル接続"
+  },
+  "values": {
+    "yes": "はい",
+    "no": "いいえ"
+  },
+  "map": {
+    "notice": "Google マップでおおよその位置を確認できます。",
+    "open": "地図を開く"
+  },
+  "portScan": {
+    "idle": "「ポートスキャン開始」ボタンを押して主要ポートの状態を確認してください。",
+    "scanning": "ポートをスキャン中… (数十秒かかる場合があります)",
+    "notice": "家庭用ルーターやファイアウォール環境では、ほとんどのポートが「filtered」または「closed」と表示される場合があります。",
+    "open": "オープン",
+    "closed": "クローズ",
+    "filtered": "フィルター済み",
+    "table": {
+      "port": "ポート",
+      "service": "サービス",
+      "description": "説明",
+      "status": "状態"
+    }
+  },
+  "disclaimer": "位置情報はIPベースの推定値であり、実際の場所と異なる場合があります。ポートスキャンの結果はルーターやファイアウォールの設定に依存します。"
+}
