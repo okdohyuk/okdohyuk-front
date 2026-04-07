@@ -1,0 +1,78 @@
+{
+  "openGraph": {
+    "title": "Find My IP Address",
+    "ogTitle": "Find My Public IP Address - Location, ISP & Port Info",
+    "description": "Instantly look up your public IP address along with detailed location (country, city, coordinates), ISP, ASN, hostname, proxy detection, and a common port scanner.",
+    "keywords": ["IP address", "my IP", "public IP", "geolocation", "ISP", "port scan", "network info", "IP lookup"]
+  },
+  "title": "Find My IP",
+  "description": "Check your public IP address with full location, network details, and port scan.",
+  "hero": {
+    "label": "Your Public IP Address",
+    "loading": "Looking up your IP…",
+    "error": "Could not retrieve your IP address."
+  },
+  "badges": {
+    "proxy": "Proxy / VPN",
+    "hosting": "Hosting / Datacenter",
+    "mobile": "Mobile Connection",
+    "clean": "Regular Connection"
+  },
+  "actions": {
+    "copyIp": "Copy IP",
+    "copied": "Copied!",
+    "refresh": "Refresh",
+    "startScan": "Start Port Scan",
+    "rescan": "Rescan"
+  },
+  "sections": {
+    "location": "Location",
+    "network": "Network Info",
+    "connectionType": "Connection Type",
+    "portScan": "Port Scan"
+  },
+  "fields": {
+    "country": "Country",
+    "continent": "Continent",
+    "region": "Region / State",
+    "city": "City",
+    "district": "District",
+    "postalCode": "Postal Code",
+    "coordinates": "Coordinates",
+    "timezone": "Timezone",
+    "utcOffset": "UTC Offset",
+    "currency": "Currency",
+    "isp": "ISP",
+    "org": "Organization",
+    "asn": "AS Number",
+    "asnName": "AS Name",
+    "hostname": "Hostname (PTR)",
+    "proxy": "Proxy / VPN",
+    "hosting": "Hosting / IDC",
+    "mobile": "Mobile Connection"
+  },
+  "values": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "map": {
+    "title": "Approximate Location",
+    "notice": "IP-based location estimate — may differ from actual location.",
+    "open": "Open in Google Maps"
+  },
+  "portScan": {
+    "idle": "Click 'Start Port Scan' to check common ports on your IP.",
+    "scanning": "Scanning ports… (may take up to a minute)",
+    "notice": "Most ports will appear closed or filtered for home IPs behind a NAT or firewall.",
+    "open": "open",
+    "closed": "closed",
+    "filtered": "filtered",
+    "table": {
+      "port": "Port",
+      "service": "Service",
+      "description": "Description",
+      "status": "Status"
+    }
+  },
+  "disclaimer": "Location data is an IP-based estimate and may differ from your actual location. Port scan results depend on your router and firewall configuration."
+}

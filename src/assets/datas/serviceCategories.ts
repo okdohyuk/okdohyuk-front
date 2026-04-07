@@ -48,6 +48,7 @@ const SERVICE_SECTION_BY_LINK: Record<string, ServiceSectionKey> = {
   '/markdown-table-generator': 'textData',
   '/roman-converter': 'textData',
   '/choseong-maker': 'textData',
+  '/ip-lookup': 'devUtility',
   '/jwt-decoder': 'devUtility',
   '/coder': 'devUtility',
   '/contrast-checker': 'devUtility',

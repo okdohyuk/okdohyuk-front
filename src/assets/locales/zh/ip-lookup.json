@@ -1,0 +1,78 @@
+{
+  "openGraph": {
+    "title": "查询我的IP地址",
+    "ogTitle": "查询公网IP地址 - 位置、ISP与端口扫描",
+    "description": "即时查询您的公网IP地址，获取国家、城市、坐标等位置信息，以及ISP、ASN、主机名、代理检测和常用端口扫描结果。",
+    "keywords": ["IP地址", "我的IP", "公网IP", "地理位置", "ISP", "端口扫描", "网络信息", "IP查询"]
+  },
+  "title": "查询我的 IP",
+  "description": "一键查看公网IP及位置、网络、端口详情。",
+  "hero": {
+    "label": "您的公网 IP 地址",
+    "loading": "正在查询 IP 地址…",
+    "error": "无法获取您的 IP 地址。"
+  },
+  "badges": {
+    "proxy": "代理 / VPN",
+    "hosting": "托管 / 数据中心",
+    "mobile": "移动连接",
+    "clean": "普通连接"
+  },
+  "actions": {
+    "copyIp": "复制 IP",
+    "copied": "已复制!",
+    "refresh": "刷新",
+    "startScan": "开始端口扫描",
+    "rescan": "重新扫描"
+  },
+  "sections": {
+    "location": "位置信息",
+    "network": "网络信息",
+    "connectionType": "连接类型",
+    "portScan": "端口扫描"
+  },
+  "fields": {
+    "country": "国家",
+    "continent": "大洲",
+    "region": "地区 / 省份",
+    "city": "城市",
+    "district": "区县",
+    "postalCode": "邮政编码",
+    "coordinates": "坐标",
+    "timezone": "时区",
+    "utcOffset": "UTC 偏移",
+    "currency": "货币",
+    "isp": "ISP",
+    "org": "机构",
+    "asn": "AS 编号",
+    "asnName": "AS 名称",
+    "hostname": "主机名 (PTR)",
+    "proxy": "代理 / VPN",
+    "hosting": "托管 / IDC",
+    "mobile": "移动连接"
+  },
+  "values": {
+    "yes": "是",
+    "no": "否"
+  },
+  "map": {
+    "title": "大致位置",
+    "notice": "基于IP的位置估算，可能与实际位置不同。",
+    "open": "在 Google 地图中打开"
+  },
+  "portScan": {
+    "idle": "点击「开始端口扫描」按钮检查常用端口的开放状态。",
+    "scanning": "正在扫描端口… (可能需要数十秒)",
+    "notice": "在家用路由器或防火墙环境下，大多数端口可能显示为 filtered 或 closed。",
+    "open": "开放",
+    "closed": "关闭",
+    "filtered": "已过滤",
+    "table": {
+      "port": "端口",
+      "service": "服务",
+      "description": "描述",
+      "status": "状态"
+    }
+  },
+  "disclaimer": "位置信息基于IP推断，可能与实际位置不同。端口扫描结果取决于您的路由器和防火墙配置。"
+}

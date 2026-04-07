@@ -32,6 +32,7 @@ import {
   Receipt,
   Repeat,
   ScrollText,
+  Search,
   Server,
   Smile,
   Sparkles,
@@ -88,6 +89,16 @@ const menus: Menus = {
       },
       icon: <CalendarClock />,
       link: '/cron-generator',
+    },
+    {
+      title: {
+        ko: '내 IP 찾기',
+        en: 'Find My IP',
+        ja: 'IP アドレス確認',
+        zh: '查询我的 IP',
+      },
+      icon: <Search />,
+      link: '/ip-lookup',
     },
     {
       title: {

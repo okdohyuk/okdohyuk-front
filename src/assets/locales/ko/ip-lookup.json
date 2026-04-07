@@ -1,0 +1,78 @@
+{
+  "openGraph": {
+    "title": "내 IP 주소 찾기",
+    "ogTitle": "내 공인 IP 주소 조회 - 위치, ISP, 포트 정보",
+    "description": "내 공인 IP 주소를 즉시 확인하고, 국가·도시·좌표 등 위치 정보와 ISP, ASN, 호스트명, 프록시 여부 등 상세 네트워크 정보를 한 번에 조회하세요. 주요 포트 스캔 기능도 제공합니다.",
+    "keywords": ["IP 주소", "내 IP", "공인 IP", "위치 조회", "ISP", "포트 스캔", "네트워크 정보", "IP 조회"]
+  },
+  "title": "내 IP 찾기",
+  "description": "접속 중인 공인 IP와 위치·네트워크·포트 정보를 한눈에 확인하세요.",
+  "hero": {
+    "label": "내 공인 IP 주소",
+    "loading": "IP 주소 조회 중…",
+    "error": "IP 주소를 가져오지 못했습니다."
+  },
+  "badges": {
+    "proxy": "프록시 / VPN",
+    "hosting": "호스팅 / 데이터센터",
+    "mobile": "모바일 연결",
+    "clean": "일반 연결"
+  },
+  "actions": {
+    "copyIp": "IP 복사",
+    "copied": "복사됨!",
+    "refresh": "새로고침",
+    "startScan": "포트 스캔 시작",
+    "rescan": "다시 스캔"
+  },
+  "sections": {
+    "location": "위치 정보",
+    "network": "네트워크 정보",
+    "connectionType": "연결 유형",
+    "portScan": "포트 스캔"
+  },
+  "fields": {
+    "country": "국가",
+    "continent": "대륙",
+    "region": "지역/주",
+    "city": "도시",
+    "district": "구/군",
+    "postalCode": "우편번호",
+    "coordinates": "좌표",
+    "timezone": "시간대",
+    "utcOffset": "UTC 오프셋",
+    "currency": "통화",
+    "isp": "ISP",
+    "org": "기관",
+    "asn": "AS 번호",
+    "asnName": "AS 이름",
+    "hostname": "호스트명 (PTR)",
+    "proxy": "프록시 / VPN",
+    "hosting": "호스팅 / IDC",
+    "mobile": "모바일 연결"
+  },
+  "values": {
+    "yes": "예",
+    "no": "아니오"
+  },
+  "map": {
+    "title": "대략적인 위치",
+    "notice": "IP 기반 위치로 실제 위치와 다를 수 있습니다.",
+    "open": "Google 지도에서 열기"
+  },
+  "portScan": {
+    "idle": "포트 스캔 시작 버튼을 눌러 주요 포트의 열림 여부를 확인하세요.",
+    "scanning": "포트를 스캔 중입니다… (최대 수십 초 소요될 수 있습니다)",
+    "notice": "가정용 공유기나 방화벽 환경에서는 대부분 포트가 차단(filtered) 또는 닫힘(closed)으로 표시될 수 있습니다.",
+    "open": "열림",
+    "closed": "닫힘",
+    "filtered": "차단됨",
+    "table": {
+      "port": "포트",
+      "service": "서비스",
+      "description": "설명",
+      "status": "상태"
+    }
+  },
+  "disclaimer": "위치 정보는 IP 기반 추정값으로 실제 위치와 다를 수 있습니다. 포트 스캔은 해당 IP에 대한 서버 측 TCP 연결 시도이며, NAT·방화벽 환경에 따라 결과가 다를 수 있습니다."
+}
