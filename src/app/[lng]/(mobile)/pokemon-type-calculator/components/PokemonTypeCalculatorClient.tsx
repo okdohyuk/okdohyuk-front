@@ -833,12 +833,12 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
             <thead>
               <tr>
                 <th className="p-1 text-zinc-400 dark:text-zinc-500 font-normal text-left sticky left-0 bg-white dark:bg-zinc-900 z-10 min-w-[56px]">
-                  <span className="text-[9px]">{t('chart.atkVsDef')}</span>
+                  <span className="text-xs">{t('chart.atkVsDef')}</span>
                 </th>
                 {POKEMON_TYPES.map((type) => (
                   <th key={type} className="p-0.5 font-normal">
                     <div
-                      className="rounded w-5 h-5 mx-auto flex items-center justify-center text-white text-[8px] font-bold"
+                      className="rounded w-6 h-6 mx-auto flex items-center justify-center text-white text-[9px] font-bold"
                       style={{ backgroundColor: TYPE_COLORS[type] }}
                       title={getTypeName(type)}
                     >
@@ -853,7 +853,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                 <tr key={attacker} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/50">
                   <td className="p-1 sticky left-0 bg-white dark:bg-zinc-900 z-10">
                     <div
-                      className="rounded px-1 py-0.5 text-white text-[8px] font-bold text-center"
+                      className="rounded px-1 py-0.5 text-white text-xs font-bold text-center"
                       style={{ backgroundColor: TYPE_COLORS[attacker] }}
                     >
                       {getTypeName(attacker).slice(0, 2)}
@@ -866,7 +866,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                       <td key={defender} className="p-0.5 text-center">
                         <span
                           className={cn(
-                            'rounded text-[9px] font-medium tabular-nums px-0.5',
+                            'rounded text-xs font-medium tabular-nums px-0.5',
                             cellColor,
                           )}
                         >
