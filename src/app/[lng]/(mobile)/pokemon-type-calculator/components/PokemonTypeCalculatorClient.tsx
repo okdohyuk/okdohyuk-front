@@ -485,6 +485,7 @@ function getCellLabel(mult: number): string {
 
 interface TypeBadgeProps {
   type: PokemonType;
+  name: string;
   size?: 'sm' | 'md' | 'lg';
   selected?: boolean;
   disabled?: boolean;
@@ -494,6 +495,7 @@ interface TypeBadgeProps {
 
 function TypeBadge({
   type,
+  name,
   size = 'md',
   selected = false,
   disabled = false,
@@ -520,7 +522,7 @@ function TypeBadge({
       type="button"
       onClick={onClick}
       disabled={disabled && !selected}
-      title={type}
+      title={name}
       className={cn(
         'flex flex-col items-center gap-1 rounded-xl p-1.5 transition-all duration-200',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1',
@@ -539,7 +541,7 @@ function TypeBadge({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={spriteUrl}
-          alt={type}
+          alt={name}
           width={imgSizes[size]}
           height={imgSizes[size]}
           className="object-contain p-0.5"
@@ -550,8 +552,8 @@ function TypeBadge({
         />
       </div>
       {showName && (
-        <span className="text-[10px] font-semibold text-zinc-600 dark:text-zinc-300 capitalize leading-none">
-          {type}
+        <span className="text-[10px] font-semibold text-zinc-600 dark:text-zinc-300 leading-none text-center">
+          {name}
         </span>
       )}
     </button>
@@ -564,6 +566,7 @@ interface EffectivenessGroupProps {
   label: string;
   colorClass: string;
   bgClass: string;
+  getTypeName: (type: PokemonType) => string;
 }
 
 TypeBadge.defaultProps = {
@@ -580,6 +583,7 @@ function EffectivenessGroup({
   label,
   colorClass,
   bgClass,
+  getTypeName,
 }: EffectivenessGroupProps) {
   if (types.length === 0) return null;
 
@@ -595,7 +599,7 @@ function EffectivenessGroup({
       </div>
       <div className="flex flex-wrap gap-2">
         {types.map((type) => (
-          <TypeBadge key={type} type={type} size="sm" showName />
+          <TypeBadge key={type} type={type} name={getTypeName(type)} size="sm" showName />
         ))}
       </div>
     </div>
@@ -678,6 +682,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
   }, [defenseChart]);
 
   const isMaxSelected = selectedTypes.length >= 3;
+  const getTypeName = (type: PokemonType) => t(`types.${type}`);
 
   return (
     <div className="w-full space-y-5">
@@ -697,6 +702,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
             <TypeBadge
               key={type}
               type={type}
+              name={getTypeName(type)}
               size="md"
               selected={selectedTypes.includes(type)}
               disabled={isMaxSelected}
@@ -736,7 +742,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                 className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-white text-sm font-semibold"
                 style={{ backgroundColor: TYPE_COLORS[type] }}
               >
-                <span className="capitalize">{t(`types.${type}`)}</span>
+                <span>{getTypeName(type)}</span>
                 <button
                   type="button"
                   onClick={() => removeType(type)}
@@ -770,6 +776,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                   label={t(labelKey)}
                   colorClass={colorClass}
                   bgClass={bgClass}
+                  getTypeName={getTypeName}
                 />
               );
             })}
@@ -806,9 +813,9 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                     <div
                       className="rounded w-5 h-5 mx-auto flex items-center justify-center text-white text-[8px] font-bold"
                       style={{ backgroundColor: TYPE_COLORS[type] }}
-                      title={type}
+                      title={getTypeName(type)}
                     >
-                      {type.slice(0, 2).toUpperCase()}
+                      {getTypeName(type).slice(0, 2)}
                     </div>
                   </th>
                 ))}
@@ -822,7 +829,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                       className="rounded px-1 py-0.5 text-white text-[8px] font-bold text-center"
                       style={{ backgroundColor: TYPE_COLORS[attacker] }}
                     >
-                      {attacker.slice(0, 3).toUpperCase()}
+                      {getTypeName(attacker).slice(0, 3)}
                     </div>
                   </td>
                   {POKEMON_TYPES.map((defender) => {
