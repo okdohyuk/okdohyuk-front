@@ -9,7 +9,27 @@ import {
 } from '@components/complex/Service/interactiveStyles';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import { X } from 'lucide-react';
+import {
+  Bug,
+  Crown,
+  Droplet,
+  Eye,
+  Flame,
+  Gem,
+  Ghost,
+  Leaf,
+  Minus,
+  Moon,
+  Mountain,
+  Shield,
+  Skull,
+  Snowflake,
+  Sparkles,
+  Swords,
+  Wind,
+  X,
+  Zap,
+} from 'lucide-react';
 
 interface PokemonTypeCalculatorClientProps {
   lng: Language;
@@ -59,6 +79,28 @@ const TYPE_COLORS: Record<PokemonType, string> = {
   dark: '#624D4E',
   steel: '#60A1B8',
   fairy: '#EF70EF',
+};
+
+// Lucide icon per type (white, centered inside colored circle)
+const TYPE_ICONS: Record<PokemonType, React.ReactNode> = {
+  normal: <Minus />,
+  fire: <Flame />,
+  water: <Droplet />,
+  electric: <Zap />,
+  grass: <Leaf />,
+  ice: <Snowflake />,
+  fighting: <Swords />,
+  poison: <Skull />,
+  ground: <Mountain />,
+  flying: <Wind />,
+  psychic: <Eye />,
+  bug: <Bug />,
+  rock: <Gem />,
+  ghost: <Ghost />,
+  dragon: <Crown />,
+  dark: <Moon />,
+  steel: <Shield />,
+  fairy: <Sparkles />,
 };
 
 // Gen 6+ Type effectiveness chart
@@ -483,6 +525,12 @@ function TypeBadge({
     lg: 'w-16 h-16',
   };
 
+  const iconSizes = {
+    sm: 18,
+    md: 26,
+    lg: 30,
+  };
+
   return (
     <button
       type="button"
@@ -496,12 +544,22 @@ function TypeBadge({
       )}
     >
       <div
-        className={cn('rounded-full flex-shrink-0 transition-all duration-200', sizeClasses[size])}
+        className={cn(
+          'rounded-full flex-shrink-0 flex items-center justify-center transition-all duration-200',
+          sizeClasses[size],
+        )}
         style={{
           backgroundColor: color,
           boxShadow: selected ? `0 0 0 3px white, 0 0 0 5px ${color}` : undefined,
         }}
-      />
+      >
+        <span className="text-white" style={{ width: iconSizes[size], height: iconSizes[size] }}>
+          {React.cloneElement(TYPE_ICONS[type] as React.ReactElement, {
+            size: iconSizes[size],
+            strokeWidth: 1.8,
+          })}
+        </span>
+      </div>
       {showName && (
         <span className="text-[10px] font-semibold text-zinc-600 dark:text-zinc-300 leading-none text-center">
           {name}
