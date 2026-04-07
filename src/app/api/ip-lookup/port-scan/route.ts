@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import * as net from 'net';
 
+export const runtime = 'nodejs';
+
 export interface PortInfo {
   port: number;
   service: string;

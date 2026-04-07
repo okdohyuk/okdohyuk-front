@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { promises as dnsPromises } from 'dns';
 
+export const runtime = 'nodejs';
+
 function getClientIp(request: NextRequest): string {
   const xForwardedFor = request.headers.get('x-forwarded-for');
   if (xForwardedFor) {
