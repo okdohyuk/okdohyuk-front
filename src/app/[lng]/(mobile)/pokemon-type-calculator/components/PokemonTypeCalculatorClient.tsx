@@ -520,15 +520,28 @@ function TypeBadge({
   const color = TYPE_COLORS[type];
 
   const sizeClasses = {
-    sm: 'w-10 h-10',
-    md: 'w-14 h-14',
-    lg: 'w-16 h-16',
+    sm: 'w-9 h-9',
+    md: 'w-9 h-9 sm:w-11 sm:h-11',
+    lg: 'w-14 h-14',
   };
 
-  const iconSizes = {
-    sm: 18,
-    md: 26,
-    lg: 30,
+  // CSS-based icon sizing: overrides Lucide default via class (no size prop passed)
+  const iconContainerClasses = {
+    sm: '[&>svg]:w-[16px] [&>svg]:h-[16px]',
+    md: '[&>svg]:w-[15px] [&>svg]:h-[15px] sm:[&>svg]:w-[20px] sm:[&>svg]:h-[20px]',
+    lg: '[&>svg]:w-[26px] [&>svg]:h-[26px]',
+  };
+
+  const buttonPaddingClass = {
+    sm: 'p-0.5',
+    md: 'p-0.5 sm:p-1',
+    lg: 'p-1',
+  };
+
+  const nameSizeClass = {
+    sm: 'text-[9px]',
+    md: 'text-[9px] sm:text-[10px]',
+    lg: 'text-[10px]',
   };
 
   return (
@@ -538,8 +551,9 @@ function TypeBadge({
       disabled={disabled && !selected}
       title={name}
       className={cn(
-        'flex flex-col items-center gap-1.5 rounded-xl p-1 transition-all duration-200',
+        'flex flex-col items-center gap-1 rounded-xl transition-all duration-200',
         'focus:outline-none',
+        buttonPaddingClass[size],
         disabled && !selected ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
       )}
     >
@@ -553,15 +567,19 @@ function TypeBadge({
           boxShadow: selected ? `0 0 0 3px white, 0 0 0 5px ${color}` : undefined,
         }}
       >
-        <span className="text-white" style={{ width: iconSizes[size], height: iconSizes[size] }}>
-          {React.cloneElement(TYPE_ICONS[type] as React.ReactElement, {
-            size: iconSizes[size],
-            strokeWidth: 1.8,
-          })}
+        <span
+          className={cn('text-white flex items-center justify-center', iconContainerClasses[size])}
+        >
+          {React.cloneElement(TYPE_ICONS[type] as React.ReactElement, { strokeWidth: 1.8 })}
         </span>
       </div>
       {showName && (
-        <span className="text-[10px] font-semibold text-zinc-600 dark:text-zinc-300 leading-none text-center">
+        <span
+          className={cn(
+            'font-semibold text-zinc-600 dark:text-zinc-300 leading-none text-center',
+            nameSizeClass[size],
+          )}
+        >
           {name}
         </span>
       )}
@@ -706,7 +724,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
           </Text>
         </div>
 
-        <div className="grid grid-cols-6 gap-2 sm:grid-cols-9">
+        <div className="grid grid-cols-6 gap-1 sm:gap-2 sm:grid-cols-9">
           {POKEMON_TYPES.map((type) => (
             <TypeBadge
               key={type}
@@ -810,17 +828,17 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
         <Text variant="c1" color="basic-5" className="block">
           {t('section.typeChartDesc')}
         </Text>
-        <div className="overflow-x-auto mt-2 flex justify-center">
-          <table className="text-[10px] border-collapse min-w-max">
+        <div className="overflow-x-auto mt-2">
+          <table className="border-collapse mx-auto min-w-max">
             <thead>
               <tr>
-                <th className="p-1 text-zinc-400 dark:text-zinc-500 font-normal text-left sticky left-0 bg-white dark:bg-zinc-900 z-10 min-w-[60px]">
-                  {t('chart.atkVsDef')}
+                <th className="p-1 text-zinc-400 dark:text-zinc-500 font-normal text-left sticky left-0 bg-white dark:bg-zinc-900 z-10 min-w-[56px]">
+                  <span className="text-xs">{t('chart.atkVsDef')}</span>
                 </th>
                 {POKEMON_TYPES.map((type) => (
                   <th key={type} className="p-0.5 font-normal">
                     <div
-                      className="rounded w-5 h-5 mx-auto flex items-center justify-center text-white text-[8px] font-bold"
+                      className="rounded w-6 h-6 mx-auto flex items-center justify-center text-white text-[9px] font-bold"
                       style={{ backgroundColor: TYPE_COLORS[type] }}
                       title={getTypeName(type)}
                     >
@@ -835,10 +853,10 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                 <tr key={attacker} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/50">
                   <td className="p-1 sticky left-0 bg-white dark:bg-zinc-900 z-10">
                     <div
-                      className="rounded px-1 py-0.5 text-white text-[8px] font-bold text-center"
+                      className="rounded px-1 py-0.5 text-white text-xs font-bold text-center"
                       style={{ backgroundColor: TYPE_COLORS[attacker] }}
                     >
-                      {getTypeName(attacker).slice(0, 3)}
+                      {getTypeName(attacker).slice(0, 2)}
                     </div>
                   </td>
                   {POKEMON_TYPES.map((defender) => {
@@ -848,7 +866,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                       <td key={defender} className="p-0.5 text-center">
                         <span
                           className={cn(
-                            'rounded px-0.5 text-[9px] font-medium tabular-nums',
+                            'rounded text-xs font-medium tabular-nums px-0.5',
                             cellColor,
                           )}
                         >
