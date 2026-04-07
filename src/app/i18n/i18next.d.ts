@@ -49,6 +49,7 @@ import lottoGenerator from 'assets/locales/ko/lotto-generator.json';
 import ageCalculator from 'assets/locales/ko/age-calculator.json';
 import dateDiff from 'assets/locales/ko/date-diff.json';
 import pokemonTypeCalculator from 'assets/locales/ko/pokemon-type-calculator.json';
+import ipLookup from 'assets/locales/ko/ip-lookup.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -104,6 +105,7 @@ declare module 'i18next' {
       'age-calculator': typeof ageCalculator;
       'date-diff': typeof dateDiff;
       'pokemon-type-calculator': typeof pokemonTypeCalculator;
+      'ip-lookup': typeof ipLookup;
     };
   }
 }
