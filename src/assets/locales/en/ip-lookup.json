@@ -56,8 +56,9 @@
     "no": "No"
   },
   "map": {
-    "notice": "View approximate location on Google Maps.",
-    "open": "Open Map"
+    "title": "Approximate Location",
+    "notice": "IP-based location estimate — may differ from actual location.",
+    "open": "Open in Google Maps"
   },
   "portScan": {
     "idle": "Click 'Start Port Scan' to check common ports on your IP.",

@@ -414,21 +414,39 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
             />
           </SectionCard>
 
-          {/* Additional: Maps Link */}
+          {/* Embedded Google Map */}
           {ipData.latitude && ipData.longitude && (
-            <div className={cn(SERVICE_PANEL_SOFT, 'flex items-center gap-3 p-4')}>
-              <Globe size={16} className="shrink-0 text-point-1" />
-              <Text variant="d2" color="basic-4">
-                {t('map.notice')}
-              </Text>
-              <a
-                href={`https://www.google.com/maps?q=${ipData.latitude},${ipData.longitude}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-auto shrink-0 text-xs font-semibold text-point-1 hover:underline"
-              >
-                {t('map.open')}
-              </a>
+            <div className={cn(SERVICE_PANEL_SOFT, 'overflow-hidden p-0')}>
+              <div className="flex items-center justify-between px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <Globe size={16} className="text-point-1" />
+                  <Text variant="t3" color="basic-2" className="font-bold">
+                    {t('map.title')}
+                  </Text>
+                </div>
+                <a
+                  href={`https://www.google.com/maps?q=${ipData.latitude},${ipData.longitude}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-semibold text-point-1 hover:underline"
+                >
+                  {t('map.open')}
+                </a>
+              </div>
+              <div className="relative h-64 w-full sm:h-80">
+                <iframe
+                  title="IP Location Map"
+                  src={`https://maps.google.com/maps?q=${ipData.latitude},${ipData.longitude}&z=11&output=embed`}
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="px-4 py-2">
+                <Text variant="c1" color="basic-5">
+                  {t('map.notice')}
+                </Text>
+              </div>
             </div>
           )}
 
