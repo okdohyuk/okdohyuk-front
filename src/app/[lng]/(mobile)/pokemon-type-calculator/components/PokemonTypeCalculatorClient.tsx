@@ -39,28 +39,6 @@ const POKEMON_TYPES = [
 
 type PokemonType = (typeof POKEMON_TYPES)[number];
 
-// PokeAPI type IDs for official sprite images
-const TYPE_SPRITE_ID: Record<PokemonType, number> = {
-  normal: 1,
-  fighting: 2,
-  flying: 3,
-  poison: 4,
-  ground: 5,
-  rock: 6,
-  bug: 7,
-  ghost: 8,
-  steel: 9,
-  fire: 10,
-  water: 11,
-  grass: 12,
-  electric: 13,
-  psychic: 14,
-  ice: 15,
-  dragon: 16,
-  dark: 17,
-  fairy: 18,
-};
-
 // Official type colors (matching official Pokemon games)
 const TYPE_COLORS: Record<PokemonType, string> = {
   normal: '#9FA19F',
@@ -463,11 +441,6 @@ function computeDefenseChart(defenderTypes: PokemonType[]): Record<PokemonType, 
   );
 }
 
-function getTypeSpriteUrl(type: PokemonType): string {
-  const id = TYPE_SPRITE_ID[type];
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${id}.png`;
-}
-
 function getCellColorClass(mult: number): string {
   if (mult === 4) return 'bg-red-500 text-white';
   if (mult === 2) return 'bg-orange-400 text-white';
@@ -503,18 +476,11 @@ function TypeBadge({
   showName = false,
 }: TypeBadgeProps) {
   const color = TYPE_COLORS[type];
-  const spriteUrl = getTypeSpriteUrl(type);
 
   const sizeClasses = {
-    sm: 'w-8 h-8',
-    md: 'w-12 h-12',
-    lg: 'w-14 h-14',
-  };
-
-  const imgSizes = {
-    sm: 28,
-    md: 42,
-    lg: 50,
+    sm: 'w-10 h-10',
+    md: 'w-14 h-14',
+    lg: 'w-16 h-16',
   };
 
   return (
@@ -524,33 +490,18 @@ function TypeBadge({
       disabled={disabled && !selected}
       title={name}
       className={cn(
-        'flex flex-col items-center gap-1 rounded-xl p-1.5 transition-all duration-200',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1',
-        selected ? 'ring-2 ring-offset-2 scale-110 shadow-lg' : 'hover:scale-105 hover:shadow-md',
+        'flex flex-col items-center gap-1.5 rounded-xl p-1 transition-all duration-200',
+        'focus:outline-none',
         disabled && !selected ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
       )}
-      style={selected ? { backgroundColor: `${color}30`, outlineColor: color } : undefined}
     >
       <div
-        className={cn(
-          'rounded-full overflow-hidden flex items-center justify-center',
-          sizeClasses[size],
-        )}
-        style={{ backgroundColor: color }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={spriteUrl}
-          alt={name}
-          width={imgSizes[size]}
-          height={imgSizes[size]}
-          className="object-contain p-0.5"
-          onError={(e) => {
-            // fallback: hide broken image, show colored circle only
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
-        />
-      </div>
+        className={cn('rounded-full flex-shrink-0 transition-all duration-200', sizeClasses[size])}
+        style={{
+          backgroundColor: color,
+          boxShadow: selected ? `0 0 0 3px white, 0 0 0 5px ${color}` : undefined,
+        }}
+      />
       {showName && (
         <span className="text-[10px] font-semibold text-zinc-600 dark:text-zinc-300 leading-none text-center">
           {name}
