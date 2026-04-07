@@ -17,9 +17,24 @@ interface PokemonTypeCalculatorClientProps {
 
 // All 18 Pokemon types (Gen 6+)
 const POKEMON_TYPES = [
-  'normal', 'fire', 'water', 'electric', 'grass', 'ice',
-  'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug',
-  'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy',
+  'normal',
+  'fire',
+  'water',
+  'electric',
+  'grass',
+  'ice',
+  'fighting',
+  'poison',
+  'ground',
+  'flying',
+  'psychic',
+  'bug',
+  'rock',
+  'ghost',
+  'dragon',
+  'dark',
+  'steel',
+  'fairy',
 ] as const;
 
 type PokemonType = (typeof POKEMON_TYPES)[number];
@@ -48,138 +63,424 @@ const TYPE_SPRITE_ID: Record<PokemonType, number> = {
 
 // Official type colors (matching official Pokemon games)
 const TYPE_COLORS: Record<PokemonType, string> = {
-  normal:   '#9FA19F',
-  fire:     '#E62829',
-  water:    '#2980EF',
+  normal: '#9FA19F',
+  fire: '#E62829',
+  water: '#2980EF',
   electric: '#FAC000',
-  grass:    '#3FA129',
-  ice:      '#3DCEF3',
+  grass: '#3FA129',
+  ice: '#3DCEF3',
   fighting: '#FF8000',
-  poison:   '#9141CB',
-  ground:   '#915121',
-  flying:   '#81B9EF',
-  psychic:  '#EF4179',
-  bug:      '#91A119',
-  rock:     '#AFA981',
-  ghost:    '#704170',
-  dragon:   '#5060E1',
-  dark:     '#624D4E',
-  steel:    '#60A1B8',
-  fairy:    '#EF70EF',
+  poison: '#9141CB',
+  ground: '#915121',
+  flying: '#81B9EF',
+  psychic: '#EF4179',
+  bug: '#91A119',
+  rock: '#AFA981',
+  ghost: '#704170',
+  dragon: '#5060E1',
+  dark: '#624D4E',
+  steel: '#60A1B8',
+  fairy: '#EF70EF',
 };
 
 // Gen 6+ Type effectiveness chart
 // TYPE_CHART[attacker][defender] = multiplier
 const TYPE_CHART: Record<PokemonType, Record<PokemonType, number>> = {
   normal: {
-    normal: 1, fire: 1, water: 1, electric: 1, grass: 1, ice: 1,
-    fighting: 1, poison: 1, ground: 1, flying: 1, psychic: 1, bug: 1,
-    rock: 0.5, ghost: 0, dragon: 1, dark: 1, steel: 0.5, fairy: 1,
+    normal: 1,
+    fire: 1,
+    water: 1,
+    electric: 1,
+    grass: 1,
+    ice: 1,
+    fighting: 1,
+    poison: 1,
+    ground: 1,
+    flying: 1,
+    psychic: 1,
+    bug: 1,
+    rock: 0.5,
+    ghost: 0,
+    dragon: 1,
+    dark: 1,
+    steel: 0.5,
+    fairy: 1,
   },
   fire: {
-    normal: 1, fire: 0.5, water: 0.5, electric: 1, grass: 2, ice: 2,
-    fighting: 1, poison: 1, ground: 1, flying: 1, psychic: 1, bug: 2,
-    rock: 0.5, ghost: 1, dragon: 0.5, dark: 1, steel: 2, fairy: 1,
+    normal: 1,
+    fire: 0.5,
+    water: 0.5,
+    electric: 1,
+    grass: 2,
+    ice: 2,
+    fighting: 1,
+    poison: 1,
+    ground: 1,
+    flying: 1,
+    psychic: 1,
+    bug: 2,
+    rock: 0.5,
+    ghost: 1,
+    dragon: 0.5,
+    dark: 1,
+    steel: 2,
+    fairy: 1,
   },
   water: {
-    normal: 1, fire: 2, water: 0.5, electric: 1, grass: 0.5, ice: 1,
-    fighting: 1, poison: 1, ground: 2, flying: 1, psychic: 1, bug: 1,
-    rock: 2, ghost: 1, dragon: 0.5, dark: 1, steel: 1, fairy: 1,
+    normal: 1,
+    fire: 2,
+    water: 0.5,
+    electric: 1,
+    grass: 0.5,
+    ice: 1,
+    fighting: 1,
+    poison: 1,
+    ground: 2,
+    flying: 1,
+    psychic: 1,
+    bug: 1,
+    rock: 2,
+    ghost: 1,
+    dragon: 0.5,
+    dark: 1,
+    steel: 1,
+    fairy: 1,
   },
   electric: {
-    normal: 1, fire: 1, water: 2, electric: 0.5, grass: 0.5, ice: 1,
-    fighting: 1, poison: 1, ground: 0, flying: 2, psychic: 1, bug: 1,
-    rock: 1, ghost: 1, dragon: 0.5, dark: 1, steel: 1, fairy: 1,
+    normal: 1,
+    fire: 1,
+    water: 2,
+    electric: 0.5,
+    grass: 0.5,
+    ice: 1,
+    fighting: 1,
+    poison: 1,
+    ground: 0,
+    flying: 2,
+    psychic: 1,
+    bug: 1,
+    rock: 1,
+    ghost: 1,
+    dragon: 0.5,
+    dark: 1,
+    steel: 1,
+    fairy: 1,
   },
   grass: {
-    normal: 1, fire: 0.5, water: 2, electric: 1, grass: 0.5, ice: 1,
-    fighting: 1, poison: 0.5, ground: 2, flying: 0.5, psychic: 1, bug: 0.5,
-    rock: 2, ghost: 1, dragon: 0.5, dark: 1, steel: 0.5, fairy: 1,
+    normal: 1,
+    fire: 0.5,
+    water: 2,
+    electric: 1,
+    grass: 0.5,
+    ice: 1,
+    fighting: 1,
+    poison: 0.5,
+    ground: 2,
+    flying: 0.5,
+    psychic: 1,
+    bug: 0.5,
+    rock: 2,
+    ghost: 1,
+    dragon: 0.5,
+    dark: 1,
+    steel: 0.5,
+    fairy: 1,
   },
   ice: {
-    normal: 1, fire: 0.5, water: 0.5, electric: 1, grass: 2, ice: 0.5,
-    fighting: 1, poison: 1, ground: 2, flying: 2, psychic: 1, bug: 1,
-    rock: 1, ghost: 1, dragon: 2, dark: 1, steel: 0.5, fairy: 1,
+    normal: 1,
+    fire: 0.5,
+    water: 0.5,
+    electric: 1,
+    grass: 2,
+    ice: 0.5,
+    fighting: 1,
+    poison: 1,
+    ground: 2,
+    flying: 2,
+    psychic: 1,
+    bug: 1,
+    rock: 1,
+    ghost: 1,
+    dragon: 2,
+    dark: 1,
+    steel: 0.5,
+    fairy: 1,
   },
   fighting: {
-    normal: 2, fire: 1, water: 1, electric: 1, grass: 1, ice: 2,
-    fighting: 1, poison: 0.5, ground: 1, flying: 0.5, psychic: 0.5, bug: 0.5,
-    rock: 2, ghost: 0, dragon: 1, dark: 2, steel: 2, fairy: 0.5,
+    normal: 2,
+    fire: 1,
+    water: 1,
+    electric: 1,
+    grass: 1,
+    ice: 2,
+    fighting: 1,
+    poison: 0.5,
+    ground: 1,
+    flying: 0.5,
+    psychic: 0.5,
+    bug: 0.5,
+    rock: 2,
+    ghost: 0,
+    dragon: 1,
+    dark: 2,
+    steel: 2,
+    fairy: 0.5,
   },
   poison: {
-    normal: 1, fire: 1, water: 1, electric: 1, grass: 2, ice: 1,
-    fighting: 1, poison: 0.5, ground: 0.5, flying: 1, psychic: 1, bug: 1,
-    rock: 0.5, ghost: 0.5, dragon: 1, dark: 1, steel: 0, fairy: 2,
+    normal: 1,
+    fire: 1,
+    water: 1,
+    electric: 1,
+    grass: 2,
+    ice: 1,
+    fighting: 1,
+    poison: 0.5,
+    ground: 0.5,
+    flying: 1,
+    psychic: 1,
+    bug: 1,
+    rock: 0.5,
+    ghost: 0.5,
+    dragon: 1,
+    dark: 1,
+    steel: 0,
+    fairy: 2,
   },
   ground: {
-    normal: 1, fire: 2, water: 1, electric: 2, grass: 0.5, ice: 1,
-    fighting: 1, poison: 2, ground: 1, flying: 0, psychic: 1, bug: 0.5,
-    rock: 2, ghost: 1, dragon: 1, dark: 1, steel: 2, fairy: 1,
+    normal: 1,
+    fire: 2,
+    water: 1,
+    electric: 2,
+    grass: 0.5,
+    ice: 1,
+    fighting: 1,
+    poison: 2,
+    ground: 1,
+    flying: 0,
+    psychic: 1,
+    bug: 0.5,
+    rock: 2,
+    ghost: 1,
+    dragon: 1,
+    dark: 1,
+    steel: 2,
+    fairy: 1,
   },
   flying: {
-    normal: 1, fire: 1, water: 1, electric: 0.5, grass: 2, ice: 1,
-    fighting: 2, poison: 1, ground: 1, flying: 1, psychic: 1, bug: 2,
-    rock: 0.5, ghost: 1, dragon: 1, dark: 1, steel: 0.5, fairy: 1,
+    normal: 1,
+    fire: 1,
+    water: 1,
+    electric: 0.5,
+    grass: 2,
+    ice: 1,
+    fighting: 2,
+    poison: 1,
+    ground: 1,
+    flying: 1,
+    psychic: 1,
+    bug: 2,
+    rock: 0.5,
+    ghost: 1,
+    dragon: 1,
+    dark: 1,
+    steel: 0.5,
+    fairy: 1,
   },
   psychic: {
-    normal: 1, fire: 1, water: 1, electric: 1, grass: 1, ice: 1,
-    fighting: 2, poison: 2, ground: 1, flying: 1, psychic: 0.5, bug: 1,
-    rock: 1, ghost: 1, dragon: 1, dark: 0, steel: 0.5, fairy: 1,
+    normal: 1,
+    fire: 1,
+    water: 1,
+    electric: 1,
+    grass: 1,
+    ice: 1,
+    fighting: 2,
+    poison: 2,
+    ground: 1,
+    flying: 1,
+    psychic: 0.5,
+    bug: 1,
+    rock: 1,
+    ghost: 1,
+    dragon: 1,
+    dark: 0,
+    steel: 0.5,
+    fairy: 1,
   },
   bug: {
-    normal: 1, fire: 0.5, water: 1, electric: 1, grass: 2, ice: 1,
-    fighting: 0.5, poison: 0.5, ground: 1, flying: 0.5, psychic: 2, bug: 1,
-    rock: 1, ghost: 0.5, dragon: 1, dark: 2, steel: 0.5, fairy: 0.5,
+    normal: 1,
+    fire: 0.5,
+    water: 1,
+    electric: 1,
+    grass: 2,
+    ice: 1,
+    fighting: 0.5,
+    poison: 0.5,
+    ground: 1,
+    flying: 0.5,
+    psychic: 2,
+    bug: 1,
+    rock: 1,
+    ghost: 0.5,
+    dragon: 1,
+    dark: 2,
+    steel: 0.5,
+    fairy: 0.5,
   },
   rock: {
-    normal: 1, fire: 2, water: 1, electric: 1, grass: 1, ice: 2,
-    fighting: 0.5, poison: 1, ground: 0.5, flying: 2, psychic: 1, bug: 2,
-    rock: 1, ghost: 1, dragon: 1, dark: 1, steel: 0.5, fairy: 1,
+    normal: 1,
+    fire: 2,
+    water: 1,
+    electric: 1,
+    grass: 1,
+    ice: 2,
+    fighting: 0.5,
+    poison: 1,
+    ground: 0.5,
+    flying: 2,
+    psychic: 1,
+    bug: 2,
+    rock: 1,
+    ghost: 1,
+    dragon: 1,
+    dark: 1,
+    steel: 0.5,
+    fairy: 1,
   },
   ghost: {
-    normal: 0, fire: 1, water: 1, electric: 1, grass: 1, ice: 1,
-    fighting: 1, poison: 1, ground: 1, flying: 1, psychic: 2, bug: 1,
-    rock: 1, ghost: 2, dragon: 1, dark: 0.5, steel: 1, fairy: 1,
+    normal: 0,
+    fire: 1,
+    water: 1,
+    electric: 1,
+    grass: 1,
+    ice: 1,
+    fighting: 1,
+    poison: 1,
+    ground: 1,
+    flying: 1,
+    psychic: 2,
+    bug: 1,
+    rock: 1,
+    ghost: 2,
+    dragon: 1,
+    dark: 0.5,
+    steel: 1,
+    fairy: 1,
   },
   dragon: {
-    normal: 1, fire: 1, water: 1, electric: 1, grass: 1, ice: 1,
-    fighting: 1, poison: 1, ground: 1, flying: 1, psychic: 1, bug: 1,
-    rock: 1, ghost: 1, dragon: 2, dark: 1, steel: 0.5, fairy: 0,
+    normal: 1,
+    fire: 1,
+    water: 1,
+    electric: 1,
+    grass: 1,
+    ice: 1,
+    fighting: 1,
+    poison: 1,
+    ground: 1,
+    flying: 1,
+    psychic: 1,
+    bug: 1,
+    rock: 1,
+    ghost: 1,
+    dragon: 2,
+    dark: 1,
+    steel: 0.5,
+    fairy: 0,
   },
   dark: {
-    normal: 1, fire: 1, water: 1, electric: 1, grass: 1, ice: 1,
-    fighting: 0.5, poison: 1, ground: 1, flying: 1, psychic: 2, bug: 1,
-    rock: 1, ghost: 2, dragon: 1, dark: 0.5, steel: 1, fairy: 0.5,
+    normal: 1,
+    fire: 1,
+    water: 1,
+    electric: 1,
+    grass: 1,
+    ice: 1,
+    fighting: 0.5,
+    poison: 1,
+    ground: 1,
+    flying: 1,
+    psychic: 2,
+    bug: 1,
+    rock: 1,
+    ghost: 2,
+    dragon: 1,
+    dark: 0.5,
+    steel: 1,
+    fairy: 0.5,
   },
   steel: {
-    normal: 1, fire: 0.5, water: 0.5, electric: 0.5, grass: 1, ice: 2,
-    fighting: 1, poison: 1, ground: 1, flying: 1, psychic: 1, bug: 1,
-    rock: 2, ghost: 1, dragon: 1, dark: 1, steel: 0.5, fairy: 2,
+    normal: 1,
+    fire: 0.5,
+    water: 0.5,
+    electric: 0.5,
+    grass: 1,
+    ice: 2,
+    fighting: 1,
+    poison: 1,
+    ground: 1,
+    flying: 1,
+    psychic: 1,
+    bug: 1,
+    rock: 2,
+    ghost: 1,
+    dragon: 1,
+    dark: 1,
+    steel: 0.5,
+    fairy: 2,
   },
   fairy: {
-    normal: 1, fire: 0.5, water: 1, electric: 1, grass: 1, ice: 1,
-    fighting: 2, poison: 0.5, ground: 1, flying: 1, psychic: 1, bug: 1,
-    rock: 1, ghost: 1, dragon: 2, dark: 2, steel: 0.5, fairy: 1,
+    normal: 1,
+    fire: 0.5,
+    water: 1,
+    electric: 1,
+    grass: 1,
+    ice: 1,
+    fighting: 2,
+    poison: 0.5,
+    ground: 1,
+    flying: 1,
+    psychic: 1,
+    bug: 1,
+    rock: 1,
+    ghost: 1,
+    dragon: 2,
+    dark: 2,
+    steel: 0.5,
+    fairy: 1,
   },
 };
 
 // Compute defense effectiveness: for each attacking type,
 // multiply its effectiveness against each defending type
 function computeDefenseChart(defenderTypes: PokemonType[]): Record<PokemonType, number> {
-  const result = {} as Record<PokemonType, number>;
-  for (const attacker of POKEMON_TYPES) {
-    let multiplier = 1;
-    for (const defender of defenderTypes) {
-      multiplier *= TYPE_CHART[attacker][defender];
-    }
-    result[attacker] = multiplier;
-  }
-  return result;
+  return POKEMON_TYPES.reduce(
+    (acc, attacker) => ({
+      ...acc,
+      [attacker]: defenderTypes.reduce(
+        (multiplier, defender) => multiplier * TYPE_CHART[attacker][defender],
+        1,
+      ),
+    }),
+    {} as Record<PokemonType, number>,
+  );
 }
 
 function getTypeSpriteUrl(type: PokemonType): string {
   const id = TYPE_SPRITE_ID[type];
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${id}.png`;
+}
+
+function getCellColorClass(mult: number): string {
+  if (mult === 4) return 'bg-red-500 text-white';
+  if (mult === 2) return 'bg-orange-400 text-white';
+  if (mult === 0.5) return 'bg-blue-400 text-white';
+  if (mult === 0.25) return 'bg-indigo-500 text-white';
+  if (mult === 0) return 'bg-zinc-400 text-white';
+  return 'text-zinc-400 dark:text-zinc-600';
+}
+
+function getCellLabel(mult: number): string {
+  if (mult === 0.5) return '½';
+  if (mult === 0.25) return '¼';
+  return String(mult);
 }
 
 interface TypeBadgeProps {
@@ -191,7 +492,14 @@ interface TypeBadgeProps {
   showName?: boolean;
 }
 
-function TypeBadge({ type, size = 'md', selected, disabled, onClick, showName = false }: TypeBadgeProps) {
+function TypeBadge({
+  type,
+  size = 'md',
+  selected = false,
+  disabled = false,
+  onClick = undefined,
+  showName = false,
+}: TypeBadgeProps) {
   const color = TYPE_COLORS[type];
   const spriteUrl = getTypeSpriteUrl(type);
 
@@ -216,21 +524,16 @@ function TypeBadge({ type, size = 'md', selected, disabled, onClick, showName = 
       className={cn(
         'flex flex-col items-center gap-1 rounded-xl p-1.5 transition-all duration-200',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1',
-        selected
-          ? 'ring-2 ring-offset-2 scale-110 shadow-lg'
-          : 'hover:scale-105 hover:shadow-md',
-        disabled && !selected
-          ? 'opacity-40 cursor-not-allowed'
-          : 'cursor-pointer',
+        selected ? 'ring-2 ring-offset-2 scale-110 shadow-lg' : 'hover:scale-105 hover:shadow-md',
+        disabled && !selected ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
       )}
-      style={
-        selected
-          ? { backgroundColor: color + '30', ringColor: color }
-          : undefined
-      }
+      style={selected ? { backgroundColor: `${color}30`, outlineColor: color } : undefined}
     >
       <div
-        className={cn('rounded-full overflow-hidden flex items-center justify-center', sizeClasses[size])}
+        className={cn(
+          'rounded-full overflow-hidden flex items-center justify-center',
+          sizeClasses[size],
+        )}
         style={{ backgroundColor: color }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -263,7 +566,21 @@ interface EffectivenessGroupProps {
   bgClass: string;
 }
 
-function EffectivenessGroup({ multiplier, types, label, colorClass, bgClass }: EffectivenessGroupProps) {
+TypeBadge.defaultProps = {
+  size: 'md',
+  selected: false,
+  disabled: false,
+  onClick: undefined,
+  showName: false,
+};
+
+function EffectivenessGroup({
+  multiplier,
+  types,
+  label,
+  colorClass,
+  bgClass,
+}: EffectivenessGroupProps) {
   if (types.length === 0) return null;
 
   return (
@@ -286,12 +603,42 @@ function EffectivenessGroup({ multiplier, types, label, colorClass, bgClass }: E
 }
 
 const EFFECTIVENESS_TIERS = [
-  { multiplier: 4,    labelKey: 'effectiveness.x4',    colorClass: 'text-red-700 dark:text-red-300',    bgClass: 'bg-red-100 dark:bg-red-900/40' },
-  { multiplier: 2,    labelKey: 'effectiveness.x2',    colorClass: 'text-orange-700 dark:text-orange-300', bgClass: 'bg-orange-100 dark:bg-orange-900/40' },
-  { multiplier: 1,    labelKey: 'effectiveness.x1',    colorClass: 'text-zinc-600 dark:text-zinc-300',  bgClass: 'bg-zinc-100 dark:bg-zinc-800' },
-  { multiplier: 0.5,  labelKey: 'effectiveness.x05',   colorClass: 'text-blue-700 dark:text-blue-300',  bgClass: 'bg-blue-100 dark:bg-blue-900/40' },
-  { multiplier: 0.25, labelKey: 'effectiveness.x025',  colorClass: 'text-indigo-700 dark:text-indigo-300', bgClass: 'bg-indigo-100 dark:bg-indigo-900/40' },
-  { multiplier: 0,    labelKey: 'effectiveness.x0',    colorClass: 'text-zinc-500 dark:text-zinc-400',  bgClass: 'bg-zinc-200 dark:bg-zinc-700' },
+  {
+    multiplier: 4,
+    labelKey: 'effectiveness.x4',
+    colorClass: 'text-red-700 dark:text-red-300',
+    bgClass: 'bg-red-100 dark:bg-red-900/40',
+  },
+  {
+    multiplier: 2,
+    labelKey: 'effectiveness.x2',
+    colorClass: 'text-orange-700 dark:text-orange-300',
+    bgClass: 'bg-orange-100 dark:bg-orange-900/40',
+  },
+  {
+    multiplier: 1,
+    labelKey: 'effectiveness.x1',
+    colorClass: 'text-zinc-600 dark:text-zinc-300',
+    bgClass: 'bg-zinc-100 dark:bg-zinc-800',
+  },
+  {
+    multiplier: 0.5,
+    labelKey: 'effectiveness.x05',
+    colorClass: 'text-blue-700 dark:text-blue-300',
+    bgClass: 'bg-blue-100 dark:bg-blue-900/40',
+  },
+  {
+    multiplier: 0.25,
+    labelKey: 'effectiveness.x025',
+    colorClass: 'text-indigo-700 dark:text-indigo-300',
+    bgClass: 'bg-indigo-100 dark:bg-indigo-900/40',
+  },
+  {
+    multiplier: 0,
+    labelKey: 'effectiveness.x0',
+    colorClass: 'text-zinc-500 dark:text-zinc-400',
+    bgClass: 'bg-zinc-200 dark:bg-zinc-700',
+  },
 ] as const;
 
 export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculatorClientProps) {
@@ -301,7 +648,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
   const toggleType = (type: PokemonType) => {
     setSelectedTypes((prev) => {
       if (prev.includes(type)) {
-        return prev.filter((t) => t !== type);
+        return prev.filter((item) => item !== type);
       }
       if (prev.length >= 3) return prev;
       return [...prev, type];
@@ -309,7 +656,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
   };
 
   const removeType = (type: PokemonType) => {
-    setSelectedTypes((prev) => prev.filter((t) => t !== type));
+    setSelectedTypes((prev) => prev.filter((item) => item !== type));
   };
 
   const clearAll = () => setSelectedTypes([]);
@@ -321,13 +668,13 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
 
   const groupedByEffectiveness = useMemo(() => {
     if (!defenseChart) return null;
-    const groups: Record<number, PokemonType[]> = {};
-    for (const type of POKEMON_TYPES) {
+    return POKEMON_TYPES.reduce<Record<number, PokemonType[]>>((groups, type) => {
       const mult = defenseChart[type];
-      if (!groups[mult]) groups[mult] = [];
-      groups[mult].push(type);
-    }
-    return groups;
+      return {
+        ...groups,
+        [mult]: [...(groups[mult] ?? []), type],
+      };
+    }, {});
   }, [defenseChart]);
 
   const isMaxSelected = selectedTypes.length >= 3;
@@ -480,17 +827,16 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                   </td>
                   {POKEMON_TYPES.map((defender) => {
                     const mult = TYPE_CHART[attacker][defender];
-                    const cellColor =
-                      mult === 4 ? 'bg-red-500 text-white' :
-                      mult === 2 ? 'bg-orange-400 text-white' :
-                      mult === 0.5 ? 'bg-blue-400 text-white' :
-                      mult === 0.25 ? 'bg-indigo-500 text-white' :
-                      mult === 0 ? 'bg-zinc-400 text-white' :
-                      'text-zinc-400 dark:text-zinc-600';
+                    const cellColor = getCellColorClass(mult);
                     return (
                       <td key={defender} className="p-0.5 text-center">
-                        <span className={cn('rounded px-0.5 text-[9px] font-medium tabular-nums', cellColor)}>
-                          {mult === 0.5 ? '½' : mult === 0.25 ? '¼' : mult}
+                        <span
+                          className={cn(
+                            'rounded px-0.5 text-[9px] font-medium tabular-nums',
+                            cellColor,
+                          )}
+                        >
+                          {getCellLabel(mult)}
                         </span>
                       </td>
                     );
