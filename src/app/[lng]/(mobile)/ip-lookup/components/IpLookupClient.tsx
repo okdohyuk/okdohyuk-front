@@ -11,7 +11,6 @@ import {
   Network,
   RefreshCw,
   Router,
-  Search,
   Shield,
   ShieldAlert,
   ShieldCheck,
@@ -153,6 +152,25 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
 
   const [copied, setCopied] = useState(false);
 
+  const runPortScan = useCallback(async (ip: string) => {
+    setPortStarted(true);
+    setPortLoading(true);
+    setPortData(null);
+
+    try {
+      const res = await fetch(`/api/ip-lookup/port-scan?ip=${encodeURIComponent(ip)}`, {
+        cache: 'no-store',
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Port scan failed');
+      setPortData(data);
+    } catch {
+      setPortData({ ip, ports: [] });
+    } finally {
+      setPortLoading(false);
+    }
+  }, []);
+
   const fetchIpInfo = useCallback(async () => {
     setIpLoading(true);
     setIpError(null);
@@ -166,33 +184,13 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to fetch');
       setIpData(data);
+      runPortScan(data.ip);
     } catch (e) {
       setIpError(e instanceof Error ? e.message : 'Unknown error');
     } finally {
       setIpLoading(false);
     }
-  }, []);
-
-  const runPortScan = async () => {
-    if (!ipData?.ip) return;
-    setPortStarted(true);
-    setPortLoading(true);
-    setPortData(null);
-
-    try {
-      const res = await fetch(`/api/ip-lookup/port-scan?ip=${encodeURIComponent(ipData.ip)}`, {
-        cache: 'no-store',
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Port scan failed');
-      setPortData(data);
-    } catch {
-      // Silent fail — show empty result
-      setPortData({ ip: ipData.ip, ports: [] });
-    } finally {
-      setPortLoading(false);
-    }
-  };
+  }, [runPortScan]);
 
   useEffect(() => {
     fetchIpInfo();
@@ -459,35 +457,17 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                   {t('sections.portScan')}
                 </Text>
               </div>
-              {!portStarted && (
-                <Button
-                  type="button"
-                  className="flex items-center gap-2 px-3 py-2 text-xs"
-                  onClick={runPortScan}
-                >
-                  <Search size={14} />
-                  {t('actions.startScan')}
-                </Button>
-              )}
-              {portStarted && !portLoading && (
+              {!portLoading && ipData?.ip && (
                 <Button
                   type="button"
                   className="flex items-center gap-2 bg-zinc-200 px-3 py-2 text-xs text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-white"
-                  onClick={runPortScan}
+                  onClick={() => runPortScan(ipData.ip)}
                 >
                   <RefreshCw size={14} />
                   {t('actions.rescan')}
                 </Button>
               )}
             </div>
-
-            {!portStarted && (
-              <div className={cn(SERVICE_PANEL_SOFT, 'p-3')}>
-                <Text variant="d2" color="basic-5">
-                  {t('portScan.idle')}
-                </Text>
-              </div>
-            )}
 
             {portLoading && (
               <div className="flex items-center gap-3 py-4">
