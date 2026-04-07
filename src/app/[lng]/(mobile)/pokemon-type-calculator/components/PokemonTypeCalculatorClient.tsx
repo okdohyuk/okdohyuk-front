@@ -810,7 +810,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
         <Text variant="c1" color="basic-5" className="block">
           {t('section.typeChartDesc')}
         </Text>
-        <div className="overflow-x-auto mt-2">
+        <div className="overflow-x-auto mt-2 flex justify-center">
           <table className="text-[10px] border-collapse min-w-max">
             <thead>
               <tr>
