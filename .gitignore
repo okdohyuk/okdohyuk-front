@@ -56,3 +56,6 @@ tasks/
 coverage
 # Sentry Config File
 .env.sentry-build-plugin
+# Build / lint caches
+.eslintcache
+tsconfig.tsbuildinfo

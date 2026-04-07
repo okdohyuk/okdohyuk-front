@@ -56,6 +56,7 @@ const SERVICE_SECTION_BY_LINK: Record<string, ServiceSectionKey> = {
   '/bmi-calculator': 'lifestyle',
   '/bpm-tapper': 'lifestyle',
   '/ppollong': 'lifestyle',
+  '/pokemon-type-calculator': 'lifestyle',
 };
 
 const SERVICE_SECTION_BADGES: Record<Language, Record<ServiceSectionKey, string>> = {

@@ -1,0 +1,55 @@
+{
+  "openGraph": {
+    "title": "Pokemon Type Calculator",
+    "ogTitle": "Pokemon Type Calculator - Type Matchup Analyzer",
+    "description": "Set up to 3 defending types to instantly see 4×, 2×, 1×, ½×, ¼×, and 0× type matchups. Includes full Gen 6+ type chart.",
+    "keywords": ["pokemon", "type calculator", "type matchup", "weakness", "resistance", "immunity"]
+  },
+  "title": "Pokemon Type Calculator",
+  "description": "Select up to 3 defending types to see damage multipliers (4×, 2×, ½×, ¼×, 0×) for every attacking type.",
+  "section": {
+    "selectType": "Select Defending Type(s)",
+    "selectedTypes": "Selected Types",
+    "results": "Type Matchup Results",
+    "typeChart": "Full Type Chart",
+    "typeChartDesc": "Based on Gen 6+ (rows: attacking type, columns: defending type)"
+  },
+  "action": {
+    "clear": "Clear"
+  },
+  "message": {
+    "maxTypes": "You can select up to 3 types at a time.",
+    "selectPrompt": "Select a Pokemon's type above to see its type matchups."
+  },
+  "effectiveness": {
+    "x4": "4× Damage (Weak)",
+    "x2": "2× Damage (Weak)",
+    "x1": "1× Damage (Normal)",
+    "x05": "½× Damage (Resist)",
+    "x025": "¼× Damage (Double Resist)",
+    "x0": "0× Damage (Immune)"
+  },
+  "chart": {
+    "atkVsDef": "Atk \\ Def"
+  },
+  "types": {
+    "normal": "Normal",
+    "fire": "Fire",
+    "water": "Water",
+    "electric": "Electric",
+    "grass": "Grass",
+    "ice": "Ice",
+    "fighting": "Fighting",
+    "poison": "Poison",
+    "ground": "Ground",
+    "flying": "Flying",
+    "psychic": "Psychic",
+    "bug": "Bug",
+    "rock": "Rock",
+    "ghost": "Ghost",
+    "dragon": "Dragon",
+    "dark": "Dark",
+    "steel": "Steel",
+    "fairy": "Fairy"
+  }
+}
