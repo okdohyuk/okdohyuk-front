@@ -49,6 +49,7 @@ const SERVICE_SECTION_BY_LINK: Record<string, ServiceSectionKey> = {
   '/roman-converter': 'textData',
   '/choseong-maker': 'textData',
   '/ip-lookup': 'devUtility',
+  '/network-calculator': 'devUtility',
   '/jwt-decoder': 'devUtility',
   '/coder': 'devUtility',
   '/contrast-checker': 'devUtility',

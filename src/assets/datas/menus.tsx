@@ -27,6 +27,7 @@ import {
   MonitorPlay,
   Moon,
   Music,
+  Network,
   Palette,
   QrCode,
   Receipt,
@@ -99,6 +100,16 @@ const menus: Menus = {
       },
       icon: <Search />,
       link: '/ip-lookup',
+    },
+    {
+      title: {
+        ko: '네트워크 계산기',
+        en: 'Network Calculator',
+        ja: 'ネットワーク計算機',
+        zh: '网络计算器',
+      },
+      icon: <Network />,
+      link: '/network-calculator',
     },
     {
       title: {
