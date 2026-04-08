@@ -102,12 +102,12 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
   const maxHosts = 2 ** (32 - 8);
   const hostPercent = Math.max(2, (Math.log2(data.totalHosts + 1) / Math.log2(maxHosts + 1)) * 100);
 
-  const exampleKeys: Partial<Record<number, string>> = {
-    8: '/8',
-    16: '/16',
-    24: '/24',
-    30: '/30',
-    32: '/32',
+  const exampleDescriptions: Partial<Record<number, string>> = {
+    8: t('guide.examples./8'),
+    16: t('guide.examples./16'),
+    24: t('guide.examples./24'),
+    30: t('guide.examples./30'),
+    32: t('guide.examples./32'),
   };
 
   return (
@@ -247,8 +247,8 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
         </Text>
         <div className="grid gap-2 md:grid-cols-2">
           {NOTABLE_CIDRS.map((c) => {
-            const key = exampleKeys[c];
-            if (!key) return null;
+            const description = exampleDescriptions[c];
+            if (!description) return null;
             const isActive = cidr === c;
             const totalAddrs = (2 ** (32 - c)).toLocaleString();
             return (
@@ -275,7 +275,7 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
                 </span>
                 <div>
                   <Text variant="d2" className="font-medium">
-                    {t(`guide.examples.${key}` as Parameters<typeof t>[0])}
+                    {description}
                   </Text>
                   <Text variant="c1" color="basic-5">
                     {totalAddrs} addrs
