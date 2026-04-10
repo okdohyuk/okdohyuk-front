@@ -34,5 +34,13 @@
   },
   "navigation": {
     "backToMenu": "Back to Menu"
+  },
+  "commandPalette": {
+    "title": "Quick Page Search",
+    "description": "Open with Ctrl + K (Windows/Linux) or Cmd + K (Mac).",
+    "placeholder": "Search by page title or path",
+    "clear": "Clear query",
+    "empty": "No matching pages found.",
+    "loading": "Loading sitemap..."
   }
 }

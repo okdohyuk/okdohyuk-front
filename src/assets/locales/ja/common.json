@@ -34,5 +34,13 @@
   },
   "navigation": {
     "backToMenu": "メニューに戻る"
+  },
+  "commandPalette": {
+    "title": "クイックページ検索",
+    "description": "Ctrl + K（Windows/Linux）または Cmd + K（Mac）で開きます。",
+    "placeholder": "ページタイトルまたはパスで検索",
+    "clear": "検索語をクリア",
+    "empty": "一致するページがありません。",
+    "loading": "サイトマップを読み込み中..."
   }
 }

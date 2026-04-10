@@ -11,6 +11,7 @@ import { ReactQueryProvider } from '@components/complex/Layout/QueryClient';
 import GoogleAdsense from '@components/google/GoogleAdsense';
 import '~/styles/globals.css';
 import { Language, languages } from '~/app/i18n/settings';
+import GlobalCommandPalette from '@components/complex/Nav/GlobalCommandPalette';
 import { StoreProvider } from './provider';
 
 export type LanguageParams = { params: Promise<{ lng: string }> };
@@ -48,6 +49,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
         <StoreProvider>
           <ReactQueryProvider>
             <CommonLayout>{children}</CommonLayout>
+            <GlobalCommandPalette />
             <Footer lng={language} />
             {enableThirdPartyTracking && (
               <>

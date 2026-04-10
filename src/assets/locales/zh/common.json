@@ -34,5 +34,13 @@
   },
   "navigation": {
     "backToMenu": "返回菜单"
+  },
+  "commandPalette": {
+    "title": "快速页面搜索",
+    "description": "使用 Ctrl + K（Windows/Linux）或 Cmd + K（Mac）打开。",
+    "placeholder": "按页面标题或路径搜索",
+    "clear": "清空搜索词",
+    "empty": "没有匹配的页面。",
+    "loading": "正在加载站点地图..."
   }
 }
