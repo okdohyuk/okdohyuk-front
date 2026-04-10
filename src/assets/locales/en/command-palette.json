@@ -1,0 +1,23 @@
+{
+  "placeholder": "Search pages...",
+  "noResults": "No pages found.",
+  "noResultsHint": "Try a different keyword.",
+  "hint": "Search for a page to navigate",
+  "adminBadge": "Admin",
+  "externalBadge": "External",
+  "navigate": "Navigate",
+  "close": "Close",
+  "pages": {
+    "/": "Home",
+    "/admin": "Admin Dashboard",
+    "/admin/blog": "Blog Management",
+    "/admin/blog/category": "Blog Category Management",
+    "/admin/blog/write": "Write Blog Post",
+    "/admin/reply-report": "Reply Report Management",
+    "/admin/users": "User Management",
+    "/auth/login": "Login",
+    "/privacy": "Privacy Policy",
+    "/terms": "Terms of Service",
+    "/dream-resolver": "Dream Resolver"
+  }
+}

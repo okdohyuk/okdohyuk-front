@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { usePathname } from 'next/navigation';
 import LocalesNav from '@components/complex/Nav/LocalesNav';
 import Nav from '@components/complex/Nav';
+import CommandPalette from '@components/complex/CommandPalette/CommandPalette';
 
 type CommonLayoutProps = {
   children: React.ReactNode;
@@ -49,6 +50,7 @@ function CommonLayout({ children }: CommonLayoutProps) {
             <Nav />
           </>
         )}
+        <CommandPalette />
       </QueryClientProvider>
     </div>
   );

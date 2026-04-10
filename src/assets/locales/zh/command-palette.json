@@ -1,0 +1,23 @@
+{
+  "placeholder": "搜索页面...",
+  "noResults": "未找到页面。",
+  "noResultsHint": "请尝试其他关键词。",
+  "hint": "搜索要导航的页面",
+  "adminBadge": "管理员",
+  "externalBadge": "外部",
+  "navigate": "导航",
+  "close": "关闭",
+  "pages": {
+    "/": "首页",
+    "/admin": "管理员仪表板",
+    "/admin/blog": "博客管理",
+    "/admin/blog/category": "博客分类管理",
+    "/admin/blog/write": "撰写博客文章",
+    "/admin/reply-report": "评论举报管理",
+    "/admin/users": "用户管理",
+    "/auth/login": "登录",
+    "/privacy": "隐私政策",
+    "/terms": "服务条款",
+    "/dream-resolver": "解梦"
+  }
+}
