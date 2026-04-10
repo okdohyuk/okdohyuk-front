@@ -58,5 +58,12 @@
     "description": "去登录！",
     "logout": "退出登录",
     "logoutAll": "退出所有设备"
+  },
+  "commandPalette": {
+    "title": "快速页面跳转",
+    "description": "按 Ctrl + K / Cmd + K 可基于站点地图搜索并跳转页面。",
+    "placeholder": "按页面标题或路径搜索",
+    "loading": "正在加载站点地图...",
+    "empty": "没有匹配的页面。"
   }
 }

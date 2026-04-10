@@ -58,5 +58,12 @@
     "description": "ログインする",
     "logout": "ログアウト",
     "logoutAll": "すべてのデバイスからログアウト"
+  },
+  "commandPalette": {
+    "title": "クイックページ移動",
+    "description": "Ctrl + K / Cmd + K でサイトマップからページを検索して移動します。",
+    "placeholder": "ページタイトルまたはパスで検索",
+    "loading": "サイトマップを読み込み中...",
+    "empty": "一致するページがありません。"
   }
 }

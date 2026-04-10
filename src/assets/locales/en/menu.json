@@ -58,5 +58,12 @@
     "description": "Go to Login!",
     "logout": "Logout",
     "logoutAll": "Logout All"
+  },
+  "commandPalette": {
+    "title": "Quick Page Navigation",
+    "description": "Press Ctrl + K / Cmd + K to search sitemap pages and navigate instantly.",
+    "placeholder": "Search by page title or path",
+    "loading": "Loading sitemap...",
+    "empty": "No matching pages found."
   }
 }

@@ -58,5 +58,12 @@
     "description": "로그인하러가기!",
     "logout": "로그아웃",
     "logoutAll": "모두 로그아웃"
+  },
+  "commandPalette": {
+    "title": "빠른 페이지 이동",
+    "description": "Ctrl + K / Cmd + K로 사이트맵 기반 페이지를 검색하고 이동하세요.",
+    "placeholder": "페이지 제목 또는 경로 검색",
+    "loading": "사이트맵을 불러오는 중...",
+    "empty": "검색 결과가 없습니다."
   }
 }
