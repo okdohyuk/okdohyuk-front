@@ -47,7 +47,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
       <body>
         <StoreProvider>
           <ReactQueryProvider>
-            <CommonLayout>{children}</CommonLayout>
+            <CommonLayout lng={language}>{children}</CommonLayout>
             <Footer lng={language} />
             {enableThirdPartyTracking && (
               <>

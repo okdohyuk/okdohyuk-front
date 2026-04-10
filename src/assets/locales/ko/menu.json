@@ -17,6 +17,13 @@
     "emptyTitle": "검색 결과가 없습니다.",
     "emptyDescription": "다른 키워드로 검색하거나 카테고리를 다시 확인해보세요."
   },
+  "palette": {
+    "title": "빠른 페이지 이동",
+    "description": "사이트맵 기반으로 페이지를 검색하고 바로 이동하세요.",
+    "placeholder": "페이지 제목 또는 경로 검색",
+    "shortcut": "단축키: Ctrl + K (Windows/Linux), Cmd + K (Mac)",
+    "empty": "검색 결과가 없습니다."
+  },
   "group": {
     "planning": {
       "title": "일정/시간",

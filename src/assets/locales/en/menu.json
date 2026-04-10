@@ -17,6 +17,13 @@
     "emptyTitle": "No matching tools found.",
     "emptyDescription": "Try a different keyword or browse another category."
   },
+  "palette": {
+    "title": "Quick page search",
+    "description": "Search and jump across pages using sitemap data.",
+    "placeholder": "Search by page title or path",
+    "shortcut": "Shortcut: Ctrl + K (Windows/Linux), Cmd + K (Mac)",
+    "empty": "No matching pages found."
+  },
   "group": {
     "planning": {
       "title": "Planning & Time",

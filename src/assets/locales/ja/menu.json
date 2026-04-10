@@ -17,6 +17,13 @@
     "emptyTitle": "該当するツールが見つかりません。",
     "emptyDescription": "別のキーワードで検索するか、他のカテゴリを確認してください。"
   },
+  "palette": {
+    "title": "クイックページ検索",
+    "description": "サイトマップを基準にページを検索して移動できます。",
+    "placeholder": "ページタイトルまたはパスで検索",
+    "shortcut": "ショートカット: Ctrl + K (Windows/Linux), Cmd + K (Mac)",
+    "empty": "一致するページが見つかりません。"
+  },
   "group": {
     "planning": {
       "title": "日程・時間",

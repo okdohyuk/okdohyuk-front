@@ -17,6 +17,13 @@
     "emptyTitle": "没有找到匹配的工具。",
     "emptyDescription": "请尝试其他关键词，或查看别的分类。"
   },
+  "palette": {
+    "title": "快速页面搜索",
+    "description": "基于站点地图搜索并跳转页面。",
+    "placeholder": "按页面标题或路径搜索",
+    "shortcut": "快捷键: Ctrl + K (Windows/Linux), Cmd + K (Mac)",
+    "empty": "没有匹配的页面。"
+  },
   "group": {
     "planning": {
       "title": "日程与时间",
