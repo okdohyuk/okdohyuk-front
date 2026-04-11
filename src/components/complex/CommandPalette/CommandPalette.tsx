@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { Search, ArrowRight, Shield, CornerDownLeft } from 'lucide-react';
 import { observer } from 'mobx-react';
+import { UserRoleEnum } from '@api/User';
 import { Input } from '@components/basic/Input';
 import { cn } from '@utils/cn';
 import useStore from '@hooks/useStore';
@@ -98,7 +99,7 @@ function CommandPalette() {
 
   // 권한 필터링 + 검색 필터링
   const filteredPages = useMemo(() => {
-    const isAdmin = userStore.user?.role === 'Admin';
+    const isAdmin = userStore.user?.role === UserRoleEnum.Admin;
     const keyword = query.trim().toLowerCase();
 
     return pages
