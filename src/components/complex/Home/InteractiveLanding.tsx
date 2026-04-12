@@ -11,6 +11,7 @@ import {
   Layers3,
   QrCode,
   Rocket,
+  Search,
   ShieldCheck,
   Sparkles,
   Users2,
@@ -32,6 +33,7 @@ import {
   DialogTrigger,
 } from '@components/ui/dialog';
 import { cn } from '@utils/cn';
+import { openCommandPalette } from '@utils/commandPalette';
 import { Language } from '~/app/i18n/settings';
 
 type ExperienceId = 'creator' | 'developer' | 'team';
@@ -62,6 +64,9 @@ type LocalizedContent = {
   heroBadge: string;
   heroTitle: string;
   heroSubtitle: string;
+  shortcutTitle: string;
+  shortcutDescription: string;
+  shortcutCta: string;
   personaLabel: string;
   personaPlaceholder: string;
   prioritiesLabel: string;
@@ -104,6 +109,9 @@ const CONTENT: Record<Language, LocalizedContent> = {
     heroBadge: '멀티툴 스튜디오 · 참여형 메인 허브',
     heroTitle: '도구를 고르는 순간부터 경험이 시작됩니다.',
     heroSubtitle: '목표와 우선순위를 직접 조합하면 지금 필요한 도구 플로우를 즉시 추천해드립니다.',
+    shortcutTitle: '페이지 검색은 단축키로 바로 여세요',
+    shortcutDescription: '원하는 페이지를 Ctrl+K 또는 Cmd+K로 빠르게 찾을 수 있습니다.',
+    shortcutCta: '빠른 검색 열기',
     personaLabel: '지금 어떤 작업을 시작하시나요?',
     personaPlaceholder: '시나리오를 선택하세요',
     prioritiesLabel: '우선순위를 선택해 맞춤 경험을 만들어보세요',
@@ -226,6 +234,9 @@ const CONTENT: Record<Language, LocalizedContent> = {
     heroTitle: 'Your experience starts when you choose a workflow.',
     heroSubtitle:
       'Pick your goal and priorities, then jump into the most relevant tools with one click.',
+    shortcutTitle: 'Open page search with a shortcut',
+    shortcutDescription: 'Find any page quickly with Ctrl+K or Cmd+K from the home screen.',
+    shortcutCta: 'Open quick search',
     personaLabel: 'What are you working on right now?',
     personaPlaceholder: 'Choose a scenario',
     prioritiesLabel: 'Select priorities to personalize your tool flow',
@@ -347,6 +358,9 @@ const CONTENT: Record<Language, LocalizedContent> = {
     heroBadge: 'マルチツールスタジオ · 参加型メインハブ',
     heroTitle: 'ツール選択の瞬間から体験が始まります。',
     heroSubtitle: '目的と優先順位を選ぶだけで、今必要なツールフローをすぐに提案します。',
+    shortcutTitle: 'ページ検索はショートカットですぐ開けます',
+    shortcutDescription: 'ホームから Ctrl+K または Cmd+K で目的のページをすぐ探せます。',
+    shortcutCta: 'クイック検索を開く',
     personaLabel: '今どの作業を始めますか？',
     personaPlaceholder: 'シナリオを選択',
     prioritiesLabel: '優先順位を選んで自分だけのフローを作成',
@@ -468,6 +482,9 @@ const CONTENT: Record<Language, LocalizedContent> = {
     heroBadge: '多工具工作室 · 互动式主页',
     heroTitle: '从选择工具开始，体验立即启动。',
     heroSubtitle: '选择目标与优先级，即可实时获得最合适的工具组合。',
+    shortcutTitle: '页面搜索可通过快捷键立即打开',
+    shortcutDescription: '在首页按 Ctrl+K 或 Cmd+K，即可快速找到目标页面。',
+    shortcutCta: '打开快捷搜索',
     personaLabel: '你现在想开始哪类任务？',
     personaPlaceholder: '请选择场景',
     prioritiesLabel: '选择优先级，生成你的专属流程',
@@ -681,6 +698,50 @@ export default function InteractiveLanding({
             <p className="max-w-3xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-300 sm:text-base">
               {title} · {subTitle} · {content.heroSubtitle}
             </p>
+            <div className="w-full rounded-2xl border border-point-2/25 bg-white/75 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.06)] backdrop-blur-xl dark:border-point-2/20 dark:bg-zinc-900/60">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-point-1/10 text-point-1 dark:bg-point-1/15">
+                      <Search className="h-4 w-4" />
+                    </span>
+                    <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                      {content.shortcutTitle}
+                    </p>
+                  </div>
+                  <p className="mt-2 text-xs leading-relaxed text-zinc-600 dark:text-zinc-300 sm:text-sm">
+                    {content.shortcutDescription}
+                  </p>
+                </div>
+                <div className="flex flex-col items-start gap-2 sm:items-end">
+                  <button
+                    type="button"
+                    onClick={openCommandPalette}
+                    className="inline-flex items-center rounded-xl bg-point-1 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-500"
+                  >
+                    {content.shortcutCta}
+                    <ArrowRight className="ml-1.5 h-4 w-4" />
+                  </button>
+                  <div className="inline-flex items-center gap-1 rounded-full border border-zinc-200/80 bg-zinc-50/85 px-2.5 py-1.5 text-[11px] font-medium text-zinc-500 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-300">
+                    <kbd className="rounded-md border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-semibold text-zinc-700 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200">
+                      Ctrl
+                    </kbd>
+                    <span>+</span>
+                    <kbd className="rounded-md border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-semibold text-zinc-700 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200">
+                      K
+                    </kbd>
+                    <span className="px-1 text-zinc-400">/</span>
+                    <kbd className="rounded-md border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-semibold text-zinc-700 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200">
+                      Cmd
+                    </kbd>
+                    <span>+</span>
+                    <kbd className="rounded-md border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-semibold text-zinc-700 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200">
+                      K
+                    </kbd>
+                  </div>
+                </div>
+              </div>
+            </div>
           </m.div>
 
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">

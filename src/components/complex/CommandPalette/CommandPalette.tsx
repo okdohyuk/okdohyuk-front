@@ -8,6 +8,7 @@ import { observer } from 'mobx-react';
 import { UserRoleEnum } from '@api/User';
 import { Input } from '@components/basic/Input';
 import { cn } from '@utils/cn';
+import { OPEN_COMMAND_PALETTE_EVENT } from '@utils/commandPalette';
 import useStore from '@hooks/useStore';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
@@ -59,6 +60,13 @@ function CommandPalette() {
 
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const handleOpen = () => setOpen(true);
+
+    window.addEventListener(OPEN_COMMAND_PALETTE_EVENT, handleOpen);
+    return () => window.removeEventListener(OPEN_COMMAND_PALETTE_EVENT, handleOpen);
   }, []);
 
   // 다이얼로그 열릴 때 초기화
