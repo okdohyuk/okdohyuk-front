@@ -9,7 +9,7 @@
     "build": "next build",
     "vercel-build": "cd ./scripts && chmod +x build.sh && ./build.sh",
     "prepare": "husky",
-    "postbuild": "next-sitemap",
+    "postbuild": "next-sitemap && node scripts/generateCommandPaletteData.js",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --cache",
     "test": "vitest run",

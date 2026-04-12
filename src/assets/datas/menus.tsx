@@ -83,6 +83,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '동전 던지기',
+        en: 'Coin Toss',
+        ja: 'コイントス',
+        zh: '抛硬币',
+      },
+      icon: <Coins />,
+      link: '/coin-flip',
+    },
+    {
+      title: {
         ko: 'Cron 생성기',
         en: 'Cron Generator',
         ja: 'Cron生成器',
