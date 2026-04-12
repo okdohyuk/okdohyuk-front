@@ -1,0 +1,23 @@
+{
+  "placeholder": "ページを検索...",
+  "noResults": "ページが見つかりません。",
+  "noResultsHint": "別のキーワードで検索してみてください。",
+  "hint": "移動するページを検索",
+  "adminBadge": "管理者",
+  "externalBadge": "外部",
+  "navigate": "移動",
+  "close": "閉じる",
+  "pages": {
+    "/": "ホーム",
+    "/admin": "管理者ダッシュボード",
+    "/admin/blog": "ブログ管理",
+    "/admin/blog/category": "ブログカテゴリ管理",
+    "/admin/blog/write": "ブログ記事作成",
+    "/admin/reply-report": "コメント通報管理",
+    "/admin/users": "ユーザー管理",
+    "/auth/login": "ログイン",
+    "/privacy": "プライバシーポリシー",
+    "/terms": "利用規約",
+    "/dream-resolver": "夢占い"
+  }
+}

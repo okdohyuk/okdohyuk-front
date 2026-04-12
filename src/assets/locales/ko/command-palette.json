@@ -1,0 +1,23 @@
+{
+  "placeholder": "페이지 검색...",
+  "noResults": "검색 결과가 없습니다.",
+  "noResultsHint": "다른 키워드로 검색해보세요.",
+  "hint": "이동할 페이지를 검색하세요",
+  "adminBadge": "관리자",
+  "externalBadge": "외부",
+  "navigate": "이동",
+  "close": "닫기",
+  "pages": {
+    "/": "홈",
+    "/admin": "관리자 대시보드",
+    "/admin/blog": "블로그 관리",
+    "/admin/blog/category": "블로그 카테고리 관리",
+    "/admin/blog/write": "블로그 글 작성",
+    "/admin/reply-report": "댓글 신고 관리",
+    "/admin/users": "사용자 관리",
+    "/auth/login": "로그인",
+    "/privacy": "개인정보처리방침",
+    "/terms": "이용약관",
+    "/dream-resolver": "해몽"
+  }
+}
