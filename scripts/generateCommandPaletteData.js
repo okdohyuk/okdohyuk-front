@@ -6,7 +6,9 @@ const fs = require('fs');
 
 const projectRoot = path.resolve(__dirname, '..');
 const localesDir = path.join(projectRoot, 'src', 'assets', 'locales');
+const nextBuildDir = path.join(projectRoot, '.next');
 const languages = ['ko', 'en', 'ja', 'zh'];
+const localePrefixPattern = new RegExp(`^/(${languages.join('|')})(?=/|$)`);
 
 function getTitle(ns, lng) {
   // 네임스페이스 경로에서 locale 파일 찾기
@@ -34,7 +36,55 @@ function pathToNamespace(pagePath) {
   return cleaned;
 }
 
-function run() {
+function stripLocalePrefix(routePath) {
+  return routePath.replace(localePrefixPattern, '') || '/';
+}
+
+function decodeHtmlEntities(text) {
+  return text
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
+function getTitleFromBuiltHtml(routePath) {
+  const htmlPath = path.join(nextBuildDir, 'server', 'app', `${routePath}.html`);
+  if (!fs.existsSync(htmlPath)) return null;
+
+  try {
+    const html = fs.readFileSync(htmlPath, 'utf-8');
+    const titleMatch = html.match(/<title>(.*?)<\/title>/i);
+    if (!titleMatch?.[1]) return null;
+
+    return decodeHtmlEntities(titleMatch[1]).trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+function mergePage(pagesByPath, page) {
+  const existing = pagesByPath.get(page.path);
+
+  if (!existing) {
+    pagesByPath.set(page.path, page);
+    return;
+  }
+
+  const mergedTitles =
+    existing.titles || page.titles
+      ? { ...(existing.titles || {}), ...(page.titles || {}) }
+      : undefined;
+
+  pagesByPath.set(page.path, {
+    ...existing,
+    ...page,
+    ...(mergedTitles ? { titles: mergedTitles } : {}),
+  });
+}
+
+function collectStaticAppPages(pagesByPath) {
   const pageFiles = globSync('src/app/**/page.{js,jsx,ts,tsx}', {
     cwd: projectRoot,
     ignore: [
@@ -45,8 +95,6 @@ function run() {
       'src/app/**/[...notFound]/**/page.*',
     ],
   });
-
-  const pages = [];
 
   pageFiles.forEach((file) => {
     let routePath = file
@@ -73,7 +121,7 @@ function run() {
     if (!routePath.includes('[lng]')) return;
 
     // [lng] 제거
-    let pagePath = routePath.replace('/[lng]', '') || '/';
+    const pagePath = routePath.replace('/[lng]', '') || '/';
 
     // 나머지 동적 세그먼트가 있으면 제외
     if (pagePath.includes('[')) return;
@@ -95,17 +143,49 @@ function run() {
       }
     });
 
-    pages.push({
+    mergePage(pagesByPath, {
       path: pagePath,
       access,
       ...(foundTitle ? { titles } : {}),
     });
   });
+}
 
-  // 중복 제거
-  const uniquePages = pages.filter(
-    (page, index, self) => index === self.findIndex((p) => p.path === page.path),
-  );
+function collectPrerenderedBlogPages(pagesByPath) {
+  const prerenderManifestPath = path.join(nextBuildDir, 'prerender-manifest.json');
+  if (!fs.existsSync(prerenderManifestPath)) return;
+
+  try {
+    const manifest = JSON.parse(fs.readFileSync(prerenderManifestPath, 'utf-8'));
+    const routes = Object.entries(manifest.routes || {});
+
+    routes.forEach(([routePath, routeMeta]) => {
+      if (routeMeta?.srcRoute !== '/[lng]/blog/[urlSlug]') return;
+
+      const localeMatch = routePath.match(/^\/(ko|en|ja|zh)(?=\/)/);
+      if (!localeMatch) return;
+
+      const lng = localeMatch[1];
+      const pagePath = stripLocalePrefix(routePath);
+      const title = getTitleFromBuiltHtml(routePath);
+
+      mergePage(pagesByPath, {
+        path: pagePath,
+        access: 'public',
+        ...(title ? { titles: { [lng]: title } } : {}),
+      });
+    });
+  } catch {
+    // prerender manifest 파싱 실패 시 블로그 상세 페이지 수집 생략
+  }
+}
+
+function run() {
+  const pagesByPath = new Map();
+  collectStaticAppPages(pagesByPath);
+  collectPrerenderedBlogPages(pagesByPath);
+
+  const uniquePages = Array.from(pagesByPath.values());
 
   // 경로 기준 정렬
   uniquePages.sort((a, b) => a.path.localeCompare(b.path));
