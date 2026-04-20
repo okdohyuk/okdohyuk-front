@@ -212,6 +212,16 @@ function writeJsonFile(filePath, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
+function writeGeneratedModule(filePath, data) {
+  ensureDirectory(path.dirname(filePath));
+  const moduleSource = `export const commandPalettePages = ${JSON.stringify(
+    data,
+    null,
+    2,
+  )} as const;\n\nexport default commandPalettePages;\n`;
+  fs.writeFileSync(filePath, moduleSource);
+}
+
 function run() {
   const pagesByPath = new Map();
   collectStaticAppPages(pagesByPath);
@@ -225,15 +235,14 @@ function run() {
     generatedAt: new Date().toISOString(),
   };
 
-  const outputPaths = [
-    path.join(publicDir, 'command-palette-pages.json'),
-    path.join(generatedDir, 'command-palette-pages.json'),
-  ];
+  const publicOutputPath = path.join(publicDir, 'command-palette-pages.json');
+  const moduleOutputPath = path.join(generatedDir, 'commandPalettePages.ts');
 
-  outputPaths.forEach((outputPath) => writeJsonFile(outputPath, output));
+  writeJsonFile(publicOutputPath, output);
+  writeGeneratedModule(moduleOutputPath, output);
 
   console.log(
-    `[Command Palette] Generated ${uniquePages.length} pages → ${outputPaths.join(', ')}`,
+    `[Command Palette] Generated ${uniquePages.length} pages → ${publicOutputPath}, ${moduleOutputPath}`,
   );
 }
 

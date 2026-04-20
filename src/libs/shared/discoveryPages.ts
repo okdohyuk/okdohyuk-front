@@ -1,5 +1,5 @@
 import { fallbackLng, type Language, languages } from '~/app/i18n/settings';
-import commandPalettePages from '~/generated/command-palette-pages.json';
+import commandPalettePagesDocument from '~/generated/commandPalettePages';
 
 export type DiscoveryPage = {
   path: string;
@@ -9,11 +9,11 @@ export type DiscoveryPage = {
 };
 
 type DiscoveryPagesDocument = {
-  pages: DiscoveryPage[];
+  pages: readonly DiscoveryPage[];
   generatedAt?: string;
 };
 
-const discoveryPagesDocument = commandPalettePages as DiscoveryPagesDocument;
+const discoveryPagesDocument = commandPalettePagesDocument as DiscoveryPagesDocument;
 
 const excludedFeaturedPaths = new Set(['/auth/login', '/blog', '/privacy', '/terms']);
 

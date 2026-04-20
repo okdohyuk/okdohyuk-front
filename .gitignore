@@ -62,4 +62,3 @@ tsconfig.tsbuildinfo
 public/command-palette-pages.json
 .omx/
 
-src/generated/

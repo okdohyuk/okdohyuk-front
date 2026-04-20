@@ -127,8 +127,8 @@
     "webpack": "^5"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --cache --fix",
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix --no-warn-ignored",
       "prettier --write"
     ],
     "*.{json,md,css,scss,ts,tsx,js,jsx}": [
