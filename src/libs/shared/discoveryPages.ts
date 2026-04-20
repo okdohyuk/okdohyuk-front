@@ -1,5 +1,5 @@
 import { fallbackLng, type Language, languages } from '~/app/i18n/settings';
-import commandPalettePages from '../../../public/command-palette-pages.json';
+import commandPalettePages from '~/generated/command-palette-pages.json';
 
 export type DiscoveryPage = {
   path: string;

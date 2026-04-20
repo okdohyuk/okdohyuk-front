@@ -1,4 +1,4 @@
-/** @description 빌드 후 locale + sitemap/HTML 정보를 조합해 Command Palette 페이지 데이터를 생성합니다. */
+/** @description locale + build artifacts를 조합해 Command Palette / discovery 페이지 데이터를 생성합니다. */
 
 const { globSync } = require('glob');
 const path = require('path');
@@ -7,8 +7,14 @@ const fs = require('fs');
 const projectRoot = path.resolve(__dirname, '..');
 const localesDir = path.join(projectRoot, 'src', 'assets', 'locales');
 const nextBuildDir = path.join(projectRoot, '.next');
+const generatedDir = path.join(projectRoot, 'src', 'generated');
+const publicDir = path.join(projectRoot, 'public');
 const languages = ['ko', 'en', 'ja', 'zh'];
 const localePrefixPattern = new RegExp(`^/(${languages.join('|')})(?=/|$)`);
+
+function ensureDirectory(dirPath) {
+  fs.mkdirSync(dirPath, { recursive: true });
+}
 
 function readLocaleNamespace(ns, lng) {
   const candidates = [
@@ -150,8 +156,7 @@ function collectStaticAppPages(pagesByPath) {
     const pagePath = routePath.replace('/[lng]', '') || '/';
     if (pagePath.includes('[')) return;
 
-    const isAdmin = pagePath.startsWith('/admin');
-    const access = isAdmin ? 'admin' : 'public';
+    const access = pagePath.startsWith('/admin') ? 'admin' : 'public';
     const ns = pathToNamespace(pagePath);
     const titles = {};
     const descriptions = {};
@@ -202,6 +207,11 @@ function collectPrerenderedBlogPages(pagesByPath) {
   }
 }
 
+function writeJsonFile(filePath, data) {
+  ensureDirectory(path.dirname(filePath));
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+}
+
 function run() {
   const pagesByPath = new Map();
   collectStaticAppPages(pagesByPath);
@@ -215,9 +225,16 @@ function run() {
     generatedAt: new Date().toISOString(),
   };
 
-  const outputPath = path.join(projectRoot, 'public', 'command-palette-pages.json');
-  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
-  console.log(`[Command Palette] Generated ${uniquePages.length} pages → ${outputPath}`);
+  const outputPaths = [
+    path.join(publicDir, 'command-palette-pages.json'),
+    path.join(generatedDir, 'command-palette-pages.json'),
+  ];
+
+  outputPaths.forEach((outputPath) => writeJsonFile(outputPath, output));
+
+  console.log(
+    `[Command Palette] Generated ${uniquePages.length} pages → ${outputPaths.join(', ')}`,
+  );
 }
 
 run();

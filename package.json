@@ -16,7 +16,10 @@
     "test:coverage": "vitest run --coverage",
     "test:precommit": "vitest run --passWithNoTests",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "generate-command-palette-data": "node scripts/generateCommandPaletteData.js",
+    "prebuild": "node scripts/generateCommandPaletteData.js",
+    "pretest": "node scripts/generateCommandPaletteData.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
