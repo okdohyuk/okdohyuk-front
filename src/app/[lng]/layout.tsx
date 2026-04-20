@@ -9,6 +9,7 @@ import CommonLayout from '@components/complex/Layout/CommonLayout';
 import Footer from '@components/complex/Layout/Footer';
 import { ReactQueryProvider } from '@components/complex/Layout/QueryClient';
 import GoogleAdsense from '@components/google/GoogleAdsense';
+import AgentWebMcp from '@components/agent/AgentWebMcp';
 import '~/styles/globals.css';
 import { Language, languages } from '~/app/i18n/settings';
 import { StoreProvider } from './provider';
@@ -49,6 +50,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
           <ReactQueryProvider>
             <CommonLayout>{children}</CommonLayout>
             <Footer lng={language} />
+            <AgentWebMcp language={language} />
             {enableThirdPartyTracking && (
               <>
                 <Analytics />

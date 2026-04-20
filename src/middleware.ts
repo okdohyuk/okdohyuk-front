@@ -2,9 +2,16 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import acceptLanguage from 'accept-language';
 import { AxiosError } from 'axios';
-import { authApi } from '@api'; // API 클라이언트
+import { authApi } from '@api';
+import {
+  appendAgentDiscoveryHeaders,
+  buildRouteMarkdown,
+  estimateMarkdownTokens,
+  isDiscoveryBypassPath,
+  isMarkdownRequest,
+} from '@libs/shared/agentDiscovery';
 import Jwt from '~/utils/jwtUtils';
-import { cookieName, fallbackLng, languages } from '~/app/i18n/settings';
+import { cookieName, fallbackLng, languages, type Language } from '~/app/i18n/settings';
 import logger from '@utils/logger';
 
 acceptLanguage.languages([...languages]);
@@ -12,39 +19,91 @@ acceptLanguage.languages([...languages]);
 const ONE_HOUR_IN_MS = 3600000;
 const isProduction = process.env.NODE_ENV === 'production';
 
-export async function middleware(req: NextRequest) {
-  const response = NextResponse.next(); // 기본 응답 객체
-
-  // 1. i18n 처리
+function resolvePreferredLanguage(req: NextRequest): Language {
   let lng;
   if (req.cookies.has(cookieName)) lng = acceptLanguage.get(req.cookies.get(cookieName)!.value);
   if (!lng) lng = acceptLanguage.get(req.headers.get('Accept-Language'));
   if (!lng) lng = fallbackLng;
 
-  // /... -> /[lng]/... if lng is not in the path
-  if (
-    !languages.some(
-      (loc) =>
-        req.nextUrl.pathname.split('/')[1] === loc && !req.nextUrl.pathname.startsWith('/_next'),
-    )
-  ) {
-    return NextResponse.redirect(
-      new URL(`/${lng}/${req.nextUrl.pathname}${req.nextUrl.search}`, req.url),
+  return lng as Language;
+}
+
+function normalizePathname(pathname: string) {
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    return pathname.slice(0, -1);
+  }
+
+  return pathname;
+}
+
+function isHomepagePath(pathname: string) {
+  const normalizedPathname = normalizePathname(pathname);
+
+  return (
+    normalizedPathname === '/' ||
+    languages.some((language) => normalizedPathname === `/${language}`)
+  );
+}
+
+function attachHomepageHeadersIfNeeded(pathname: string, response: NextResponse) {
+  if (isHomepagePath(pathname)) {
+    appendAgentDiscoveryHeaders(response.headers);
+  }
+}
+
+export async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+  const [, pathnameLocale] = pathname.split('/');
+
+  if (isDiscoveryBypassPath(pathname)) {
+    return NextResponse.next();
+  }
+
+  const lng = resolvePreferredLanguage(req);
+
+  if (isMarkdownRequest(req.headers.get('accept'))) {
+    const requestedLanguage = languages.find(
+      (language) => pathname === `/${language}` || pathname.startsWith(`/${language}/`),
     );
+    const markdownLanguage = requestedLanguage ?? lng;
+    let localizedPath = pathname;
+    if (!requestedLanguage) {
+      localizedPath = pathname === '/' ? `/${markdownLanguage}` : `/${markdownLanguage}${pathname}`;
+    }
+    const markdown = buildRouteMarkdown(markdownLanguage, localizedPath);
+    const response = new NextResponse(markdown, {
+      headers: {
+        'Content-Type': 'text/markdown; charset=utf-8',
+        'x-markdown-tokens': estimateMarkdownTokens(markdown).toString(),
+      },
+    });
+
+    appendAgentDiscoveryHeaders(response.headers);
+    return response;
+  }
+
+  const response = NextResponse.next();
+
+  if (!languages.some((loc) => pathnameLocale === loc && !pathname.startsWith('/_next'))) {
+    const redirectResponse = NextResponse.redirect(
+      new URL(`/${lng}${pathname === '/' ? '' : pathname}${req.nextUrl.search}`, req.url),
+    );
+    attachHomepageHeadersIfNeeded(pathname, redirectResponse);
+    return redirectResponse;
   }
 
   if (req.headers.has('referer')) {
     const refererUrl = new URL(req.headers.get('referer')!);
-    const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`));
+    const lngInReferer = languages.find((language) =>
+      refererUrl.pathname.startsWith(`/${language}`),
+    );
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
   }
 
-  // 2. 세션 ID 생성
   if (!req.cookies.has('SessionId')) {
     response.cookies.set('SessionId', crypto.randomUUID());
   }
 
-  // 3. 토큰 리프레시 로직
   const accessToken = req.cookies.get('access_token')?.value;
   const refreshToken = req.cookies.get('refresh_token')?.value;
   const userInfoRaw = req.cookies.get('user_info')?.value;
@@ -55,17 +114,11 @@ export async function middleware(req: NextRequest) {
       userId = userInfo?.id;
     } catch (e) {
       logger.error('Middleware: Failed to parse user_info cookie', e);
-      // user_info 파싱 실패 시 쿠키 삭제 고려
       response.cookies.delete('user_info');
     }
   }
 
-  // 사용자 요청: 리프레시 토큰이 없거나, 사용자 ID가 없는 경우 로그아웃 처리.
-  // 이는 액세스 토큰만 있고 필수 정보(리프레시 토큰 또는 사용자 ID)가 없는 경우를 포함합니다.
-  // 이 조건은 토큰 리프레시 시도 전에 확인되어야 합니다.
   if (!refreshToken || !userId) {
-    // 현재 요청에 인증 관련 쿠키가 하나라도 설정되어 있었다면, 클리어를 진행합니다.
-    // 이는 불필요한 쿠키 삭제 연산을 방지하고, 실제로 로그아웃이 필요한 상황인지 명확히 합니다.
     if (
       req.cookies.has('access_token') ||
       req.cookies.has('refresh_token') ||
@@ -89,7 +142,7 @@ export async function middleware(req: NextRequest) {
       }
     } catch (e) {
       logger.error('Middleware: Failed to parse access token for expiry check', e);
-      needsRefresh = true; // 파싱 실패 시 안전하게 리프레시 시도
+      needsRefresh = true;
     }
   }
 
@@ -100,7 +153,7 @@ export async function middleware(req: NextRequest) {
       const newRefreshTokenValue = refreshResponse.data.refresh_token;
 
       if (newAccessToken) {
-        let accessTokenExp = new Date(Date.now() + 24 * 60 * 60 * 1000); // 기본 1일
+        let accessTokenExp = new Date(Date.now() + 24 * 60 * 60 * 1000);
         try {
           const payload = Jwt.getPayload(newAccessToken);
           if (payload.exp) accessTokenExp = new Date(payload.exp * 1000);
@@ -115,11 +168,10 @@ export async function middleware(req: NextRequest) {
           sameSite: 'strict',
           secure: isProduction,
           expires: accessTokenExp,
-          // httpOnly: true,
         });
 
         if (newRefreshTokenValue) {
-          let refreshTokenExp = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 기본 7일
+          let refreshTokenExp = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
           try {
             const payload = Jwt.getPayload(newRefreshTokenValue);
             if (payload.exp) refreshTokenExp = new Date(payload.exp * 1000);
@@ -134,14 +186,12 @@ export async function middleware(req: NextRequest) {
             sameSite: 'strict',
             secure: isProduction,
             expires: refreshTokenExp,
-            // httpOnly: true,
           });
         }
       }
     } catch (errUnknown) {
       logger.error('Middleware: Token refresh failed:', errUnknown);
       if (errUnknown instanceof AxiosError && errUnknown.response?.status === 401) {
-        // 리프레시 실패 (401) 시 쿠키 삭제
         response.cookies.delete('access_token');
         response.cookies.delete('refresh_token');
         response.cookies.delete('user_info');
@@ -149,7 +199,8 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  return response; // 최종 응답 반환
+  attachHomepageHeadersIfNeeded(pathname, response);
+  return response;
 }
 
 export const config = {
