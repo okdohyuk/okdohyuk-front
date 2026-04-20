@@ -1,4 +1,4 @@
-/** @description 빌드 후 사이트맵 기반으로 Command Palette 페이지 데이터를 생성합니다. */
+/** @description 빌드 후 locale + sitemap/HTML 정보를 조합해 Command Palette 페이지 데이터를 생성합니다. */
 
 const { globSync } = require('glob');
 const path = require('path');
@@ -10,8 +10,7 @@ const nextBuildDir = path.join(projectRoot, '.next');
 const languages = ['ko', 'en', 'ja', 'zh'];
 const localePrefixPattern = new RegExp(`^/(${languages.join('|')})(?=/|$)`);
 
-function getTitle(ns, lng) {
-  // 네임스페이스 경로에서 locale 파일 찾기
+function readLocaleNamespace(ns, lng) {
   const candidates = [
     path.join(localesDir, lng, `${ns}.json`),
     path.join(localesDir, lng, `${ns}/index.json`),
@@ -20,14 +19,27 @@ function getTitle(ns, lng) {
   for (const filePath of candidates) {
     if (!fs.existsSync(filePath)) continue;
     try {
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      // openGraph.title 또는 title 키 시도
-      return data.openGraph?.title || data.openGraph?.defaultTitle || data.title || null;
+      return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     } catch {
       // 파싱 실패 시 무시
     }
   }
+
   return null;
+}
+
+function getPageMetadata(ns, lng) {
+  const data = readLocaleNamespace(ns, lng);
+  if (!data) return null;
+
+  const title = data.openGraph?.title || data.openGraph?.defaultTitle || data.title || null;
+  const description = data.openGraph?.description || data.description || null;
+
+  if (!title && !description) {
+    return null;
+  }
+
+  return { title, description };
 }
 
 function pathToNamespace(pagePath) {
@@ -49,19 +61,40 @@ function decodeHtmlEntities(text) {
     .replace(/&#39;/g, "'");
 }
 
-function getTitleFromBuiltHtml(routePath) {
+function getMetadataFromBuiltHtml(routePath) {
   const htmlPath = path.join(nextBuildDir, 'server', 'app', `${routePath}.html`);
   if (!fs.existsSync(htmlPath)) return null;
 
   try {
     const html = fs.readFileSync(htmlPath, 'utf-8');
     const titleMatch = html.match(/<title>(.*?)<\/title>/i);
-    if (!titleMatch?.[1]) return null;
+    const descriptionMatch = html.match(
+      /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/i,
+    );
 
-    return decodeHtmlEntities(titleMatch[1]).trim() || null;
+    const title = titleMatch?.[1] ? decodeHtmlEntities(titleMatch[1]).trim() : null;
+    const description = descriptionMatch?.[1]
+      ? decodeHtmlEntities(descriptionMatch[1]).trim()
+      : null;
+
+    if (!title && !description) return null;
+
+    return { title, description };
   } catch {
     return null;
   }
+}
+
+function mergeLocalizedMaps(existingMap, nextMap) {
+  const hasExisting = existingMap && Object.keys(existingMap).length > 0;
+  const hasNext = nextMap && Object.keys(nextMap).length > 0;
+
+  if (!hasExisting && !hasNext) return undefined;
+
+  return {
+    ...(existingMap || {}),
+    ...(nextMap || {}),
+  };
 }
 
 function mergePage(pagesByPath, page) {
@@ -72,15 +105,14 @@ function mergePage(pagesByPath, page) {
     return;
   }
 
-  const mergedTitles =
-    existing.titles || page.titles
-      ? { ...(existing.titles || {}), ...(page.titles || {}) }
-      : undefined;
+  const mergedTitles = mergeLocalizedMaps(existing.titles, page.titles);
+  const mergedDescriptions = mergeLocalizedMaps(existing.descriptions, page.descriptions);
 
   pagesByPath.set(page.path, {
     ...existing,
     ...page,
     ...(mergedTitles ? { titles: mergedTitles } : {}),
+    ...(mergedDescriptions ? { descriptions: mergedDescriptions } : {}),
   });
 }
 
@@ -102,7 +134,6 @@ function collectStaticAppPages(pagesByPath) {
       .replace(/page\.(js|jsx|ts|tsx)$/, '')
       .replace(/\/$/, '');
 
-    // 라우트 그룹 제거 (mobile), (search) 등
     routePath = routePath
       .split('/')
       .filter((segment) => !(segment.startsWith('(') && segment.endsWith(')')))
@@ -110,43 +141,33 @@ function collectStaticAppPages(pagesByPath) {
 
     if (routePath === '') routePath = '/';
 
-    // 선택적 catch-all 제거
     routePath = routePath.replace(/\/\[\[\.\.\..*?\]\]$/, '');
     if (routePath === '') routePath = '/';
 
-    // catch-all 라우트 제외
     if (routePath.includes('[...')) return;
-
-    // [lng] 라우트만 처리
     if (!routePath.includes('[lng]')) return;
 
-    // [lng] 제거
     const pagePath = routePath.replace('/[lng]', '') || '/';
-
-    // 나머지 동적 세그먼트가 있으면 제외
     if (pagePath.includes('[')) return;
 
-    // 권한 레벨 결정 (미들웨어 텍스트 기반)
     const isAdmin = pagePath.startsWith('/admin');
     const access = isAdmin ? 'admin' : 'public';
-
-    // 로케일 파일에서 타이틀 가져오기
     const ns = pathToNamespace(pagePath);
     const titles = {};
-    let foundTitle = false;
+    const descriptions = {};
 
     languages.forEach((lng) => {
-      const title = getTitle(ns, lng);
-      if (title) {
-        titles[lng] = title;
-        foundTitle = true;
-      }
+      const metadata = getPageMetadata(ns, lng);
+      if (!metadata) return;
+      if (metadata.title) titles[lng] = metadata.title;
+      if (metadata.description) descriptions[lng] = metadata.description;
     });
 
     mergePage(pagesByPath, {
       path: pagePath,
       access,
-      ...(foundTitle ? { titles } : {}),
+      ...(Object.keys(titles).length > 0 ? { titles } : {}),
+      ...(Object.keys(descriptions).length > 0 ? { descriptions } : {}),
     });
   });
 }
@@ -167,12 +188,13 @@ function collectPrerenderedBlogPages(pagesByPath) {
 
       const lng = localeMatch[1];
       const pagePath = stripLocalePrefix(routePath);
-      const title = getTitleFromBuiltHtml(routePath);
+      const metadata = getMetadataFromBuiltHtml(routePath);
 
       mergePage(pagesByPath, {
         path: pagePath,
         access: 'public',
-        ...(title ? { titles: { [lng]: title } } : {}),
+        ...(metadata?.title ? { titles: { [lng]: metadata.title } } : {}),
+        ...(metadata?.description ? { descriptions: { [lng]: metadata.description } } : {}),
       });
     });
   } catch {
@@ -186,8 +208,6 @@ function run() {
   collectPrerenderedBlogPages(pagesByPath);
 
   const uniquePages = Array.from(pagesByPath.values());
-
-  // 경로 기준 정렬
   uniquePages.sort((a, b) => a.path.localeCompare(b.path));
 
   const output = {
