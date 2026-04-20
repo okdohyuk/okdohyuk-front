@@ -28,6 +28,8 @@ export default [
       'coverage/**',
       '.next/**',
       'public/**',
+      'scripts/**',
+      'src/generated/**',
     ],
   },
   ...compat.extends(
