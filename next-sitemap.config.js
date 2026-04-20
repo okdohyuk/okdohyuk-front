@@ -6,7 +6,7 @@ const { globSync } = require('glob'); // glob 라이브러리 추가
 module.exports = {
   siteUrl: siteUrl,
   changefreq: 'daily',
-  generateRobotsTxt: true,
+  generateRobotsTxt: false,
   priority: 1,
   exclude: ['/server-sitemap.xml'],
   robotsTxtOptions: {

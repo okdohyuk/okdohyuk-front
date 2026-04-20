@@ -60,3 +60,5 @@ coverage
 .eslintcache
 tsconfig.tsbuildinfo
 public/command-palette-pages.json
+.omx/
+
