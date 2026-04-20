@@ -230,16 +230,20 @@ function run() {
   const uniquePages = Array.from(pagesByPath.values());
   uniquePages.sort((a, b) => a.path.localeCompare(b.path));
 
-  const output = {
+  const generatedAt = new Date().toISOString();
+  const publicOutput = {
     pages: uniquePages,
-    generatedAt: new Date().toISOString(),
+    generatedAt,
+  };
+  const moduleOutput = {
+    pages: uniquePages,
   };
 
   const publicOutputPath = path.join(publicDir, 'command-palette-pages.json');
   const moduleOutputPath = path.join(generatedDir, 'commandPalettePages.ts');
 
-  writeJsonFile(publicOutputPath, output);
-  writeGeneratedModule(moduleOutputPath, output);
+  writeJsonFile(publicOutputPath, publicOutput);
+  writeGeneratedModule(moduleOutputPath, moduleOutput);
 
   console.log(
     `[Command Palette] Generated ${uniquePages.length} pages → ${publicOutputPath}, ${moduleOutputPath}`,

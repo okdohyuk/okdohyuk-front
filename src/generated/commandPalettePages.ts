@@ -1012,8 +1012,7 @@ export const commandPalettePages = {
         "zh": "免费饮水量计算器，可根据体重(kg)、活动量和气候估算个性化每日补水目标，并以升、杯、瓶多种单位展示，帮助建立稳定补水习惯。"
       }
     }
-  ],
-  "generatedAt": "2026-04-20T04:34:45.471Z"
+  ]
 } as const;
 
 export default commandPalettePages;
