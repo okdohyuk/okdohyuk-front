@@ -6,3 +6,4 @@ updates:
       interval: "daily"
     # 아래 설정을 추가합니다
     target-branch: "develop"
+    open-pull-requests-limit: 10
