@@ -7,4 +7,5 @@ updates:
     # 아래 설정을 추가합니다
     target-branch: "develop"
     open-pull-requests-limit: 10
-    vulnerability-threshold: "critical"
+    allow:
+      - dependency-type: "none"
