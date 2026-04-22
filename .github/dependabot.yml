@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    # 보안 및 버전 업데이트 PR이 이동할 대상 브랜치
+    target-branch: "develop"
+    # 일반적인 버전 업데이트가 너무 많아지는 것을 방지하기 위해
+    # 한번에 열려 있을 수 있는 PR 개수를 제한합니다.
+    open-pull-requests-limit: 5
