@@ -120,7 +120,7 @@
     "lighthouse": "^13.0.1",
     "lint-staged": "^16.2.3",
     "postcss": "^8",
-    "prettier": "^2",
+    "prettier": "^3",
     "storybook": "^10.2.7",
     "tailwindcss": "^4.1.18",
     "vitest": "^2.1.4",
