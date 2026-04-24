@@ -12954,7 +12954,7 @@ __metadata:
     react-i18next: "npm:~15.5.1"
     react-intersection-observer: "npm:^10.0.2"
     react-modern-drawer: "npm:~1.4.0"
-    react-share: "npm:^4.4.1"
+    react-share: "npm:^5.3.0"
     server-only: "npm:^0.0.1"
     sharp: "npm:0.33.5"
     storybook: "npm:^10.2.7"
@@ -14027,15 +14027,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-share@npm:^4.4.1":
-  version: 4.4.1
-  resolution: "react-share@npm:4.4.1"
+"react-share@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "react-share@npm:5.3.0"
   dependencies:
     classnames: "npm:^2.3.2"
     jsonp: "npm:^0.2.1"
   peerDependencies:
-    react: ^16.3.0 || ^17 || ^18
-  checksum: 10c0/9670ab18c1b7711a3501c6c8fdf62c596d6ac23137760b5792ef85ce35b6c51f478ab515f148ba47f7a2583ee570fafb317848d4ffe3f9d23b4e02d308079deb
+    react: ^17 || ^18 || ^19
+  checksum: 10c0/0fb75c384dde13925c0a028eb7c33898a7d1b511aa9cf0089229eea429e336f20729bcb32edc7e5cd92179619af19dcfa0906e9200a812f054ec6cb65fb831d2
   languageName: node
   linkType: hard
 
