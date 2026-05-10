@@ -24,7 +24,7 @@ export function CodeBlock({ title, code, id, tooltip }: CodeBlockProps) {
       <button
         id={id}
         type="button"
-        className="w-full cursor-pointer break-all rounded-lg bg-zinc-900 p-3 text-left font-mono text-xs text-zinc-100 transition-opacity hover:opacity-90"
+        className="w-full cursor-pointer break-all rounded-lg bg-basic-1 p-3 text-left font-mono text-xs text-fg-7 transition-opacity hover:opacity-90"
         onClick={handleCopy}
         title={tooltip}
         aria-label={`Copy ${title} code`}

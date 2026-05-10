@@ -45,9 +45,7 @@ export function GeneratorTabs({
               variant="d3"
               className={cn(
                 'font-medium',
-                isActive
-                  ? 'text-point-fg'
-                  : 'text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200',
+                isActive ? 'text-point-fg' : 'text-fg-5 hover:text-fg-3',
               )}
             >
               {tab.label}

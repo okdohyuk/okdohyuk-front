@@ -16,7 +16,7 @@ function BlogHeader() {
     <Link
       key={category}
       href={`/blog?categoryIn=${categoryChain.slice(0, index + 1).join(',')}`}
-      className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-xs font-semibold text-zinc-100 backdrop-blur-sm transition-colors hover:border-point-2/80 hover:text-white"
+      className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-xs font-semibold text-fg-7 backdrop-blur-sm transition-colors hover:border-point-2/80 hover:text-white"
     >
       {category}
     </Link>
@@ -50,7 +50,7 @@ function BlogHeader() {
           </span>
           <Link
             href={`/admin/blog/write?urlSlug=${urlSlug}`}
-            className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-zinc-200 transition-colors hover:border-point-2/80 hover:text-white"
+            className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-fg-7 transition-colors hover:border-point-2/80 hover:text-white"
           >
             수정
           </Link>

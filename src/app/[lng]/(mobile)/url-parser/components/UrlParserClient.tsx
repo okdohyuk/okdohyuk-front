@@ -202,7 +202,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
             {fields.map((field) => (
               <div key={field.key} className="space-y-2">
                 <div className="flex items-center justify-between gap-2">
-                  <Text variant="d3" className="font-medium text-zinc-700 dark:text-zinc-300">
+                  <Text variant="d3" className="font-medium text-fg-3">
                     {t(`fields.${field.key}` as const)}
                   </Text>
                   <Button

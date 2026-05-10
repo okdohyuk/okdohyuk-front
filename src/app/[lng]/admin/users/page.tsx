@@ -189,7 +189,7 @@ export default function AdminUsersPage({ params }: LanguageParams) {
                         </select>
                       </div>
                     </td>
-                    <td className="whitespace-nowrap px-4 py-3 text-zinc-500 dark:text-zinc-400">
+                    <td className="whitespace-nowrap px-4 py-3 text-fg-5">
                       {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : '-'}
                     </td>
                   </tr>
