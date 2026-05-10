@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from '@components/basic/Select';
 import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 import { cn } from '@utils/cn';
 import type { Language } from '~/app/i18n/settings';
 
@@ -135,6 +136,8 @@ export default function WaterIntakeClient({ lng }: Props) {
           )}
         </div>
       </section>
+
+      {result && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
 
       <section className={cn(SERVICE_PANEL, 'p-4 space-y-3')}>
         <header className="space-y-1">

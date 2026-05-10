@@ -16,6 +16,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface BedtimePlannerClientProps {
   lng: Language;
@@ -143,6 +144,8 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
           ))}
         </ul>
       </div>
+
+      {results.length > 0 && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
     </div>
   );
 }

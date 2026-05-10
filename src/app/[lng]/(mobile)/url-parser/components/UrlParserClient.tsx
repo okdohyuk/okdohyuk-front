@@ -21,6 +21,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 type UrlParserClientProps = {
   lng: Language;
@@ -225,6 +226,8 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
           </div>
         ) : null}
       </div>
+
+      {parsed.url && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <Text variant="d2" className="font-semibold text-fg-3">

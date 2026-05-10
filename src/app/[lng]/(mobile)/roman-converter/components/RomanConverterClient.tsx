@@ -11,6 +11,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 type RomanConverterClientProps = {
   lng: Language;
@@ -268,6 +269,9 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
           placeholder={t('empty')}
         />
       </div>
+      {(romanOutput || parsedRoman.value) && (
+        <GoogleAd slotId="9185479703" className="w-full mt-4" />
+      )}
     </div>
   );
 }

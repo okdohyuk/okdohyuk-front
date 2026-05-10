@@ -10,6 +10,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface SalesTaxCalculatorClientProps {
   lng: Language;
@@ -102,6 +103,8 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
           </Button>
         </div>
       </section>
+
+      {price && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
 
       <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
         <h3 className="text-base font-semibold text-fg-1">{t('summary.title')}</h3>

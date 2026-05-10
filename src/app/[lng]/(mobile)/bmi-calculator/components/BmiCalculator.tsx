@@ -12,6 +12,7 @@ import {
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Copy, RefreshCcw } from 'lucide-react';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface BmiCalculatorProps {
   lng: Language;
@@ -171,6 +172,8 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
           </div>
         )}
       </section>
+
+      {result?.valid && result.bmi && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
 
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <Text variant="d2" className="block font-semibold">

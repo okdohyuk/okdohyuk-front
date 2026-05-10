@@ -10,6 +10,7 @@ import {
   SERVICE_PANEL,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface LottoGeneratorStrings {
   settingsTitle: string;
@@ -318,6 +319,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
           </div>
         )}
       </section>
+      {results.length > 0 && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { cn } from '@utils/cn';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 import JwtTokenInput from './JwtTokenInput';
 import JwtDecodedPanel from './JwtDecodedPanel';
 
@@ -71,6 +72,7 @@ function JwtDecoderClient({ lng }: JwtDecoderClientProps) {
           emptyText="// Payload"
         />
       </div>
+      {decoded && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
     </div>
   );
 }

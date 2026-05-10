@@ -4,6 +4,7 @@ import React, { useId, useMemo, useState } from 'react';
 import { Button } from '@components/basic/Button';
 import { Input } from '@components/basic/Input';
 import { Text } from '@components/basic/Text';
+import GoogleAd from '@components/google/GoogleAd';
 import { calculateDateRange, formatDateInput } from '../utils/dateDiff';
 
 type Labels = {
@@ -164,6 +165,7 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
           </div>
         ) : null}
       </div>
+      {result ? <GoogleAd slotId="9185479703" className="w-full mt-4" /> : null}
     </div>
   );
 }

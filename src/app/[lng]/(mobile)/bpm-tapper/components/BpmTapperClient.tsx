@@ -12,6 +12,7 @@ import {
   SERVICE_PANEL,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface BpmTapperClientProps {
   lng: Language;
@@ -115,6 +116,8 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
           </Button>
         </div>
       </section>
+
+      {bpm !== null && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
     </div>
   );
 }

@@ -16,6 +16,7 @@ import {
 } from '@components/basic/Select';
 import { cn } from '@utils/cn';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 type PercentCalculatorCardProps = {
   calculatorName: keyof PercentCalculators;
@@ -111,6 +112,9 @@ function PercentCalculatorCard({
           <span className="t-d-2 t-basic-1">{text[3]}</span>
         </div>
       </div>
+      {calculator.primaryNumber && calculator.secondaryNumber && (
+        <GoogleAd slotId="9185479703" className="w-full mt-4" />
+      )}
     </div>
   );
 }

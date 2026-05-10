@@ -13,6 +13,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import { parse, stringify } from 'yaml';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface JsonYamlConverterClientProps {
   lng: Language;
@@ -223,6 +224,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
             value={output}
           />
         </div>
+        {output && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
       </div>
     </div>
   );

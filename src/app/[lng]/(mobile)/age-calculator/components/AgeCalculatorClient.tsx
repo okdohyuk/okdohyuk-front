@@ -28,6 +28,7 @@ import {
   SERVICE_PANEL,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface AgeCalculatorClientProps {
   lng: Language;
@@ -226,6 +227,8 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
           </div>
         )}
       </div>
+
+      {result.data && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-4')}>
         <Text asChild variant="d2" color="basic-4">

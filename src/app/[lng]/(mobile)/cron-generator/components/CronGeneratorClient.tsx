@@ -7,6 +7,7 @@ import { Text } from '@components/basic/Text';
 import ServiceInfoNotice from '@components/complex/Service/ServiceInfoNotice';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
+import GoogleAd from '@components/google/GoogleAd';
 import CronExpressionInput from './CronExpressionInput';
 import CronFieldBuilder, { CronFieldMode } from './CronFieldBuilder';
 import CronGuideGrid from './CronGuideGrid';
@@ -246,6 +247,9 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
       {error && <p className="animate-pulse text-sm font-medium text-danger-2">{error}</p>}
 
       <CronResultCard title={t('label.result')} result={humanReadable || '-'} />
+
+      {humanReadable && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+
       <CronGuideGrid
         minuteLabel={t('label.minute')}
         hourLabel={t('label.hour')}

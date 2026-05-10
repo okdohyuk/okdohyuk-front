@@ -12,6 +12,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface SlugGeneratorClientProps {
   lng: Language;
@@ -82,6 +83,7 @@ export default function SlugGeneratorClient({ lng }: SlugGeneratorClientProps) {
           placeholder={t('empty')}
         />
       </div>
+      {slug && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
     </div>
   );
 }

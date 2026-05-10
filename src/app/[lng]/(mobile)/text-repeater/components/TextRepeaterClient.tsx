@@ -12,6 +12,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface TextRepeaterClientProps {
   lng: Language;
@@ -124,6 +125,7 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
           readOnly
           placeholder={t('empty')}
         />
+        {output && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
       </div>
     </div>
   );

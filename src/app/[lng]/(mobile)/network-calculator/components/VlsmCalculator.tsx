@@ -20,6 +20,7 @@ import {
 } from '@components/complex/Service/interactiveStyles';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
+import GoogleAd from '@components/google/GoogleAd';
 import {
   calculateVlsm,
   cidrToSubnetMask,
@@ -350,6 +351,8 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
           </div>
         )}
       </div>
+
+      {result && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
     </div>
   );
 }

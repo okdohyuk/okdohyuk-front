@@ -10,6 +10,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 const MAX_COINS = 20;
 
@@ -70,81 +71,88 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
   };
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
-        <div className="space-y-2">
-          <label htmlFor="coin-count" className="text-sm font-medium text-fg-3">
-            {t('label.count')}
-          </label>
-          <Input
-            id="coin-count"
-            type="number"
-            min={1}
-            max={MAX_COINS}
-            value={countInput}
-            onChange={(event) => setCountInput(event.target.value)}
-            className="font-mono"
-          />
-          <p className="text-xs text-fg-5">{t('helper')}</p>
-        </div>
-
-        <div className="flex flex-wrap gap-2">
-          <Button onClick={handleFlip} className="px-4 py-2 text-sm">
-            {t('button.flip')}
-          </Button>
-          <Button
-            onClick={handleReset}
-            className="px-4 py-2 text-sm bg-basic-2 hover:bg-basic-3 text-fg-1"
-          >
-            {t('button.reset')}
-          </Button>
-        </div>
-
-        <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-3')}>
-          <p className="text-sm font-semibold text-fg-2">{t('summary.title')}</p>
-          <div className="flex flex-wrap gap-2 text-xs font-medium text-fg-4">
-            <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
-              {t('summary.total', { count: summary.total || safeCount })}
-            </span>
-            <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
-              {t('summary.heads', { count: summary.heads })}
-            </span>
-            <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
-              {t('summary.tails', { count: summary.tails })}
-            </span>
+    <div className="space-y-4">
+      <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
+        <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
+          <div className="space-y-2">
+            <label htmlFor="coin-count" className="text-sm font-medium text-fg-3">
+              {t('label.count')}
+            </label>
+            <Input
+              id="coin-count"
+              type="number"
+              min={1}
+              max={MAX_COINS}
+              value={countInput}
+              onChange={(event) => setCountInput(event.target.value)}
+              className="font-mono"
+            />
+            <p className="text-xs text-fg-5">{t('helper')}</p>
           </div>
-        </div>
-      </section>
 
-      <section
-        className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4 min-h-[240px]')}
-      >
-        <h3 className="text-sm font-semibold text-fg-2">{t('result.title')}</h3>
-        {results.length === 0 ? (
-          <p className="text-sm text-fg-5">{t('result.empty')}</p>
-        ) : (
-          <ul className="grid gap-2">
-            {results.map((result, index) => (
-              <li
-                key={result.id}
-                className="flex items-center justify-between rounded-xl border border-basic-3 bg-basic-0/80 px-3 py-2 text-sm text-fg-2 shadow-sm"
-              >
-                <span className="font-medium">{t('result.coinLabel', { index: index + 1 })}</span>
-                <span
-                  className={cn(
-                    'rounded-full px-2 py-0.5 text-xs font-semibold',
-                    result.value === 'heads'
-                      ? 'bg-point-1/15 text-point-fg'
-                      : 'bg-point-4/40 text-fg-3',
-                  )}
+          <div className="flex flex-wrap gap-2">
+            <Button onClick={handleFlip} className="px-4 py-2 text-sm">
+              {t('button.flip')}
+            </Button>
+            <Button
+              onClick={handleReset}
+              className="px-4 py-2 text-sm bg-basic-2 hover:bg-basic-3 text-fg-1"
+            >
+              {t('button.reset')}
+            </Button>
+          </div>
+
+          <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-3')}>
+            <p className="text-sm font-semibold text-fg-2">{t('summary.title')}</p>
+            <div className="flex flex-wrap gap-2 text-xs font-medium text-fg-4">
+              <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
+                {t('summary.total', { count: summary.total || safeCount })}
+              </span>
+              <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
+                {t('summary.heads', { count: summary.heads })}
+              </span>
+              <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
+                {t('summary.tails', { count: summary.tails })}
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className={cn(
+            SERVICE_PANEL_SOFT,
+            SERVICE_CARD_INTERACTIVE,
+            'space-y-3 p-4 min-h-[240px]',
+          )}
+        >
+          <h3 className="text-sm font-semibold text-fg-2">{t('result.title')}</h3>
+          {results.length === 0 ? (
+            <p className="text-sm text-fg-5">{t('result.empty')}</p>
+          ) : (
+            <ul className="grid gap-2">
+              {results.map((result, index) => (
+                <li
+                  key={result.id}
+                  className="flex items-center justify-between rounded-xl border border-basic-3 bg-basic-0/80 px-3 py-2 text-sm text-fg-2 shadow-sm"
                 >
-                  {t(`result.${result.value}`)}
-                </span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
+                  <span className="font-medium">{t('result.coinLabel', { index: index + 1 })}</span>
+                  <span
+                    className={cn(
+                      'rounded-full px-2 py-0.5 text-xs font-semibold',
+                      result.value === 'heads'
+                        ? 'bg-point-1/15 text-point-fg'
+                        : 'bg-point-4/40 text-fg-3',
+                    )}
+                  >
+                    {t(`result.${result.value}`)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      </div>
+      {results.length > 0 && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
     </div>
   );
 }

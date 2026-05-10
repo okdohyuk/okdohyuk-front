@@ -6,6 +6,7 @@ import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 import { cn } from '@utils/cn';
 import {
   DEFAULT_DAYS,
@@ -180,6 +181,10 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
           </Button>
         </div>
       </section>
+
+      {(annualSalary || monthlySalary || hourlyWage) && (
+        <GoogleAd slotId="9185479703" className="w-full mt-4" />
+      )}
 
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>
         <div className="space-y-1">

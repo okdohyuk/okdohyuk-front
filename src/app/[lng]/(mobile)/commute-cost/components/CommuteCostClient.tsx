@@ -6,6 +6,7 @@ import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 const DEFAULT_WEEKS = 4.3;
 const DEFAULT_DAYS = 5;
@@ -109,6 +110,8 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
           </Button>
         </div>
       </section>
+
+      {roundTrip && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
 
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>
         <div className="space-y-1">

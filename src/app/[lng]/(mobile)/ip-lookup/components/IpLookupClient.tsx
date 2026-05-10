@@ -27,6 +27,7 @@ import {
   SERVICE_PANEL,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 import type { PortInfo } from '~/app/api/ip-lookup/port-scan/route';
 
 interface IpLookupClientProps {
@@ -559,6 +560,8 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
               {t('disclaimer')}
             </Text>
           </div>
+
+          <GoogleAd slotId="9185479703" className="w-full mt-4" />
         </>
       )}
     </div>

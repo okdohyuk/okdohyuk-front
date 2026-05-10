@@ -21,6 +21,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 const MAX_COUNT = 20;
 const MIN_COUNT = 1;
@@ -151,6 +152,7 @@ export default function UuidGeneratorClient({ lng }: { lng: Language }) {
           placeholder={t('placeholder.output')}
         />
       </section>
+      {uuids.length > 0 && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
     </div>
   );
 }
