@@ -1,22 +1,71 @@
 'use client';
 
 import * as Sentry from '@sentry/nextjs';
-import NextError from 'next/error';
 import { useEffect } from 'react';
 
-export default function GlobalError({ error }: { error: Error & { digest?: string } }) {
+const STALE_RELOAD_KEY = 'sentry_stale_action_reloaded';
+
+export default function GlobalError({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  const isStaleDeployment = error.message?.includes('Failed to find Server Action');
+
   useEffect(() => {
+    if (isStaleDeployment) {
+      const alreadyReloaded = sessionStorage.getItem(STALE_RELOAD_KEY);
+      if (!alreadyReloaded) {
+        sessionStorage.setItem(STALE_RELOAD_KEY, '1');
+        window.location.reload();
+      }
+      return;
+    }
     Sentry.captureException(error);
-  }, [error]);
+  }, [error, isStaleDeployment]);
+
+  if (isStaleDeployment) {
+    return (
+      <html lang="en">
+        <body
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh',
+            fontFamily: 'sans-serif',
+          }}
+        >
+          <div style={{ textAlign: 'center' }}>
+            <p>페이지를 업데이트하는 중입니다...</p>
+            <button type="button" onClick={() => window.location.reload()}>
+              새로고침
+            </button>
+          </div>
+        </body>
+      </html>
+    );
+  }
 
   return (
     <html lang="en">
-      <body>
-        {/* `NextError` is the default Next.js error page component. Its type
-        definition requires a `statusCode` prop. However, since the App Router
-        does not expose status codes for errors, we simply pass 0 to render a
-        generic error message. */}
-        <NextError statusCode={0} />
+      <body
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+          fontFamily: 'sans-serif',
+        }}
+      >
+        <div style={{ textAlign: 'center' }}>
+          <p>오류가 발생했습니다.</p>
+          <button type="button" onClick={reset}>
+            다시 시도
+          </button>
+        </div>
       </body>
     </html>
   );

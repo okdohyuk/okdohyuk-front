@@ -111,7 +111,9 @@ const refreshAccessToken = async (): Promise<string> => {
 apiInstance.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {
-    Sentry.captureException(error);
+    if (error.response) {
+      Sentry.captureException(error);
+    }
     const originalRequest = error.config as RetryableRequestConfig | undefined;
     if (!originalRequest) {
       return Promise.reject(error);
