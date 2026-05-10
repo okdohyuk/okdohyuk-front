@@ -103,7 +103,8 @@ function SectionCard({
   icon: React.ReactNode;
   title: string;
   children: React.ReactNode;
-  className: string;
+  // eslint-disable-next-line react/require-default-props
+  className?: string;
 }) {
   return (
     <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'p-4 md:p-5', className)}>
