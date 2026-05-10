@@ -42,7 +42,7 @@ interface ResultCardProps {
 
 function ResultCard({ label, value }: ResultCardProps) {
   return (
-    <div className="rounded-2xl bg-white/70 p-3 shadow-sm dark:bg-zinc-900/70">
+    <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">
       <Text variant="c1" color="basic-5">
         {label}
       </Text>
@@ -68,8 +68,8 @@ function BinaryDisplay({ segments, cidr }: BinaryDisplayProps) {
             className={cn(
               'flex h-6 w-5 items-center justify-center rounded-sm font-bold transition-colors',
               seg.type === 'network'
-                ? 'bg-point-4 text-point-1 dark:bg-point-1/30 dark:text-point-3'
-                : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400',
+                ? 'bg-point-4 text-point-fg dark:bg-point-1/30 dark:text-point-3'
+                : 'bg-warn-4 text-warn-1 dark:bg-warn-1/30 dark:text-warn-3',
               seg.position === cidr - 1 && 'border-r-2 border-point-1',
             )}
           >
@@ -177,7 +177,7 @@ export function IpSubnetCalculator({ lng }: IpSubnetCalculatorProps) {
         </div>
 
         {error && (
-          <Text variant="d2" className="text-red-500 dark:text-red-400">
+          <Text variant="d2" className="text-danger-2">
             {error}
           </Text>
         )}
@@ -185,7 +185,7 @@ export function IpSubnetCalculator({ lng }: IpSubnetCalculatorProps) {
         <div className="flex gap-2">
           <Button
             type="button"
-            className="px-4 py-2 text-sm bg-zinc-200 text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-white"
+            className="px-4 py-2 text-sm bg-basic-2 text-fg-1 hover:bg-basic-3"
             onClick={handleClear}
           >
             {t('ipSubnet.clear')}
@@ -240,7 +240,7 @@ export function IpSubnetCalculator({ lng }: IpSubnetCalculatorProps) {
               </Text>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="inline-block h-3 w-3 rounded-sm bg-amber-400" />
+              <span className="inline-block h-3 w-3 rounded-sm bg-warn-3" />
               <Text variant="c1" color="basic-5">
                 {t('ipSubnet.hostBits')}
               </Text>

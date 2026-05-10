@@ -42,16 +42,14 @@ export default function NetworkCalculatorClient({ lng }: NetworkCalculatorClient
                 onClick={() => setActiveTab(tab.key)}
                 className={cn(
                   'rounded-2xl px-4 py-2.5 transition-all duration-200',
-                  isActive
-                    ? 'bg-point-2 text-white shadow-sm'
-                    : 'hover:bg-zinc-100 dark:hover:bg-zinc-800',
+                  isActive ? 'bg-point-2 text-white shadow-sm' : 'hover:bg-basic-2',
                 )}
               >
                 <Text
                   variant="d2"
                   className={cn(
                     'font-semibold whitespace-nowrap',
-                    isActive ? 'text-white' : 'text-zinc-600 dark:text-zinc-400',
+                    isActive ? 'text-white' : 'text-fg-4',
                   )}
                 >
                   {tab.label}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { MockedFunction, vi } from 'vitest';
+import { vi } from 'vitest';
+import { TFunction } from 'i18next';
 import { fireEvent, render, screen } from '@testing-library/react';
 import DisplaySettings from '../DisplaySettings'; // 경로 수정
 
@@ -23,22 +24,22 @@ import DisplaySettings from '../DisplaySettings'; // 경로 수정
 // });
 
 // useTranslation 모킹 (실제 프로젝트의 i18n 설정에 따라 조정 필요)
-const mockT = vi.fn((key: string, options?: any) => {
+const mockTFn = vi.fn((key: string, options?: any) => {
   const translations: { [key: string]: string } = {
     showMilliseconds: '밀리초 표시',
     disclaimer: '고지 사항 1',
     disclaimer2: '고지 사항 2',
   };
   return translations[key] || options?.defaultValue || key;
-}) as MockedFunction<any> & { $TFunctionBrand?: any };
-mockT.$TFunctionBrand = undefined; // TFunction 타입과의 호환성을 위해 추가
+});
+const mockT = mockTFn as unknown as TFunction<'server-clock', undefined>;
 
 describe('DisplaySettings Component', () => {
   const mockSetShowMilliseconds = vi.fn();
 
   beforeEach(() => {
     mockSetShowMilliseconds.mockClear();
-    mockT.mockClear();
+    mockTFn.mockClear();
   });
 
   it('renders correctly with initial props', () => {
@@ -83,8 +84,8 @@ describe('DisplaySettings Component', () => {
     render(
       <DisplaySettings showMilliseconds setShowMilliseconds={mockSetShowMilliseconds} t={mockT} />,
     );
-    expect(mockT).toHaveBeenCalledWith('showMilliseconds');
-    expect(mockT).toHaveBeenCalledWith('disclaimer');
-    expect(mockT).toHaveBeenCalledWith('disclaimer2');
+    expect(mockTFn).toHaveBeenCalledWith('showMilliseconds');
+    expect(mockTFn).toHaveBeenCalledWith('disclaimer');
+    expect(mockTFn).toHaveBeenCalledWith('disclaimer2');
   });
 });

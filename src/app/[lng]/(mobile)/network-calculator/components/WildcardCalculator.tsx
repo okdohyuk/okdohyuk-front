@@ -119,14 +119,14 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
         </div>
 
         {error && (
-          <Text variant="d2" className="text-red-500 dark:text-red-400">
+          <Text variant="d2" className="text-danger-2">
             {error}
           </Text>
         )}
 
         <Button
           type="button"
-          className="px-4 py-2 text-sm bg-zinc-200 text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-white"
+          className="px-4 py-2 text-sm bg-basic-2 text-fg-1 hover:bg-basic-3"
           onClick={handleClear}
         >
           {t('wildcard.clear')}
@@ -158,7 +158,7 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
         {result && (
           <div className="space-y-4">
             <div className="grid gap-3 md:grid-cols-3">
-              <div className="rounded-2xl bg-white/70 p-3 shadow-sm dark:bg-zinc-900/70">
+              <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">
                 <Text variant="c1" color="basic-5">
                   {t('wildcard.inputMask')}
                 </Text>
@@ -171,12 +171,10 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
                   {t('wildcard.wildcardMask')}
                 </Text>
                 <Text asChild variant="t3">
-                  <p className="mt-1 font-mono font-bold text-point-1 dark:text-point-3">
-                    {result.wildcard}
-                  </p>
+                  <p className="mt-1 font-mono font-bold text-point-fg">{result.wildcard}</p>
                 </Text>
               </div>
-              <div className="rounded-2xl bg-white/70 p-3 shadow-sm dark:bg-zinc-900/70">
+              <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">
                 <Text variant="c1" color="basic-5">
                   {t('wildcard.cidrNotation')}
                 </Text>
@@ -191,7 +189,7 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
               <Text asChild variant="c1" color="basic-5">
                 <p className="mb-1 font-semibold">{t('wildcard.usage')}</p>
               </Text>
-              <code className="block rounded-lg bg-zinc-100 px-3 py-2 font-mono text-xs text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200">
+              <code className="block rounded-lg bg-basic-2 px-3 py-2 font-mono text-xs text-fg-2">
                 {t('wildcard.usageText', { wildcard: result.wildcard })}
               </code>
             </div>

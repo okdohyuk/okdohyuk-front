@@ -676,7 +676,7 @@ export default function InteractiveLanding({
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
           />
           <m.div
-            className="absolute right-[-80px] top-24 h-64 w-64 rounded-full bg-violet-400/20 blur-3xl"
+            className="absolute right-[-80px] top-24 h-64 w-64 rounded-full bg-point-3/20 blur-3xl"
             animate={shouldReduceMotion ? undefined : { ...ORB_ANIMATION, scale: [1, 1.25, 1] }}
             transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
           />
@@ -689,30 +689,28 @@ export default function InteractiveLanding({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: transitionDuration }}
           >
-            <span className="inline-flex items-center rounded-full border border-point-2/40 bg-white/70 px-4 py-1 text-xs font-semibold tracking-wide text-point-1 backdrop-blur-md dark:bg-black/30">
+            <span className="inline-flex items-center rounded-full border border-point-2/40 bg-basic-0/70 px-4 py-1 text-xs font-semibold tracking-wide text-point-fg backdrop-blur-md">
               {content.heroBadge}
             </span>
-            <h1 className="max-w-4xl text-3xl font-black leading-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">
+            <h1 className="max-w-4xl text-3xl font-black leading-tight text-fg-1 sm:text-5xl">
               <span className="bg-gradient-to-r from-point-1 via-violet-500 to-cyan-500 bg-clip-text text-transparent">
                 {domain}
               </span>{' '}
               {content.heroTitle}
             </h1>
-            <p className="max-w-3xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-300 sm:text-base">
+            <p className="max-w-3xl text-sm leading-relaxed text-fg-4 sm:text-base">
               {title} · {subTitle} · {content.heroSubtitle}
             </p>
-            <div className="w-full rounded-2xl border border-point-2/25 bg-white/75 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.06)] backdrop-blur-xl dark:border-point-2/20 dark:bg-zinc-900/60">
+            <div className="w-full rounded-2xl border border-point-2/25 bg-basic-0/75 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.06)] backdrop-blur-xl">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-point-1/10 text-point-1 dark:bg-point-1/15">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-point-1/10 text-point-fg dark:bg-point-1/15">
                       <Search className="h-4 w-4" />
                     </span>
-                    <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                      {content.shortcutTitle}
-                    </p>
+                    <p className="text-sm font-semibold text-fg-1">{content.shortcutTitle}</p>
                   </div>
-                  <p className="mt-2 text-xs leading-relaxed text-zinc-600 dark:text-zinc-300 sm:text-sm">
+                  <p className="mt-2 text-xs leading-relaxed text-fg-4 sm:text-sm">
                     {content.shortcutDescription}
                   </p>
                 </div>
@@ -720,25 +718,25 @@ export default function InteractiveLanding({
                   <button
                     type="button"
                     onClick={openCommandPalette}
-                    className="inline-flex items-center rounded-xl bg-point-1 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-500"
+                    className="inline-flex items-center rounded-xl bg-point-1 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-point-2"
                   >
                     {content.shortcutCta}
                     <ArrowRight className="ml-1.5 h-4 w-4" />
                   </button>
-                  <div className="inline-flex items-center gap-1 rounded-full border border-zinc-200/80 bg-zinc-50/85 px-2.5 py-1.5 text-[11px] font-medium text-zinc-500 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-300">
-                    <kbd className="rounded-md border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-semibold text-zinc-700 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200">
+                  <div className="inline-flex items-center gap-1 rounded-full border border-basic-3/80 bg-basic-1/85 px-2.5 py-1.5 text-[11px] font-medium text-fg-5">
+                    <kbd className="rounded-md border border-basic-3 bg-basic-0 px-1.5 py-0.5 text-[10px] font-semibold text-fg-3">
                       Ctrl
                     </kbd>
                     <span>+</span>
-                    <kbd className="rounded-md border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-semibold text-zinc-700 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200">
+                    <kbd className="rounded-md border border-basic-3 bg-basic-0 px-1.5 py-0.5 text-[10px] font-semibold text-fg-3">
                       K
                     </kbd>
-                    <span className="px-1 text-zinc-400">/</span>
-                    <kbd className="rounded-md border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-semibold text-zinc-700 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200">
+                    <span className="px-1 text-fg-6">/</span>
+                    <kbd className="rounded-md border border-basic-3 bg-basic-0 px-1.5 py-0.5 text-[10px] font-semibold text-fg-3">
                       Cmd
                     </kbd>
                     <span>+</span>
-                    <kbd className="rounded-md border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-semibold text-zinc-700 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200">
+                    <kbd className="rounded-md border border-basic-3 bg-basic-0 px-1.5 py-0.5 text-[10px] font-semibold text-fg-3">
                       K
                     </kbd>
                   </div>
@@ -749,20 +747,18 @@ export default function InteractiveLanding({
 
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <m.section
-              className="rounded-3xl border border-zinc-200/70 bg-white/70 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-xl dark:border-zinc-700/70 dark:bg-zinc-900/65"
+              className="rounded-3xl border border-basic-3/70 bg-basic-0/70 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08)] backdrop-blur-xl"
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: transitionDuration }}
             >
               <div className="space-y-2">
-                <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                  {content.personaLabel}
-                </p>
+                <p className="text-sm font-semibold text-fg-2">{content.personaLabel}</p>
                 <Select
                   value={selectedScenario}
                   onValueChange={(value) => setSelectedScenario(value as ExperienceId)}
                 >
-                  <SelectTrigger className="h-12 rounded-xl border-zinc-200 bg-white/90 text-sm font-semibold dark:border-zinc-700 dark:bg-zinc-800/90">
+                  <SelectTrigger className="h-12 rounded-xl border-basic-3 bg-basic-0/90 text-sm font-semibold">
                     <SelectValue placeholder={content.personaPlaceholder} />
                   </SelectTrigger>
                   <SelectContent>
@@ -776,9 +772,7 @@ export default function InteractiveLanding({
               </div>
 
               <div className="mt-7 space-y-3">
-                <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                  {content.prioritiesLabel}
-                </p>
+                <p className="text-sm font-semibold text-fg-2">{content.prioritiesLabel}</p>
                 <div className="flex flex-wrap gap-2">
                   {content.priorities.map((priority) => {
                     const active = selectedPriorities.includes(priority.id);
@@ -795,7 +789,7 @@ export default function InteractiveLanding({
                           'rounded-full border px-4 py-2 text-sm font-semibold transition-colors',
                           active
                             ? 'border-point-2 bg-point-1 text-white'
-                            : 'border-zinc-200 bg-zinc-50 text-zinc-700 hover:border-point-2/50 hover:text-point-1 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200',
+                            : 'border-basic-3 bg-basic-1 text-fg-3 hover:border-point-2/50 hover:text-point-fg',
                         )}
                       >
                         {priority.label}
@@ -803,18 +797,16 @@ export default function InteractiveLanding({
                     );
                   })}
                 </div>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400">{content.prioritiesHint}</p>
+                <p className="text-xs text-fg-5">{content.prioritiesHint}</p>
               </div>
 
-              <div className="mt-8 rounded-2xl border border-zinc-200 bg-zinc-50/70 p-4 dark:border-zinc-700 dark:bg-zinc-800/70">
+              <div className="mt-8 rounded-2xl border border-basic-3 bg-basic-1/70 p-4">
                 <div className="mb-2 flex items-center justify-between">
-                  <p className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                    {content.scoreLabel}
-                  </p>
+                  <p className="text-sm font-bold text-fg-1">{content.scoreLabel}</p>
                   <AnimatePresence mode="wait">
                     <m.span
                       key={experienceScore}
-                      className="text-sm font-black text-point-1"
+                      className="text-sm font-black text-point-fg"
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
@@ -825,7 +817,7 @@ export default function InteractiveLanding({
                   </AnimatePresence>
                 </div>
 
-                <div className="h-2 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-700">
+                <div className="h-2 overflow-hidden rounded-full bg-basic-3">
                   <m.div
                     className="h-full rounded-full bg-gradient-to-r from-point-1 to-violet-500"
                     initial={{ width: 0 }}
@@ -834,7 +826,7 @@ export default function InteractiveLanding({
                   />
                 </div>
 
-                <p className="mt-2 text-xs text-zinc-600 dark:text-zinc-300">
+                <p className="mt-2 text-xs text-fg-4">
                   {content.scoreCaption} · {[...priorityLabelSet].join(' · ')}
                 </p>
               </div>
@@ -842,7 +834,7 @@ export default function InteractiveLanding({
               <div className="mt-7 flex flex-wrap gap-2">
                 <Link
                   href={`/${language}/menu`}
-                  className="inline-flex items-center rounded-xl bg-point-1 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-500"
+                  className="inline-flex items-center rounded-xl bg-point-1 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-point-2"
                 >
                   {content.menuCta}
                   <ArrowRight className="ml-1.5 h-4 w-4" />
@@ -852,17 +844,15 @@ export default function InteractiveLanding({
                   <DialogTrigger asChild>
                     <button
                       type="button"
-                      className="inline-flex items-center rounded-xl border border-zinc-200 bg-white/80 px-4 py-2 text-sm font-semibold text-zinc-700 transition-colors hover:border-point-2 hover:text-point-1 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+                      className="inline-flex items-center rounded-xl border border-basic-3 bg-basic-0/80 px-4 py-2 text-sm font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-fg"
                     >
                       {content.dialogCta}
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-xl rounded-2xl border-zinc-200 bg-white/95 dark:border-zinc-700 dark:bg-zinc-900">
+                  <DialogContent className="max-w-xl rounded-2xl border-basic-3 bg-basic-0/95">
                     <DialogHeader>
-                      <DialogTitle className="text-xl text-zinc-900 dark:text-zinc-100">
-                        {content.dialogTitle}
-                      </DialogTitle>
-                      <DialogDescription className="text-zinc-600 dark:text-zinc-300">
+                      <DialogTitle className="text-xl text-fg-1">{content.dialogTitle}</DialogTitle>
+                      <DialogDescription className="text-fg-4">
                         {content.dialogDescription}
                       </DialogDescription>
                     </DialogHeader>
@@ -882,7 +872,7 @@ export default function InteractiveLanding({
                       {content.flowSteps.map((step, index) => (
                         <m.li
                           key={step}
-                          className="rounded-xl border border-zinc-200 bg-zinc-50 p-3 text-sm leading-relaxed text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+                          className="rounded-xl border border-basic-3 bg-basic-1 p-3 text-sm leading-relaxed text-fg-3"
                           variants={{
                             hidden: { opacity: 0, y: 8 },
                             visible: { opacity: 1, y: 0 },
@@ -903,22 +893,18 @@ export default function InteractiveLanding({
             <AnimatePresence mode="wait">
               <m.aside
                 key={selectedScenario}
-                className="rounded-3xl border border-zinc-200/70 bg-gradient-to-br from-white to-violet-50 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:border-zinc-700/70 dark:from-zinc-900 dark:to-zinc-800"
+                className="rounded-3xl border border-basic-3/70 bg-gradient-to-br from-basic-0 to-violet-50 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:from-zinc-900 dark:to-zinc-800"
                 initial={{ opacity: 0, x: 22 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -22 }}
                 transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
               >
                 <div className="mb-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-point-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-point-fg">
                     {currentScenario.label}
                   </p>
-                  <h2 className="mt-2 text-lg font-bold text-zinc-900 dark:text-zinc-100">
-                    {currentScenario.summary}
-                  </h2>
-                  <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-                    {currentScenario.spotlight}
-                  </p>
+                  <h2 className="mt-2 text-lg font-bold text-fg-1">{currentScenario.summary}</h2>
+                  <p className="mt-1 text-sm text-fg-4">{currentScenario.spotlight}</p>
                 </div>
 
                 <div className="space-y-3">
@@ -926,24 +912,20 @@ export default function InteractiveLanding({
                     <m.article
                       key={tool.title}
                       whileHover={shouldReduceMotion ? undefined : { y: -3 }}
-                      className="group rounded-2xl border border-zinc-200 bg-white/90 p-4 transition-colors hover:border-point-2/40 dark:border-zinc-700 dark:bg-zinc-900/80"
+                      className="group rounded-2xl border border-basic-3 bg-basic-0/90 p-4 transition-colors hover:border-point-2/40"
                     >
                       <Link href={`/${language}${tool.href}`} className="block">
                         <div className="mb-2 flex items-center justify-between">
-                          <span className="inline-flex items-center rounded-full bg-zinc-100 px-2 py-1 text-[11px] font-semibold text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                          <span className="inline-flex items-center rounded-full bg-basic-2 px-2 py-1 text-[11px] font-semibold text-fg-4">
                             {tool.badge}
                           </span>
-                          <tool.icon className="h-4 w-4 text-point-1" />
+                          <tool.icon className="h-4 w-4 text-point-fg" />
                         </div>
 
-                        <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-50">
-                          {tool.title}
-                        </h3>
-                        <p className="mt-1 text-xs leading-relaxed text-zinc-600 dark:text-zinc-300">
-                          {tool.description}
-                        </p>
+                        <h3 className="text-sm font-bold text-fg-1">{tool.title}</h3>
+                        <p className="mt-1 text-xs leading-relaxed text-fg-4">{tool.description}</p>
 
-                        <span className="mt-3 inline-flex items-center text-xs font-semibold text-point-1">
+                        <span className="mt-3 inline-flex items-center text-xs font-semibold text-point-fg">
                           {content.toolCta}
                           <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                         </span>
@@ -959,7 +941,7 @@ export default function InteractiveLanding({
             {content.metrics.map((metric, index) => (
               <m.article
                 key={metric.label}
-                className="rounded-2xl border border-zinc-200/70 bg-white/75 p-4 text-center backdrop-blur-xl dark:border-zinc-700/70 dark:bg-zinc-900/70"
+                className="rounded-2xl border border-basic-3/70 bg-basic-0/75 p-4 text-center backdrop-blur-xl"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -967,10 +949,8 @@ export default function InteractiveLanding({
                   duration: transitionDuration,
                 }}
               >
-                <p className="text-2xl font-black text-point-1">{metric.value}</p>
-                <p className="mt-1 text-xs font-medium text-zinc-600 dark:text-zinc-300">
-                  {metric.label}
-                </p>
+                <p className="text-2xl font-black text-point-fg">{metric.value}</p>
+                <p className="mt-1 text-xs font-medium text-fg-4">{metric.label}</p>
               </m.article>
             ))}
           </section>

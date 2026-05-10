@@ -51,7 +51,7 @@ function Nav() {
 
   return (
     <motion.nav
-      className="fixed bottom-[max(8px,env(safe-area-inset-bottom))] left-1/2 z-30 w-[calc(100%-16px)] max-w-md -translate-x-1/2 rounded-3xl border border-zinc-200/80 bg-white/80 p-2 shadow-[0_16px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-900/80 lg:bottom-6 lg:left-auto lg:right-6 lg:w-[68px] lg:max-w-none lg:translate-x-0"
+      className="fixed bottom-[max(8px,env(safe-area-inset-bottom))] left-1/2 z-30 w-[calc(100%-16px)] max-w-md -translate-x-1/2 rounded-3xl border border-basic-3/80 bg-basic-0/80 p-2 shadow-[0_16px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl lg:bottom-6 lg:left-auto lg:right-6 lg:w-[68px] lg:max-w-none lg:translate-x-0"
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
@@ -72,9 +72,7 @@ function Nav() {
                 prefetch
                 className={cn(
                   'group relative flex h-12 w-full flex-col items-center justify-center rounded-2xl text-center transition-colors lg:h-12',
-                  isActive
-                    ? 'text-zinc-900 dark:text-zinc-100'
-                    : 'text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200',
+                  isActive ? 'text-fg-1' : 'text-fg-5 hover:text-fg-2',
                 )}
                 aria-label={navItem.name}
               >
@@ -83,7 +81,7 @@ function Nav() {
                     'absolute inset-0 rounded-2xl transition-opacity',
                     isActive
                       ? 'bg-point-2/35 opacity-100 dark:bg-point-1/20'
-                      : 'bg-zinc-200/60 opacity-0 group-hover:opacity-100 dark:bg-zinc-700/60',
+                      : 'bg-basic-3/60 opacity-0 group-hover:opacity-100',
                   )}
                 />
                 <Icon className="relative z-10 h-5 w-5" />

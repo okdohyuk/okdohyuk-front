@@ -79,10 +79,7 @@ export default function DataSizeConverterClient({ lng }: DataSizeConverterClient
   return (
     <div className="w-full space-y-6">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
-        <label
-          htmlFor="data-size-input"
-          className="text-sm font-semibold text-zinc-800 dark:text-zinc-100"
-        >
+        <label htmlFor="data-size-input" className="text-sm font-semibold text-fg-2">
           {t('label.input')}
         </label>
         <div className="grid gap-3 md:grid-cols-[2fr_1fr_1fr]">
@@ -120,26 +117,24 @@ export default function DataSizeConverterClient({ lng }: DataSizeConverterClient
             </SelectContent>
           </Select>
         </div>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">{t('helper')}</p>
+        <p className="text-sm text-fg-5">{t('helper')}</p>
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-        <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-          {t('result.title')}
-        </div>
+        <div className="text-sm font-semibold text-fg-1">{t('result.title')}</div>
         {results ? (
           <ul className="grid gap-3 sm:grid-cols-2">
             {results.map((entry) => (
               <li
                 key={entry.key}
-                className="rounded-xl border border-zinc-200/70 bg-white/70 p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-900/60"
+                className="rounded-xl border border-basic-3 bg-basic-0/70 p-4 shadow-sm"
               >
-                <p className="text-xs font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+                <p className="text-xs font-semibold uppercase text-fg-5">
                   {t(`units.${entry.key}`)} ({t(`unitShort.${entry.key}`)})
                 </p>
-                <p className="mt-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                <p className="mt-2 text-lg font-semibold text-fg-1">
                   {numberFormatter.format(entry.value)}{' '}
-                  <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                  <span className="text-xs font-medium text-fg-5">
                     {t(`unitShort.${entry.key}`)}
                   </span>
                 </p>
@@ -147,7 +142,7 @@ export default function DataSizeConverterClient({ lng }: DataSizeConverterClient
             ))}
           </ul>
         ) : (
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">{t('result.empty')}</p>
+          <p className="text-sm text-fg-5">{t('result.empty')}</p>
         )}
       </div>
     </div>

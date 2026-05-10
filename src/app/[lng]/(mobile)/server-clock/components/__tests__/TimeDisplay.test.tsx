@@ -1,5 +1,5 @@
 import React from 'react';
-import { MockedFunction, vi } from 'vitest';
+import { vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { format } from 'date-fns';
 import { TFunction } from 'i18next';
@@ -42,7 +42,7 @@ vi.mock('framer-motion', async () => {
 });
 
 // useTranslation 모킹
-const mockT = vi.fn((key: string, options?: { [key: string]: string | number }) => {
+const mockTFn = vi.fn((key: string, options?: { [key: string]: string | number }) => {
   const translations: { [key: string]: string } = {
     loading: '서버 시간 불러오는 중...',
     'error-occurred': '오류 발생: {{error}}',
@@ -53,13 +53,14 @@ const mockT = vi.fn((key: string, options?: { [key: string]: string | number }) 
     translation = translation.replace('{{site}}', String(options.site));
   }
   return translation;
-}) as unknown as MockedFunction<TFunction<'server-clock'>>;
+});
+const mockT = mockTFn as unknown as TFunction<'server-clock'>;
 
 describe('TimeDisplay Component', () => {
   const mockGetHostname = vi.fn((url: string | undefined) => (url ? new URL(url).hostname : ''));
 
   beforeEach(() => {
-    mockT.mockClear();
+    mockTFn.mockClear();
     mockGetHostname.mockClear();
   });
 
@@ -116,9 +117,9 @@ describe('TimeDisplay Component', () => {
 
     if (defaultProps.serverTime) {
       const timeElement = screen.getByText(format(defaultProps.serverTime, 'HH:mm:ss'));
-      expect(timeElement);
+      expect(timeElement).toBeInTheDocument();
     } else {
-      fail('defaultProps.serverTime should not be null for this test');
+      throw new Error('defaultProps.serverTime should not be null for this test');
     }
   });
 });

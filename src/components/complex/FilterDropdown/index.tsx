@@ -26,22 +26,22 @@ const FilterDropdown: FilterDropdownFC = function FilterDropdown({ title, items,
           className={cn(
             'mb-1 flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-left transition-colors',
             item.type === 'in' && 'bg-point-4/50 dark:bg-point-1/15',
-            item.type === 'notIn' && 'bg-red-100/80 dark:bg-red-900/25',
-            item.type === 'idle' && 'hover:bg-zinc-100 dark:hover:bg-zinc-800',
+            item.type === 'notIn' && 'bg-danger-4/80 dark:bg-danger-1/25',
+            item.type === 'idle' && 'hover:bg-basic-2',
           )}
           onClick={() => changeState(item)}
         >
           <span
-            className="truncate text-sm font-medium text-zinc-800 dark:text-zinc-200"
+            className="truncate text-sm font-medium text-fg-2"
             style={{ paddingLeft: `${margin * 12}px` }}
           >
             {item.name}
           </span>
           {
             {
-              in: <SquarePlus className="h-4 w-4 text-point-1" />,
-              notIn: <SquareMinus className="h-4 w-4 text-red-500" />,
-              idle: <Square className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />,
+              in: <SquarePlus className="h-4 w-4 text-point-fg" />,
+              notIn: <SquareMinus className="h-4 w-4 text-danger-2" />,
+              idle: <Square className="h-4 w-4 text-fg-5" />,
             }[item.type]
           }
         </button>
@@ -53,7 +53,7 @@ const FilterDropdown: FilterDropdownFC = function FilterDropdown({ title, items,
 
   return (
     <div>
-      <div className="border-b border-zinc-200/80 bg-zinc-100/80 px-3 py-2 text-sm font-bold text-zinc-900 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-100">
+      <div className="border-b border-basic-3/80 bg-basic-2/80 px-3 py-2 text-sm font-bold text-fg-1">
         {title}
       </div>
       <div className="space-y-1 p-2">

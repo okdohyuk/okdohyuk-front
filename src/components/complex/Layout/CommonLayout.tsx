@@ -41,7 +41,7 @@ function CommonLayout({ children }: CommonLayoutProps) {
   const showNav = !navDisabledPath.some((path) => pathname.includes(path));
 
   return (
-    <div ref={wrapperRef} className="w-full min-h-screen flex flex-col dark:bg-black">
+    <div ref={wrapperRef} className="w-full min-h-screen flex flex-col bg-basic-0">
       <QueryClientProvider client={queryClient}>
         {children}
         {showNav && (

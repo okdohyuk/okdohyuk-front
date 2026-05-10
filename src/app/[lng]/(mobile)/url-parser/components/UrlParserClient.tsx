@@ -132,10 +132,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
     <div className="w-full space-y-6">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <label
-            htmlFor="url-input"
-            className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
+          <label htmlFor="url-input" className="text-sm font-medium text-fg-3">
             {t('label.input')}
           </label>
           <div className="flex flex-wrap items-center gap-2">
@@ -150,7 +147,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
             <Button
               type="button"
               onClick={() => setValue('')}
-              className="flex items-center gap-2 px-3 py-2 text-xs bg-zinc-500 hover:bg-zinc-600"
+              className="flex items-center gap-2 px-3 py-2 text-xs bg-basic-4 hover:bg-basic-5"
             >
               <Eraser size={16} />
               {t('button.clear')}
@@ -174,7 +171,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
           </Text>
         ) : null}
         {parsed.usedFallback ? (
-          <Text variant="c1" className="text-amber-500">
+          <Text variant="c1" className="text-warn-2">
             {t('notice.fallback')}
           </Text>
         ) : null}
@@ -182,7 +179,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
 
       <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <Text variant="d2" className="font-semibold text-gray-700 dark:text-gray-300">
+          <Text variant="d2" className="font-semibold text-fg-3">
             {t('label.output')}
           </Text>
           <Button
@@ -205,7 +202,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
             {fields.map((field) => (
               <div key={field.key} className="space-y-2">
                 <div className="flex items-center justify-between gap-2">
-                  <Text variant="d3" className="font-medium text-gray-700 dark:text-gray-300">
+                  <Text variant="d3" className="font-medium text-fg-3">
                     {t(`fields.${field.key}` as const)}
                   </Text>
                   <Button
@@ -230,7 +227,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-        <Text variant="d2" className="font-semibold text-gray-700 dark:text-gray-300">
+        <Text variant="d2" className="font-semibold text-fg-3">
           {t('label.queryParams')}
         </Text>
         {queryParams.length === 0 ? (

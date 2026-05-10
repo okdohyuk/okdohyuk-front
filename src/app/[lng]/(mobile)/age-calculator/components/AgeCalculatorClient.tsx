@@ -143,7 +143,7 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
               </Button>
               <Button
                 type="button"
-                className="px-3 py-2 text-xs bg-zinc-200 text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-white"
+                className="px-3 py-2 text-xs bg-basic-2 text-fg-1 hover:bg-basic-3"
                 onClick={handleClear}
               >
                 {t('actions.clear')}
@@ -172,14 +172,14 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
           </Text>
         )}
         {result.error && (
-          <Text variant="d2" className="text-red-500 dark:text-red-400">
+          <Text variant="d2" className="text-danger-2 dark:text-danger-3">
             {result.error}
           </Text>
         )}
         {result.data && !result.error && (
           <div className="space-y-3">
             <div className="grid gap-3 md:grid-cols-3">
-              <div className="rounded-2xl bg-white/70 p-3 shadow-sm dark:bg-zinc-900/70">
+              <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">
                 <Text variant="c1" color="basic-5">
                   {t('results.ageYears')}
                 </Text>
@@ -189,7 +189,7 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
                   </p>
                 </Text>
               </div>
-              <div className="rounded-2xl bg-white/70 p-3 shadow-sm dark:bg-zinc-900/70">
+              <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">
                 <Text variant="c1" color="basic-5">
                   {t('results.ageFullLabel')}
                 </Text>
@@ -203,7 +203,7 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
                   </p>
                 </Text>
               </div>
-              <div className="rounded-2xl bg-white/70 p-3 shadow-sm dark:bg-zinc-900/70">
+              <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">
                 <Text variant="c1" color="basic-5">
                   {t('results.daysUntil')}
                 </Text>
@@ -214,7 +214,7 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
                 </Text>
               </div>
             </div>
-            <div className="rounded-2xl bg-white/70 p-3 text-sm text-zinc-700 shadow-sm dark:bg-zinc-900/70 dark:text-zinc-200">
+            <div className="rounded-2xl bg-basic-0/70 p-3 text-sm shadow-sm">
               <Text asChild variant="d2" color="basic-3">
                 <p>
                   {t('results.nextBirthday', {

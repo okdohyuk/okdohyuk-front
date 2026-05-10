@@ -6,7 +6,7 @@ type TagProps = {
 
 function Tag({ tag }: TagProps) {
   return (
-    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+    <span className="inline-block bg-basic-2 rounded-full px-3 py-1 text-sm font-semibold text-fg-3">
       {tag}
     </span>
   );

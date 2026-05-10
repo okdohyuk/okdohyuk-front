@@ -163,7 +163,7 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
     <div className="w-full space-y-6">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex items-center justify-between gap-3">
-          <Text variant="d2" className="font-semibold text-gray-800 dark:text-gray-100">
+          <Text variant="d2" className="font-semibold text-fg-2">
             {t('label.input')}
           </Text>
           <div className="flex items-center gap-2">
@@ -193,19 +193,16 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
           value={input}
           onChange={(event) => setInput(event.target.value)}
         />
-        <p className="text-xs text-gray-500 dark:text-gray-400">{t('helper')}</p>
+        <p className="text-xs text-fg-5">{t('helper')}</p>
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-        <Text variant="d2" className="font-semibold text-gray-800 dark:text-gray-100">
+        <Text variant="d2" className="font-semibold text-fg-2">
           {t('label.options')}
         </Text>
         <div className="grid gap-4 md:grid-cols-3">
           <div className="space-y-2">
-            <label
-              htmlFor="markdown-table-delimiter"
-              className="text-xs font-medium text-gray-600 dark:text-gray-300"
-            >
+            <label htmlFor="markdown-table-delimiter" className="text-xs font-medium text-fg-4">
               {t('label.delimiter')}
             </label>
             <Select
@@ -226,10 +223,7 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
           </div>
 
           <div className="space-y-2">
-            <label
-              htmlFor="markdown-table-alignment"
-              className="text-xs font-medium text-gray-600 dark:text-gray-300"
-            >
+            <label htmlFor="markdown-table-alignment" className="text-xs font-medium text-fg-4">
               {t('label.alignment')}
             </label>
             <Select
@@ -248,21 +242,16 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
           </div>
 
           <div className="space-y-2">
-            <p className="text-xs font-medium text-gray-600 dark:text-gray-300">
-              {t('label.header')}
-            </p>
-            <div className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2 dark:border-gray-700">
+            <p className="text-xs font-medium text-fg-4">{t('label.header')}</p>
+            <div className="flex items-center gap-2 rounded-lg border border-basic-3 px-3 py-2">
               <input
                 id="markdown-header-toggle"
                 type="checkbox"
-                className="h-4 w-4 rounded border-gray-300 text-point-1 focus:ring-point-1 dark:border-gray-600"
+                className="h-4 w-4 rounded border-basic-3 text-point-fg focus:ring-point-1"
                 checked={useHeader}
                 onChange={(event) => setUseHeader(event.target.checked)}
               />
-              <label
-                htmlFor="markdown-header-toggle"
-                className="text-sm text-gray-700 dark:text-gray-200"
-              >
+              <label htmlFor="markdown-header-toggle" className="text-sm text-fg-3">
                 {t('header.useFirstRow')}
               </label>
             </div>
@@ -272,7 +261,7 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
 
       <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4')}>
         <div className="flex items-center justify-between gap-3">
-          <Text variant="d2" className="font-semibold text-gray-800 dark:text-gray-100">
+          <Text variant="d2" className="font-semibold text-fg-2">
             {t('label.output')}
           </Text>
           <Button
@@ -292,9 +281,7 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
           readOnly
           placeholder={t('empty')}
         />
-        {!rows.length && (
-          <p className="text-xs text-gray-500 dark:text-gray-400">{t('emptyHelper')}</p>
-        )}
+        {!rows.length && <p className="text-xs text-fg-5">{t('emptyHelper')}</p>}
       </div>
     </div>
   );

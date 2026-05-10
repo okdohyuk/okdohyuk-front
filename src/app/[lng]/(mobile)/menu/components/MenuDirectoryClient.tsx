@@ -158,25 +158,21 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
               'group flex items-start gap-4 rounded-2xl p-4',
             )}
           >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-zinc-200 bg-white/90 text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-200">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-basic-3 bg-basic-0/90 text-fg-3">
               {menu.icon}
             </div>
             <div className="min-w-0 flex-1 space-y-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 md:text-base">
-                  {title}
-                </span>
+                <span className="text-sm font-semibold text-fg-1 md:text-base">{title}</span>
                 {!isInternal ? (
-                  <span className="rounded-full bg-zinc-200 px-2 py-0.5 text-[10px] font-bold text-zinc-600 dark:bg-zinc-700 dark:text-zinc-300">
+                  <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[10px] font-bold text-fg-4">
                     {t('outBadge')}
                   </span>
                 ) : null}
               </div>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                {getLinkPreview(menu.link)}
-              </p>
+              <p className="text-xs text-fg-5">{getLinkPreview(menu.link)}</p>
             </div>
-            <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-zinc-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-point-1 dark:text-zinc-500" />
+            <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-point-fg" />
           </Link>
         </CursorGlowCard>
       </li>
@@ -187,10 +183,8 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
     <div className="space-y-4">
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4 md:p-5')}>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-            {t('search.label')}
-          </p>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">
+          <p className="text-sm font-semibold text-fg-1">{t('search.label')}</p>
+          <p className="text-xs text-fg-5">
             {keyword
               ? t('search.results', { count: totalVisibleCount })
               : t('search.browse', { count: totalMenuCount })}
@@ -198,7 +192,7 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
         </div>
 
         <div className="relative">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-fg-6" />
           <Input
             type="text"
             value={query}
@@ -211,7 +205,7 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
               type="button"
               aria-label={t('search.clear')}
               onClick={() => setQuery('')}
-              className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-zinc-200 hover:text-zinc-700 dark:hover:bg-zinc-700 dark:hover:text-zinc-100"
+              className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-fg-6 transition-colors hover:bg-basic-3 hover:text-fg-3"
             >
               <X className="h-4 w-4" />
             </button>
@@ -224,12 +218,10 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
           <section key={section.key} className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4 md:p-5')}>
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="space-y-1">
-                <h2 className="text-lg font-extrabold text-zinc-900 dark:text-zinc-100">
-                  {section.title}
-                </h2>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">{section.description}</p>
+                <h2 className="text-lg font-extrabold text-fg-1">{section.title}</h2>
+                <p className="text-sm text-fg-5">{section.description}</p>
               </div>
-              <span className="rounded-full bg-point-4/70 px-2.5 py-1 text-xs font-bold text-point-1 dark:bg-point-1/20">
+              <span className="rounded-full bg-point-4/70 px-2.5 py-1 text-xs font-bold text-point-fg dark:bg-point-1/20">
                 {section.items.length}
               </span>
             </div>
@@ -238,10 +230,8 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
         ))
       ) : (
         <section className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-5 text-center')}>
-          <h2 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-            {t('search.emptyTitle')}
-          </h2>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">{t('search.emptyDescription')}</p>
+          <h2 className="text-base font-bold text-fg-1">{t('search.emptyTitle')}</h2>
+          <p className="text-sm text-fg-5">{t('search.emptyDescription')}</p>
         </section>
       )}
     </div>

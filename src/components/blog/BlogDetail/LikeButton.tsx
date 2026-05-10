@@ -79,8 +79,8 @@ function LikeButton() {
         whileTap={{ scale: 0.9 }}
         className={`rounded-full border p-3 shadow-lg transition-colors ${
           isLiked
-            ? 'border-red-400 bg-red-500 text-white'
-            : 'border-zinc-200 bg-white/90 text-zinc-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-500'
+            ? 'border-danger-3 bg-danger-2 text-white'
+            : 'border-basic-3 bg-basic-0/90 text-fg-6'
         }`}
         disabled={isLoading}
       >

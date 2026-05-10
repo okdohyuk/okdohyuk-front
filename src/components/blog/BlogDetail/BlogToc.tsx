@@ -93,13 +93,11 @@ function BlogToc() {
         <li
           key={t.id}
           className={cn(
-            'mb-1 cursor-pointer rounded-md px-2 py-1 transition-all hover:bg-zinc-100 dark:hover:bg-zinc-800',
+            'mb-1 cursor-pointer rounded-md px-2 py-1 transition-all hover:bg-basic-2',
             t.level === 0 && 'text-sm font-semibold',
             t.level === 1 && 'pl-3 text-xs',
             t.level >= 2 && 'pl-5 text-xs',
-            activeId === t.id
-              ? 'scale-[1.02] bg-point-4/50 font-bold text-zinc-900 dark:bg-point-1/20 dark:text-zinc-100'
-              : 'text-zinc-500 dark:text-zinc-400',
+            activeId === t.id ? 'scale-[1.02] bg-point-4/50 font-bold text-fg-1' : 'text-fg-5',
           )}
         >
           <Link href={`#${t.id}`}>{t.text}</Link>

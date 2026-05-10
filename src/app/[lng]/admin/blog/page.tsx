@@ -75,10 +75,10 @@ function BlogAdminPage({ params }: LanguageParams) {
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <FileSearch className="h-4 w-4 text-point-1" />
-            <h2 className="text-base font-bold text-zinc-900 dark:text-zinc-100">게시글 목록</h2>
+            <FileSearch className="h-4 w-4 text-point-fg" />
+            <h2 className="text-base font-bold text-fg-1">게시글 목록</h2>
           </div>
-          <span className="rounded-full bg-zinc-200 px-2.5 py-1 text-[11px] font-bold text-zinc-600 dark:bg-zinc-700 dark:text-zinc-300">
+          <span className="rounded-full bg-basic-3 px-2.5 py-1 text-[11px] font-bold text-fg-4">
             Total {blogCount}
           </span>
         </div>
@@ -89,29 +89,27 @@ function BlogAdminPage({ params }: LanguageParams) {
           ))}
 
           {status === 'loading' ? (
-            <div className="flex items-center justify-center gap-2 py-4 text-sm font-semibold text-zinc-600 dark:text-zinc-300">
+            <div className="flex items-center justify-center gap-2 py-4 text-sm font-semibold text-fg-4">
               <RefreshCcw className="h-4 w-4 animate-spin" />
               로딩 중...
             </div>
           ) : null}
 
           {!isLastPage && status !== 'loading' && blogCount > 0 ? (
-            <div className="rounded-xl border border-dashed border-zinc-300/90 bg-white/65 px-4 py-3 text-center text-xs text-zinc-500 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-400">
+            <div className="rounded-xl border border-dashed border-basic-3 bg-basic-0/65 px-4 py-3 text-center text-xs text-fg-5">
               페이지 하단으로 스크롤하면 다음 게시글을 자동으로 불러옵니다.
             </div>
           ) : null}
 
           {status !== 'loading' && blogCount === 0 ? (
-            <div className="rounded-xl border border-dashed border-zinc-300/90 bg-white/65 px-4 py-8 text-center dark:border-zinc-700 dark:bg-zinc-900/60">
-              <div className="mb-2 flex items-center justify-center gap-2 text-zinc-500 dark:text-zinc-300">
-                <Sparkles className="h-4 w-4 text-point-1" />
-                <SquarePen className="h-4 w-4 text-point-1" />
-                <FilePenLine className="h-4 w-4 text-point-1" />
+            <div className="rounded-xl border border-dashed border-basic-3 bg-basic-0/65 px-4 py-8 text-center">
+              <div className="mb-2 flex items-center justify-center gap-2 text-fg-5">
+                <Sparkles className="h-4 w-4 text-point-fg" />
+                <SquarePen className="h-4 w-4 text-point-fg" />
+                <FilePenLine className="h-4 w-4 text-point-fg" />
               </div>
-              <p className="text-sm font-semibold text-zinc-700 dark:text-zinc-200">
-                아직 게시글이 없습니다.
-              </p>
-              <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+              <p className="text-sm font-semibold text-fg-3">아직 게시글이 없습니다.</p>
+              <p className="mt-1 text-xs text-fg-5">
                 우측 상단의 `새 글 작성` 버튼으로 첫 글을 작성해보세요.
               </p>
             </div>

@@ -40,15 +40,13 @@ export default function ReportDialog({ open, onOpenChange, onSubmit }: ReportDia
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] rounded-2xl border-zinc-200 bg-white/95 dark:border-zinc-700 dark:bg-zinc-900">
+      <DialogContent className="sm:max-w-[425px] rounded-2xl border-basic-3 bg-basic-0/95">
         <DialogHeader>
-          <DialogTitle className="text-zinc-900 dark:text-zinc-100">신고하기</DialogTitle>
+          <DialogTitle className="text-fg-1">신고하기</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="flex flex-col gap-2">
-            <span className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
-              신고 사유를 선택해주세요.
-            </span>
+            <span className="text-sm font-medium text-fg-3">신고 사유를 선택해주세요.</span>
             <Select
               value={reason}
               onValueChange={(val) => setReason(val as BlogReplyReportRequestReasonEnum)}
@@ -70,14 +68,14 @@ export default function ReportDialog({ open, onOpenChange, onSubmit }: ReportDia
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="rounded-md px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            className="rounded-md px-4 py-2 text-sm font-medium text-fg-4 transition-colors hover:bg-basic-2"
           >
             취소
           </button>
           <button
             type="button"
             onClick={handleSubmit}
-            className="rounded-md bg-red-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-600"
+            className="rounded-md bg-danger-2 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-danger-1"
           >
             신고
           </button>

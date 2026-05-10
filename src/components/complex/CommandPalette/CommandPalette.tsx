@@ -192,8 +192,7 @@ function CommandPalette() {
           onKeyDown={handleKeyDown}
           className={cn(
             'fixed left-[50%] top-[15%] z-50 w-full max-w-lg translate-x-[-50%]',
-            'rounded-2xl border border-zinc-200/70 bg-white shadow-2xl',
-            'dark:border-zinc-700/70 dark:bg-zinc-900',
+            'rounded-2xl border border-basic-3/70 bg-basic-0 shadow-2xl',
             'data-[state=open]:animate-in data-[state=closed]:animate-out',
             'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
             'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -205,8 +204,8 @@ function CommandPalette() {
           <DialogPrimitive.Title className="sr-only">{t('hint')}</DialogPrimitive.Title>
 
           {/* 검색 입력 */}
-          <div className="flex items-center gap-3 border-b border-zinc-200 px-4 dark:border-zinc-700">
-            <Search className="h-5 w-5 shrink-0 text-zinc-400" />
+          <div className="flex items-center gap-3 border-b border-basic-3 px-4">
+            <Search className="h-5 w-5 shrink-0 text-fg-6" />
             <Input
               ref={inputRef}
               type="text"
@@ -216,7 +215,7 @@ function CommandPalette() {
               className="min-h-12 border-0 bg-transparent px-0 text-base focus:ring-0 dark:bg-transparent"
               autoFocus
             />
-            <kbd className="hidden shrink-0 rounded-md border border-zinc-200 bg-zinc-100 px-1.5 py-0.5 text-[10px] font-medium text-zinc-500 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-400 sm:inline-block">
+            <kbd className="hidden shrink-0 rounded-md border border-basic-3 bg-basic-2 px-1.5 py-0.5 text-[10px] font-medium text-fg-5 sm:inline-block">
               ESC
             </kbd>
           </div>
@@ -238,59 +237,49 @@ function CommandPalette() {
                     onMouseEnter={() => setSelectedIndex(index)}
                     className={cn(
                       'flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-colors',
-                      isSelected
-                        ? 'bg-point-4/50 dark:bg-point-1/20'
-                        : 'hover:bg-zinc-100 dark:hover:bg-zinc-800',
+                      isSelected ? 'bg-point-4/50 dark:bg-point-1/20' : 'hover:bg-basic-2',
                     )}
                   >
                     {page.access === 'admin' ? (
-                      <Shield className="h-4 w-4 shrink-0 text-amber-500" />
+                      <Shield className="h-4 w-4 shrink-0 text-warn-2" />
                     ) : (
-                      <ArrowRight className="h-4 w-4 shrink-0 text-zinc-400" />
+                      <ArrowRight className="h-4 w-4 shrink-0 text-fg-6" />
                     )}
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="truncate text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                          {title}
-                        </span>
+                        <span className="truncate text-sm font-medium text-fg-1">{title}</span>
                         {categoryBadge && (
-                          <span className="shrink-0 rounded-full bg-zinc-200/80 px-2 py-0.5 text-[10px] font-medium text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400">
+                          <span className="shrink-0 rounded-full bg-basic-3/80 px-2 py-0.5 text-[10px] font-medium text-fg-5">
                             {categoryBadge}
                           </span>
                         )}
                       </div>
-                      <p className="truncate text-xs text-zinc-500 dark:text-zinc-400">
+                      <p className="truncate text-xs text-fg-5">
                         /{lng}
                         {page.path === '/' ? '' : page.path}
                       </p>
                     </div>
-                    {isSelected && (
-                      <CornerDownLeft className="h-3.5 w-3.5 shrink-0 text-zinc-400" />
-                    )}
+                    {isSelected && <CornerDownLeft className="h-3.5 w-3.5 shrink-0 text-fg-6" />}
                   </button>
                 );
               })
             ) : (
               <div className="py-8 text-center">
-                <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                  {t('noResults')}
-                </p>
-                <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
-                  {t('noResultsHint')}
-                </p>
+                <p className="text-sm font-medium text-fg-1">{t('noResults')}</p>
+                <p className="mt-1 text-xs text-fg-5">{t('noResultsHint')}</p>
               </div>
             )}
           </div>
 
           {/* 하단 힌트 */}
-          <div className="flex items-center justify-between border-t border-zinc-200 px-4 py-2 dark:border-zinc-700">
-            <p className="text-xs text-zinc-400">{t('hint')}</p>
+          <div className="flex items-center justify-between border-t border-basic-3 px-4 py-2">
+            <p className="text-xs text-fg-6">{t('hint')}</p>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
-                <kbd className="rounded border border-zinc-200 bg-zinc-100 px-1 py-0.5 text-[10px] text-zinc-500 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                <kbd className="rounded border border-basic-3 bg-basic-2 px-1 py-0.5 text-[10px] text-fg-5">
                   ↑↓
                 </kbd>
-                <kbd className="rounded border border-zinc-200 bg-zinc-100 px-1 py-0.5 text-[10px] text-zinc-500 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                <kbd className="rounded border border-basic-3 bg-basic-2 px-1 py-0.5 text-[10px] text-fg-5">
                   ↵
                 </kbd>
               </div>
