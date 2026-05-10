@@ -4,6 +4,7 @@ import React, { useId, useMemo, useState } from 'react';
 import { Button } from '@components/basic/Button';
 import { Input } from '@components/basic/Input';
 import { Text } from '@components/basic/Text';
+import GoogleAd from '@components/google/GoogleAd';
 import { calculateDateRange, formatDateInput } from '../utils/dateDiff';
 
 type Labels = {
@@ -81,11 +82,11 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
 
   return (
     <div className="space-y-4">
-      <Text className="text-sm text-gray-600 dark:text-gray-300">{labels.helper}</Text>
-      <div className="space-y-3 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+      <Text className="text-sm text-fg-4">{labels.helper}</Text>
+      <div className="space-y-3 rounded-xl border border-basic-3 p-4">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <label className="space-y-1" htmlFor={startId}>
-            <Text className="text-sm text-gray-700 dark:text-gray-200">{labels.startLabel}</Text>
+            <Text className="text-sm text-fg-3">{labels.startLabel}</Text>
             <Input
               id={startId}
               type="date"
@@ -94,7 +95,7 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
             />
           </label>
           <label className="space-y-1" htmlFor={endId}>
-            <Text className="text-sm text-gray-700 dark:text-gray-200">{labels.endLabel}</Text>
+            <Text className="text-sm text-fg-3">{labels.endLabel}</Text>
             <Input
               id={endId}
               type="date"
@@ -103,7 +104,7 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
             />
           </label>
         </div>
-        <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200">
+        <div className="flex items-center gap-2 text-sm text-fg-3">
           <input
             id={includeEndId}
             type="checkbox"
@@ -137,21 +138,17 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
           <Button type="button" className="px-3 text-sm" onClick={handleCopy} disabled={!summary}>
             {labels.copy}
           </Button>
-          {copied ? <Text className="text-xs text-point-1">{labels.copied}</Text> : null}
+          {copied ? <Text className="text-xs text-point-fg">{labels.copied}</Text> : null}
         </div>
       </div>
-      <div className="space-y-3 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
-        <Text className="text-sm font-semibold text-gray-800 dark:text-gray-100">
-          {labels.resultTitle}
-        </Text>
-        {!startDate || !endDate ? (
-          <Text className="text-sm text-gray-500 dark:text-gray-400">{labels.empty}</Text>
-        ) : null}
+      <div className="space-y-3 rounded-xl border border-basic-3 p-4">
+        <Text className="text-sm font-semibold text-fg-2">{labels.resultTitle}</Text>
+        {!startDate || !endDate ? <Text className="text-sm text-fg-5">{labels.empty}</Text> : null}
         {startDate && endDate && isInvalidRange ? (
-          <Text className="text-sm text-red-500">{labels.invalidRange}</Text>
+          <Text className="text-sm text-danger-2">{labels.invalidRange}</Text>
         ) : null}
         {result ? (
-          <div className="grid grid-cols-1 gap-2 text-sm text-gray-700 dark:text-gray-200">
+          <div className="grid grid-cols-1 gap-2 text-sm text-fg-3">
             <Text>
               {labels.totalDays}: {result.totalDays} {labels.dayUnit}
             </Text>
@@ -168,6 +165,7 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
           </div>
         ) : null}
       </div>
+      {result ? <GoogleAd slotId="7911066601" className="w-full mt-4" /> : null}
     </div>
   );
 }

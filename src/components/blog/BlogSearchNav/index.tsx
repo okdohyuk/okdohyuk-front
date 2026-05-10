@@ -5,6 +5,7 @@
 import { observer } from 'mobx-react';
 import React from 'react';
 import FilterDropdown from '@components/complex/FilterDropdown';
+import TagFilterSection from '@components/complex/TagFilterSection';
 import useStore from '@hooks/useStore';
 import { cn } from '@utils/cn';
 import { BLOG_GLASS_PANEL_SOFT } from '@components/blog/interactiveStyles';
@@ -26,7 +27,7 @@ const BlogSearchNav = function BlogSearchNav({ hasMargin = false, lng }: BlogSea
         BLOG_GLASS_PANEL_SOFT,
         'w-full p-0',
         hasMargin
-          ? 'sticky top-20 mt-8 mr-4 ml-auto h-fit w-[280px] overflow-hidden'
+          ? 'sticky top-6 mt-52 mr-4 ml-auto h-fit w-[280px] overflow-hidden'
           : 'h-full overflow-y-auto',
       )}
     >
@@ -35,7 +36,7 @@ const BlogSearchNav = function BlogSearchNav({ hasMargin = false, lng }: BlogSea
         items={category}
         changeType={changeCategoryType}
       />
-      <FilterDropdown title={t('filter.tag')} items={tags} changeType={changeTagType} />
+      <TagFilterSection title={t('filter.tag')} items={tags} changeType={changeTagType} />
     </div>
   );
 };

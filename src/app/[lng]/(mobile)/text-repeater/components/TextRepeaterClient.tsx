@@ -12,6 +12,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface TextRepeaterClientProps {
   lng: Language;
@@ -60,10 +61,7 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
     <div className="w-full space-y-6">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="space-y-2">
-          <label
-            htmlFor="text-repeater-input"
-            className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
+          <label htmlFor="text-repeater-input" className="text-sm font-medium text-fg-3">
             {t('label.input')}
           </label>
           <Textarea
@@ -77,10 +75,7 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
 
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
-            <label
-              htmlFor="text-repeater-count"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <label htmlFor="text-repeater-count" className="text-sm font-medium text-fg-3">
               {t('label.count')}
             </label>
             <Input
@@ -91,15 +86,10 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
               value={countInput}
               onChange={(event) => setCountInput(event.target.value)}
             />
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              {t('helper.count', { max: 500 })}
-            </p>
+            <p className="text-xs text-fg-5">{t('helper.count', { max: 500 })}</p>
           </div>
           <div className="space-y-2">
-            <label
-              htmlFor="text-repeater-separator"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <label htmlFor="text-repeater-separator" className="text-sm font-medium text-fg-3">
               {t('label.separator')}
             </label>
             <Input
@@ -108,17 +98,14 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
               placeholder={t('placeholder.separator')}
               onChange={(event) => setSeparatorInput(event.target.value)}
             />
-            <p className="text-xs text-gray-500 dark:text-gray-400">{t('helper.separator')}</p>
+            <p className="text-xs text-fg-5">{t('helper.separator')}</p>
           </div>
         </div>
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
         <div className="flex items-center justify-between gap-3">
-          <label
-            htmlFor="text-repeater-output"
-            className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
+          <label htmlFor="text-repeater-output" className="text-sm font-medium text-fg-3">
             {t('label.output')}
           </label>
           <Button
@@ -138,6 +125,7 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
           readOnly
           placeholder={t('empty')}
         />
+        {output && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
       </div>
     </div>
   );

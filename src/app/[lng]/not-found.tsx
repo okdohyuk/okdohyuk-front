@@ -9,16 +9,16 @@ export default async function NotFound() {
   const { t } = await getTranslations(getLanguageFromCookies(cookieStore), 'notFound');
 
   return (
-    <section className="h-screen bg-white dark:bg-zinc-900">
+    <section className="h-screen bg-basic-0">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="mx-auto max-w-screen-sm text-center">
-          <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-point-1 dark:text-point-4">
+          <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-point-fg dark:text-point-4">
             404
           </h1>
-          <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
+          <p className="mb-4 text-3xl tracking-tight font-bold text-fg-1 md:text-4xl">
             {t('subTitle')}
           </p>
-          <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400 whitespace-pre-line">
+          <p className="mb-4 text-lg font-light text-fg-5 whitespace-pre-line">
             {t('description')}
           </p>
           <Link

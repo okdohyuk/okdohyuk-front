@@ -34,7 +34,7 @@ function Drawer() {
           direction="right"
           className="!bg-transparent"
         >
-          <div className="h-full bg-zinc-100/95 p-3 backdrop-blur-md dark:bg-zinc-900/95">
+          <div className="h-full bg-basic-1/95 p-3 backdrop-blur-md">
             <BlogSearchNav lng={language} />
           </div>
         </ModernDrawer>

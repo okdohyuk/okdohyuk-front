@@ -6,6 +6,7 @@ import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 const DEFAULT_WEEKS = 4.3;
 const DEFAULT_DAYS = 5;
@@ -57,7 +58,7 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
       <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4`}>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-gray-700">{t('roundTripLabel')}</span>
+            <span className="text-sm font-semibold text-fg-3">{t('roundTripLabel')}</span>
             <Input
               type="number"
               min={0}
@@ -68,7 +69,7 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
             />
           </div>
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-gray-700">{t('daysLabel')}</span>
+            <span className="text-sm font-semibold text-fg-3">{t('daysLabel')}</span>
             <Input
               type="number"
               min={1}
@@ -79,7 +80,7 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
             />
           </div>
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-gray-700">{t('weeksLabel')}</span>
+            <span className="text-sm font-semibold text-fg-3">{t('weeksLabel')}</span>
             <Input
               type="number"
               min={1}
@@ -89,7 +90,7 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
             />
           </div>
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-gray-700">{t('passLabel')}</span>
+            <span className="text-sm font-semibold text-fg-3">{t('passLabel')}</span>
             <Input
               type="number"
               min={0}
@@ -101,37 +102,39 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{t('tips')}</p>
+        <p className="text-xs text-fg-5">{t('tips')}</p>
 
         <div className="flex flex-wrap gap-2">
-          <Button type="button" onClick={reset} className="px-4 bg-gray-200 text-gray-700">
+          <Button type="button" onClick={reset} className="px-4 bg-basic-2 text-fg-3">
             {t('reset')}
           </Button>
         </div>
       </section>
 
+      {roundTrip && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
+
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-700">{t('monthlyCostLabel')}</p>
-          <p className="text-lg font-semibold text-gray-800">
+          <p className="text-sm font-semibold text-fg-3">{t('monthlyCostLabel')}</p>
+          <p className="text-lg font-semibold text-fg-2">
             {t('currency', { value: values.monthlyCost.toFixed(0) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-700">{t('passCostLabel')}</p>
-          <p className="text-lg font-semibold text-gray-800">
+          <p className="text-sm font-semibold text-fg-3">{t('passCostLabel')}</p>
+          <p className="text-lg font-semibold text-fg-2">
             {t('currency', { value: values.monthlyWithPass.toFixed(0) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-700">{t('dailyAverageLabel')}</p>
-          <p className="text-base font-medium text-gray-700">
+          <p className="text-sm font-semibold text-fg-3">{t('dailyAverageLabel')}</p>
+          <p className="text-base font-medium text-fg-3">
             {t('currency', { value: values.dailyAverage.toFixed(0) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-700">{t('annualCostLabel')}</p>
-          <p className="text-base font-medium text-gray-700">
+          <p className="text-sm font-semibold text-fg-3">{t('annualCostLabel')}</p>
+          <p className="text-base font-medium text-fg-3">
             {t('currency', { value: values.annualCost.toFixed(0) })}
           </p>
         </div>

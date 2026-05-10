@@ -12,6 +12,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface SlugGeneratorClientProps {
   lng: Language;
@@ -46,10 +47,7 @@ export default function SlugGeneratorClient({ lng }: SlugGeneratorClientProps) {
   return (
     <div className="w-full space-y-6">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-        <label
-          htmlFor="slug-input"
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-        >
+        <label htmlFor="slug-input" className="text-sm font-medium text-fg-3">
           {t('label.input')}
         </label>
         <Input
@@ -59,15 +57,12 @@ export default function SlugGeneratorClient({ lng }: SlugGeneratorClientProps) {
           value={value}
           onChange={(event) => setValue(event.target.value)}
         />
-        <p className="text-xs text-gray-500 dark:text-gray-400">{t('helper')}</p>
+        <p className="text-xs text-fg-5">{t('helper')}</p>
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
         <div className="flex items-center justify-between gap-3">
-          <label
-            htmlFor="slug-output"
-            className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
+          <label htmlFor="slug-output" className="text-sm font-medium text-fg-3">
             {t('label.output')}
           </label>
           <Button
@@ -88,6 +83,7 @@ export default function SlugGeneratorClient({ lng }: SlugGeneratorClientProps) {
           placeholder={t('empty')}
         />
       </div>
+      {slug && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

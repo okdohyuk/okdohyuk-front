@@ -17,6 +17,7 @@ import {
   MAX_KOREAN_AMOUNT_DIGITS,
   MAX_KOREAN_AMOUNT_FORMATTED_LENGTH,
 } from '~/app/[lng]/(mobile)/korean-amount/utils/convertKoreanAmount';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface KoreanAmountClientProps {
   lng: Language;
@@ -80,10 +81,7 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
     <div className="w-full space-y-6">
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="space-y-2">
-          <label
-            htmlFor="amount-input"
-            className="text-sm font-medium text-gray-700 dark:text-gray-200"
-          >
+          <label htmlFor="amount-input" className="text-sm font-medium text-fg-3">
             {t('label.amount')}
           </label>
           <Input
@@ -101,14 +99,11 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <label
-            htmlFor="currency-toggle"
-            className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"
-          >
+          <label htmlFor="currency-toggle" className="flex items-center gap-2 text-sm text-fg-4">
             <input
               id="currency-toggle"
               type="checkbox"
-              className="h-4 w-4 rounded border-gray-300 text-point-1 focus:ring-point-1"
+              className="h-4 w-4 rounded border-basic-3 text-point-fg focus:ring-point-1"
               checked={includeCurrency}
               onChange={(event) => setIncludeCurrency(event.target.checked)}
             />
@@ -119,7 +114,7 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
               <Button
                 key={value}
                 type="button"
-                className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100"
+                className="px-3 py-1 text-sm bg-basic-2 hover:bg-basic-3 text-fg-2"
                 onClick={() => setRawValue(value)}
               >
                 {value}
@@ -131,14 +126,14 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
 
       <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
         <div className="flex items-center justify-between gap-4">
-          <H1 className="text-2xl text-zinc-900 dark:text-zinc-50">{t('result.title')}</H1>
+          <H1 className="text-2xl text-fg-1">{t('result.title')}</H1>
           <div className="flex gap-2">
             <Button type="button" className="px-3 py-1 text-sm" onClick={onCopy} disabled={!result}>
               {copied ? t('button.copied') : t('button.copy')}
             </Button>
             <Button
               type="button"
-              className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100"
+              className="px-3 py-1 text-sm bg-basic-2 hover:bg-basic-3 text-fg-2"
               onClick={onClear}
             >
               {t('button.clear')}
@@ -155,6 +150,7 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
           {t('result.tip')}
         </Text>
       </section>
+      {result && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

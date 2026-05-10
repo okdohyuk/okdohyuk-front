@@ -155,14 +155,14 @@ export default function StopwatchClient({ lng }: StopwatchClientProps) {
             type="button"
             onClick={handleReset}
             disabled={isResetDisabled}
-            className="border border-zinc-200/70 bg-white text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700/70 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
+            className="border border-basic-3 bg-basic-0 text-fg-3 hover:bg-basic-2"
           >
             {t('button.reset')}
           </Button>
           <Button
             type="button"
             onClick={handleCopy}
-            className="border border-zinc-200/70 bg-white text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700/70 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
+            className="border border-basic-3 bg-basic-0 text-fg-3 hover:bg-basic-2"
           >
             {copied ? (
               <span className="flex items-center gap-2">
@@ -199,17 +199,15 @@ export default function StopwatchClient({ lng }: StopwatchClientProps) {
               return (
                 <li
                   key={lap.id}
-                  className="flex items-center justify-between gap-3 rounded-2xl border border-zinc-200/60 bg-white/70 px-3 py-2 text-sm dark:border-zinc-700/60 dark:bg-zinc-900/60"
+                  className="flex items-center justify-between gap-3 rounded-2xl border border-basic-3/60 bg-basic-0/70 px-3 py-2 text-sm"
                 >
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                  <span className="text-xs text-fg-5">
                     {t('label.lap')} {lapNumber}
                   </span>
                   <span className="flex-1 text-right text-sm font-semibold tabular-nums">
                     {formatTime(lap.lapMs)}
                   </span>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400 tabular-nums">
-                    {formatTime(lap.totalMs)}
-                  </span>
+                  <span className="text-xs text-fg-5 tabular-nums">{formatTime(lap.totalMs)}</span>
                 </li>
               );
             })}

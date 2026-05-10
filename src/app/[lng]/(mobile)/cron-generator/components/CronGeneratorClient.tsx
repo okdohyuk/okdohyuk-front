@@ -7,6 +7,7 @@ import { Text } from '@components/basic/Text';
 import ServiceInfoNotice from '@components/complex/Service/ServiceInfoNotice';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
+import GoogleAd from '@components/google/GoogleAd';
 import CronExpressionInput from './CronExpressionInput';
 import CronFieldBuilder, { CronFieldMode } from './CronFieldBuilder';
 import CronGuideGrid from './CronGuideGrid';
@@ -137,7 +138,7 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
   return (
     <div className="w-full space-y-6">
       <div className="space-y-1">
-        <Text variant="d2" className="font-semibold text-gray-800 dark:text-gray-100">
+        <Text variant="d2" className="font-semibold text-fg-2">
           {t('builder.title')}
         </Text>
       </div>
@@ -243,9 +244,12 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
       </div>
 
       <CronExpressionInput label={t('label.expression')} expression={expression} />
-      {error && <p className="animate-pulse text-sm font-medium text-red-500">{error}</p>}
+      {error && <p className="animate-pulse text-sm font-medium text-danger-2">{error}</p>}
 
       <CronResultCard title={t('label.result')} result={humanReadable || '-'} />
+
+      {humanReadable && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
+
       <CronGuideGrid
         minuteLabel={t('label.minute')}
         hourLabel={t('label.hour')}

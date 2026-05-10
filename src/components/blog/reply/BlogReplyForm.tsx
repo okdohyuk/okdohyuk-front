@@ -79,7 +79,7 @@ function BlogReplyForm({
     <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2">
       <div className="relative">
         <textarea
-          className="w-full resize-none rounded-xl border border-zinc-200 bg-white/90 p-4 pb-8 text-gray-900 outline-none transition-all duration-200 focus:border-point-2 focus:ring-2 focus:ring-point-2/40 dark:border-zinc-700 dark:bg-zinc-800/90 dark:text-gray-100"
+          className="w-full resize-none rounded-xl border border-basic-3 bg-basic-0/90 p-4 pb-8 text-fg-1 outline-none transition-all duration-200 focus:border-point-2 focus:ring-2 focus:ring-point-2/40"
           rows={3}
           maxLength={500}
           placeholder={t('reply.placeholder')}
@@ -87,14 +87,14 @@ function BlogReplyForm({
           onChange={(e) => setContent(e.target.value)}
           disabled={isSubmitting}
         />
-        <div className="absolute bottom-2 right-4 text-xs text-zinc-400">{content.length}/500</div>
+        <div className="absolute bottom-2 right-4 text-xs text-fg-6">{content.length}/500</div>
       </div>
       <div className="flex justify-end gap-2">
         {onCancel && (
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
+            className="rounded-lg px-4 py-2 text-sm font-medium text-fg-4 transition-colors hover:bg-basic-2"
             disabled={isSubmitting}
           >
             {t('reply.cancel')}

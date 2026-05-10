@@ -12,6 +12,7 @@ import {
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Copy, RefreshCcw } from 'lucide-react';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface BmiCalculatorProps {
   lng: Language;
@@ -85,7 +86,7 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
   const categoryClass = {
     underweight: 'text-sky-600 dark:text-sky-400',
     normal: 'text-emerald-600 dark:text-emerald-400',
-    overweight: 'text-amber-600 dark:text-amber-400',
+    overweight: 'text-warn-1 dark:text-warn-3',
     obese: 'text-rose-600 dark:text-rose-400',
   } as const;
 
@@ -93,10 +94,7 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
     <div className="w-full space-y-6">
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="space-y-2">
-          <label
-            htmlFor="height-input"
-            className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
+          <label htmlFor="height-input" className="text-sm font-medium text-fg-3">
             {t('label.height')}
           </label>
           <Input
@@ -110,10 +108,7 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
           />
         </div>
         <div className="space-y-2">
-          <label
-            htmlFor="weight-input"
-            className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
+          <label htmlFor="weight-input" className="text-sm font-medium text-fg-3">
             {t('label.weight')}
           </label>
           <Input
@@ -137,7 +132,7 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
           <Button
             onClick={handleCopy}
             disabled={!result?.bmi}
-            className="flex items-center gap-2 px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100"
+            className="flex items-center gap-2 px-3 py-1 text-sm bg-basic-2 hover:bg-basic-3 text-fg-1"
           >
             <Copy size={16} />
             {copied ? t('button.copied') : t('button.copy')}
@@ -178,11 +173,13 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
         )}
       </section>
 
+      {result?.valid && result.bmi && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
+
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <Text variant="d2" className="block font-semibold">
           {t('range.title')}
         </Text>
-        <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+        <ul className="space-y-2 text-sm text-fg-4">
           {BMI_CATEGORIES.map((item) => (
             <li key={item.key} className="flex items-center justify-between gap-3">
               <span className={cn('font-medium', categoryClass[item.key])}>

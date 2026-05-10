@@ -1,7 +1,13 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
-import Select from '@components/complex/Select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@components/basic/Select';
 import { Input } from '@components/basic/Input';
 import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
@@ -10,6 +16,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface BedtimePlannerClientProps {
   lng: Language;
@@ -74,16 +81,21 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
     <div className="w-full space-y-6">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div>
-          <label htmlFor="mode" className="text-sm font-medium text-gray-700 dark:text-gray-200">
+          <label htmlFor="mode" className="text-sm font-medium text-fg-3">
             {t('label.mode')}
           </label>
-          <Select className="w-full" value={mode} onChange={setMode}>
-            <option value="wake">{t('mode.wake')}</option>
-            <option value="sleep">{t('mode.sleep')}</option>
+          <Select value={mode} onValueChange={setMode}>
+            <SelectTrigger className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="wake">{t('mode.wake')}</SelectItem>
+              <SelectItem value="sleep">{t('mode.sleep')}</SelectItem>
+            </SelectContent>
           </Select>
         </div>
         <div>
-          <label htmlFor="time" className="text-sm font-medium text-gray-700 dark:text-gray-200">
+          <label htmlFor="time" className="text-sm font-medium text-fg-3">
             {mode === 'wake' ? t('label.wakeTime') : t('label.sleepTime')}
           </label>
           <Input
@@ -92,12 +104,12 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
             value={time}
             onChange={(event) => setTime(event.target.value)}
           />
-          <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">{t('helper')}</p>
+          <p className="mt-1 text-xs text-fg-5">{t('helper')}</p>
         </div>
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
-        <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+        <h3 className="text-sm font-semibold text-fg-1">
           {mode === 'wake' ? t('result.sleepTimes') : t('result.wakeTimes')}
         </h3>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -108,20 +120,16 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
             return (
               <div
                 key={item.cycle}
-                className="rounded-2xl border border-gray-200/70 p-3 dark:border-gray-700/70"
+                className="rounded-2xl border border-basic-3/70 p-3 dark:border-basic-4/70"
               >
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-fg-5">
                   {t('result.cycle', { count: item.cycle })} ·{' '}
                   {t('result.sleepHours', {
                     hours: sleepHours,
                   })}
                 </p>
-                <p className="text-lg font-semibold text-gray-900 dark:text-white">
-                  {formatter.format(item.target)}
-                </p>
-                {dayLabel ? (
-                  <p className="text-xs text-gray-500 dark:text-gray-400">{dayLabel}</p>
-                ) : null}
+                <p className="text-lg font-semibold text-fg-1">{formatter.format(item.target)}</p>
+                {dayLabel ? <p className="text-xs text-fg-5">{dayLabel}</p> : null}
               </div>
             );
           })}
@@ -129,15 +137,15 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-4')}>
-        <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-          {t('tips.title')}
-        </h3>
-        <ul className="list-disc space-y-1 pl-4 text-sm text-gray-600 dark:text-gray-300">
+        <h3 className="text-sm font-semibold text-fg-1">{t('tips.title')}</h3>
+        <ul className="list-disc space-y-1 pl-4 text-sm text-fg-4">
           {(t('tips.items', { returnObjects: true }) as string[]).map((tip) => (
             <li key={tip}>{tip}</li>
           ))}
         </ul>
       </div>
+
+      {results.length > 0 && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

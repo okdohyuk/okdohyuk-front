@@ -154,8 +154,8 @@ export default function PpollongPage({ params }: LanguageParams) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
       >
-        <h2 className="flex items-center gap-2 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-          <Settings2 className="h-4 w-4 text-point-1" />
+        <h2 className="flex items-center gap-2 text-base font-semibold text-fg-2">
+          <Settings2 className="h-4 w-4 text-point-fg" />
           {t('settingsTitle')}
         </h2>
 
@@ -187,7 +187,7 @@ export default function PpollongPage({ params }: LanguageParams) {
               type="button"
               className={cn(
                 SERVICE_CARD_INTERACTIVE,
-                'flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 bg-white/80 text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800/70 dark:text-zinc-200',
+                'flex h-10 w-10 items-center justify-center rounded-xl border border-basic-3 bg-basic-0/80 text-fg-4',
               )}
               title={t('resetButtonTitle')}
               onClick={handleReset}
@@ -199,9 +199,7 @@ export default function PpollongPage({ params }: LanguageParams) {
         </div>
 
         {error && !isLoading && (
-          <p className="animate-pulse text-sm font-medium text-red-500 dark:text-red-400">
-            {error}
-          </p>
+          <p className="animate-pulse text-sm font-medium text-danger-2">{error}</p>
         )}
       </motion.section>
 
@@ -214,7 +212,7 @@ export default function PpollongPage({ params }: LanguageParams) {
         >
           <div className="text-center">
             <motion.div
-              className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-point-1/20 to-violet-500/20 text-point-1"
+              className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-point-1/20 to-violet-500/20 text-point-fg"
               animate={
                 isLoading ? { rotate: [0, -8, 8, -8, 0], scale: [1, 1.08, 1, 1.08, 1] } : undefined
               }
@@ -249,16 +247,16 @@ export default function PpollongPage({ params }: LanguageParams) {
           <AnimatePresence>
             {currentNumber !== null && (
               <motion.div
-                className="rounded-2xl border border-yellow-300/70 bg-yellow-100/75 p-6 text-center shadow-inner dark:border-yellow-700/50 dark:bg-yellow-900/25"
+                className="rounded-2xl border border-warn-3/70 bg-warn-4/75 p-6 text-center shadow-inner dark:border-warn-1/50 dark:bg-warn-1/25"
                 initial={{ opacity: 0, scale: 0.5, rotate: -12 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                 exit={{ opacity: 0, scale: 0.5, rotate: 12, transition: { duration: 0.2 } }}
                 transition={{ type: 'spring', stiffness: 180, damping: 12 }}
               >
-                <p className="text-xs font-semibold text-yellow-700 dark:text-yellow-300">
+                <p className="text-xs font-semibold text-warn-1 dark:text-warn-3">
                   {t('drawnNumberPrefix')}
                 </p>
-                <span className="mt-2 block bg-gradient-to-br from-yellow-500 to-red-600 bg-clip-text text-6xl font-black text-transparent md:text-7xl">
+                <span className="mt-2 block bg-gradient-to-br from-warn-2 to-danger-1 bg-clip-text text-6xl font-black text-transparent md:text-7xl">
                   {currentNumber}
                 </span>
               </motion.div>
@@ -274,7 +272,7 @@ export default function PpollongPage({ params }: LanguageParams) {
           animate={{ opacity: 1 }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
         >
-          <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
+          <h3 className="text-sm font-semibold text-fg-2">
             {t('numberBoardTitle', {
               maxNumber,
               drawnCount: drawnNumbers.length,
@@ -294,8 +292,8 @@ export default function PpollongPage({ params }: LanguageParams) {
                   className={cn(
                     'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-bold transition-all md:h-10 md:w-10 md:text-sm',
                     isDrawn
-                      ? 'border-zinc-400 bg-zinc-200 text-zinc-500 opacity-60 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-400'
-                      : 'border-point-2/70 bg-point-2/25 text-point-1 dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
+                      ? 'border-basic-4 bg-basic-2 text-fg-5 opacity-60'
+                      : 'border-point-2/70 bg-point-2/25 text-point-fg dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
                     currentNumber === number && isLoading
                       ? 'scale-110 animate-pulse shadow-md'
                       : '',
@@ -307,9 +305,7 @@ export default function PpollongPage({ params }: LanguageParams) {
             })}
 
             {displayedNumbers.tail.length > 0 ? (
-              <div className="flex items-center px-1 text-sm font-bold text-zinc-500 dark:text-zinc-400">
-                ...
-              </div>
+              <div className="flex items-center px-1 text-sm font-bold text-fg-5">...</div>
             ) : null}
 
             {displayedNumbers.tail.map((number) => {
@@ -320,8 +316,8 @@ export default function PpollongPage({ params }: LanguageParams) {
                   className={cn(
                     'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-bold transition-all md:h-10 md:w-10 md:text-sm',
                     isDrawn
-                      ? 'border-zinc-400 bg-zinc-200 text-zinc-500 opacity-60 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-400'
-                      : 'border-point-2/70 bg-point-2/25 text-point-1 dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
+                      ? 'border-basic-4 bg-basic-2 text-fg-5 opacity-60'
+                      : 'border-point-2/70 bg-point-2/25 text-point-fg dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
                   )}
                 >
                   {number}

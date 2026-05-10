@@ -27,12 +27,12 @@ describe('UserTokenUtil', () => {
 
   describe('getAccessToken', () => {
     it('access_token 쿠키가 있으면 "Bearer " 접두사와 함께 토큰을 반환해야 합니다', () => {
-      mockedCookies.get.mockReturnValue(mockAccessToken);
+      mockedCookies.get.mockReturnValue(mockAccessToken as unknown as { [key: string]: string });
       expect(UserTokenUtil.getAccessToken()).toBe(`Bearer ${mockAccessToken}`);
     });
 
     it('access_token 쿠키가 없으면 빈 문자열을 반환해야 합니다', () => {
-      mockedCookies.get.mockReturnValue(undefined);
+      mockedCookies.get.mockReturnValue(undefined as unknown as { [key: string]: string });
       expect(UserTokenUtil.getAccessToken()).toBe('');
     });
   });
@@ -57,12 +57,12 @@ describe('UserTokenUtil', () => {
 
   describe('getRefreshToken', () => {
     it('refresh_token 쿠키가 있으면 해당 토큰을 반환해야 합니다', () => {
-      mockedCookies.get.mockReturnValue(mockRefreshToken);
+      mockedCookies.get.mockReturnValue(mockRefreshToken as unknown as { [key: string]: string });
       expect(UserTokenUtil.getRefreshToken()).toBe(mockRefreshToken);
     });
 
     it('refresh_token 쿠키가 없으면 빈 문자열을 반환해야 합니다', () => {
-      mockedCookies.get.mockReturnValue(undefined);
+      mockedCookies.get.mockReturnValue(undefined as unknown as { [key: string]: string });
       expect(UserTokenUtil.getRefreshToken()).toBe('');
     });
   });

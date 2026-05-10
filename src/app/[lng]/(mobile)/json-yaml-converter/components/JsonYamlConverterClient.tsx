@@ -13,6 +13,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import { parse, stringify } from 'yaml';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface JsonYamlConverterClientProps {
   lng: Language;
@@ -122,7 +123,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
                   'px-3 py-1 text-sm',
                   direction === 'json-to-yaml'
                     ? 'bg-point-2 text-white'
-                    : 'bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700',
+                    : 'bg-basic-2 text-fg-1 hover:bg-basic-3',
                 )}
               >
                 {t('direction.jsonToYaml')}
@@ -134,7 +135,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
                   'px-3 py-1 text-sm',
                   direction === 'yaml-to-json'
                     ? 'bg-point-2 text-white'
-                    : 'bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700',
+                    : 'bg-basic-2 text-fg-1 hover:bg-basic-3',
                 )}
               >
                 {t('direction.yamlToJson')}
@@ -144,7 +145,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
           <Button
             type="button"
             onClick={handleSample}
-            className="flex items-center gap-2 px-3 py-1 text-sm bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
+            className="flex items-center gap-2 px-3 py-1 text-sm bg-basic-2 text-fg-1 hover:bg-basic-3"
           >
             <Sparkles size={16} />
             {direction === 'json-to-yaml' ? t('button.sampleJson') : t('button.sampleYaml')}
@@ -162,7 +163,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
           />
         </div>
         {error && (
-          <Text variant="d3" color="basic-5" className="text-red-500 dark:text-red-400">
+          <Text variant="d3" color="basic-5" className="text-danger-2 dark:text-danger-3">
             {error}
           </Text>
         )}
@@ -184,7 +185,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
           <Button
             type="button"
             onClick={handleSwap}
-            className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
+            className="flex items-center gap-2 px-4 py-2 text-sm bg-basic-2 text-fg-1 hover:bg-basic-3"
           >
             <ArrowLeftRight size={16} />
             {t('button.swap')}
@@ -192,7 +193,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
           <Button
             type="button"
             onClick={handleClear}
-            className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
+            className="flex items-center gap-2 px-4 py-2 text-sm bg-basic-2 text-fg-1 hover:bg-basic-3"
           >
             <RefreshCcw size={16} />
             {t('button.clear')}
@@ -209,9 +210,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
               disabled={!output.trim()}
               className={cn(
                 'flex items-center gap-2 px-3 py-1 text-xs',
-                output.trim()
-                  ? 'bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700'
-                  : 'bg-gray-100 text-gray-400 dark:bg-gray-900 dark:text-gray-600',
+                output.trim() ? 'bg-basic-2 text-fg-1 hover:bg-basic-3' : 'bg-basic-2 text-fg-6',
               )}
             >
               <Copy size={14} />
@@ -225,6 +224,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
             value={output}
           />
         </div>
+        {output && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
       </div>
     </div>
   );

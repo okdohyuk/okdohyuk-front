@@ -34,7 +34,7 @@ export default function TimeDisplay({
   }
 
   return (
-    <div className="mx-auto inline-block min-w-[320px] rounded-2xl bg-gray-50 p-6 shadow-xl transition-all duration-300 dark:bg-gray-800 md:min-w-[500px] md:p-10">
+    <div className="mx-auto inline-block min-w-[320px] rounded-2xl bg-basic-1 p-6 shadow-xl transition-all duration-300 md:min-w-[500px] md:p-10">
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.p
@@ -53,7 +53,7 @@ export default function TimeDisplay({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex h-[120px] items-center justify-center text-xl text-red-500 dark:text-red-400"
+            className="flex h-[120px] items-center justify-center text-xl text-danger-2"
           >
             {error}
           </motion.p>
@@ -67,12 +67,12 @@ export default function TimeDisplay({
             className="flex h-[120px] flex-col justify-center"
           >
             <p
-              className="mb-2 truncate text-xl text-gray-600 dark:text-gray-300 md:text-2xl"
+              className="mb-2 truncate text-xl text-fg-4 md:text-2xl"
               title={selectedSite === 'custom' ? customServerUrl : selectedSite}
             >
               <span className="font-semibold capitalize">{siteLabel}</span>
             </p>
-            <p className="font-mono tabular-nums text-6xl tracking-tighter text-gray-900 dark:text-white md:text-7xl">
+            <p className="font-mono tabular-nums text-6xl tracking-tighter text-fg-1 md:text-7xl">
               <motion.span
                 className="inline-block"
                 animate={urgentStyle}
@@ -87,7 +87,7 @@ export default function TimeDisplay({
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="inline-block min-w-[4.5rem] overflow-hidden align-bottom text-4xl text-blue-500 dark:text-blue-400 md:min-w-[6rem] md:text-5xl"
+                    className="inline-block min-w-[4.5rem] overflow-hidden align-bottom text-4xl text-info-2 md:min-w-[6rem] md:text-5xl"
                   >
                     .{format(serverTime, 'SSS')}
                   </motion.span>

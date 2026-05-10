@@ -8,6 +8,7 @@ import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { cn } from '@utils/cn';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 const DEFAULT_FOREGROUND = '#111827';
 const DEFAULT_BACKGROUND = '#ffffff';
@@ -148,7 +149,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
               type="color"
               value={normalizedForeground ?? DEFAULT_FOREGROUND}
               onChange={(event) => setForeground(event.target.value)}
-              className="h-10 w-10 cursor-pointer rounded border border-gray-200 dark:border-gray-700"
+              className="h-10 w-10 cursor-pointer rounded border border-basic-3 dark:border-basic-4"
             />
             <Input
               value={foreground}
@@ -174,7 +175,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
               type="color"
               value={normalizedBackground ?? DEFAULT_BACKGROUND}
               onChange={(event) => setBackground(event.target.value)}
-              className="h-10 w-10 cursor-pointer rounded border border-gray-200 dark:border-gray-700"
+              className="h-10 w-10 cursor-pointer rounded border border-basic-3 dark:border-basic-4"
             />
             <Input
               value={background}
@@ -208,7 +209,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
           <button
             key={example.label}
             type="button"
-            className="rounded-full border border-gray-200 px-3 py-1 text-xs text-gray-700 transition hover:border-point-1 hover:text-point-1 dark:border-gray-700 dark:text-gray-200"
+            className="rounded-full border border-basic-3 px-3 py-1 text-xs text-fg-3 transition hover:border-point-1 hover:text-point-fg"
             onClick={() => {
               setForeground(example.foreground);
               setBackground(example.background);
@@ -238,10 +239,10 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
                 {t('label.normalText')}
               </Text>
               <div className="flex items-center gap-2">
-                <span className={normalAA ? 'text-green-600' : 'text-red-600'}>
+                <span className={normalAA ? 'text-success-1' : 'text-danger-1'}>
                   {t(normalAA ? 'status.passAA' : 'status.failAA')}
                 </span>
-                <span className={normalAAA ? 'text-green-600' : 'text-red-600'}>
+                <span className={normalAAA ? 'text-success-1' : 'text-danger-1'}>
                   {t(normalAAA ? 'status.passAAA' : 'status.failAAA')}
                 </span>
               </div>
@@ -251,10 +252,10 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
                 {t('label.largeText')}
               </Text>
               <div className="flex items-center gap-2">
-                <span className={largeAA ? 'text-green-600' : 'text-red-600'}>
+                <span className={largeAA ? 'text-success-1' : 'text-danger-1'}>
                   {t(largeAA ? 'status.passAA' : 'status.failAA')}
                 </span>
-                <span className={largeAAA ? 'text-green-600' : 'text-red-600'}>
+                <span className={largeAAA ? 'text-success-1' : 'text-danger-1'}>
                   {t(largeAAA ? 'status.passAAA' : 'status.failAAA')}
                 </span>
               </div>
@@ -266,7 +267,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
         </div>
 
         <div
-          className="flex min-h-[180px] flex-col items-center justify-center rounded-lg border border-gray-200 p-6 text-center dark:border-gray-700"
+          className="flex min-h-[180px] flex-col items-center justify-center rounded-lg border border-basic-3 p-6 text-center dark:border-basic-4"
           style={{
             backgroundColor: normalizedBackground ?? DEFAULT_BACKGROUND,
             color: normalizedForeground ?? DEFAULT_FOREGROUND,
@@ -283,6 +284,8 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
           </Text>
         </div>
       </div>
+
+      {ratio !== null && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

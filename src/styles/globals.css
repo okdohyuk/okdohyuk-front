@@ -179,6 +179,122 @@ table {
     --basic-3: #e4e4e7;
     --basic-4: #d4d4d8;
     --basic-5: #a1a1aa;
+
+    /* Point (violet accent) */
+    --point-1: #6d28d9;
+    --point-2: #7c3aed;
+    --point-3: #8b5cf6;
+    --point-4: #ddd6fe;
+    --point-tint-soft: #eeeafe;
+    --point-800: #5b21b6;
+
+    /* Accessible text accent — auto-swaps in dark mode */
+    --accent-fg: var(--point-1);
+    --accent-tint: rgba(124, 58, 237, 0.12);
+    --accent-tint-soft: rgba(124, 58, 237, 0.06);
+
+    /* Semantic foreground */
+    --fg-0: #000000;
+    --fg-1: #18181b;
+    --fg-2: #27272a;
+    --fg-3: #3f3f46;
+    --fg-4: #52525b;
+    --fg-5: #71717a;
+    --fg-6: #a1a1aa;
+    --fg-7: #d4d4d8;
+
+    /* Semantic surface */
+    --bg-canvas: #fafafa;
+    --bg-surface: #ffffff;
+    --bg-muted: #f4f4f5;
+    --border-subtle: #e4e4e7;
+    --border-default: #d4d4d8;
+    --ring-focus: rgba(109, 40, 217, 0.5);
+
+    /* Shadow */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 2px 6px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 50px 0 rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 20px 50px 0 rgba(0, 0, 0, 0.2);
+
+    /* Border radius */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 14px;
+    --radius-xl: 16px;
+    --radius-pill: 9999px;
+    --radius-panel: 24px;
+
+    /* Spacing */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+
+    /* Sub palette — Primary (alias) */
+    --primary-1: #6d28d9;
+    --primary-2: #7c3aed;
+    --primary-3: #8b5cf6;
+    --primary-4: #ddd6fe;
+
+    /* Success · emerald */
+    --success-1: #047857;
+    --success-2: #10b981;
+    --success-3: #34d399;
+    --success-4: #d1fae5;
+
+    /* Info · sky */
+    --info-1: #0369a1;
+    --info-2: #0ea5e9;
+    --info-3: #38bdf8;
+    --info-4: #e0f2fe;
+
+    /* Warning · amber */
+    --warn-1: #b45309;
+    --warn-2: #f59e0b;
+    --warn-3: #fbbf24;
+    --warn-4: #fef3c7;
+
+    /* Danger · red */
+    --danger-1: #b91c1c;
+    --danger-2: #ef4444;
+    --danger-3: #f87171;
+    --danger-4: #fee2e2;
+
+    /* Neutral · zinc */
+    --neutral-1: #3f3f46;
+    --neutral-2: #71717a;
+    --neutral-3: #a1a1aa;
+    --neutral-4: #f4f4f5;
+
+    /* Accent2 · teal */
+    --accent2-1: #0f766e;
+    --accent2-2: #14b8a6;
+    --accent2-3: #2dd4bf;
+    --accent2-4: #ccfbf1;
+
+    /* Accent3 · pink */
+    --accent3-1: #be185d;
+    --accent3-2: #ec4899;
+    --accent3-3: #f472b6;
+    --accent3-4: #fce7f3;
+
+    /* Status semantic aliases */
+    --status-success-fg: var(--success-1);
+    --status-success-bg: var(--success-4);
+    --status-info-fg: var(--info-1);
+    --status-info-bg: var(--info-4);
+    --status-warn-fg: var(--warn-1);
+    --status-warn-bg: var(--warn-4);
+    --status-danger-fg: var(--danger-1);
+    --status-danger-bg: var(--danger-4);
+    --status-neutral-fg: var(--neutral-1);
+    --status-neutral-bg: var(--neutral-4);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -189,6 +305,48 @@ table {
       --basic-3: #3f3f46;
       --basic-4: #52525b;
       --basic-5: #71717a;
+
+      /* fg 반전 */
+      --fg-0: #ffffff;
+      --fg-1: #fafafa;
+      --fg-2: #f4f4f5;
+      --fg-3: #e4e4e7;
+      --fg-4: #d4d4d8;
+      --fg-5: #a1a1aa;
+      --fg-6: #71717a;
+      --fg-7: #52525b;
+
+      --bg-canvas: #18181b;
+      --bg-surface: #27272a;
+      --bg-muted: #3f3f46;
+      --border-subtle: #3f3f46;
+      --border-default: #52525b;
+
+      /* sub palette tint — 반투명 */
+      --primary-4: rgba(124, 58, 237, 0.22);
+      --point-4: rgba(124, 58, 237, 0.22);
+      --point-tint-soft: rgba(139, 92, 246, 0.15);
+      --success-4: rgba(16, 185, 129, 0.18);
+      --info-4: rgba(14, 165, 233, 0.18);
+      --warn-4: rgba(245, 158, 11, 0.18);
+      --danger-4: rgba(239, 68, 68, 0.18);
+      --neutral-4: rgba(161, 161, 170, 0.16);
+      --accent2-4: rgba(20, 184, 166, 0.18);
+      --accent3-4: rgba(236, 72, 153, 0.18);
+
+      /* Dark text accent — violet-300, 9.62:1 on #18181b (WCAG AAA) */
+      --accent-fg: #c4b5fd;
+      --accent-tint: rgba(196, 181, 253, 0.14);
+      --accent-tint-soft: rgba(196, 181, 253, 0.06);
+
+      --ring-focus: rgba(196, 181, 253, 0.55);
+
+      /* status fg — light stops */
+      --status-success-fg: var(--success-3);
+      --status-info-fg: var(--info-3);
+      --status-warn-fg: var(--warn-3);
+      --status-danger-fg: var(--danger-3);
+      --status-neutral-fg: var(--neutral-3);
     }
   }
 
@@ -293,5 +451,34 @@ table {
   .table th,
   .table td {
     @apply p-2 border border-solid border-basic-5 align-middle break-keep;
+  }
+
+  /* Badge / status pill */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold;
+  }
+  .badge-primary {
+    background: var(--primary-4);
+    color: var(--primary-1);
+  }
+  .badge-success {
+    background: var(--status-success-bg);
+    color: var(--status-success-fg);
+  }
+  .badge-info {
+    background: var(--status-info-bg);
+    color: var(--status-info-fg);
+  }
+  .badge-warn {
+    background: var(--status-warn-bg);
+    color: var(--status-warn-fg);
+  }
+  .badge-danger {
+    background: var(--status-danger-bg);
+    color: var(--status-danger-fg);
+  }
+  .badge-neutral {
+    background: var(--status-neutral-bg);
+    color: var(--status-neutral-fg);
   }
 }

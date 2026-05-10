@@ -16,7 +16,7 @@ function BlogHeader() {
     <Link
       key={category}
       href={`/blog?categoryIn=${categoryChain.slice(0, index + 1).join(',')}`}
-      className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-xs font-semibold text-zinc-100 backdrop-blur-sm transition-colors hover:border-point-2/80 hover:text-white"
+      className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-xs font-semibold text-white/75 backdrop-blur-sm transition-colors duration-150 hover:border-point-2/80 hover:text-white"
     >
       {category}
     </Link>
@@ -41,7 +41,7 @@ function BlogHeader() {
           {categoryChain ? categoryChain.map(categoryRender) : null}
         </Text>
         <H1 className="mb-4 text-2xl text-white lg:text-4xl">{title}</H1>
-        <Text className="flex flex-wrap items-center gap-3 text-zinc-300" variant="c1">
+        <Text className="flex flex-wrap items-center gap-3 text-white/60" variant="c1">
           <span className="inline-flex items-center rounded-full bg-black/30 px-3 py-1">
             {format(createdDate, 'yyyy-MM-dd')}
           </span>
@@ -50,7 +50,7 @@ function BlogHeader() {
           </span>
           <Link
             href={`/admin/blog/write?urlSlug=${urlSlug}`}
-            className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-zinc-200 transition-colors hover:border-point-2/80 hover:text-white"
+            className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-white/60 transition-colors duration-150 hover:border-point-2/80 hover:text-white"
           >
             수정
           </Link>

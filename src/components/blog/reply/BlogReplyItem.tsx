@@ -107,18 +107,14 @@ export default function BlogReplyItem({
   const canDelete = isAuthor || isAdmin;
 
   const actionButtonClass =
-    'rounded-md px-2 py-1 font-medium text-zinc-500 transition-colors hover:bg-point-4/70 hover:text-point-1 dark:text-zinc-300 dark:hover:bg-point-1/20';
+    'rounded-md px-2 py-1 font-medium text-fg-5 transition-colors hover:bg-point-4/70 hover:text-point-fg';
 
   return (
-    <div
-      className={`mt-6 ${
-        depth > 0 ? 'ml-6 border-l-2 border-zinc-200 pl-4 dark:border-zinc-700' : ''
-      }`}
-    >
-      <div className="group rounded-xl border border-zinc-200/80 bg-white/70 p-3 backdrop-blur-sm dark:border-zinc-700/70 dark:bg-zinc-900/70 md:p-4">
+    <div className={`mt-6 ${depth > 0 ? 'ml-6 border-l-2 border-basic-3 pl-4' : ''}`}>
+      <div className="group rounded-xl border border-basic-3/80 bg-basic-0/70 p-3 backdrop-blur-sm md:p-4">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+            <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-basic-2 dark:bg-basic-3">
               {reply.author?.profileImage ? (
                 <div className="relative h-full w-full">
                   <Image
@@ -130,16 +126,12 @@ export default function BlogReplyItem({
                   />
                 </div>
               ) : (
-                <span className="text-xs font-bold text-gray-500 dark:text-gray-400">
-                  {reply.author?.name?.charAt(0)}
-                </span>
+                <span className="text-xs font-bold text-fg-5">{reply.author?.name?.charAt(0)}</span>
               )}
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">
-                {reply.author?.name || 'Unknown'}
-              </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="text-sm font-bold text-fg-1">{reply.author?.name || 'Unknown'}</span>
+              <span className="text-xs text-fg-5">
                 {new Date(reply.createdAt).toLocaleString()}
               </span>
             </div>
@@ -165,7 +157,7 @@ export default function BlogReplyItem({
               <button
                 type="button"
                 onClick={handleDelete}
-                className="rounded-md px-2 py-1 font-medium text-zinc-500 transition-colors hover:bg-red-100 hover:text-red-500 dark:text-zinc-300 dark:hover:bg-red-900/20"
+                className="rounded-md px-2 py-1 font-medium text-fg-5 transition-colors hover:bg-danger-4 hover:text-danger-2"
               >
                 {t('reply.action.delete')}
               </button>
@@ -174,7 +166,7 @@ export default function BlogReplyItem({
             <button
               type="button"
               onClick={handleReportClick}
-              className="rounded-md px-2 py-1 font-medium text-zinc-400 transition-colors hover:bg-red-100 hover:text-red-400 dark:text-zinc-400 dark:hover:bg-red-900/20"
+              className="rounded-md px-2 py-1 font-medium text-fg-6 transition-colors hover:bg-danger-4 hover:text-danger-3"
             >
               {t('reply.action.report')}
             </button>
@@ -196,7 +188,7 @@ export default function BlogReplyItem({
           ) : (
             <div
               className={`whitespace-pre-wrap text-base leading-relaxed ${
-                reply.isDeleted ? 'italic text-gray-400' : 'text-gray-800 dark:text-gray-200'
+                reply.isDeleted ? 'italic text-fg-6' : 'text-fg-2'
               }`}
             >
               {reply.content}

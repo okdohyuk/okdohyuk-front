@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
+import { Controller, useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Cookies from 'js-cookie';
 import { Eye, EyeOff, Image as ImageIcon, Save } from 'lucide-react';
@@ -16,7 +16,13 @@ import {
 } from '@components/complex/Service/interactiveStyles';
 import { cn } from '@utils/cn';
 import InputTag from '~/components/complex/InputTag';
-import Select from '~/components/complex/Select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@components/basic/Select';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import BlogUtils from '~/utils/blogUtils';
@@ -55,7 +61,6 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
   const watchedFormData = useWatch({ control });
   const isPublic = useWatch({ control, name: 'isPublic' }) ?? false;
   const tags = useMemo(() => watchedTags ?? [], [watchedTags]);
-  const categoryIdRegister = register('categoryId');
   const titleRegister = register('title', { required: true });
   const thumbnailRegister = register('thumbnailImage');
   const contentsRegister = register('contents', { required: true });
@@ -118,9 +123,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
   const renderSelect: SelectFC = (cat) => {
     return (
       <React.Fragment key={cat.id}>
-        <option value={cat.id} key={cat.id}>
-          {cat.name}
-        </option>
+        <SelectItem value={cat.id}>{cat.name}</SelectItem>
         {cat.child?.map(renderSelect)}
       </React.Fragment>
     );
@@ -199,35 +202,43 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
           className={cn('space-y-4', isEditMode ? 'lg:min-h-[calc(100vh-110px)]' : '')}
         >
           <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-            <h2 className="text-base font-bold text-zinc-900 dark:text-zinc-100">기본 정보</h2>
+            <h2 className="text-base font-bold text-fg-1">기본 정보</h2>
 
             <Input
               id="title"
-              className="h-10 bg-white/90 dark:bg-zinc-800/80"
+              className="h-10 bg-basic-0/90"
               placeholder={t('form.title')}
               {...titleRegister}
             />
 
             <Input
               id="thumbnailImage"
-              className="h-10 bg-white/90 dark:bg-zinc-800/80"
+              className="h-10 bg-basic-0/90"
               placeholder={t('form.thumbnailImage')}
               {...thumbnailRegister}
             />
 
-            <Select className="w-full h-10" form={categoryIdRegister}>
-              <option value="">카테고리 선택</option>
-              {category.map(renderSelect)}
-            </Select>
+            <Controller
+              control={control}
+              name="categoryId"
+              render={({ field }) => (
+                <Select value={field.value ?? ''} onValueChange={field.onChange}>
+                  <SelectTrigger className="h-10 w-full">
+                    <SelectValue placeholder="카테고리 선택" />
+                  </SelectTrigger>
+                  <SelectContent>{category.map(renderSelect)}</SelectContent>
+                </Select>
+              )}
+            />
 
             <InputTag tags={tags} addTag={addTag} removeTag={removeTag} />
           </section>
 
           <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-            <h2 className="text-base font-bold text-zinc-900 dark:text-zinc-100">본문 작성</h2>
+            <h2 className="text-base font-bold text-fg-1">본문 작성</h2>
             <textarea
               className={cn(
-                'w-full resize-y rounded-xl border border-zinc-200 bg-white/90 p-3 text-sm leading-relaxed text-zinc-900 outline-none transition-colors focus:border-point-2 focus:ring-2 focus:ring-point-2/40 dark:border-zinc-700 dark:bg-zinc-800/85 dark:text-zinc-100',
+                'w-full resize-y rounded-xl border border-basic-3 bg-basic-0/90 p-3 text-sm leading-relaxed text-fg-1 outline-none transition-colors focus:border-point-2 focus:ring-2 focus:ring-point-2/40',
                 isEditMode
                   ? 'min-h-[calc(100vh-380px)] lg:min-h-[calc(100vh-270px)]'
                   : 'min-h-[360px]',
@@ -243,7 +254,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
               htmlFor="isPublic"
               className={cn(
                 SERVICE_CARD_INTERACTIVE,
-                'inline-flex h-10 cursor-pointer items-center gap-2 rounded-xl border border-zinc-200 bg-white/85 px-3 text-sm font-semibold text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-200',
+                'inline-flex h-10 cursor-pointer items-center gap-2 rounded-xl border border-basic-3 bg-basic-0/85 px-3 text-sm font-semibold text-fg-3',
               )}
             >
               <input className="h-4 w-4" type="checkbox" id="isPublic" {...isPublicRegister} />
@@ -269,7 +280,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
 
             <button
               type="button"
-              className="inline-flex h-10 items-center rounded-xl border border-zinc-200 bg-white/85 px-4 text-xs font-semibold text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-200 dark:hover:bg-zinc-700"
+              className="inline-flex h-10 items-center rounded-xl border border-basic-3 bg-basic-0/85 px-4 text-xs font-semibold text-fg-3 transition-colors hover:bg-basic-2"
               onClick={handleUploadButtonClick}
               disabled={isUploadingImage}
             >
@@ -285,7 +296,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
               ref={fileInputRef}
               onChange={uploadImage}
             />
-            <p className="w-full text-xs text-zinc-500 dark:text-zinc-400">
+            <p className="w-full text-xs text-fg-5">
               업로드한 이미지는 본문 하단에 `![urlSlug_(번호)](image_url)` 형식으로 자동 삽입됩니다.
             </p>
           </section>
@@ -300,9 +311,9 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
               : 'h-fit',
           )}
         >
-          <div className="flex items-center gap-2 border-b border-zinc-200/90 px-4 py-3 dark:border-zinc-700/80">
-            <Eye className="h-4 w-4 text-point-1" />
-            <h2 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">실시간 프리뷰</h2>
+          <div className="flex items-center gap-2 border-b border-basic-3 px-4 py-3">
+            <Eye className="h-4 w-4 text-point-fg" />
+            <h2 className="text-sm font-bold text-fg-1">실시간 프리뷰</h2>
           </div>
           <div
             className={cn(

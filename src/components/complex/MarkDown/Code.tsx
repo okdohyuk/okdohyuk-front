@@ -5,11 +5,11 @@ const Code: MarkdownComponent = function Code({ children }) {
   useEffect(() => {
     const highlight = async () => {
       const Prism = (await import('prismjs')).default;
+      await import('prismjs/components/prism-typescript');
+      await import('prismjs/components/prism-jsx');
+      await import('prismjs/components/prism-tsx');
       await Promise.all([
-        import('prismjs/components/prism-typescript'),
         import('prismjs/components/prism-javascript'),
-        import('prismjs/components/prism-jsx'),
-        import('prismjs/components/prism-tsx'),
         import('prismjs/components/prism-json'),
         import('prismjs/components/prism-yaml'),
         import('prismjs/components/prism-java'),

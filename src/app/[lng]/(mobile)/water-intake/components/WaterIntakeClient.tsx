@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from '@components/basic/Select';
 import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 import { cn } from '@utils/cn';
 import type { Language } from '~/app/i18n/settings';
 
@@ -78,10 +79,8 @@ export default function WaterIntakeClient({ lng }: Props) {
     <div className="space-y-4">
       <section className={cn(SERVICE_PANEL, 'p-4 space-y-3')}>
         <header className="space-y-1">
-          <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-            {t('inputs.title')}
-          </h3>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">{t('inputs.description')}</p>
+          <h3 className="text-base font-bold text-fg-1">{t('inputs.title')}</h3>
+          <p className="text-xs text-fg-5">{t('inputs.description')}</p>
         </header>
         <div className="grid gap-3 sm:grid-cols-3">
           <Input
@@ -113,10 +112,10 @@ export default function WaterIntakeClient({ lng }: Props) {
             </SelectContent>
           </Select>
         </div>
-        <div className={cn(SERVICE_PANEL_SOFT, 'p-3 text-sm text-zinc-700 dark:text-zinc-200')}>
+        <div className={cn(SERVICE_PANEL_SOFT, 'p-3 text-sm text-fg-3')}>
           {result ? (
             <div className="space-y-1">
-              <p className="font-semibold text-zinc-900 dark:text-white">
+              <p className="font-semibold text-fg-1">
                 {t('result.dailyTarget', {
                   amount: formatNumber(lng, result.liters, 2),
                 })}
@@ -133,19 +132,19 @@ export default function WaterIntakeClient({ lng }: Props) {
               </p>
             </div>
           ) : (
-            <span className="text-zinc-400">{t('result.empty')}</span>
+            <span className="text-fg-6">{t('result.empty')}</span>
           )}
         </div>
       </section>
 
+      {result && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
+
       <section className={cn(SERVICE_PANEL, 'p-4 space-y-3')}>
         <header className="space-y-1">
-          <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-            {t('tips.title')}
-          </h3>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">{t('tips.description')}</p>
+          <h3 className="text-base font-bold text-fg-1">{t('tips.title')}</h3>
+          <p className="text-xs text-fg-5">{t('tips.description')}</p>
         </header>
-        <ul className="list-disc space-y-2 pl-5 text-sm text-zinc-700 dark:text-zinc-200">
+        <ul className="list-disc space-y-2 pl-5 text-sm text-fg-3">
           {tips.map((item, index) => (
             <li key={`tip-${index.toString()}`}>{item}</li>
           ))}

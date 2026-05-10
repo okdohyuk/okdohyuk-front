@@ -18,6 +18,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 type ReverseMode = 'characters' | 'words' | 'lines';
 
@@ -78,7 +79,7 @@ export default function TextReverserClient({ lng }: TextReverserClientProps) {
             <SelectItem value="lines">{t('mode.lines')}</SelectItem>
           </SelectContent>
         </Select>
-        <p className="text-xs text-gray-500 dark:text-gray-400">{t('helper')}</p>
+        <p className="text-xs text-fg-5">{t('helper')}</p>
       </section>
 
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
@@ -117,6 +118,7 @@ export default function TextReverserClient({ lng }: TextReverserClientProps) {
           placeholder={t('empty')}
         />
       </section>
+      {reversed && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

@@ -56,19 +56,19 @@ function CronFieldBuilder({
   return (
     <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'p-3')}>
       <div className="mb-2 flex items-center justify-between gap-2">
-        <Text asChild variant="d3" className="block font-medium text-gray-700 dark:text-gray-300">
+        <Text asChild variant="d3" className="block font-medium text-fg-3">
           <label htmlFor={`${idPrefix}-value`}>{label}</label>
         </Text>
         <label
           htmlFor={`${idPrefix}-enabled`}
-          className="flex cursor-pointer items-center gap-2 text-xs text-gray-600 dark:text-gray-300"
+          className="flex cursor-pointer items-center gap-2 text-xs text-fg-4"
         >
           <input
             id={`${idPrefix}-enabled`}
             type="checkbox"
             checked={enabled}
             onChange={(event) => onEnabledChange(event.target.checked)}
-            className="h-4 w-4 rounded border-gray-300 text-point-1 focus:ring-point-1"
+            className="h-4 w-4 rounded border-basic-3 text-point-fg focus:ring-point-1"
           />
           {enabledLabel}
         </label>

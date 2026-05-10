@@ -11,6 +11,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 import { addDays, calculateDDay, formatDateInput } from '../utils/anniversaryCounter';
 
 interface AnniversaryCounterClientProps {
@@ -98,10 +99,7 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
     <div className="w-full space-y-6">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="space-y-2">
-          <label
-            htmlFor="anniversary-date"
-            className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
+          <label htmlFor="anniversary-date" className="text-sm font-medium text-fg-3">
             {t('label.date')}
           </label>
           <Input
@@ -110,14 +108,14 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
             value={date}
             onChange={(event) => setDate(event.target.value)}
           />
-          <p className="text-xs text-gray-500 dark:text-gray-400">{t('helper')}</p>
+          <p className="text-xs text-fg-5">{t('helper')}</p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-fg-4">
           <input
             id="include-today"
             type="checkbox"
-            className="h-4 w-4 rounded border-gray-300 text-point-2 focus:ring-point-1"
+            className="h-4 w-4 rounded border-basic-3 text-point-2 focus:ring-point-1"
             checked={includeToday}
             onChange={(event) => setIncludeToday(event.target.checked)}
           />
@@ -127,7 +125,7 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
         </div>
 
         <div className="space-y-2">
-          <p className="text-xs text-gray-500 dark:text-gray-400">{t('label.quick')}</p>
+          <p className="text-xs text-fg-5">{t('label.quick')}</p>
           <div className="flex flex-wrap gap-2">
             <Button type="button" className="px-3 py-2 text-xs" onClick={() => handleQuickDate(0)}>
               {t('button.today')}
@@ -158,10 +156,8 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
       <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
         <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-              {t('label.result')}
-            </p>
-            <p className="text-3xl font-semibold text-gray-900 dark:text-white">
+            <p className="text-xs uppercase tracking-wide text-fg-5">{t('label.result')}</p>
+            <p className="text-3xl font-semibold text-fg-1">
               {result ? result.label : t('result.empty')}
             </p>
           </div>
@@ -176,9 +172,9 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
           </Button>
         </div>
 
-        <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+        <div className="space-y-2 text-sm text-fg-4">
           <p>{result ? result.statusText : t('result.empty')}</p>
-          <div className="flex flex-wrap gap-3 text-xs text-gray-500 dark:text-gray-400">
+          <div className="flex flex-wrap gap-3 text-xs text-fg-5">
             <span>
               {t('result.targetDate')}: {formattedTargetDate}
             </span>
@@ -188,6 +184,8 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
           </div>
         </div>
       </div>
+
+      {result && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

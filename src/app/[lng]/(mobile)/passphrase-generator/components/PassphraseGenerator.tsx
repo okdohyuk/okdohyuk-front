@@ -11,6 +11,7 @@ import { Textarea } from '@components/basic/Textarea';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import { cn } from '@utils/cn';
 import { Text } from '@components/basic/Text';
+import GoogleAd from '@components/google/GoogleAd';
 
 type PassphraseGeneratorProps = {
   lng: Language;
@@ -250,6 +251,7 @@ export default function PassphraseGenerator({ lng }: PassphraseGeneratorProps) {
           {copied ? t('copied') : t('copy')}
         </button>
       </section>
+      {passphrase && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }
