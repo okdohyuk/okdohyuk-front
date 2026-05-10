@@ -90,7 +90,7 @@ export default function AdminUsersPage({ params }: LanguageParams) {
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Users className="h-4 w-4 text-point-1" />
+            <Users className="h-4 w-4 text-point-fg" />
             <h2 className="text-base font-bold text-fg-1">사용자 목록</h2>
             <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[11px] font-bold text-fg-4">
               {totalUsers}

@@ -68,7 +68,7 @@ function BinaryDisplay({ segments, cidr }: BinaryDisplayProps) {
             className={cn(
               'flex h-6 w-5 items-center justify-center rounded-sm font-bold transition-colors',
               seg.type === 'network'
-                ? 'bg-point-4 text-point-1 dark:bg-point-1/30 dark:text-point-3'
+                ? 'bg-point-4 text-point-fg dark:bg-point-1/30 dark:text-point-3'
                 : 'bg-warn-4 text-warn-1 dark:bg-warn-1/30 dark:text-warn-3',
               seg.position === cidr - 1 && 'border-r-2 border-point-1',
             )}

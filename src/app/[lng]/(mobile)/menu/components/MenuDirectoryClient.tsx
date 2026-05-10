@@ -172,7 +172,7 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
               </div>
               <p className="text-xs text-fg-5">{getLinkPreview(menu.link)}</p>
             </div>
-            <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-point-1" />
+            <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-point-fg" />
           </Link>
         </CursorGlowCard>
       </li>
@@ -221,7 +221,7 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
                 <h2 className="text-lg font-extrabold text-fg-1">{section.title}</h2>
                 <p className="text-sm text-fg-5">{section.description}</p>
               </div>
-              <span className="rounded-full bg-point-4/70 px-2.5 py-1 text-xs font-bold text-point-1 dark:bg-point-1/20">
+              <span className="rounded-full bg-point-4/70 px-2.5 py-1 text-xs font-bold text-point-fg dark:bg-point-1/20">
                 {section.items.length}
               </span>
             </div>

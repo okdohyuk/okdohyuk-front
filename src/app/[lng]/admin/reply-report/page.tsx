@@ -127,7 +127,7 @@ function AdminReplyReportPage({ params }: LanguageParams) {
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <ListChecks className="h-4 w-4 text-point-1" />
+            <ListChecks className="h-4 w-4 text-point-fg" />
             <h2 className="text-base font-bold text-fg-1">신고 목록</h2>
             <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[11px] font-bold text-fg-4">
               {reports.length}
@@ -156,7 +156,7 @@ function AdminReplyReportPage({ params }: LanguageParams) {
 
         {!loading && reports.length === 0 ? (
           <div className="rounded-xl border border-dashed border-basic-3 bg-basic-0/70 px-4 py-10 text-center">
-            <MessageSquareWarning className="mx-auto mb-2 h-6 w-6 text-point-1" />
+            <MessageSquareWarning className="mx-auto mb-2 h-6 w-6 text-point-fg" />
             <p className="text-sm font-semibold text-fg-3">신고된 댓글이 없습니다.</p>
           </div>
         ) : null}

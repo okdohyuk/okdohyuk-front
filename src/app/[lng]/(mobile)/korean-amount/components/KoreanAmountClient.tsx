@@ -102,7 +102,7 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
             <input
               id="currency-toggle"
               type="checkbox"
-              className="h-4 w-4 rounded border-basic-3 text-point-1 focus:ring-point-1"
+              className="h-4 w-4 rounded border-basic-3 text-point-fg focus:ring-point-1"
               checked={includeCurrency}
               onChange={(event) => setIncludeCurrency(event.target.checked)}
             />

@@ -118,7 +118,7 @@ export default function CategorySettingPage() {
                 className={cn(
                   'inline-flex min-w-0 flex-1 items-center gap-2 rounded-lg px-2.5 py-2 text-left text-sm font-semibold transition-colors',
                   selected
-                    ? 'bg-point-4/90 text-point-1 dark:bg-point-1/25 dark:text-point-2'
+                    ? 'bg-point-4/90 text-point-fg dark:bg-point-1/25 dark:text-point-2'
                     : 'text-fg-3 hover:bg-basic-2',
                 )}
                 onClick={() => toggleParent(category)}
@@ -206,7 +206,7 @@ export default function CategorySettingPage() {
         <h2 className="text-base font-bold text-fg-1">카테고리 추가</h2>
         <p className="text-xs text-fg-4">
           현재 부모:
-          <span className="ml-1 font-semibold text-point-1 dark:text-point-2">
+          <span className="ml-1 font-semibold text-point-fg">
             {selectedParent ? selectedParent.name : '최상위 (ROOT)'}
           </span>
         </p>

@@ -301,7 +301,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
           )}
         >
           <div className="flex items-center gap-2 border-b border-basic-3 px-4 py-3">
-            <Eye className="h-4 w-4 text-point-1" />
+            <Eye className="h-4 w-4 text-point-fg" />
             <h2 className="text-sm font-bold text-fg-1">실시간 프리뷰</h2>
           </div>
           <div

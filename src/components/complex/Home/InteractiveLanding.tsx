@@ -689,7 +689,7 @@ export default function InteractiveLanding({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: transitionDuration }}
           >
-            <span className="inline-flex items-center rounded-full border border-point-2/40 bg-basic-0/70 px-4 py-1 text-xs font-semibold tracking-wide text-point-1 backdrop-blur-md">
+            <span className="inline-flex items-center rounded-full border border-point-2/40 bg-basic-0/70 px-4 py-1 text-xs font-semibold tracking-wide text-point-fg backdrop-blur-md">
               {content.heroBadge}
             </span>
             <h1 className="max-w-4xl text-3xl font-black leading-tight text-fg-1 sm:text-5xl">
@@ -705,7 +705,7 @@ export default function InteractiveLanding({
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-point-1/10 text-point-1 dark:bg-point-1/15">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-point-1/10 text-point-fg dark:bg-point-1/15">
                       <Search className="h-4 w-4" />
                     </span>
                     <p className="text-sm font-semibold text-fg-1">{content.shortcutTitle}</p>
@@ -789,7 +789,7 @@ export default function InteractiveLanding({
                           'rounded-full border px-4 py-2 text-sm font-semibold transition-colors',
                           active
                             ? 'border-point-2 bg-point-1 text-white'
-                            : 'border-basic-3 bg-basic-1 text-fg-3 hover:border-point-2/50 hover:text-point-1',
+                            : 'border-basic-3 bg-basic-1 text-fg-3 hover:border-point-2/50 hover:text-point-fg',
                         )}
                       >
                         {priority.label}
@@ -806,7 +806,7 @@ export default function InteractiveLanding({
                   <AnimatePresence mode="wait">
                     <m.span
                       key={experienceScore}
-                      className="text-sm font-black text-point-1"
+                      className="text-sm font-black text-point-fg"
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
@@ -844,7 +844,7 @@ export default function InteractiveLanding({
                   <DialogTrigger asChild>
                     <button
                       type="button"
-                      className="inline-flex items-center rounded-xl border border-basic-3 bg-basic-0/80 px-4 py-2 text-sm font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-1"
+                      className="inline-flex items-center rounded-xl border border-basic-3 bg-basic-0/80 px-4 py-2 text-sm font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-fg"
                     >
                       {content.dialogCta}
                     </button>
@@ -900,7 +900,7 @@ export default function InteractiveLanding({
                 transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
               >
                 <div className="mb-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-point-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-point-fg">
                     {currentScenario.label}
                   </p>
                   <h2 className="mt-2 text-lg font-bold text-fg-1">{currentScenario.summary}</h2>
@@ -919,13 +919,13 @@ export default function InteractiveLanding({
                           <span className="inline-flex items-center rounded-full bg-basic-2 px-2 py-1 text-[11px] font-semibold text-fg-4">
                             {tool.badge}
                           </span>
-                          <tool.icon className="h-4 w-4 text-point-1" />
+                          <tool.icon className="h-4 w-4 text-point-fg" />
                         </div>
 
                         <h3 className="text-sm font-bold text-fg-1">{tool.title}</h3>
                         <p className="mt-1 text-xs leading-relaxed text-fg-4">{tool.description}</p>
 
-                        <span className="mt-3 inline-flex items-center text-xs font-semibold text-point-1">
+                        <span className="mt-3 inline-flex items-center text-xs font-semibold text-point-fg">
                           {content.toolCta}
                           <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                         </span>
@@ -949,7 +949,7 @@ export default function InteractiveLanding({
                   duration: transitionDuration,
                 }}
               >
-                <p className="text-2xl font-black text-point-1">{metric.value}</p>
+                <p className="text-2xl font-black text-point-fg">{metric.value}</p>
                 <p className="mt-1 text-xs font-medium text-fg-4">{metric.label}</p>
               </m.article>
             ))}

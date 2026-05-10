@@ -28,6 +28,7 @@ module.exports = {
           4: 'var(--point-4)',
           800: 'var(--point-800)',
           soft: 'var(--point-tint-soft)',
+          fg: 'var(--accent-fg)',
         },
         success: {
           1: 'var(--success-1)',

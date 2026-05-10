@@ -109,7 +109,7 @@ function SectionCard({
   return (
     <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'p-4 md:p-5', className)}>
       <div className="mb-3 flex items-center gap-2">
-        <span className="text-point-1">{icon}</span>
+        <span className="text-point-fg">{icon}</span>
         <Text variant="t3" color="basic-2" className="font-bold">
           {title}
         </Text>
@@ -219,7 +219,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
             </Text>
             {ipLoading && (
               <div className="flex items-center gap-3">
-                <Loader2 size={28} className="animate-spin text-point-1" />
+                <Loader2 size={28} className="animate-spin text-point-fg" />
                 <Text variant="t3" color="basic-4">
                   {t('hero.loading')}
                 </Text>
@@ -281,7 +281,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
               </span>
             )}
             {ipData.isHosting && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-point-4 px-3 py-1 text-xs font-semibold text-point-1 dark:bg-point-1/40 dark:text-point-3">
+              <span className="inline-flex items-center gap-1 rounded-full bg-point-4 px-3 py-1 text-xs font-semibold text-point-fg dark:bg-point-1/40 dark:text-point-3">
                 <Server size={12} />
                 {t('badges.hosting')}
               </span>
@@ -340,7 +340,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                     href={`https://www.google.com/maps?q=${ipData.latitude},${ipData.longitude}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-point-1 hover:underline"
+                    className="text-point-fg hover:underline"
                   >
                     {ipData.latitude}, {ipData.longitude}
                   </a>
@@ -405,7 +405,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
             <div className={cn(SERVICE_PANEL_SOFT, 'overflow-hidden p-0')}>
               <div className="flex items-center justify-between px-4 py-3">
                 <div className="flex items-center gap-2">
-                  <Globe size={16} className="text-point-1" />
+                  <Globe size={16} className="text-point-fg" />
                   <Text variant="t3" color="basic-2" className="font-bold">
                     {t('map.title')}
                   </Text>
@@ -414,7 +414,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                   href={`https://www.google.com/maps?q=${ipData.latitude},${ipData.longitude}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-semibold text-point-1 hover:underline"
+                  className="text-xs font-semibold text-point-fg hover:underline"
                 >
                   {t('map.open')}
                 </a>
@@ -440,7 +440,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
           <div className={cn(SERVICE_PANEL, 'space-y-4 p-4 md:p-5')}>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2">
-                <Router size={18} className="text-point-1" />
+                <Router size={18} className="text-point-fg" />
                 <Text variant="t3" color="basic-2" className="font-bold">
                   {t('sections.portScan')}
                 </Text>
@@ -459,7 +459,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
 
             {portLoading && (
               <div className="flex items-center gap-3 py-4">
-                <Loader2 size={20} className="animate-spin text-point-1" />
+                <Loader2 size={20} className="animate-spin text-point-fg" />
                 <Text variant="d2" color="basic-4">
                   {t('portScan.scanning')}
                 </Text>

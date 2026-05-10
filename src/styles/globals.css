@@ -188,6 +188,11 @@ table {
     --point-tint-soft: #eeeafe;
     --point-800: #5b21b6;
 
+    /* Accessible text accent — auto-swaps in dark mode */
+    --accent-fg: var(--point-1);
+    --accent-tint: rgba(124, 58, 237, 0.12);
+    --accent-tint-soft: rgba(124, 58, 237, 0.06);
+
     /* Semantic foreground */
     --fg-0: #000000;
     --fg-1: #18181b;
@@ -329,7 +334,12 @@ table {
       --accent2-4: rgba(20, 184, 166, 0.18);
       --accent3-4: rgba(236, 72, 153, 0.18);
 
-      --ring-focus: rgba(139, 92, 246, 0.4);
+      /* Dark text accent — violet-300, 9.62:1 on #18181b (WCAG AAA) */
+      --accent-fg: #c4b5fd;
+      --accent-tint: rgba(196, 181, 253, 0.14);
+      --accent-tint-soft: rgba(196, 181, 253, 0.06);
+
+      --ring-focus: rgba(196, 181, 253, 0.55);
 
       /* status fg — light stops */
       --status-success-fg: var(--success-3);

@@ -18,7 +18,7 @@ function ServicePageHeader({ title, description, badge, className = '' }: Servic
         <div className="absolute right-0 top-6 h-20 w-20 rounded-full bg-point-3/20 blur-3xl" />
       </div>
       {badge ? (
-        <p className="relative z-10 mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-point-1">
+        <p className="relative z-10 mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-point-fg">
           {badge}
         </p>
       ) : null}

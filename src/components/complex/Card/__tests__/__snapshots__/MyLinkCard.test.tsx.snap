@@ -8,7 +8,7 @@ exports[`<MyLinkCard /> > matches snapshot 1`] = `
     target="_blank"
   >
     <article
-      class="rounded-lg p-4 md:p-8 lg:min-h-[144px] transition-all bg-zinc-300 dark:bg-zinc-800 shadow-xl dark:shadow-lg text-cyan-500 border-2 border-transparent hover:border-current"
+      class="rounded-lg p-4 md:p-8 lg:min-h-[144px] transition-all bg-basic-3 shadow-xl text-cyan-500 border-2 border-transparent hover:border-current"
     >
       <div
         class="flex gap-2 justify-between items-center"
@@ -20,7 +20,7 @@ exports[`<MyLinkCard /> > matches snapshot 1`] = `
         </div>
       </div>
       <div
-        class="text-sm mt-2 text-black dark:text-white"
+        class="text-sm mt-2 text-fg-0"
       >
         테스트 설명입니다.
       </div>

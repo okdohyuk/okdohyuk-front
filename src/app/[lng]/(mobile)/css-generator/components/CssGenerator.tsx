@@ -491,7 +491,7 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
                 {FLEX_PREVIEW_ITEMS.map((item) => (
                   <div
                     key={item}
-                    className="flex min-w-10 items-center justify-center rounded-md border border-point-1/40 bg-point-1/10 px-3 py-2 text-xs font-semibold text-point-1"
+                    className="flex min-w-10 items-center justify-center rounded-md border border-point-1/40 bg-point-1/10 px-3 py-2 text-xs font-semibold text-point-fg"
                   >
                     {item}
                   </div>
@@ -576,7 +576,7 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
                   (item) => (
                     <div
                       key={item}
-                      className="flex rounded-md border border-point-1/40 bg-point-1/10 text-xs font-semibold text-point-1"
+                      className="flex rounded-md border border-point-1/40 bg-point-1/10 text-xs font-semibold text-point-fg"
                       style={{
                         width: grid.justifyItems === 'stretch' ? '100%' : '2.5rem',
                         height: grid.alignItems === 'stretch' ? '100%' : '2.5rem',

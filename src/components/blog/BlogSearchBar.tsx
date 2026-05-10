@@ -62,7 +62,7 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
 
       <motion.button
         type="button"
-        className="inline-flex h-[46px] items-center gap-1 rounded-xl border border-basic-3 bg-basic-0/90 px-3 text-sm font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-1 lg:hidden"
+        className="inline-flex h-[46px] items-center gap-1 rounded-xl border border-basic-3 bg-basic-0/90 px-3 text-sm font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-fg lg:hidden"
         onClick={toggleDrawer}
         whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
       >

@@ -243,7 +243,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
             type="checkbox"
             checked={includeBonus}
             onChange={() => setIncludeBonus((prev) => !prev)}
-            className="h-4 w-4 rounded border-basic-3 bg-basic-2 text-point-1 focus:ring-2 focus:ring-point-1"
+            className="h-4 w-4 rounded border-basic-3 bg-basic-2 text-point-fg focus:ring-2 focus:ring-point-1"
           />
           <label htmlFor="lotto-include-bonus" className="text-xs text-fg-4">
             {strings.labels.includeBonus}
@@ -302,7 +302,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
                   {result.numbers.map((number) => (
                     <span
                       key={number}
-                      className="rounded-full bg-point-1/10 px-3 py-1 text-xs font-semibold text-point-1"
+                      className="rounded-full bg-point-1/10 px-3 py-1 text-xs font-semibold text-point-fg"
                     >
                       {number}
                     </span>

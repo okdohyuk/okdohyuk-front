@@ -25,7 +25,7 @@ export default async function BlogSearchLayout({ params, children, drawer }: Blo
         >
           <div className="pointer-events-none absolute -left-16 top-0 h-36 w-36 rounded-full bg-point-2/30 blur-3xl" />
           <div className="pointer-events-none absolute right-0 top-8 h-24 w-24 rounded-full bg-point-3/20 blur-3xl" />
-          <p className="relative z-10 mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-point-1">
+          <p className="relative z-10 mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-point-fg">
             {t('filter.index')} · {t('title')}
           </p>
           <h1 className="relative z-10 t-t-1 t-basic-1 mb-3">{t('title')}</h1>

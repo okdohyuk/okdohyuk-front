@@ -39,7 +39,7 @@ const FilterDropdown: FilterDropdownFC = function FilterDropdown({ title, items,
           </span>
           {
             {
-              in: <SquarePlus className="h-4 w-4 text-point-1" />,
+              in: <SquarePlus className="h-4 w-4 text-point-fg" />,
               notIn: <SquareMinus className="h-4 w-4 text-danger-2" />,
               idle: <Square className="h-4 w-4 text-fg-5" />,
             }[item.type]

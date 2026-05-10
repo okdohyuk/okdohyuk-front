@@ -182,7 +182,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
           <div className="space-y-2">
             {rows.map((row, idx) => (
               <div key={row.id} className="flex items-center gap-2">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-point-4 text-xs font-bold text-point-1 dark:bg-point-1/20 dark:text-point-3">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-point-4 text-xs font-bold text-point-fg dark:bg-point-1/20 dark:text-point-3">
                   {idx + 1}
                 </div>
                 <Input
@@ -307,7 +307,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
                     <Text asChild variant="d2">
                       <p className="font-bold">{subnet.name}</p>
                     </Text>
-                    <span className="rounded-full bg-point-4 px-2 py-0.5 text-xs font-semibold text-point-1 dark:bg-point-1/20 dark:text-point-3">
+                    <span className="rounded-full bg-point-4 px-2 py-0.5 text-xs font-semibold text-point-fg dark:bg-point-1/20 dark:text-point-3">
                       /{subnet.cidr}
                     </span>
                   </div>

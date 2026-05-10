@@ -155,7 +155,7 @@ export default function PpollongPage({ params }: LanguageParams) {
         transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
       >
         <h2 className="flex items-center gap-2 text-base font-semibold text-fg-2">
-          <Settings2 className="h-4 w-4 text-point-1" />
+          <Settings2 className="h-4 w-4 text-point-fg" />
           {t('settingsTitle')}
         </h2>
 
@@ -212,7 +212,7 @@ export default function PpollongPage({ params }: LanguageParams) {
         >
           <div className="text-center">
             <motion.div
-              className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-point-1/20 to-violet-500/20 text-point-1"
+              className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-point-1/20 to-violet-500/20 text-point-fg"
               animate={
                 isLoading ? { rotate: [0, -8, 8, -8, 0], scale: [1, 1.08, 1, 1.08, 1] } : undefined
               }
@@ -293,7 +293,7 @@ export default function PpollongPage({ params }: LanguageParams) {
                     'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-bold transition-all md:h-10 md:w-10 md:text-sm',
                     isDrawn
                       ? 'border-basic-4 bg-basic-2 text-fg-5 opacity-60'
-                      : 'border-point-2/70 bg-point-2/25 text-point-1 dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
+                      : 'border-point-2/70 bg-point-2/25 text-point-fg dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
                     currentNumber === number && isLoading
                       ? 'scale-110 animate-pulse shadow-md'
                       : '',
@@ -317,7 +317,7 @@ export default function PpollongPage({ params }: LanguageParams) {
                     'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-bold transition-all md:h-10 md:w-10 md:text-sm',
                     isDrawn
                       ? 'border-basic-4 bg-basic-2 text-fg-5 opacity-60'
-                      : 'border-point-2/70 bg-point-2/25 text-point-1 dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
+                      : 'border-point-2/70 bg-point-2/25 text-point-fg dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
                   )}
                 >
                   {number}

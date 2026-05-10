@@ -247,7 +247,7 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
               <input
                 id="markdown-header-toggle"
                 type="checkbox"
-                className="h-4 w-4 rounded border-basic-3 text-point-1 focus:ring-point-1"
+                className="h-4 w-4 rounded border-basic-3 text-point-fg focus:ring-point-1"
                 checked={useHeader}
                 onChange={(event) => setUseHeader(event.target.checked)}
               />

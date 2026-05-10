@@ -208,7 +208,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
           <button
             key={example.label}
             type="button"
-            className="rounded-full border border-basic-3 px-3 py-1 text-xs text-fg-3 transition hover:border-point-1 hover:text-point-1"
+            className="rounded-full border border-basic-3 px-3 py-1 text-xs text-fg-3 transition hover:border-point-1 hover:text-point-fg"
             onClick={() => {
               setForeground(example.foreground);
               setBackground(example.background);

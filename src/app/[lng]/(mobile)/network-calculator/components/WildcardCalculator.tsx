@@ -171,9 +171,7 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
                   {t('wildcard.wildcardMask')}
                 </Text>
                 <Text asChild variant="t3">
-                  <p className="mt-1 font-mono font-bold text-point-1 dark:text-point-3">
-                    {result.wildcard}
-                  </p>
+                  <p className="mt-1 font-mono font-bold text-point-fg">{result.wildcard}</p>
                 </Text>
               </div>
               <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">

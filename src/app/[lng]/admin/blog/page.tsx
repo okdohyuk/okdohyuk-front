@@ -75,7 +75,7 @@ function BlogAdminPage({ params }: LanguageParams) {
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <FileSearch className="h-4 w-4 text-point-1" />
+            <FileSearch className="h-4 w-4 text-point-fg" />
             <h2 className="text-base font-bold text-fg-1">게시글 목록</h2>
           </div>
           <span className="rounded-full bg-basic-3 px-2.5 py-1 text-[11px] font-bold text-fg-4">
@@ -104,9 +104,9 @@ function BlogAdminPage({ params }: LanguageParams) {
           {status !== 'loading' && blogCount === 0 ? (
             <div className="rounded-xl border border-dashed border-basic-3 bg-basic-0/65 px-4 py-8 text-center">
               <div className="mb-2 flex items-center justify-center gap-2 text-fg-5">
-                <Sparkles className="h-4 w-4 text-point-1" />
-                <SquarePen className="h-4 w-4 text-point-1" />
-                <FilePenLine className="h-4 w-4 text-point-1" />
+                <Sparkles className="h-4 w-4 text-point-fg" />
+                <SquarePen className="h-4 w-4 text-point-fg" />
+                <FilePenLine className="h-4 w-4 text-point-fg" />
               </div>
               <p className="text-sm font-semibold text-fg-3">아직 게시글이 없습니다.</p>
               <p className="mt-1 text-xs text-fg-5">

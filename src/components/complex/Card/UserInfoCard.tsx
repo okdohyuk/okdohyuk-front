@@ -53,14 +53,14 @@ function UserInfoCard({ lng }: { lng: Language }) {
           </Text>
           <button
             type="button"
-            className="rounded-lg border border-basic-3 bg-basic-0/85 px-2.5 py-1 text-xs font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-1"
+            className="rounded-lg border border-basic-3 bg-basic-0/85 px-2.5 py-1 text-xs font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-fg"
             onClick={logOut}
           >
             {t('login.logout')}
           </button>
           <button
             type="button"
-            className="rounded-lg border border-basic-3 bg-basic-0/85 px-2.5 py-1 text-xs font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-1"
+            className="rounded-lg border border-basic-3 bg-basic-0/85 px-2.5 py-1 text-xs font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-fg"
             onClick={logOutAll}
           >
             {t('login.logoutAll')}
@@ -69,7 +69,7 @@ function UserInfoCard({ lng }: { lng: Language }) {
           {user.role === 'ADMIN' && (
             <Link
               href="/admin"
-              className="rounded-lg border border-point-2/60 bg-point-4/40 px-2.5 py-1 text-xs font-semibold text-point-1 transition-colors hover:bg-point-4/70 dark:border-point-1/50 dark:bg-point-1/20"
+              className="rounded-lg border border-point-2/60 bg-point-4/40 px-2.5 py-1 text-xs font-semibold text-point-fg transition-colors hover:bg-point-4/70 dark:border-point-1/50 dark:bg-point-1/20"
             >
               관리자
             </Link>

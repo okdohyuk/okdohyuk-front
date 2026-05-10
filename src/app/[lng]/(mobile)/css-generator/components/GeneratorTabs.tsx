@@ -46,7 +46,7 @@ export function GeneratorTabs({
               className={cn(
                 'font-medium',
                 isActive
-                  ? 'text-point-1'
+                  ? 'text-point-fg'
                   : 'text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200',
               )}
             >

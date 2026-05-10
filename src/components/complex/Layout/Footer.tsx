@@ -25,7 +25,7 @@ function Footer({ lng, className = '' }: FooterProps) {
   }
 
   const currentYear = new Date().getFullYear();
-  const linkClassName = 'hover:text-point-1 dark:hover:text-point-3 transition-colors';
+  const linkClassName = 'hover:text-point-fg dark:hover:text-point-3 transition-colors';
   const separatorClassName = 'mx-2 text-fg-6';
 
   return (

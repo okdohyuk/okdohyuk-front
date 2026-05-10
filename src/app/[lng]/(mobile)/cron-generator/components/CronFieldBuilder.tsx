@@ -68,7 +68,7 @@ function CronFieldBuilder({
             type="checkbox"
             checked={enabled}
             onChange={(event) => onEnabledChange(event.target.checked)}
-            className="h-4 w-4 rounded border-basic-3 text-point-1 focus:ring-point-1"
+            className="h-4 w-4 rounded border-basic-3 text-point-fg focus:ring-point-1"
           />
           {enabledLabel}
         </label>

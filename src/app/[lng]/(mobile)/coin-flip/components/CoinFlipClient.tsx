@@ -134,7 +134,7 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
                   className={cn(
                     'rounded-full px-2 py-0.5 text-xs font-semibold',
                     result.value === 'heads'
-                      ? 'bg-point-1/15 text-point-1'
+                      ? 'bg-point-1/15 text-point-fg'
                       : 'bg-point-4/40 text-fg-3',
                   )}
                 >

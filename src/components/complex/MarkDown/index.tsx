@@ -21,7 +21,7 @@ const MarkDown: MarkDownProps = function MarkDown({ contents }) {
         '[&_h1_a:hover]:!text-fg-1 [&_h2_a:hover]:!text-fg-1 [&_h3_a:hover]:!text-fg-1 [&_h4_a:hover]:!text-fg-1 [&_h5_a:hover]:!text-fg-1 [&_h6_a:hover]:!text-fg-1',
         'prose-p:leading-7 prose-li:leading-7',
         'prose-pre:my-0 prose-table:my-0',
-        'prose-a:text-point-1 prose-a:font-semibold prose-a:no-underline transition-colors',
+        'prose-a:text-point-fg prose-a:font-semibold prose-a:no-underline transition-colors',
         'hover:prose-a:text-point-2 dark:prose-a:text-point-2 dark:hover:prose-a:text-point-4',
         'prose-hr:hidden',
         '[&_:not(pre)>code]:rounded-md [&_:not(pre)>code]:border [&_:not(pre)>code]:border-basic-3',

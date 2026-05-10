@@ -107,7 +107,7 @@ export default function BlogReplyItem({
   const canDelete = isAuthor || isAdmin;
 
   const actionButtonClass =
-    'rounded-md px-2 py-1 font-medium text-fg-5 transition-colors hover:bg-point-4/70 hover:text-point-1';
+    'rounded-md px-2 py-1 font-medium text-fg-5 transition-colors hover:bg-point-4/70 hover:text-point-fg';
 
   return (
     <div className={`mt-6 ${depth > 0 ? 'ml-6 border-l-2 border-basic-3 pl-4' : ''}`}>

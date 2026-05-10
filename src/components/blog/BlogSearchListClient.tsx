@@ -34,7 +34,7 @@ const BlogSearchListClient = function BlogSearchListClient({
       >
         <div className="text-sm font-semibold text-fg-3">
           {t('resultCount')}
-          <span className="ml-1 text-base font-black text-point-1">{count ?? 0}</span>
+          <span className="ml-1 text-base font-black text-point-fg">{count ?? 0}</span>
         </div>
       </div>
       <div

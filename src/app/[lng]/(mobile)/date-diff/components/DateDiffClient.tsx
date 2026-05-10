@@ -137,7 +137,7 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
           <Button type="button" className="px-3 text-sm" onClick={handleCopy} disabled={!summary}>
             {labels.copy}
           </Button>
-          {copied ? <Text className="text-xs text-point-1">{labels.copied}</Text> : null}
+          {copied ? <Text className="text-xs text-point-fg">{labels.copied}</Text> : null}
         </div>
       </div>
       <div className="space-y-3 rounded-xl border border-basic-3 p-4">
