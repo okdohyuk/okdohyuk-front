@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 declare global {
   interface Window {
@@ -14,17 +14,21 @@ type GoogleAdProps = {
 };
 
 function GoogleAd({ slotId, className = '' }: GoogleAdProps) {
+  const insRef = useRef<HTMLModElement>(null);
+
   useEffect(() => {
+    if (!insRef.current || insRef.current.offsetWidth === 0) return;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (error) {
-      // console.error('Google Ad error:', error);
+    } catch (_) {
+      // adsbygoogle push errors are non-fatal
     }
   }, []);
 
   return (
     <div className={className}>
       <ins
+        ref={insRef}
         className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}

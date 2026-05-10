@@ -24,18 +24,22 @@ export async function generateStaticParams() {
   }
 }
 
-const getPost = cache(async (urlSlug: string) => {
-  try {
-    const { data } = await blogApi.getBlogUrlSlug(decodeURIComponent(urlSlug));
+const getPost = cache(
+  async (urlSlug: string) => {
+    try {
+      const { data } = await blogApi.getBlogUrlSlug(decodeURIComponent(urlSlug));
 
-    return data;
-  } catch (error) {
-    if (axios.isAxiosError<BaseException, never>(error)) {
+      return data;
+    } catch (error) {
+      if (axios.isAxiosError<BaseException, never>(error)) {
+        return notFound();
+      }
       return notFound();
     }
-    return notFound();
-  }
-});
+  },
+  ['blog-post'],
+  { revalidate: 3600, tags: ['blog-post'] },
+);
 
 export const generateMetadata = async (props: BlogDetailProps) => {
   const params = await props.params;
