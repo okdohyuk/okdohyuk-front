@@ -98,7 +98,7 @@ export default function LoginPage({ params }: LanguageParams) {
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4 md:p-5')}>
         <Button
           type="button"
-          className="mb-4 w-full space-x-2 border border-zinc-200 bg-white hover:bg-zinc-200 dark:border-zinc-700 disabled:hover:bg-white"
+          className="mb-4 w-full space-x-2 border border-basic-3 bg-basic-0 hover:bg-basic-2 disabled:hover:bg-basic-0"
           onClick={handleLogin}
           disabled={loginButtonDisabled}
         >
@@ -112,16 +112,16 @@ export default function LoginPage({ params }: LanguageParams) {
           <Link href="/terms">
             <Text
               variant="c1"
-              className="t-basic-1 decoration-1 underline-offset-2 transition-colors hover:text-blue-500 hover:underline"
+              className="t-basic-1 decoration-1 underline-offset-2 transition-colors hover:text-info-2 hover:underline"
             >
               {t('terms')}
             </Text>
           </Link>
-          <div className="h-3 w-[1px] bg-zinc-300 dark:bg-zinc-600" />
+          <div className="h-3 w-[1px] bg-basic-4" />
           <Link href="/privacy">
             <Text
               variant="c1"
-              className="t-basic-1 decoration-1 underline-offset-2 transition-colors hover:text-blue-500 hover:underline"
+              className="t-basic-1 decoration-1 underline-offset-2 transition-colors hover:text-info-2 hover:underline"
             >
               {t('privacy-policy')}
             </Text>

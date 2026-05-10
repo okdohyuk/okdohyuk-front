@@ -32,7 +32,7 @@ function StatCard({ label, value, mono, highlight }: StatCardProps) {
     <div
       className={cn(
         'rounded-2xl p-3 shadow-sm',
-        highlight ? 'bg-point-4/60 dark:bg-point-1/20' : 'bg-white/70 dark:bg-zinc-900/70',
+        highlight ? 'bg-point-4/60 dark:bg-point-1/20' : 'bg-basic-0/70',
       )}
     >
       <Text variant="c1" color="basic-5">
@@ -74,7 +74,7 @@ function BinaryRow({ segments, cidr }: BinaryRowProps) {
               'flex h-6 w-5 items-center justify-center rounded-sm font-bold transition-colors duration-200',
               seg.type === 'network'
                 ? 'bg-point-4 text-point-1 dark:bg-point-1/30 dark:text-point-3'
-                : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400',
+                : 'bg-warn-4 text-warn-1 dark:bg-warn-1/30 dark:text-warn-3',
               seg.position === cidr - 1 && 'border-r-2 border-point-1',
             )}
           >
@@ -125,8 +125,7 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
               {t('guide.networkBits')}: <span className="font-semibold text-point-2">{cidr}</span>
             </Text>
             <Text variant="c1" color="basic-5">
-              {t('guide.hostBits')}:{' '}
-              <span className="font-semibold text-amber-500">{32 - cidr}</span>
+              {t('guide.hostBits')}: <span className="font-semibold text-warn-2">{32 - cidr}</span>
             </Text>
           </div>
         </div>
@@ -165,9 +164,7 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
               onClick={() => setCidr(c)}
               className={cn(
                 'rounded-xl px-3 py-1.5 text-sm font-semibold transition-all',
-                cidr === c
-                  ? 'bg-point-2 text-white'
-                  : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400',
+                cidr === c ? 'bg-point-2 text-white' : 'bg-basic-2 text-fg-4 hover:bg-basic-3',
               )}
             >
               /{c}
@@ -194,7 +191,7 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
           <Text variant="c1" color="basic-5">
             {t('guide.hostsScale')}
           </Text>
-          <div className="h-5 w-full overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
+          <div className="h-5 w-full overflow-hidden rounded-full bg-basic-2">
             <div
               className="h-full rounded-full bg-gradient-to-r from-point-2 to-point-3 transition-all duration-300"
               style={{ width: `${hostPercent}%` }}
@@ -225,7 +222,7 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
             </Text>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="inline-block h-3 w-3 rounded-sm bg-amber-400" />
+            <span className="inline-block h-3 w-3 rounded-sm bg-warn-3" />
             <Text variant="c1" color="basic-5">
               {t('guide.hostBits')} ({32 - cidr})
             </Text>
@@ -260,15 +257,13 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
                   'flex items-start gap-3 rounded-2xl p-3 text-left transition-all',
                   isActive
                     ? 'bg-point-4/80 dark:bg-point-1/20'
-                    : 'bg-white/60 hover:bg-white/90 dark:bg-zinc-900/40 dark:hover:bg-zinc-900/70',
+                    : 'bg-basic-0/60 hover:bg-basic-0/90',
                 )}
               >
                 <span
                   className={cn(
                     'rounded-lg px-2 py-0.5 font-mono text-sm font-bold',
-                    isActive
-                      ? 'bg-point-2 text-white'
-                      : 'bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300',
+                    isActive ? 'bg-point-2 text-white' : 'bg-basic-2 text-fg-3',
                   )}
                 >
                   /{c}

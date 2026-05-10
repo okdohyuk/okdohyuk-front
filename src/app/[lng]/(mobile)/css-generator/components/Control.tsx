@@ -27,7 +27,7 @@ export function Control({ label, value, min, max, onChange, id }: ControlProps) 
         max={max}
         value={value}
         onChange={(event) => onChange(Number.parseInt(event.target.value, 10))}
-        className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
+        className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-basic-2 dark:bg-basic-3"
       />
     </div>
   );

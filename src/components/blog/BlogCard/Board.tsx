@@ -13,7 +13,9 @@ const Board: BlogCardTypeFC = function Board({ blog }) {
       className={cn(
         BLOG_GLASS_PANEL_SOFT,
         'flex items-center overflow-hidden p-2',
-        isPublic ? '' : 'border-red-300 bg-red-100/80 dark:border-red-600/50 dark:bg-red-900/25',
+        isPublic
+          ? ''
+          : 'border-danger-3 bg-danger-4/80 dark:border-danger-1/50 dark:bg-danger-1/25',
       )}
     >
       <div className="relative flex h-12 w-12 shrink-0 overflow-hidden rounded-lg">
@@ -31,9 +33,7 @@ const Board: BlogCardTypeFC = function Board({ blog }) {
         )}
       </div>
 
-      <h2 className="ml-3 line-clamp-1 text-sm font-bold text-zinc-900 dark:text-zinc-100">
-        {title}
-      </h2>
+      <h2 className="ml-3 line-clamp-1 text-sm font-bold text-fg-1">{title}</h2>
 
       <div className="ml-auto flex overflow-hidden whitespace-nowrap">
         {tags.map((t) => (

@@ -44,8 +44,8 @@ function BackToMenuNav() {
         href={`/${language}/menu`}
         prefetch
         className={cn(
-          'group inline-flex h-10 items-center gap-2 rounded-2xl border border-zinc-200/80 bg-white/80 px-3 text-sm font-semibold text-zinc-700 shadow-sm backdrop-blur-md transition-colors',
-          'hover:border-point-2/70 hover:text-point-1 dark:border-zinc-700/70 dark:bg-zinc-900/70 dark:text-zinc-200',
+          'group inline-flex h-10 items-center gap-2 rounded-2xl border border-basic-3/80 bg-basic-0/80 px-3 text-sm font-semibold text-fg-3 shadow-sm backdrop-blur-md transition-colors',
+          'hover:border-point-2/70 hover:text-point-1',
         )}
       >
         <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />

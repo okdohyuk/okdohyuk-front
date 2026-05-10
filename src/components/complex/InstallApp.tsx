@@ -49,7 +49,7 @@ function InstallApp({ text }: InstallAppProps) {
   return (
     <button
       type="button"
-      className="absolute top-[16px] right-[16px] underline dark:text-white"
+      className="absolute top-[16px] right-[16px] underline text-fg-1"
       onClick={installApp}
     >
       {text}

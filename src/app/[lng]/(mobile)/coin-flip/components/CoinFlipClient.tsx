@@ -73,10 +73,7 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
     <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="space-y-2">
-          <label
-            htmlFor="coin-count"
-            className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
+          <label htmlFor="coin-count" className="text-sm font-medium text-fg-3">
             {t('label.count')}
           </label>
           <Input
@@ -88,7 +85,7 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
             onChange={(event) => setCountInput(event.target.value)}
             className="font-mono"
           />
-          <p className="text-xs text-gray-500 dark:text-gray-400">{t('helper')}</p>
+          <p className="text-xs text-fg-5">{t('helper')}</p>
         </div>
 
         <div className="flex flex-wrap gap-2">
@@ -97,24 +94,22 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
           </Button>
           <Button
             onClick={handleReset}
-            className="px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300 text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100"
+            className="px-4 py-2 text-sm bg-basic-2 hover:bg-basic-3 text-fg-1"
           >
             {t('button.reset')}
           </Button>
         </div>
 
         <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-3')}>
-          <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">
-            {t('summary.title')}
-          </p>
-          <div className="flex flex-wrap gap-2 text-xs font-medium text-gray-600 dark:text-gray-300">
-            <span className="rounded-full bg-gray-100 px-2 py-1 dark:bg-gray-800">
+          <p className="text-sm font-semibold text-fg-2">{t('summary.title')}</p>
+          <div className="flex flex-wrap gap-2 text-xs font-medium text-fg-4">
+            <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
               {t('summary.total', { count: summary.total || safeCount })}
             </span>
-            <span className="rounded-full bg-gray-100 px-2 py-1 dark:bg-gray-800">
+            <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
               {t('summary.heads', { count: summary.heads })}
             </span>
-            <span className="rounded-full bg-gray-100 px-2 py-1 dark:bg-gray-800">
+            <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
               {t('summary.tails', { count: summary.tails })}
             </span>
           </div>
@@ -124,17 +119,15 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
       <section
         className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4 min-h-[240px]')}
       >
-        <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-100">
-          {t('result.title')}
-        </h3>
+        <h3 className="text-sm font-semibold text-fg-2">{t('result.title')}</h3>
         {results.length === 0 ? (
-          <p className="text-sm text-gray-500 dark:text-gray-400">{t('result.empty')}</p>
+          <p className="text-sm text-fg-5">{t('result.empty')}</p>
         ) : (
           <ul className="grid gap-2">
             {results.map((result, index) => (
               <li
                 key={result.id}
-                className="flex items-center justify-between rounded-xl border border-zinc-200/70 bg-white/80 px-3 py-2 text-sm text-gray-800 shadow-sm dark:border-zinc-700/70 dark:bg-zinc-900/70 dark:text-gray-100"
+                className="flex items-center justify-between rounded-xl border border-basic-3 bg-basic-0/80 px-3 py-2 text-sm text-fg-2 shadow-sm"
               >
                 <span className="font-medium">{t('result.coinLabel', { index: index + 1 })}</span>
                 <span
@@ -142,7 +135,7 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
                     'rounded-full px-2 py-0.5 text-xs font-semibold',
                     result.value === 'heads'
                       ? 'bg-point-1/15 text-point-1'
-                      : 'bg-point-4/40 text-zinc-700 dark:text-zinc-200',
+                      : 'bg-point-4/40 text-fg-3',
                   )}
                 >
                   {t(`result.${result.value}`)}

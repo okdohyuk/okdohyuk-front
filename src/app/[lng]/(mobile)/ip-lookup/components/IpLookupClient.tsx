@@ -98,12 +98,12 @@ function SectionCard({
   icon,
   title,
   children,
-  className,
+  className = '',
 }: {
   icon: React.ReactNode;
   title: string;
   children: React.ReactNode;
-  className?: string;
+  className: string;
 }) {
   return (
     <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'p-4 md:p-5', className)}>
@@ -113,7 +113,7 @@ function SectionCard({
           {title}
         </Text>
       </div>
-      <div className="divide-y divide-zinc-200/60 dark:divide-zinc-700/60">{children}</div>
+      <div className="divide-y divide-basic-3">{children}</div>
     </div>
   );
 }
@@ -121,9 +121,9 @@ function SectionCard({
 function PortStatusBadge({ status }: { status: PortInfo['status'] }) {
   const styles = {
     open: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400',
-    closed: 'bg-zinc-100 text-zinc-500 dark:bg-zinc-800 dark:text-zinc-500',
-    filtered: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400',
-    scanning: 'bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400',
+    closed: 'bg-basic-2 text-fg-5',
+    filtered: 'bg-warn-4 text-warn-1 dark:bg-warn-1/40 dark:text-warn-3',
+    scanning: 'bg-info-4 text-info-1 dark:bg-info-1/40 dark:text-info-3',
   };
 
   return (
@@ -148,12 +148,10 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
 
   const [portData, setPortData] = useState<PortScanResult | null>(null);
   const [portLoading, setPortLoading] = useState(false);
-  const [portStarted, setPortStarted] = useState(false);
 
   const [copied, setCopied] = useState(false);
 
   const runPortScan = useCallback(async (ip: string) => {
-    setPortStarted(true);
     setPortLoading(true);
     setPortData(null);
 
@@ -176,7 +174,6 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
     setIpError(null);
     setIpData(null);
     setPortData(null);
-    setPortStarted(false);
     setCopied(false);
 
     try {
@@ -212,7 +209,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
       {/* Hero: IP Display */}
       <div className={cn(SERVICE_PANEL, 'relative overflow-hidden p-6 md:p-8')}>
         <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-point-2/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-6 left-0 h-28 w-28 rounded-full bg-violet-400/15 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-6 left-0 h-28 w-28 rounded-full bg-point-3/15 blur-3xl" />
 
         <div className="relative z-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
@@ -228,7 +225,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
               </div>
             )}
             {ipError && (
-              <Text variant="t2" className="text-red-500 dark:text-red-400">
+              <Text variant="t2" className="text-danger-2">
                 {t('hero.error')}
               </Text>
             )}
@@ -244,7 +241,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                     className="rounded-sm shadow-sm"
                   />
                 )}
-                <h2 className="font-mono text-4xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 md:text-5xl">
+                <h2 className="font-mono text-4xl font-black tracking-tight text-fg-1 md:text-5xl">
                   {ipData.ip}
                 </h2>
               </div>
@@ -264,7 +261,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
             )}
             <Button
               type="button"
-              className="flex items-center gap-2 bg-zinc-200 px-3 py-2 text-xs text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-white"
+              className="flex items-center gap-2 bg-basic-2 px-3 py-2 text-xs text-fg-1 hover:bg-basic-3"
               onClick={fetchIpInfo}
               disabled={ipLoading}
             >
@@ -277,13 +274,13 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
         {ipData && !ipLoading && (
           <div className="relative z-10 mt-4 flex flex-wrap gap-2">
             {ipData.isProxy && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/40 dark:text-amber-400">
+              <span className="inline-flex items-center gap-1 rounded-full bg-warn-4 px-3 py-1 text-xs font-semibold text-warn-1 dark:bg-warn-1/40 dark:text-warn-3">
                 <ShieldAlert size={12} />
                 {t('badges.proxy')}
               </span>
             )}
             {ipData.isHosting && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-violet-100 px-3 py-1 text-xs font-semibold text-violet-700 dark:bg-violet-900/40 dark:text-violet-400">
+              <span className="inline-flex items-center gap-1 rounded-full bg-point-4 px-3 py-1 text-xs font-semibold text-point-1 dark:bg-point-1/40 dark:text-point-3">
                 <Server size={12} />
                 {t('badges.hosting')}
               </span>
@@ -373,9 +370,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
               value={
                 <span
                   className={
-                    ipData.isProxy
-                      ? 'text-amber-600 dark:text-amber-400'
-                      : 'text-emerald-600 dark:text-emerald-400'
+                    ipData.isProxy ? 'text-warn-1' : 'text-emerald-600 dark:text-emerald-400'
                   }
                 >
                   {ipData.isProxy ? t('values.yes') : t('values.no')}
@@ -387,9 +382,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
               value={
                 <span
                   className={
-                    ipData.isHosting
-                      ? 'text-violet-600 dark:text-violet-400'
-                      : 'text-emerald-600 dark:text-emerald-400'
+                    ipData.isHosting ? 'text-point-2' : 'text-emerald-600 dark:text-emerald-400'
                   }
                 >
                   {ipData.isHosting ? t('values.yes') : t('values.no')}
@@ -399,13 +392,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
             <InfoRow
               label={t('fields.mobile')}
               value={
-                <span
-                  className={
-                    ipData.isMobile
-                      ? 'text-sky-600 dark:text-sky-400'
-                      : 'text-zinc-500 dark:text-zinc-400'
-                  }
-                >
+                <span className={ipData.isMobile ? 'text-sky-600 dark:text-sky-400' : 'text-fg-5'}>
                   {ipData.isMobile ? t('values.yes') : t('values.no')}
                 </span>
               }
@@ -460,7 +447,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
               {!portLoading && ipData?.ip && (
                 <Button
                   type="button"
-                  className="flex items-center gap-2 bg-zinc-200 px-3 py-2 text-xs text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-white"
+                  className="flex items-center gap-2 bg-basic-2 px-3 py-2 text-xs text-fg-1 hover:bg-basic-3"
                   onClick={() => runPortScan(ipData.ip)}
                 >
                   <RefreshCw size={14} />
@@ -492,8 +479,8 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                     const count = portData.ports.filter((p) => p.status === status).length;
                     const colors = {
                       open: 'text-emerald-600 dark:text-emerald-400',
-                      closed: 'text-zinc-500',
-                      filtered: 'text-amber-600 dark:text-amber-400',
+                      closed: 'text-fg-5',
+                      filtered: 'text-warn-1 dark:text-warn-3',
                     };
                     return (
                       <div key={status} className="flex items-center gap-1">
@@ -511,7 +498,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-zinc-200/60 dark:border-zinc-700/60">
+                      <tr className="border-b border-basic-3">
                         <th className="pb-2 pr-4 text-left">
                           <Text variant="c1" color="basic-5">
                             {t('portScan.table.port')}
@@ -536,10 +523,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                     </thead>
                     <tbody>
                       {portData.ports.map((port) => (
-                        <tr
-                          key={port.port}
-                          className="border-b border-zinc-200/40 last:border-0 dark:border-zinc-700/40"
-                        >
+                        <tr key={port.port} className="border-b border-basic-3 last:border-0">
                           <td className="py-2 pr-4">
                             <Text variant="d2" color="basic-2" className="font-mono font-semibold">
                               {port.port}
@@ -569,7 +553,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
 
           {/* Disclaimer */}
           <div className={cn(SERVICE_PANEL_SOFT, 'flex items-start gap-3 p-4')}>
-            <Building2 size={16} className="mt-0.5 shrink-0 text-zinc-400" />
+            <Building2 size={16} className="mt-0.5 shrink-0 text-fg-6" />
             <Text variant="c1" color="basic-5" className="leading-relaxed">
               {t('disclaimer')}
             </Text>

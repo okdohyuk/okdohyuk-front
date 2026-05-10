@@ -54,7 +54,7 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
     <div className="w-full space-y-6">
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="space-y-2">
-          <label htmlFor="price" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label htmlFor="price" className="text-sm font-medium text-fg-3">
             {t('inputs.price.label')}
           </label>
           <Input
@@ -64,14 +64,11 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
             value={price}
             onChange={(event) => setPrice(event.target.value)}
           />
-          <p className="text-xs text-gray-500 dark:text-gray-400">{t('inputs.price.helper')}</p>
+          <p className="text-xs text-fg-5">{t('inputs.price.helper')}</p>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
-            <label
-              htmlFor="taxRate"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <label htmlFor="taxRate" className="text-sm font-medium text-fg-3">
               {t('inputs.taxRate.label')}
             </label>
             <Input
@@ -83,10 +80,7 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
             />
           </div>
           <div className="space-y-2">
-            <label
-              htmlFor="quantity"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <label htmlFor="quantity" className="text-sm font-medium text-fg-3">
               {t('inputs.quantity.label')}
             </label>
             <Input
@@ -102,7 +96,7 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
           <Button
             type="button"
             onClick={handleReset}
-            className="bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
+            className="bg-basic-2 text-fg-1 hover:bg-basic-3"
           >
             {t('actions.reset')}
           </Button>
@@ -110,44 +104,34 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
       </section>
 
       <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
-        <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">
-          {t('summary.title')}
-        </h3>
+        <h3 className="text-base font-semibold text-fg-1">{t('summary.title')}</h3>
         <div className="grid gap-3 md:grid-cols-2">
           <div className="space-y-1">
-            <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-              {t('summary.subtotal')}
-            </p>
-            <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+            <p className="text-xs uppercase tracking-wide text-fg-5">{t('summary.subtotal')}</p>
+            <p className="text-lg font-semibold text-fg-1">
               {subtotal.toLocaleString()} {t('summary.currency')}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-              {t('summary.tax')}
-            </p>
-            <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+            <p className="text-xs uppercase tracking-wide text-fg-5">{t('summary.tax')}</p>
+            <p className="text-lg font-semibold text-fg-1">
               {taxAmount.toLocaleString()} {t('summary.currency')}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-              {t('summary.total')}
-            </p>
-            <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+            <p className="text-xs uppercase tracking-wide text-fg-5">{t('summary.total')}</p>
+            <p className="text-lg font-semibold text-fg-1">
               {total.toLocaleString()} {t('summary.currency')}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-              {t('summary.totalPerItem')}
-            </p>
-            <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+            <p className="text-xs uppercase tracking-wide text-fg-5">{t('summary.totalPerItem')}</p>
+            <p className="text-lg font-semibold text-fg-1">
               {totalPerItem.toLocaleString()} {t('summary.currency')}
             </p>
           </div>
         </div>
-        <p className="text-xs text-gray-500 dark:text-gray-400">{t('summary.helper')}</p>
+        <p className="text-xs text-fg-5">{t('summary.helper')}</p>
       </section>
     </div>
   );

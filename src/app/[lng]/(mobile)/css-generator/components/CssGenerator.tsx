@@ -275,11 +275,8 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="flex h-64 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
-              <div
-                className="h-32 w-32 rounded-lg bg-white dark:bg-gray-700"
-                style={{ boxShadow: shadowCss }}
-              />
+            <div className="flex h-64 items-center justify-center rounded-lg border border-basic-3 bg-basic-1">
+              <div className="h-32 w-32 rounded-lg bg-basic-0" style={{ boxShadow: shadowCss }} />
             </div>
             <CodeBlock
               id={`${baseId}-code-css`}
@@ -352,7 +349,7 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="flex h-64 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
+            <div className="flex h-64 items-center justify-center rounded-lg border border-basic-3 bg-basic-1">
               <div className="h-48 w-48 rounded-lg" style={{ background: gradientCss }} />
             </div>
             <CodeBlock
@@ -411,9 +408,9 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="flex h-64 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
+            <div className="flex h-64 items-center justify-center rounded-lg border border-basic-3 bg-basic-1">
               <div
-                className="h-40 w-40 border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700"
+                className="h-40 w-40 border-2 border-basic-3 bg-basic-0"
                 style={{ borderRadius: radiusCss }}
               />
             </div>
@@ -479,9 +476,9 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800">
+            <div className="rounded-lg border border-basic-3 bg-basic-1 p-4">
               <div
-                className="h-56 rounded-lg border border-dashed border-gray-300 bg-white/80 p-2 dark:border-gray-600 dark:bg-gray-700/70"
+                className="h-56 rounded-lg border border-dashed border-basic-3 bg-basic-0/80 p-2"
                 style={{
                   display: 'flex',
                   flexDirection: flex.direction,
@@ -563,9 +560,9 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800">
+            <div className="rounded-lg border border-basic-3 bg-basic-1 p-4">
               <div
-                className="h-56 rounded-lg border border-dashed border-gray-300 bg-white/80 p-2 dark:border-gray-600 dark:bg-gray-700/70"
+                className="h-56 rounded-lg border border-dashed border-basic-3 bg-basic-0/80 p-2"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: `repeat(${grid.columns}, minmax(0, 1fr))`,

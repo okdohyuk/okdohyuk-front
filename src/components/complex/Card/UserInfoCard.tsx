@@ -39,7 +39,7 @@ function UserInfoCard({ lng }: { lng: Language }) {
     <section className={cn(SERVICE_PANEL_SOFT, 'mb-4 flex flex-wrap items-center gap-3 p-3')}>
       {user ? (
         <>
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-700">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-basic-3">
             <Image
               src={user.profileImage}
               width={40}
@@ -53,14 +53,14 @@ function UserInfoCard({ lng }: { lng: Language }) {
           </Text>
           <button
             type="button"
-            className="rounded-lg border border-zinc-200 bg-white/85 px-2.5 py-1 text-xs font-semibold text-zinc-700 transition-colors hover:border-point-2 hover:text-point-1 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-200"
+            className="rounded-lg border border-basic-3 bg-basic-0/85 px-2.5 py-1 text-xs font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-1"
             onClick={logOut}
           >
             {t('login.logout')}
           </button>
           <button
             type="button"
-            className="rounded-lg border border-zinc-200 bg-white/85 px-2.5 py-1 text-xs font-semibold text-zinc-700 transition-colors hover:border-point-2 hover:text-point-1 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-200"
+            className="rounded-lg border border-basic-3 bg-basic-0/85 px-2.5 py-1 text-xs font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-1"
             onClick={logOutAll}
           >
             {t('login.logoutAll')}

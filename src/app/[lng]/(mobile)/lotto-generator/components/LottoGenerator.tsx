@@ -177,18 +177,13 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
     <div className="space-y-6">
       <section className={cn(SERVICE_PANEL, 'space-y-4 p-4')}>
         <div className="space-y-1">
-          <Text className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-            {strings.settingsTitle}
-          </Text>
-          <Text className="text-xs text-zinc-500 dark:text-zinc-400">{strings.helper}</Text>
+          <Text className="text-sm font-semibold text-fg-1">{strings.settingsTitle}</Text>
+          <Text className="text-xs text-fg-5">{strings.helper}</Text>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="space-y-2">
-            <label
-              htmlFor="lotto-min-number"
-              className="text-xs font-medium text-zinc-600 dark:text-zinc-300"
-            >
+            <label htmlFor="lotto-min-number" className="text-xs font-medium text-fg-4">
               {strings.labels.minNumber}
             </label>
             <Input
@@ -201,10 +196,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
             />
           </div>
           <div className="space-y-2">
-            <label
-              htmlFor="lotto-max-number"
-              className="text-xs font-medium text-zinc-600 dark:text-zinc-300"
-            >
+            <label htmlFor="lotto-max-number" className="text-xs font-medium text-fg-4">
               {strings.labels.maxNumber}
             </label>
             <Input
@@ -217,10 +209,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
             />
           </div>
           <div className="space-y-2">
-            <label
-              htmlFor="lotto-picks"
-              className="text-xs font-medium text-zinc-600 dark:text-zinc-300"
-            >
+            <label htmlFor="lotto-picks" className="text-xs font-medium text-fg-4">
               {strings.labels.picksPerTicket}
             </label>
             <Input
@@ -233,10 +222,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
             />
           </div>
           <div className="space-y-2">
-            <label
-              htmlFor="lotto-ticket-count"
-              className="text-xs font-medium text-zinc-600 dark:text-zinc-300"
-            >
+            <label htmlFor="lotto-ticket-count" className="text-xs font-medium text-fg-4">
               {strings.labels.ticketCount}
             </label>
             <Input
@@ -257,14 +243,14 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
             type="checkbox"
             checked={includeBonus}
             onChange={() => setIncludeBonus((prev) => !prev)}
-            className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-point-1 focus:ring-2 focus:ring-point-1 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
+            className="h-4 w-4 rounded border-basic-3 bg-basic-2 text-point-1 focus:ring-2 focus:ring-point-1"
           />
-          <label htmlFor="lotto-include-bonus" className="text-xs text-zinc-600 dark:text-zinc-300">
+          <label htmlFor="lotto-include-bonus" className="text-xs text-fg-4">
             {strings.labels.includeBonus}
           </label>
         </div>
 
-        {error && <Text className="text-xs text-red-500">{error}</Text>}
+        {error && <Text className="text-xs text-danger-2">{error}</Text>}
 
         <div className="flex flex-wrap gap-2">
           <Button type="button" className="px-4 text-sm" onClick={handleGenerate}>
@@ -272,14 +258,14 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
           </Button>
           <button
             type="button"
-            className="rounded-md border border-zinc-200 px-3 py-1 text-xs font-medium text-zinc-600 transition hover:border-point-2/70 hover:text-point-2 dark:border-zinc-700 dark:text-zinc-300"
+            className="rounded-md border border-basic-3 px-3 py-1 text-xs font-medium text-fg-4 transition hover:border-point-2/70 hover:text-point-2"
             onClick={handleClear}
           >
             {strings.buttons.clear}
           </button>
           <button
             type="button"
-            className="rounded-md border border-zinc-200 px-3 py-1 text-xs font-medium text-zinc-600 transition hover:border-point-2/70 hover:text-point-2 dark:border-zinc-700 dark:text-zinc-300"
+            className="rounded-md border border-basic-3 px-3 py-1 text-xs font-medium text-fg-4 transition hover:border-point-2/70 hover:text-point-2"
             onClick={handleReset}
           >
             {strings.buttons.reset}
@@ -289,13 +275,11 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
 
       <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <Text className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-            {strings.resultsTitle}
-          </Text>
+          <Text className="text-sm font-semibold text-fg-1">{strings.resultsTitle}</Text>
           <div className="flex items-center gap-2">
             <button
               type="button"
-              className="rounded-md border border-zinc-200 px-3 py-1 text-xs font-medium text-zinc-600 transition hover:border-point-2/70 hover:text-point-2 dark:border-zinc-700 dark:text-zinc-300 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-md border border-basic-3 px-3 py-1 text-xs font-medium text-fg-4 transition hover:border-point-2/70 hover:text-point-2 disabled:cursor-not-allowed disabled:opacity-50"
               onClick={handleCopy}
               disabled={!resultsText}
             >
@@ -305,17 +289,15 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
         </div>
 
         {results.length === 0 ? (
-          <Text className="text-sm text-zinc-500 dark:text-zinc-400">{strings.status.empty}</Text>
+          <Text className="text-sm text-fg-5">{strings.status.empty}</Text>
         ) : (
           <div className="space-y-3">
             {results.map((result, index) => (
               <div
                 key={result.id}
-                className="flex flex-wrap items-center gap-2 rounded-2xl border border-zinc-200/70 bg-white/80 p-3 text-sm text-zinc-700 shadow-sm dark:border-zinc-700/70 dark:bg-zinc-900/70 dark:text-zinc-100"
+                className="flex flex-wrap items-center gap-2 rounded-2xl border border-basic-3 bg-basic-0/80 p-3 text-sm text-fg-3 shadow-sm"
               >
-                <Text className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">
-                  #{index + 1}
-                </Text>
+                <Text className="text-xs font-semibold text-fg-5">#{index + 1}</Text>
                 <div className="flex flex-wrap items-center gap-2">
                   {result.numbers.map((number) => (
                     <span

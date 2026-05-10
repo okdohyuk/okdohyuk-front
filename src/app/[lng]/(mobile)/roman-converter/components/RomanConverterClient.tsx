@@ -175,14 +175,12 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-4')}>
-        <p className="text-xs text-gray-500 dark:text-gray-400">{t('helper.text')}</p>
+        <p className="text-xs text-fg-5">{t('helper.text')}</p>
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4')}>
         <div className="flex items-center justify-between gap-3">
-          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">
-            {t('section.numberToRoman')}
-          </h3>
+          <h3 className="text-sm font-medium text-fg-3">{t('section.numberToRoman')}</h3>
           <Button
             type="button"
             onClick={() => handleCopy(romanOutput, setCopiedNumber)}
@@ -194,7 +192,7 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
           </Button>
         </div>
 
-        <label htmlFor="roman-number-input" className="text-xs text-gray-500 dark:text-gray-400">
+        <label htmlFor="roman-number-input" className="text-xs text-fg-5">
           {t('label.number')}
         </label>
         <Input
@@ -206,10 +204,10 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
           onChange={(event) => setNumberInput(event.target.value)}
         />
         {parsedNumber.error ? (
-          <p className="text-xs text-red-600 dark:text-red-400">{parsedNumber.error}</p>
+          <p className="text-xs text-danger-1 dark:text-danger-3">{parsedNumber.error}</p>
         ) : null}
 
-        <label htmlFor="roman-output" className="text-xs text-gray-500 dark:text-gray-400">
+        <label htmlFor="roman-output" className="text-xs text-fg-5">
           {t('label.roman')}
         </label>
         <Input
@@ -223,9 +221,7 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
 
       <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4')}>
         <div className="flex items-center justify-between gap-3">
-          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">
-            {t('section.romanToNumber')}
-          </h3>
+          <h3 className="text-sm font-medium text-fg-3">{t('section.romanToNumber')}</h3>
           <Button
             type="button"
             onClick={() =>
@@ -239,7 +235,7 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
           </Button>
         </div>
 
-        <label htmlFor="roman-input" className="text-xs text-gray-500 dark:text-gray-400">
+        <label htmlFor="roman-input" className="text-xs text-fg-5">
           {t('label.roman')}
         </label>
         <Input
@@ -251,17 +247,17 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
         />
 
         {parsedRoman.error ? (
-          <p className="text-xs text-red-600 dark:text-red-400">
+          <p className="text-xs text-danger-1 dark:text-danger-3">
             {parsedRoman.error}{' '}
             {parsedRoman.canonical ? (
-              <span className="text-gray-500 dark:text-gray-400">
+              <span className="text-fg-5">
                 {t('helper.canonical', { value: parsedRoman.canonical })}
               </span>
             ) : null}
           </p>
         ) : null}
 
-        <label htmlFor="roman-number-output" className="text-xs text-gray-500 dark:text-gray-400">
+        <label htmlFor="roman-number-output" className="text-xs text-fg-5">
           {t('label.number')}
         </label>
         <Input

@@ -25,20 +25,20 @@ function Footer({ lng, className = '' }: FooterProps) {
   }
 
   const currentYear = new Date().getFullYear();
-  const linkClassName = 'hover:text-blue-700 dark:hover:text-blue-300 transition-colors';
-  const separatorClassName = 'mx-2 text-zinc-400 dark:text-zinc-600';
+  const linkClassName = 'hover:text-point-1 dark:hover:text-point-3 transition-colors';
+  const separatorClassName = 'mx-2 text-fg-6';
 
   return (
     <footer
       className={cn(
-        'w-full py-4 border-t border-zinc-200 dark:border-zinc-800',
-        'bg-zinc-100 dark:bg-zinc-900',
+        'w-full py-4 border-t border-basic-3',
+        'bg-basic-2',
         'mb-[57px] lg:mb-0',
         className,
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="text-center text-sm text-zinc-600 dark:text-zinc-400">
+        <div className="text-center text-sm text-fg-4">
           <p className="flex items-center justify-center">
             <span>
               © {currentYear} {t('footer.appName')}

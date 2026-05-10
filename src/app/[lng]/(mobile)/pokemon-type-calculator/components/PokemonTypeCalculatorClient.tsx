@@ -488,8 +488,8 @@ function getCellColorClass(mult: number): string {
   if (mult === 2) return 'bg-orange-400 text-white';
   if (mult === 0.5) return 'bg-blue-400 text-white';
   if (mult === 0.25) return 'bg-indigo-500 text-white';
-  if (mult === 0) return 'bg-zinc-400 text-white';
-  return 'text-zinc-400 dark:text-zinc-600';
+  if (mult === 0) return 'bg-basic-4 text-fg-0';
+  return 'text-fg-6';
 }
 
 function getCellLabel(mult: number): string {
@@ -575,10 +575,7 @@ function TypeBadge({
       </div>
       {showName && (
         <span
-          className={cn(
-            'font-semibold text-zinc-600 dark:text-zinc-300 leading-none text-center',
-            nameSizeClass[size],
-          )}
+          className={cn('font-semibold text-fg-4 leading-none text-center', nameSizeClass[size])}
         >
           {name}
         </span>
@@ -649,8 +646,8 @@ const EFFECTIVENESS_TIERS = [
   {
     multiplier: 1,
     labelKey: 'effectiveness.x1',
-    colorClass: 'text-zinc-600 dark:text-zinc-300',
-    bgClass: 'bg-zinc-100 dark:bg-zinc-800',
+    colorClass: 'text-fg-4',
+    bgClass: 'bg-basic-2',
   },
   {
     multiplier: 0.5,
@@ -667,8 +664,8 @@ const EFFECTIVENESS_TIERS = [
   {
     multiplier: 0,
     labelKey: 'effectiveness.x0',
-    colorClass: 'text-zinc-500 dark:text-zinc-400',
-    bgClass: 'bg-zinc-200 dark:bg-zinc-700',
+    colorClass: 'text-fg-5',
+    bgClass: 'bg-basic-3',
   },
 ] as const;
 
@@ -756,7 +753,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
             <button
               type="button"
               onClick={clearAll}
-              className="text-xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors underline"
+              className="text-xs text-fg-5 hover:text-fg-3 transition-colors underline"
             >
               {t('action.clear')}
             </button>
@@ -832,7 +829,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
           <table className="border-collapse mx-auto min-w-max">
             <thead>
               <tr>
-                <th className="p-1 text-zinc-400 dark:text-zinc-500 font-normal text-left sticky left-0 bg-white dark:bg-zinc-900 z-10 min-w-[56px]">
+                <th className="p-1 text-fg-6 font-normal text-left sticky left-0 bg-basic-0 z-10 min-w-[56px]">
                   <span className="text-xs">{t('chart.atkVsDef')}</span>
                 </th>
                 {POKEMON_TYPES.map((type) => (
@@ -850,8 +847,8 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
             </thead>
             <tbody>
               {POKEMON_TYPES.map((attacker) => (
-                <tr key={attacker} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/50">
-                  <td className="p-1 sticky left-0 bg-white dark:bg-zinc-900 z-10">
+                <tr key={attacker} className="hover:bg-basic-1">
+                  <td className="p-1 sticky left-0 bg-basic-0 z-10">
                     <div
                       className="rounded px-1 py-0.5 text-white text-xs font-bold text-center"
                       style={{ backgroundColor: TYPE_COLORS[attacker] }}

@@ -41,7 +41,7 @@ function BlogHeader() {
           {categoryChain ? categoryChain.map(categoryRender) : null}
         </Text>
         <H1 className="mb-4 text-2xl text-white lg:text-4xl">{title}</H1>
-        <Text className="flex flex-wrap items-center gap-3 text-zinc-300" variant="c1">
+        <Text className="flex flex-wrap items-center gap-3 text-fg-7" variant="c1">
           <span className="inline-flex items-center rounded-full bg-black/30 px-3 py-1">
             {format(createdDate, 'yyyy-MM-dd')}
           </span>

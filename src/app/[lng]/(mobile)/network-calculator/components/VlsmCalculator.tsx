@@ -203,7 +203,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
                 <button
                   type="button"
                   onClick={() => handleRemoveRow(row.id)}
-                  className="rounded-lg p-1.5 text-zinc-400 transition-colors hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-900/20"
+                  className="rounded-lg p-1.5 text-fg-6 transition-colors hover:bg-danger-4 hover:text-danger-2 dark:hover:bg-danger-1/20"
                   aria-label={t('vlsm.removeSubnet')}
                   disabled={rows.length === 1}
                 >
@@ -215,7 +215,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
 
           <Button
             type="button"
-            className="flex items-center gap-1.5 px-3 py-2 text-sm bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300"
+            className="flex items-center gap-1.5 px-3 py-2 text-sm bg-basic-2 text-fg-3 hover:bg-basic-3"
             onClick={handleAddRow}
           >
             <Plus size={14} />
@@ -224,7 +224,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
         </div>
 
         {error && (
-          <Text variant="d2" className="text-red-500 dark:text-red-400">
+          <Text variant="d2" className="text-danger-2">
             {error}
           </Text>
         )}
@@ -235,7 +235,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
           </Button>
           <Button
             type="button"
-            className="px-4 py-2 text-sm bg-zinc-200 text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-white"
+            className="px-4 py-2 text-sm bg-basic-2 text-fg-1 hover:bg-basic-3"
             onClick={handleClear}
           >
             {t('vlsm.clear')}
@@ -259,7 +259,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
             <div className="hidden md:block overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-zinc-200 dark:border-zinc-700">
+                  <tr className="border-b border-basic-3">
                     {[
                       t('vlsm.name'),
                       t('vlsm.required'),
@@ -269,10 +269,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
                       t('vlsm.range'),
                       t('vlsm.usable'),
                     ].map((header) => (
-                      <th
-                        key={header}
-                        className="px-3 py-2 text-left font-semibold text-zinc-600 dark:text-zinc-400"
-                      >
+                      <th key={header} className="px-3 py-2 text-left font-semibold text-fg-4">
                         {header}
                       </th>
                     ))}
@@ -282,7 +279,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
                   {result.subnets.map((subnet) => (
                     <tr
                       key={subnet.networkAddress}
-                      className="border-b border-zinc-100 dark:border-zinc-800 hover:bg-white/50 dark:hover:bg-zinc-900/50"
+                      className="border-b border-basic-2 hover:bg-basic-0/50"
                     >
                       <td className="px-3 py-2 font-medium">{subnet.name}</td>
                       <td className="px-3 py-2">{subnet.requiredHosts.toLocaleString()}</td>
@@ -304,7 +301,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
               {result.subnets.map((subnet) => (
                 <div
                   key={`card-${subnet.networkAddress}`}
-                  className="rounded-2xl bg-white/70 p-3 shadow-sm dark:bg-zinc-900/70 space-y-2"
+                  className="rounded-2xl bg-basic-0/70 p-3 shadow-sm space-y-2"
                 >
                   <div className="flex items-center justify-between">
                     <Text asChild variant="d2">
@@ -316,23 +313,23 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
                   </div>
                   <div className="grid grid-cols-2 gap-1 text-xs">
                     <div>
-                      <span className="text-zinc-500">{t('vlsm.network')}: </span>
+                      <span className="text-fg-5">{t('vlsm.network')}: </span>
                       <span className="font-mono">{subnet.networkAddress}</span>
                     </div>
                     <div>
-                      <span className="text-zinc-500">{t('vlsm.broadcast')}: </span>
+                      <span className="text-fg-5">{t('vlsm.broadcast')}: </span>
                       <span className="font-mono">{subnet.broadcastAddress}</span>
                     </div>
                     <div>
-                      <span className="text-zinc-500">{t('vlsm.required')}: </span>
+                      <span className="text-fg-5">{t('vlsm.required')}: </span>
                       <span>{subnet.requiredHosts.toLocaleString()}</span>
                     </div>
                     <div>
-                      <span className="text-zinc-500">{t('vlsm.usable')}: </span>
+                      <span className="text-fg-5">{t('vlsm.usable')}: </span>
                       <span>{subnet.usableHosts.toLocaleString()}</span>
                     </div>
                     <div className="col-span-2">
-                      <span className="text-zinc-500">{t('vlsm.range')}: </span>
+                      <span className="text-fg-5">{t('vlsm.range')}: </span>
                       <span className="font-mono text-xs">
                         {subnet.firstHost} – {subnet.lastHost}
                       </span>
@@ -344,8 +341,8 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
 
             {/* Remaining space */}
             {result.remainingSpace > 0 && (
-              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-900/20">
-                <Text variant="d2" className="text-amber-700 dark:text-amber-400">
+              <div className="rounded-2xl border border-warn-3 bg-warn-4 p-3 dark:border-warn-1/50 dark:bg-warn-1/20">
+                <Text variant="d2" className="text-warn-1 dark:text-warn-3">
                   {t('vlsm.remainingIps', { amount: result.remainingSpace.toLocaleString() })}
                 </Text>
               </div>

@@ -49,10 +49,10 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
       transition={{ duration: shouldReduceMotion ? 0 : 0.35 }}
     >
       <label className="relative min-w-[220px] flex-1" htmlFor="blog-search-input">
-        <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400 dark:text-zinc-500" />
+        <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-fg-6" />
         <input
           id="blog-search-input"
-          className="h-[46px] w-full rounded-xl border border-zinc-200 bg-white/90 pl-10 pr-3 text-sm font-medium text-zinc-800 outline-none transition focus:border-point-2 focus:ring-2 focus:ring-point-2/40 dark:border-zinc-700 dark:bg-zinc-800/90 dark:text-zinc-100"
+          className="h-[46px] w-full rounded-xl border border-basic-3 bg-basic-0/90 pl-10 pr-3 text-sm font-medium text-fg-2 outline-none transition focus:border-point-2 focus:ring-2 focus:ring-point-2/40"
           type="text"
           placeholder={t('searchPlaceholder')}
           value={title ?? ''}
@@ -62,7 +62,7 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
 
       <motion.button
         type="button"
-        className="inline-flex h-[46px] items-center gap-1 rounded-xl border border-zinc-200 bg-white/90 px-3 text-sm font-semibold text-zinc-700 transition-colors hover:border-point-2 hover:text-point-1 dark:border-zinc-700 dark:bg-zinc-800/90 dark:text-zinc-200 lg:hidden"
+        className="inline-flex h-[46px] items-center gap-1 rounded-xl border border-basic-3 bg-basic-0/90 px-3 text-sm font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-1 lg:hidden"
         onClick={toggleDrawer}
         whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
       >
@@ -70,14 +70,12 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
         {t('filter.index')}
       </motion.button>
 
-      <div className="inline-flex h-[46px] items-center rounded-xl border border-zinc-200 bg-zinc-100/90 p-1 dark:border-zinc-700 dark:bg-zinc-800/90">
+      <div className="inline-flex h-[46px] items-center rounded-xl border border-basic-3 bg-basic-2/90 p-1">
         <motion.button
           type="button"
           className={cn(
             'rounded-lg p-2 transition-colors',
-            viewType === 'discript'
-              ? 'bg-point-1 text-white'
-              : 'text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200',
+            viewType === 'discript' ? 'bg-point-1 text-white' : 'text-fg-5 hover:text-fg-2',
           )}
           onClick={() => setViewType('discript')}
           whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
@@ -89,9 +87,7 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
           type="button"
           className={cn(
             'rounded-lg p-2 transition-colors',
-            viewType === 'frame'
-              ? 'bg-point-1 text-white'
-              : 'text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200',
+            viewType === 'frame' ? 'bg-point-1 text-white' : 'text-fg-5 hover:text-fg-2',
           )}
           onClick={() => setViewType('frame')}
           whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
@@ -102,7 +98,7 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
       </div>
 
       <Select value={orderBy} onValueChange={onOrderByChange}>
-        <SelectTrigger className="h-[46px] w-[128px] rounded-xl bg-white/90 text-sm font-semibold dark:bg-zinc-800/90">
+        <SelectTrigger className="h-[46px] w-[128px] rounded-xl bg-basic-0/90 text-sm font-semibold">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

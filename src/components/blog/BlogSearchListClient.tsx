@@ -32,7 +32,7 @@ const BlogSearchListClient = function BlogSearchListClient({
       <div
         className={cn(BLOG_GLASS_PANEL_SOFT, 'mb-4 flex items-center justify-between px-4 py-3')}
       >
-        <div className="text-sm font-semibold text-zinc-700 dark:text-zinc-200">
+        <div className="text-sm font-semibold text-fg-3">
           {t('resultCount')}
           <span className="ml-1 text-base font-black text-point-1">{count ?? 0}</span>
         </div>

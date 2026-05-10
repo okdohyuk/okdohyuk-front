@@ -30,7 +30,7 @@ export function GeneratorTabs({
   ];
 
   return (
-    <div className="flex border-b border-gray-200 dark:border-gray-700">
+    <div className="flex border-b border-basic-3 dark:border-basic-4">
       {tabs.map((tab) => {
         const isActive = tab.key === activeTab;
 
@@ -47,7 +47,7 @@ export function GeneratorTabs({
                 'font-medium',
                 isActive
                   ? 'text-point-1'
-                  : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200',
+                  : 'text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200',
               )}
             >
               {tab.label}

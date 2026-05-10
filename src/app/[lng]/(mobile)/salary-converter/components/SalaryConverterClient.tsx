@@ -101,7 +101,7 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
     <div className="space-y-4">
       <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4`}>
         <div className="space-y-2">
-          <p className="text-sm font-semibold text-gray-700">{t('modeLabel')}</p>
+          <p className="text-sm font-semibold text-fg-3">{t('modeLabel')}</p>
           <div className="flex flex-wrap gap-2">
             {[
               { key: 'annual', label: t('modeAnnual') },
@@ -116,7 +116,7 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
                   'rounded-full px-3 py-1 text-sm font-medium transition-colors',
                   mode === item.key
                     ? 'bg-point-2 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200',
+                    : 'bg-basic-2 text-fg-4 hover:bg-basic-2',
                 )}
               >
                 {item.label}
@@ -126,7 +126,7 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
         </div>
 
         <div className="space-y-2">
-          <span className="text-sm font-semibold text-gray-700">{primaryInput.label}</span>
+          <span className="text-sm font-semibold text-fg-3">{primaryInput.label}</span>
           <Input
             type="text"
             inputMode="numeric"
@@ -139,7 +139,7 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
 
         <div className="grid gap-4 md:grid-cols-3">
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-gray-700">{t('daysLabel')}</span>
+            <span className="text-sm font-semibold text-fg-3">{t('daysLabel')}</span>
             <Input
               type="number"
               min={1}
@@ -150,7 +150,7 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
             />
           </div>
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-gray-700">{t('hoursLabel')}</span>
+            <span className="text-sm font-semibold text-fg-3">{t('hoursLabel')}</span>
             <Input
               type="number"
               min={1}
@@ -161,7 +161,7 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
             />
           </div>
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-gray-700">{t('weeksLabel')}</span>
+            <span className="text-sm font-semibold text-fg-3">{t('weeksLabel')}</span>
             <Input
               type="number"
               min={1}
@@ -172,10 +172,10 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{t('tips')}</p>
+        <p className="text-xs text-fg-5">{t('tips')}</p>
 
         <div className="flex flex-wrap gap-2">
-          <Button type="button" onClick={reset} className="px-4 bg-gray-200 text-gray-700">
+          <Button type="button" onClick={reset} className="px-4 bg-basic-2 text-fg-3">
             {t('reset')}
           </Button>
         </div>
@@ -183,32 +183,32 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
 
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-700">{t('hourlyResult')}</p>
-          <p className="text-lg font-semibold text-gray-800">
+          <p className="text-sm font-semibold text-fg-3">{t('hourlyResult')}</p>
+          <p className="text-lg font-semibold text-fg-2">
             {t('currency', { value: currencyFormatter.format(Math.round(values.baseHourly)) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-700">{t('dailyResult')}</p>
-          <p className="text-base font-medium text-gray-700">
+          <p className="text-sm font-semibold text-fg-3">{t('dailyResult')}</p>
+          <p className="text-base font-medium text-fg-3">
             {t('currency', { value: currencyFormatter.format(Math.round(values.daily)) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-700">{t('weeklyResult')}</p>
-          <p className="text-base font-medium text-gray-700">
+          <p className="text-sm font-semibold text-fg-3">{t('weeklyResult')}</p>
+          <p className="text-base font-medium text-fg-3">
             {t('currency', { value: currencyFormatter.format(Math.round(values.weekly)) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-700">{t('monthlyResult')}</p>
-          <p className="text-base font-medium text-gray-700">
+          <p className="text-sm font-semibold text-fg-3">{t('monthlyResult')}</p>
+          <p className="text-base font-medium text-fg-3">
             {t('currency', { value: currencyFormatter.format(Math.round(values.baseMonthly)) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-gray-700">{t('annualResult')}</p>
-          <p className="text-base font-medium text-gray-700">
+          <p className="text-sm font-semibold text-fg-3">{t('annualResult')}</p>
+          <p className="text-base font-medium text-fg-3">
             {t('currency', { value: currencyFormatter.format(Math.round(values.annual)) })}
           </p>
         </div>

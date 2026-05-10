@@ -66,18 +66,14 @@ export default async function AdminPage({ params }: LanguageParams) {
                 'group flex min-h-28 items-start gap-3 p-4',
               )}
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-zinc-200 bg-white/90 text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-100">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-basic-3 bg-basic-0/90 text-fg-3">
                 <Icon className="h-5 w-5" />
               </div>
               <div className="flex min-w-0 flex-1 flex-col">
-                <p className="text-sm font-extrabold text-zinc-900 dark:text-zinc-100">
-                  {menu.label}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-zinc-600 dark:text-zinc-300">
-                  {menu.description}
-                </p>
+                <p className="text-sm font-extrabold text-fg-1">{menu.label}</p>
+                <p className="mt-1 text-xs leading-relaxed text-fg-4">{menu.description}</p>
               </div>
-              <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-zinc-400 transition-transform group-hover:translate-x-0.5 group-hover:text-point-1 dark:text-zinc-500" />
+              <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:translate-x-0.5 group-hover:text-point-1" />
             </Link>
           );
         })}

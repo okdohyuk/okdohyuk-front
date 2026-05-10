@@ -17,7 +17,7 @@ type JwtTokenInputProps = {
 function JwtTokenInput({ label, placeholder, token, error, onChange }: JwtTokenInputProps) {
   return (
     <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-3')}>
-      <Text asChild variant="d3" className="font-medium text-gray-700 dark:text-gray-300">
+      <Text asChild variant="d3" className="font-medium text-fg-3">
         <label htmlFor="jwt-input">{label}</label>
       </Text>
       <Textarea
@@ -28,7 +28,7 @@ function JwtTokenInput({ label, placeholder, token, error, onChange }: JwtTokenI
         onChange={(event) => onChange(event.target.value)}
       />
       {error && (
-        <Text variant="d3" className="font-medium text-red-500 animate-pulse">
+        <Text variant="d3" className="font-medium text-danger-2 animate-pulse">
           {error}
         </Text>
       )}

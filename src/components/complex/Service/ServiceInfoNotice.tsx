@@ -34,7 +34,7 @@ function ServiceInfoNotice({
       </div>
       <div
         className={cn(
-          'min-w-0 flex-1 text-sm font-medium leading-relaxed text-zinc-700 dark:text-zinc-200',
+          'min-w-0 flex-1 text-sm font-medium leading-relaxed text-fg-3',
           textClassName,
         )}
       >

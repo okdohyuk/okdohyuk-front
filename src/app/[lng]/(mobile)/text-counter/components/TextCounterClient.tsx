@@ -55,14 +55,14 @@ export default function TextCounterClient({ lng }: TextCounterClientProps) {
     <div className="space-y-4">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <Text asChild variant="d3" className="font-medium text-zinc-700 dark:text-zinc-200">
+          <Text asChild variant="d3" className="font-medium text-fg-3">
             <label htmlFor="text-counter-input">{t('label.input')}</label>
           </Text>
           <Button
             type="button"
             onClick={() => setText('')}
             disabled={!text}
-            className="flex items-center gap-2 px-3 py-1 text-sm bg-zinc-200 text-zinc-700 hover:bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+            className="flex items-center gap-2 px-3 py-1 text-sm bg-basic-2 text-fg-3 hover:bg-basic-3"
           >
             <RotateCcw size={14} />
             {t('actions.clear')}
@@ -75,7 +75,7 @@ export default function TextCounterClient({ lng }: TextCounterClientProps) {
           value={text}
           onChange={(event) => setText(event.target.value)}
         />
-        <Text variant="c1" className="text-zinc-500 dark:text-zinc-400">
+        <Text variant="c1" className="text-fg-5">
           {t('helper')}
         </Text>
       </div>
@@ -86,10 +86,10 @@ export default function TextCounterClient({ lng }: TextCounterClientProps) {
             key={item.key}
             className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-2 p-3')}
           >
-            <Text variant="c1" className="uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+            <Text variant="c1" className="uppercase tracking-wide text-fg-5">
               {item.label}
             </Text>
-            <Text variant="t3" className="font-bold text-zinc-900 dark:text-white">
+            <Text variant="t3" className="font-bold text-fg-1">
               {item.value.toLocaleString()}
             </Text>
           </div>

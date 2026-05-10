@@ -28,7 +28,7 @@ const CodeCopy = function CodeCopy({ children, copyString, ...props }: CodeCopyP
   }, [copyString, resetCopied]);
 
   return (
-    <div className="group relative w-full overflow-hidden rounded-xl border border-zinc-200/85 bg-zinc-950 shadow-sm dark:border-zinc-700">
+    <div className="group relative w-full overflow-hidden rounded-xl border border-basic-3/85 bg-zinc-950 shadow-sm">
       <div className="absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center">
         <button
           type="button"

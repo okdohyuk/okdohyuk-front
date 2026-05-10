@@ -77,7 +77,7 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
   return (
     <div className="w-full space-y-8">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
-        <label htmlFor="url-input" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="url-input" className="text-sm font-medium text-fg-3">
           {t('label.input')}
         </label>
         <Input
@@ -87,7 +87,7 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
-        <p className="text-sm text-gray-500 dark:text-gray-400">{t('helper')}</p>
+        <p className="text-sm text-fg-5">{t('helper')}</p>
       </div>
 
       <div
@@ -97,17 +97,17 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
           'flex flex-col items-center justify-center space-y-6 p-8',
         )}
       >
-        <div ref={qrRef} className="bg-white p-4 rounded-lg shadow-sm">
+        <div ref={qrRef} className="bg-basic-0 p-4 rounded-lg shadow-sm">
           {url ? (
             <QRCodeCanvas value={url} size={200} level="H" includeMargin />
           ) : (
-            <div className="w-[200px] h-[200px] bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 text-sm">
+            <div className="w-[200px] h-[200px] bg-basic-2 flex items-center justify-center text-fg-6 text-sm">
               {t('preview.waiting')}
             </div>
           )}
         </div>
         <div className="text-center space-y-4">
-          <p className="text-sm font-medium text-gray-900 dark:text-gray-100 break-all max-w-md">
+          <p className="text-sm font-medium text-fg-1 break-all max-w-md">
             {url || t('preview.empty')}
           </p>
           {url && (
@@ -121,7 +121,7 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
               </Button>
               <Button
                 onClick={shareQRCode}
-                className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300 text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100"
+                className="flex items-center gap-2 px-4 py-2 text-sm bg-basic-2 hover:bg-basic-3 text-fg-1"
               >
                 <Share2 size={18} />
                 {t('button.share')}

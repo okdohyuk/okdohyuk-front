@@ -51,13 +51,13 @@ function LocalesNav() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
     >
-      <div className="relative h-12 w-24 overflow-hidden rounded-2xl border border-zinc-200/80 bg-white/80 shadow-[0_10px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-900/80">
-        <Languages className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500 dark:text-zinc-400" />
-        <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500 dark:text-zinc-400" />
+      <div className="relative h-12 w-24 overflow-hidden rounded-2xl border border-basic-3/80 bg-basic-0/80 shadow-[0_10px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl">
+        <Languages className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-fg-5" />
+        <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-fg-5" />
         <select
           value={currentLang}
           onChange={handleLanguageChange}
-          className="absolute inset-0 h-full w-full cursor-pointer appearance-none border-0 bg-transparent pl-8 pr-7 text-xs font-semibold text-zinc-800 outline-none dark:text-zinc-200"
+          className="absolute inset-0 h-full w-full cursor-pointer appearance-none border-0 bg-transparent pl-8 pr-7 text-xs font-semibold text-fg-2 outline-none"
           aria-label="Select language"
         >
           {LANGUAGES.map((lang) => (

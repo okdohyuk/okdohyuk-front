@@ -1,5 +1,5 @@
 export const SERVICE_PAGE_SURFACE =
-  'overflow-hidden rounded-[28px] border border-zinc-200/70 bg-white/70 p-3 shadow-[0_20px_60px_rgba(0,0,0,0.10)] backdrop-blur-xl dark:border-zinc-700/70 dark:bg-zinc-900/70 md:p-4 lg:p-5';
+  'rounded-[28px] border border-zinc-200/70 bg-white/70 p-3 shadow-[0_20px_60px_rgba(0,0,0,0.10)] backdrop-blur-xl dark:border-zinc-700/70 dark:bg-zinc-900/70 md:p-4 lg:p-5';
 
 export const SERVICE_PANEL =
   'rounded-3xl border border-zinc-200/75 bg-white/85 shadow-[0_16px_40px_rgba(0,0,0,0.08)] backdrop-blur-xl dark:border-zinc-700/75 dark:bg-zinc-900/80';

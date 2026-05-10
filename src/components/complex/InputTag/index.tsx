@@ -31,8 +31,7 @@ function InputTag({ tags, addTag, removeTag }: InputTagProps) {
     <div
       className={cn(
         'relative flex min-h-[32px] w-full flex-wrap items-center gap-2 rounded-lg border p-1',
-        'border-gray-200 bg-white text-gray-900 transition-all duration-200',
-        'dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100',
+        'border-basic-3 bg-basic-0 text-fg-1 transition-all duration-200',
         'focus-within:border-transparent focus-within:ring-2 focus-within:ring-point-1',
       )}
     >
@@ -40,7 +39,7 @@ function InputTag({ tags, addTag, removeTag }: InputTagProps) {
         <Tag removeTag={removeTag} key={tag} value={tag} />
       ))}
       <input
-        className="min-h-7 min-w-[140px] flex-1 bg-transparent px-1 text-sm font-medium text-inherit outline-none placeholder:text-gray-400 dark:placeholder:text-gray-500"
+        className="min-h-7 min-w-[140px] flex-1 bg-transparent px-1 text-sm font-medium text-inherit outline-none placeholder:text-fg-6"
         onKeyDown={handleKeyUp}
         type="text"
         name="tag-input"

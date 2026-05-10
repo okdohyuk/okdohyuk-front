@@ -88,7 +88,7 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
         </Button>
 
         <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-2xl border border-zinc-200/70 bg-white/80 p-4 text-center dark:border-zinc-700/70 dark:bg-zinc-900/70">
+          <div className="rounded-2xl border border-basic-3 bg-basic-0/80 p-4 text-center">
             <Text variant="d3" color="basic-4">
               {t('taps')}
             </Text>
@@ -96,7 +96,7 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
               {taps.length}
             </Text>
           </div>
-          <div className="rounded-2xl border border-zinc-200/70 bg-white/80 p-4 text-center dark:border-zinc-700/70 dark:bg-zinc-900/70">
+          <div className="rounded-2xl border border-basic-3 bg-basic-0/80 p-4 text-center">
             <Text variant="d3" color="basic-4">
               {t('averageInterval')}
             </Text>
@@ -107,10 +107,7 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
         </div>
 
         <div className="flex flex-col gap-2 sm:flex-row">
-          <Button
-            onClick={handleReset}
-            className="flex-1 bg-zinc-200 text-zinc-900 hover:bg-zinc-300"
-          >
+          <Button onClick={handleReset} className="flex-1 bg-basic-2 text-fg-1 hover:bg-basic-3">
             {t('resetButton')}
           </Button>
           <Button onClick={handleCopy} disabled={!bpm} className="flex-1">

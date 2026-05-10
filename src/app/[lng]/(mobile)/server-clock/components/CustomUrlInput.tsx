@@ -27,11 +27,11 @@ export default function CustomUrlInput({
       transition={{ duration: 0.3 }}
     >
       <div
-        className={`flex items-center rounded-lg border bg-white dark:bg-gray-700 ${
+        className={`flex items-center rounded-lg border bg-basic-0 ${
           isLoading ? 'cursor-not-allowed opacity-50' : ''
-        } border-gray-300 focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 dark:border-gray-600 dark:focus-within:border-blue-500`}
+        } border-basic-3 focus-within:border-info-2 focus-within:ring-1 focus-within:ring-info-2`}
       >
-        <span className="pl-3 text-gray-500">https://</span>
+        <span className="pl-3 text-fg-5">https://</span>
         <input
           type="text"
           value={inputCustomUrl}
@@ -39,13 +39,13 @@ export default function CustomUrlInput({
           placeholder={t('enterCustomUrlPlaceholder')}
           disabled={isLoading}
           onKeyDown={(e) => e.key === 'Enter' && !isLoading && handleCustomUrlFetch()}
-          className="input-text w-full bg-transparent p-2 pr-3 focus:outline-none dark:text-white border-none"
+          className="input-text w-full bg-transparent p-2 pr-3 focus:outline-none text-fg-1 border-none"
         />
       </div>
       <motion.button
         onClick={handleCustomUrlFetch}
         disabled={isLoading || !inputCustomUrl}
-        className={`h-[44px] rounded-lg bg-green-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-black ${
+        className={`h-[44px] rounded-lg bg-success-2 px-4 py-2 font-semibold text-white transition-colors hover:bg-success-1 focus:outline-none focus:ring-2 focus:ring-success-2 focus:ring-offset-2 ${
           isLoading || !inputCustomUrl ? 'cursor-not-allowed opacity-50' : ''
         }`}
         whileHover={{ scale: isLoading || !inputCustomUrl ? 1 : 1.05 }}

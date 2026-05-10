@@ -101,18 +101,18 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
 
   return (
     <div className="space-y-4">
-      <div className="space-y-2 rounded-lg border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-800">
+      <div className="space-y-2 rounded-lg border border-basic-3 bg-basic-0 p-3">
         <Text variant="d2" color="basic-2">
           {t('settings.title')}
         </Text>
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-2">
-            <label htmlFor="csv-json-delimiter" className="text-sm text-gray-500">
+            <label htmlFor="csv-json-delimiter" className="text-sm text-fg-5">
               {t('settings.delimiter')}
             </label>
             <select
               id="csv-json-delimiter"
-              className="min-h-[32px] rounded-md border border-gray-200 bg-white px-2 text-sm dark:border-gray-700 dark:bg-gray-900"
+              className="min-h-[32px] rounded-md border border-basic-3 bg-basic-0 px-2 text-sm"
               value={presetValue}
               onChange={(event) => {
                 const nextValue = event.target.value;
@@ -135,14 +135,14 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
               type="checkbox"
               checked={hasHeader}
               onChange={(event) => setHasHeader(event.target.checked)}
-              className="h-4 w-4 rounded border-gray-300"
+              className="h-4 w-4 rounded border-basic-3"
             />
-            <label htmlFor="csv-json-header" className="text-sm text-gray-500">
+            <label htmlFor="csv-json-header" className="text-sm text-fg-5">
               {t('settings.headerRow')}
             </label>
           </div>
           <div className="flex items-center gap-2">
-            <label htmlFor="csv-json-custom" className="text-sm text-gray-500">
+            <label htmlFor="csv-json-custom" className="text-sm text-fg-5">
               {t('settings.customDelimiter')}
             </label>
             <Input
@@ -161,7 +161,7 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
         <Text
           variant="d3"
           color="basic-4"
-          className="rounded-md border border-red-200 bg-red-50 p-2 text-red-600"
+          className="rounded-md border border-danger-3 bg-danger-4 p-2 text-danger-1"
         >
           {error}
         </Text>

@@ -67,7 +67,7 @@ function MultiLivePopUp({ params }: MultiLiveProps) {
         <Button type="button" onClick={onSubmit}>
           {t('add')}
         </Button>
-        <Button type="button" className="bg-red-400 hover:bg-red-500" onClick={closePopUp}>
+        <Button type="button" className="bg-danger-3 hover:bg-danger-2" onClick={closePopUp}>
           {t('close')}
         </Button>
       </div>
