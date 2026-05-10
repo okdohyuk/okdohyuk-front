@@ -19,6 +19,7 @@ import {
   stringifyCsv,
   CsvRecord,
 } from '~/app/[lng]/(mobile)/csv-json-converter/utils/csv';
+import GoogleAd from '@components/google/GoogleAd';
 
 const delimiterOptions = [
   { label: ',', value: ',' },
@@ -225,6 +226,7 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
           {t('actions.clear')}
         </Button>
       </div>
+      {jsonInput && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

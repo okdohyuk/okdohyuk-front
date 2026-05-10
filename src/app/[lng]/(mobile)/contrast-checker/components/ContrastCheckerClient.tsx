@@ -8,6 +8,7 @@ import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { cn } from '@utils/cn';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 const DEFAULT_FOREGROUND = '#111827';
 const DEFAULT_BACKGROUND = '#ffffff';
@@ -283,6 +284,8 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
           </Text>
         </div>
       </div>
+
+      {ratio !== null && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

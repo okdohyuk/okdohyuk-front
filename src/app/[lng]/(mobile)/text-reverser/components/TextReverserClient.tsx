@@ -18,6 +18,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 type ReverseMode = 'characters' | 'words' | 'lines';
 
@@ -117,6 +118,7 @@ export default function TextReverserClient({ lng }: TextReverserClientProps) {
           placeholder={t('empty')}
         />
       </section>
+      {reversed && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

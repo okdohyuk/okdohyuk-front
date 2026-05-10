@@ -19,6 +19,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 const DELIMITERS = [
   { value: 'comma', symbol: ',', labelKey: 'delimiter.comma' },
@@ -283,6 +284,8 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
         />
         {!rows.length && <p className="text-xs text-fg-5">{t('emptyHelper')}</p>}
       </div>
+
+      {output && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

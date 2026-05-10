@@ -13,6 +13,7 @@ import {
 } from '@components/basic/Select';
 import { cn } from '@utils/cn';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 const localeMap: Record<Language, string> = {
   ko: 'ko-KR',
@@ -144,6 +145,7 @@ export default function DataSizeConverterClient({ lng }: DataSizeConverterClient
         ) : (
           <p className="text-sm text-fg-5">{t('result.empty')}</p>
         )}
+        {results && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
       </div>
     </div>
   );

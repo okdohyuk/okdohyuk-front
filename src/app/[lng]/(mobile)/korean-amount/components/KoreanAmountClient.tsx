@@ -17,6 +17,7 @@ import {
   MAX_KOREAN_AMOUNT_DIGITS,
   MAX_KOREAN_AMOUNT_FORMATTED_LENGTH,
 } from '~/app/[lng]/(mobile)/korean-amount/utils/convertKoreanAmount';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface KoreanAmountClientProps {
   lng: Language;
@@ -149,6 +150,7 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
           {t('result.tip')}
         </Text>
       </section>
+      {result && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

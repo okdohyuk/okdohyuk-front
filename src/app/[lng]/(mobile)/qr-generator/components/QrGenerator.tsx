@@ -12,6 +12,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 interface UrlQrGeneratorProps {
   lng: Language;
@@ -130,6 +131,7 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
           )}
         </div>
       </div>
+      {url.length > 0 && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

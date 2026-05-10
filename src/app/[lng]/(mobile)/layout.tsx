@@ -29,6 +29,9 @@ export default function MobileLayout({ children }: ChildrenProps) {
         >
           <BackToMenuNav />
           {children}
+          <div className="lg:hidden px-4 pb-4">
+            <GoogleAd className="w-full min-h-16" slotId="6290029027" />
+          </div>
         </section>
       </div>
     </AsideScreenWrapper>

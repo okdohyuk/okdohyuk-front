@@ -12,6 +12,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import GoogleAd from '@components/google/GoogleAd';
 
 type TextCounterClientProps = {
   lng: Language;
@@ -95,6 +96,8 @@ export default function TextCounterClient({ lng }: TextCounterClientProps) {
           </div>
         ))}
       </div>
+
+      {text.length > 0 && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }
