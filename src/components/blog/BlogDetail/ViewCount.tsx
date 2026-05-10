@@ -37,7 +37,7 @@ function ViewCount() {
   }, [blog.urlSlug, cookies.SessionId, setCookie]); // Mutation dependency omitted to run once per slug/session
 
   return (
-    <span className="inline-flex items-center justify-center gap-1 align-middle leading-none text-fg-7">
+    <span className="inline-flex items-center justify-center gap-1 align-middle leading-none">
       <Eye className="h-4 w-4 shrink-0" aria-hidden />
       <span className="inline-flex items-center tabular-nums leading-none">{viewCount}</span>
     </span>
