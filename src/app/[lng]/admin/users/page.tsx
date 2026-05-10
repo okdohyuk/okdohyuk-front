@@ -14,6 +14,13 @@ import { cn } from '@utils/cn';
 import UserTokenUtil from '@utils/userTokenUtil';
 import { getErrorMessage } from '@utils/errorHandler';
 import { RefreshCcw, ShieldCheck, Users } from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@components/basic/Select';
 import { useTranslation } from '~/app/i18n/client';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
@@ -175,18 +182,22 @@ export default function AdminUsersPage({ params }: LanguageParams) {
                         >
                           {user.role}
                         </span>
-                        <select
+                        <Select
                           value={user.role}
-                          onChange={(e) => handleRoleChange(user.id, e.target.value, user)}
+                          onValueChange={(value) => handleRoleChange(user.id, value, user)}
                           disabled={isPending}
-                          className="h-8 rounded-md border border-basic-3 bg-basic-0 px-2 text-xs font-medium text-fg-3 outline-none transition-colors focus:border-point-2 focus:ring-2 focus:ring-point-2/40 disabled:cursor-not-allowed disabled:opacity-60"
                         >
-                          {Object.values(UserRoleEnum).map((role) => (
-                            <option key={role} value={role}>
-                              {role}
-                            </option>
-                          ))}
-                        </select>
+                          <SelectTrigger className="h-8 w-auto min-w-[100px] text-xs font-medium text-fg-3">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {Object.values(UserRoleEnum).map((role) => (
+                              <SelectItem key={role} value={role} className="text-xs">
+                                {role}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </div>
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-fg-5">

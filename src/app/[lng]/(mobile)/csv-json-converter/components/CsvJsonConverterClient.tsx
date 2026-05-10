@@ -8,6 +8,13 @@ import { Textarea } from '@components/basic/Textarea';
 import { Button } from '@components/basic/Button';
 import { Input } from '@components/basic/Input';
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@components/basic/Select';
+import {
   parseCsv,
   stringifyCsv,
   CsvRecord,
@@ -110,24 +117,26 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
             <label htmlFor="csv-json-delimiter" className="text-sm text-fg-5">
               {t('settings.delimiter')}
             </label>
-            <select
-              id="csv-json-delimiter"
-              className="min-h-[32px] rounded-md border border-basic-3 bg-basic-0 px-2 text-sm"
+            <Select
               value={presetValue}
-              onChange={(event) => {
-                const nextValue = event.target.value;
+              onValueChange={(nextValue) => {
                 if (nextValue !== 'custom') {
                   setDelimiter(nextValue);
                 }
               }}
             >
-              {delimiterOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-              <option value="custom">{t('settings.customDelimiter')}</option>
-            </select>
+              <SelectTrigger id="csv-json-delimiter" className="w-auto min-w-[90px]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {delimiterOptions.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+                <SelectItem value="custom">{t('settings.customDelimiter')}</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           <div className="flex items-center gap-2">
             <input
