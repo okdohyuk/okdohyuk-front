@@ -183,7 +183,7 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
       </section>
 
       {(annualSalary || monthlySalary || hourlyWage) && (
-        <GoogleAd slotId="9185479703" className="w-full mt-4" />
+        <GoogleAd slotId="7911066601" className="w-full mt-4" />
       )}
 
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>

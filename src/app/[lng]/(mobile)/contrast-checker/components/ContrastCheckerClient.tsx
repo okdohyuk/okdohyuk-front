@@ -285,7 +285,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
         </div>
       </div>
 
-      {ratio !== null && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {ratio !== null && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

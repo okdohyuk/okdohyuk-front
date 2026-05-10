@@ -111,7 +111,7 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
         </div>
       </section>
 
-      {roundTrip && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {roundTrip && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>
         <div className="space-y-1">

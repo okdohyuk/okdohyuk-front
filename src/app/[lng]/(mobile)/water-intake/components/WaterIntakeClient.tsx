@@ -137,7 +137,7 @@ export default function WaterIntakeClient({ lng }: Props) {
         </div>
       </section>
 
-      {result && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {result && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
       <section className={cn(SERVICE_PANEL, 'p-4 space-y-3')}>
         <header className="space-y-1">

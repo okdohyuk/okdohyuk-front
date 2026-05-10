@@ -104,7 +104,7 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
         </div>
       </section>
 
-      {price && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {price && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
       <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
         <h3 className="text-base font-semibold text-fg-1">{t('summary.title')}</h3>

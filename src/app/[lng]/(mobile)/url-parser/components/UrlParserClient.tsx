@@ -227,7 +227,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
         ) : null}
       </div>
 
-      {parsed.url && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {parsed.url && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <Text variant="d2" className="font-semibold text-fg-3">

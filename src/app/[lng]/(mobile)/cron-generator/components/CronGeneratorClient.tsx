@@ -248,7 +248,7 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
 
       <CronResultCard title={t('label.result')} result={humanReadable || '-'} />
 
-      {humanReadable && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {humanReadable && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
       <CronGuideGrid
         minuteLabel={t('label.minute')}

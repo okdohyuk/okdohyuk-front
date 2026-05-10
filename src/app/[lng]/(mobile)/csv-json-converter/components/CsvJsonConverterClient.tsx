@@ -226,7 +226,7 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
           {t('actions.clear')}
         </Button>
       </div>
-      {jsonInput && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {jsonInput && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

@@ -173,7 +173,7 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
         )}
       </section>
 
-      {result?.valid && result.bmi && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {result?.valid && result.bmi && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <Text variant="d2" className="block font-semibold">

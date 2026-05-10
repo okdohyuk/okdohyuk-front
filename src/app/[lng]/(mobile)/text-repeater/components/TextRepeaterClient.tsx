@@ -125,7 +125,7 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
           readOnly
           placeholder={t('empty')}
         />
-        {output && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+        {output && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
       </div>
     </div>
   );

@@ -113,7 +113,7 @@ function PercentCalculatorCard({
         </div>
       </div>
       {calculator.primaryNumber && calculator.secondaryNumber && (
-        <GoogleAd slotId="9185479703" className="w-full mt-4" />
+        <GoogleAd slotId="7911066601" className="w-full mt-4" />
       )}
     </div>
   );

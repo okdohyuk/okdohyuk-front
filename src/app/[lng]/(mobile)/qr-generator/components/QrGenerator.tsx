@@ -131,7 +131,7 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
           )}
         </div>
       </div>
-      {url.length > 0 && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {url.length > 0 && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

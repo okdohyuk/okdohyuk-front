@@ -145,7 +145,7 @@ export default function DataSizeConverterClient({ lng }: DataSizeConverterClient
         ) : (
           <p className="text-sm text-fg-5">{t('result.empty')}</p>
         )}
-        {results && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+        {results && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
       </div>
     </div>
   );

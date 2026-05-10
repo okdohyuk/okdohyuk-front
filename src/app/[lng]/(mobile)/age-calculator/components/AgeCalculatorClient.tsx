@@ -228,7 +228,7 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
         )}
       </div>
 
-      {result.data && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {result.data && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-4')}>
         <Text asChild variant="d2" color="basic-4">

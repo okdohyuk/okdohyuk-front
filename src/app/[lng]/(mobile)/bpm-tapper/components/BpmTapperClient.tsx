@@ -117,7 +117,7 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
         </div>
       </section>
 
-      {bpm !== null && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {bpm !== null && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

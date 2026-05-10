@@ -198,7 +198,7 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
         )}
       </div>
 
-      {result && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {result && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

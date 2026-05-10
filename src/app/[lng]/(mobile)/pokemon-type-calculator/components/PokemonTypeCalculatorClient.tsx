@@ -809,7 +809,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
         </section>
       )}
 
-      {groupedByEffectiveness && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {groupedByEffectiveness && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
       {/* Empty state */}
       {selectedTypes.length === 0 && (

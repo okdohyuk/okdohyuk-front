@@ -285,7 +285,7 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
         {!rows.length && <p className="text-xs text-fg-5">{t('emptyHelper')}</p>}
       </div>
 
-      {output && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {output && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }

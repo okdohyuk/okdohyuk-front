@@ -83,7 +83,7 @@ export default function SlugGeneratorClient({ lng }: SlugGeneratorClientProps) {
           placeholder={t('empty')}
         />
       </div>
-      {slug && <GoogleAd slotId="9185479703" className="w-full mt-4" />}
+      {slug && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
     </div>
   );
 }
