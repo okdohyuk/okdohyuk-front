@@ -1,7 +1,13 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
-import Select from '@components/complex/Select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@components/basic/Select';
 import { Input } from '@components/basic/Input';
 import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
@@ -77,9 +83,14 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
           <label htmlFor="mode" className="text-sm font-medium text-fg-3">
             {t('label.mode')}
           </label>
-          <Select className="w-full" value={mode} onChange={setMode}>
-            <option value="wake">{t('mode.wake')}</option>
-            <option value="sleep">{t('mode.sleep')}</option>
+          <Select value={mode} onValueChange={setMode}>
+            <SelectTrigger className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="wake">{t('mode.wake')}</SelectItem>
+              <SelectItem value="sleep">{t('mode.sleep')}</SelectItem>
+            </SelectContent>
           </Select>
         </div>
         <div>

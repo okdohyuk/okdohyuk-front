@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
+import { Controller, useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Cookies from 'js-cookie';
 import { Eye, EyeOff, Image as ImageIcon, Save } from 'lucide-react';
@@ -16,7 +16,13 @@ import {
 } from '@components/complex/Service/interactiveStyles';
 import { cn } from '@utils/cn';
 import InputTag from '~/components/complex/InputTag';
-import Select from '~/components/complex/Select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@components/basic/Select';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import BlogUtils from '~/utils/blogUtils';
@@ -55,7 +61,6 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
   const watchedFormData = useWatch({ control });
   const isPublic = useWatch({ control, name: 'isPublic' }) ?? false;
   const tags = useMemo(() => watchedTags ?? [], [watchedTags]);
-  const categoryIdRegister = register('categoryId');
   const titleRegister = register('title', { required: true });
   const thumbnailRegister = register('thumbnailImage');
   const contentsRegister = register('contents', { required: true });
@@ -118,9 +123,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
   const renderSelect: SelectFC = (cat) => {
     return (
       <React.Fragment key={cat.id}>
-        <option value={cat.id} key={cat.id}>
-          {cat.name}
-        </option>
+        <SelectItem value={cat.id}>{cat.name}</SelectItem>
         {cat.child?.map(renderSelect)}
       </React.Fragment>
     );
@@ -215,10 +218,18 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
               {...thumbnailRegister}
             />
 
-            <Select className="w-full h-10" form={categoryIdRegister}>
-              <option value="">카테고리 선택</option>
-              {category.map(renderSelect)}
-            </Select>
+            <Controller
+              control={control}
+              name="categoryId"
+              render={({ field }) => (
+                <Select value={field.value ?? ''} onValueChange={field.onChange}>
+                  <SelectTrigger className="h-10 w-full">
+                    <SelectValue placeholder="카테고리 선택" />
+                  </SelectTrigger>
+                  <SelectContent>{category.map(renderSelect)}</SelectContent>
+                </Select>
+              )}
+            />
 
             <InputTag tags={tags} addTag={addTag} removeTag={removeTag} />
           </section>
