@@ -1,9 +1,12 @@
 'use client';
 
 import * as React from 'react';
+import { useParams } from 'next/navigation';
 import Link from '@components/basic/Link';
 import { Button } from '@components/basic/Button/Button';
 import { setConsentUpdate, sendGAEvent } from '@libs/client/gtag';
+import { useTranslation } from '~/app/i18n/client';
+import { Language } from '~/app/i18n/settings';
 
 const STORAGE_KEY = 'consent_v1';
 // 13개월(395일) — GA4 동의 보관 가이드 기준
@@ -45,6 +48,10 @@ function writeStoredConsent(granted: boolean) {
 }
 
 export default function ConsentBanner() {
+  const params = useParams<{ lng?: string }>();
+  const language = (params?.lng ?? 'ko') as Language;
+  const { t } = useTranslation(language, 'consent');
+
   const [mounted, setMounted] = React.useState(false);
   const [visible, setVisible] = React.useState(false);
 
@@ -52,13 +59,11 @@ export default function ConsentBanner() {
     setMounted(true);
     const stored = readStoredConsent();
     if (stored?.granted === true) {
-      // 기존 동의 복원
       setConsentUpdate(true);
       setVisible(false);
       return;
     }
     if (stored?.granted === false) {
-      // 거부 상태도 보관 — 배너 미노출
       setVisible(false);
       return;
     }
@@ -84,30 +89,30 @@ export default function ConsentBanner() {
   return (
     <div
       role="dialog"
-      aria-label="쿠키 사용 동의"
+      aria-label={t('ariaLabel')}
       aria-describedby="consent-banner-desc"
       aria-live="polite"
       className="fixed inset-x-0 bottom-0 z-40 flex justify-center px-4 pb-4 sm:pb-6"
     >
       <div className="w-full max-w-lg rounded-2xl border border-basic-3 bg-basic-0 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.18)] sm:p-5">
         <p id="consent-banner-desc" className="text-sm leading-relaxed text-fg-1 sm:text-base">
-          이 사이트는 사용자 경험 개선과 서비스 분석을 위해 쿠키를 사용합니다. 자세한 내용은{' '}
+          {t('description')}{' '}
           <Link href="./privacy" className="underline underline-offset-2 hover:text-point-1">
-            개인정보처리방침
+            {t('privacyLink')}
           </Link>
-          에서 확인하세요.
+          {t('descriptionSuffix')}
         </p>
         <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
           <Button
             type="button"
             onClick={handleDeny}
             className="bg-basic-2 text-fg-1 hover:bg-basic-3"
-            aria-label="쿠키 사용 거부"
+            aria-label={t('denyAriaLabel')}
           >
-            거부
+            {t('deny')}
           </Button>
-          <Button type="button" onClick={handleAccept} aria-label="쿠키 사용 동의">
-            동의
+          <Button type="button" onClick={handleAccept} aria-label={t('acceptAriaLabel')}>
+            {t('accept')}
           </Button>
         </div>
       </div>

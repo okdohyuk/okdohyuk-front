@@ -1,0 +1,10 @@
+{
+  "description": "This site uses cookies to improve your experience and analyze our services. See our",
+  "privacyLink": "Privacy Policy",
+  "descriptionSuffix": "for more details.",
+  "deny": "Decline",
+  "accept": "Accept",
+  "ariaLabel": "Cookie consent",
+  "denyAriaLabel": "Decline cookies",
+  "acceptAriaLabel": "Accept cookies"
+}
