@@ -1,4 +1,5 @@
 import React from 'react';
+import MultiLiveTracker from '@components/analytics/MultiLiveTracker';
 import { ChildrenProps } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
 
@@ -11,6 +12,7 @@ export type MultiLiveProps = SlugParams;
 export default function MultiLiveLayout({ children, popup }: LayoutProps) {
   return (
     <>
+      <MultiLiveTracker />
       {children}
       {popup}
     </>

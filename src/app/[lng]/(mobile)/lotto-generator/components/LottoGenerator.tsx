@@ -11,6 +11,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 interface LottoGeneratorStrings {
   settingsTitle: string;
@@ -105,6 +106,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
   const [results, setResults] = useState<LottoResult[]>([]);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
+  const { trackUse, trackCopy } = useToolTracking('lotto-generator', 'generator');
 
   const resultsText = useMemo(() => {
     if (results.length === 0) return '';
@@ -124,6 +126,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
 
     if (minNumber >= maxNumber) {
       setError(strings.validation.range);
+      trackUse({ action_type: 'generate', success: false, error_code: 'invalid_range' });
       return;
     }
 
@@ -132,11 +135,13 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
 
     if (totalNeeded > rangeSize) {
       setError(strings.validation.picks);
+      trackUse({ action_type: 'generate', success: false, error_code: 'invalid_picks' });
       return;
     }
 
     if (ticketCount < 1 || ticketCount > 20) {
       setError(strings.validation.tickets);
+      trackUse({ action_type: 'generate', success: false, error_code: 'invalid_tickets' });
       return;
     }
 
@@ -145,6 +150,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
     );
 
     setResults(nextResults);
+    trackUse({ action_type: 'generate', success: true });
   };
 
   const handleClear = () => {
@@ -169,6 +175,7 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
       await navigator.clipboard.writeText(resultsText);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
+      trackCopy({ result_format: 'text' });
     } catch (copyError) {
       setCopied(false);
     }

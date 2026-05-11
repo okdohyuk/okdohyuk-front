@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { sendGAEvent } from '@libs/client/gtag';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
@@ -26,10 +28,31 @@ export default function Clock({ lng }: ClockProps) {
   const [customServerUrl, setCustomServerUrl] = useState<string>('');
   const [inputCustomUrl, setInputCustomUrl] = useState<string>('');
   const [showMilliseconds, setShowMilliseconds] = useState(true);
+  const { trackInputStarted, trackUse } = useToolTracking('server-clock', 'utility');
 
   const { serverTime, isLoading, error, setTimeOffset, setServerTime, setError, setIsLoading } =
     useServerTime(lng, selectedSite, customServerUrl);
   const urgentStyle = useUrgentStyle(serverTime);
+
+  // 세션 추적: 컴포넌트 마운트 시 시작, 언마운트 시 종료
+  const sessionStartRef = useRef<number | null>(null);
+  useEffect(() => {
+    sessionStartRef.current = Date.now();
+    sendGAEvent('tool_session_start', 'server-clock', {
+      tool_id: 'server-clock',
+      tool_category: 'utility',
+    });
+    return () => {
+      const startedAt = sessionStartRef.current;
+      if (startedAt) {
+        sendGAEvent('tool_session_end', 'server-clock', {
+          tool_id: 'server-clock',
+          tool_category: 'utility',
+          duration_sec: Math.floor((Date.now() - startedAt) / 1000),
+        });
+      }
+    };
+  }, []);
 
   const handleSiteSelection = (site: string) => {
     if (selectedSite === site && site !== 'custom') return;
@@ -40,6 +63,7 @@ export default function Clock({ lng }: ClockProps) {
     setTimeOffset(0);
 
     setSelectedSite(site);
+    trackUse({ action_type: 'select_site', success: true });
 
     if (site === 'custom') {
       setCustomServerUrl('');
@@ -52,7 +76,13 @@ export default function Clock({ lng }: ClockProps) {
       // URL에서 프로토콜을 제거하고 저장
       const cleanUrl = inputCustomUrl.replace(/^https?:\/\//, '');
       setCustomServerUrl(`https://${cleanUrl}`);
+      trackUse({ action_type: 'fetch_custom_url', success: true });
     }
+  };
+
+  const wrappedSetInputCustomUrl = (url: string) => {
+    trackInputStarted();
+    setInputCustomUrl(url);
   };
 
   return (
@@ -70,7 +100,7 @@ export default function Clock({ lng }: ClockProps) {
         {selectedSite === 'custom' && (
           <CustomUrlInput
             inputCustomUrl={inputCustomUrl}
-            setInputCustomUrl={setInputCustomUrl}
+            setInputCustomUrl={wrappedSetInputCustomUrl}
             isLoading={isLoading}
             handleCustomUrlFetch={handleCustomUrlFetch}
             t={t}

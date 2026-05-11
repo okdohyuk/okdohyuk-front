@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { cn } from '@utils/cn';
 import { Button } from '@components/basic/Button';
 import { Input } from '@components/basic/Input';
@@ -20,6 +20,7 @@ import {
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import {
   calculateSubnet,
   cidrToSubnetMask,
@@ -84,10 +85,12 @@ function BinaryDisplay({ segments, cidr }: BinaryDisplayProps) {
 
 export function IpSubnetCalculator({ lng }: IpSubnetCalculatorProps) {
   const { t } = useTranslation(lng, 'network-calculator');
+  const { trackInputStarted, trackUse } = useToolTracking('network-calculator', 'calculator');
 
   const [ip, setIp] = useState('192.168.1.10');
   const [mask, setMask] = useState('255.255.255.0');
   const [error, setError] = useState<string | null>(null);
+  const lastTrackedKeyRef = useRef<string | null>(null);
 
   const result = useMemo(() => {
     if (!ip || !mask) return null;
@@ -98,13 +101,30 @@ export function IpSubnetCalculator({ lng }: IpSubnetCalculatorProps) {
     return calculateSubnet(ip, cidr);
   }, [ip, mask]);
 
+  useEffect(() => {
+    if (result) {
+      const key = `ipSubnet|${ip}|${mask}`;
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({
+          action_type: 'calculate',
+          success: true,
+          calc_type: 'ipSubnet',
+          cidr: result.cidr,
+        });
+      }
+    }
+  }, [result, ip, mask, trackUse]);
+
   const handleCidrSelect = (value: string) => {
+    trackInputStarted();
     const cidr = Number(value);
     setMask(cidrToSubnetMask(cidr));
     setError(null);
   };
 
   const handleMaskChange = (value: string) => {
+    trackInputStarted();
     setMask(value);
     setError(null);
     if (value && !isValidSubnetMask(value)) {
@@ -113,6 +133,7 @@ export function IpSubnetCalculator({ lng }: IpSubnetCalculatorProps) {
   };
 
   const handleIpChange = (value: string) => {
+    trackInputStarted();
     setIp(value);
     setError(null);
     if (value && !isValidIp(value)) {

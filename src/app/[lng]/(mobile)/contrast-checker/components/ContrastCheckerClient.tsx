@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Text } from '@components/basic/Text';
@@ -82,6 +83,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
   const [foreground, setForeground] = useState(DEFAULT_FOREGROUND);
   const [background, setBackground] = useState(DEFAULT_BACKGROUND);
   const [copied, setCopied] = useState(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('contrast-checker', 'utility');
 
   const normalizedForeground = useMemo(() => normalizeHex(foreground), [foreground]);
   const normalizedBackground = useMemo(() => normalizeHex(background), [background]);
@@ -93,6 +95,20 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
   }, [normalizedForeground, normalizedBackground]);
 
   const ratioText = ratio ? ratio.toFixed(2) : '--';
+
+  const wcagLevel = useMemo(() => {
+    if (!ratio) return 'fail';
+    if (ratio >= 7) return 'AAA';
+    if (ratio >= 4.5) return 'AA';
+    return 'fail';
+  }, [ratio]);
+
+  useEffect(() => {
+    if (ratio !== null) {
+      trackUse({ action_type: 'check', success: true, wcag_level: wcagLevel });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ratio, wcagLevel]);
 
   const handleSwap = () => {
     setForeground(background);
@@ -110,6 +126,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
     }
     await navigator.clipboard.writeText(ratio.toFixed(2));
     setCopied(true);
+    trackCopy();
     window.setTimeout(() => setCopied(false), 1500);
   };
 
@@ -148,12 +165,18 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
               id="contrast-foreground"
               type="color"
               value={normalizedForeground ?? DEFAULT_FOREGROUND}
-              onChange={(event) => setForeground(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setForeground(event.target.value);
+              }}
               className="h-10 w-10 cursor-pointer rounded border border-basic-3 dark:border-basic-4"
             />
             <Input
               value={foreground}
-              onChange={(event) => setForeground(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setForeground(event.target.value);
+              }}
               placeholder="#111827"
               aria-label={t('label.foreground')}
             />
@@ -174,12 +197,18 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
               id="contrast-background"
               type="color"
               value={normalizedBackground ?? DEFAULT_BACKGROUND}
-              onChange={(event) => setBackground(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setBackground(event.target.value);
+              }}
               className="h-10 w-10 cursor-pointer rounded border border-basic-3 dark:border-basic-4"
             />
             <Input
               value={background}
-              onChange={(event) => setBackground(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setBackground(event.target.value);
+              }}
               placeholder="#ffffff"
               aria-label={t('label.background')}
             />

@@ -20,6 +20,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 const DELIMITERS = [
   { value: 'comma', symbol: ',', labelKey: 'delimiter.comma' },
@@ -121,6 +122,11 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
   const [alignment, setAlignment] = useState<AlignmentValue>('left');
   const [useHeader, setUseHeader] = useState(true);
   const [copied, setCopied] = useState(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking(
+    'markdown-table-generator',
+    'generator',
+  );
+  const generatedRef = React.useRef(false);
 
   const rows = useMemo(() => parseInput(input, delimiter), [input, delimiter]);
   const output = useMemo(
@@ -135,7 +141,14 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
 
   useEffect(() => {
     setCopied(false);
-  }, [output]);
+    if (output && !generatedRef.current) {
+      generatedRef.current = true;
+      trackUse({ action_type: 'generate', success: true });
+    }
+    if (!output) {
+      generatedRef.current = false;
+    }
+  }, [output, trackUse]);
 
   const handleCopy = async () => {
     if (!output) return;
@@ -143,6 +156,7 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
       await navigator.clipboard.writeText(output);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
+      trackCopy({ result_format: 'markdown' });
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to copy markdown table:', error);
@@ -192,7 +206,10 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
           className="min-h-[180px] font-mono text-sm"
           placeholder={t('placeholder.input')}
           value={input}
-          onChange={(event) => setInput(event.target.value)}
+          onChange={(event) => {
+            trackInputStarted();
+            setInput(event.target.value);
+          }}
         />
         <p className="text-xs text-fg-5">{t('helper')}</p>
       </div>

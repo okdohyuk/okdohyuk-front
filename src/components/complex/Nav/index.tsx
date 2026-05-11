@@ -68,7 +68,12 @@ function Nav() {
             <li key={navItem.name} className="min-w-0">
               <Link
                 href={navItem.link}
-                onClick={() => sendGAEvent('link_click', navItem.name)}
+                onClick={() =>
+                  sendGAEvent('nav_click', navItem.name, {
+                    nav_item: navItem.name,
+                    nav_position: 'bottom',
+                  })
+                }
                 prefetch
                 className={cn(
                   'group relative flex h-12 w-full flex-col items-center justify-center rounded-2xl text-center transition-colors lg:h-12',

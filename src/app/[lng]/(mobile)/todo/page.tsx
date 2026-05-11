@@ -14,6 +14,8 @@ import { Button } from '@components/basic/Button';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import { sendGAEvent } from '@libs/client/gtag';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 const ToDoCard = dynamic(() => import('~/app/[lng]/(mobile)/todo/components/ToDoCard'), {
   ssr: false,
@@ -27,13 +29,25 @@ function TodoPage({ params }: LanguageParams) {
   const badge = getServiceCategoryBadge(language, '/todo');
   const { onChange, value, reset } = useInput('');
   const isClient = useIsClient();
+  const { trackInputStarted, trackUse } = useToolTracking('todo', 'utility');
 
   const handleSubmitTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!value) return;
 
     addTodo(value);
+    const newCount = todos.length + 1;
+    trackUse({ action_type: 'add', success: true });
+    sendGAEvent('todo_add', 'todo', {
+      tool_id: 'todo',
+      count: newCount,
+    });
     reset();
+  };
+
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    trackInputStarted();
+    onChange(e);
   };
 
   return (
@@ -51,7 +65,7 @@ function TodoPage({ params }: LanguageParams) {
           className="w-full"
           placeholder={t('inputPlaceholder')}
           value={value}
-          onChange={onChange}
+          onChange={handleInputChange}
         />
         <Button type="submit" className="w-20">
           {t('add')}

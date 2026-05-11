@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { useTranslation } from '~/app/i18n/client';
@@ -11,6 +11,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 interface SalesTaxCalculatorClientProps {
   lng: Language;
@@ -24,6 +25,8 @@ const parseNumber = (value: string) => {
 
 export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClientProps) {
   const { t } = useTranslation(lng, 'sales-tax-calculator');
+  const { trackInputStarted, trackUse } = useToolTracking('sales-tax-calculator', 'converter');
+  const hasResultRef = useRef(false);
   const [price, setPrice] = useState('');
   const [taxRate, setTaxRate] = useState('10');
   const [quantity, setQuantity] = useState('1');
@@ -45,6 +48,14 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
     };
   }, [price, quantity, taxRate]);
 
+  useEffect(() => {
+    const has = subtotal > 0;
+    if (has && !hasResultRef.current) {
+      trackUse({ action_type: 'calculate', success: true });
+    }
+    hasResultRef.current = has;
+  }, [subtotal, trackUse]);
+
   const handleReset = () => {
     setPrice('');
     setTaxRate('10');
@@ -63,7 +74,10 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
             inputMode="decimal"
             placeholder={t('inputs.price.placeholder')}
             value={price}
-            onChange={(event) => setPrice(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setPrice(event.target.value);
+            }}
           />
           <p className="text-xs text-fg-5">{t('inputs.price.helper')}</p>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { Textarea } from '@components/basic/Textarea';
@@ -18,6 +18,7 @@ import {
   MAX_KOREAN_AMOUNT_FORMATTED_LENGTH,
 } from '~/app/[lng]/(mobile)/korean-amount/utils/convertKoreanAmount';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 interface KoreanAmountClientProps {
   lng: Language;
@@ -27,6 +28,8 @@ const exampleValues = ['12000', '305040100', '9900000000'];
 
 export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
   const { t } = useTranslation(lng, 'korean-amount');
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('korean-amount', 'converter');
+  const hasResultRef = useRef(false);
   const [rawValue, setRawValue] = useState('');
   const [includeCurrency, setIncludeCurrency] = useState(true);
   const [copied, setCopied] = useState(false);
@@ -50,11 +53,20 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
     return t('helper.valid');
   }, [rawValue, t]);
 
+  useEffect(() => {
+    const has = Boolean(result);
+    if (has && !hasResultRef.current) {
+      trackUse({ action_type: 'convert', success: true });
+    }
+    hasResultRef.current = has;
+  }, [result, trackUse]);
+
   const onCopy = async () => {
     if (!result) return;
     try {
       await navigator.clipboard.writeText(result);
       setCopied(true);
+      trackCopy();
       setTimeout(() => setCopied(false), 1500);
     } catch (error) {
       setCopied(false);
@@ -67,6 +79,7 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
   };
 
   const onAmountChange = (value: string) => {
+    trackInputStarted();
     const digitsOnly = value.replace(/[^0-9]/g, '');
 
     if (!digitsOnly) {
@@ -115,7 +128,10 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
                 key={value}
                 type="button"
                 className="px-3 py-1 text-sm bg-basic-2 hover:bg-basic-3 text-fg-2"
-                onClick={() => setRawValue(value)}
+                onClick={() => {
+                  trackInputStarted();
+                  setRawValue(value);
+                }}
               >
                 {value}
               </Button>

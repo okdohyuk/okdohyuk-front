@@ -25,6 +25,7 @@ import { Textarea } from '@components/basic/Textarea';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import { getServiceCategoryBadge } from '@assets/datas/serviceCategories';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 const coderList: CoderType[] = [
   'BASE64',
@@ -42,6 +43,7 @@ function CoderPage({ params }: LanguageParams) {
   const { t } = useTranslation(language, 'coder');
   const badge = getServiceCategoryBadge(language, '/coder');
   const [copied, setCopied] = useState<boolean>(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('coder', 'utility');
 
   const {
     register,
@@ -80,6 +82,7 @@ function CoderPage({ params }: LanguageParams) {
     const result = runCoder(data);
     setResultList(result);
     setIsMoreOpen(false);
+    trackUse({ action_type: 'run', success: Boolean(result && result.length > 0) });
   };
 
   const setServicesValueDebounced = useMemo(() => debounce(() => setCopied(false), 1000), []);
@@ -89,6 +92,7 @@ function CoderPage({ params }: LanguageParams) {
     navigator.clipboard.writeText(resultList[resultList.length - 1]);
 
     setCopied(true);
+    trackCopy({ result_format: 'code' });
     setServicesValueDebounced();
   };
 
@@ -163,7 +167,12 @@ function CoderPage({ params }: LanguageParams) {
           />
         </div>
 
-        <Textarea className="resize-none h-32 w-full" {...register('value')} />
+        <Textarea
+          className="resize-none h-32 w-full"
+          {...register('value', {
+            onChange: () => trackInputStarted(),
+          })}
+        />
         <button type="button" className="button w-full" onClick={handleSubmit(onSubmit)}>
           {t('submit')}
         </button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -10,9 +11,28 @@ import Footer from '@components/complex/Layout/Footer';
 import { ReactQueryProvider } from '@components/complex/Layout/QueryClient';
 import GoogleAdsense from '@components/google/GoogleAdsense';
 import AgentWebMcp from '@components/agent/AgentWebMcp';
+import ConsentBanner from '@components/complex/Consent/ConsentBanner';
+import WebVitalsReporter from '@components/analytics/WebVitalsReporter';
+import ScrollDepthTracker from '@components/analytics/ScrollDepthTracker';
+import OutboundLinkTracker from '@components/analytics/OutboundLinkTracker';
 import '~/styles/globals.css';
 import { Language, languages } from '~/app/i18n/settings';
 import { StoreProvider } from './provider';
+
+// GA gtag.js 보다 먼저 실행되어야 하는 Consent Mode 기본값 스크립트
+const CONSENT_DEFAULT_SCRIPT = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500,
+});
+`;
 
 export type LanguageParams = { params: Promise<{ lng: string }> };
 
@@ -45,6 +65,15 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
 
   return (
     <html lang={language} dir={dir(language)}>
+      <head>
+        {enableThirdPartyTracking && (
+          <Script
+            id="gtag-consent"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{ __html: CONSENT_DEFAULT_SCRIPT }}
+          />
+        )}
+      </head>
       <body>
         <StoreProvider>
           <ReactQueryProvider>
@@ -57,6 +86,10 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
                 <SpeedInsights />
                 {gaTrackingId && <GoogleAnalytics gaId={gaTrackingId} />}
                 {googleAdsenseClientId && <GoogleAdsense pid={googleAdsenseClientId} />}
+                <ConsentBanner />
+                <WebVitalsReporter />
+                <ScrollDepthTracker />
+                <OutboundLinkTracker />
               </>
             )}
           </ReactQueryProvider>

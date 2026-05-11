@@ -34,10 +34,13 @@ function LocalesNav() {
     (newLang: string) => {
       if (!pathname) return;
       const newPathname = pathname.replace(/^\/([^/]+)/, `/${newLang}`);
-      sendGAEvent('link_click', `change_language_to_${newLang}`);
+      sendGAEvent('language_change', newLang, {
+        from_lng: currentLang,
+        to_lng: newLang,
+      });
       window.location.href = `${newPathname}${window.location.search}${window.location.hash}`;
     },
-    [pathname],
+    [pathname, currentLang],
   );
 
   if (!pathname) return null;

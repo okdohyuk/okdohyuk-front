@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { QRCodeCanvas } from 'qrcode.react';
@@ -13,6 +13,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 interface UrlQrGeneratorProps {
   lng: Language;
@@ -22,6 +23,18 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
   const { t } = useTranslation(lng, 'qr-generator');
   const [url, setUrl] = useState('');
   const qrRef = useRef<HTMLDivElement>(null);
+  const { trackInputStarted, trackUse, trackShare } = useToolTracking('qr-generator', 'generator');
+  const generatedRef = useRef(false);
+
+  useEffect(() => {
+    if (url.trim() && !generatedRef.current) {
+      generatedRef.current = true;
+      trackUse({ action_type: 'generate', success: true });
+    }
+    if (!url.trim()) {
+      generatedRef.current = false;
+    }
+  }, [url, trackUse]);
 
   const downloadQRCode = () => {
     const canvas = qrRef.current?.querySelector('canvas');
@@ -33,6 +46,8 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
+      trackUse({ action_type: 'download', success: true });
+      trackShare({ channel: 'download' });
     }
   };
 
@@ -50,12 +65,14 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
             text: url,
             files: [file],
           });
+          trackShare({ channel: 'native' });
         } else if (navigator.share) {
           await navigator.share({
             title: t('title'),
             text: url,
             url,
           });
+          trackShare({ channel: 'native' });
         }
       } catch (error) {
         // Fallback for browsers that don't support file sharing
@@ -86,7 +103,10 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
           className="font-mono"
           placeholder={t('placeholder')}
           value={url}
-          onChange={(e) => setUrl(e.target.value)}
+          onChange={(e) => {
+            trackInputStarted();
+            setUrl(e.target.value);
+          }}
         />
         <p className="text-sm text-fg-5">{t('helper')}</p>
       </div>

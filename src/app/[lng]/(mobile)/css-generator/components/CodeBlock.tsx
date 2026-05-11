@@ -5,12 +5,14 @@ interface CodeBlockProps {
   code: string;
   id: string;
   tooltip: string;
+  onCopy?: () => void;
 }
 
-export function CodeBlock({ title, code, id, tooltip }: CodeBlockProps) {
+export function CodeBlock({ title, code, id, tooltip, onCopy }: CodeBlockProps) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(code);
+      onCopy?.();
     } catch {
       // Ignore clipboard write failures to keep UI interaction non-blocking.
     }
@@ -34,3 +36,7 @@ export function CodeBlock({ title, code, id, tooltip }: CodeBlockProps) {
     </div>
   );
 }
+
+CodeBlock.defaultProps = {
+  onCopy: undefined,
+};

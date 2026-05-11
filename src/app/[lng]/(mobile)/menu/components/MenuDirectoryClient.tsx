@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
-import Link from 'next/link';
+import React, { useEffect, useMemo, useState } from 'react';
+import Link from '@components/basic/Link';
 import { ArrowUpRight, Search, X } from 'lucide-react';
 import { MenuItem, menus } from '@assets/datas/menus';
 import {
@@ -16,6 +16,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import { cn } from '@utils/cn';
+import { sendGAEvent } from '@libs/client/gtag';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 
@@ -45,6 +46,17 @@ const getLinkPreview = (link: string) => {
 };
 
 const normalizeKeyword = (value: string) => value.trim().toLowerCase();
+
+const getToolId = (link: string) => {
+  if (link.startsWith('/')) {
+    return link.replace(/^\//, '') || '/';
+  }
+  try {
+    return new URL(link).hostname.replace(/^www\./, '');
+  } catch {
+    return link;
+  }
+};
 
 const matchesKeyword = (menu: MenuItem, lng: Language, keyword: string) => {
   if (!keyword) {
@@ -140,7 +152,18 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
   const totalMenuCount = menus.service.length + menus.out.length + menus.trash.length;
   const totalVisibleCount = sections.reduce((sum, section) => sum + section.items.length, 0);
 
-  const renderMenuItem = (menu: MenuItem) => {
+  useEffect(() => {
+    if (!query.trim()) return undefined;
+    const timer = setTimeout(() => {
+      sendGAEvent('menu_search', query.trim().slice(0, 50), {
+        search_keyword: query.trim().slice(0, 50),
+        results_count: totalVisibleCount,
+      });
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [query, totalVisibleCount]);
+
+  const renderMenuItem = (menu: MenuItem, sectionKey: SectionKey) => {
     const title = menu.title[lng] || menu.title.en;
     const isInternal = menu.link.startsWith('/');
 
@@ -149,9 +172,15 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
         <CursorGlowCard>
           <Link
             href={menu.link}
-            target={isInternal ? '_self' : '_blank'}
+            hasTargetBlank={!isInternal}
             rel={isInternal ? undefined : 'noopener noreferrer'}
             prefetch={isInternal}
+            analyticsKey="tool_open"
+            analyticsParams={{
+              tool_id: getToolId(menu.link),
+              tool_category: sectionKey,
+              from: query.trim() ? 'search' : 'menu_grid',
+            }}
             className={cn(
               SERVICE_PANEL_SOFT,
               SERVICE_CARD_INTERACTIVE,
@@ -225,7 +254,9 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
                 {section.items.length}
               </span>
             </div>
-            <ul className="space-y-3">{section.items.map(renderMenuItem)}</ul>
+            <ul className="space-y-3">
+              {section.items.map((menu) => renderMenuItem(menu, section.key))}
+            </ul>
           </section>
         ))
       ) : (

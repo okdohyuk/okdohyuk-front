@@ -7,6 +7,7 @@ import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { CodeBlock } from './CodeBlock';
 import { Control } from './Control';
 import { GeneratorTabs } from './GeneratorTabs';
@@ -85,6 +86,7 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
   const [radius, setRadius] = useState<RadiusState>(INITIAL_RADIUS);
   const [flex, setFlex] = useState<FlexState>(INITIAL_FLEX);
   const [grid, setGrid] = useState<GridState>(INITIAL_GRID);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('css-generator', 'generator');
 
   const shadowCss = useMemo(() => buildShadowCss(shadow), [shadow]);
   const shadowTailwind = useMemo(() => buildShadowTailwind(shadow), [shadow]);
@@ -166,22 +168,32 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
   );
 
   const updateShadow = <K extends keyof ShadowState>(key: K, value: ShadowState[K]) => {
+    trackInputStarted();
+    trackUse({ action_type: 'generate', success: true, generator: 'shadow' });
     setShadow((prev) => ({ ...prev, [key]: value }));
   };
 
   const updateGradient = <K extends keyof GradientState>(key: K, value: GradientState[K]) => {
+    trackInputStarted();
+    trackUse({ action_type: 'generate', success: true, generator: 'gradient' });
     setGradient((prev) => ({ ...prev, [key]: value }));
   };
 
   const updateRadius = <K extends keyof RadiusState>(key: K, value: RadiusState[K]) => {
+    trackInputStarted();
+    trackUse({ action_type: 'generate', success: true, generator: 'radius' });
     setRadius((prev) => ({ ...prev, [key]: value }));
   };
 
   const updateFlex = <K extends keyof FlexState>(key: K, value: FlexState[K]) => {
+    trackInputStarted();
+    trackUse({ action_type: 'generate', success: true, generator: 'flex' });
     setFlex((prev) => ({ ...prev, [key]: value }));
   };
 
   const updateGrid = <K extends keyof GridState>(key: K, value: GridState[K]) => {
+    trackInputStarted();
+    trackUse({ action_type: 'generate', success: true, generator: 'grid' });
     setGrid((prev) => ({ ...prev, [key]: value }));
   };
 
@@ -199,7 +211,10 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
     <div className={cn(SERVICE_PANEL_SOFT, 'w-full space-y-8 p-4')}>
       <GeneratorTabs
         activeTab={activeTab}
-        onTabChange={setActiveTab}
+        onTabChange={(tab) => {
+          trackInputStarted();
+          setActiveTab(tab);
+        }}
         shadowLabel={t('tab.shadow')}
         gradientLabel={t('tab.gradient')}
         radiusLabel={t('tab.radius')}
@@ -283,12 +298,14 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
               title={t('code.css')}
               code={`box-shadow: ${shadowCss};`}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'css' })}
             />
             <CodeBlock
               id={`${baseId}-code-tailwind`}
               title={t('code.tailwind')}
               code={shadowTailwind}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'tailwind' })}
             />
           </div>
         </div>
@@ -357,12 +374,14 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
               title={t('code.css')}
               code={`background: ${gradientCss};`}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'css' })}
             />
             <CodeBlock
               id={`${baseId}-code-grad-tw`}
               title={`${t('code.tailwind')} (Arbitrary)`}
               code={gradientTailwind}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'tailwind' })}
             />
           </div>
         </div>
@@ -419,12 +438,14 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
               title={t('code.css')}
               code={`border-radius: ${radiusCss};`}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'css' })}
             />
             <CodeBlock
               id={`${baseId}-code-radius-tailwind`}
               title={`${t('code.tailwind')} (Arbitrary)`}
               code={radiusTailwind}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'tailwind' })}
             />
           </div>
         </div>
@@ -503,12 +524,14 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
               title={t('code.css')}
               code={flexCss}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'css' })}
             />
             <CodeBlock
               id={`${baseId}-code-flex-tailwind`}
               title={`${t('code.tailwind')} (Arbitrary)`}
               code={flexTailwind}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'tailwind' })}
             />
           </div>
         </div>
@@ -595,12 +618,14 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
               title={t('code.css')}
               code={gridCss}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'css' })}
             />
             <CodeBlock
               id={`${baseId}-code-grid-tailwind`}
               title={`${t('code.tailwind')} (Arbitrary)`}
               code={gridTailwind}
               tooltip={t('code.copy')}
+              onCopy={() => trackCopy({ result_format: 'tailwind' })}
             />
           </div>
         </div>

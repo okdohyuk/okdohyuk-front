@@ -13,6 +13,8 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
+import { sendGAEvent } from '@libs/client/gtag';
 
 interface BpmTapperClientProps {
   lng: Language;
@@ -28,6 +30,7 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
   const { t } = useTranslation(lng, 'bpm-tapper');
   const [taps, setTaps] = useState<number[]>([]);
   const [copied, setCopied] = useState(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('bpm-tapper', 'utility');
 
   const { bpm, averageInterval } = useMemo(() => {
     if (taps.length < 2) {
@@ -47,10 +50,34 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
 
   const handleTap = () => {
     const now = Date.now();
-    setTaps((prev) => [...prev, now]);
+    trackInputStarted();
+    setTaps((prev) => {
+      // 첫 탭 시 세션 시작 이벤트 발화
+      if (prev.length === 0) {
+        sendGAEvent('tool_session_start', 'bpm-tapper', {
+          tool_id: 'bpm-tapper',
+          tool_category: 'utility',
+        });
+      }
+      const next = [...prev, now];
+      // 2번째 탭부터 BPM 계산 가능 → tool_use 발화
+      if (next.length >= 2) {
+        trackUse({ action_type: 'tap', success: true });
+      }
+      return next;
+    });
   };
 
   const handleReset = () => {
+    if (taps.length > 0) {
+      const durationSec =
+        taps.length >= 2 ? Math.floor((taps[taps.length - 1] - taps[0]) / 1000) : 0;
+      sendGAEvent('tool_session_end', 'bpm-tapper', {
+        tool_id: 'bpm-tapper',
+        tool_category: 'utility',
+        duration_sec: durationSec,
+      });
+    }
     setTaps([]);
     setCopied(false);
   };
@@ -60,6 +87,7 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
     try {
       await navigator.clipboard.writeText(String(bpm));
       setCopied(true);
+      trackCopy();
       setTimeout(() => setCopied(false), 1500);
     } catch (error) {
       setCopied(false);

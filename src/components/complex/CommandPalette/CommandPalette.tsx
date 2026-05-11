@@ -9,6 +9,7 @@ import { UserRoleEnum } from '@api/User';
 import { Input } from '@components/basic/Input';
 import { cn } from '@utils/cn';
 import { OPEN_COMMAND_PALETTE_EVENT } from '@utils/commandPalette';
+import { sendGAEvent } from '@libs/client/gtag';
 import useStore from '@hooks/useStore';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
@@ -36,6 +37,7 @@ function CommandPalette() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<string>('unknown');
 
   // 페이지 데이터 로드
   useEffect(() => {
@@ -54,6 +56,7 @@ function CommandPalette() {
     const onKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
+        triggerRef.current = 'keyboard';
         setOpen((prev) => !prev);
       }
     };
@@ -63,7 +66,10 @@ function CommandPalette() {
   }, []);
 
   useEffect(() => {
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {
+      triggerRef.current = 'event';
+      setOpen(true);
+    };
 
     window.addEventListener(OPEN_COMMAND_PALETTE_EVENT, handleOpen);
     return () => window.removeEventListener(OPEN_COMMAND_PALETTE_EVENT, handleOpen);
@@ -75,6 +81,13 @@ function CommandPalette() {
       setQuery('');
       setSelectedIndex(0);
     }
+  }, [open]);
+
+  // GA: command_palette_open (open false → true 전환 시 1회)
+  useEffect(() => {
+    if (!open) return;
+    const trigger = triggerRef.current || 'unknown';
+    sendGAEvent('command_palette_open', trigger, { trigger });
   }, [open]);
 
   const getPageTitle = useCallback(
@@ -96,13 +109,18 @@ function CommandPalette() {
 
   const navigateTo = useCallback(
     (page: PageEntry) => {
+      sendGAEvent('command_palette_select', page.path, {
+        item_path: page.path,
+        item_type: page.access,
+        query_at_select: query.trim().slice(0, 50),
+      });
       setOpen(false);
       const targetPath = `/${lng}${page.path === '/' ? '' : page.path}`;
       if (pathname !== targetPath) {
         router.push(targetPath);
       }
     },
-    [lng, pathname, router],
+    [lng, pathname, router, query],
   );
 
   // 권한 필터링 + 검색 필터링
@@ -133,6 +151,21 @@ function CommandPalette() {
   useEffect(() => {
     setSelectedIndex(0);
   }, [query]);
+
+  // GA: command_palette_search (300ms debounce)
+  useEffect(() => {
+    if (!open) return undefined;
+    const trimmed = query.trim();
+    if (!trimmed) return undefined;
+
+    const timer = setTimeout(() => {
+      sendGAEvent('command_palette_search', trimmed.slice(0, 50), {
+        query: trimmed.slice(0, 50),
+        results_count: filteredPages.length,
+      });
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [query, open, filteredPages.length]);
 
   // 키보드 네비게이션
   const handleKeyDown = useCallback(
