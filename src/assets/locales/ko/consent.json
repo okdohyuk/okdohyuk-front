@@ -1,0 +1,10 @@
+{
+  "description": "이 사이트는 사용자 경험 개선과 서비스 분석을 위해 쿠키를 사용합니다. 자세한 내용은",
+  "privacyLink": "개인정보처리방침",
+  "descriptionSuffix": "에서 확인하세요.",
+  "deny": "거부",
+  "accept": "동의",
+  "ariaLabel": "쿠키 사용 동의",
+  "denyAriaLabel": "쿠키 사용 거부",
+  "acceptAriaLabel": "쿠키 사용 동의"
+}

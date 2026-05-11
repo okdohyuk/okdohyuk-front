@@ -52,6 +52,7 @@ import pokemonTypeCalculator from 'assets/locales/ko/pokemon-type-calculator.jso
 import ipLookup from 'assets/locales/ko/ip-lookup.json';
 import networkCalculator from 'assets/locales/ko/network-calculator.json';
 import commandPalette from 'assets/locales/ko/command-palette.json';
+import consent from 'assets/locales/ko/consent.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -110,6 +111,7 @@ declare module 'i18next' {
       'ip-lookup': typeof ipLookup;
       'network-calculator': typeof networkCalculator;
       'command-palette': typeof commandPalette;
+      consent: typeof consent;
     };
   }
 }
