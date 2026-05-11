@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { observer } from 'mobx-react';
 import useBlogSearchClient from '@hooks/blog/useBlogSearchClient';
 import useStore from '@hooks/useStore';
 import { cn } from '@utils/cn';
+import { sendGAEvent } from '@libs/client/gtag';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { BlogCategory } from '~/spec/api/Blog';
@@ -26,6 +27,31 @@ const BlogSearchListClient = function BlogSearchListClient({
   useBlogSearchClient(category, tags);
   const { blogs, count, viewType, status } = useStore('blogSearchStore');
   const { t } = useTranslation(lng, 'blog/index');
+
+  // blog_load_more: status가 success로 전환되고, 이전보다 항목이 늘어난 경우 추가 로드로 간주
+  const prevLengthRef = useRef<number>(0);
+  const pageIndexRef = useRef<number>(0);
+  const prevStatusRef = useRef<string | undefined>(undefined);
+
+  useEffect(() => {
+    const length = blogs?.length ?? 0;
+    if (status === 'success' && prevStatusRef.current === 'loading') {
+      if (length > prevLengthRef.current && prevLengthRef.current > 0) {
+        pageIndexRef.current += 1;
+        sendGAEvent('blog_load_more', String(pageIndexRef.current), {
+          page_index: pageIndexRef.current,
+          total_loaded: length,
+        });
+      }
+      prevLengthRef.current = length;
+    }
+    // 검색 조건 변경으로 리셋된 경우(길이가 줄거나 0이 됨) 페이지 인덱스 초기화
+    if (length < prevLengthRef.current) {
+      pageIndexRef.current = 0;
+      prevLengthRef.current = length;
+    }
+    prevStatusRef.current = status;
+  }, [blogs, status]);
 
   return (
     <section className="mt-2">

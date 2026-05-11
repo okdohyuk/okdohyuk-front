@@ -8,6 +8,7 @@ import ServiceInfoNotice from '@components/complex/Service/ServiceInfoNotice';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import CronExpressionInput from './CronExpressionInput';
 import CronFieldBuilder, { CronFieldMode } from './CronFieldBuilder';
 import CronGuideGrid from './CronGuideGrid';
@@ -81,6 +82,7 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
   const [builderState, setBuilderState] = useState<CronBuilderState>(INITIAL_BUILDER_STATE);
   const [humanReadable, setHumanReadable] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const { trackInputStarted, trackUse } = useToolTracking('cron-generator', 'generator');
 
   const expression = useMemo(() => {
     return [
@@ -93,6 +95,7 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
   }, [builderState]);
 
   const updateFieldMode = (fieldKey: CronFieldKey, mode: CronFieldMode) => {
+    trackInputStarted();
     setBuilderState((prev) => ({
       ...prev,
       [fieldKey]: {
@@ -103,6 +106,7 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
   };
 
   const updateFieldEnabled = (fieldKey: CronFieldKey, enabled: boolean) => {
+    trackInputStarted();
     setBuilderState((prev) => ({
       ...prev,
       [fieldKey]: {
@@ -113,6 +117,7 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
   };
 
   const updateFieldValue = (fieldKey: CronFieldKey, value: number) => {
+    trackInputStarted();
     const { min, max } = FIELD_CONSTRAINTS[fieldKey];
 
     setBuilderState((prev) => ({
@@ -129,11 +134,13 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
       const desc = cronstrue.toString(expression, { locale: CRONSTRUE_LOCALE[lng] });
       setHumanReadable(desc);
       setError(null);
+      trackUse({ action_type: 'parse', success: true });
     } catch {
       setHumanReadable('');
       setError(t('invalid'));
+      trackUse({ action_type: 'parse', success: false, error_code: 'invalid_expression' });
     }
-  }, [expression, lng, t]);
+  }, [expression, lng, t, trackUse]);
 
   return (
     <div className="w-full space-y-6">

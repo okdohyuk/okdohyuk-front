@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Clipboard, ClipboardCheck, Eraser, Sparkles } from 'lucide-react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
@@ -22,6 +22,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 type UrlParserClientProps = {
   lng: Language;
@@ -56,6 +57,8 @@ const SAMPLE_URL =
 
 export default function UrlParserClient({ lng }: UrlParserClientProps) {
   const { t } = useTranslation(lng, 'url-parser');
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('url-parser', 'converter');
+  const lastParseStateRef = useRef<'none' | 'ok' | 'error'>('none');
   const [value, setValue] = useState('');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
@@ -80,11 +83,27 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
     setCopiedKey(null);
   }, [value]);
 
+  useEffect(() => {
+    let next: 'none' | 'ok' | 'error' = 'none';
+    if (parsed.url) next = 'ok';
+    else if (parsed.error) next = 'error';
+
+    if (next !== 'none' && next !== lastParseStateRef.current) {
+      trackUse({
+        action_type: 'parse',
+        success: next === 'ok',
+        ...(next === 'error' ? { error_code: 'invalid_url' } : {}),
+      });
+    }
+    lastParseStateRef.current = next;
+  }, [parsed, trackUse]);
+
   const handleCopy = async (text: string, key: string) => {
     if (!text) return;
     try {
       await navigator.clipboard.writeText(text);
       setCopiedKey(key);
+      trackCopy({ result_format: key === 'all' ? 'json' : key });
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to copy URL field:', error);
@@ -161,7 +180,10 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
           className="font-mono"
           placeholder="https://example.com/path?utm_source=app"
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={(event) => {
+            trackInputStarted();
+            setValue(event.target.value);
+          }}
         />
         <Text variant="c1" color="basic-5">
           {t('helper')}

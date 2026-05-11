@@ -14,6 +14,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 const MAX_ALLOWED_NUMBER = 200;
 const MAX_BALLS_DISPLAY = 100;
@@ -36,6 +37,7 @@ export default function PpollongPage({ params }: LanguageParams) {
   const [error, setError] = useState<string | null>(null);
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
   const drawIntervalRef = useRef<number | null>(null);
+  const { trackInputStarted, trackUse } = useToolTracking('ppollong', 'utility');
 
   const drawnSet = useMemo(() => new Set(drawnNumbers), [drawnNumbers]);
 
@@ -106,9 +108,10 @@ export default function PpollongPage({ params }: LanguageParams) {
         setCurrentNumber(drawn);
         setDrawnNumbers((prev) => [...prev, drawn].sort((a, b) => a - b));
         setIsLoading(false);
+        trackUse({ action_type: 'draw', success: true });
       }
     }, DRAW_INTERVAL_MS);
-  }, [availableNumbers, clearDrawInterval, isInitialized, t]);
+  }, [availableNumbers, clearDrawInterval, isInitialized, t, trackUse]);
 
   const handleReset = useCallback(() => {
     clearDrawInterval();
@@ -163,7 +166,10 @@ export default function PpollongPage({ params }: LanguageParams) {
           <Input
             type="number"
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={(e) => {
+              trackInputStarted();
+              setInputValue(e.target.value);
+            }}
             placeholder={t('maxNumberPlaceholder')}
             className="w-full"
             disabled={isInitialized || isLoading}

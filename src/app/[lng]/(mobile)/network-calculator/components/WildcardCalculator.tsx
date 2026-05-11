@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Clipboard, ClipboardCheck } from 'lucide-react';
 import { cn } from '@utils/cn';
 import { Button } from '@components/basic/Button';
@@ -21,6 +21,7 @@ import {
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import {
   calculateWildcard,
   cidrToSubnetMask,
@@ -35,10 +36,15 @@ interface WildcardCalculatorProps {
 
 export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
   const { t } = useTranslation(lng, 'network-calculator');
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking(
+    'network-calculator',
+    'calculator',
+  );
 
   const [mask, setMask] = useState('255.255.255.0');
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const lastTrackedKeyRef = useRef<string | null>(null);
 
   const result = useMemo(() => {
     if (!mask) return null;
@@ -48,7 +54,23 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
     return { wildcard, cidr, subnetMask: mask };
   }, [mask]);
 
+  useEffect(() => {
+    if (result) {
+      const key = `wildcard|${mask}`;
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({
+          action_type: 'calculate',
+          success: true,
+          calc_type: 'wildcard',
+          cidr: result.cidr,
+        });
+      }
+    }
+  }, [result, mask, trackUse]);
+
   const handleMaskChange = (value: string) => {
+    trackInputStarted();
     setMask(value);
     setCopied(false);
     setError(null);
@@ -58,6 +80,7 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
   };
 
   const handleCidrSelect = (value: string) => {
+    trackInputStarted();
     setMask(cidrToSubnetMask(Number(value)));
     setCopied(false);
     setError(null);
@@ -74,6 +97,7 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
     try {
       await navigator.clipboard.writeText(result.wildcard);
       setCopied(true);
+      trackCopy();
     } catch {
       // ignore
     }

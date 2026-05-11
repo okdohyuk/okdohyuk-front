@@ -11,6 +11,8 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import { sendGAEvent } from '@libs/client/gtag';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 interface StopwatchClientProps {
   lng: Language;
@@ -42,6 +44,7 @@ export default function StopwatchClient({ lng }: StopwatchClientProps) {
   const [baseElapsed, setBaseElapsed] = useState(0);
   const [laps, setLaps] = useState<LapEntry[]>([]);
   const [copied, setCopied] = useState(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('stopwatch', 'utility');
 
   useEffect(() => {
     if (!isRunning || startAt === null) {
@@ -68,6 +71,15 @@ export default function StopwatchClient({ lng }: StopwatchClientProps) {
 
   const handleStart = () => {
     if (isRunning) return;
+    // 처음 시작(이전 누적 0)에서만 세션 시작 이벤트
+    if (elapsedMs === 0) {
+      trackInputStarted();
+      sendGAEvent('tool_session_start', 'stopwatch', {
+        tool_id: 'stopwatch',
+        tool_category: 'utility',
+      });
+    }
+    trackUse({ action_type: 'start', success: true });
     setStartAt(Date.now());
     setIsRunning(true);
   };
@@ -80,6 +92,13 @@ export default function StopwatchClient({ lng }: StopwatchClientProps) {
   };
 
   const handleReset = () => {
+    if (elapsedMs > 0) {
+      sendGAEvent('tool_session_end', 'stopwatch', {
+        tool_id: 'stopwatch',
+        tool_category: 'utility',
+        duration_sec: Math.floor(elapsedMs / 1000),
+      });
+    }
     setIsRunning(false);
     setStartAt(null);
     setElapsedMs(0);
@@ -89,6 +108,7 @@ export default function StopwatchClient({ lng }: StopwatchClientProps) {
 
   const handleLap = () => {
     if (!isRunning) return;
+    trackUse({ action_type: 'lap', success: true });
 
     setLaps((prev) => {
       const lastTotal = prev.length ? prev[prev.length - 1].totalMs : 0;
@@ -118,6 +138,7 @@ export default function StopwatchClient({ lng }: StopwatchClientProps) {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
+      trackCopy();
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to copy stopwatch text', error);

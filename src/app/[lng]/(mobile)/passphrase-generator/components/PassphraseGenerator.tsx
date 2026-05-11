@@ -12,6 +12,7 @@ import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import { cn } from '@utils/cn';
 import { Text } from '@components/basic/Text';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 type PassphraseGeneratorProps = {
   lng: Language;
@@ -122,6 +123,7 @@ export default function PassphraseGenerator({ lng }: PassphraseGeneratorProps) {
   });
   const [passphrase, setPassphrase] = useState('');
   const [copied, setCopied] = useState(false);
+  const { trackUse, trackCopy } = useToolTracking('passphrase-generator', 'generator');
 
   const optionList = useMemo(
     () => [
@@ -155,6 +157,7 @@ export default function PassphraseGenerator({ lng }: PassphraseGeneratorProps) {
     const nextPassphrase = buildPassphrase(wordCount, separator, options);
     setPassphrase(nextPassphrase);
     setCopied(false);
+    trackUse({ action_type: 'generate', success: true });
   };
 
   const handleCopy = async () => {
@@ -162,6 +165,7 @@ export default function PassphraseGenerator({ lng }: PassphraseGeneratorProps) {
     await navigator.clipboard.writeText(passphrase);
     setCopied(true);
     setTimeout(() => setCopied(false), 1000);
+    trackCopy({ result_format: 'text' });
   };
 
   return (

@@ -13,6 +13,16 @@ const BlogCard: BlogCardFC = function BlogCard({ blog, isAdmin = false, type = '
   return (
     <Link
       href={link}
+      analyticsKey={isAdmin ? undefined : 'blog_card_click'}
+      analyticsParams={
+        isAdmin
+          ? undefined
+          : {
+              post_slug: blog.urlSlug ?? '',
+              post_title: (blog.title ?? '').slice(0, 100),
+              category: (blog.category ?? '').slice(0, 100),
+            }
+      }
       className={`${BLOG_CARD_INTERACTIVE} block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-point-2`}
     >
       {

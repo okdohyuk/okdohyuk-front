@@ -22,6 +22,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 const MAX_COUNT = 20;
 const MIN_COUNT = 1;
@@ -62,12 +63,14 @@ export default function UuidGeneratorClient({ lng }: { lng: Language }) {
   const [format, setFormat] = React.useState<FormatOption>('standard');
   const [uuids, setUuids] = React.useState<string[]>(() => buildUuidList(5, 'standard'));
   const [copied, setCopied] = React.useState(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('uuid-generator', 'generator');
 
   const handleGenerate = () => {
     const safeCount = clampCount(count);
     setCount(safeCount);
     setUuids(buildUuidList(safeCount, format));
     setCopied(false);
+    trackUse({ action_type: 'generate', success: true });
   };
 
   const handleCopy = async () => {
@@ -76,6 +79,7 @@ export default function UuidGeneratorClient({ lng }: { lng: Language }) {
       await navigator.clipboard.writeText(uuids.join('\n'));
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
+      trackCopy({ result_format: 'text' });
     } catch {
       setCopied(false);
     }
@@ -94,7 +98,10 @@ export default function UuidGeneratorClient({ lng }: { lng: Language }) {
               min={MIN_COUNT}
               max={MAX_COUNT}
               value={count}
-              onChange={(event) => setCount(Number(event.target.value))}
+              onChange={(event) => {
+                trackInputStarted();
+                setCount(Number(event.target.value));
+              }}
             />
             <Text className="t-basic-1/60" variant="c1">
               {t('helper.count', { max: MAX_COUNT })}
@@ -105,7 +112,13 @@ export default function UuidGeneratorClient({ lng }: { lng: Language }) {
             <Text className="t-basic-1" variant="t3">
               {t('label.format')}
             </Text>
-            <Select value={format} onValueChange={(value) => setFormat(value as FormatOption)}>
+            <Select
+              value={format}
+              onValueChange={(value) => {
+                trackInputStarted();
+                setFormat(value as FormatOption);
+              }}
+            >
               <SelectTrigger>
                 <SelectValue placeholder={t('placeholder.format')} />
               </SelectTrigger>

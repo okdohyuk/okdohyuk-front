@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { PercentCalculators } from '@stores/PercentStore/type';
 import useStore from '@hooks/useStore';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { observer } from 'mobx-react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
@@ -33,10 +34,23 @@ function PercentCalculatorCard({
 }: PercentCalculatorCardProps) {
   const { valueChange, calculators } = useStore('percentStore');
   const { t } = useTranslation(lng, 'percent');
+  const { trackInputStarted, trackUse } = useToolTracking('percent', 'calculator');
 
   const calculator = useMemo(() => {
     return calculators[calculatorName];
   }, [calculatorName, calculators]);
+
+  const lastTrackedKeyRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (calculator.primaryNumber && calculator.secondaryNumber) {
+      const key = `${calculatorName}|${calculator.primaryNumber}|${calculator.secondaryNumber}`;
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({ action_type: 'calculate', success: true, calculator: calculatorName });
+      }
+    }
+  }, [calculator.primaryNumber, calculator.secondaryNumber, calculatorName, trackUse]);
 
   return (
     <div className={cn(SERVICE_PANEL_SOFT, 'flex w-full flex-col space-y-4 p-4')}>
@@ -51,13 +65,14 @@ function PercentCalculatorCard({
             className="w-1/4 text-right"
             placeholder={placeholder[0]}
             value={calculator.primaryNumber}
-            onChange={(e) =>
+            onChange={(e) => {
+              trackInputStarted();
               valueChange({
                 target: calculatorName,
                 targetValue: 'primaryNumber',
                 value: e.target.value,
-              })
-            }
+              });
+            }}
           />
           <span className="t-d-2 t-basic-1">{text[0]}</span>
           <Input
@@ -66,13 +81,14 @@ function PercentCalculatorCard({
             className="w-1/4 text-right"
             placeholder={placeholder[1]}
             value={calculator.secondaryNumber}
-            onChange={(e) =>
+            onChange={(e) => {
+              trackInputStarted();
               valueChange({
                 target: calculatorName,
                 targetValue: 'secondaryNumber',
                 value: e.target.value,
-              })
-            }
+              });
+            }}
           />
           <span className="t-d-2 t-basic-1">{text[1]}</span>
           {'isIncrease' in calculator ? (

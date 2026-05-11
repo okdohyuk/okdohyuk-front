@@ -20,6 +20,7 @@ import {
   CsvRecord,
 } from '~/app/[lng]/(mobile)/csv-json-converter/utils/csv';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 const delimiterOptions = [
   { label: ',', value: ',' },
@@ -34,6 +35,10 @@ type CsvJsonConverterClientProps = {
 
 export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientProps) {
   const { t } = useTranslation(lng, 'csv-json-converter');
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking(
+    'csv-json-converter',
+    'converter',
+  );
   const [delimiter, setDelimiter] = useState(',');
   const [hasHeader, setHasHeader] = useState(true);
   const [csvInput, setCsvInput] = useState('');
@@ -66,13 +71,16 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
       const { records } = parseCsv(csvInput, normalizedDelimiter, hasHeader);
       if (!records.length) {
         setError(t('error.emptyCsv'));
+        trackUse({ action_type: 'csv-to-json', success: false, error_code: 'empty_csv' });
         return;
       }
       const json = JSON.stringify(records, null, 2);
       setJsonInput(json);
       setError('');
+      trackUse({ action_type: 'csv-to-json', success: true });
     } catch (err) {
       setError(t('error.invalidCsv'));
+      trackUse({ action_type: 'csv-to-json', success: false, error_code: 'invalid_csv' });
     }
   };
 
@@ -81,6 +89,7 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
       const parsed = JSON.parse(jsonInput);
       if (!Array.isArray(parsed) || parsed.length === 0) {
         setError(t('error.invalidJson'));
+        trackUse({ action_type: 'json-to-csv', success: false, error_code: 'invalid_json' });
         return;
       }
       const records: CsvRecord[] = parsed.map((row: Record<string, unknown>) =>
@@ -92,19 +101,23 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
       const csv = stringifyCsv(records, normalizedDelimiter, hasHeader);
       setCsvInput(csv);
       setError('');
+      trackUse({ action_type: 'json-to-csv', success: true });
     } catch (err) {
       setError(t('error.invalidJson'));
+      trackUse({ action_type: 'json-to-csv', success: false, error_code: 'invalid_json' });
     }
   };
 
   const copyJson = async () => {
     if (!jsonInput) return;
     await navigator.clipboard.writeText(jsonInput);
+    trackCopy({ result_format: 'json' });
   };
 
   const copyCsv = async () => {
     if (!csvInput) return;
     await navigator.clipboard.writeText(csvInput);
+    trackCopy({ result_format: 'csv' });
   };
 
   return (
@@ -191,7 +204,10 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
             className="min-h-[220px]"
             placeholder={t('placeholder.csv')}
             value={csvInput}
-            onChange={(event) => setCsvInput(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setCsvInput(event.target.value);
+            }}
           />
         </div>
         <div className="space-y-2">
@@ -207,7 +223,10 @@ export default function CsvJsonConverterClient({ lng }: CsvJsonConverterClientPr
             className="min-h-[220px]"
             placeholder={t('placeholder.json')}
             value={jsonInput}
-            onChange={(event) => setJsonInput(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setJsonInput(event.target.value);
+            }}
           />
         </div>
       </div>

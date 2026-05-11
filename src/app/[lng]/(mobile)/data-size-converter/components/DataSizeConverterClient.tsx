@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
@@ -14,6 +14,7 @@ import {
 import { cn } from '@utils/cn';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 const localeMap: Record<Language, string> = {
   ko: 'ko-KR',
@@ -44,6 +45,8 @@ interface DataSizeConverterClientProps {
 
 export default function DataSizeConverterClient({ lng }: DataSizeConverterClientProps) {
   const { t } = useTranslation(lng, 'data-size-converter');
+  const { trackInputStarted, trackUse } = useToolTracking('data-size-converter', 'converter');
+  const hasResultRef = useRef(false);
   const [value, setValue] = useState('');
   const [unit, setUnit] = useState<UnitKey>('megabyte');
   const [standard, setStandard] = useState<StandardKey>('binary');
@@ -77,6 +80,14 @@ export default function DataSizeConverterClient({ lng }: DataSizeConverterClient
     });
   }, [standard, unit, value]);
 
+  useEffect(() => {
+    const has = results !== null;
+    if (has && !hasResultRef.current) {
+      trackUse({ action_type: 'convert', success: true });
+    }
+    hasResultRef.current = has;
+  }, [results, trackUse]);
+
   return (
     <div className="w-full space-y-6">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
@@ -91,7 +102,10 @@ export default function DataSizeConverterClient({ lng }: DataSizeConverterClient
             className="font-mono"
             placeholder={t('placeholder')}
             value={value}
-            onChange={(event) => setValue(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setValue(event.target.value);
+            }}
           />
           <Select value={unit} onValueChange={(nextValue) => setUnit(nextValue as UnitKey)}>
             <SelectTrigger>

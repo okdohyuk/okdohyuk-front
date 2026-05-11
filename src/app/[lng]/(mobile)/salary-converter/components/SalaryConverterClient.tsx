@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { cn } from '@utils/cn';
 import {
   DEFAULT_DAYS,
@@ -31,6 +32,8 @@ const localeMap: Record<Language, string> = {
 
 export default function SalaryConverterClient({ lng }: SalaryConverterClientProps) {
   const { t } = useTranslation(lng, 'salary-converter');
+  const { trackInputStarted, trackUse } = useToolTracking('salary-converter', 'converter');
+  const hasResultRef = useRef(false);
   const [mode, setMode] = useState<SalaryMode>('annual');
   const [monthlySalary, setMonthlySalary] = useState('');
   const [hourlyWage, setHourlyWage] = useState('');
@@ -57,6 +60,14 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
       weeksPerMonth,
     });
   }, [mode, monthlySalary, hourlyWage, annualSalary, daysPerWeek, hoursPerDay, weeksPerMonth]);
+
+  useEffect(() => {
+    const has = Boolean(annualSalary || monthlySalary || hourlyWage) && values.annual > 0;
+    if (has && !hasResultRef.current) {
+      trackUse({ action_type: 'calculate', success: true, mode });
+    }
+    hasResultRef.current = has;
+  }, [annualSalary, monthlySalary, hourlyWage, values.annual, mode, trackUse]);
 
   const reset = () => {
     setMonthlySalary('');
@@ -133,7 +144,10 @@ export default function SalaryConverterClient({ lng }: SalaryConverterClientProp
             inputMode="numeric"
             placeholder={primaryInput.placeholder}
             value={primaryInput.value}
-            onChange={(event) => primaryInput.onChange(normalizeCurrencyInput(event.target.value))}
+            onChange={(event) => {
+              trackInputStarted();
+              primaryInput.onChange(normalizeCurrencyInput(event.target.value));
+            }}
             className="min-h-11 px-3 text-base"
           />
         </div>

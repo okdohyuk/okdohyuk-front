@@ -6,6 +6,7 @@ import { Input } from '@components/basic/Input';
 import { Textarea } from '@components/basic/Textarea';
 import { Button } from '@components/basic/Button';
 import { cn } from '@utils/cn';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import {
@@ -26,6 +27,7 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
   const [countInput, setCountInput] = useState('3');
   const [separatorInput, setSeparatorInput] = useState('\\n');
   const [copied, setCopied] = useState(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('text-repeater', 'text');
 
   const repeatCount = useMemo(() => {
     const parsed = Number.parseInt(countInput, 10);
@@ -44,6 +46,10 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
 
   useEffect(() => {
     setCopied(false);
+    if (output) {
+      trackUse({ action_type: 'repeat', success: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [output]);
 
   const handleCopy = async () => {
@@ -51,6 +57,7 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
     try {
       await navigator.clipboard.writeText(output);
       setCopied(true);
+      trackCopy();
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to copy repeated text:', error);
@@ -69,7 +76,10 @@ export default function TextRepeaterClient({ lng }: TextRepeaterClientProps) {
             className="min-h-[120px]"
             placeholder={t('placeholder.input')}
             value={value}
-            onChange={(event) => setValue(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setValue(event.target.value);
+            }}
           />
         </div>
 

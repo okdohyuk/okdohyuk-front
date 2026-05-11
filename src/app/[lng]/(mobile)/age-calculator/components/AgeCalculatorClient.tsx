@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   addMonths,
   addYears,
@@ -29,6 +29,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 interface AgeCalculatorClientProps {
   lng: Language;
@@ -38,13 +39,20 @@ const todayString = () => format(new Date(), 'yyyy-MM-dd');
 
 export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
   const { t } = useTranslation(lng, 'age-calculator');
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking(
+    'age-calculator',
+    'calculator',
+  );
   const [birthDate, setBirthDate] = useState('');
   const [referenceDate, setReferenceDate] = useState(todayString());
   const [copied, setCopied] = useState(false);
+  const lastTrackedKeyRef = useRef<string | null>(null);
 
   useEffect(() => {
     setCopied(false);
   }, [birthDate, referenceDate]);
+
+  // result/data 정의는 아래 useMemo 이후에 사용
 
   const result = useMemo(() => {
     if (!birthDate) return { error: null, data: null };
@@ -84,6 +92,16 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
     };
   }, [birthDate, referenceDate, t]);
 
+  useEffect(() => {
+    if (result.data) {
+      const key = `${birthDate}|${referenceDate}`;
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({ action_type: 'calculate', success: true, age_years: result.data.years });
+      }
+    }
+  }, [result, birthDate, referenceDate, trackUse]);
+
   const handleCopy = async () => {
     if (!result.data) return;
     const summary = t('results.summary', {
@@ -97,6 +115,7 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
     try {
       await navigator.clipboard.writeText(summary);
       setCopied(true);
+      trackCopy();
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to copy summary:', error);
@@ -125,7 +144,10 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
               id="birth-date"
               type="date"
               value={birthDate}
-              onChange={(event) => setBirthDate(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setBirthDate(event.target.value);
+              }}
             />
           </div>
           <div className="space-y-2">
@@ -136,7 +158,10 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
               id="reference-date"
               type="date"
               value={referenceDate}
-              onChange={(event) => setReferenceDate(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setReferenceDate(event.target.value);
+              }}
             />
             <div className="flex flex-wrap gap-2">
               <Button type="button" className="px-3 py-2 text-xs" onClick={handleToday}>

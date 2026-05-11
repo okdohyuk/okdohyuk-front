@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
@@ -33,9 +34,14 @@ const BMI_CATEGORIES: BmiCategory[] = [
 
 export default function BmiCalculator({ lng }: BmiCalculatorProps) {
   const { t } = useTranslation(lng, 'bmi-calculator');
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking(
+    'bmi-calculator',
+    'calculator',
+  );
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [copied, setCopied] = useState(false);
+  const lastTrackedBmiRef = useRef<number | null>(null);
 
   const result = useMemo(() => {
     const heightCm = Number(height);
@@ -63,6 +69,13 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
     };
   }, [height, weight]);
 
+  useEffect(() => {
+    if (result?.valid && result.bmi && lastTrackedBmiRef.current !== result.bmi) {
+      lastTrackedBmiRef.current = result.bmi;
+      trackUse({ action_type: 'calculate', success: true, category: result.category ?? 'unknown' });
+    }
+  }, [result, trackUse]);
+
   const handleReset = () => {
     setHeight('');
     setWeight('');
@@ -77,6 +90,7 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
     try {
       await navigator.clipboard.writeText(message);
       setCopied(true);
+      trackCopy();
       setTimeout(() => setCopied(false), 2000);
     } catch (error) {
       setCopied(false);
@@ -104,7 +118,10 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
             step="0.1"
             placeholder={t('placeholder.height')}
             value={height}
-            onChange={(event) => setHeight(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setHeight(event.target.value);
+            }}
           />
         </div>
         <div className="space-y-2">
@@ -118,7 +135,10 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
             step="0.1"
             placeholder={t('placeholder.weight')}
             value={weight}
-            onChange={(event) => setWeight(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setWeight(event.target.value);
+            }}
           />
         </div>
         <Text variant="d3" color="basic-5" className="block">

@@ -13,6 +13,7 @@ import useStore from '@hooks/useStore';
 import { useTranslation } from '~/app/i18n/client';
 import { LanguageParams } from '~/app/[lng]/layout';
 import UserTokenUtil from '~/utils/userTokenUtil';
+import { sendGAEvent } from '@libs/client/gtag';
 import { Language } from '~/app/i18n/settings';
 import { Text } from '@components/basic/Text';
 import { Button } from '@components/basic/Button';
@@ -39,6 +40,10 @@ export default function LoginPage({ params }: LanguageParams) {
         .then(({ data: { access_token, refresh_token, user_id } }) => {
           userApi.getUserUserId(`Bearer ${access_token}`, user_id).then(({ data }) => {
             setUser(data);
+            sendGAEvent('login_success', 'google', {
+              provider: 'google',
+              is_new_user: false,
+            });
 
             // 토큰과 사용자 정보를 클라이언트 쿠키에 직접 저장
             UserTokenUtil.setAccessToken(access_token);
@@ -48,6 +53,10 @@ export default function LoginPage({ params }: LanguageParams) {
           });
         })
         .catch(() => {
+          sendGAEvent('login_failure', 'google', {
+            provider: 'google',
+            error_code: 'oauth_failed',
+          });
           push('/auth/login');
         })
         .finally(() => {
@@ -84,6 +93,10 @@ export default function LoginPage({ params }: LanguageParams) {
     const state = Math.random().toString(36).substring(2, 15);
     const url = `${oauthUrl}?scope=${scope}&include_granted_scopes=true&response_type=token&state=${state}&redirect_uri=${window.location.origin}/auth/login&client_id=${clientId}`;
     Cookies.set('login_state', state);
+    sendGAEvent('login_attempt', 'google', {
+      provider: 'google',
+      from_path: window.location.pathname,
+    });
     window.location.href = url;
   };
 

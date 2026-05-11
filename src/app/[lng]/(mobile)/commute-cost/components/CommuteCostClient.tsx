@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 const DEFAULT_WEEKS = 4.3;
 const DEFAULT_DAYS = 5;
@@ -22,10 +23,12 @@ type CommuteCostClientProps = {
 
 export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
   const { t } = useTranslation(lng, 'commute-cost');
+  const { trackInputStarted, trackUse } = useToolTracking('commute-cost', 'calculator');
   const [roundTrip, setRoundTrip] = useState('');
   const [daysPerWeek, setDaysPerWeek] = useState(String(DEFAULT_DAYS));
   const [weeksPerMonth, setWeeksPerMonth] = useState(String(DEFAULT_WEEKS));
   const [monthlyPass, setMonthlyPass] = useState('');
+  const lastTrackedKeyRef = useRef<string | null>(null);
 
   const values = useMemo(() => {
     const roundTripValue = numberOrZero(roundTrip);
@@ -46,6 +49,16 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
     };
   }, [roundTrip, daysPerWeek, weeksPerMonth, monthlyPass]);
 
+  useEffect(() => {
+    if (roundTrip && values.monthlyCost > 0) {
+      const key = `${roundTrip}|${daysPerWeek}|${weeksPerMonth}|${monthlyPass}`;
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({ action_type: 'calculate', success: true, monthly_cost: values.monthlyWithPass });
+      }
+    }
+  }, [roundTrip, daysPerWeek, weeksPerMonth, monthlyPass, values, trackUse]);
+
   const reset = () => {
     setRoundTrip('');
     setDaysPerWeek(String(DEFAULT_DAYS));
@@ -65,7 +78,10 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
               step="100"
               placeholder={t('roundTripPlaceholder')}
               value={roundTrip}
-              onChange={(event) => setRoundTrip(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setRoundTrip(event.target.value);
+              }}
             />
           </div>
           <div className="space-y-2">
@@ -76,7 +92,10 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
               max={7}
               step="1"
               value={daysPerWeek}
-              onChange={(event) => setDaysPerWeek(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setDaysPerWeek(event.target.value);
+              }}
             />
           </div>
           <div className="space-y-2">
@@ -86,7 +105,10 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
               min={1}
               step="0.1"
               value={weeksPerMonth}
-              onChange={(event) => setWeeksPerMonth(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setWeeksPerMonth(event.target.value);
+              }}
             />
           </div>
           <div className="space-y-2">
@@ -97,7 +119,10 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
               step="1000"
               placeholder={t('passPlaceholder')}
               value={monthlyPass}
-              onChange={(event) => setMonthlyPass(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setMonthlyPass(event.target.value);
+              }}
             />
           </div>
         </div>

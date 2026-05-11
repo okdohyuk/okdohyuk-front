@@ -6,6 +6,7 @@ import useStore from '@hooks/useStore';
 import { Todo } from '@stores/TodoStore/type';
 import { cn } from '@utils/cn';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
+import { sendGAEvent } from '@libs/client/gtag';
 
 type ToDoCardType = {
   todo: Todo;
@@ -22,7 +23,16 @@ function ToDoCard({ todo }: ToDoCardType) {
     >
       <button
         type="button"
-        onClick={() => toggleTodoCheck(todo.id)}
+        onClick={() => {
+          // 미완료 → 완료로 전환 시점에만 todo_complete 발화
+          if (!todo.isChecked) {
+            sendGAEvent('todo_complete', 'todo', {
+              tool_id: 'todo',
+              tool_category: 'utility',
+            });
+          }
+          toggleTodoCheck(todo.id);
+        }}
         className="t-d-1 t-basic-1 cursor-pointer"
         aria-pressed={todo.isChecked}
       >
@@ -32,7 +42,13 @@ function ToDoCard({ todo }: ToDoCardType) {
       <button
         type="button"
         className="t-d-1 t-basic-1 cursor-pointer"
-        onClick={() => removeTodo(todo.id)}
+        onClick={() => {
+          sendGAEvent('todo_delete', 'todo', {
+            tool_id: 'todo',
+            tool_category: 'utility',
+          });
+          removeTodo(todo.id);
+        }}
         aria-label="remove todo"
       >
         <Trash2 />

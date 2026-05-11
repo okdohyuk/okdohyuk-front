@@ -11,6 +11,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 const MAX_COINS = 20;
 
@@ -48,6 +49,7 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
   const { t } = useTranslation(lng, 'coin-flip');
   const [countInput, setCountInput] = useState('1');
   const [results, setResults] = useState<CoinResult[]>([]);
+  const { trackInputStarted, trackUse } = useToolTracking('coin-flip', 'utility');
 
   const safeCount = useMemo(() => getSafeCount(countInput), [countInput]);
   const summary = useMemo(() => {
@@ -63,6 +65,7 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
   const handleFlip = () => {
     const nextResults = buildResults(safeCount);
     setResults(nextResults);
+    trackUse({ action_type: 'flip', success: true });
   };
 
   const handleReset = () => {
@@ -84,7 +87,10 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
               min={1}
               max={MAX_COINS}
               value={countInput}
-              onChange={(event) => setCountInput(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setCountInput(event.target.value);
+              }}
               className="font-mono"
             />
             <p className="text-xs text-fg-5">{t('helper')}</p>

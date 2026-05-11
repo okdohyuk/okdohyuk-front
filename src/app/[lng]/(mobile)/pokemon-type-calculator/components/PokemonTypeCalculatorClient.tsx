@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
 import {
@@ -10,6 +10,7 @@ import {
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import {
   Bug,
   Crown,
@@ -672,9 +673,12 @@ const EFFECTIVENESS_TIERS = [
 
 export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculatorClientProps) {
   const { t } = useTranslation(lng, 'pokemon-type-calculator');
+  const { trackInputStarted, trackUse } = useToolTracking('pokemon-type-calculator', 'calculator');
   const [selectedTypes, setSelectedTypes] = useState<PokemonType[]>([]);
+  const lastTrackedKeyRef = useRef<string | null>(null);
 
   const toggleType = (type: PokemonType) => {
+    trackInputStarted();
     setSelectedTypes((prev) => {
       if (prev.includes(type)) {
         return prev.filter((item) => item !== type);
@@ -708,6 +712,20 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
 
   const isMaxSelected = selectedTypes.length >= 3;
   const getTypeName = (type: PokemonType) => t(`types.${type}`);
+
+  useEffect(() => {
+    if (selectedTypes.length > 0) {
+      const key = selectedTypes.join(',');
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({
+          action_type: 'calculate',
+          success: true,
+          type_count: selectedTypes.length,
+        });
+      }
+    }
+  }, [selectedTypes, trackUse]);
 
   return (
     <div className="w-full space-y-5">

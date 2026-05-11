@@ -13,6 +13,7 @@ import {
 import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { cn } from '@utils/cn';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import type { Language } from '~/app/i18n/settings';
 
 const localeMap: Record<Language, string> = {
@@ -45,9 +46,11 @@ type Props = {
 
 export default function WaterIntakeClient({ lng }: Props) {
   const { t } = useTranslation(lng, 'water-intake');
+  const { trackInputStarted, trackUse } = useToolTracking('water-intake', 'calculator');
   const [weight, setWeight] = React.useState('');
   const [activity, setActivity] = React.useState<ActivityLevel>('medium');
   const [climate, setClimate] = React.useState<ClimateLevel>('normal');
+  const lastTrackedKeyRef = React.useRef<string | null>(null);
 
   const weightValue = toNumber(weight);
 
@@ -73,6 +76,20 @@ export default function WaterIntakeClient({ lng }: Props) {
     return { totalMl, liters, cups, bottles };
   }, [weightValue, activity, climate]);
 
+  React.useEffect(() => {
+    if (result) {
+      const key = `${weightValue}|${activity}|${climate}`;
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({
+          action_type: 'calculate',
+          success: true,
+          total_ml: result.totalMl,
+        });
+      }
+    }
+  }, [result, weightValue, activity, climate, trackUse]);
+
   const tips = t('tips.items', { returnObjects: true }) as string[];
 
   return (
@@ -87,11 +104,20 @@ export default function WaterIntakeClient({ lng }: Props) {
             type="number"
             inputMode="decimal"
             value={weight}
-            onChange={(e) => setWeight(e.target.value)}
+            onChange={(e) => {
+              trackInputStarted();
+              setWeight(e.target.value);
+            }}
             placeholder={t('inputs.weightPlaceholder')}
             className="text-sm"
           />
-          <Select value={activity} onValueChange={(value) => setActivity(value as ActivityLevel)}>
+          <Select
+            value={activity}
+            onValueChange={(value) => {
+              trackInputStarted();
+              setActivity(value as ActivityLevel);
+            }}
+          >
             <SelectTrigger className="text-sm">
               <SelectValue placeholder={t('inputs.activity')} />
             </SelectTrigger>
@@ -101,7 +127,13 @@ export default function WaterIntakeClient({ lng }: Props) {
               <SelectItem value="high">{t('activity.high')}</SelectItem>
             </SelectContent>
           </Select>
-          <Select value={climate} onValueChange={(value) => setClimate(value as ClimateLevel)}>
+          <Select
+            value={climate}
+            onValueChange={(value) => {
+              trackInputStarted();
+              setClimate(value as ClimateLevel);
+            }}
+          >
             <SelectTrigger className="text-sm">
               <SelectValue placeholder={t('inputs.climate')} />
             </SelectTrigger>

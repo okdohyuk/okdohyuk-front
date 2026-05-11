@@ -3,6 +3,7 @@ import { authApi } from '@api';
 import { User } from '@api/User';
 import Cookies from 'js-cookie';
 import UserTokenUtil from '@utils/userTokenUtil';
+import { sendGAEvent } from '@libs/client/gtag';
 import { UserStoreState } from './type';
 
 class UserStore implements UserStoreState {
@@ -32,6 +33,9 @@ class UserStore implements UserStoreState {
   };
 
   @action public logOut = () => {
+    if (typeof window !== 'undefined') {
+      sendGAEvent('logout', 'google', { from_path: window.location.pathname });
+    }
     UserTokenUtil.removeAccessToken();
     UserTokenUtil.removeRefreshToken();
     UserTokenUtil.removeUserInfo();

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Clipboard, ClipboardCheck, RotateCcw } from 'lucide-react';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
@@ -12,6 +12,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { addDays, calculateDDay, formatDateInput } from '../utils/anniversaryCounter';
 
 interface AnniversaryCounterClientProps {
@@ -20,9 +21,14 @@ interface AnniversaryCounterClientProps {
 
 export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClientProps) {
   const { t } = useTranslation(lng, 'anniversary-counter');
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking(
+    'anniversary-counter',
+    'calculator',
+  );
   const [date, setDate] = useState('');
   const [includeToday, setIncludeToday] = useState(true);
   const [copied, setCopied] = useState(false);
+  const lastTrackedKeyRef = useRef<string | null>(null);
 
   const today = new Date();
 
@@ -61,6 +67,16 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
     setCopied(false);
   }, [date, includeToday]);
 
+  useEffect(() => {
+    if (result) {
+      const key = `${date}|${includeToday}`;
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({ action_type: 'calculate', success: true, diff_days: result.diffDays });
+      }
+    }
+  }, [result, date, includeToday, trackUse]);
+
   const handleQuickDate = (amount: number) => {
     const next = formatDateInput(addDays(new Date(), amount));
     setDate(next);
@@ -89,6 +105,7 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
 
       await navigator.clipboard.writeText(copyText);
       setCopied(true);
+      trackCopy();
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to copy result:', error);
@@ -106,7 +123,10 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
             id="anniversary-date"
             type="date"
             value={date}
-            onChange={(event) => setDate(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setDate(event.target.value);
+            }}
           />
           <p className="text-xs text-fg-5">{t('helper')}</p>
         </div>
