@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Select,
   SelectContent,
@@ -17,6 +17,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 interface BedtimePlannerClientProps {
   lng: Language;
@@ -36,8 +37,10 @@ const addMinutes = (base: Date, minutes: number) => new Date(base.getTime() + mi
 
 export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps) {
   const { t } = useTranslation(lng, 'bedtime-planner');
+  const { trackInputStarted, trackUse } = useToolTracking('bedtime-planner', 'calculator');
   const [mode, setMode] = useState('wake');
   const [time, setTime] = useState('07:00');
+  const lastTrackedKeyRef = useRef<string | null>(null);
 
   const formatter = useMemo(
     () =>
@@ -71,6 +74,16 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
     });
   }, [mode, time]);
 
+  useEffect(() => {
+    if (results.length > 0) {
+      const key = `${mode}|${time}`;
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({ action_type: 'calculate', success: true, mode });
+      }
+    }
+  }, [results, mode, time, trackUse]);
+
   const getDayLabel = (dayDiff: number) => {
     if (dayDiff === -1) return t('result.previousDay');
     if (dayDiff === 1) return t('result.nextDay');
@@ -84,7 +97,13 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
           <label htmlFor="mode" className="text-sm font-medium text-fg-3">
             {t('label.mode')}
           </label>
-          <Select value={mode} onValueChange={setMode}>
+          <Select
+            value={mode}
+            onValueChange={(value) => {
+              trackInputStarted();
+              setMode(value);
+            }}
+          >
             <SelectTrigger className="w-full">
               <SelectValue />
             </SelectTrigger>
@@ -102,7 +121,10 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
             id="time"
             type="time"
             value={time}
-            onChange={(event) => setTime(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setTime(event.target.value);
+            }}
           />
           <p className="mt-1 text-xs text-fg-5">{t('helper')}</p>
         </div>

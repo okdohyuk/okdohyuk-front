@@ -14,6 +14,7 @@ import {
 } from '@components/complex/Service/interactiveStyles';
 import { parse, stringify } from 'yaml';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 interface JsonYamlConverterClientProps {
   lng: Language;
@@ -39,6 +40,10 @@ enabled: true
 
 export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClientProps) {
   const { t } = useTranslation(lng, 'json-yaml-converter');
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking(
+    'json-yaml-converter',
+    'converter',
+  );
   const [direction, setDirection] = useState<Direction>('json-to-yaml');
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
@@ -68,9 +73,15 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
         const parsed = parse(input);
         setOutput(JSON.stringify(parsed, null, 2));
       }
+      trackUse({ action_type: direction, success: true });
     } catch (convertError) {
       setOutput('');
       setError(direction === 'json-to-yaml' ? t('error.invalidJson') : t('error.invalidYaml'));
+      trackUse({
+        action_type: direction,
+        success: false,
+        error_code: direction === 'json-to-yaml' ? 'invalid_json' : 'invalid_yaml',
+      });
     }
   };
 
@@ -94,6 +105,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
     try {
       await navigator.clipboard.writeText(output);
       setCopied(true);
+      trackCopy({ result_format: direction === 'json-to-yaml' ? 'yaml' : 'json' });
       setTimeout(() => setCopied(false), 1200);
     } catch (copyError) {
       setCopied(false);
@@ -159,7 +171,10 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
             className="min-h-[180px] font-mono text-sm"
             placeholder={t('placeholder.input')}
             value={input}
-            onChange={(event) => setInput(event.target.value)}
+            onChange={(event) => {
+              trackInputStarted();
+              setInput(event.target.value);
+            }}
           />
         </div>
         {error && (

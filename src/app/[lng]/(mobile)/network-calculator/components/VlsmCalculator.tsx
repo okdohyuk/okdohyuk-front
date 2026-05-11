@@ -21,6 +21,7 @@ import {
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import {
   calculateVlsm,
   cidrToSubnetMask,
@@ -55,6 +56,7 @@ const DEFAULT_ROWS: SubnetRow[] = [
 
 export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
   const { t } = useTranslation(lng, 'network-calculator');
+  const { trackInputStarted, trackUse } = useToolTracking('network-calculator', 'calculator');
 
   const [baseNetwork, setBaseNetwork] = useState('192.168.0.0');
   const [baseCidr, setBaseCidr] = useState('16');
@@ -63,6 +65,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
   const [error, setError] = useState<string | null>(null);
 
   const handleAddRow = () => {
+    trackInputStarted();
     setRows((prev) => [...prev, { id: newId(), name: '', requiredHosts: '' }]);
   };
 
@@ -71,6 +74,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
   };
 
   const handleRowChange = (id: string, field: keyof Omit<SubnetRow, 'id'>, value: string) => {
+    trackInputStarted();
     setRows((prev) => prev.map((r) => (r.id === id ? { ...r, [field]: value } : r)));
     setError(null);
   };
@@ -81,16 +85,34 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
 
     if (!isValidIp(baseNetwork)) {
       setError(t('messages.invalidNetwork'));
+      trackUse({
+        action_type: 'calculate',
+        success: false,
+        calc_type: 'vlsm',
+        error_code: 'invalid_network',
+      });
       return;
     }
     const cidr = Number(baseCidr);
     if (!isValidCidr(cidr)) {
       setError(t('messages.invalidCidr'));
+      trackUse({
+        action_type: 'calculate',
+        success: false,
+        calc_type: 'vlsm',
+        error_code: 'invalid_cidr',
+      });
       return;
     }
     const validRows = rows.filter((r) => r.requiredHosts && Number(r.requiredHosts) > 0);
     if (validRows.length === 0) {
       setError(t('messages.minOneSubnet'));
+      trackUse({
+        action_type: 'calculate',
+        success: false,
+        calc_type: 'vlsm',
+        error_code: 'min_one_subnet',
+      });
       return;
     }
 
@@ -120,13 +142,31 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
         const lastBroadcastNum = ipToNumber(lastSubnet.broadcastAddress);
         if (lastBroadcastNum >= baseEnd) {
           setError(t('messages.subnetOverflow'));
+          trackUse({
+            action_type: 'calculate',
+            success: false,
+            calc_type: 'vlsm',
+            error_code: 'overflow',
+          });
           return;
         }
       }
 
       setResult(vlsmResult);
+      trackUse({
+        action_type: 'calculate',
+        success: true,
+        calc_type: 'vlsm',
+        subnet_count: vlsmResult.subnets.length,
+      });
     } catch {
       setError(t('messages.subnetOverflow'));
+      trackUse({
+        action_type: 'calculate',
+        success: false,
+        calc_type: 'vlsm',
+        error_code: 'overflow',
+      });
     }
   };
 
@@ -152,7 +192,10 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
               id="vlsm-base"
               type="text"
               value={baseNetwork}
-              onChange={(e) => setBaseNetwork(e.target.value)}
+              onChange={(e) => {
+                trackInputStarted();
+                setBaseNetwork(e.target.value);
+              }}
               placeholder={t('vlsm.baseNetworkPlaceholder')}
             />
           </div>
@@ -160,7 +203,13 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
             <Text asChild variant="d2" color="basic-4">
               <label htmlFor="vlsm-cidr">{t('vlsm.baseCidr')}</label>
             </Text>
-            <Select value={baseCidr} onValueChange={setBaseCidr}>
+            <Select
+              value={baseCidr}
+              onValueChange={(value) => {
+                trackInputStarted();
+                setBaseCidr(value);
+              }}
+            >
               <SelectTrigger id="vlsm-cidr" aria-label={t('vlsm.baseCidr')}>
                 <SelectValue />
               </SelectTrigger>

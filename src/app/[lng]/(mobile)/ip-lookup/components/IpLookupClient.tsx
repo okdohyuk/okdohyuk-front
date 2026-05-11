@@ -28,6 +28,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import type { PortInfo } from '~/app/api/ip-lookup/port-scan/route';
 
 interface IpLookupClientProps {
@@ -152,6 +153,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
   const [portLoading, setPortLoading] = useState(false);
 
   const [copied, setCopied] = useState(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('ip-lookup', 'utility');
 
   const runPortScan = useCallback(async (ip: string) => {
     setPortLoading(true);
@@ -172,6 +174,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
   }, []);
 
   const fetchIpInfo = useCallback(async () => {
+    trackInputStarted();
     setIpLoading(true);
     setIpError(null);
     setIpData(null);
@@ -183,13 +186,16 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to fetch');
       setIpData(data);
+      // PII 안전: IP 주소 미포함, 결과 존재 여부만 전송
+      trackUse({ action_type: 'lookup', success: Boolean(data?.ip) });
       runPortScan(data.ip);
     } catch (e) {
       setIpError(e instanceof Error ? e.message : 'Unknown error');
+      trackUse({ action_type: 'lookup', success: false, error_code: 'fetch_failed' });
     } finally {
       setIpLoading(false);
     }
-  }, [runPortScan]);
+  }, [runPortScan, trackInputStarted, trackUse]);
 
   useEffect(() => {
     fetchIpInfo();
@@ -200,6 +206,8 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
     try {
       await navigator.clipboard.writeText(ipData.ip);
       setCopied(true);
+      // PII 안전: 채널만 기록
+      trackCopy();
       setTimeout(() => setCopied(false), 2000);
     } catch {
       // ignore

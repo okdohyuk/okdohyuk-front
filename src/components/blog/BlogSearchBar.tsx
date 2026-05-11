@@ -1,12 +1,13 @@
 'use client';
 
 import { observer } from 'mobx-react';
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Filter, LayoutGrid, List, Search } from 'lucide-react';
 import useStore from '@hooks/useStore';
 import { cn } from '@utils/cn';
 import { motion, useReducedMotion } from 'framer-motion';
 import { BlogOrderByEnum } from '@api/Blog';
+import { sendGAEvent } from '@libs/client/gtag';
 import {
   Select,
   SelectContent,
@@ -33,10 +34,20 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
     (value: string) => {
       if (value === BlogOrderByEnum.Resent || value === BlogOrderByEnum.Title) {
         setOrderBy(value as (typeof BlogOrderByEnum)[keyof typeof BlogOrderByEnum]);
+        sendGAEvent('blog_sort_change', value, { sort_value: value });
       }
     },
     [setOrderBy],
   );
+
+  useEffect(() => {
+    if (!title?.trim()) return undefined;
+    const keyword = title.trim().slice(0, 50);
+    const timer = setTimeout(() => {
+      sendGAEvent('blog_search', keyword, { search_keyword: keyword });
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [title]);
 
   return (
     <motion.div

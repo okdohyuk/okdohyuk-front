@@ -13,6 +13,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 interface SlugGeneratorClientProps {
   lng: Language;
@@ -22,6 +23,8 @@ export default function SlugGeneratorClient({ lng }: SlugGeneratorClientProps) {
   const { t } = useTranslation(lng, 'slug-generator');
   const [value, setValue] = useState('');
   const [copied, setCopied] = useState(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('slug-generator', 'generator');
+  const convertedRef = React.useRef(false);
 
   const slug = useMemo(() => {
     if (!value) return '';
@@ -31,13 +34,21 @@ export default function SlugGeneratorClient({ lng }: SlugGeneratorClientProps) {
 
   useEffect(() => {
     setCopied(false);
-  }, [slug]);
+    if (slug && !convertedRef.current) {
+      convertedRef.current = true;
+      trackUse({ action_type: 'convert', success: true });
+    }
+    if (!slug) {
+      convertedRef.current = false;
+    }
+  }, [slug, trackUse]);
 
   const handleCopy = async () => {
     if (!slug) return;
     try {
       await navigator.clipboard.writeText(slug);
       setCopied(true);
+      trackCopy({ result_format: 'text' });
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to copy slug:', error);
@@ -55,7 +66,10 @@ export default function SlugGeneratorClient({ lng }: SlugGeneratorClientProps) {
           className="font-mono"
           placeholder={t('placeholder')}
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={(event) => {
+            trackInputStarted();
+            setValue(event.target.value);
+          }}
         />
         <p className="text-xs text-fg-5">{t('helper')}</p>
       </div>

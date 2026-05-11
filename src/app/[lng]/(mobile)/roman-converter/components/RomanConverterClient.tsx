@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Clipboard, ClipboardCheck, RotateCcw } from 'lucide-react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
@@ -12,6 +12,7 @@ import {
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
 type RomanConverterClientProps = {
   lng: Language;
@@ -92,6 +93,12 @@ function fromRoman(raw: string) {
 
 export default function RomanConverterClient({ lng }: RomanConverterClientProps) {
   const { t } = useTranslation(lng, 'roman-converter');
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking(
+    'roman-converter',
+    'converter',
+  );
+  const hasNumberResultRef = useRef(false);
+  const hasRomanResultRef = useRef(false);
   const [numberInput, setNumberInput] = useState('');
   const [romanInput, setRomanInput] = useState('');
 
@@ -142,17 +149,32 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
 
   useEffect(() => {
     setCopiedNumber(false);
-  }, [romanOutput]);
+    const has = Boolean(romanOutput);
+    if (has && !hasNumberResultRef.current) {
+      trackUse({ action_type: 'number-to-roman', success: true });
+    }
+    hasNumberResultRef.current = has;
+  }, [romanOutput, trackUse]);
 
   useEffect(() => {
     setCopiedRoman(false);
-  }, [parsedRoman.value]);
+    const has = parsedRoman.value !== null;
+    if (has && !hasRomanResultRef.current) {
+      trackUse({ action_type: 'roman-to-number', success: true });
+    }
+    hasRomanResultRef.current = has;
+  }, [parsedRoman.value, trackUse]);
 
-  const handleCopy = async (value: string, onCopied: (copied: boolean) => void) => {
+  const handleCopy = async (
+    value: string,
+    onCopied: (copied: boolean) => void,
+    format?: string,
+  ) => {
     if (!value) return;
     try {
       await navigator.clipboard.writeText(value);
       onCopied(true);
+      trackCopy({ result_format: format });
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to copy:', error);
@@ -184,7 +206,7 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
           <h3 className="text-sm font-medium text-fg-3">{t('section.numberToRoman')}</h3>
           <Button
             type="button"
-            onClick={() => handleCopy(romanOutput, setCopiedNumber)}
+            onClick={() => handleCopy(romanOutput, setCopiedNumber, 'roman')}
             className="flex items-center gap-2 px-3 py-2 text-xs"
             disabled={!romanOutput}
           >
@@ -202,7 +224,10 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
           className="font-mono"
           placeholder={t('placeholder.number')}
           value={numberInput}
-          onChange={(event) => setNumberInput(event.target.value)}
+          onChange={(event) => {
+            trackInputStarted();
+            setNumberInput(event.target.value);
+          }}
         />
         {parsedNumber.error ? (
           <p className="text-xs text-danger-1 dark:text-danger-3">{parsedNumber.error}</p>
@@ -226,7 +251,11 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
           <Button
             type="button"
             onClick={() =>
-              handleCopy(parsedRoman.value ? String(parsedRoman.value) : '', setCopiedRoman)
+              handleCopy(
+                parsedRoman.value ? String(parsedRoman.value) : '',
+                setCopiedRoman,
+                'number',
+              )
             }
             className="flex items-center gap-2 px-3 py-2 text-xs"
             disabled={!parsedRoman.value}
@@ -244,7 +273,10 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
           className="font-mono uppercase"
           placeholder={t('placeholder.roman')}
           value={romanInput}
-          onChange={(event) => setRomanInput(event.target.value)}
+          onChange={(event) => {
+            trackInputStarted();
+            setRomanInput(event.target.value);
+          }}
         />
 
         {parsedRoman.error ? (

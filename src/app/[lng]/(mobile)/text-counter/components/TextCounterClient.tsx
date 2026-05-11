@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { Text } from '@components/basic/Text';
 import { Textarea } from '@components/basic/Textarea';
 import { Button } from '@components/basic/Button';
@@ -26,6 +27,7 @@ const toLines = (value: string) => {
 export default function TextCounterClient({ lng }: TextCounterClientProps) {
   const { t } = useTranslation(lng, 'text-counter');
   const [text, setText] = useState('');
+  const { trackInputStarted, trackUse } = useToolTracking('text-counter', 'text');
 
   const stats = useMemo(() => {
     const normalized = text.replace(/\r\n/g, '\n');
@@ -39,6 +41,14 @@ export default function TextCounterClient({ lng }: TextCounterClientProps) {
       bytes: new TextEncoder().encode(text).length,
     };
   }, [text]);
+
+  useEffect(() => {
+    if (text.length > 0) {
+      trackUse({ action_type: 'count', success: true });
+    }
+    // 결과(stats) 변경 시점에만 발화
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stats.characters, stats.words, stats.lines, stats.bytes]);
 
   const statItems = [
     { key: 'characters', label: t('label.characters'), value: stats.characters },
@@ -74,7 +84,10 @@ export default function TextCounterClient({ lng }: TextCounterClientProps) {
           className="min-h-[180px] text-sm"
           placeholder={t('placeholder')}
           value={text}
-          onChange={(event) => setText(event.target.value)}
+          onChange={(event) => {
+            trackInputStarted();
+            setText(event.target.value);
+          }}
         />
         <Text variant="c1" className="text-fg-5">
           {t('helper')}

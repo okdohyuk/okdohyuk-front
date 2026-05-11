@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useId, useMemo, useState } from 'react';
+import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { Button } from '@components/basic/Button';
 import { Input } from '@components/basic/Input';
 import { Text } from '@components/basic/Text';
 import GoogleAd from '@components/google/GoogleAd';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { calculateDateRange, formatDateInput } from '../utils/dateDiff';
 
 type Labels = {
@@ -34,11 +35,13 @@ type DateDiffClientProps = {
 };
 
 function DateDiffClient({ labels }: DateDiffClientProps) {
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('date-diff', 'calculator');
   const today = useMemo(() => formatDateInput(new Date()), []);
   const [startDate, setStartDate] = useState(today);
   const [endDate, setEndDate] = useState(today);
   const [includeEnd, setIncludeEnd] = useState(false);
   const [copied, setCopied] = useState(false);
+  const lastTrackedKeyRef = useRef<string | null>(null);
   const startId = useId();
   const endId = useId();
   const includeEndId = useId();
@@ -53,6 +56,16 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
     return calculateDateRange(startDate, endDate, includeEnd) === null;
   }, [startDate, endDate, includeEnd]);
 
+  useEffect(() => {
+    if (result) {
+      const key = `${startDate}|${endDate}|${includeEnd}`;
+      if (lastTrackedKeyRef.current !== key) {
+        lastTrackedKeyRef.current = key;
+        trackUse({ action_type: 'calculate', success: true, total_days: result.totalDays });
+      }
+    }
+  }, [result, startDate, endDate, includeEnd, trackUse]);
+
   const summary = useMemo(() => {
     if (!result) return '';
     return `${labels.summaryTitle}: ${result.totalDays} ${labels.dayUnit} · ${result.weeks} ${labels.weekUnit} ${result.remainingDays} ${labels.dayUnit} · ${labels.weekdays} ${result.weekdays} / ${labels.weekends} ${result.weekends}`;
@@ -63,6 +76,7 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
     try {
       await navigator.clipboard.writeText(summary);
       setCopied(true);
+      trackCopy();
       setTimeout(() => setCopied(false), 2000);
     } catch {
       setCopied(false);
@@ -91,7 +105,10 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
               id={startId}
               type="date"
               value={startDate}
-              onChange={(event) => setStartDate(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setStartDate(event.target.value);
+              }}
             />
           </label>
           <label className="space-y-1" htmlFor={endId}>
@@ -100,7 +117,10 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
               id={endId}
               type="date"
               value={endDate}
-              onChange={(event) => setEndDate(event.target.value)}
+              onChange={(event) => {
+                trackInputStarted();
+                setEndDate(event.target.value);
+              }}
             />
           </label>
         </div>

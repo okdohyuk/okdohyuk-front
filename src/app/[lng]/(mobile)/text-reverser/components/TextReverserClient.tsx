@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from '@components/basic/Select';
 import { cn } from '@utils/cn';
+import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import {
@@ -31,6 +32,7 @@ export default function TextReverserClient({ lng }: TextReverserClientProps) {
   const [value, setValue] = useState('');
   const [mode, setMode] = useState<ReverseMode>('characters');
   const [copied, setCopied] = useState(false);
+  const { trackInputStarted, trackUse, trackCopy } = useToolTracking('text-reverser', 'text');
 
   const reversed = useMemo(() => {
     if (!value) return '';
@@ -50,6 +52,10 @@ export default function TextReverserClient({ lng }: TextReverserClientProps) {
 
   useEffect(() => {
     setCopied(false);
+    if (reversed) {
+      trackUse({ action_type: 'reverse', success: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reversed]);
 
   const handleCopy = async () => {
@@ -57,6 +63,7 @@ export default function TextReverserClient({ lng }: TextReverserClientProps) {
     try {
       await navigator.clipboard.writeText(reversed);
       setCopied(true);
+      trackCopy();
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to copy reversed text:', error);
@@ -91,7 +98,10 @@ export default function TextReverserClient({ lng }: TextReverserClientProps) {
           className="h-32 resize-none"
           placeholder={t('placeholder')}
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={(event) => {
+            trackInputStarted();
+            setValue(event.target.value);
+          }}
         />
       </section>
 

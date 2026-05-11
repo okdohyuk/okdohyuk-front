@@ -2,6 +2,7 @@
 
 import * as Sentry from '@sentry/nextjs';
 import { useEffect } from 'react';
+import { sendGAEvent } from '@libs/client/gtag';
 
 const STALE_RELOAD_KEY = 'sentry_stale_action_reloaded';
 
@@ -24,6 +25,7 @@ export default function GlobalError({
       return;
     }
     Sentry.captureException(error);
+    sendGAEvent('exception', error.message?.slice(0, 200) ?? 'unknown', { fatal: true });
   }, [error, isStaleDeployment]);
 
   if (isStaleDeployment) {
