@@ -1,0 +1,10 @@
+{
+  "description": "このサイトはユーザー体験の向上とサービス分析のためにクッキーを使用します。詳細は",
+  "privacyLink": "プライバシーポリシー",
+  "descriptionSuffix": "をご覧ください。",
+  "deny": "拒否",
+  "accept": "同意",
+  "ariaLabel": "クッキーの使用に関する同意",
+  "denyAriaLabel": "クッキーの使用を拒否",
+  "acceptAriaLabel": "クッキーの使用に同意"
+}
