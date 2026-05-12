@@ -100,8 +100,53 @@ export async function middleware(req: NextRequest) {
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
   }
 
+  // 익명 세션: 백엔드(POST /session)가 발급한 session_id를 사용한다.
+  // 쿠키가 없는 경우에만 발급 시도 — 만료/갱신은 클라이언트 훅(useSession)이 담당한다.
   if (!req.cookies.has('SessionId')) {
-    response.cookies.set('SessionId', crypto.randomUUID());
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (apiUrl) {
+      try {
+        const sessionRes = await fetch(`${apiUrl.replace(/\/+$/, '')}/session`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          cache: 'no-store',
+        });
+        if (sessionRes.ok) {
+          const sessionPayload = (await sessionRes.json()) as {
+            session_id?: string;
+            expires_at?: string;
+          };
+          if (sessionPayload.session_id) {
+            const sessionExpires = sessionPayload.expires_at
+              ? new Date(sessionPayload.expires_at)
+              : undefined;
+            const hasValidExpiry = !!sessionExpires && !Number.isNaN(sessionExpires.getTime());
+            response.cookies.set({
+              name: 'SessionId',
+              value: sessionPayload.session_id,
+              path: '/',
+              sameSite: 'strict',
+              secure: isProduction,
+              ...(hasValidExpiry ? { expires: sessionExpires } : {}),
+            });
+            if (sessionPayload.expires_at) {
+              response.cookies.set({
+                name: 'SessionExpiresAt',
+                value: sessionPayload.expires_at,
+                path: '/',
+                sameSite: 'strict',
+                secure: isProduction,
+                ...(hasValidExpiry ? { expires: sessionExpires } : {}),
+              });
+            }
+          }
+        } else {
+          logger.error('Middleware: 세션 발급 실패', sessionRes.status);
+        }
+      } catch (e) {
+        logger.error('Middleware: 세션 발급 fetch 오류', e);
+      }
+    }
   }
 
   const accessToken = req.cookies.get('access_token')?.value;

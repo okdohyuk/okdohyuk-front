@@ -5,6 +5,7 @@ import UserTokenUtil from '@utils/userTokenUtil';
 import { AuthApi } from './Auth';
 import { BlogApi } from './Blog';
 import { BlogReplyApi } from './BlogReply';
+import { SessionApi } from './Session';
 import { StorageApi } from './Storage';
 import { UserApi } from './User';
 
@@ -76,6 +77,7 @@ const logoutAndLogin = () => {
 export const authApi = new AuthApi(undefined, API_URL, apiInstance);
 export const blogApi = new BlogApi(undefined, API_URL, apiInstance);
 export const blogReplyApi = new BlogReplyApi(undefined, API_URL, apiInstance);
+export const sessionApi = new SessionApi(undefined, API_URL, apiInstance);
 export const storageApi = new StorageApi(undefined, API_URL, apiInstance);
 export const userApi = new UserApi(undefined, API_URL, apiInstance);
 

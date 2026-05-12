@@ -4,25 +4,21 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import { useCookies } from 'react-cookie';
-import { v4 as uuidv4 } from 'uuid';
 import { blogApi } from '@api';
 import { Text } from '@components/basic/Text';
+import { useSession } from '@hooks/useSession';
 import logger from '@utils/logger';
 import { useBlogDetail } from './BlogDetailProvider';
 
 function LikeButton() {
   const { blog } = useBlogDetail();
-  const [cookies, setCookie] = useCookies(['Authorization', 'SessionId']);
+  const [cookies] = useCookies(['Authorization', 'SessionId']);
+  // 백엔드 발급 세션 보장 — 쿠키 미존재 시 자동 발급/갱신.
+  useSession();
 
   const [likeCount, setLikeCount] = useState(blog.likeCount || 0);
   const [isLiked, setIsLiked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    if (!cookies.SessionId) {
-      setCookie('SessionId', uuidv4(), { path: '/' });
-    }
-  }, [cookies.SessionId, setCookie]);
 
   useEffect(() => {
     const fetchLikeStatus = async () => {

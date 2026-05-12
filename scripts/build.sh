@@ -7,5 +7,6 @@ yarn run generate-api -- --name=User
 yarn run generate-api -- --name=Auth
 yarn run generate-api -- --name=Storage
 yarn run generate-api -- --name=BlogReply
+yarn run generate-api -- --name=Session
 yarn run build
 yarn run postbuild

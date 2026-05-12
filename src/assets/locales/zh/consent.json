@@ -1,0 +1,10 @@
+{
+  "description": "本网站使用Cookie以改善用户体验并分析服务。详情请查看",
+  "privacyLink": "隐私政策",
+  "descriptionSuffix": "。",
+  "deny": "拒绝",
+  "accept": "同意",
+  "ariaLabel": "Cookie使用同意",
+  "denyAriaLabel": "拒绝使用Cookie",
+  "acceptAriaLabel": "同意使用Cookie"
+}
