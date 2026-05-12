@@ -2,25 +2,20 @@
 
 import React, { useEffect, useState } from 'react';
 import { Eye } from 'lucide-react';
-import { useCookies } from 'react-cookie';
-import { v4 as uuidv4 } from 'uuid';
 import { usePostBlogView } from '@queries/useBlogQueries';
+import { useSession } from '@hooks/useSession';
 import { useBlogDetail } from './BlogDetailProvider';
 
 function ViewCount() {
   const { blog } = useBlogDetail();
-  const [cookies, setCookie] = useCookies(['Authorization', 'SessionId']);
+  // 백엔드 발급 세션을 사용 — 클라이언트가 UUID를 직접 만들지 않는다.
+  const { sessionId } = useSession();
   const [viewCount, setViewCount] = useState(blog.viewCount || 0);
 
   const postViewMutation = usePostBlogView();
 
   useEffect(() => {
-    // Ensure SessionId exists
-    let sessionId = cookies.SessionId;
-    if (!sessionId) {
-      sessionId = uuidv4();
-      setCookie('SessionId', sessionId, { path: '/' });
-    }
+    if (!sessionId) return;
 
     const incrementView = async () => {
       try {
@@ -34,7 +29,7 @@ function ViewCount() {
 
     incrementView();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blog.urlSlug, cookies.SessionId, setCookie]); // Mutation dependency omitted to run once per slug/session
+  }, [blog.urlSlug, sessionId]); // 슬러그/세션 변경 시 1회 카운트
 
   return (
     <span className="inline-flex items-center justify-center gap-1 align-middle leading-none">
