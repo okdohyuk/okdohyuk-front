@@ -8,8 +8,10 @@ import Cookies from 'js-cookie';
 import { ShieldCheck } from 'lucide-react';
 
 import Link from '~/components/basic/Link';
-import { authApi, userApi } from '@api';
+import { authApi, sessionApi, userApi } from '@api';
 import useStore from '@hooks/useStore';
+import { clearSessionCookies } from '@hooks/useSession';
+import logger from '@utils/logger';
 import { useTranslation } from '~/app/i18n/client';
 import { LanguageParams } from '~/app/[lng]/layout';
 import UserTokenUtil from '~/utils/userTokenUtil';
@@ -49,7 +51,26 @@ export default function LoginPage({ params }: LanguageParams) {
             UserTokenUtil.setAccessToken(access_token);
             UserTokenUtil.setRefreshToken(refresh_token);
             UserTokenUtil.setUserInfo(data);
-            push(redirectUri);
+
+            // 익명 세션 기록(좋아요/조회수)을 회원 계정으로 마이그레이션.
+            // 실패해도 로그인 흐름은 중단하지 않는다.
+            const sessionId = Cookies.get('SessionId');
+            if (sessionId) {
+              sessionApi
+                .postSessionMigrate(`Bearer ${access_token}`, { session_id: sessionId })
+                .then(() => {
+                  // 마이그레이션 완료 후 세션 비활성화 → 쿠키 제거
+                  clearSessionCookies();
+                })
+                .catch((e) => {
+                  logger.error('Session migrate 실패', e);
+                })
+                .finally(() => {
+                  push(redirectUri);
+                });
+            } else {
+              push(redirectUri);
+            }
           });
         })
         .catch(() => {
