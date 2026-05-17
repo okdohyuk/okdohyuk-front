@@ -1,0 +1,71 @@
+{
+  "title": "URL短縮ツール",
+  "description": "長いリンクを短く、共有しやすいURLに変換しましょう。",
+  "headerBadge": "生成・自動化",
+  "intro": "ログインなしで短縮URLを作成できます。ログインするとクリック数の統計と管理機能をご利用いただけます。",
+  "form": {
+    "originalUrl": {
+      "label": "元のURL",
+      "placeholder": "https://example.com/very/long/path",
+      "helper": "http:// または https:// で始まる完全なURLを入力してください。",
+      "errorRequired": "短縮するURLを入力してください。",
+      "errorInvalid": "http:// または https:// で始まるURLのみ入力できます。"
+    },
+    "expirePreset": {
+      "label": "有効期間",
+      "ariaLabel": "短縮URLの有効期限を選択",
+      "options": {
+        "oneDay": "1日",
+        "sevenDays": "7日",
+        "thirtyDays": "30日 (デフォルト)",
+        "oneYear": "1年",
+        "never": "無期限"
+      }
+    },
+    "submit": "短縮する",
+    "submitting": "作成中…",
+    "apiError": "短縮URLの作成に失敗しました。しばらくしてから再度お試しください。"
+  },
+  "result": {
+    "title": "短縮URLを作成しました",
+    "code": "コード",
+    "hitCount": "クリック数",
+    "expires": "有効期限",
+    "expiresNever": "無期限",
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "original": "元のURL"
+  },
+  "me": {
+    "title": "マイ短縮URL",
+    "headerBadge": "マイツール",
+    "description": "作成した短縮URLのクリック数と有効期限を一覧で確認できます。",
+    "loginRequired": "このページを表示するにはログインが必要です。",
+    "loading": "読み込み中…",
+    "error": "短縮URLの一覧を取得できませんでした。",
+    "empty": "まだ短縮URLを作成していません。",
+    "createCta": "短縮URLを作成する",
+    "table": {
+      "shortUrl": "短縮URL",
+      "original": "元のURL",
+      "hitCount": "クリック数",
+      "createdAt": "作成日",
+      "expiresAt": "有効期限",
+      "actions": "操作"
+    },
+    "deleteConfirm": "短縮URL {{code}} を削除しますか?",
+    "deleteError": "短縮URLの削除に失敗しました。しばらくしてから再度お試しください。",
+    "deleteButton": "削除"
+  },
+  "notFound": {
+    "status": "404 / 410",
+    "title": "リンクが見つからないか期限切れです",
+    "description": "リクエストされた短縮リンクは無効になりました。\n新しい短縮URLを作成してください。",
+    "action": "短縮URLを作成する"
+  },
+  "openGraph": {
+    "title": "URL短縮ツール",
+    "description": "長いURLを6文字の短縮コードに変換して共有しやすくする無料ツールです。有効期限は1日・7日・30日・1年・無期限から選べ、ログインするとクリック数の統計と管理機能まで利用できます。会員登録なしですぐにご利用いただけます。",
+    "keywords": ["URL短縮", "短縮リンク", "ショートURL", "リンク短縮", "URL縮める"]
+  }
+}

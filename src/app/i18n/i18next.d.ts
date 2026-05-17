@@ -53,6 +53,7 @@ import ipLookup from 'assets/locales/ko/ip-lookup.json';
 import networkCalculator from 'assets/locales/ko/network-calculator.json';
 import commandPalette from 'assets/locales/ko/command-palette.json';
 import consent from 'assets/locales/ko/consent.json';
+import shortener from 'assets/locales/ko/shortener.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -112,6 +113,7 @@ declare module 'i18next' {
       'network-calculator': typeof networkCalculator;
       'command-palette': typeof commandPalette;
       consent: typeof consent;
+      shortener: typeof shortener;
     };
   }
 }

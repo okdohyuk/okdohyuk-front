@@ -14,12 +14,15 @@ export default defineConfig({
       '@libs': path.resolve(srcDir, 'libs'),
       '@assets': path.resolve(srcDir, 'assets'),
       '@api': path.resolve(srcDir, 'spec/api'),
+      '@queries': path.resolve(srcDir, 'queries'),
+      '@context': path.resolve(srcDir, 'context'),
     },
   },
   test: {
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
+    exclude: ['**/node_modules/**', '**/dist/**', '**/.next/**', '**/e2e/**'],
     coverage: {
       provider: 'v8',
       reportsDirectory: './coverage',

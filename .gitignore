@@ -62,3 +62,6 @@ tsconfig.tsbuildinfo
 public/command-palette-pages.json
 .omx/
 
+/.env.local
+playwright-report/
+test-results/

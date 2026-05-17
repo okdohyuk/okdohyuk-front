@@ -63,6 +63,16 @@ const menus: Menus = {
   service: [
     {
       title: {
+        ko: 'URL 단축기',
+        en: 'URL Shortener',
+        ja: 'URL短縮ツール',
+        zh: '短链接生成器',
+      },
+      icon: <Link2 />,
+      link: '/shortener',
+    },
+    {
+      title: {
         ko: 'QR 코드 생성기',
         en: 'QR Code Generator',
         ja: 'QRコード生成器',
