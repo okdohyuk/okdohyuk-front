@@ -17,29 +17,51 @@ import { ShortUrlCreateRequestExpirePresetEnum } from '@api/ShortUrl';
 import { cn } from '@utils/cn';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import logger from '@utils/logger';
+import { useTranslation } from '~/app/i18n/client';
+import { Language } from '~/app/i18n/settings';
+
+type ExpirePresetLabelKey =
+  | 'form.expirePreset.options.oneDay'
+  | 'form.expirePreset.options.sevenDays'
+  | 'form.expirePreset.options.thirtyDays'
+  | 'form.expirePreset.options.oneYear'
+  | 'form.expirePreset.options.never';
 
 // 만료 프리셋 5종 — 백엔드 enum 과 1:1 매핑된다.
 const EXPIRE_PRESET_OPTIONS: ReadonlyArray<{
   value: ShortUrlCreateRequestExpirePresetEnum;
-  label: string;
+  labelKey: ExpirePresetLabelKey;
 }> = [
-  { value: ShortUrlCreateRequestExpirePresetEnum.OneDay, label: '1일' },
-  { value: ShortUrlCreateRequestExpirePresetEnum.SevenDays, label: '7일' },
-  { value: ShortUrlCreateRequestExpirePresetEnum.ThirtyDays, label: '30일 (기본)' },
-  { value: ShortUrlCreateRequestExpirePresetEnum.OneYear, label: '1년' },
-  { value: ShortUrlCreateRequestExpirePresetEnum.Never, label: '무제한' },
+  {
+    value: ShortUrlCreateRequestExpirePresetEnum.OneDay,
+    labelKey: 'form.expirePreset.options.oneDay',
+  },
+  {
+    value: ShortUrlCreateRequestExpirePresetEnum.SevenDays,
+    labelKey: 'form.expirePreset.options.sevenDays',
+  },
+  {
+    value: ShortUrlCreateRequestExpirePresetEnum.ThirtyDays,
+    labelKey: 'form.expirePreset.options.thirtyDays',
+  },
+  {
+    value: ShortUrlCreateRequestExpirePresetEnum.OneYear,
+    labelKey: 'form.expirePreset.options.oneYear',
+  },
+  {
+    value: ShortUrlCreateRequestExpirePresetEnum.Never,
+    labelKey: 'form.expirePreset.options.never',
+  },
 ];
 
 const HTTP_URL_PATTERN = /^https?:\/\/.+/i;
 
-function formatExpiresAt(expiresAt: string | null | undefined) {
-  if (!expiresAt) return '무제한';
-  const date = new Date(expiresAt);
-  if (Number.isNaN(date.getTime())) return expiresAt;
-  return date.toLocaleString();
-}
+type ShortenerFormProps = {
+  lng: Language;
+};
 
-export default function ShortenerForm() {
+export default function ShortenerForm({ lng }: ShortenerFormProps) {
+  const { t } = useTranslation(lng, 'shortener');
   const [originalUrl, setOriginalUrl] = React.useState('');
   const [expirePreset, setExpirePreset] = React.useState<ShortUrlCreateRequestExpirePresetEnum>(
     ShortUrlCreateRequestExpirePresetEnum.ThirtyDays,
@@ -49,16 +71,23 @@ export default function ShortenerForm() {
   const createMutation = useCreateShortUrl();
   const result: ShortUrl | undefined = createMutation.data;
 
+  const formatExpiresAt = (expiresAt: string | null | undefined) => {
+    if (!expiresAt) return t('result.expiresNever');
+    const date = new Date(expiresAt);
+    if (Number.isNaN(date.getTime())) return expiresAt;
+    return date.toLocaleString(lng);
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setCopied(false);
     const trimmed = originalUrl.trim();
     if (!trimmed) {
-      setValidationError('단축할 URL 을 입력해 주세요.');
+      setValidationError(t('form.originalUrl.errorRequired'));
       return;
     }
     if (!HTTP_URL_PATTERN.test(trimmed)) {
-      setValidationError('http:// 또는 https:// 로 시작하는 URL 만 입력할 수 있어요.');
+      setValidationError(t('form.originalUrl.errorInvalid'));
       return;
     }
 
@@ -82,23 +111,20 @@ export default function ShortenerForm() {
   };
 
   const isSubmitting = createMutation.isPending;
-  const apiErrorMessage = createMutation.isError
-    ? '단축 URL 생성에 실패했어요. 잠시 후 다시 시도해 주세요.'
-    : null;
+  const apiErrorMessage = createMutation.isError ? t('form.apiError') : null;
 
   return (
     <div className="space-y-4">
       <form onSubmit={handleSubmit} className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="space-y-2">
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor="shortener-original-url" className="text-sm font-semibold text-fg-1">
-            원본 URL
+            {t('form.originalUrl.label')}
           </label>
           <Input
             id="shortener-original-url"
             type="url"
             inputMode="url"
-            placeholder="https://example.com/very/long/path"
+            placeholder={t('form.originalUrl.placeholder')}
             value={originalUrl}
             onChange={(e) => setOriginalUrl(e.target.value)}
             disabled={isSubmitting}
@@ -109,29 +135,29 @@ export default function ShortenerForm() {
               {validationError}
             </p>
           ) : (
-            <p className="text-xs text-fg-5">
-              http:// 또는 https:// 로 시작하는 전체 URL 을 입력해 주세요.
-            </p>
+            <p className="text-xs text-fg-5">{t('form.originalUrl.helper')}</p>
           )}
         </div>
 
         <div className="space-y-2">
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor="shortener-expire-preset" className="text-sm font-semibold text-fg-1">
-            사용 기간
+            {t('form.expirePreset.label')}
           </label>
           <Select
             value={expirePreset}
             onValueChange={(v) => setExpirePreset(v as ShortUrlCreateRequestExpirePresetEnum)}
             disabled={isSubmitting}
           >
-            <SelectTrigger id="shortener-expire-preset" aria-label="단축 URL 만료 기간 선택">
+            <SelectTrigger
+              id="shortener-expire-preset"
+              aria-label={t('form.expirePreset.ariaLabel')}
+            >
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
               {EXPIRE_PRESET_OPTIONS.map((option) => (
                 <SelectItem key={option.value} value={option.value}>
-                  {option.label}
+                  {String(t(option.labelKey))}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -148,10 +174,10 @@ export default function ShortenerForm() {
             {isSubmitting ? (
               <span className="inline-flex items-center gap-2">
                 <Loader2 className="h-4 w-4 animate-spin" />
-                생성 중…
+                {t('form.submitting')}
               </span>
             ) : (
-              '단축하기'
+              t('form.submit')
             )}
           </Button>
         </div>
@@ -164,10 +190,10 @@ export default function ShortenerForm() {
       </form>
 
       {result ? (
-        <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')} aria-label="단축 URL 결과">
+        <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')} aria-label={t('result.title')}>
           <div className="flex items-center gap-2 text-sm font-semibold text-fg-1">
             <LinkIcon className="h-4 w-4" />
-            단축 URL 생성 완료
+            {t('result.title')}
           </div>
 
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -187,27 +213,29 @@ export default function ShortenerForm() {
             >
               <span className="inline-flex items-center gap-1">
                 <Copy className="h-4 w-4" />
-                {copied ? '복사됨' : '복사'}
+                {copied ? t('result.copied') : t('result.copy')}
               </span>
             </Button>
           </div>
 
           <dl className="grid grid-cols-1 gap-2 text-sm text-fg-4 sm:grid-cols-3">
             <div>
-              <dt className="text-xs text-fg-5">코드</dt>
+              <dt className="text-xs text-fg-5">{t('result.code')}</dt>
               <dd className="font-mono text-fg-1">{result.code}</dd>
             </div>
             <div>
-              <dt className="text-xs text-fg-5">클릭 수</dt>
+              <dt className="text-xs text-fg-5">{t('result.hitCount')}</dt>
               <dd className="text-fg-1">{result.hitCount}</dd>
             </div>
             <div>
-              <dt className="text-xs text-fg-5">만료</dt>
+              <dt className="text-xs text-fg-5">{t('result.expires')}</dt>
               <dd className="text-fg-1">{formatExpiresAt(result.expiresAt)}</dd>
             </div>
           </dl>
 
-          <p className="text-xs text-fg-5 break-all">원본: {result.originalUrl}</p>
+          <p className="text-xs text-fg-5 break-all">
+            {t('result.original')}: {result.originalUrl}
+          </p>
         </section>
       ) : null}
     </div>

@@ -1,0 +1,71 @@
+{
+  "title": "短链接生成器",
+  "description": "把长链接转换为简短、易于分享的网址。",
+  "headerBadge": "生成与自动化",
+  "intro": "无需登录即可创建短链接。登录后可使用点击量统计和管理功能。",
+  "form": {
+    "originalUrl": {
+      "label": "原始URL",
+      "placeholder": "https://example.com/very/long/path",
+      "helper": "请输入以 http:// 或 https:// 开头的完整网址。",
+      "errorRequired": "请输入要缩短的网址。",
+      "errorInvalid": "仅允许以 http:// 或 https:// 开头的网址。"
+    },
+    "expirePreset": {
+      "label": "有效期",
+      "ariaLabel": "选择短链接有效期",
+      "options": {
+        "oneDay": "1天",
+        "sevenDays": "7天",
+        "thirtyDays": "30天(默认)",
+        "oneYear": "1年",
+        "never": "永久"
+      }
+    },
+    "submit": "缩短",
+    "submitting": "生成中…",
+    "apiError": "短链接生成失败,请稍后重试。"
+  },
+  "result": {
+    "title": "短链接已生成",
+    "code": "代码",
+    "hitCount": "点击数",
+    "expires": "有效期",
+    "expiresNever": "永久",
+    "copy": "复制",
+    "copied": "已复制",
+    "original": "原始链接"
+  },
+  "me": {
+    "title": "我的短链接",
+    "headerBadge": "我的工具",
+    "description": "一览您创建的短链接的点击数和有效期。",
+    "loginRequired": "请登录后查看此页面。",
+    "loading": "加载中…",
+    "error": "无法加载您的短链接列表。",
+    "empty": "您还没有创建任何短链接。",
+    "createCta": "创建短链接",
+    "table": {
+      "shortUrl": "短链接",
+      "original": "原始链接",
+      "hitCount": "点击数",
+      "createdAt": "创建时间",
+      "expiresAt": "到期时间",
+      "actions": "操作"
+    },
+    "deleteConfirm": "确定要删除短链接 {{code}} 吗?",
+    "deleteError": "短链接删除失败,请稍后重试。",
+    "deleteButton": "删除"
+  },
+  "notFound": {
+    "status": "404 / 410",
+    "title": "链接不存在或已过期",
+    "description": "请求的短链接已失效。\n请创建新的短链接。",
+    "action": "去创建短链接"
+  },
+  "openGraph": {
+    "title": "短链接生成器",
+    "description": "将长网址转换为6位短代码、便于分享的免费工具。有效期支持1天、7天、30天、1年或永久,登录后可查看点击量统计和管理链接。无需注册即可使用。",
+    "keywords": ["短链接", "URL缩短", "短网址", "链接缩短", "shorten URL"]
+  }
+}

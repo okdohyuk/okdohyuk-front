@@ -14,15 +14,22 @@ import {
 import { useDeleteShortUrl, useMyShortUrls } from '@queries/useShortUrlQueries';
 import UserTokenUtil from '@utils/userTokenUtil';
 import logger from '@utils/logger';
+import { useTranslation } from '~/app/i18n/client';
+import { Language } from '~/app/i18n/settings';
 
-function formatDateTime(value: string | null | undefined) {
-  if (!value) return '-';
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleString();
-}
+type MyShortUrlsTableProps = {
+  lng: Language;
+};
 
-export default function MyShortUrlsTable() {
+export default function MyShortUrlsTable({ lng }: MyShortUrlsTableProps) {
+  const { t } = useTranslation(lng, 'shortener');
+
+  const formatDateTime = (value: string | null | undefined) => {
+    if (!value) return '-';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return date.toLocaleString(lng);
+  };
   // 클라이언트 사이드 토큰. SSR 단계에선 항상 null → enabled=false 로 idle 상태.
   const [accessToken, setAccessToken] = React.useState<string | null>(null);
   React.useEffect(() => {
@@ -34,13 +41,13 @@ export default function MyShortUrlsTable() {
 
   const handleDelete = (code: string) => {
     // eslint-disable-next-line no-alert
-    const confirmed = window.confirm(`정말로 ${code} 단축 URL 을 삭제할까요?`);
+    const confirmed = window.confirm(t('me.deleteConfirm', { code }));
     if (!confirmed) return;
     deleteMutation.mutate(code, {
       onError: (err) => {
         logger.error('단축 URL 삭제 실패', code, err);
         // eslint-disable-next-line no-alert
-        window.alert('단축 URL 삭제에 실패했어요. 잠시 후 다시 시도해 주세요.');
+        window.alert(t('me.deleteError'));
       },
     });
   };
@@ -56,7 +63,7 @@ export default function MyShortUrlsTable() {
   if (isError) {
     return (
       <p className="rounded-md border border-basic-3 bg-basic-0 p-4 text-sm text-red-500">
-        목록을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.
+        {t('me.error')}
       </p>
     );
   }
@@ -66,7 +73,7 @@ export default function MyShortUrlsTable() {
   if (items.length === 0) {
     return (
       <p className="rounded-md border border-basic-3 bg-basic-0 p-4 text-sm text-fg-4">
-        아직 만든 단축 URL 이 없어요.
+        {t('me.empty')}
       </p>
     );
   }
@@ -75,12 +82,12 @@ export default function MyShortUrlsTable() {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>단축 URL</TableHead>
-          <TableHead>원본</TableHead>
-          <TableHead className="w-[80px] text-right">클릭 수</TableHead>
-          <TableHead className="w-[160px]">생성일</TableHead>
-          <TableHead className="w-[160px]">만료일</TableHead>
-          <TableHead className="w-[80px]">관리</TableHead>
+          <TableHead>{t('me.table.shortUrl')}</TableHead>
+          <TableHead>{t('me.table.original')}</TableHead>
+          <TableHead className="w-[80px] text-right">{t('me.table.hitCount')}</TableHead>
+          <TableHead className="w-[160px]">{t('me.table.createdAt')}</TableHead>
+          <TableHead className="w-[160px]">{t('me.table.expiresAt')}</TableHead>
+          <TableHead className="w-[80px]">{t('me.table.actions')}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -102,7 +109,7 @@ export default function MyShortUrlsTable() {
               <TableCell className="text-right tabular-nums">{item.hitCount}</TableCell>
               <TableCell className="text-xs text-fg-4">{formatDateTime(item.createdAt)}</TableCell>
               <TableCell className="text-xs text-fg-4">
-                {item.expiresAt ? formatDateTime(item.expiresAt) : '무제한'}
+                {item.expiresAt ? formatDateTime(item.expiresAt) : t('result.expiresNever')}
               </TableCell>
               <TableCell>
                 <Button
@@ -111,7 +118,7 @@ export default function MyShortUrlsTable() {
                   disabled={isDeleting}
                   analyticsKey="shortener_delete"
                   className="min-h-[28px] bg-red-500 px-2 text-xs hover:bg-red-600"
-                  aria-label={`${item.code} 삭제`}
+                  aria-label={`${t('me.deleteButton')} ${item.code}`}
                 >
                   {isDeleting ? (
                     <Loader2 className="h-3.5 w-3.5 animate-spin" />
