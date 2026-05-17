@@ -59,6 +59,12 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
+  // /l/{code} 단축 URL 리다이렉트 라우트는 i18n 로케일 prefix 적용에서 제외한다.
+  // 사용자가 외부에 공유하는 짧은 링크가 `/ko/l/abc123` 처럼 늘어나는 것을 방지.
+  if (pathname === '/l' || pathname.startsWith('/l/')) {
+    return NextResponse.next();
+  }
+
   const lng = resolvePreferredLanguage(req);
 
   if (isMarkdownRequest(req.headers.get('accept'))) {

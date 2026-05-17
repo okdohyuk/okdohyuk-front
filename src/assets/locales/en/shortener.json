@@ -1,0 +1,71 @@
+{
+  "title": "URL Shortener",
+  "description": "Turn long links into short, easy-to-share URLs.",
+  "headerBadge": "Generators & Automation",
+  "intro": "You can create short URLs without signing in. Sign in to unlock click count statistics and management.",
+  "form": {
+    "originalUrl": {
+      "label": "Original URL",
+      "placeholder": "https://example.com/very/long/path",
+      "helper": "Enter a full URL starting with http:// or https://.",
+      "errorRequired": "Please enter a URL to shorten.",
+      "errorInvalid": "Only URLs starting with http:// or https:// are allowed."
+    },
+    "expirePreset": {
+      "label": "Expiration",
+      "ariaLabel": "Choose short URL expiration",
+      "options": {
+        "oneDay": "1 day",
+        "sevenDays": "7 days",
+        "thirtyDays": "30 days (default)",
+        "oneYear": "1 year",
+        "never": "Never"
+      }
+    },
+    "submit": "Shorten",
+    "submitting": "Creating…",
+    "apiError": "Failed to create the short URL. Please try again shortly."
+  },
+  "result": {
+    "title": "Short URL created",
+    "code": "Code",
+    "hitCount": "Clicks",
+    "expires": "Expires",
+    "expiresNever": "Never",
+    "copy": "Copy",
+    "copied": "Copied",
+    "original": "Original"
+  },
+  "me": {
+    "title": "My Short URLs",
+    "headerBadge": "My tools",
+    "description": "See click counts and expirations for the short URLs you created.",
+    "loginRequired": "Please sign in to view this page.",
+    "loading": "Loading…",
+    "error": "Could not load your short URLs.",
+    "empty": "You haven't created any short URLs yet.",
+    "createCta": "Create a short URL",
+    "table": {
+      "shortUrl": "Short URL",
+      "original": "Original",
+      "hitCount": "Clicks",
+      "createdAt": "Created",
+      "expiresAt": "Expires",
+      "actions": "Actions"
+    },
+    "deleteConfirm": "Delete short URL {{code}}?",
+    "deleteError": "Failed to delete the short URL. Please try again shortly.",
+    "deleteButton": "Delete"
+  },
+  "notFound": {
+    "status": "404 / 410",
+    "title": "Link not found or expired",
+    "description": "The requested short link is no longer valid.\nTry creating a new short URL.",
+    "action": "Go create a short URL"
+  },
+  "openGraph": {
+    "title": "URL Shortener",
+    "description": "Free tool that turns long URLs into 6-character short codes for easy sharing. Choose an expiration of 1 day, 7 days, 30 days, 1 year, or never, and sign in to track click counts and manage your links. No sign-up required to get started.",
+    "keywords": ["URL shortener", "short link", "shorten URL", "link shortener", "URL minify"]
+  }
+}

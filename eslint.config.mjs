@@ -35,7 +35,7 @@ export default [
   ...compat.extends(
     'airbnb',
     'airbnb-typescript',
-    'next/core-web-vitals',
+    // 'next/core-web-vitals' — ESLint 10 / @rushstack/eslint-patch 비호환으로 임시 제외 (follow-up: ESLint 9 다운그레이드 or rushstack 2.x 정식 릴리스 대기)
     'plugin:prettier/recommended',
   ),
   {
