@@ -65,5 +65,3 @@ public/command-palette-pages.json
 /.env.local
 playwright-report/
 test-results/
-
-src/generated/*
