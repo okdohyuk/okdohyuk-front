@@ -20,7 +20,7 @@ export default async function ShortenerPage({ params }: LanguageParams) {
   const badge = getServiceCategoryBadge(language, '/shortener');
 
   return (
-    <div className="mx-auto w-full max-w-3xl space-y-4 px-2 pb-24 pt-3 sm:px-3 md:px-4">
+    <div className="w-full space-y-4 px-2 pb-24 pt-3 sm:px-3 md:px-4">
       <ServicePageHeader title={t('title')} description={t('description')} badge={badge} />
 
       <ServiceInfoNotice icon={<Sparkles className="h-5 w-5" />}>{t('intro')}</ServiceInfoNotice>
