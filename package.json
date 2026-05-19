@@ -130,7 +130,7 @@
     "prettier": "^3",
     "storybook": "^10.2.7",
     "tailwindcss": "^4.1.18",
-    "vitest": "^2.1.4",
+    "vitest": "^4.1.6",
     "webpack": "^5"
   },
   "lint-staged": {
