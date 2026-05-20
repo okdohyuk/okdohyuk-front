@@ -44,6 +44,7 @@ import bedtimePlanner from 'assets/locales/ko/bedtime-planner.json';
 import dataSizeConverter from 'assets/locales/ko/data-size-converter.json';
 import commuteCost from 'assets/locales/ko/commute-cost.json';
 import salaryConverter from 'assets/locales/ko/salary-converter.json';
+import kPass from 'assets/locales/ko/k-pass.json';
 import anniversaryCounter from 'assets/locales/ko/anniversary-counter.json';
 import lottoGenerator from 'assets/locales/ko/lotto-generator.json';
 import ageCalculator from 'assets/locales/ko/age-calculator.json';
@@ -104,6 +105,7 @@ declare module 'i18next' {
       'data-size-converter': typeof dataSizeConverter;
       'commute-cost': typeof commuteCost;
       'salary-converter': typeof salaryConverter;
+      'k-pass': typeof kPass;
       'anniversary-counter': typeof anniversaryCounter;
       'lotto-generator': typeof lottoGenerator;
       'age-calculator': typeof ageCalculator;

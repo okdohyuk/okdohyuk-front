@@ -1,0 +1,109 @@
+{
+  "title": "K-Pass 退款计算器",
+  "description": "输入每月交通费和乘坐次数,即刻计算韩国 K-Pass 的月度退款和年度节省。自动应用一般20%、青年30%、低收入层53%的退款比率。",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "K-Pass 退款计算器 (2026 最新退款率)",
+    "description": "一秒计算 K-Pass 月度退款和年度节省。自动应用 20/30/53% 退款率。包含京畿 Pass、I-Pass 和气候同行卡的对比。"
+  },
+  "form": {
+    "fare": "月度交通费 (KRW)",
+    "farePlaceholder": "例) 80000",
+    "uses": "每月乘坐次数",
+    "usesPlaceholder": "例) 25",
+    "tier": "退款层级",
+    "region": "地区",
+    "regionHint": "京畿和仁川居民没有 60 次上限,青年年龄扩展到 39 岁。"
+  },
+  "tier": {
+    "general": "一般",
+    "youth": "青年 (19~34岁)",
+    "lowIncome": "低收入层"
+  },
+  "region": {
+    "national": "全国 K-Pass",
+    "gyeonggi": "The 京畿 Pass",
+    "incheon": "仁川 I-Pass"
+  },
+  "result": {
+    "farePerRide": "单次平均车费",
+    "perRide": "单次退款",
+    "monthly": "月度退款",
+    "annual": "年度节省",
+    "vsGeneral": "比一般多退"
+  },
+  "notice": {
+    "below15": "上月公共交通使用需达到 {{min}} 次以上才能退款。请调整次数后重新计算。",
+    "capped": "全国 K-Pass 每月最多累积 {{cap}} 次。本次计算按 {{effective}} 次适用。"
+  },
+  "reset": "重置",
+  "currency": "₩{{value}}",
+  "about": {
+    "title": "K-Pass 是什么?",
+    "body": "K-Pass 是韩国于 2024 年 5 月 1 日实施的公共交通费退款政策。覆盖全国市内、村庄、广域巴士、地铁、新盆唐线等大部分公共交通,按使用金额的一定比例在次月积累,再下个月退款。\n\n退款比率为一般 20%、青年(满19~34岁) 30%、低收入层(基础生活受助者、次上位阶层) 53%。前一个月需乘坐 15 次以上才有退款资格。全国 K-Pass 每月最多累计 60 次,但京畿 The Gyeonggi Pass 和仁川 I-Pass 无上限,青年年龄扩展至满 39 岁。\n\n2019 年起的 Altteul 交通卡按步行和骑行距离差异化退款,K-Pass 改为按使用次数统一退款,更加简化。"
+  },
+  "compare": {
+    "title": "对比 Altteul 卡 和 气候同行卡",
+    "col": {
+      "item": "项目",
+      "kpass": "K-Pass",
+      "alt": "Altteul 交通卡",
+      "climate": "气候同行卡"
+    },
+    "row": {
+      "basis": {
+        "item": "退款依据",
+        "kpass": "次数 × 车费",
+        "alt": "步行 / 骑行距离",
+        "climate": "月度定额无限次"
+      },
+      "minUses": {
+        "item": "最低使用",
+        "kpass": "上月 15 次以上",
+        "alt": "上月 15 次以上",
+        "climate": "无"
+      },
+      "maxBenefit": {
+        "item": "最大权益",
+        "kpass": "最高 53% 退款 (低收入层)",
+        "alt": "最高 450 韩元/次",
+        "climate": "62,000 韩元/月 (首尔无限)"
+      },
+      "region": {
+        "item": "覆盖范围",
+        "kpass": "全国(含广域巴士)",
+        "alt": "2024.4.30 终止",
+        "climate": "仅首尔 (不含广域巴士)"
+      },
+      "youthRate": {
+        "item": "青年优待",
+        "kpass": "30% (京畿/仁川至 39 岁)",
+        "alt": "无",
+        "climate": "55,000 韩元青年折扣 (~39岁)"
+      }
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "refundTiming": {
+      "q": "K-Pass 退款什么时候到账?",
+      "a": "使用月的次月累积退款,再下个月支付到绑定卡或 K-Pass 应用钱包。例: 5月使用 → 6月累积 → 7月退款。"
+    },
+    "youthAge": {
+      "q": "青年退款率适用到几岁?",
+      "a": "全国 K-Pass 适用满 19~34 岁。京畿 Pass 和仁川 I-Pass 扩展至满 39 岁。"
+    },
+    "over60": {
+      "q": "每月超过 60 次怎么办?",
+      "a": "全国 K-Pass 每月最多累积 60 次。京畿与仁川项目无上限,所有次数都计入。"
+    },
+    "eligibleTransport": {
+      "q": "哪些交通工具适用 K-Pass?",
+      "a": "全国市内、村庄、广域巴士,地铁、新盆唐线、GTX 等大部分定期公共交通适用。KTX、SRT、高速巴士与城际巴士不在范围。"
+    },
+    "altMileage": {
+      "q": "K-Pass 退款比 Altteul 卡多吗?",
+      "a": "步行和骑行距离长时 Altteul 更有利,但短换乘的城市通勤者通常 K-Pass 退款更多。2024 年 5 月 1 日起 Altteul 卡已整合为 K-Pass。"
+    }
+  }
+}
