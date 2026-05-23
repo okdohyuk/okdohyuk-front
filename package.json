@@ -53,7 +53,7 @@
     "i18next": "~25.0.2",
     "i18next-browser-languagedetector": "^8.2.1",
     "i18next-resources-to-backend": "^1.2.1",
-    "js-cookie": "~3.0.5",
+    "js-cookie": "~3.0.7",
     "jwt-decode": "^4.0.0",
     "lodash": "^4.18.1",
     "lucide-react": "^0.537.0",
@@ -81,7 +81,7 @@
     "tailwindcss-safe-area": "^0.2.2",
     "typescript": "5.5.4",
     "uuid": "^14.0.0",
-    "yaml": "^2.6.1",
+    "yaml": "^2.9.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

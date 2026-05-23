@@ -30,6 +30,7 @@ const SERVICE_SECTION_BY_LINK: Record<string, ServiceSectionKey> = {
   '/sales-tax-calculator': 'finance',
   '/commute-cost': 'finance',
   '/salary-converter': 'finance',
+  '/k-pass': 'finance',
   '/korean-amount': 'finance',
   '/shortener': 'generator',
   '/qr-generator': 'generator',

@@ -2,6 +2,7 @@ import React from 'react';
 import {
   ArrowLeftRight,
   Bomb,
+  Bus,
   Cake,
   Calculator,
   CalendarClock,
@@ -290,6 +291,16 @@ const menus: Menus = {
       },
       icon: <Wallet />,
       link: '/salary-converter',
+    },
+    {
+      title: {
+        ko: 'K-패스 환급액 계산기',
+        en: 'K-Pass Refund Calculator',
+        ja: 'K-パス還付金計算機',
+        zh: 'K-Pass 退款计算器',
+      },
+      icon: <Bus />,
+      link: '/k-pass',
     },
     {
       title: {

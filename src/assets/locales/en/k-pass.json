@@ -1,0 +1,110 @@
+{
+  "title": "K-Pass Refund Calculator",
+  "description": "Calculate your monthly K-Pass refund and annual savings instantly. Auto-applies 20% (general), 30% (youth), or 53% (low-income) refund rates.",
+  "badge": "Finance",
+  "openGraph": {
+    "title": "K-Pass Refund Calculator (2026 Latest Rates)",
+    "description": "Estimate monthly K-Pass refunds and yearly savings in one second. Auto-applies 20/30/53% rates. Includes The Gyeonggi Pass, I-Pass, and Climate Card comparison."
+  },
+  "form": {
+    "fare": "Monthly fare (KRW)",
+    "farePlaceholder": "e.g. 80000",
+    "uses": "Trips per month",
+    "usesPlaceholder": "e.g. 25",
+    "tier": "Refund tier",
+    "region": "Region",
+    "regionHint": "Gyeonggi and Incheon residents have no 60-trip cap and the youth age extends to 39."
+  },
+  "tier": {
+    "general": "General",
+    "youth": "Youth (19–34)",
+    "lowIncome": "Low-income"
+  },
+  "region": {
+    "national": "K-Pass (Nationwide)",
+    "gyeonggi": "The Gyeonggi Pass",
+    "incheon": "I-Pass (Incheon)"
+  },
+  "result": {
+    "farePerRide": "Fare per ride",
+    "perRide": "Refund per ride",
+    "monthly": "Monthly refund",
+    "annual": "Annual savings",
+    "vsGeneral": "Extra vs. general"
+  },
+  "notice": {
+    "below15": "You need at least {{min}} trips in the previous month to qualify. Adjust the number of trips and recalculate.",
+    "capped": "Nationwide K-Pass refunds are capped at {{cap}} trips per month. The calculation uses {{effective}} trips."
+  },
+  "reset": "Reset",
+  "currency": "₩{{value}}",
+  "about": {
+    "title": "What is K-Pass?",
+    "body": "K-Pass is South Korea's public-transit refund program launched on May 1, 2024. It refunds a percentage of the fare you pay for buses, subways, and most rapid transit lines — paid out two months after travel.\n\nRefund rates are 20% (general), 30% (youth aged 19–34), and 53% (low-income recipients of basic livelihood or near-poverty support). You must take at least 15 qualifying trips in the prior month. Nationwide K-Pass caps refunds at 60 trips per month, while The Gyeonggi Pass and the Incheon I-Pass remove the cap and extend the youth bracket to age 39.\n\nThe previous Altteul Transit Card (2019–April 2024) tied mileage to walking and biking distance; K-Pass replaces it with a flat usage-based refund."
+  },
+  "compare": {
+    "title": "K-Pass vs. Altteul Card vs. Climate Card",
+    "col": {
+      "item": "Item",
+      "kpass": "K-Pass",
+      "alt": "Altteul Card",
+      "climate": "Climate Card"
+    },
+    "row": {
+      "basis": {
+        "item": "Basis",
+        "kpass": "Trips × fare",
+        "alt": "Walk / bike distance",
+        "climate": "Monthly flat fee (unlimited)"
+      },
+      "minUses": {
+        "item": "Minimum use",
+        "kpass": "15 trips / month",
+        "alt": "15 trips / month",
+        "climate": "None"
+      },
+      "maxBenefit": {
+        "item": "Max benefit",
+        "kpass": "Up to 53% refund (low-income)",
+        "alt": "Up to 450 KRW / trip",
+        "climate": "62,000 KRW / month unlimited (Seoul)"
+      },
+      "region": {
+        "item": "Coverage",
+        "kpass": "Nationwide incl. inter-city buses",
+        "alt": "Ended April 30, 2024",
+        "climate": "Seoul only (no inter-city)"
+      },
+      "youthRate": {
+        "item": "Youth benefit",
+        "kpass": "30% (Gyeonggi/Incheon up to 39)",
+        "alt": "None",
+        "climate": "55,000 KRW youth discount (≤39)"
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "refundTiming": {
+      "q": "When is the K-Pass refund paid?",
+      "a": "Refunds accrue the month after travel and are paid the following month to the linked card account or K-Pass app wallet. Example: May usage → June accrual → July payout."
+    },
+    "youthAge": {
+      "q": "What ages qualify for the youth rate?",
+      "a": "Nationwide K-Pass: 19–34. The Gyeonggi Pass and Incheon I-Pass extend the youth rate to age 39."
+    },
+    "over60": {
+      "q": "What happens beyond 60 trips per month?",
+      "a": "Nationwide K-Pass caps refunds at 60 trips. Gyeonggi and Incheon programs have no cap and refund every trip."
+    },
+    "eligibleTransport": {
+      "q": "Which transit modes are eligible?",
+      "a": "Nationwide city, town and inter-city buses, the subway, Shinbundang Line and GTX qualify. KTX, SRT and long-distance buses do not."
+    },
+    "altMileage": {
+      "q": "Is K-Pass a bigger refund than the old Altteul Card?",
+      "a": "Heavy walkers and cyclists earned more from Altteul mileage, but commuters with short transfers usually get more from K-Pass. The Altteul Card was merged into K-Pass on May 1, 2024."
+    }
+  },
+  "lastUpdated": "Rates and caps reflect the K-Pass program as of May 23, 2026. Results may change when the policy is revised."
+}
