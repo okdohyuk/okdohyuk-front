@@ -15,7 +15,6 @@ import {
   KPassTier,
   KPASS_CAP_NATIONAL,
   KPASS_MIN_USES,
-  KPASS_RULES_UPDATED_AT,
 } from '../utils/refund';
 
 const TIER_OPTIONS: KPassTier[] = ['general', 'youth', 'lowIncome'];
@@ -260,7 +259,7 @@ export default function KPassClient({ lng }: KPassClientProps) {
       </section>
 
       <p className="text-xs text-fg-5 text-center" data-testid="kpass-rules-updated-at">
-        {t('lastUpdated', { date: KPASS_RULES_UPDATED_AT })}
+        {t('lastUpdated')}
       </p>
     </div>
   );
