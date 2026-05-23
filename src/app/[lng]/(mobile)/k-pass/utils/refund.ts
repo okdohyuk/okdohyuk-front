@@ -10,6 +10,10 @@ export const KPASS_RATE: Record<KPassTier, number> = {
 export const KPASS_MIN_USES = 15;
 export const KPASS_CAP_NATIONAL = 60;
 
+// 환급률·한도 등 K-패스 제도 규칙을 수집·검증한 마지막 날짜.
+// 제도 개정 시 이 상수와 locales/k-pass.json 본문을 함께 갱신할 것.
+export const KPASS_RULES_UPDATED_AT = '2026-05-23';
+
 export type KPassInput = {
   monthlyFare: number;
   monthlyUses: number;

@@ -105,5 +105,6 @@
       "q": "K-Pass 退款比 Altteul 卡多吗?",
       "a": "步行和骑行距离长时 Altteul 更有利,但短换乘的城市通勤者通常 K-Pass 退款更多。2024 年 5 月 1 日起 Altteul 卡已整合为 K-Pass。"
     }
-  }
+  },
+  "lastUpdated": "本计算器基于 {{date}} 时的 K-Pass 制度(退款比例与上限)。政策修订时结果可能变化。"
 }

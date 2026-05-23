@@ -5,6 +5,7 @@ import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
+import { SegmentedControl } from '@components/basic/SegmentedControl';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
@@ -14,6 +15,7 @@ import {
   KPassTier,
   KPASS_CAP_NATIONAL,
   KPASS_MIN_USES,
+  KPASS_RULES_UPDATED_AT,
 } from '../utils/refund';
 
 const TIER_OPTIONS: KPassTier[] = ['general', 'youth', 'lowIncome'];
@@ -78,10 +80,14 @@ export default function KPassClient({ lng }: KPassClientProps) {
   const showBelow15Notice = hasInput && !result.eligible;
   const showCapNotice = hasInput && result.capped;
 
-  const toggleButtonClass = (active: boolean) =>
-    active
-      ? 'px-3 py-2 text-sm font-semibold ring-2 ring-fg-2 bg-basic-2 text-fg-1'
-      : 'px-3 py-2 text-sm font-semibold bg-basic-2 text-fg-5';
+  const tierOptions = TIER_OPTIONS.map((option) => ({
+    value: option,
+    label: t(`tier.${option}`),
+  }));
+  const regionOptions = REGION_OPTIONS.map((option) => ({
+    value: option,
+    label: t(`region.${option}`),
+  }));
 
   return (
     <div className="space-y-4">
@@ -123,34 +129,22 @@ export default function KPassClient({ lng }: KPassClientProps) {
 
         <div className="space-y-2">
           <span className="text-sm font-semibold text-fg-3">{t('form.tier')}</span>
-          <div className="flex flex-wrap gap-2">
-            {TIER_OPTIONS.map((option) => (
-              <Button
-                key={option}
-                type="button"
-                onClick={() => setTier(option)}
-                className={toggleButtonClass(tier === option)}
-              >
-                {t(`tier.${option}`)}
-              </Button>
-            ))}
-          </div>
+          <SegmentedControl
+            value={tier}
+            onChange={setTier}
+            options={tierOptions}
+            ariaLabel={t('form.tier')}
+          />
         </div>
 
         <div className="space-y-2">
           <span className="text-sm font-semibold text-fg-3">{t('form.region')}</span>
-          <div className="flex flex-wrap gap-2">
-            {REGION_OPTIONS.map((option) => (
-              <Button
-                key={option}
-                type="button"
-                onClick={() => setRegion(option)}
-                className={toggleButtonClass(region === option)}
-              >
-                {t(`region.${option}`)}
-              </Button>
-            ))}
-          </div>
+          <SegmentedControl
+            value={region}
+            onChange={setRegion}
+            options={regionOptions}
+            ariaLabel={t('form.region')}
+          />
           <p className="text-xs text-fg-5">{t('form.regionHint')}</p>
         </div>
 
@@ -264,6 +258,10 @@ export default function KPassClient({ lng }: KPassClientProps) {
           ))}
         </div>
       </section>
+
+      <p className="text-xs text-fg-5 text-center" data-testid="kpass-rules-updated-at">
+        {t('lastUpdated', { date: KPASS_RULES_UPDATED_AT })}
+      </p>
     </div>
   );
 }
