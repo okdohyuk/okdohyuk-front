@@ -1,0 +1,88 @@
+{
+  "title": "アンチコピーキラー",
+  "description": ".docxファイルをアップロードして、剽窃率とAI生成率を目標値以下に自動で下げます。",
+  "openGraph": {
+    "title": "アンチコピーキラー — 剽窃率・AI生成率 自動削減ツール",
+    "description": ".docxファイルをアップロードし、コピーキラー検査→疑い文章のAI再作成→再検査を繰り返して目標値以下のファイルを生成します。",
+    "keywords": ["コピーキラー", "剽窃率", "AI生成率", "論文", "自動校正"]
+  },
+  "gate": {
+    "login": {
+      "title": "ログインが必要です",
+      "description": "まずログインしてください。お問い合わせ: okdohyuk@gmail.com",
+      "cta": "ログイン"
+    },
+    "sponsor": {
+      "title": "アクセス権限が必要です",
+      "description": "アンチコピーキラーは権限のあるユーザーのみご利用いただけます。お問い合わせ: okdohyuk@gmail.com",
+      "cta": "お問い合わせ"
+    }
+  },
+  "form": {
+    "title": "新しいジョブを開始",
+    "fileLabel": "ドキュメントファイル (.docx)",
+    "filePlaceholder": "ファイルをドラッグするかクリックして選択してください",
+    "fileHelper": ".docx形式のファイルのみサポートされています。",
+    "fileError": ".docxファイルのみアップロードできます。",
+    "fileRequired": "ファイルを選択してください。",
+    "fileRemove": "ファイルを削除",
+    "docTypeLabel": "ドキュメントタイプ",
+    "docTypeAriaLabel": "ドキュメントタイプを選択",
+    "docTypeOptions": {
+      "PAPER": "論文",
+      "THESIS": "学位論文",
+      "SPEECH": "スピーチ",
+      "REPORT": "レポート",
+      "SOP": "志望動機書",
+      "FREE": "自由形式"
+    },
+    "styleModeLabel": "文体モード",
+    "styleModeAriaLabel": "文体処理モードを選択",
+    "styleModeOptions": {
+      "KEEP": "元の文体を維持",
+      "PRESET": "標準学術体"
+    },
+    "targetPlagLabel": "目標剽窃率 (%)",
+    "targetPlagHelper": "剽窃率をこの数値以下に下げます。",
+    "targetAiLabel": "目標AI生成率 (%)",
+    "targetAiHelper": "AI生成率をこの数値以下に下げます。",
+    "maxIterationsLabel": "最大反復回数",
+    "maxIterationsHelper": "目標未達成の場合、最大この回数まで再試行します。",
+    "submit": "分析開始",
+    "submitting": "送信中…",
+    "conflictError": "すでに進行中のジョブがあります。完了後に再試行してください。",
+    "apiError": "ジョブの作成に失敗しました。しばらくしてから再度お試しください。"
+  },
+  "progress": {
+    "title": "進行中のジョブ",
+    "iteration": "{{current}} / {{max}} 回",
+    "plagPercent": "剽窃率",
+    "aiPercent": "AI生成率",
+    "notMeasuredYet": "未測定",
+    "download": "結果をダウンロード",
+    "cancel": "キャンセル",
+    "cancelConfirm": "進行中のジョブをキャンセルしますか？",
+    "cancelError": "キャンセルに失敗しました。",
+    "downloadError": "ファイルのダウンロードに失敗しました。"
+  },
+  "status": {
+    "QUEUED": "待機中",
+    "REGISTERING": "文書登録中",
+    "CHECKING": "剽窃検査中",
+    "EXTRACTING": "疑い文章抽出中",
+    "REWRITING": "AI再作成中",
+    "RECHECKING": "再検査中",
+    "COMPLETED": "完了",
+    "FAILED": "失敗",
+    "CANCELED": "キャンセル済み"
+  },
+  "history": {
+    "title": "過去のジョブ履歴",
+    "empty": "過去のジョブ履歴はありません。",
+    "filename": "ファイル名",
+    "status": "ステータス",
+    "createdAt": "作成日",
+    "download": "ダウンロード",
+    "downloadUnavailable": "結果なし"
+  }
+}
