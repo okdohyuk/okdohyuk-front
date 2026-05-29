@@ -5321,10 +5321,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gtag.js@npm:^0.0.12":
-  version: 0.0.12
-  resolution: "@types/gtag.js@npm:0.0.12"
-  checksum: 10c0/fee8f4c6e627301b89ab616c9e219bd53fa6ea1ffd1d0a8021e21363f0bdb2cf7eb1a5bcda0c6f1502186379bc7784ec29c932e21634f4e07f9e7a8c56887400
+"@types/gtag.js@npm:^0.0.20":
+  version: 0.0.20
+  resolution: "@types/gtag.js@npm:0.0.20"
+  checksum: 10c0/eb878aa3cfab6b98f5e69ef3383e9788aaea6a4d0611c72078678374dcbb4731f533ff2bf479a865536f1626a57887b1198279ff35a65d223fe4f93d9c76dbdd
   languageName: node
   linkType: hard
 
@@ -12778,7 +12778,7 @@ __metadata:
     "@testing-library/react": "npm:^16.3.0"
     "@testing-library/user-event": "npm:^14.5.2"
     "@types/eslint-plugin-jsx-a11y": "npm:^6"
-    "@types/gtag.js": "npm:^0.0.12"
+    "@types/gtag.js": "npm:^0.0.20"
     "@types/js-cookie": "npm:~3.0.6"
     "@types/lodash": "npm:^4"
     "@types/node": "npm:^18"
