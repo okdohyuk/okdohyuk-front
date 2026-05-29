@@ -1,14 +1,9 @@
 'use client';
 
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { copykillerApi, apiInstance } from '@api';
+import { copykillerApi } from '@api';
 import type { CopykillerJobRequest } from '@api/Copykiller';
 import { COPYKILLER_TERMINAL_STATUSES } from '@components/copykiller/types';
-
-// generated client 미사용 호출(apiInstance.post/get)은 axios baseURL 만 의존하므로
-// production 빌드에서 process.env.NEXT_PUBLIC_API_URL 가 inline 안 될 경우
-// 현재 origin 으로 요청이 가는 문제가 발생. explicit prefix 로 안전 처리.
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? '';
 
 export const COPYKILLER_KEYS = {
   all: ['copykiller'] as const,
@@ -31,17 +26,10 @@ export const useSubmitCopykillerJob = () => {
 
   return useMutation({
     mutationFn: async ({ file, options }: SubmitCopykillerJobPayload) => {
-      const formData = new FormData();
-      formData.append('file', file);
-      // options 파트는 application/json 인코딩 필요 (OpenAPI 3.0 encoding.contentType)
-      // Blob 래핑으로 Content-Type 명시.
-      formData.append('options', new Blob([JSON.stringify(options)], { type: 'application/json' }));
-
-      // Content-Type 헤더를 명시하지 않으면 axios가 FormData 감지 시
-      // 자동으로 'multipart/form-data; boundary=...' 를 설정한다.
-      // Authorization 헤더는 apiInstance request interceptor가 자동 첨부하므로 중복 전달 불필요.
-      const response = await apiInstance.post(`${API_BASE}/copykiller/jobs`, formData);
-      return response.data;
+      // generated client 가 file + options(JSON Blob) multipart 를 정확히 처리한다.
+      // authorization 빈 문자열은 assertParamExists 통과용 — 실제 토큰은 apiInstance interceptor 가 주입.
+      const { data } = await copykillerApi.postCopykillerJobs('', file, options);
+      return data;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: COPYKILLER_KEYS.jobs() });
@@ -110,15 +98,14 @@ export const useCancelCopykillerJob = () => {
 
 // ============================================================
 // useDownloadCopykillerResult
-// blob fetch + Content-Disposition 파싱 + 브라우저 다운로드 트리거
-// generated client 가 binary response 미지원 → apiInstance 직접 호출.
-// apiInstance 사용으로 401 refresh / 403 redirect interceptor 적용됨.
+// blob fetch + Content-Disposition 파싱 + 브라우저 다운로드 트리거.
+// generated client 의 두 번째 인자(authorization) 는 interceptor 가 주입하므로 빈 문자열.
+// binary 응답은 axios options 로 responseType: 'blob' 전달.
 // ============================================================
 export const useDownloadCopykillerResult = () => {
   return useMutation({
     mutationFn: async (jobId: string) => {
-      // Authorization 헤더는 apiInstance request interceptor가 자동 주입.
-      const response = await apiInstance.get(`${API_BASE}/copykiller/jobs/${jobId}/result`, {
+      const response = await copykillerApi.getCopykillerJobResult(jobId, '', {
         responseType: 'blob',
       });
 
