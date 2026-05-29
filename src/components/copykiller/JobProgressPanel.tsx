@@ -150,9 +150,9 @@ function JobProgressPanel({ job, onDownload, onCancel, labels }: JobProgressPane
         <div className="min-w-0 flex-1 space-y-0.5">
           <p className="truncate text-sm font-bold text-fg-1">{job.originalFilename}</p>
           <p className="text-xs text-fg-5">
-            {t('iteration', 'copykiller.progress.iteration')
-              .replace('{cur}', String(job.currentIteration))
-              .replace('{max}', String(job.maxIterations))}
+            {t('iteration', '{{current}} / {{max}}')
+              .replace('{{current}}', String(job.currentIteration))
+              .replace('{{max}}', String(job.maxIterations))}
           </p>
         </div>
 
