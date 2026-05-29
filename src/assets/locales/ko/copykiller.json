@@ -1,0 +1,94 @@
+{
+  "title": "안티 카피킬러",
+  "description": "docx 파일을 업로드하면 표절률·AI 생성률을 목표치 이하로 자동 낮춰 드립니다.",
+  "openGraph": {
+    "title": "안티 카피킬러 — 표절률·AI 생성률 자동 감소 도구",
+    "description": ".docx 파일 업로드 후 Copykiller 검사 → 의심 문장 AI 재작성 → 재검사를 반복하여 목표 수치 이하의 결과 파일을 생성합니다.",
+    "keywords": ["카피킬러", "표절률", "AI생성률", "논문", "자동교정"]
+  },
+  "gate": {
+    "login": {
+      "title": "로그인이 필요한 서비스입니다",
+      "description": "먼저 로그인해 주세요. 사용 문의: okdohyuk@gmail.com",
+      "cta": "로그인하기"
+    },
+    "sponsor": {
+      "title": "이용 권한이 필요합니다",
+      "description": "안티 카피킬러는 권한이 있는 사용자만 이용할 수 있습니다. 사용 문의: okdohyuk@gmail.com",
+      "cta": "문의하기"
+    }
+  },
+  "form": {
+    "title": "새 잡 시작",
+    "dropzoneTitle": "파일을 끌어다 놓거나 클릭하여 선택",
+    "dropzoneHelper": ".docx 형식만 지원합니다 (최대 20MB)",
+    "dropzoneDrag": "여기에 파일을 놓으세요",
+    "errorFileType": ".docx 파일만 업로드할 수 있습니다.",
+    "errorFileSize": "파일 크기가 20MB를 초과합니다.",
+    "errorRequired": "파일을 선택해 주세요.",
+    "fileLabel": "문서 파일 (.docx)",
+    "filePlaceholder": "파일을 드래그하거나 클릭하여 선택하세요",
+    "fileHelper": ".docx 형식의 파일만 지원합니다.",
+    "fileError": ".docx 파일만 업로드할 수 있습니다.",
+    "fileRequired": "파일을 선택해 주세요.",
+    "fileRemove": "파일 제거",
+    "docTypeLabel": "문서 유형",
+    "docTypeAriaLabel": "문서 유형 선택",
+    "docTypeOptions": {
+      "PAPER": "논문",
+      "THESIS": "학위논문",
+      "SPEECH": "연설문",
+      "REPORT": "보고서",
+      "SOP": "자기소개서",
+      "FREE": "자유 형식"
+    },
+    "styleModeLabel": "문체 모드",
+    "styleModeAriaLabel": "문체 처리 모드 선택",
+    "styleModeOptions": {
+      "KEEP": "원본 유지",
+      "PRESET": "표준 학술체"
+    },
+    "targetPlagLabel": "목표 표절률 (%)",
+    "targetPlagHelper": "표절률을 이 수치 이하로 낮춥니다.",
+    "targetAiLabel": "목표 AI 생성률 (%)",
+    "targetAiHelper": "AI 생성률을 이 수치 이하로 낮춥니다.",
+    "maxIterationsLabel": "최대 반복 횟수",
+    "maxIterationsHelper": "목표를 달성하지 못할 경우 최대 이 횟수만큼 재시도합니다.",
+    "submit": "분석 시작",
+    "submitting": "제출 중…",
+    "conflictError": "이미 진행 중인 잡이 있습니다. 완료 후 다시 시도해 주세요.",
+    "apiError": "잡 생성에 실패했습니다. 잠시 후 다시 시도해 주세요."
+  },
+  "progress": {
+    "title": "진행 중인 잡",
+    "iteration": "{{current}} / {{max}} 반복",
+    "plagPercent": "표절률",
+    "aiPercent": "AI 생성률",
+    "notMeasuredYet": "측정 전",
+    "download": "결과 다운로드",
+    "cancel": "취소",
+    "cancelConfirm": "진행 중인 잡을 취소하시겠습니까?",
+    "cancelError": "취소에 실패했습니다.",
+    "downloadError": "파일 다운로드에 실패했습니다."
+  },
+  "status": {
+    "QUEUED": "대기 중",
+    "REGISTERING": "문서 등록 중",
+    "CHECKING": "표절 검사 중",
+    "EXTRACTING": "의심 문장 추출 중",
+    "REWRITING": "AI 재작성 중",
+    "RECHECKING": "재검사 중",
+    "COMPLETED": "완료",
+    "FAILED": "실패",
+    "CANCELED": "취소됨"
+  },
+  "history": {
+    "title": "이전 잡 이력",
+    "empty": "이전 잡 이력이 없습니다.",
+    "filename": "파일명",
+    "status": "상태",
+    "createdAt": "생성일",
+    "download": "다운로드",
+    "downloadUnavailable": "결과 없음"
+  }
+}

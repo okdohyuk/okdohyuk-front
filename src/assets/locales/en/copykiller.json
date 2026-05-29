@@ -1,0 +1,88 @@
+{
+  "title": "Anti Copykiller",
+  "description": "Upload a .docx file to automatically reduce plagiarism and AI-generated content rates to your target.",
+  "openGraph": {
+    "title": "Anti Copykiller — Auto-reduce Plagiarism & AI Rate",
+    "description": "Upload a .docx file, then Copykiller checks it, AI rewrites suspicious sentences, and re-checks until your target rates are met.",
+    "keywords": ["copykiller", "plagiarism", "AI rate", "thesis", "auto-correction"]
+  },
+  "gate": {
+    "login": {
+      "title": "Login Required",
+      "description": "Please log in first. Contact: okdohyuk@gmail.com",
+      "cta": "Log In"
+    },
+    "sponsor": {
+      "title": "Access Required",
+      "description": "Anti Copykiller is available to authorized users only. Contact: okdohyuk@gmail.com",
+      "cta": "Contact"
+    }
+  },
+  "form": {
+    "title": "Start New Job",
+    "fileLabel": "Document File (.docx)",
+    "filePlaceholder": "Drag and drop or click to select a file",
+    "fileHelper": "Only .docx format is supported.",
+    "fileError": "Only .docx files can be uploaded.",
+    "fileRequired": "Please select a file.",
+    "fileRemove": "Remove file",
+    "docTypeLabel": "Document Type",
+    "docTypeAriaLabel": "Select document type",
+    "docTypeOptions": {
+      "PAPER": "Paper",
+      "THESIS": "Thesis",
+      "SPEECH": "Speech",
+      "REPORT": "Report",
+      "SOP": "Statement of Purpose",
+      "FREE": "Free Format"
+    },
+    "styleModeLabel": "Style Mode",
+    "styleModeAriaLabel": "Select style processing mode",
+    "styleModeOptions": {
+      "KEEP": "Keep Original",
+      "PRESET": "Standard Academic"
+    },
+    "targetPlagLabel": "Target Plagiarism Rate (%)",
+    "targetPlagHelper": "Reduce plagiarism rate below this value.",
+    "targetAiLabel": "Target AI Rate (%)",
+    "targetAiHelper": "Reduce AI-generated rate below this value.",
+    "maxIterationsLabel": "Max Iterations",
+    "maxIterationsHelper": "Maximum number of retry attempts if the target is not met.",
+    "submit": "Start Analysis",
+    "submitting": "Submitting…",
+    "conflictError": "A job is already in progress. Please wait until it completes.",
+    "apiError": "Failed to create job. Please try again later."
+  },
+  "progress": {
+    "title": "Active Job",
+    "iteration": "{{current}} / {{max}} iterations",
+    "plagPercent": "Plagiarism",
+    "aiPercent": "AI Rate",
+    "notMeasuredYet": "Not measured yet",
+    "download": "Download Result",
+    "cancel": "Cancel",
+    "cancelConfirm": "Cancel the active job?",
+    "cancelError": "Failed to cancel.",
+    "downloadError": "Failed to download the file."
+  },
+  "status": {
+    "QUEUED": "Queued",
+    "REGISTERING": "Registering Document",
+    "CHECKING": "Checking Plagiarism",
+    "EXTRACTING": "Extracting Suspects",
+    "REWRITING": "AI Rewriting",
+    "RECHECKING": "Rechecking",
+    "COMPLETED": "Completed",
+    "FAILED": "Failed",
+    "CANCELED": "Canceled"
+  },
+  "history": {
+    "title": "Job History",
+    "empty": "No previous jobs found.",
+    "filename": "Filename",
+    "status": "Status",
+    "createdAt": "Created At",
+    "download": "Download",
+    "downloadUnavailable": "No Result"
+  }
+}

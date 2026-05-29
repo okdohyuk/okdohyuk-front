@@ -15,6 +15,7 @@ import {
   Droplet,
   Eye,
   FileText,
+  FileSearch,
   Fingerprint,
   Github,
   HardDrive,
@@ -62,6 +63,16 @@ type Menus = {
 
 const menus: Menus = {
   service: [
+    {
+      title: {
+        ko: '안티 카피킬러',
+        en: 'Anti Copykiller',
+        ja: 'アンチコピーキラー',
+        zh: '反抄袭检测',
+      },
+      icon: <FileSearch />,
+      link: '/anti-copykiller',
+    },
     {
       title: {
         ko: 'URL 단축기',
