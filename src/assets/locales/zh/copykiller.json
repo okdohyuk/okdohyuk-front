@@ -1,0 +1,88 @@
+{
+  "title": "反抄袭检测工具",
+  "description": "上传 .docx 文件，自动将抄袭率和AI生成率降低到目标值以下。",
+  "openGraph": {
+    "title": "反抄袭检测工具 — 自动降低抄袭率和AI生成率",
+    "description": "上传 .docx 文件后，系统将进行 Copykiller 检测→可疑句子 AI 改写→再次检测，循环直到达到目标值。",
+    "keywords": ["Copykiller", "抄袭率", "AI生成率", "论文", "自动校正"]
+  },
+  "gate": {
+    "login": {
+      "title": "需要登录",
+      "description": "请先登录。咨询邮箱: okdohyuk@gmail.com",
+      "cta": "登录"
+    },
+    "sponsor": {
+      "title": "需要访问权限",
+      "description": "反抄袭检测工具仅限授权用户使用。咨询邮箱: okdohyuk@gmail.com",
+      "cta": "咨询"
+    }
+  },
+  "form": {
+    "title": "开始新任务",
+    "fileLabel": "文档文件 (.docx)",
+    "filePlaceholder": "拖拽文件或点击选择",
+    "fileHelper": "仅支持 .docx 格式。",
+    "fileError": "只能上传 .docx 文件。",
+    "fileRequired": "请选择文件。",
+    "fileRemove": "移除文件",
+    "docTypeLabel": "文档类型",
+    "docTypeAriaLabel": "选择文档类型",
+    "docTypeOptions": {
+      "PAPER": "论文",
+      "THESIS": "学位论文",
+      "SPEECH": "演讲稿",
+      "REPORT": "报告",
+      "SOP": "个人陈述",
+      "FREE": "自由格式"
+    },
+    "styleModeLabel": "文体模式",
+    "styleModeAriaLabel": "选择文体处理模式",
+    "styleModeOptions": {
+      "KEEP": "保留原文体",
+      "PRESET": "标准学术体"
+    },
+    "targetPlagLabel": "目标抄袭率 (%)",
+    "targetPlagHelper": "将抄袭率降低到此值以下。",
+    "targetAiLabel": "目标AI生成率 (%)",
+    "targetAiHelper": "将AI生成率降低到此值以下。",
+    "maxIterationsLabel": "最大迭代次数",
+    "maxIterationsHelper": "未达目标时最多重试的次数。",
+    "submit": "开始分析",
+    "submitting": "提交中…",
+    "conflictError": "已有任务正在进行中，请等待完成后再试。",
+    "apiError": "任务创建失败，请稍后再试。"
+  },
+  "progress": {
+    "title": "进行中的任务",
+    "iteration": "{{current}} / {{max}} 次",
+    "plagPercent": "抄袭率",
+    "aiPercent": "AI生成率",
+    "notMeasuredYet": "尚未检测",
+    "download": "下载结果",
+    "cancel": "取消",
+    "cancelConfirm": "确认取消当前任务？",
+    "cancelError": "取消失败。",
+    "downloadError": "文件下载失败。"
+  },
+  "status": {
+    "QUEUED": "排队中",
+    "REGISTERING": "文档注册中",
+    "CHECKING": "抄袭检查中",
+    "EXTRACTING": "提取可疑句子中",
+    "REWRITING": "AI改写中",
+    "RECHECKING": "重新检查中",
+    "COMPLETED": "已完成",
+    "FAILED": "失败",
+    "CANCELED": "已取消"
+  },
+  "history": {
+    "title": "历史任务",
+    "empty": "暂无历史任务。",
+    "filename": "文件名",
+    "status": "状态",
+    "createdAt": "创建时间",
+    "download": "下载",
+    "downloadUnavailable": "无结果"
+  }
+}
