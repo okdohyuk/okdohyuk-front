@@ -10310,10 +10310,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^17.0.0":
-  version: 17.3.0
-  resolution: "globals@npm:17.3.0"
-  checksum: 10c0/7f21443ecaa60c6e9ff56d9fb6f10a9b5f9514e7f22e5392f715472bb220ce31c865ebf414a32695150e733fb3e1013e6322dbce70fddd1e066f372b8d55a4b8
+"globals@npm:^17.6.0":
+  version: 17.6.0
+  resolution: "globals@npm:17.6.0"
+  checksum: 10c0/cf94fb4329cc5c68cf81018fd68324f413181ee169f0235b0b33b82bc93fe7825a21beea951f83a80e8e4bbdad9c0c80515a145b5fd4b5cb52f2a80db899a93f
   languageName: node
   linkType: hard
 
@@ -12973,7 +12973,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^7.0.1"
     framer-motion: "npm:^12.14.0"
     glob: "npm:^13.0.6"
-    globals: "npm:^17.0.0"
+    globals: "npm:^17.6.0"
     husky: "npm:^9.1.7"
     i18next: "npm:~25.0.2"
     i18next-browser-languagedetector: "npm:^8.2.1"
