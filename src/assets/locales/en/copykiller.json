@@ -63,7 +63,8 @@
     "cancel": "Cancel",
     "cancelConfirm": "Cancel the active job?",
     "cancelError": "Failed to cancel.",
-    "downloadError": "Failed to download the file."
+    "downloadError": "Failed to download the file.",
+    "error": "Runtime error"
   },
   "status": {
     "QUEUED": "Queued",

@@ -63,7 +63,8 @@
     "cancel": "取消",
     "cancelConfirm": "确认取消当前任务？",
     "cancelError": "取消失败。",
-    "downloadError": "文件下载失败。"
+    "downloadError": "文件下载失败。",
+    "error": "运行时错误"
   },
   "status": {
     "QUEUED": "排队中",

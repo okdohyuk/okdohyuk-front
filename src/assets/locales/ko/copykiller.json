@@ -69,7 +69,8 @@
     "cancel": "취소",
     "cancelConfirm": "진행 중인 잡을 취소하시겠습니까?",
     "cancelError": "취소에 실패했습니다.",
-    "downloadError": "파일 다운로드에 실패했습니다."
+    "downloadError": "파일 다운로드에 실패했습니다.",
+    "error": "실행 중 오류"
   },
   "status": {
     "QUEUED": "대기 중",
