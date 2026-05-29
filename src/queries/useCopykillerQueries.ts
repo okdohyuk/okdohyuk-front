@@ -5,6 +5,11 @@ import { copykillerApi, apiInstance } from '@api';
 import type { CopykillerJobRequest } from '@api/Copykiller';
 import { COPYKILLER_TERMINAL_STATUSES } from '@components/copykiller/types';
 
+// generated client 미사용 호출(apiInstance.post/get)은 axios baseURL 만 의존하므로
+// production 빌드에서 process.env.NEXT_PUBLIC_API_URL 가 inline 안 될 경우
+// 현재 origin 으로 요청이 가는 문제가 발생. explicit prefix 로 안전 처리.
+const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? '';
+
 export const COPYKILLER_KEYS = {
   all: ['copykiller'] as const,
   jobs: () => [...COPYKILLER_KEYS.all, 'jobs'] as const,
@@ -35,7 +40,7 @@ export const useSubmitCopykillerJob = () => {
       // Content-Type 헤더를 명시하지 않으면 axios가 FormData 감지 시
       // 자동으로 'multipart/form-data; boundary=...' 를 설정한다.
       // Authorization 헤더는 apiInstance request interceptor가 자동 첨부하므로 중복 전달 불필요.
-      const response = await apiInstance.post('/copykiller/jobs', formData);
+      const response = await apiInstance.post(`${API_BASE}/copykiller/jobs`, formData);
       return response.data;
     },
     onSuccess: () => {
@@ -113,7 +118,7 @@ export const useDownloadCopykillerResult = () => {
   return useMutation({
     mutationFn: async (jobId: string) => {
       // Authorization 헤더는 apiInstance request interceptor가 자동 주입.
-      const response = await apiInstance.get(`/copykiller/jobs/${jobId}/result`, {
+      const response = await apiInstance.get(`${API_BASE}/copykiller/jobs/${jobId}/result`, {
         responseType: 'blob',
       });
 
