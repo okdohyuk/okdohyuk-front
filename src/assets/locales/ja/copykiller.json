@@ -63,7 +63,8 @@
     "cancel": "キャンセル",
     "cancelConfirm": "進行中のジョブをキャンセルしますか？",
     "cancelError": "キャンセルに失敗しました。",
-    "downloadError": "ファイルのダウンロードに失敗しました。"
+    "downloadError": "ファイルのダウンロードに失敗しました。",
+    "error": "実行中のエラー"
   },
   "status": {
     "QUEUED": "待機中",
