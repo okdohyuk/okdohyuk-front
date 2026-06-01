@@ -15,6 +15,7 @@ import { useCreateShortUrl } from '@queries/useShortUrlQueries';
 import type { ShortUrl, ShortUrlCreateRequest } from '@api/ShortUrl';
 import { ShortUrlCreateRequestExpirePresetEnum } from '@api/ShortUrl';
 import { cn } from '@utils/cn';
+import { buildShortUrl } from '@libs/shared/agentDiscovery';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import logger from '@utils/logger';
 import { useTranslation } from '~/app/i18n/client';
@@ -70,6 +71,8 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
   const [copied, setCopied] = React.useState(false);
   const createMutation = useCreateShortUrl();
   const result: ShortUrl | undefined = createMutation.data;
+  // 표시·복사용 단축 URL 은 백엔드 shortUrl 대신 NEXT_PUBLIC_URL 기반으로 직접 구성한다.
+  const displayShortUrl = result ? buildShortUrl(result.code) : '';
 
   const formatExpiresAt = (expiresAt: string | null | undefined) => {
     if (!expiresAt) return t('result.expiresNever');
@@ -100,9 +103,9 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
   };
 
   const handleCopy = async () => {
-    if (!result?.shortUrl) return;
+    if (!displayShortUrl) return;
     try {
-      await navigator.clipboard.writeText(result.shortUrl);
+      await navigator.clipboard.writeText(displayShortUrl);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1500);
     } catch (e) {
@@ -198,12 +201,12 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
 
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
             <a
-              href={result.shortUrl}
+              href={displayShortUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 break-all rounded-md border border-basic-3 bg-basic-0 px-3 py-2 text-sm text-point-fg underline-offset-2 hover:underline"
             >
-              {result.shortUrl}
+              {displayShortUrl}
             </a>
             <Button
               type="button"

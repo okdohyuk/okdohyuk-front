@@ -44,6 +44,13 @@ export function absoluteUrl(pathname: string) {
   return new URL(joinPath(pathname), SITE_URL).toString();
 }
 
+// 단축 링크 경로는 항상 /l/{code} 이며, 표시·복사용 절대 URL 은 백엔드 응답의 shortUrl
+// (미설정 시 http://localhost:3000 으로 새는 문제) 대신 NEXT_PUBLIC_URL(SITE_URL) 기반으로
+// 직접 구성한다. absoluteUrl 이 new URL 로 trailing slash 를 정규화하므로 그대로 재사용한다.
+export function buildShortUrl(code: string) {
+  return absoluteUrl(`/l/${code}`);
+}
+
 export function isMarkdownRequest(acceptHeader: string | null) {
   return /(^|,|\s|;)text\/markdown(\s|;|,|$)/i.test(acceptHeader ?? '');
 }

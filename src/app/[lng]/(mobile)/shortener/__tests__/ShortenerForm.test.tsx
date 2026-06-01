@@ -17,6 +17,12 @@ vi.mock('@queries/useShortUrlQueries', () => ({
   useCreateShortUrl: () => useCreateShortUrlMock(),
 }));
 
+// 표시·복사용 단축 URL 은 buildShortUrl(NEXT_PUBLIC_URL 기반) 로 구성된다.
+// 환경변수 로딩 여부와 무관하게 결정적으로 검증하기 위해 헬퍼를 직접 mock 한다.
+vi.mock('@libs/shared/agentDiscovery', () => ({
+  buildShortUrl: (code: string) => `https://okdohyuk.dev/l/${code}`,
+}));
+
 vi.mock('@utils/logger', () => ({
   default: { error: vi.fn(), info: vi.fn(), warn: vi.fn(), debug: vi.fn() },
 }));
