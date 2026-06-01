@@ -6041,13 +6041,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/analytics@npm:^1.3.1":
-  version: 1.6.1
-  resolution: "@vercel/analytics@npm:1.6.1"
+"@vercel/analytics@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@vercel/analytics@npm:2.0.1"
   peerDependencies:
     "@remix-run/react": ^2
     "@sveltejs/kit": ^1 || ^2
     next: ">= 13"
+    nuxt: ">= 3"
     react: ^18 || ^19 || ^19.0.0-rc
     svelte: ">= 4"
     vue: ^3
@@ -6059,6 +6060,8 @@ __metadata:
       optional: true
     next:
       optional: true
+    nuxt:
+      optional: true
     react:
       optional: true
     svelte:
@@ -6067,7 +6070,7 @@ __metadata:
       optional: true
     vue-router:
       optional: true
-  checksum: 10c0/df39ec419299b43350ad80a06fe835502f22f71c32d21d58855ac39ef352d3478b8922e44375dbc5b0c02ceae04a9d23b32579eb517a602656f6460c90f5802a
+  checksum: 10c0/c788c03d0f072f6f2be52d3f6f4f0680d2343f0d8765a759a044204223b14a6e14b285d0c5d5d05c0b66d4419746c5b245656ebdc48398328d85d96f1ede982b
   languageName: node
   linkType: hard
 
@@ -6976,14 +6979,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:1.15.2":
-  version: 1.15.2
-  resolution: "axios@npm:1.15.2"
+"axios@npm:1.16.0":
+  version: 1.16.0
+  resolution: "axios@npm:1.16.0"
   dependencies:
-    follow-redirects: "npm:^1.15.11"
+    follow-redirects: "npm:^1.16.0"
     form-data: "npm:^4.0.5"
     proxy-from-env: "npm:^2.1.0"
-  checksum: 10c0/4eeae0feeaa7fdc1ef24f81f8b378fdadedf4aebdd6bf224484675160f8744cf17b9b0d1c215279979940f7e8ce463beffa2f713099612e428eac238515c81d5
+  checksum: 10c0/1c91a5221b77b76072026b4cc95ecdf38f7c3e33e63423abec09a85e6e9a12279637dcc9ac2ba1fc333e0c447fb3b0f46d7965acb5d7cea02d188e9c6d425c0b
   languageName: node
   linkType: hard
 
@@ -8071,12 +8074,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cronstrue@npm:^3.11.0":
-  version: 3.11.0
-  resolution: "cronstrue@npm:3.11.0"
+"cronstrue@npm:^3.14.0":
+  version: 3.14.0
+  resolution: "cronstrue@npm:3.14.0"
   bin:
     cronstrue: bin/cli.js
-  checksum: 10c0/16ecc85750b55df41f16e0f2f10bef81f8954bbcdfc31912e66e2f46cdb0e33c059a7645e9d01080a3f0739d9d88a2a93cb86811597adc07b44255bc94bf118c
+  checksum: 10c0/6a45a60a5ba6ef8c3f686ee213f0a5a989ad4123da8175d2892c92615bbb8abfd83d06e2f8d64e4097c03e4d4abd94650f4f58aa1255da435bba3f69ff5a79aa
   languageName: node
   linkType: hard
 
@@ -9903,7 +9906,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.11, follow-redirects@npm:^1.16.0":
+"follow-redirects@npm:^1.16.0":
   version: 1.16.0
   resolution: "follow-redirects@npm:1.16.0"
   peerDependenciesMeta:
@@ -12949,16 +12952,16 @@ __metadata:
     "@types/uuid": "npm:^11.0.0"
     "@typescript-eslint/eslint-plugin": "npm:^7"
     "@typescript-eslint/parser": "npm:^7"
-    "@vercel/analytics": "npm:^1.3.1"
+    "@vercel/analytics": "npm:^2.0.1"
     "@vercel/speed-insights": "npm:^1.2.0"
     "@vitest/coverage-v8": "npm:^4.1.6"
     accept-language: "npm:^3.0.20"
-    axios: "npm:1.15.2"
+    axios: "npm:1.16.0"
     bson: "npm:^7.2.0"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
     cookie: "npm:^1.1.1"
-    cronstrue: "npm:^3.11.0"
+    cronstrue: "npm:^3.14.0"
     date-fns: "npm:^3"
     eslint: "npm:^9"
     eslint-config-airbnb: "npm:^19.0.4"
@@ -13009,7 +13012,7 @@ __metadata:
     sharp: "npm:0.34.5"
     storybook: "npm:^10.2.7"
     tailwind-merge: "npm:^3.4.0"
-    tailwindcss: "npm:^4.1.18"
+    tailwindcss: "npm:^4.3.0"
     tailwindcss-safe-area: "npm:^0.2.2"
     typescript: "npm:5.5.4"
     uuid: "npm:^14.0.0"
@@ -15640,10 +15643,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:4.1.18, tailwindcss@npm:^4.1.18":
+"tailwindcss@npm:4.1.18":
   version: 4.1.18
   resolution: "tailwindcss@npm:4.1.18"
   checksum: 10c0/c79263cea0b2c577859b02f28284caa4eb3844e4d0f563686726ca97817c045c5c395a55bc776daaa351ba9e4aefa9a75bfbb43c22d86f3c573eecc2b87d6bf1
+  languageName: node
+  linkType: hard
+
+"tailwindcss@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "tailwindcss@npm:4.3.0"
+  checksum: 10c0/4cde389ee5e9132e7ef90e4c1d05978d52821761a00700c18b7d46d325881086f0a9c9ec7f616929ecd6e26109c41913538883e066c6dd4bd993debbbbc99084
   languageName: node
   linkType: hard
 

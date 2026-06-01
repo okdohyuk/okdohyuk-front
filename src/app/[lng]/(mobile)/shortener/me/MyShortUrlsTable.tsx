@@ -14,6 +14,7 @@ import {
 import { useDeleteShortUrl, useMyShortUrls } from '@queries/useShortUrlQueries';
 import UserTokenUtil from '@utils/userTokenUtil';
 import logger from '@utils/logger';
+import { buildShortUrl } from '@libs/shared/agentDiscovery';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 
@@ -93,16 +94,18 @@ export default function MyShortUrlsTable({ lng }: MyShortUrlsTableProps) {
       <TableBody>
         {items.map((item) => {
           const isDeleting = deleteMutation.isPending && deleteMutation.variables === item.code;
+          // 백엔드 shortUrl 대신 NEXT_PUBLIC_URL 기반 절대 URL 로 표시한다.
+          const displayShortUrl = buildShortUrl(item.code);
           return (
             <TableRow key={item.code}>
               <TableCell className="font-mono text-xs">
                 <a
-                  href={item.shortUrl}
+                  href={displayShortUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-point-fg underline-offset-2 hover:underline break-all"
                 >
-                  {item.shortUrl}
+                  {displayShortUrl}
                 </a>
               </TableCell>
               <TableCell className="break-all text-xs text-fg-3">{item.originalUrl}</TableCell>
