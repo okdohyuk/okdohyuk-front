@@ -2434,15 +2434,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/third-parties@npm:16.2.3":
-  version: 16.2.3
-  resolution: "@next/third-parties@npm:16.2.3"
+"@next/third-parties@npm:16.2.7":
+  version: 16.2.7
+  resolution: "@next/third-parties@npm:16.2.7"
   dependencies:
     third-party-capital: "npm:1.0.20"
   peerDependencies:
     next: ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0-beta.0
     react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
-  checksum: 10c0/63d598119e9a4fb3341ba687d8d8032e8457567b7e753394d4cf8aebce69e195c1616c158c965c0fed2adfba6627173dbb2c0c026b410461fd0b583ce95763c4
+  checksum: 10c0/a1c76262168709db8762493a695b56843419f4620e01a0959cc463c7bafd1db61cc5be33647c696609eb72b935fce3f9fa370fbb9b2bb8109cbf5d01041d6aea
   languageName: node
   linkType: hard
 
@@ -12922,7 +12922,7 @@ __metadata:
     "@eslint/js": "npm:^9.39.2"
     "@hookform/resolvers": "npm:^3.9.0"
     "@next/bundle-analyzer": "npm:16.2.3"
-    "@next/third-parties": "npm:16.2.3"
+    "@next/third-parties": "npm:16.2.7"
     "@openapitools/openapi-generator-cli": "npm:2.32.0"
     "@playwright/test": "npm:^1.60.0"
     "@radix-ui/react-dialog": "npm:^1.1.15"
