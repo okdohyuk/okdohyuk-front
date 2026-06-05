@@ -8,8 +8,12 @@ import UserTokenUtil from '@utils/userTokenUtil';
 import { AxiosError } from 'axios';
 import { authApi } from '@api';
 import logger from '@utils/logger';
+import { buildLoginUrl } from '@utils/loginRedirect';
 
-export const getTokenServer = cache(async () => {
+/**
+ * @param redirectPath 인증 실패로 로그인 페이지 이동 시, 로그인 완료 후 복귀할 경로
+ */
+export const getTokenServer = cache(async (redirectPath?: string) => {
   const cookieStore = await cookies();
   let accessToken = cookieStore.get('access_token')?.value;
   const refreshToken = cookieStore.get('refresh_token')?.value;
@@ -75,5 +79,5 @@ export const getTokenServer = cache(async () => {
   }
 
   // 3. 모든 시도 실패 시 (유효한 초기 토큰 없음, 리프레시 토큰/사용자 ID 없음, 또는 리프레시 실패)
-  return redirect('/auth/login');
+  return redirect(redirectPath ? buildLoginUrl('/auth/login', redirectPath) : '/auth/login');
 });

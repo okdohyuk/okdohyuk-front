@@ -11,6 +11,7 @@ import Link from '~/components/basic/Link';
 import { authApi, sessionApi, userApi } from '@api';
 import useStore from '@hooks/useStore';
 import { clearSessionCookies } from '@hooks/useSession';
+import { clearLoginRedirect, getLoginRedirect, rememberLoginRedirect } from '@utils/loginRedirect';
 import logger from '@utils/logger';
 import { useTranslation } from '~/app/i18n/client';
 import { LanguageParams } from '~/app/[lng]/layout';
@@ -81,7 +82,7 @@ export default function LoginPage({ params }: LanguageParams) {
           push('/auth/login');
         })
         .finally(() => {
-          Cookies.remove('redirect_uri');
+          clearLoginRedirect();
           Cookies.remove('login_state');
         });
     },
@@ -89,6 +90,11 @@ export default function LoginPage({ params }: LanguageParams) {
   );
 
   useEffect(() => {
+    // 서버 리다이렉트(인증 가드 등)가 쿼리로 넘긴 복귀 경로를 쿠키로 영속화한다.
+    // OAuth 왕복 후에는 쿼리가 유실되므로 쿠키에서 복원한다.
+    const queryRedirectUri = new URLSearchParams(window.location.search).get('redirect_uri');
+    if (queryRedirectUri) rememberLoginRedirect(queryRedirectUri);
+
     const hashFragment = window.location.hash.split('#')[1];
     if (!hashFragment) {
       setLoginButtonDisabled(false);
@@ -103,8 +109,7 @@ export default function LoginPage({ params }: LanguageParams) {
       return;
     }
 
-    const redirectUri = Cookies.get('redirect_uri');
-    login(accessToken, redirectUri || '/');
+    login(accessToken, getLoginRedirect() || '/');
   }, [login]);
 
   const handleLogin = async () => {

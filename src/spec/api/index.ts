@@ -1,7 +1,7 @@
-import Cookies from 'js-cookie';
 import axios, { AxiosError, AxiosHeaders, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import * as Sentry from '@sentry/nextjs';
 import UserTokenUtil from '@utils/userTokenUtil';
+import { rememberLoginRedirect } from '@utils/loginRedirect';
 import { AuthApi } from './Auth';
 import { BlogApi } from './Blog';
 import { BlogReplyApi } from './BlogReply';
@@ -70,7 +70,7 @@ const processQueue = (error: unknown, token: string | null = null) => {
 // 로그아웃 및 로그인 페이지로 이동
 const logoutAndLogin = () => {
   if (typeof window !== 'undefined') {
-    Cookies.set('redirect_uri', window.location.pathname);
+    rememberLoginRedirect(window.location.pathname);
     window.location.href = '/auth/login';
   }
 };

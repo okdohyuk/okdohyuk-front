@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/legacy/image';
 import { observer } from 'mobx-react';
 import useStore from '@hooks/useStore';
-import Cookies from 'js-cookie';
+import { rememberLoginRedirect } from '@utils/loginRedirect';
 import { usePathname, useRouter } from 'next/navigation';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
@@ -23,7 +23,7 @@ function UserInfoCard({ lng }: { lng: Language }) {
   const isClient = useIsClient();
 
   const handleLogin = () => {
-    if (pathname) Cookies.set('redirect_uri', pathname);
+    rememberLoginRedirect(pathname);
     push('/auth/login');
   };
 
