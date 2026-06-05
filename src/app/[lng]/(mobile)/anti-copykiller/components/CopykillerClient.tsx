@@ -17,6 +17,7 @@ import {
   useDownloadCopykillerResult,
 } from '@queries/useCopykillerQueries';
 import useStore from '@hooks/useStore';
+import { buildLoginUrl } from '@utils/loginRedirect';
 import type { Language } from '~/app/i18n/settings';
 import type { CopykillerJob } from '@api/Copykiller';
 
@@ -188,7 +189,7 @@ function CopykillerClient({ lng }: CopykillerClientProps) {
       sponsorTitle={t('gate.sponsor.title')}
       sponsorDescription={t('gate.sponsor.description')}
       sponsorCta={t('gate.sponsor.cta')}
-      loginHref={`/${lng}/auth/login`}
+      loginHref={buildLoginUrl(`/${lng}/auth/login`, `/${lng}/anti-copykiller`)}
       sponsorHref="https://github.com/sponsors/okdohyuk?frequency=recurring"
     >
       <div className="space-y-6">

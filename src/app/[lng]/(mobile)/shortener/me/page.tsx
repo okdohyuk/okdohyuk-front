@@ -5,6 +5,7 @@ import { ListChecks } from 'lucide-react';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import ServiceInfoNotice from '@components/complex/Service/ServiceInfoNotice';
 import { getTranslations } from '~/app/i18n';
+import { buildLoginUrl } from '@utils/loginRedirect';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
 import MyShortUrlsTable from './MyShortUrlsTable';
@@ -20,7 +21,7 @@ export default async function MyShortUrlsPage({ params }: LanguageParams) {
   const refreshToken = cookieStore.get('refresh_token')?.value;
   const userInfo = cookieStore.get('user_info')?.value;
   if (!refreshToken || !userInfo) {
-    redirect(`/${language}/auth/login?redirect_uri=/${language}/shortener/me`);
+    redirect(buildLoginUrl(`/${language}/auth/login`, `/${language}/shortener/me`));
   }
 
   const { t } = await getTranslations(language, 'shortener');
