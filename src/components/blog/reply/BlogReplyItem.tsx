@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { User, UserRoleEnum } from '@api/User';
 
 import { getErrorMessage } from '@utils/errorHandler';
+import { rememberLoginRedirect } from '@utils/loginRedirect';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '../../../app/i18n/client';
 
@@ -46,6 +47,7 @@ export default function BlogReplyItem({
     const token = await UserTokenUtil.getAccessToken();
     if (!token) {
       if (window.confirm(t('confirm.loginRequired'))) {
+        rememberLoginRedirect(window.location.pathname);
         router.push('/auth/login');
       }
       return false;

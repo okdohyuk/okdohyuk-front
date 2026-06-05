@@ -6,6 +6,7 @@ import { BlogReply } from '@api/BlogReply';
 import { useRouter } from 'next/navigation';
 import UserTokenUtil from '@utils/userTokenUtil';
 import { getErrorMessage } from '@utils/errorHandler';
+import { rememberLoginRedirect } from '@utils/loginRedirect';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '../../../app/i18n/client';
 
@@ -42,6 +43,7 @@ function BlogReplyForm({
     const token = await UserTokenUtil.getAccessToken();
     if (!token) {
       if (window.confirm(t('confirm.loginRequired'))) {
+        rememberLoginRedirect(window.location.pathname);
         router.push('/auth/login');
       }
       return;

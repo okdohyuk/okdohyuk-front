@@ -9,6 +9,7 @@ import { UserRoleEnum } from '@api/User';
 import { Input } from '@components/basic/Input';
 import { cn } from '@utils/cn';
 import { OPEN_COMMAND_PALETTE_EVENT } from '@utils/commandPalette';
+import { rememberLoginRedirect } from '@utils/loginRedirect';
 import { sendGAEvent } from '@libs/client/gtag';
 import useStore from '@hooks/useStore';
 import { useTranslation } from '~/app/i18n/client';
@@ -117,6 +118,8 @@ function CommandPalette() {
       setOpen(false);
       const targetPath = `/${lng}${page.path === '/' ? '' : page.path}`;
       if (pathname !== targetPath) {
+        // 로그인 페이지로 이동 시 현재 페이지를 기록해 로그인 후 복귀할 수 있게 한다.
+        if (page.path === '/auth/login') rememberLoginRedirect(pathname);
         router.push(targetPath);
       }
     },

@@ -8,9 +8,9 @@ import BlogWritePageImpl from '~/app/[lng]/admin/blog/write/impl';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language } from '~/app/i18n/settings';
 
-const getPost = async (urlSlug: string) => {
+const getPost = async (urlSlug: string, redirectPath: string) => {
   try {
-    const token = await getTokenServer();
+    const token = await getTokenServer(redirectPath);
     if (!token) return notFound();
     const { data } = await blogApi.getBlogUrlSlug(decodeURIComponent(urlSlug), token.accessToken);
     return data;
@@ -38,7 +38,9 @@ export default async function BlogWritePage({ params, searchParams }: BlogWriteP
   const { urlSlug: urlSlugs } = await searchParams;
 
   const urlSlug = typeof urlSlugs === 'string' ? urlSlugs : null;
-  const blog = urlSlug ? await getPost(urlSlug) : null;
+  const blog = urlSlug
+    ? await getPost(urlSlug, `/${language}/admin/blog/write?urlSlug=${encodeURIComponent(urlSlug)}`)
+    : null;
   const category = await getCategory();
 
   return <BlogWritePageImpl lng={language} blog={blog} category={category} />;
