@@ -10,5 +10,6 @@ yarn run generate-api -- --name=BlogReply
 yarn run generate-api -- --name=Session
 yarn run generate-api -- --name=ShortUrl
 yarn run generate-api -- --name=Copykiller
+yarn run generate-api -- --name=Solve
 yarn run build
 yarn run postbuild

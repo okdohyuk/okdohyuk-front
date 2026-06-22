@@ -42,6 +42,10 @@
       "title": "라이프/기타",
       "description": "건강, 리듬, 가벼운 유틸리티와 놀이 도구"
     },
+    "learning": {
+      "title": "학습/퀴즈",
+      "description": "과목별 문제풀이와 퀴즈로 학습"
+    },
     "external": {
       "title": "외부 링크",
       "description": "프로필과 외부 채널로 이동"

@@ -649,6 +649,26 @@ export const commandPalettePages = {
       }
     },
     {
+      "path": "/solve",
+      "access": "public",
+      "titles": {
+        "ko": "문제풀이 - 과목별 기출 문제 퀴즈",
+        "en": "Quiz - Subject-based question practice",
+        "ja": "問題演習 - 科目別の過去問クイズ",
+        "zh": "刷题 - 按科目的真题测验"
+      },
+      "descriptions": {
+        "ko": "교정학·범죄학입문·피해자학·형사법·연구방법론부터 정보처리기사 필기·실기까지, 과목별 객관식·단답·코드 빈칸 문제를 풀고 즉시 서버 채점과 상세 해설을 확인하는 무료 문제풀이 서비스입니다. 풀이 기록, 이어풀기, 오답 다시 풀기를 지원해 효율적으로 학습할 수 있습니다.",
+        "en": "From corrections, criminology, victimology, criminal law, and research methodology to the Engineer Information Processing (정보처리기사) written and practical exams—a free quiz service to solve multiple-choice, short-answer, and code-cloze questions by subject with instant server-side grading and detailed explanations. Supports progress history, resume, and retry-wrong for efficient study.",
+        "ja": "矯正学・犯罪学入門・被害者学・刑事法・研究方法論から情報処理技士（정보처리기사）の筆記・実技まで、科目別の選択式・記述式・コード穴埋め問題を解き、即時のサーバー採点と詳しい解説を確認できる無料の問題演習サービスです。解答履歴・続きから・間違い直しに対応し、効率的に学習できます。",
+        "zh": "从矫正学、犯罪学入门、被害者学、刑事法、研究方法论到信息处理技师（정보처리기사）笔试·实操，免费刷题服务，按科目刷选择题、简答题和代码填空题，即时获得服务器评分与详细解析。支持答题记录、继续答题和错题重做，助你高效学习。"
+      }
+    },
+    {
+      "path": "/solve/me",
+      "access": "public"
+    },
+    {
       "path": "/stopwatch",
       "access": "public",
       "titles": {
