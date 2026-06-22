@@ -1,0 +1,97 @@
+{
+  "title": "문제풀이",
+  "description": "교정학·범죄학·형사법부터 정보처리기사 필기·실기까지, 과목별 기출/예상 문제를 풀고 즉시 채점과 해설을 확인하세요.",
+  "headerBadge": "학습/퀴즈",
+  "intro": "로그인 후 과목을 선택해 문제를 풀 수 있어요. 풀이 기록과 이어풀기, 오답 다시 풀기를 지원합니다.",
+  "subjects": {
+    "loading": "과목을 불러오는 중…",
+    "error": "과목 목록을 불러오지 못했어요.",
+    "empty": "아직 등록된 과목이 없어요.",
+    "unitCount": "{{count}}단원",
+    "questionCount": "{{count}}문항",
+    "myAttempts": "내 풀이 기록"
+  },
+  "subject": {
+    "loading": "단원을 불러오는 중…",
+    "error": "단원 정보를 불러오지 못했어요.",
+    "notFound": "과목을 찾을 수 없어요.",
+    "selectUnit": "단원 선택",
+    "solveAll": "전체 풀기",
+    "solveAllDesc": "이 과목의 모든 문항을 풉니다.",
+    "unitQuestionCount": "{{count}}문항",
+    "back": "과목 목록"
+  },
+  "quiz": {
+    "loading": "문제를 불러오는 중…",
+    "preparing": "문제를 준비하는 중…",
+    "error": "문제를 불러오지 못했어요.",
+    "empty": "풀 수 있는 문제가 없어요.",
+    "noReview": "다시 풀 오답이 없어요.",
+    "progress": "{{current}} / {{total}}",
+    "submit": "제출",
+    "next": "다음 문제",
+    "finish": "결과 보기",
+    "prev": "이전",
+    "submitting": "제출 중…",
+    "exit": "그만두기",
+    "exitConfirm": "풀이를 그만둘까요? 진행 상황은 저장돼 이어풀 수 있어요.",
+    "questionLabel": "문항"
+  },
+  "result": {
+    "title": "풀이 결과",
+    "score": "점수",
+    "ratio": "정답률",
+    "correctOf": "{{correct}} / {{total}} 정답",
+    "byUnit": "단원별 점수",
+    "retryWrong": "오답 다시 풀기",
+    "noWrong": "오답이 없어요. 완벽해요!",
+    "backToSubjects": "과목 목록으로",
+    "reviewMode": "오답 복습"
+  },
+  "me": {
+    "title": "내 풀이 기록",
+    "headerBadge": "내 기록",
+    "description": "지금까지 푼 시도의 진행 상황과 점수를 한눈에 확인하세요.",
+    "loading": "기록을 불러오는 중…",
+    "error": "풀이 기록을 불러오지 못했어요.",
+    "empty": "아직 풀이 기록이 없어요.",
+    "startSolving": "문제 풀러 가기",
+    "status": {
+      "in_progress": "진행 중",
+      "completed": "완료"
+    },
+    "mode": {
+      "full": "전체",
+      "review": "오답 복습"
+    },
+    "table": {
+      "subject": "과목",
+      "unit": "단원",
+      "mode": "유형",
+      "status": "상태",
+      "score": "점수",
+      "startedAt": "시작",
+      "actions": "이어풀기"
+    },
+    "allUnits": "전체",
+    "resume": "이어풀기",
+    "viewResult": "결과 보기"
+  },
+  "openGraph": {
+    "title": "문제풀이 - 과목별 기출 문제 퀴즈",
+    "description": "교정학·범죄학입문·피해자학·형사법·연구방법론부터 정보처리기사 필기·실기까지, 과목별 객관식·단답·코드 빈칸 문제를 풀고 즉시 서버 채점과 상세 해설을 확인하는 무료 문제풀이 서비스입니다. 풀이 기록, 이어풀기, 오답 다시 풀기를 지원해 효율적으로 학습할 수 있습니다.",
+    "keywords": [
+      "문제풀이",
+      "기출문제",
+      "퀴즈",
+      "객관식",
+      "단답",
+      "코드 빈칸",
+      "정보처리기사",
+      "정보처리기사 필기",
+      "정보처리기사 실기",
+      "교정학",
+      "형사법"
+    ]
+  }
+}

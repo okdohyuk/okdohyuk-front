@@ -1,0 +1,97 @@
+{
+  "title": "問題演習",
+  "description": "矯正学・犯罪学・刑事法から情報処理技士（정보처리기사）の筆記・実技まで、科目別の問題を解いて即時採点と解説を確認しましょう。",
+  "headerBadge": "学習・クイズ",
+  "intro": "ログインして科目を選ぶと問題を解けます。解答履歴・続きから・間違い直しに対応しています。",
+  "subjects": {
+    "loading": "科目を読み込み中…",
+    "error": "科目一覧を読み込めませんでした。",
+    "empty": "まだ登録された科目がありません。",
+    "unitCount": "{{count}}単元",
+    "questionCount": "{{count}}問",
+    "myAttempts": "解答履歴"
+  },
+  "subject": {
+    "loading": "単元を読み込み中…",
+    "error": "単元情報を読み込めませんでした。",
+    "notFound": "科目が見つかりません。",
+    "selectUnit": "単元を選択",
+    "solveAll": "全問を解く",
+    "solveAllDesc": "この科目のすべての問題を解きます。",
+    "unitQuestionCount": "{{count}}問",
+    "back": "科目一覧"
+  },
+  "quiz": {
+    "loading": "問題を読み込み中…",
+    "preparing": "問題を準備中…",
+    "error": "問題を読み込めませんでした。",
+    "empty": "解ける問題がありません。",
+    "noReview": "直す間違いがありません。",
+    "progress": "{{current}} / {{total}}",
+    "submit": "提出",
+    "next": "次の問題",
+    "finish": "結果を見る",
+    "prev": "前へ",
+    "submitting": "提出中…",
+    "exit": "やめる",
+    "exitConfirm": "演習をやめますか？進捗は保存され、続きから再開できます。",
+    "questionLabel": "問題"
+  },
+  "result": {
+    "title": "解答結果",
+    "score": "スコア",
+    "ratio": "正答率",
+    "correctOf": "{{correct}} / {{total}} 正解",
+    "byUnit": "単元別スコア",
+    "retryWrong": "間違いを解き直す",
+    "noWrong": "間違いはありません。完璧です！",
+    "backToSubjects": "科目一覧へ",
+    "reviewMode": "復習"
+  },
+  "me": {
+    "title": "解答履歴",
+    "headerBadge": "履歴",
+    "description": "これまでの解答の進捗とスコアを一覧で確認できます。",
+    "loading": "履歴を読み込み中…",
+    "error": "解答履歴を読み込めませんでした。",
+    "empty": "まだ解答履歴がありません。",
+    "startSolving": "問題を解きに行く",
+    "status": {
+      "in_progress": "進行中",
+      "completed": "完了"
+    },
+    "mode": {
+      "full": "全体",
+      "review": "復習"
+    },
+    "table": {
+      "subject": "科目",
+      "unit": "単元",
+      "mode": "種別",
+      "status": "状態",
+      "score": "スコア",
+      "startedAt": "開始",
+      "actions": "続きから"
+    },
+    "allUnits": "全体",
+    "resume": "続きから",
+    "viewResult": "結果を見る"
+  },
+  "openGraph": {
+    "title": "問題演習 - 科目別の過去問クイズ",
+    "description": "矯正学・犯罪学入門・被害者学・刑事法・研究方法論から情報処理技士（정보처리기사）の筆記・実技まで、科目別の選択式・記述式・コード穴埋め問題を解き、即時のサーバー採点と詳しい解説を確認できる無料の問題演習サービスです。解答履歴・続きから・間違い直しに対応し、効率的に学習できます。",
+    "keywords": [
+      "問題演習",
+      "過去問",
+      "クイズ",
+      "選択式",
+      "記述式",
+      "コード穴埋め",
+      "情報処理",
+      "情報処理技士",
+      "정보처리기사",
+      "정보처리기사 필기",
+      "정보처리기사 실기"
+    ]
+  }
+}

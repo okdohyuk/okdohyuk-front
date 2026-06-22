@@ -8,6 +8,7 @@ import { BlogReplyApi } from './BlogReply';
 import { CopykillerApi } from './Copykiller';
 import { SessionApi } from './Session';
 import { ShortUrlApi } from './ShortUrl';
+import { SolveApi } from './Solve';
 import { StorageApi } from './Storage';
 import { UserApi } from './User';
 
@@ -82,6 +83,7 @@ export const blogReplyApi = new BlogReplyApi(undefined, API_URL, apiInstance);
 export const copykillerApi = new CopykillerApi(undefined, API_URL, apiInstance);
 export const sessionApi = new SessionApi(undefined, API_URL, apiInstance);
 export const shortUrlApi = new ShortUrlApi(undefined, API_URL, apiInstance);
+export const solveApi = new SolveApi(undefined, API_URL, apiInstance);
 export const storageApi = new StorageApi(undefined, API_URL, apiInstance);
 export const userApi = new UserApi(undefined, API_URL, apiInstance);
 

@@ -42,6 +42,10 @@
       "title": "ライフ・その他",
       "description": "健康、リズム、軽量ユーティリティや遊び向けツール"
     },
+    "learning": {
+      "title": "学習・クイズ",
+      "description": "科目別の問題演習やクイズで学習"
+    },
     "external": {
       "title": "外部リンク",
       "description": "プロフィールや外部チャンネルへ移動"

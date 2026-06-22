@@ -6,7 +6,8 @@ type ServiceSectionKey =
   | 'generator'
   | 'textData'
   | 'devUtility'
-  | 'lifestyle';
+  | 'lifestyle'
+  | 'learning';
 
 const SERVICE_SECTION_ORDER: ServiceSectionKey[] = [
   'planning',
@@ -15,6 +16,7 @@ const SERVICE_SECTION_ORDER: ServiceSectionKey[] = [
   'textData',
   'devUtility',
   'lifestyle',
+  'learning',
 ];
 
 const SERVICE_SECTION_BY_LINK: Record<string, ServiceSectionKey> = {
@@ -62,6 +64,7 @@ const SERVICE_SECTION_BY_LINK: Record<string, ServiceSectionKey> = {
   '/bpm-tapper': 'lifestyle',
   '/ppollong': 'lifestyle',
   '/pokemon-type-calculator': 'lifestyle',
+  '/solve': 'learning',
 };
 
 const SERVICE_SECTION_BADGES: Record<Language, Record<ServiceSectionKey, string>> = {
@@ -72,6 +75,7 @@ const SERVICE_SECTION_BADGES: Record<Language, Record<ServiceSectionKey, string>
     textData: '텍스트/데이터',
     devUtility: '개발/유틸리티',
     lifestyle: '라이프/기타',
+    learning: '학습/퀴즈',
   },
   en: {
     planning: 'Planning & Time',
@@ -80,6 +84,7 @@ const SERVICE_SECTION_BADGES: Record<Language, Record<ServiceSectionKey, string>
     textData: 'Text & Data',
     devUtility: 'Developer Utilities',
     lifestyle: 'Lifestyle & Misc',
+    learning: 'Learning & Quiz',
   },
   ja: {
     planning: '日程・時間',
@@ -88,6 +93,7 @@ const SERVICE_SECTION_BADGES: Record<Language, Record<ServiceSectionKey, string>
     textData: 'テキスト・データ',
     devUtility: '開発・ユーティリティ',
     lifestyle: 'ライフ・その他',
+    learning: '学習・クイズ',
   },
   zh: {
     planning: '日程与时间',
@@ -96,6 +102,7 @@ const SERVICE_SECTION_BADGES: Record<Language, Record<ServiceSectionKey, string>
     textData: '文本与数据',
     devUtility: '开发与实用',
     lifestyle: '生活与其他',
+    learning: '学习/测验',
   },
 };
 

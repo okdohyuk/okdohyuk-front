@@ -482,3 +482,45 @@ table {
     color: var(--status-neutral-fg);
   }
 }
+
+/* =========================================================================
+ * solve 도메인 모션 토큰 (components/solve)
+ *  - ScoreRing conic 채움 보간 + 마운트 스윕
+ *  - 문항/패널 진입 애니메이션
+ *  - prefers-reduced-motion 존중
+ * ========================================================================= */
+@property --solve-fill {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes solve-ring-sweep {
+  from {
+    --solve-fill: 0deg;
+  }
+}
+
+@keyframes solve-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-solve-enter {
+  animation: solve-enter 200ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-solve-enter {
+    animation: none;
+  }
+  .solve-score-ring {
+    animation: none !important;
+  }
+}
