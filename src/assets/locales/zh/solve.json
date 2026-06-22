@@ -1,0 +1,97 @@
+{
+  "title": "刷题",
+  "description": "从矫正学、犯罪学、刑事法到信息处理技师（정보처리기사）笔试·实操，按科目刷题，即时获得评分与解析。",
+  "headerBadge": "学习/测验",
+  "intro": "登录后选择科目即可开始刷题。支持答题记录、继续答题和错题重做。",
+  "subjects": {
+    "loading": "正在加载科目…",
+    "error": "无法加载科目列表。",
+    "empty": "尚未有可用科目。",
+    "unitCount": "{{count}} 个单元",
+    "questionCount": "{{count}} 道题",
+    "myAttempts": "我的答题记录"
+  },
+  "subject": {
+    "loading": "正在加载单元…",
+    "error": "无法加载单元信息。",
+    "notFound": "未找到该科目。",
+    "selectUnit": "选择单元",
+    "solveAll": "全部刷题",
+    "solveAllDesc": "刷该科目的所有题目。",
+    "unitQuestionCount": "{{count}} 道题",
+    "back": "科目列表"
+  },
+  "quiz": {
+    "loading": "正在加载题目…",
+    "preparing": "正在准备题目…",
+    "error": "无法加载题目。",
+    "empty": "没有可刷的题目。",
+    "noReview": "没有需要重做的错题。",
+    "progress": "{{current}} / {{total}}",
+    "submit": "提交",
+    "next": "下一题",
+    "finish": "查看结果",
+    "prev": "上一题",
+    "submitting": "正在提交…",
+    "exit": "退出",
+    "exitConfirm": "要退出刷题吗？进度将被保存，可稍后继续。",
+    "questionLabel": "题目"
+  },
+  "result": {
+    "title": "答题结果",
+    "score": "分数",
+    "ratio": "正确率",
+    "correctOf": "{{correct}} / {{total}} 正确",
+    "byUnit": "各单元得分",
+    "retryWrong": "重做错题",
+    "noWrong": "没有错题，完美！",
+    "backToSubjects": "返回科目列表",
+    "reviewMode": "复习"
+  },
+  "me": {
+    "title": "我的答题记录",
+    "headerBadge": "我的记录",
+    "description": "一目了然地查看每次答题的进度与分数。",
+    "loading": "正在加载记录…",
+    "error": "无法加载答题记录。",
+    "empty": "尚无答题记录。",
+    "startSolving": "去刷题",
+    "status": {
+      "in_progress": "进行中",
+      "completed": "已完成"
+    },
+    "mode": {
+      "full": "全部",
+      "review": "复习"
+    },
+    "table": {
+      "subject": "科目",
+      "unit": "单元",
+      "mode": "类型",
+      "status": "状态",
+      "score": "分数",
+      "startedAt": "开始",
+      "actions": "继续"
+    },
+    "allUnits": "全部",
+    "resume": "继续",
+    "viewResult": "查看结果"
+  },
+  "openGraph": {
+    "title": "刷题 - 按科目的真题测验",
+    "description": "从矫正学、犯罪学入门、被害者学、刑事法、研究方法论到信息处理技师（정보처리기사）笔试·实操，免费刷题服务，按科目刷选择题、简答题和代码填空题，即时获得服务器评分与详细解析。支持答题记录、继续答题和错题重做，助你高效学习。",
+    "keywords": [
+      "刷题",
+      "真题",
+      "测验",
+      "选择题",
+      "简答题",
+      "代码填空",
+      "备考",
+      "信息处理技师",
+      "정보처리기사",
+      "정보처리기사 필기",
+      "정보처리기사 실기"
+    ]
+  }
+}

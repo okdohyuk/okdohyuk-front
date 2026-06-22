@@ -102,6 +102,10 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
         title: t('group.lifestyle.title'),
         description: t('group.lifestyle.description'),
       },
+      learning: {
+        title: t('group.learning.title'),
+        description: t('group.learning.description'),
+      },
       external: {
         title: t('group.external.title'),
         description: t('group.external.description'),

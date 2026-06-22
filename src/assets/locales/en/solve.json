@@ -1,0 +1,96 @@
+{
+  "title": "Quiz",
+  "description": "Practice questions across subjects—from criminology and criminal law to the Engineer Information Processing (정보처리기사) written and practical exams—with instant grading and explanations.",
+  "headerBadge": "Learning & Quiz",
+  "intro": "Sign in and pick a subject to start solving. Progress history, resume, and retry-wrong are supported.",
+  "subjects": {
+    "loading": "Loading subjects…",
+    "error": "Failed to load subjects.",
+    "empty": "No subjects available yet.",
+    "unitCount": "{{count}} units",
+    "questionCount": "{{count}} questions",
+    "myAttempts": "My attempts"
+  },
+  "subject": {
+    "loading": "Loading units…",
+    "error": "Failed to load unit info.",
+    "notFound": "Subject not found.",
+    "selectUnit": "Select a unit",
+    "solveAll": "Solve all",
+    "solveAllDesc": "Solve every question in this subject.",
+    "unitQuestionCount": "{{count}} questions",
+    "back": "Subjects"
+  },
+  "quiz": {
+    "loading": "Loading questions…",
+    "preparing": "Preparing questions…",
+    "error": "Failed to load questions.",
+    "empty": "No questions to solve.",
+    "noReview": "No wrong answers to review.",
+    "progress": "{{current}} / {{total}}",
+    "submit": "Submit",
+    "next": "Next question",
+    "finish": "See result",
+    "prev": "Previous",
+    "submitting": "Submitting…",
+    "exit": "Quit",
+    "exitConfirm": "Quit solving? Your progress is saved so you can resume later.",
+    "questionLabel": "Question"
+  },
+  "result": {
+    "title": "Result",
+    "score": "Score",
+    "ratio": "Accuracy",
+    "correctOf": "{{correct}} / {{total}} correct",
+    "byUnit": "Score by unit",
+    "retryWrong": "Retry wrong answers",
+    "noWrong": "No wrong answers. Perfect!",
+    "backToSubjects": "Back to subjects",
+    "reviewMode": "Review"
+  },
+  "me": {
+    "title": "My attempts",
+    "headerBadge": "My history",
+    "description": "See the progress and score of every attempt you've made.",
+    "loading": "Loading history…",
+    "error": "Failed to load attempt history.",
+    "empty": "No attempts yet.",
+    "startSolving": "Start solving",
+    "status": {
+      "in_progress": "In progress",
+      "completed": "Completed"
+    },
+    "mode": {
+      "full": "Full",
+      "review": "Review"
+    },
+    "table": {
+      "subject": "Subject",
+      "unit": "Unit",
+      "mode": "Mode",
+      "status": "Status",
+      "score": "Score",
+      "startedAt": "Started",
+      "actions": "Resume"
+    },
+    "allUnits": "All",
+    "resume": "Resume",
+    "viewResult": "View result"
+  },
+  "openGraph": {
+    "title": "Quiz - Subject-based question practice",
+    "description": "From corrections, criminology, victimology, criminal law, and research methodology to the Engineer Information Processing (정보처리기사) written and practical exams—a free quiz service to solve multiple-choice, short-answer, and code-cloze questions by subject with instant server-side grading and detailed explanations. Supports progress history, resume, and retry-wrong for efficient study.",
+    "keywords": [
+      "quiz",
+      "practice questions",
+      "multiple choice",
+      "short answer",
+      "code cloze",
+      "exam prep",
+      "정보처리기사",
+      "정보처리기사 필기",
+      "정보처리기사 실기",
+      "information processing engineer"
+    ]
+  }
+}

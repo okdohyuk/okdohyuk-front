@@ -42,6 +42,10 @@
       "title": "Lifestyle & Misc",
       "description": "Health, rhythm, and lightweight utility tools"
     },
+    "learning": {
+      "title": "Learning & Quiz",
+      "description": "Study with subject-based questions and quizzes"
+    },
     "external": {
       "title": "External Links",
       "description": "Jump to profile pages and external channels"

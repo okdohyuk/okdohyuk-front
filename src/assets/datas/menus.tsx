@@ -18,6 +18,7 @@ import {
   FileSearch,
   Fingerprint,
   Github,
+  GraduationCap,
   HardDrive,
   Hash,
   HeartPulse,
@@ -82,6 +83,16 @@ const menus: Menus = {
       },
       icon: <Link2 />,
       link: '/shortener',
+    },
+    {
+      title: {
+        ko: '문제풀이',
+        en: 'Quiz',
+        ja: '問題演習',
+        zh: '刷题',
+      },
+      icon: <GraduationCap />,
+      link: '/solve',
     },
     {
       title: {

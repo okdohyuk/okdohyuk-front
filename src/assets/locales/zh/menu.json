@@ -42,6 +42,10 @@
       "title": "生活与其他",
       "description": "健康、节奏和轻量娱乐类工具"
     },
+    "learning": {
+      "title": "学习/测验",
+      "description": "通过按科目的刷题和测验进行学习"
+    },
     "external": {
       "title": "外部链接",
       "description": "前往个人资料页和外部频道"
