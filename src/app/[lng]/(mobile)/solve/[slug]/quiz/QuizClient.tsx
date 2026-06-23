@@ -436,6 +436,7 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
         {current.type === SolveQuestionType.Short && (
           <ShortAnswerInput
             key={current.id}
+            code={!!current.codeLanguage}
             graded={graded}
             isCorrect={displayResult?.isCorrect}
             submittedText={submittedTextValue}
