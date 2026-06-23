@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Loader2, ArrowLeft } from 'lucide-react';
+import { Loader2, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Text } from '@components/basic/Text';
 import { Button } from '@components/basic/Button';
 import Skeleton from '@components/basic/Skeleton';
@@ -205,43 +205,53 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
   }, [index, loadedQuestions.length, allPagesLoaded, questionPage, isReview, total]);
 
   const current = questions[index];
-  const currentResult = current ? submittedById.get(current.id) : undefined;
 
-  // 방금 제출한 결과(낙관적 표시). 복원 결과와 합쳐 표시.
-  const [justResult, setJustResult] = React.useState<SolveSubmissionResult | null>(null);
-  const [justSubmitted, setJustSubmitted] = React.useState<{
-    choice?: number;
-    text?: string;
-    blanks?: ClozeBlankValue[];
-  } | null>(null);
-  const displayResult = justResult ?? currentResult;
+  // 문항별 채점 결과/제출값을 로컬에 누적 → 이전/다음으로 자유 이동해도 채점 상태가 유지된다(oksolve 방식).
+  const [localResults, setLocalResults] = React.useState<Map<number, SolveSubmissionResult>>(
+    () => new Map(),
+  );
+  const [localAnswers, setLocalAnswers] = React.useState<
+    Map<number, { choice?: number; text?: string; blanks?: ClozeBlankValue[] }>
+  >(() => new Map());
+
+  // 현재 문항: 로컬 누적(방금/이전 제출) 우선, 없으면 서버 복원(detail.submissions).
+  const currentResult = current
+    ? (localResults.get(current.id) ?? submittedById.get(current.id))
+    : undefined;
+  const currentAnswer = current ? localAnswers.get(current.id) : undefined;
+  const displayResult = currentResult;
 
   // 5) 제출
   const submitAnswer = useSubmitAnswer(attemptId ?? 0);
   const submit = (payload: Pick<SolveSubmissionRequest, 'choice' | 'text' | 'blanks'>) => {
     if (!current || attemptId == null || displayResult) return;
-    setJustSubmitted({
-      choice: payload.choice ?? undefined,
-      text: payload.text ?? undefined,
-      blanks: (payload.blanks ?? undefined)?.map((b) => ({ blankId: b.blankId, value: b.value })),
-    });
+    const qid = current.id;
+    setLocalAnswers((m) =>
+      new Map(m).set(qid, {
+        choice: payload.choice ?? undefined,
+        text: payload.text ?? undefined,
+        blanks: (payload.blanks ?? undefined)?.map((b) => ({ blankId: b.blankId, value: b.value })),
+      }),
+    );
     submitAnswer.mutate(
-      { questionId: current.id, index, ...payload },
+      { questionId: qid, index, ...payload },
       {
-        onSuccess: (data) => setJustResult(data),
+        onSuccess: (data) => setLocalResults((m) => new Map(m).set(qid, data)),
         onError: (err) => {
           logger.error('solve 제출 실패', err);
-          setJustSubmitted(null);
+          setLocalAnswers((m) => {
+            const next = new Map(m);
+            next.delete(qid);
+            return next;
+          });
         },
       },
     );
   };
 
-  const goNext = () => {
-    setJustResult(null);
-    setJustSubmitted(null);
-    setIndex((i) => i + 1);
-  };
+  // 풀이 여부와 무관하게 이전/다음으로 이동(문항별 상태는 로컬 누적이라 보존된다).
+  const goNext = () => setIndex((i) => i + 1);
+  const goPrev = () => setIndex((i) => Math.max(0, i - 1));
 
   // 6) finish + 결과
   const finishAttempt = useFinishAttempt(attemptId ?? 0);
@@ -277,16 +287,14 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
           return;
         }
       }
-      if (e.key === 'ArrowRight' && graded) {
+      if (e.key === 'ArrowRight' && !typing) {
         e.preventDefault();
         if (isLast) finish();
         else goNext();
       }
       if (e.key === 'ArrowLeft' && index > 0 && !typing) {
         e.preventDefault();
-        setJustResult(null);
-        setJustSubmitted(null);
-        setIndex((i) => Math.max(0, i - 1));
+        goPrev();
       }
     };
     window.addEventListener('keydown', onKey);
@@ -367,11 +375,11 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
     );
   }
 
-  // 복원된 제출값(이전 제출 표시용). 서버 SolveSubmissionResult 는 사용자가 고른 choice 를
-  // 포함하지 않으므로, 방금 제출(justSubmitted)이 있을 때만 사용자가 고른 번호를 강조한다.
-  const restoredChoice = justSubmitted?.choice;
-  const submittedTextValue = justSubmitted?.text;
-  const submittedBlankMap = (justSubmitted?.blanks ?? []).reduce<Record<string, string>>(
+  // 사용자가 고른 값(선택 강조용). 서버 SolveSubmissionResult 는 고른 choice 를 포함하지 않으므로,
+  // 로컬 누적(localAnswers)에 있는 문항만 사용자가 고른 번호/입력을 강조한다.
+  const restoredChoice = currentAnswer?.choice;
+  const submittedTextValue = currentAnswer?.text;
+  const submittedBlankMap = (currentAnswer?.blanks ?? []).reduce<Record<string, string>>(
     (acc, b) => {
       acc[b.blankId] = b.value;
       return acc;
@@ -436,6 +444,7 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
         {current.type === SolveQuestionType.Short && (
           <ShortAnswerInput
             key={current.id}
+            code={!!current.codeLanguage}
             graded={graded}
             isCorrect={displayResult?.isCorrect}
             submittedText={submittedTextValue}
@@ -458,26 +467,43 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
         )}
       </div>
 
-      {/* 해설 + 다음 */}
+      {/* 해설 (채점 후) */}
       {displayResult && (
-        <>
-          <ExplanationPanel
-            correct={displayResult.isCorrect}
-            explanation={displayResult.explanation}
-            slides={current.slides ?? undefined}
-            trapType={current.trapType ?? undefined}
-          />
-          <Button
-            type="button"
-            onClick={() => (isLast ? finish() : goNext())}
-            disabled={finishAttempt.isPending}
-            className="min-h-[48px] w-full rounded-xl"
-          >
-            {finishAttempt.isPending && <Loader2 className="h-5 w-5 animate-spin" />}
-            {!finishAttempt.isPending && (isLast ? t('quiz.finish') : t('quiz.next'))}
-          </Button>
-        </>
+        <ExplanationPanel
+          correct={displayResult.isCorrect}
+          explanation={displayResult.explanation}
+          slides={current.slides ?? undefined}
+          trapType={current.trapType ?? undefined}
+        />
       )}
+
+      {/* 하단 네비: 풀이 여부와 무관하게 이전/다음 이동 (oksolve 참고) */}
+      <nav className="flex items-center gap-3">
+        <button
+          type="button"
+          onClick={goPrev}
+          disabled={index === 0}
+          aria-label={t('quiz.prev')}
+          className="inline-flex min-h-[48px] flex-1 items-center justify-center gap-1 rounded-xl border border-basic-3 bg-basic-0 text-sm font-semibold text-fg-3 transition-colors hover:bg-basic-1 disabled:pointer-events-none disabled:opacity-40"
+        >
+          <ChevronLeft className="h-4 w-4" />
+          {t('quiz.prev')}
+        </button>
+        <Button
+          type="button"
+          onClick={() => (isLast ? finish() : goNext())}
+          disabled={finishAttempt.isPending}
+          className="min-h-[48px] flex-1 rounded-xl"
+        >
+          {finishAttempt.isPending && <Loader2 className="h-5 w-5 animate-spin" />}
+          {!finishAttempt.isPending && (
+            <span className="inline-flex items-center gap-1">
+              {isLast ? t('quiz.finish') : t('quiz.next')}
+              {!isLast && <ChevronRight className="h-4 w-4" />}
+            </span>
+          )}
+        </Button>
+      </nav>
 
       <div className="flex justify-center">
         <button
