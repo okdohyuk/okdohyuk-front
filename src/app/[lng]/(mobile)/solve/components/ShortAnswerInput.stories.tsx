@@ -22,3 +22,26 @@ export const GradedCorrect: Story = {
 export const GradedWrong: Story = {
   args: { graded: true, isCorrect: false, submittedText: '상속', correctText: '캡슐화' },
 };
+
+export const CodePristine: Story = {
+  args: { graded: false, code: true },
+};
+
+export const CodeGradedCorrect: Story = {
+  args: {
+    graded: true,
+    code: true,
+    isCorrect: true,
+    submittedText: 'for (int i = 0; i < n; i++) {\n    sum += i;\n}',
+  },
+};
+
+export const CodeGradedWrong: Story = {
+  args: {
+    graded: true,
+    code: true,
+    isCorrect: false,
+    submittedText: 'for(int i=0;i<n;i++){sum+=i;}',
+    correctText: 'for (int i = 0; i < n; i++) {\n    sum += i;\n}',
+  },
+};
