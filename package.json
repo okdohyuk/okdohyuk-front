@@ -111,7 +111,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/uuid": "^11.0.0",
-    "@typescript-eslint/eslint-plugin": "^7",
+    "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^7",
     "@vitest/coverage-v8": "^4.1.6",
     "eslint": "^9",
