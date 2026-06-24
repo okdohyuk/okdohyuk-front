@@ -142,11 +142,10 @@ function getLngFromPath(pathname: string): string {
 // =============================================================================
 type GTagEvent = {
   id: string;
-  session_id: string;
+  custom_session_id: string;
   pathname: string;
   lng: string;
   page_group: PageGroup;
-  event: Event;
   value: string;
   [key: string]: unknown;
 };
@@ -179,18 +178,20 @@ export const sendGAEvent: SendGAEventType = (event, value, extraParams) => {
   const sessionId = Cookies.get('SessionId') || '';
   const lng = getLngFromPath(pathname);
 
-  const object: GTagEvent = {
+  const params: GTagEvent = {
     id,
-    session_id: sessionId,
+    custom_session_id: sessionId,
     pathname,
     lng,
     page_group: pageGroup,
-    event,
     value,
     ...(extraParams ?? {}),
   };
 
-  sE(object);
+  // @next/third-parties 의 sendGAEvent 는 전달된 인자 목록을 그대로 dataLayer 에 push 한다.
+  // gtag.js 가 이벤트로 인식하려면 ('event', '<이름>', { ...params }) 형태여야 한다.
+  // 객체 하나만 넘기면(GTM dataLayer 컨벤션) gtag.js 가 무시하므로 커스텀 이벤트가 유실된다.
+  sE('event', event, params);
 };
 
 // =============================================================================
