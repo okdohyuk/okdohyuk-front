@@ -1,0 +1,72 @@
+{
+  "openGraph": {
+    "title": "宝可梦队伍构建器",
+    "ogTitle": "宝可梦队伍构建器 - 队伍编成 & 弱点覆盖分析",
+    "description": "最多挑选6只宝可梦组建队伍，一目了然地分析整支队伍的属性弱点与抗性覆盖。保存队伍并通过分享链接与好友共享。",
+    "keywords": ["宝可梦", "队伍构建器", "队伍编成", "弱点覆盖", "属性相性", "分享", "宝可梦图鉴"]
+  },
+  "title": "宝可梦队伍构建器",
+  "description": "最多挑选6只宝可梦组建队伍，并分析其弱点覆盖。",
+  "search": {
+    "label": "添加宝可梦",
+    "placeholder": "输入宝可梦名称 (韩/英/日/中)",
+    "clear": "清除搜索",
+    "hint": "输入两个或以上字符后开始搜索。",
+    "loading": "搜索中…",
+    "empty": "没有结果。请尝试其他名称。",
+    "error": "搜索时出错。请稍后再试。",
+    "add": "加入队伍"
+  },
+  "team": {
+    "heading": "我的队伍 ({{count}}/6)",
+    "empty": "搜索宝可梦并将其加入队伍。",
+    "remove": "移除",
+    "full": "队伍最多可编成6只宝可梦。",
+    "duplicate": "该宝可梦已在队伍中。",
+    "dex": "图鉴 No. {{dexId}}"
+  },
+  "coverage": {
+    "heading": "队伍弱点覆盖",
+    "description": "针对每种攻击属性，统计队员中弱点、抗性、无效的数量。",
+    "sharedHeading": "共同弱点",
+    "sharedDescription": "有2只或以上队员同时弱点的攻击属性。需要补强来弥补这些缺口。",
+    "sharedNone": "没有共同弱点。队伍很均衡！",
+    "tableType": "攻击属性",
+    "weak": "弱点",
+    "resist": "抗性",
+    "immune": "无效",
+    "emptyTeam": "将宝可梦加入队伍后显示覆盖情况。"
+  },
+  "save": {
+    "heading": "保存队伍",
+    "nameLabel": "队伍名称",
+    "namePlaceholder": "例如：我家王牌",
+    "submit": "保存队伍",
+    "submitting": "保存中…",
+    "needMember": "请至少向队伍添加一只宝可梦。",
+    "needName": "请输入队伍名称。",
+    "error": "保存时出错。请稍后再试。",
+    "success": "队伍已保存！",
+    "anonymousHint": "无需登录即可保存。登录后可在我的队伍列表中管理。",
+    "shareLabel": "分享链接",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "myTeams": {
+    "heading": "我保存的队伍",
+    "empty": "你还没有保存的队伍。",
+    "loading": "加载中…",
+    "error": "无法加载队伍列表。",
+    "load": "加载",
+    "delete": "删除",
+    "deleteConfirm": "删除这支队伍？",
+    "loginHint": "登录后可在此管理你保存的队伍。"
+  },
+  "shareView": {
+    "title": "分享的宝可梦队伍",
+    "description": "通过分享链接查看的只读队伍。",
+    "loading": "加载队伍中…",
+    "notFound": "找不到队伍。链接可能已过期或被删除。",
+    "openBuilder": "打开队伍构建器"
+  }
+}

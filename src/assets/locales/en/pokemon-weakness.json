@@ -1,0 +1,46 @@
+{
+  "openGraph": {
+    "title": "Pokemon Weakness Finder",
+    "ogTitle": "Pokemon Weakness Finder - Find Type Weaknesses by Name",
+    "description": "Search a Pokemon by name and pick a species to instantly see its type weaknesses, resistances, and immunities at 4×, 2×, ½×, ¼×, and 0×. Multilingual name search supported.",
+    "keywords": [
+      "pokemon",
+      "weakness finder",
+      "type weakness",
+      "resistance",
+      "immunity",
+      "pokedex",
+      "name search"
+    ]
+  },
+  "title": "Pokemon Weakness Finder",
+  "description": "Search a Pokemon by name and pick a species to instantly see its type weaknesses and resistances.",
+  "search": {
+    "label": "Search Pokemon by name",
+    "placeholder": "Enter a Pokemon name (KO/EN/JA/ZH)",
+    "clear": "Clear search",
+    "hint": "Search starts after you type at least 2 characters."
+  },
+  "result": {
+    "heading": "Search results",
+    "count": "{{count}} species",
+    "empty": "No results found. Try a different name.",
+    "loading": "Searching…",
+    "error": "Something went wrong while searching. Please try again."
+  },
+  "recent": {
+    "heading": "Recent searches",
+    "clear": "Clear history"
+  },
+  "selected": {
+    "heading": "Selected Pokemon",
+    "dex": "Dex No. {{dexId}}",
+    "weaknessHeading": "Type matchups",
+    "loading": "Loading weakness data…",
+    "error": "Failed to load weakness data."
+  },
+  "empty": {
+    "title": "Search for a Pokemon",
+    "description": "Type a name and pick a species to see its type weaknesses and resistances."
+  }
+}

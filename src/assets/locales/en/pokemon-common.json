@@ -1,0 +1,30 @@
+{
+  "effectiveness": {
+    "x4": "4× Damage (Weak)",
+    "x2": "2× Damage (Weak)",
+    "x1": "1× Damage (Normal)",
+    "x05": "½× Damage (Resist)",
+    "x025": "¼× Damage (Double Resist)",
+    "x0": "0× Damage (Immune)"
+  },
+  "types": {
+    "normal": "Normal",
+    "fire": "Fire",
+    "water": "Water",
+    "electric": "Electric",
+    "grass": "Grass",
+    "ice": "Ice",
+    "fighting": "Fighting",
+    "poison": "Poison",
+    "ground": "Ground",
+    "flying": "Flying",
+    "psychic": "Psychic",
+    "bug": "Bug",
+    "rock": "Rock",
+    "ghost": "Ghost",
+    "dragon": "Dragon",
+    "dark": "Dark",
+    "steel": "Steel",
+    "fairy": "Fairy"
+  }
+}

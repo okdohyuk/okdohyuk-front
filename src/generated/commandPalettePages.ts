@@ -497,6 +497,38 @@ export const commandPalettePages = {
       }
     },
     {
+      "path": "/pokemon",
+      "access": "public",
+      "titles": {
+        "ko": "포켓몬 도구 모음",
+        "en": "Pokemon Tools",
+        "ja": "ポケモンツール集",
+        "zh": "宝可梦工具集"
+      },
+      "descriptions": {
+        "ko": "포켓몬 배틀에 유용한 도구를 한곳에서. 타입 상성 계산기와 이름으로 약점을 찾는 약점 검색을 제공합니다.",
+        "en": "Handy Pokemon battle tools in one place. Includes a type matchup calculator and a name-based weakness finder.",
+        "ja": "ポケモンバトルに役立つツールを一か所に。タイプ相性計算機と、名前から弱点を調べる弱点検索を提供します。",
+        "zh": "实用的宝可梦对战工具集合。包含属性相克计算器以及按名称查询弱点的弱点查询工具。"
+      }
+    },
+    {
+      "path": "/pokemon-team",
+      "access": "public",
+      "titles": {
+        "ko": "포켓몬 팀빌더",
+        "en": "Pokemon Team Builder",
+        "ja": "ポケモン チームビルダー",
+        "zh": "宝可梦队伍构建器"
+      },
+      "descriptions": {
+        "ko": "포켓몬을 최대 6마리 골라 팀을 구성하고, 팀 전체의 타입 약점·내성 커버리지를 한눈에 분석하세요. 팀을 저장하고 공유 링크로 친구와 나눌 수 있습니다.",
+        "en": "Pick up to 6 Pokemon to build a team and analyze your team's type weakness and resistance coverage at a glance. Save your team and share it with friends via a link.",
+        "ja": "最大6匹のポケモンを選んでチームを編成し、チーム全体のタイプ弱点・耐性カバレッジを一目で分析。チームを保存して共有リンクで友達とシェアできます。",
+        "zh": "最多挑选6只宝可梦组建队伍，一目了然地分析整支队伍的属性弱点与抗性覆盖。保存队伍并通过分享链接与好友共享。"
+      }
+    },
+    {
       "path": "/pokemon-type-calculator",
       "access": "public",
       "titles": {
@@ -510,6 +542,22 @@ export const commandPalettePages = {
         "en": "Set up to 3 defending types to instantly see 4×, 2×, 1×, ½×, ¼×, and 0× type matchups. Includes full Gen 6+ type chart.",
         "ja": "最大3つの防御タイプを設定して、4倍・2倍・1倍・½倍・¼倍・0倍の相性をすぐに確認できます。全世代タイプ相性表付き。",
         "zh": "最多设置3个防御属性，立即查看4倍、2倍、1倍、½倍、¼倍、0倍的属性相克关系。包含完整第六世代属性相克表。"
+      }
+    },
+    {
+      "path": "/pokemon-weakness",
+      "access": "public",
+      "titles": {
+        "ko": "포켓몬 약점 검색",
+        "en": "Pokemon Weakness Finder",
+        "ja": "ポケモン弱点検索",
+        "zh": "宝可梦弱点查询"
+      },
+      "descriptions": {
+        "ko": "포켓몬 이름을 검색하고 종을 선택하면 그 종의 타입 약점·내성·무효를 4배·2배·½배·¼배·0배로 한눈에 보여줍니다. 다국어 이름 검색 지원.",
+        "en": "Search a Pokemon by name and pick a species to instantly see its type weaknesses, resistances, and immunities at 4×, 2×, ½×, ¼×, and 0×. Multilingual name search supported.",
+        "ja": "ポケモンの名前を検索して種を選ぶと、そのタイプの弱点・耐性・無効を4倍・2倍・½倍・¼倍・0倍ですぐに表示します。多言語の名前検索に対応。",
+        "zh": "搜索宝可梦名称并选择种类，立即以4倍、2倍、½倍、¼倍、0倍显示该属性的弱点、耐性与免疫。支持多语言名称搜索。"
       }
     },
     {
