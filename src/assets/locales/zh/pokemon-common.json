@@ -1,4 +1,7 @@
 {
+  "navigation": {
+    "backToPokemonTools": "宝可梦工具"
+  },
   "effectiveness": {
     "x4": "4倍伤害（弱点）",
     "x2": "2倍伤害（弱点）",

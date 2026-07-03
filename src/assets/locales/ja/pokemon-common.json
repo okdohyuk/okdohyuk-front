@@ -1,4 +1,7 @@
 {
+  "navigation": {
+    "backToPokemonTools": "ポケモンツール"
+  },
   "effectiveness": {
     "x4": "4倍ダメージ（弱点）",
     "x2": "2倍ダメージ（弱点）",

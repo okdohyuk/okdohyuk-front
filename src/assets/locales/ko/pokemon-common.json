@@ -1,4 +1,7 @@
 {
+  "navigation": {
+    "backToPokemonTools": "포켓몬 도구 모음"
+  },
   "effectiveness": {
     "x4": "4배 피해 (약점)",
     "x2": "2배 피해 (약점)",

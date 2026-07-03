@@ -23,34 +23,72 @@ import {
 } from '@libs/pokemon/typeChart';
 import TypeBadge from '@components/complex/Pokemon/TypeBadge';
 import EffectivenessGroup from '@components/complex/Pokemon/EffectivenessGroup';
-import type { PokemonSpecies } from '@api/Pokemon';
+import type { PokemonNames, PokemonSpecies } from '@api/Pokemon';
 import { useGetPokemonSpecies, useSearchPokemonSpecies } from '@queries/usePokemonQueries';
 
 interface PokemonWeaknessClientProps {
   lng: Language;
 }
 
-// localStorage 키 (최근 선택 slug 목록). 도구 데이터(이름)는 저장하지 않고 slug 만 보관 — 표시는 항상 API/i18n.
+// localStorage 키 (최근 선택 목록). slug 와 함께 언어별 names 를 저장해
+// 현재 페이지 언어(lng)로 이름을 표시한다(lng 전환 시 해당 언어로 노출).
+// 스프라이트/타입 등 언어 무관 필드는 저장하지 않고 표시 시 API 로 보강한다.
 const RECENT_KEY = 'pokemon-weakness:recent';
 const RECENT_LIMIT = 8;
 const SEARCH_MIN_LENGTH = 2;
 const SEARCH_DEBOUNCE_MS = 350;
 const RESULT_LIMIT = 24;
 
-const readRecent = (): string[] => {
+// 최근검색 저장 단위. 과거 포맷(slug 문자열 배열)과 호환하기 위해 names 는 optional.
+interface RecentEntry {
+  slug: string;
+  names?: PokemonNames;
+}
+
+const isPokemonNames = (value: unknown): value is PokemonNames => {
+  if (typeof value !== 'object' || value === null) return false;
+  const candidate = value as Record<string, unknown>;
+  return (
+    typeof candidate.ko === 'string' &&
+    typeof candidate.en === 'string' &&
+    typeof candidate.ja === 'string' &&
+    typeof candidate.zh === 'string'
+  );
+};
+
+// 저장분 파싱. 과거 포맷(string[])과 신규 포맷(RecentEntry[])을 모두 수용하고
+// 인식 불가한 항목은 무시한다.
+const readRecent = (): RecentEntry[] => {
   const raw = LocalStorage.getItem(RECENT_KEY);
   if (!raw) return [];
   try {
     const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed)) {
-      return parsed
-        .filter((item): item is string => typeof item === 'string')
-        .slice(0, RECENT_LIMIT);
-    }
-    return [];
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .map((item): RecentEntry | null => {
+        // 과거 포맷: slug 문자열만 저장 → names 없이 마이그레이션.
+        if (typeof item === 'string') return { slug: item };
+        if (typeof item === 'object' && item !== null) {
+          const candidate = item as Record<string, unknown>;
+          if (typeof candidate.slug === 'string') {
+            return {
+              slug: candidate.slug,
+              names: isPokemonNames(candidate.names) ? candidate.names : undefined,
+            };
+          }
+        }
+        return null;
+      })
+      .filter((entry): entry is RecentEntry => entry !== null)
+      .slice(0, RECENT_LIMIT);
   } catch {
     return [];
   }
+};
+
+const pickName = (names: PokemonNames | undefined, lng: Language): string | null => {
+  if (!names) return null;
+  return names[lng] || names.en || null;
 };
 
 export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProps) {
@@ -65,7 +103,7 @@ export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProp
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   // 검색 결과에서 직접 고른 종(detail fetch 절약용). 딥링크/최근선택은 useGetPokemonSpecies 로 보강.
   const [selectedFromList, setSelectedFromList] = useState<PokemonSpecies | null>(null);
-  const [recent, setRecent] = useState<string[]>([]);
+  const [recent, setRecent] = useState<RecentEntry[]>([]);
   const lastTrackedSlugRef = useRef<string | null>(null);
   const didRestoreRef = useRef(false);
 
@@ -97,7 +135,7 @@ export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProp
     }
   }, [searchParams]);
 
-  const persistRecent = useCallback((next: string[]) => {
+  const persistRecent = useCallback((next: RecentEntry[]) => {
     setRecent(next);
     LocalStorage.setItem(RECENT_KEY, JSON.stringify(next));
   }, []);
@@ -121,10 +159,9 @@ export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProp
       setSelectedSlug(species.slug);
       setSelectedFromList(species);
       updateQueryString(species.slug);
-      const next = [species.slug, ...recent.filter((s) => s !== species.slug)].slice(
-        0,
-        RECENT_LIMIT,
-      );
+      // 언어별 names 를 함께 저장 → 이후 어떤 lng 에서도 해당 언어 이름으로 표시.
+      const entry: RecentEntry = { slug: species.slug, names: species.names };
+      const next = [entry, ...recent.filter((r) => r.slug !== species.slug)].slice(0, RECENT_LIMIT);
       persistRecent(next);
     },
     [recent, persistRecent, updateQueryString],
@@ -135,7 +172,10 @@ export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProp
       setSelectedSlug(slug);
       setSelectedFromList(null);
       updateQueryString(slug);
-      const next = [slug, ...recent.filter((s) => s !== slug)].slice(0, RECENT_LIMIT);
+      // 최근 목록 재선택: 기존 항목(names 포함)을 보존해 맨 앞으로 이동.
+      const existing = recent.find((r) => r.slug === slug);
+      const entry: RecentEntry = existing ?? { slug };
+      const next = [entry, ...recent.filter((r) => r.slug !== slug)].slice(0, RECENT_LIMIT);
       persistRecent(next);
     },
     [recent, persistRecent, updateQueryString],
@@ -172,6 +212,21 @@ export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProp
       type_count: selectedSpecies.types.length,
     });
   }, [selectedSpecies, groupedByEffectiveness, trackUse]);
+
+  // names 없는 최근 항목(과거 포맷/딥링크) 마이그레이션: 상세 조회로 종이 확정되면
+  // 저장분에 언어별 names 를 채워 다음부터 현재 언어로 표시되게 한다.
+  useEffect(() => {
+    if (!selectedSpecies) return;
+    setRecent((prev) => {
+      const target = prev.find((r) => r.slug === selectedSpecies.slug);
+      if (!target || target.names) return prev;
+      const next = prev.map((r) =>
+        r.slug === selectedSpecies.slug ? { slug: r.slug, names: selectedSpecies.names } : r,
+      );
+      LocalStorage.setItem(RECENT_KEY, JSON.stringify(next));
+      return next;
+    });
+  }, [selectedSpecies]);
 
   const results = searchResult.data?.results ?? [];
   const showResults = searchEnabled && !searchResult.isError;
@@ -350,17 +405,17 @@ export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProp
             </button>
           </div>
           <div className="flex flex-wrap gap-2">
-            {recent.map((slug) => (
+            {recent.map((entry) => (
               <button
-                key={slug}
+                key={entry.slug}
                 type="button"
-                onClick={() => handleSelectSlug(slug)}
+                onClick={() => handleSelectSlug(entry.slug)}
                 className={cn(
                   'rounded-full border border-basic-3 bg-basic-0/80 px-3 py-1.5 text-xs font-semibold text-fg-3 transition-colors hover:border-point-2/70 hover:text-point-fg',
-                  selectedSlug === slug && 'border-point-2 text-point-fg',
+                  selectedSlug === entry.slug && 'border-point-2 text-point-fg',
                 )}
               >
-                {slug}
+                {pickName(entry.names, lng) ?? entry.slug}
               </button>
             ))}
           </div>
