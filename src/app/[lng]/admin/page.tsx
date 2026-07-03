@@ -7,7 +7,14 @@ import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
-import { ArrowRight, FolderKanban, MessageSquareWarning, ShieldCheck, Users } from 'lucide-react';
+import {
+  ArrowRight,
+  FolderKanban,
+  KeyRound,
+  MessageSquareWarning,
+  ShieldCheck,
+  Users,
+} from 'lucide-react';
 import { cn } from '@utils/cn';
 
 const ADMIN_MENUS = [
@@ -34,6 +41,12 @@ const ADMIN_MENUS = [
     label: '유저 관리',
     description: '사용자 정보와 권한(Role)을 업데이트합니다.',
     icon: Users,
+  },
+  {
+    href: '/admin/api-key',
+    label: 'API Key 관리',
+    description: '블로그 임시저장/이미지 업로드 전용 API Key 를 발급하고 폐기합니다.',
+    icon: KeyRound,
   },
 ];
 

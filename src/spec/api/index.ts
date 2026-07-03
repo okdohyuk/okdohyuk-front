@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosHeaders, AxiosInstance, InternalAxiosRequestCon
 import * as Sentry from '@sentry/nextjs';
 import UserTokenUtil from '@utils/userTokenUtil';
 import { rememberLoginRedirect } from '@utils/loginRedirect';
+import { ApiKeyApi } from './ApiKey';
 import { AuthApi } from './Auth';
 import { BlogApi } from './Blog';
 import { BlogReplyApi } from './BlogReply';
@@ -80,6 +81,7 @@ const logoutAndLogin = () => {
 };
 
 // 각 API 인스턴스를 export합니다.
+export const apiKeyApi = new ApiKeyApi(undefined, API_URL, apiInstance);
 export const authApi = new AuthApi(undefined, API_URL, apiInstance);
 export const blogApi = new BlogApi(undefined, API_URL, apiInstance);
 export const blogReplyApi = new BlogReplyApi(undefined, API_URL, apiInstance);
