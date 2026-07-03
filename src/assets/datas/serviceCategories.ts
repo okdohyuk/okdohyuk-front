@@ -67,6 +67,7 @@ const SERVICE_SECTION_BY_LINK: Record<string, ServiceSectionKey> = {
   '/pokemon-type-calculator': 'lifestyle',
   '/pokemon-weakness': 'lifestyle',
   '/pokemon-team': 'lifestyle',
+  '/guestbook': 'lifestyle',
   '/solve': 'learning',
 };
 

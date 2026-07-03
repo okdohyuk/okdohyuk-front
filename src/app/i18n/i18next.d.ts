@@ -61,6 +61,7 @@ import consent from 'assets/locales/ko/consent.json';
 import shortener from 'assets/locales/ko/shortener.json';
 import copykiller from 'assets/locales/ko/copykiller.json';
 import solve from 'assets/locales/ko/solve.json';
+import guestbook from 'assets/locales/ko/guestbook.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -128,6 +129,7 @@ declare module 'i18next' {
       shortener: typeof shortener;
       copykiller: typeof copykiller;
       solve: typeof solve;
+      guestbook: typeof guestbook;
     };
   }
 }

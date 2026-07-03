@@ -1,0 +1,57 @@
+{
+  "title": "ゲストブック",
+  "description": "okdohyuk.dev の訪問者なら誰でも短いメッセージを残せるサイトのゲストブックです。ログインしなくてもニックネームと削除パスワードで投稿できます。",
+  "badge": "ライフ・その他",
+  "placeholder": "温かいメッセージを残してください...",
+  "openGraph": {
+    "title": "ゲストブック",
+    "description": "okdohyuk.dev のゲストブックに自由にメッセージを残してください。ログインユーザーはアカウントで、未ログインの訪問者はニックネームと削除パスワードで参加できます。",
+    "keywords": ["ゲストブック", "メッセージ", "okdohyuk", "コミュニティ", "コメント"]
+  },
+  "form": {
+    "nickname": "ニックネーム",
+    "nicknamePlaceholder": "ニックネーム（最大50文字）",
+    "password": "削除パスワード",
+    "passwordPlaceholder": "削除時に使うパスワード",
+    "content": "メッセージ",
+    "submit": "投稿",
+    "submitting": "投稿中...",
+    "loginNotice": "ログイン状態で投稿されます。",
+    "anonymousNotice": "ニックネームと削除パスワードは未ログイン投稿時に必須です。"
+  },
+  "delete": {
+    "button": "削除",
+    "passwordPrompt": "削除パスワードを入力してください",
+    "passwordPlaceholder": "削除パスワード",
+    "confirm": "本当に削除しますか？",
+    "submit": "削除",
+    "cancel": "キャンセル",
+    "error": "削除に失敗しました。パスワードを確認してください。"
+  },
+  "report": {
+    "button": "通報",
+    "title": "通報する",
+    "descriptionLabel": "通報の理由を選択してください。",
+    "detailLabel": "詳細説明（任意）",
+    "detailPlaceholder": "通報理由を詳しく記入してください。",
+    "submit": "通報",
+    "cancel": "キャンセル",
+    "reason": {
+      "SPAM": "スパム / 不適切な宣伝",
+      "INAPPROPRIATE": "不適切なコンテンツ",
+      "HARASSMENT": "暴言 / 誹謗中傷",
+      "OTHER": "その他"
+    }
+  },
+  "list": {
+    "empty": "まだメッセージがありません。最初のメッセージを残してみましょう！",
+    "loading": "読み込み中..."
+  },
+  "deletedMessage": "削除されたメッセージです。",
+  "anonymous": "匿名",
+  "validation": {
+    "contentRequired": "メッセージを入力してください。",
+    "nicknameRequired": "ニックネームを入力してください。",
+    "passwordRequired": "削除パスワードを入力してください。"
+  }
+}
