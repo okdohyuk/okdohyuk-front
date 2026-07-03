@@ -1,0 +1,32 @@
+{
+  "openGraph": {
+    "title": "Pokemon Tools",
+    "ogTitle": "Pokemon Tools - Type Calculator & Weakness Finder",
+    "description": "Handy Pokemon battle tools in one place. Includes a type matchup calculator and a name-based weakness finder.",
+    "keywords": [
+      "pokemon",
+      "tools",
+      "type calculator",
+      "weakness finder",
+      "type matchup",
+      "pokedex"
+    ]
+  },
+  "title": "Pokemon Tools",
+  "description": "A collection of handy Pokemon battle tools. Pick the one you need.",
+  "headerBadge": "Lifestyle & Misc",
+  "card": {
+    "typeCalculator": {
+      "title": "Pokemon Type Calculator",
+      "description": "Set up to 3 defending types and instantly see 4×, 2×, ½×, ¼×, and 0× matchups."
+    },
+    "weakness": {
+      "title": "Weakness Finder by Name",
+      "description": "Search a Pokemon by name, pick a species, and instantly see its type weaknesses and resistances."
+    },
+    "teamBuilder": {
+      "title": "Pokemon Team Builder",
+      "description": "Pick up to 6 Pokemon to build a team, analyze its overall weakness coverage, then save and share it."
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "openGraph": {
+    "title": "Pokemon Team Builder",
+    "ogTitle": "Pokemon Team Builder - Build Teams & Analyze Weakness Coverage",
+    "description": "Pick up to 6 Pokemon to build a team and analyze your team's type weakness and resistance coverage at a glance. Save your team and share it with friends via a link.",
+    "keywords": [
+      "pokemon",
+      "team builder",
+      "team composition",
+      "weakness coverage",
+      "type matchup",
+      "share",
+      "pokedex"
+    ]
+  },
+  "title": "Pokemon Team Builder",
+  "description": "Pick up to 6 Pokemon to build a team and analyze its weakness coverage.",
+  "search": {
+    "label": "Add Pokemon",
+    "placeholder": "Enter a Pokemon name (KO/EN/JA/ZH)",
+    "clear": "Clear search",
+    "hint": "Search starts after typing two or more characters.",
+    "loading": "Searching…",
+    "empty": "No results. Try a different name.",
+    "error": "Something went wrong while searching. Please try again later.",
+    "add": "Add to team"
+  },
+  "team": {
+    "heading": "My Team ({{count}}/6)",
+    "empty": "Search for Pokemon and add them to your team.",
+    "remove": "Remove",
+    "full": "A team can hold up to 6 Pokemon.",
+    "duplicate": "This Pokemon is already on your team.",
+    "dex": "Dex No. {{dexId}}"
+  },
+  "coverage": {
+    "heading": "Team Weakness Coverage",
+    "description": "For each attacking type, how many members are weak, resistant, or immune.",
+    "sharedHeading": "Shared Weaknesses",
+    "sharedDescription": "Attacking types that 2 or more members are weak to at once. Cover these gaps.",
+    "sharedNone": "No shared weaknesses. Well-balanced team!",
+    "tableType": "Attacking Type",
+    "weak": "Weak",
+    "resist": "Resist",
+    "immune": "Immune",
+    "emptyTeam": "Add Pokemon to your team to see coverage."
+  },
+  "save": {
+    "heading": "Save Team",
+    "nameLabel": "Team name",
+    "namePlaceholder": "e.g. My Aces",
+    "submit": "Save team",
+    "submitting": "Saving…",
+    "needMember": "Add at least one Pokemon to your team.",
+    "needName": "Enter a team name.",
+    "error": "Something went wrong while saving. Please try again later.",
+    "success": "Team saved!",
+    "anonymousHint": "Saved even without logging in. Log in to manage it in your team list.",
+    "shareLabel": "Share link",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "myTeams": {
+    "heading": "My Saved Teams",
+    "empty": "You have no saved teams yet.",
+    "loading": "Loading…",
+    "error": "Failed to load your teams.",
+    "load": "Load",
+    "delete": "Delete",
+    "deleteConfirm": "Delete this team?",
+    "loginHint": "Log in to manage your saved teams here."
+  },
+  "shareView": {
+    "title": "Shared Pokemon Team",
+    "description": "A read-only team you are viewing through a share link.",
+    "loading": "Loading team…",
+    "notFound": "Team not found. The link may have expired or been deleted.",
+    "openBuilder": "Open Team Builder"
+  }
+}

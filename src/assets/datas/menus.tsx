@@ -17,6 +17,7 @@ import {
   FileText,
   FileSearch,
   Fingerprint,
+  Gamepad2,
   Github,
   GraduationCap,
   HardDrive,
@@ -38,6 +39,7 @@ import {
   ScrollText,
   Search,
   Server,
+  ShieldAlert,
   Smile,
   Sparkles,
   Swords,
@@ -45,6 +47,7 @@ import {
   TextCursorInput,
   Timer,
   Tv,
+  Users,
   Wallet,
   Youtube,
 } from 'lucide-react';
@@ -506,6 +509,16 @@ const menus: Menus = {
     },
     {
       title: {
+        ko: '포켓몬 도구 모음',
+        en: 'Pokemon Tools',
+        ja: 'ポケモンツール集',
+        zh: '宝可梦工具集',
+      },
+      icon: <Gamepad2 />,
+      link: '/pokemon',
+    },
+    {
+      title: {
         ko: '포켓몬 타입 계산기',
         en: 'Pokemon Type Calculator',
         ja: 'ポケモン タイプ計算機',
@@ -513,6 +526,26 @@ const menus: Menus = {
       },
       icon: <Swords />,
       link: '/pokemon-type-calculator',
+    },
+    {
+      title: {
+        ko: '포켓몬 약점 검색',
+        en: 'Pokemon Weakness Finder',
+        ja: 'ポケモン弱点検索',
+        zh: '宝可梦弱点查询',
+      },
+      icon: <ShieldAlert />,
+      link: '/pokemon-weakness',
+    },
+    {
+      title: {
+        ko: '포켓몬 팀빌더',
+        en: 'Pokemon Team Builder',
+        ja: 'ポケモン チームビルダー',
+        zh: '宝可梦队伍构建器',
+      },
+      icon: <Users />,
+      link: '/pokemon-team',
     },
   ],
   out: [
