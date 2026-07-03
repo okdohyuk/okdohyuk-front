@@ -12,7 +12,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             'bg-basic-0 text-fg-1 ' +
             'focus:ring-2 focus:ring-point-1 focus:border-transparent outline-none ' +
             'transition-all duration-200 resize-none ' +
-            'whitespace-pre-wrap break-words',
+            // textarea 는 세로 스크롤만: 가로 스크롤바(모바일/레티나 미세 오버플로) 제거
+            'overflow-x-hidden overflow-y-auto whitespace-pre-wrap break-words',
           className,
         )}
         ref={ref}
