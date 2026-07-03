@@ -1,0 +1,57 @@
+{
+  "title": "留言板",
+  "description": "任何 okdohyuk.dev 访客都可以留下简短消息的网站留言板。无需登录，使用昵称和删除密码即可发布。",
+  "badge": "生活与其他",
+  "placeholder": "留下一句温暖的话吧...",
+  "openGraph": {
+    "title": "留言板",
+    "description": "欢迎在 okdohyuk.dev 留言板自由留言。登录用户以账号发布，未登录访客可使用昵称和删除密码参与。",
+    "keywords": ["留言板", "消息", "okdohyuk", "社区", "评论"]
+  },
+  "form": {
+    "nickname": "昵称",
+    "nicknamePlaceholder": "昵称（最多50字）",
+    "password": "删除密码",
+    "passwordPlaceholder": "用于删除的密码",
+    "content": "消息",
+    "submit": "留言",
+    "submitting": "提交中...",
+    "loginNotice": "将以登录账号发布。",
+    "anonymousNotice": "未登录发布时必须填写昵称和删除密码。"
+  },
+  "delete": {
+    "button": "删除",
+    "passwordPrompt": "请输入删除密码",
+    "passwordPlaceholder": "删除密码",
+    "confirm": "确定要删除吗？",
+    "submit": "删除",
+    "cancel": "取消",
+    "error": "删除失败，请检查密码。"
+  },
+  "report": {
+    "button": "举报",
+    "title": "举报",
+    "descriptionLabel": "请选择举报理由。",
+    "detailLabel": "详细说明（可选）",
+    "detailPlaceholder": "请详细说明举报理由。",
+    "submit": "举报",
+    "cancel": "取消",
+    "reason": {
+      "SPAM": "垃圾 / 不当推广",
+      "INAPPROPRIATE": "不当内容",
+      "HARASSMENT": "辱骂 / 人身攻击",
+      "OTHER": "其他"
+    }
+  },
+  "list": {
+    "empty": "还没有留言，来留下第一条吧！",
+    "loading": "加载中..."
+  },
+  "deletedMessage": "该消息已被删除。",
+  "anonymous": "匿名",
+  "validation": {
+    "contentRequired": "请输入消息。",
+    "nicknameRequired": "请输入昵称。",
+    "passwordRequired": "请输入删除密码。"
+  }
+}

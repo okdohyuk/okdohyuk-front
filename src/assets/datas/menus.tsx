@@ -28,6 +28,7 @@ import {
   Link2,
   Linkedin,
   List,
+  MessageSquareText,
   MonitorPlay,
   Moon,
   Music,
@@ -546,6 +547,16 @@ const menus: Menus = {
       },
       icon: <Users />,
       link: '/pokemon-team',
+    },
+    {
+      title: {
+        ko: '방명록',
+        en: 'Guestbook',
+        ja: 'ゲストブック',
+        zh: '留言板',
+      },
+      icon: <MessageSquareText />,
+      link: '/guestbook',
     },
   ],
   out: [
