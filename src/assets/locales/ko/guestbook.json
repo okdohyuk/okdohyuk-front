@@ -1,0 +1,57 @@
+{
+  "title": "방명록",
+  "description": "okdohyuk.dev 방문자 누구나 짧은 메시지를 남길 수 있는 사이트 방명록입니다. 로그인 없이도 닉네임과 삭제 비밀번호로 작성할 수 있어요.",
+  "badge": "라이프/기타",
+  "placeholder": "따뜻한 메시지를 남겨주세요...",
+  "openGraph": {
+    "title": "방명록",
+    "description": "okdohyuk.dev 방명록에 자유롭게 메시지를 남겨보세요. 로그인 사용자는 계정으로, 비로그인 방문자는 닉네임과 삭제 비밀번호로 참여할 수 있습니다.",
+    "keywords": ["방명록", "게스트북", "메시지", "okdohyuk", "커뮤니티", "댓글"]
+  },
+  "form": {
+    "nickname": "닉네임",
+    "nicknamePlaceholder": "닉네임 (최대 50자)",
+    "password": "삭제 비밀번호",
+    "passwordPlaceholder": "삭제 시 사용할 비밀번호",
+    "content": "메시지",
+    "submit": "남기기",
+    "submitting": "등록 중...",
+    "loginNotice": "로그인 상태로 작성됩니다.",
+    "anonymousNotice": "닉네임과 삭제 비밀번호는 비로그인 작성 시 필수입니다."
+  },
+  "delete": {
+    "button": "삭제",
+    "passwordPrompt": "삭제 비밀번호를 입력하세요",
+    "passwordPlaceholder": "삭제 비밀번호",
+    "confirm": "정말 삭제하시겠습니까?",
+    "submit": "삭제",
+    "cancel": "취소",
+    "error": "삭제에 실패했습니다. 비밀번호를 확인해주세요."
+  },
+  "report": {
+    "button": "신고",
+    "title": "신고하기",
+    "descriptionLabel": "신고 사유를 선택해주세요.",
+    "detailLabel": "상세 설명 (선택)",
+    "detailPlaceholder": "신고 사유를 자세히 적어주세요.",
+    "submit": "신고",
+    "cancel": "취소",
+    "reason": {
+      "SPAM": "스팸 / 부적절한 홍보",
+      "INAPPROPRIATE": "부적절한 콘텐츠",
+      "HARASSMENT": "욕설 / 비하 발언",
+      "OTHER": "기타"
+    }
+  },
+  "list": {
+    "empty": "아직 남겨진 메시지가 없습니다. 첫 메시지를 남겨보세요!",
+    "loading": "불러오는 중..."
+  },
+  "deletedMessage": "삭제된 메시지입니다.",
+  "anonymous": "익명",
+  "validation": {
+    "contentRequired": "메시지를 입력해주세요.",
+    "nicknameRequired": "닉네임을 입력해주세요.",
+    "passwordRequired": "삭제 비밀번호를 입력해주세요."
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "title": "Guestbook",
+  "description": "A site guestbook where any okdohyuk.dev visitor can leave a short message. You can post even without logging in, using a nickname and a deletion password.",
+  "badge": "Lifestyle & Misc",
+  "placeholder": "Leave a warm message...",
+  "openGraph": {
+    "title": "Guestbook",
+    "description": "Feel free to leave a message on the okdohyuk.dev guestbook. Logged-in users post with their account; visitors can join with a nickname and a deletion password.",
+    "keywords": ["guestbook", "message", "okdohyuk", "community", "comments"]
+  },
+  "form": {
+    "nickname": "Nickname",
+    "nicknamePlaceholder": "Nickname (up to 50 chars)",
+    "password": "Deletion password",
+    "passwordPlaceholder": "Password used for deletion",
+    "content": "Message",
+    "submit": "Post",
+    "submitting": "Posting...",
+    "loginNotice": "Posting with your logged-in account.",
+    "anonymousNotice": "A nickname and deletion password are required when not logged in."
+  },
+  "delete": {
+    "button": "Delete",
+    "passwordPrompt": "Enter the deletion password",
+    "passwordPlaceholder": "Deletion password",
+    "confirm": "Are you sure you want to delete this?",
+    "submit": "Delete",
+    "cancel": "Cancel",
+    "error": "Failed to delete. Please check the password."
+  },
+  "report": {
+    "button": "Report",
+    "title": "Report",
+    "descriptionLabel": "Please select a reason for reporting.",
+    "detailLabel": "Details (optional)",
+    "detailPlaceholder": "Describe the reason in detail.",
+    "submit": "Report",
+    "cancel": "Cancel",
+    "reason": {
+      "SPAM": "Spam / inappropriate promotion",
+      "INAPPROPRIATE": "Inappropriate content",
+      "HARASSMENT": "Abuse / harassment",
+      "OTHER": "Other"
+    }
+  },
+  "list": {
+    "empty": "No messages yet. Be the first to leave one!",
+    "loading": "Loading..."
+  },
+  "deletedMessage": "This message has been deleted.",
+  "anonymous": "Anonymous",
+  "validation": {
+    "contentRequired": "Please enter a message.",
+    "nicknameRequired": "Please enter a nickname.",
+    "passwordRequired": "Please enter a deletion password."
+  }
+}
