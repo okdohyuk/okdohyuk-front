@@ -11,9 +11,11 @@ export const submitBlog = async (blog: BlogRequest, urlSlug?: string) => {
     const token = await getTokenServer();
     if (!token) return;
     if (!urlSlug) {
-      await blogApi.postBlog(token.accessToken, blog);
+      // Blog spec 에 X-Api-Key 헤더가 추가되어 authorization 뒤에 xApiKey 인자가 삽입됨.
+      // 어드민 게시 플로우는 Authorization 만 사용하므로 xApiKey 자리에는 undefined 를 전달한다.
+      await blogApi.postBlog(token.accessToken, undefined, blog);
     } else {
-      await blogApi.patchBlogUrlSlug(urlSlug, token.accessToken, blog);
+      await blogApi.patchBlogUrlSlug(urlSlug, token.accessToken, undefined, blog);
     }
     redirect('/admin/blog');
   } catch (error) {
