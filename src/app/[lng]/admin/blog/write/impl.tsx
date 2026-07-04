@@ -98,6 +98,8 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
           files.map(async (file) => {
             const { data: imageUrl } = await storageApi.postStorageImage(
               `Bearer ${accessToken}`,
+              // Storage spec 에 X-Api-Key 헤더가 추가됨. 어드민 업로드는 Authorization 만 사용.
+              undefined,
               file,
             );
             return imageUrl;
