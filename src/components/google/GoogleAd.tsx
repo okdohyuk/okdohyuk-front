@@ -16,22 +16,27 @@ type GoogleAdProps = {
 const MIN_AD_WIDTH = 250;
 
 function GoogleAd({ slotId, className = '' }: GoogleAdProps) {
+  const wrapRef = useRef<HTMLDivElement>(null);
   const insRef = useRef<HTMLModElement>(null);
 
   useEffect(() => {
+    const wrap = wrapRef.current;
     const el = insRef.current;
-    if (!el) return undefined;
+    if (!wrap || !el) return undefined;
 
     let pushed = false;
     let ro: ResizeObserver | null = null;
     let io: IntersectionObserver | null = null;
 
     // 폭이 확보되고 뷰포트에 들어왔을 때 1회만 push.
-    // 기존 구현은 mount 직후 1회 측정만 했기 때문에, flex/grid 부모가 초기 폭=0이면
-    // 광고가 영구히 노출되지 않으면서 AdSense는 별도 경로로 push를 시도해 No-slot-size 에러를 던졌다.
+    // AdSense가 계산하는 availableWidth는 <ins>가 아니라 부모(래퍼)의 콘텐츠 폭이다.
+    // 과거 구현은 <ins>에 min-width를 걸고 <ins>.offsetWidth로 가드했는데,
+    // min-width는 부모 폭이 0이어도 offsetWidth를 그 값 이상으로 부풀려(overflow)
+    // 가드가 항상 통과 → 0폭 부모에서 push가 나가 No-slot-size(availableWidth=0)를 유발했다.
+    // 따라서 래퍼(실제 가용 폭)를 측정하고, <ins>는 width:100%로 래퍼를 그대로 따르게 한다.
     const tryPush = () => {
       if (pushed || !el.isConnected) return;
-      if (el.offsetWidth < MIN_AD_WIDTH) return;
+      if (wrap.offsetWidth < MIN_AD_WIDTH) return;
       pushed = true;
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -44,13 +49,13 @@ function GoogleAd({ slotId, className = '' }: GoogleAdProps) {
 
     if (typeof ResizeObserver !== 'undefined') {
       ro = new ResizeObserver(tryPush);
-      ro.observe(el);
+      ro.observe(wrap);
     }
     if (typeof IntersectionObserver !== 'undefined') {
       io = new IntersectionObserver((entries) => {
         if (entries.some((e) => e.isIntersecting)) tryPush();
       });
-      io.observe(el);
+      io.observe(wrap);
     }
 
     tryPush();
@@ -62,11 +67,11 @@ function GoogleAd({ slotId, className = '' }: GoogleAdProps) {
   }, []);
 
   return (
-    <div className={className} style={{ minWidth: MIN_AD_WIDTH, minHeight: 100 }}>
+    <div ref={wrapRef} className={className} style={{ minHeight: 100 }}>
       <ins
         ref={insRef}
         className="adsbygoogle"
-        style={{ display: 'block', minWidth: MIN_AD_WIDTH, minHeight: 100 }}
+        style={{ display: 'block', width: '100%', minHeight: 100 }}
         data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}
         data-ad-slot={String(slotId)}
         data-ad-format="auto"
