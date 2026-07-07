@@ -20,6 +20,9 @@ class BlogSearchStore implements BlogSearchStoreState {
 
   @observable public viewType: BlogCardType = 'discript';
 
+  // 뷰포트 기반 기본 뷰 초기화를 1회만 수행하기 위한 가드(관찰 대상 아님).
+  private viewTypeInitialized = false;
+
   @observable public category: FilterDropdownItem[] = [];
 
   @observable public tags: FilterDropdownItem[] = [];
@@ -168,6 +171,19 @@ class BlogSearchStore implements BlogSearchStoreState {
     runInAction(() => {
       this.viewType = viewType;
     });
+  };
+
+  // 최초 진입 시 뷰포트에 따라 기본 뷰를 정한다.
+  // 태블릿/PC(≥768px, Tailwind md)는 그리드(frame), 모바일은 리스트(discript) 유지.
+  // 1회만 적용해 이후 사용자의 수동 토글은 덮어쓰지 않는다.
+  public initViewTypeByViewport = () => {
+    if (typeof window === 'undefined' || this.viewTypeInitialized) return;
+    this.viewTypeInitialized = true;
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      runInAction(() => {
+        this.viewType = 'frame';
+      });
+    }
   };
 
   public setPrevPath = (prevPath: string | null) => {

@@ -25,8 +25,13 @@ const BlogSearchListClient = function BlogSearchListClient({
   tags,
 }: BlogSearchListClientProps) {
   useBlogSearchClient(category, tags);
-  const { blogs, count, viewType, status } = useStore('blogSearchStore');
+  const { blogs, count, viewType, status, initViewTypeByViewport } = useStore('blogSearchStore');
   const { t } = useTranslation(lng, 'blog/index');
+
+  // 최초 마운트 시 뷰포트에 맞춰 기본 뷰 결정(태블릿/PC=그리드). 하이드레이션 이후 실행.
+  useEffect(() => {
+    initViewTypeByViewport();
+  }, [initViewTypeByViewport]);
 
   // blog_load_more: status가 success로 전환되고, 이전보다 항목이 늘어난 경우 추가 로드로 간주
   const prevLengthRef = useRef<number>(0);
