@@ -38,6 +38,7 @@ type BlogSearchStoreState = {
   changeTagType: (value: string, type: FilterType) => void;
 
   setViewType: (viewType: BlogCardType) => void;
+  initViewTypeByViewport: () => void;
   setPrevPath: (prevPath: string | null) => void;
 };
 
