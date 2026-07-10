@@ -81,6 +81,8 @@ type LegacyEvent = 'button_click' | 'link_click';
 
 type MiscEvent = 'legal_section_jump';
 
+type AdEvent = 'ad_render_result';
+
 export type Event =
   | GlobalEvent
   | NavEvent
@@ -92,6 +94,7 @@ export type Event =
   | ToolEvent
   | UiEvent
   | MiscEvent
+  | AdEvent
   | LegacyEvent;
 
 // =============================================================================
