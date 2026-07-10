@@ -137,7 +137,7 @@
     "sharp": "0.34.5",
     "tailwind-merge": "^3.4.0",
     "tailwindcss-safe-area": "^0.2.2",
-    "typescript": "5.5.4",
+    "typescript": "7.0.2",
     "uuid": "^14.0.0",
     "yaml": "^2.9.0",
     "zod": "^3.23.8"
