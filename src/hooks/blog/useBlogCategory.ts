@@ -1,7 +1,13 @@
-import { blogApi } from '~/spec/api';
 import { PostBlogCategoryRequest } from '~/spec/api/Blog';
+import {
+  createBlogCategory,
+  deleteBlogCategory,
+  updateBlogCategory,
+} from '~/app/[lng]/admin/blog/category/actions';
 import { UseCategoryProps } from './type';
 
+// 카테고리 변경은 서버 액션을 경유한다 — 성공 시 서버에서
+// revalidateTag('blog-search'/'blog-post')로 공개 페이지 캐시를 무효화하기 위함.
 const useBlogCategory = () => {
   const post = async ({ category, parent }: UseCategoryProps) => {
     if (category.trim() === '') throw new Error();
@@ -11,17 +17,13 @@ const useBlogCategory = () => {
       parentId: parent !== null ? parent.id : undefined,
     };
 
-    await blogApi.postBlogCategory('', postdata);
+    await createBlogCategory(postdata);
   };
 
   const patch = async ({ parent }: UseCategoryProps) => {
     if (!(parent && parent.id && parent.name)) return;
 
-    const postdata: PostBlogCategoryRequest = {
-      name: parent.name,
-    };
-
-    await blogApi.patchBlogCategoryId(parent.id, '', postdata);
+    await updateBlogCategory(parent.id, { name: parent.name });
   };
 
   const remove = async ({ parent }: UseCategoryProps) => {
@@ -29,7 +31,7 @@ const useBlogCategory = () => {
     // eslint-disable-next-line no-alert
     if (!window.confirm('정말 삭제 하시겠습니까?')) return;
 
-    await blogApi.deleteBlogCategoryId(parent.id, '');
+    await deleteBlogCategory(parent.id);
   };
 
   return { post, patch, remove };
