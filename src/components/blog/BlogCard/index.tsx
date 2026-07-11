@@ -6,9 +6,12 @@ import Discript from './Discript';
 import Frame from './Frame';
 import { BlogCardFC } from './type';
 
-const BlogCard: BlogCardFC = function BlogCard({ blog, isAdmin = false, type = 'discript' }) {
+const BlogCard: BlogCardFC = function BlogCard({ blog, isAdmin = false, type = 'discript', lng }) {
   const { urlSlug } = blog;
-  const link = isAdmin ? `/admin/blog/write?urlSlug=${urlSlug}` : `/blog/${urlSlug}`;
+  const prefix = lng ? `/${lng}` : '';
+  const link = isAdmin
+    ? `${prefix}/admin/blog/write?urlSlug=${urlSlug}`
+    : `${prefix}/blog/${urlSlug}`;
 
   return (
     <Link

@@ -168,7 +168,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
     if (isSubmitting) return;
     setIsSubmitting(true);
     try {
-      await submitBlog(formData, blog?.urlSlug);
+      await submitBlog(formData, blog?.urlSlug, lng);
     } finally {
       setIsSubmitting(false);
     }
