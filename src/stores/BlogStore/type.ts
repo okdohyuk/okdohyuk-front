@@ -11,6 +11,7 @@ type BlogStoreState = {
   page: number;
   setBlogs: (blogs: OptionalBlogs) => void;
   getBlogsPage: (limit: number, authorization?: string) => void;
+  reset: () => void;
 };
 
 export type { BlogStoreState, Status };

@@ -21,6 +21,14 @@ class BlogStore implements BlogStoreState {
     this.blogs = blogs;
   };
 
+  // 목록 페이지 재진입 시 캐시된 목록을 버리고 처음부터 다시 불러오게 한다
+  @action public reset: BlogStoreState['reset'] = () => {
+    this.blogs = null;
+    this.page = 0;
+    this.isLastPage = false;
+    this.status = 'idle';
+  };
+
   @action public getBlogsPage: BlogStoreState['getBlogsPage'] = (limit) => {
     runInAction(() => {
       this.status = 'loading';
