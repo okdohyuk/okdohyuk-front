@@ -29,7 +29,7 @@ import {
   Linkedin,
   List,
   MessageSquareText,
-  MonitorPlay,
+  Mic,
   Moon,
   Music,
   Network,
@@ -41,10 +41,9 @@ import {
   Search,
   Server,
   ShieldAlert,
-  Smile,
-  Sparkles,
   Swords,
   Table,
+  Terminal,
   TextCursorInput,
   Timer,
   Tv,
@@ -562,23 +561,23 @@ const menus: Menus = {
   out: [
     {
       title: {
-        ko: '프로필',
-        en: 'Profile',
-        ja: 'プロフィール',
-        zh: '个人资料',
+        ko: '노그미',
+        en: 'Nogmi',
+        ja: 'Nogmi',
+        zh: 'Nogmi',
       },
-      icon: <Smile />,
-      link: 'https://okdohyuk.notion.site/',
+      icon: <Mic />,
+      link: 'https://git.okdohyuk.dev/nogmi/',
     },
     {
       title: {
-        ko: '티스토리',
-        en: 'Tistory',
-        ja: 'Tistory',
-        zh: 'Tistory',
+        ko: 'MuxPad',
+        en: 'MuxPad',
+        ja: 'MuxPad',
+        zh: 'MuxPad',
       },
-      icon: <MonitorPlay />,
-      link: 'https://blog.okdohyuk.dev/',
+      icon: <Terminal />,
+      link: 'https://git.okdohyuk.dev/muxpad/',
     },
     {
       title: {
@@ -621,18 +620,7 @@ const menus: Menus = {
       link: 'https://github.com/sponsors/okdohyuk?frequency=recurring',
     },
   ],
-  trash: [
-    {
-      title: {
-        ko: '해몽',
-        en: 'Dream Resolver',
-        ja: '夢占い',
-        zh: '解梦',
-      },
-      icon: <Sparkles />,
-      link: '/dream-resolver',
-    },
-  ],
+  trash: [],
 };
 
 export type { MenuItem, Menus };

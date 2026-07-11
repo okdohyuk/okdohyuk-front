@@ -27,9 +27,14 @@ import { cn } from '@utils/cn';
 
 function BlogAdminPage({ params }: LanguageParams) {
   const { lng } = use(params);
-  const { blogs, getBlogsPage, status, isLastPage } = useStore('blogStore');
+  const { blogs, getBlogsPage, status, isLastPage, reset } = useStore('blogStore');
   const { setIsFetching, isFetching } = useInfiniteScroll();
   const blogCount = blogs?.length ?? 0;
+
+  // 글 작성/게시 후 돌아왔을 때 캐시된 목록이 남지 않도록 진입 시마다 새로 불러온다
+  useEffect(() => {
+    reset();
+  }, [reset]);
 
   useEffect(() => {
     if (!isFetching) return;
