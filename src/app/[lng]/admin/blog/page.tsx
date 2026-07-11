@@ -90,7 +90,7 @@ function BlogAdminPage({ params }: LanguageParams) {
 
         <div className="flex flex-col gap-3">
           {blogs?.map((blog) => (
-            <BlogCard key={blog.urlSlug} blog={blog as BlogSearch} isAdmin type="board" />
+            <BlogCard key={blog.urlSlug} blog={blog as BlogSearch} isAdmin type="board" lng={lng} />
           ))}
 
           {status === 'loading' ? (

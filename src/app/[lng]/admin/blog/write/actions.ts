@@ -6,7 +6,7 @@ import { getTokenServer } from '@libs/server/token';
 import { blogApi } from '@api';
 import { BlogRequest } from './schema';
 
-export const submitBlog = async (blog: BlogRequest, urlSlug?: string) => {
+export const submitBlog = async (blog: BlogRequest, urlSlug?: string, lng?: string) => {
   try {
     const token = await getTokenServer();
     if (!token) return;
@@ -17,13 +17,15 @@ export const submitBlog = async (blog: BlogRequest, urlSlug?: string) => {
     } else {
       await blogApi.patchBlogUrlSlug(urlSlug, token.accessToken, undefined, blog);
     }
-    redirect('/admin/blog');
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(error.response?.data.errorMessage ?? '블로그 저장 실패');
     }
     throw error;
   }
+  // 로케일 없는 경로로 redirect 하면 미들웨어 307을 한 번 더 타면서 라우터 상태가 어긋나
+  // 목록 복귀 후 Link 클릭이 동작하지 않는 문제가 있어 lng를 명시한다.
+  redirect(lng ? `/${lng}/admin/blog` : '/admin/blog');
 };
 
 /*
