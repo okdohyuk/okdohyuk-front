@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { sendGAEvent } from '@libs/client/gtag';
+import { ADSENSE_SCRIPT_LOADED_EVENT, isAdsenseScriptLoaded } from '@libs/client/adsenseScript';
 
 declare global {
   interface Window {
@@ -15,7 +16,11 @@ type GoogleAdProps = {
 };
 
 const MIN_AD_WIDTH = 250;
-// push 후 AdSense가 슬롯 처리를 끝내고 data-adsbygoogle-status를 갱신할 때까지 기다리는 최대 시간.
+// adsbygoogle.js는 lazyOnload로 로드되어 push() 시점엔 아직 로드 전일 수 있다.
+// 스크립트 로드 자체를 기다리는 최대 시간. 이 시간 안에 로드 신호가 없으면
+// 네트워크 레벨 차단(애드블록 등)으로 보고 곧바로 empty로 집계한다.
+const SCRIPT_LOAD_TIMEOUT = 8000;
+// 스크립트 로드 이후 AdSense가 슬롯 처리를 끝내고 data-adsbygoogle-status를 갱신할 때까지 기다리는 최대 시간.
 // 이 시간 안에 상태 갱신이 없으면(애드블로커의 코스메틱 필터로 슬롯이 붕괴된 경우 포함) empty로 집계한다.
 const RENDER_RESULT_TIMEOUT = 5000;
 
@@ -33,19 +38,23 @@ function GoogleAd({ slotId, className = '' }: GoogleAdProps) {
     let io: IntersectionObserver | null = null;
     let resultMo: MutationObserver | null = null;
     let resultTimer: ReturnType<typeof setTimeout> | null = null;
+    let scriptLoadTimer: ReturnType<typeof setTimeout> | null = null;
+    let removeScriptListener: (() => void) | null = null;
+    let settled = false;
 
     // 실제 광고 노출 성공률(= 애드블로커 등에 의한 미노출 비율의 근사치)을 GA4로 측정.
     // '고침' 대상이 아니라 관찰 대상: push 성공 여부와 별개로 슬롯이 실제로 채워졌는지를 본다.
-    const observeRenderResult = () => {
-      let settled = false;
-      const finish = (status: 'filled' | 'empty') => {
-        if (settled) return;
-        settled = true;
-        resultMo?.disconnect();
-        if (resultTimer) clearTimeout(resultTimer);
-        sendGAEvent('ad_render_result', status, { slot_id: slotId });
-      };
+    const finish = (status: 'filled' | 'empty') => {
+      if (settled) return;
+      settled = true;
+      resultMo?.disconnect();
+      if (resultTimer) clearTimeout(resultTimer);
+      if (scriptLoadTimer) clearTimeout(scriptLoadTimer);
+      removeScriptListener?.();
+      sendGAEvent('ad_render_result', status, { slot_id: slotId });
+    };
 
+    const observeRenderResult = () => {
       resultMo = new MutationObserver(() => {
         if (el.getAttribute('data-adsbygoogle-status') === 'done') {
           finish(el.querySelector('iframe') ? 'filled' : 'empty');
@@ -58,6 +67,24 @@ function GoogleAd({ slotId, className = '' }: GoogleAdProps) {
       });
 
       resultTimer = setTimeout(() => finish('empty'), RENDER_RESULT_TIMEOUT);
+    };
+
+    // adsbygoogle.js가 이미 로드되어 있으면(같은 페이지의 이전 광고가 로드를 끝낸 경우 등)
+    // 곧바로 관찰을 시작하고, 아니라면 로드 완료 이벤트를 기다린다.
+    const startObservingRenderResult = () => {
+      if (isAdsenseScriptLoaded()) {
+        observeRenderResult();
+        return;
+      }
+      const onScriptLoaded = () => {
+        removeScriptListener?.();
+        if (scriptLoadTimer) clearTimeout(scriptLoadTimer);
+        observeRenderResult();
+      };
+      window.addEventListener(ADSENSE_SCRIPT_LOADED_EVENT, onScriptLoaded);
+      removeScriptListener = () =>
+        window.removeEventListener(ADSENSE_SCRIPT_LOADED_EVENT, onScriptLoaded);
+      scriptLoadTimer = setTimeout(() => finish('empty'), SCRIPT_LOAD_TIMEOUT);
     };
 
     // 폭이 확보되고 뷰포트에 들어왔을 때 1회만 push.
@@ -77,7 +104,7 @@ function GoogleAd({ slotId, className = '' }: GoogleAdProps) {
       }
       ro?.disconnect();
       io?.disconnect();
-      observeRenderResult();
+      startObservingRenderResult();
     };
 
     if (typeof ResizeObserver !== 'undefined') {
@@ -98,6 +125,8 @@ function GoogleAd({ slotId, className = '' }: GoogleAdProps) {
       io?.disconnect();
       resultMo?.disconnect();
       if (resultTimer) clearTimeout(resultTimer);
+      if (scriptLoadTimer) clearTimeout(scriptLoadTimer);
+      removeScriptListener?.();
     };
   }, []);
 
