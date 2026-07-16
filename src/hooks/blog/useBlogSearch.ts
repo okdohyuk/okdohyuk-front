@@ -72,7 +72,7 @@ const useBlogSearch = (
       setTitle('');
     }
 
-    if (orderByQuery === 'RESENT' || orderByQuery === 'TITLE') {
+    if (orderByQuery === 'RESENT' || orderByQuery === 'TITLE' || orderByQuery === 'VIEWS') {
       setOrderBy(orderByQuery);
     } else {
       setOrderBy('RESENT');

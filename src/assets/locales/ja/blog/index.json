@@ -13,7 +13,8 @@
     "tag": "タグ",
     "orderBy": {
       "resent": "最新順",
-      "title": "タイトル"
+      "title": "タイトル",
+      "views": "閲覧数順"
     }
   }
 }

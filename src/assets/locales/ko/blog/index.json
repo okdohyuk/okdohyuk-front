@@ -13,7 +13,8 @@
     "tag": "태그",
     "orderBy": {
       "resent": "최신순",
-      "title": "제목"
+      "title": "제목",
+      "views": "조회수순"
     }
   }
 }

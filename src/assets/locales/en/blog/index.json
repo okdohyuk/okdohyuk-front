@@ -13,7 +13,8 @@
     "tag": "Tags",
     "orderBy": {
       "resent": "Resent",
-      "title": "Title"
+      "title": "Title",
+      "views": "Most viewed"
     }
   }
 }
