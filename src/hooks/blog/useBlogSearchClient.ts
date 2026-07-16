@@ -60,7 +60,9 @@ function applySearchParamsToStore({
 
   setTitle(keyword || '');
   setOrderBy(
-    orderBy === BlogOrderByEnum.Resent || orderBy === BlogOrderByEnum.Title
+    orderBy === BlogOrderByEnum.Resent ||
+      orderBy === BlogOrderByEnum.Title ||
+      orderBy === BlogOrderByEnum.Views
       ? (orderBy as BlogOrderByEnum)
       : BlogOrderByEnum.Resent,
   );
