@@ -55,7 +55,10 @@
     },
     "deleteConfirm": "短縮URL {{code}} を削除しますか?",
     "deleteError": "短縮URLの削除に失敗しました。しばらくしてから再度お試しください。",
-    "deleteButton": "削除"
+    "deleteButton": "削除",
+    "extendButton": "延長",
+    "extendError": "短縮URLの延長に失敗しました。しばらくしてからもう一度お試しください。",
+    "expired": "期限切れ"
   },
   "notFound": {
     "status": "404 / 410",

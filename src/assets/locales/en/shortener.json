@@ -55,7 +55,10 @@
     },
     "deleteConfirm": "Delete short URL {{code}}?",
     "deleteError": "Failed to delete the short URL. Please try again shortly.",
-    "deleteButton": "Delete"
+    "deleteButton": "Delete",
+    "extendButton": "Extend",
+    "extendError": "Failed to extend the short URL. Please try again later.",
+    "expired": "Expired"
   },
   "notFound": {
     "status": "404 / 410",
