@@ -32,7 +32,11 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
 
   const onOrderByChange = useCallback(
     (value: string) => {
-      if (value === BlogOrderByEnum.Resent || value === BlogOrderByEnum.Title) {
+      if (
+        value === BlogOrderByEnum.Resent ||
+        value === BlogOrderByEnum.Title ||
+        value === BlogOrderByEnum.Views
+      ) {
         setOrderBy(value as (typeof BlogOrderByEnum)[keyof typeof BlogOrderByEnum]);
         sendGAEvent('blog_sort_change', value, { sort_value: value });
       }
@@ -115,6 +119,7 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
         <SelectContent>
           <SelectItem value={BlogOrderByEnum.Resent}>{t('filter.orderBy.resent')}</SelectItem>
           <SelectItem value={BlogOrderByEnum.Title}>{t('filter.orderBy.title')}</SelectItem>
+          <SelectItem value={BlogOrderByEnum.Views}>{t('filter.orderBy.views')}</SelectItem>
         </SelectContent>
       </Select>
     </motion.div>

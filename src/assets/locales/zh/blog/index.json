@@ -13,7 +13,8 @@
     "tag": "标签",
     "orderBy": {
       "resent": "最新",
-      "title": "标题"
+      "title": "标题",
+      "views": "浏览量"
     }
   }
 }
