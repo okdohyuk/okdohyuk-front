@@ -5,6 +5,14 @@ import { Plus, Trash2 } from 'lucide-react';
 import { cn } from '@utils/cn';
 import { Button } from '@components/basic/Button';
 import { Input } from '@components/basic/Input';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/basic/Table';
 import { Text, H1 } from '@components/basic/Text';
 import {
   Select,
@@ -306,10 +314,10 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
         {result && (
           <div className="space-y-4">
             {/* Table for desktop, cards for mobile */}
-            <div className="hidden md:block overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-basic-3">
+            <div className="hidden md:block">
+              <Table>
+                <TableHeader>
+                  <TableRow>
                     {[
                       t('vlsm.name'),
                       t('vlsm.required'),
@@ -319,31 +327,26 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
                       t('vlsm.range'),
                       t('vlsm.usable'),
                     ].map((header) => (
-                      <th key={header} className="px-3 py-2 text-left font-semibold text-fg-4">
-                        {header}
-                      </th>
+                      <TableHead key={header}>{header}</TableHead>
                     ))}
-                  </tr>
-                </thead>
-                <tbody>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
                   {result.subnets.map((subnet) => (
-                    <tr
-                      key={subnet.networkAddress}
-                      className="border-b border-basic-2 hover:bg-basic-0/50"
-                    >
-                      <td className="px-3 py-2 font-medium">{subnet.name}</td>
-                      <td className="px-3 py-2">{subnet.requiredHosts.toLocaleString()}</td>
-                      <td className="px-3 py-2 font-mono">{subnet.networkAddress}</td>
-                      <td className="px-3 py-2 font-mono">/{subnet.cidr}</td>
-                      <td className="px-3 py-2 font-mono">{subnet.broadcastAddress}</td>
-                      <td className="px-3 py-2 font-mono text-xs">
+                    <TableRow key={subnet.networkAddress}>
+                      <TableCell className="font-medium">{subnet.name}</TableCell>
+                      <TableCell>{subnet.requiredHosts.toLocaleString()}</TableCell>
+                      <TableCell className="font-mono">{subnet.networkAddress}</TableCell>
+                      <TableCell className="font-mono">/{subnet.cidr}</TableCell>
+                      <TableCell className="font-mono">{subnet.broadcastAddress}</TableCell>
+                      <TableCell className="font-mono text-xs">
                         {subnet.firstHost} – {subnet.lastHost}
-                      </td>
-                      <td className="px-3 py-2">{subnet.usableHosts.toLocaleString()}</td>
-                    </tr>
+                      </TableCell>
+                      <TableCell>{subnet.usableHosts.toLocaleString()}</TableCell>
+                    </TableRow>
                   ))}
-                </tbody>
-              </table>
+                </TableBody>
+              </Table>
             </div>
 
             {/* Mobile cards */}

@@ -4,6 +4,14 @@ import React, { use, useCallback, useEffect, useState } from 'react';
 import { blogReplyApi } from '@api';
 import { BlogReplyReport } from '@api/BlogReply';
 import Link from '@components/basic/Link';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/basic/Table';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import ServiceInfoNotice from '@components/complex/Service/ServiceInfoNotice';
 import {
@@ -162,82 +170,70 @@ function AdminReplyReportPage({ params }: LanguageParams) {
         ) : null}
 
         {!loading && reports.length > 0 ? (
-          <div className="overflow-x-auto rounded-xl border border-basic-3 bg-basic-0/80">
-            <table className="min-w-full text-sm">
-              <thead className="bg-basic-2/90">
-                <tr>
-                  <th className="whitespace-nowrap px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    신고자
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    사유
-                  </th>
-                  <th className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    댓글 내용
-                  </th>
-                  <th className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    상세내용
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    작성일
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    관리
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-basic-3">
-                {reports.map((report) => (
-                  <tr key={report.id} className="align-top">
-                    <td className="whitespace-nowrap px-4 py-3 font-medium text-fg-2">
-                      {report.reporter?.name ?? '-'}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-3">
-                      <span className="inline-flex rounded-full border border-danger-3 bg-danger-4 px-2 py-0.5 text-[11px] font-semibold text-danger-1 dark:border-danger-2/50 dark:bg-danger-2/20 dark:text-danger-4">
-                        {REASON_LABELS[report.reason] || report.reason}
-                      </span>
-                    </td>
-                    <td className="max-w-xs px-4 py-3 text-fg-4">
-                      {report.replyContent || 'Content not available'}
-                    </td>
-                    <td className="max-w-xs px-4 py-3 text-fg-4">{report.description || '-'}</td>
-                    <td className="whitespace-nowrap px-4 py-3 text-fg-5">
-                      {formatDate(report.createdAt)}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-3">
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        {report.blogUrlSlug ? (
-                          <Link
-                            href={`/${lng}/blog/${report.blogUrlSlug}`}
-                            hasTargetBlank
-                            className="inline-flex h-8 items-center gap-1 rounded-lg border border-indigo-200 bg-indigo-50 px-2.5 text-xs font-semibold text-indigo-700 transition-colors hover:bg-indigo-100 dark:border-indigo-500/50 dark:bg-indigo-500/20 dark:text-indigo-100 dark:hover:bg-indigo-500/30"
-                          >
-                            <ExternalLink className="h-3.5 w-3.5" />
-                            이동
-                          </Link>
-                        ) : null}
-                        <button
-                          type="button"
-                          onClick={() => handleDismissReport(report.id)}
-                          className="inline-flex h-8 items-center rounded-lg border border-basic-3 bg-basic-0/90 px-2.5 text-xs font-semibold text-fg-3 transition-colors hover:bg-basic-2"
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="px-4 py-3">신고자</TableHead>
+                <TableHead className="px-4 py-3">사유</TableHead>
+                <TableHead className="whitespace-normal px-4 py-3">댓글 내용</TableHead>
+                <TableHead className="whitespace-normal px-4 py-3">상세내용</TableHead>
+                <TableHead className="px-4 py-3">작성일</TableHead>
+                <TableHead className="px-4 py-3">관리</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {reports.map((report) => (
+                <TableRow key={report.id} className="align-top">
+                  <TableCell className="whitespace-nowrap px-4 py-3 font-medium text-fg-2">
+                    {report.reporter?.name ?? '-'}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap px-4 py-3">
+                    <span className="inline-flex rounded-full border border-danger-3 bg-danger-4 px-2 py-0.5 text-[11px] font-semibold text-danger-1 dark:border-danger-2/50 dark:bg-danger-2/20 dark:text-danger-4">
+                      {REASON_LABELS[report.reason] || report.reason}
+                    </span>
+                  </TableCell>
+                  <TableCell className="max-w-xs px-4 py-3 text-fg-4">
+                    {report.replyContent || 'Content not available'}
+                  </TableCell>
+                  <TableCell className="max-w-xs px-4 py-3 text-fg-4">
+                    {report.description || '-'}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap px-4 py-3 text-fg-5">
+                    {formatDate(report.createdAt)}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap px-4 py-3">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {report.blogUrlSlug ? (
+                        <Link
+                          href={`/${lng}/blog/${report.blogUrlSlug}`}
+                          hasTargetBlank
+                          className="inline-flex h-8 items-center gap-1 rounded-lg border border-indigo-200 bg-indigo-50 px-2.5 text-xs font-semibold text-indigo-700 transition-colors hover:bg-indigo-100 dark:border-indigo-500/50 dark:bg-indigo-500/20 dark:text-indigo-100 dark:hover:bg-indigo-500/30"
                         >
-                          반려
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => handleDeleteReply(report.replyId)}
-                          className="inline-flex h-8 items-center gap-1 rounded-lg border border-danger-3 bg-danger-4 px-2.5 text-xs font-semibold text-danger-1 transition-colors hover:bg-danger-4 dark:border-danger-2/50 dark:bg-danger-2/20 dark:text-danger-4 dark:hover:bg-danger-2/30"
-                        >
-                          <Trash2 className="h-3.5 w-3.5" />
-                          삭제
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                          <ExternalLink className="h-3.5 w-3.5" />
+                          이동
+                        </Link>
+                      ) : null}
+                      <button
+                        type="button"
+                        onClick={() => handleDismissReport(report.id)}
+                        className="inline-flex h-8 items-center rounded-lg border border-basic-3 bg-basic-0/90 px-2.5 text-xs font-semibold text-fg-3 transition-colors hover:bg-basic-2"
+                      >
+                        반려
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteReply(report.replyId)}
+                        className="inline-flex h-8 items-center gap-1 rounded-lg border border-danger-3 bg-danger-4 px-2.5 text-xs font-semibold text-danger-1 transition-colors hover:bg-danger-4 dark:border-danger-2/50 dark:bg-danger-2/20 dark:text-danger-4 dark:hover:bg-danger-2/30"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                        삭제
+                      </button>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         ) : null}
       </section>
     </div>

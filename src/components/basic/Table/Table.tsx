@@ -1,10 +1,16 @@
 import * as React from 'react';
 import { cn } from '@utils/cn';
 
+// 블로그 상세(마크다운) 테이블 스타일을 기준으로 한 공통 테이블.
+// 래퍼가 라운드 보더·배경을 담당하고, 행 사이는 가로 구분선만 사용한다.
 const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
-    <div className="relative w-full overflow-auto">
-      <table ref={ref} className={cn('w-full caption-bottom text-sm', className)} {...props} />
+    <div className="relative w-full overflow-x-auto rounded-xl border border-basic-3/85 bg-basic-0/80">
+      <table
+        ref={ref}
+        className={cn('min-w-full caption-bottom border-collapse text-sm', className)}
+        {...props}
+      />
     </div>
   ),
 );
@@ -14,16 +20,14 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn('[&_tr]:border-b', className)} {...props} />
+  <thead ref={ref} className={cn('bg-basic-2/80', className)} {...props} />
 ));
 TableHeader.displayName = 'TableHeader';
 
 const TableBody = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
->(({ className, ...props }, ref) => (
-  <tbody ref={ref} className={cn('[&_tr:last-child]:border-0', className)} {...props} />
-));
+>(({ className, ...props }, ref) => <tbody ref={ref} className={className} {...props} />);
 TableBody.displayName = 'TableBody';
 
 const TableFooter = React.forwardRef<
@@ -39,7 +43,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTML
     <tr
       ref={ref}
       className={cn(
-        'transition-colors hover:bg-basic-2/50 data-[state=selected]:bg-basic-2',
+        'border-t border-basic-3/80 transition-colors hover:bg-basic-2/50 data-[state=selected]:bg-basic-2',
         className,
       )}
       {...props}
@@ -48,7 +52,6 @@ const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTML
 );
 TableRow.displayName = 'TableRow';
 
-// th styles from SCSS: p-2 border border-solid border-basic-5 align-middle break-keep
 const TableHead = React.forwardRef<
   HTMLTableCellElement,
   React.ThHTMLAttributes<HTMLTableCellElement>
@@ -56,7 +59,7 @@ const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      'p-2 text-left align-middle font-medium t-basic-5 border border-solid border-basic-5 break-keep [&:has([role=checkbox])]:pr-0',
+      'whitespace-nowrap px-3 py-2 text-left align-middle text-[11px] font-bold uppercase tracking-wide text-fg-5 [&:has([role=checkbox])]:pr-0',
       className,
     )}
     {...props}
@@ -64,7 +67,6 @@ const TableHead = React.forwardRef<
 ));
 TableHead.displayName = 'TableHead';
 
-// td styles from SCSS: p-2 border border-solid border-basic-5 align-middle break-keep
 const TableCell = React.forwardRef<
   HTMLTableCellElement,
   React.TdHTMLAttributes<HTMLTableCellElement>
@@ -72,7 +74,7 @@ const TableCell = React.forwardRef<
   <td
     ref={ref}
     className={cn(
-      'p-2 align-middle border border-solid border-basic-5 break-keep [&:has([role=checkbox])]:pr-0',
+      'break-keep px-3 py-2 align-middle text-fg-3 [&:has([role=checkbox])]:pr-0',
       className,
     )}
     {...props}

@@ -18,6 +18,14 @@ import {
   Server,
 } from 'lucide-react';
 import { Button } from '@components/basic/Button';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/basic/Table';
 import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
@@ -505,58 +513,42 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                   })}
                 </div>
 
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-basic-3">
-                        <th className="pb-2 pr-4 text-left">
-                          <Text variant="c1" color="basic-5">
-                            {t('portScan.table.port')}
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>{t('portScan.table.port')}</TableHead>
+                      <TableHead>{t('portScan.table.service')}</TableHead>
+                      <TableHead className="hidden sm:table-cell">
+                        {t('portScan.table.description')}
+                      </TableHead>
+                      <TableHead>{t('portScan.table.status')}</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {portData.ports.map((port) => (
+                      <TableRow key={port.port}>
+                        <TableCell>
+                          <Text variant="d2" color="basic-2" className="font-mono font-semibold">
+                            {port.port}
                           </Text>
-                        </th>
-                        <th className="pb-2 pr-4 text-left">
-                          <Text variant="c1" color="basic-5">
-                            {t('portScan.table.service')}
+                        </TableCell>
+                        <TableCell>
+                          <Text variant="d2" color="basic-3" className="font-medium">
+                            {port.service}
                           </Text>
-                        </th>
-                        <th className="hidden pb-2 pr-4 text-left sm:table-cell">
+                        </TableCell>
+                        <TableCell className="hidden sm:table-cell">
                           <Text variant="c1" color="basic-5">
-                            {t('portScan.table.description')}
+                            {port.description}
                           </Text>
-                        </th>
-                        <th className="pb-2 text-left">
-                          <Text variant="c1" color="basic-5">
-                            {t('portScan.table.status')}
-                          </Text>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {portData.ports.map((port) => (
-                        <tr key={port.port} className="border-b border-basic-3 last:border-0">
-                          <td className="py-2 pr-4">
-                            <Text variant="d2" color="basic-2" className="font-mono font-semibold">
-                              {port.port}
-                            </Text>
-                          </td>
-                          <td className="py-2 pr-4">
-                            <Text variant="d2" color="basic-3" className="font-medium">
-                              {port.service}
-                            </Text>
-                          </td>
-                          <td className="hidden py-2 pr-4 sm:table-cell">
-                            <Text variant="c1" color="basic-5">
-                              {port.description}
-                            </Text>
-                          </td>
-                          <td className="py-2">
-                            <PortStatusBadge status={port.status} />
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                        </TableCell>
+                        <TableCell>
+                          <PortStatusBadge status={port.status} />
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
               </>
             )}
           </div>

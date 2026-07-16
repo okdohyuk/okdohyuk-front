@@ -5,6 +5,14 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { userApi } from '@api';
 import { User, UserRoleEnum } from '@api/User';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/basic/Table';
 import ServiceInfoNotice from '@components/complex/Service/ServiceInfoNotice';
 import {
   SERVICE_CARD_INTERACTIVE,
@@ -131,83 +139,73 @@ export default function AdminUsersPage({ params }: LanguageParams) {
         ) : null}
 
         {!isLoading && totalUsers > 0 ? (
-          <div className="overflow-x-auto rounded-xl border border-basic-3 bg-basic-0/80">
-            <table className="min-w-full text-sm">
-              <thead className="bg-basic-2/90">
-                <tr>
-                  <th className="whitespace-nowrap px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Profile
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Name / Email
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Role
-                  </th>
-                  <th className="whitespace-nowrap px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Joined
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-basic-3">
-                {users?.map((user) => (
-                  <tr key={user.id} className="align-middle">
-                    <td className="whitespace-nowrap px-4 py-3">
-                      <div className="h-10 w-10 overflow-hidden rounded-full border border-basic-3 bg-basic-2">
-                        {user.profileImage ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={user.profileImage}
-                            alt={user.name}
-                            className="h-full w-full object-cover"
-                          />
-                        ) : (
-                          <div className="flex h-full w-full items-center justify-center text-sm font-bold text-fg-5">
-                            {user.name.charAt(0)}
-                          </div>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="px-4 py-3">Profile</TableHead>
+                <TableHead className="px-4 py-3">Name / Email</TableHead>
+                <TableHead className="px-4 py-3">Role</TableHead>
+                <TableHead className="px-4 py-3">Joined</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {users?.map((user) => (
+                <TableRow key={user.id}>
+                  <TableCell className="whitespace-nowrap px-4 py-3">
+                    <div className="h-10 w-10 overflow-hidden rounded-full border border-basic-3 bg-basic-2">
+                      {user.profileImage ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={user.profileImage}
+                          alt={user.name}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-sm font-bold text-fg-5">
+                          {user.name.charAt(0)}
+                        </div>
+                      )}
+                    </div>
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap px-4 py-3">
+                    <div className="font-semibold text-fg-1">{user.name}</div>
+                    <div className="text-xs text-fg-5">{user.email}</div>
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap px-4 py-3">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={cn(
+                          'inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold',
+                          getRoleBadgeClass(user.role),
                         )}
-                      </div>
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-3">
-                      <div className="font-semibold text-fg-1">{user.name}</div>
-                      <div className="text-xs text-fg-5">{user.email}</div>
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-3">
-                      <div className="flex items-center gap-2">
-                        <span
-                          className={cn(
-                            'inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold',
-                            getRoleBadgeClass(user.role),
-                          )}
-                        >
-                          {user.role}
-                        </span>
-                        <Select
-                          value={user.role}
-                          onValueChange={(value) => handleRoleChange(user.id, value, user)}
-                          disabled={isPending}
-                        >
-                          <SelectTrigger className="h-8 w-auto min-w-[100px] text-xs font-medium text-fg-3">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {Object.values(UserRoleEnum).map((role) => (
-                              <SelectItem key={role} value={role} className="text-xs">
-                                {role}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-3 text-fg-5">
-                      {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : '-'}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                      >
+                        {user.role}
+                      </span>
+                      <Select
+                        value={user.role}
+                        onValueChange={(value) => handleRoleChange(user.id, value, user)}
+                        disabled={isPending}
+                      >
+                        <SelectTrigger className="h-8 w-auto min-w-[100px] text-xs font-medium text-fg-3">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Object.values(UserRoleEnum).map((role) => (
+                            <SelectItem key={role} value={role} className="text-xs">
+                              {role}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap px-4 py-3 text-fg-5">
+                    {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : '-'}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         ) : null}
       </section>
     </div>

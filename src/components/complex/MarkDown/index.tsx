@@ -2,12 +2,19 @@ import React from 'react';
 import Link from '@components/basic/Link';
 import MarkdownTransJSX from 'markdown-to-jsx';
 import { cn } from '@utils/cn';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/basic/Table';
 import Aside from './Aside';
 import CodeWindow from './CodeWindow';
 import Heading2 from './Heading2';
 import Heading3 from './Heading3';
 import Img from './Img';
-import Table from './Table';
 import { MarkDownProps } from './type';
 
 const MarkDown: MarkDownProps = function MarkDown({ contents }) {
@@ -46,6 +53,25 @@ const MarkDown: MarkDownProps = function MarkDown({ contents }) {
           },
           table: {
             component: Table,
+          },
+          thead: {
+            component: TableHeader,
+          },
+          tbody: {
+            component: TableBody,
+          },
+          tr: {
+            component: TableRow,
+          },
+          th: {
+            component: TableHead,
+          },
+          td: {
+            component: TableCell,
+            props: {
+              // 마크다운 본문 테이블은 셀 내용이 길어 상단 정렬이 읽기 좋다.
+              className: 'align-top',
+            },
           },
           a: {
             component: Link,
