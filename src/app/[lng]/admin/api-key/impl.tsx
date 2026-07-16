@@ -212,79 +212,63 @@ function ApiKeyManagePageImpl({ lng }: ApiKeyManagePageImplProps) {
         ) : null}
 
         {!isLoading && totalKeys > 0 ? (
-          <div className="overflow-x-auto rounded-xl border border-basic-3 bg-basic-0/80">
-            <Table className="min-w-full text-sm">
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="whitespace-nowrap text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Name
-                  </TableHead>
-                  <TableHead className="whitespace-nowrap text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Key Prefix
-                  </TableHead>
-                  <TableHead className="whitespace-nowrap text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Status
-                  </TableHead>
-                  <TableHead className="whitespace-nowrap text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Last Used
-                  </TableHead>
-                  <TableHead className="whitespace-nowrap text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Expires
-                  </TableHead>
-                  <TableHead className="whitespace-nowrap text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Created
-                  </TableHead>
-                  <TableHead className="whitespace-nowrap text-[11px] font-bold uppercase tracking-wide text-fg-5">
-                    Actions
-                  </TableHead>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Name</TableHead>
+                <TableHead>Key Prefix</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Last Used</TableHead>
+                <TableHead>Expires</TableHead>
+                <TableHead>Created</TableHead>
+                <TableHead>Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {apiKeys?.map((key) => (
+                <TableRow key={key.id} className="align-middle">
+                  <TableCell className="whitespace-nowrap font-semibold text-fg-1">
+                    {key.name}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap font-mono text-xs text-fg-4">
+                    {key.keyPrefix}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap">
+                    <span
+                      className={cn(
+                        'inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold',
+                        key.isActive
+                          ? 'border-emerald-300 bg-emerald-100 text-emerald-800 dark:border-emerald-500/50 dark:bg-emerald-500/20 dark:text-emerald-100'
+                          : 'border-basic-3 bg-basic-2 text-fg-5',
+                      )}
+                    >
+                      {key.isActive ? '활성' : '폐기됨'}
+                    </span>
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap text-xs text-fg-5">
+                    {formatDateTime(key.lastUsedAt)}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap text-xs text-fg-5">
+                    {formatDateTime(key.expiresAt)}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap text-xs text-fg-5">
+                    {formatDateTime(key.createdAt)}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap">
+                    <Button
+                      type="button"
+                      onClick={() => handleRevoke(key)}
+                      disabled={!key.isActive || isRevoking}
+                      className="h-8 gap-1 bg-red-500 px-3 text-xs hover:bg-red-600"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                      폐기
+                    </Button>
+                  </TableCell>
                 </TableRow>
-              </TableHeader>
-              <TableBody>
-                {apiKeys?.map((key) => (
-                  <TableRow key={key.id} className="align-middle">
-                    <TableCell className="whitespace-nowrap font-semibold text-fg-1">
-                      {key.name}
-                    </TableCell>
-                    <TableCell className="whitespace-nowrap font-mono text-xs text-fg-4">
-                      {key.keyPrefix}
-                    </TableCell>
-                    <TableCell className="whitespace-nowrap">
-                      <span
-                        className={cn(
-                          'inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold',
-                          key.isActive
-                            ? 'border-emerald-300 bg-emerald-100 text-emerald-800 dark:border-emerald-500/50 dark:bg-emerald-500/20 dark:text-emerald-100'
-                            : 'border-basic-3 bg-basic-2 text-fg-5',
-                        )}
-                      >
-                        {key.isActive ? '활성' : '폐기됨'}
-                      </span>
-                    </TableCell>
-                    <TableCell className="whitespace-nowrap text-xs text-fg-5">
-                      {formatDateTime(key.lastUsedAt)}
-                    </TableCell>
-                    <TableCell className="whitespace-nowrap text-xs text-fg-5">
-                      {formatDateTime(key.expiresAt)}
-                    </TableCell>
-                    <TableCell className="whitespace-nowrap text-xs text-fg-5">
-                      {formatDateTime(key.createdAt)}
-                    </TableCell>
-                    <TableCell className="whitespace-nowrap">
-                      <Button
-                        type="button"
-                        onClick={() => handleRevoke(key)}
-                        disabled={!key.isActive || isRevoking}
-                        className="h-8 gap-1 bg-red-500 px-3 text-xs hover:bg-red-600"
-                      >
-                        <Trash2 className="h-3.5 w-3.5" />
-                        폐기
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
+              ))}
+            </TableBody>
+          </Table>
         ) : null}
       </section>
 

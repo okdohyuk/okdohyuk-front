@@ -1,6 +1,14 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/basic/Table';
 import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
 import {
@@ -200,15 +208,15 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
         <Text variant="c1" color="basic-5" className="block">
           {t('section.typeChartDesc')}
         </Text>
-        <div className="overflow-x-auto mt-2">
-          <table className="border-collapse mx-auto min-w-max">
-            <thead>
-              <tr>
-                <th className="p-1 text-fg-6 font-normal text-left sticky left-0 bg-basic-0 z-10 min-w-[56px]">
+        <div className="mt-2">
+          <Table className="mx-auto min-w-max">
+            <TableHeader className="bg-transparent">
+              <TableRow className="border-0">
+                <TableHead className="sticky left-0 z-10 min-w-[56px] whitespace-nowrap bg-basic-0 p-1 text-left font-normal normal-case tracking-normal text-fg-6">
                   <span className="text-xs">{t('chart.atkVsDef')}</span>
-                </th>
+                </TableHead>
                 {POKEMON_TYPES.map((type) => (
-                  <th key={type} className="p-0.5 font-normal">
+                  <TableHead key={type} className="p-0.5 font-normal">
                     <div
                       className="rounded w-6 h-6 mx-auto flex items-center justify-center text-white text-[9px] font-bold"
                       style={{ backgroundColor: TYPE_COLORS[type] }}
@@ -216,26 +224,26 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                     >
                       {getTypeName(type).slice(0, 2)}
                     </div>
-                  </th>
+                  </TableHead>
                 ))}
-              </tr>
-            </thead>
-            <tbody>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {POKEMON_TYPES.map((attacker) => (
-                <tr key={attacker} className="hover:bg-basic-1">
-                  <td className="p-1 sticky left-0 bg-basic-0 z-10">
+                <TableRow key={attacker} className="border-0 hover:bg-basic-1">
+                  <TableCell className="sticky left-0 z-10 bg-basic-0 p-1">
                     <div
                       className="rounded px-1 py-0.5 text-white text-xs font-bold text-center"
                       style={{ backgroundColor: TYPE_COLORS[attacker] }}
                     >
                       {getTypeName(attacker).slice(0, 2)}
                     </div>
-                  </td>
+                  </TableCell>
                   {POKEMON_TYPES.map((defender) => {
                     const mult = TYPE_CHART[attacker][defender];
                     const cellColor = getCellColorClass(mult);
                     return (
-                      <td key={defender} className="p-0.5 text-center">
+                      <TableCell key={defender} className="p-0.5 text-center">
                         <span
                           className={cn(
                             'rounded text-xs font-medium tabular-nums px-0.5',
@@ -244,13 +252,13 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                         >
                           {getCellLabel(mult)}
                         </span>
-                      </td>
+                      </TableCell>
                     );
                   })}
-                </tr>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </div>
       </section>
     </div>

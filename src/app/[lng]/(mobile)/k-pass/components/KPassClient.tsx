@@ -4,6 +4,14 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/basic/Table';
 import { Button } from '@components/basic/Button';
 import { SegmentedControl } from '@components/basic/SegmentedControl';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
@@ -217,28 +225,26 @@ export default function KPassClient({ lng }: KPassClientProps) {
       {/* 비교 표 */}
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>
         <h2 className="text-base font-bold text-fg-1">{t('compare.title')}</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="text-left text-fg-3">
-                <th className="py-2 pr-3 font-semibold">{t('compare.col.item')}</th>
-                <th className="py-2 pr-3 font-semibold">{t('compare.col.kpass')}</th>
-                <th className="py-2 pr-3 font-semibold">{t('compare.col.alt')}</th>
-                <th className="py-2 pr-3 font-semibold">{t('compare.col.climate')}</th>
-              </tr>
-            </thead>
-            <tbody className="text-fg-2">
-              {(['basis', 'minUses', 'maxBenefit', 'region', 'youthRate'] as const).map((row) => (
-                <tr key={row} className="border-t border-basic-3">
-                  <td className="py-2 pr-3 font-medium">{t(`compare.row.${row}.item`)}</td>
-                  <td className="py-2 pr-3">{t(`compare.row.${row}.kpass`)}</td>
-                  <td className="py-2 pr-3">{t(`compare.row.${row}.alt`)}</td>
-                  <td className="py-2 pr-3">{t(`compare.row.${row}.climate`)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>{t('compare.col.item')}</TableHead>
+              <TableHead>{t('compare.col.kpass')}</TableHead>
+              <TableHead>{t('compare.col.alt')}</TableHead>
+              <TableHead>{t('compare.col.climate')}</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody className="text-fg-2">
+            {(['basis', 'minUses', 'maxBenefit', 'region', 'youthRate'] as const).map((row) => (
+              <TableRow key={row}>
+                <TableCell className="font-medium">{t(`compare.row.${row}.item`)}</TableCell>
+                <TableCell>{t(`compare.row.${row}.kpass`)}</TableCell>
+                <TableCell>{t(`compare.row.${row}.alt`)}</TableCell>
+                <TableCell>{t(`compare.row.${row}.climate`)}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       </section>
 
       {/* FAQ */}
