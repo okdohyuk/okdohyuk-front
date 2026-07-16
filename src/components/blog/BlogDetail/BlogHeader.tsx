@@ -9,7 +9,7 @@ import ViewCount from './ViewCount';
 
 function BlogHeader() {
   const { blog } = useBlogDetail();
-  const { thumbnailImage, title, createdAt, urlSlug, categoryChain } = blog;
+  const { thumbnailImage, title, createdAt, categoryChain } = blog;
   const createdDate = createdAt ? new Date(createdAt) : new Date();
 
   const categoryRender = (category: string, index: number) => (
@@ -48,12 +48,6 @@ function BlogHeader() {
           <span className="inline-flex items-center rounded-full bg-black/30 px-3 py-1">
             <ViewCount />
           </span>
-          <Link
-            href={`/admin/blog/write?urlSlug=${urlSlug}`}
-            className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-white/60 transition-colors duration-150 hover:border-point-2/80 hover:text-white"
-          >
-            수정
-          </Link>
         </Text>
       </div>
     </header>
