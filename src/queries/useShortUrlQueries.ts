@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { shortUrlApi } from '@api';
-import type { ShortUrlCreateRequest } from '@api/ShortUrl';
+import type { ShortUrlCreateRequest, ShortUrlExpireUpdateRequest } from '@api/ShortUrl';
 import UserTokenUtil from '@utils/userTokenUtil';
 
 export const SHORT_URL_KEYS = {
@@ -35,6 +35,28 @@ export const useMyShortUrls = (accessToken: string | null) => {
       return data;
     },
     enabled: !!accessToken,
+  });
+};
+
+// 만료 연장/변경: 새 만료 시각은 요청 시점 기준으로 재계산된다.
+export const useUpdateShortUrlExpiration = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({
+      code,
+      request,
+    }: {
+      code: string;
+      request: ShortUrlExpireUpdateRequest;
+    }) => {
+      const accessToken = UserTokenUtil.getAccessToken();
+      const { data } = await shortUrlApi.patchShortUrlCode(code, accessToken, request);
+      return data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: SHORT_URL_KEYS.me() });
+    },
   });
 };
 

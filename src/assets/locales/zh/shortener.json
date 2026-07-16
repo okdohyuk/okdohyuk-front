@@ -55,7 +55,10 @@
     },
     "deleteConfirm": "确定要删除短链接 {{code}} 吗?",
     "deleteError": "短链接删除失败,请稍后重试。",
-    "deleteButton": "删除"
+    "deleteButton": "删除",
+    "extendButton": "续期",
+    "extendError": "短链接续期失败，请稍后重试。",
+    "expired": "已过期"
   },
   "notFound": {
     "status": "404 / 410",
