@@ -151,7 +151,7 @@
     "@playwright/test": "^1.60.0",
     "@rushstack/eslint-patch": "^1.16.1",
     "@storybook/addon-a11y": "^10.2.7",
-    "@storybook/nextjs": "^10.2.7",
+    "@storybook/nextjs": "^10.5.2",
     "@tanstack/eslint-plugin-query": "^5",
     "@testing-library/dom": "^9.3.4",
     "@testing-library/jest-dom": "^6.4.5",
