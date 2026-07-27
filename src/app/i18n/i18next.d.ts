@@ -62,6 +62,7 @@ import shortener from 'assets/locales/ko/shortener.json';
 import copykiller from 'assets/locales/ko/copykiller.json';
 import solve from 'assets/locales/ko/solve.json';
 import guestbook from 'assets/locales/ko/guestbook.json';
+import survey from 'assets/locales/ko/survey.json';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -130,6 +131,7 @@ declare module 'i18next' {
       copykiller: typeof copykiller;
       solve: typeof solve;
       guestbook: typeof guestbook;
+      survey: typeof survey;
     };
   }
 }

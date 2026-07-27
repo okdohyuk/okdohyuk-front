@@ -14,6 +14,7 @@ import { SessionApi } from './Session';
 import { ShortUrlApi } from './ShortUrl';
 import { SolveApi } from './Solve';
 import { StorageApi } from './Storage';
+import { SurveyApi } from './Survey';
 import { UserApi } from './User';
 
 // 환경 변수에서 API URL을 가져옵니다.
@@ -93,6 +94,7 @@ export const sessionApi = new SessionApi(undefined, API_URL, apiInstance);
 export const shortUrlApi = new ShortUrlApi(undefined, API_URL, apiInstance);
 export const solveApi = new SolveApi(undefined, API_URL, apiInstance);
 export const storageApi = new StorageApi(undefined, API_URL, apiInstance);
+export const surveyApi = new SurveyApi(undefined, API_URL, apiInstance);
 export const userApi = new UserApi(undefined, API_URL, apiInstance);
 
 // access token을 refresh하는 함수
