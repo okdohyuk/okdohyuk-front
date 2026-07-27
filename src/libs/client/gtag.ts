@@ -83,6 +83,8 @@ type MiscEvent = 'legal_section_jump';
 
 type AdEvent = 'ad_render_result';
 
+type SurveyEvent = 'survey_shown' | 'survey_submitted' | 'survey_dismissed';
+
 export type Event =
   | GlobalEvent
   | NavEvent
@@ -95,6 +97,7 @@ export type Event =
   | UiEvent
   | MiscEvent
   | AdEvent
+  | SurveyEvent
   | LegacyEvent;
 
 // =============================================================================

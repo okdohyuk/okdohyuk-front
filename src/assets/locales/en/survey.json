@@ -1,0 +1,15 @@
+{
+  "title": "Got a minute? Share your feedback",
+  "description": "Help us improve by taking this quick survey.",
+  "npsQuestion": "How likely are you to recommend this service to a friend or colleague?",
+  "npsLow": "0 · Not at all",
+  "npsHigh": "10 · Extremely likely",
+  "scoreAriaLabel": "Score {{score}}",
+  "commentPlaceholder": "Tell us what we could do better (optional)",
+  "submit": "Submit",
+  "dismiss": "Dismiss",
+  "thanks": "Thanks for your feedback!",
+  "ariaLabel": "Service improvement survey",
+  "submitAriaLabel": "Submit survey",
+  "dismissAriaLabel": "Dismiss survey"
+}

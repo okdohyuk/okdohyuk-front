@@ -1,0 +1,15 @@
+{
+  "title": "잠깐, 의견을 들려주세요",
+  "description": "더 나은 서비스를 만들기 위해 짧은 설문에 참여해 주세요.",
+  "npsQuestion": "이 서비스를 친구나 동료에게 추천하실 가능성은 어느 정도인가요?",
+  "npsLow": "0 · 전혀 아님",
+  "npsHigh": "10 · 매우 그럼",
+  "scoreAriaLabel": "{{score}}점",
+  "commentPlaceholder": "개선하면 좋을 점을 자유롭게 남겨 주세요 (선택)",
+  "submit": "제출",
+  "dismiss": "닫기",
+  "thanks": "소중한 의견 감사합니다!",
+  "ariaLabel": "서비스 개선 설문",
+  "submitAriaLabel": "설문 제출",
+  "dismissAriaLabel": "설문 닫기"
+}

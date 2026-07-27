@@ -1,0 +1,15 @@
+{
+  "title": "少しだけご意見をお聞かせください",
+  "description": "より良いサービスのため、短いアンケートにご協力ください。",
+  "npsQuestion": "このサービスを友人や同僚におすすめする可能性はどのくらいですか？",
+  "npsLow": "0 · まったく思わない",
+  "npsHigh": "10 · とてもそう思う",
+  "scoreAriaLabel": "{{score}}点",
+  "commentPlaceholder": "改善してほしい点があればご自由にお書きください（任意）",
+  "submit": "送信",
+  "dismiss": "閉じる",
+  "thanks": "貴重なご意見ありがとうございます！",
+  "ariaLabel": "サービス改善アンケート",
+  "submitAriaLabel": "アンケートを送信",
+  "dismissAriaLabel": "アンケートを閉じる"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "花点时间，分享您的意见",
+  "description": "参与这项简短的问卷，帮助我们改进服务。",
+  "npsQuestion": "您向朋友或同事推荐本服务的可能性有多大？",
+  "npsLow": "0 · 完全不会",
+  "npsHigh": "10 · 非常愿意",
+  "scoreAriaLabel": "{{score}} 分",
+  "commentPlaceholder": "欢迎留下您希望我们改进的建议（选填）",
+  "submit": "提交",
+  "dismiss": "关闭",
+  "thanks": "感谢您的宝贵意见！",
+  "ariaLabel": "服务改进问卷",
+  "submitAriaLabel": "提交问卷",
+  "dismissAriaLabel": "关闭问卷"
+}
