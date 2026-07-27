@@ -31,10 +31,10 @@ const Discript: BlogCardTypeFC = function Discript({ blog }) {
         <div className="h-[108px] w-[108px] shrink-0 rounded-xl bg-gradient-to-br from-point-4/60 to-violet-100 dark:from-point-1/20 dark:to-violet-900/30 md:h-[196px] md:w-[196px]" />
       )}
       <div className="flex flex-1 flex-col justify-start overflow-hidden text-left">
-        <h2 className="my-1 line-clamp-1 text-base font-bold text-fg-1 md:my-3 md:text-lg">
+        <h2 className="my-1 line-clamp-1 text-base font-bold text-fg-1 md:my-3 md:line-clamp-2 md:text-lg">
           {title}
         </h2>
-        <p className="line-clamp-2 text-sm leading-relaxed text-fg-3 md:line-clamp-4">
+        <p className="line-clamp-2 text-sm leading-relaxed text-fg-3 md:line-clamp-3">
           {MarkdownUtils.removeMarkdown(contents)}
         </p>
         <span
