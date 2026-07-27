@@ -28,8 +28,8 @@ const Frame: BlogCardTypeFC = function Frame({ blog }) {
         <div className="h-40 w-full bg-gradient-to-r from-point-4/50 via-zinc-100 to-violet-100 dark:from-point-1/15 dark:via-zinc-800 dark:to-violet-900/20 md:h-44" />
       )}
       <div className="flex flex-1 flex-col p-4">
-        <h2 className="line-clamp-1 text-base font-bold text-fg-1">{title}</h2>
-        <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-fg-3">
+        <h2 className="line-clamp-1 text-base font-bold text-fg-1 md:line-clamp-2">{title}</h2>
+        <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-fg-3 md:line-clamp-3">
           {MarkdownUtils.removeMarkdown(contents)}
         </p>
         <span className="mt-auto pt-3 text-xs font-semibold text-fg-5" suppressHydrationWarning>
