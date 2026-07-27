@@ -15,5 +15,6 @@ yarn run generate-api -- --name=Guestbook
 yarn run generate-api -- --name=Solve
 yarn run generate-api -- --name=Pokemon
 yarn run generate-api -- --name=PokemonTeam
+yarn run generate-api -- --name=Survey
 yarn run build
 yarn run postbuild

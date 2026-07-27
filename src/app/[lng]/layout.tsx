@@ -12,6 +12,7 @@ import { ReactQueryProvider } from '@components/complex/Layout/QueryClient';
 import GoogleAdsense from '@components/google/GoogleAdsense';
 import AgentWebMcp from '@components/agent/AgentWebMcp';
 import ConsentBanner from '@components/complex/Consent/ConsentBanner';
+import SurveyBanner from '@components/complex/Survey/SurveyBanner';
 import WebVitalsReporter from '@components/analytics/WebVitalsReporter';
 import ScrollDepthTracker from '@components/analytics/ScrollDepthTracker';
 import OutboundLinkTracker from '@components/analytics/OutboundLinkTracker';
@@ -80,6 +81,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
             <CommonLayout>{children}</CommonLayout>
             <Footer lng={language} />
             <AgentWebMcp language={language} />
+            <SurveyBanner />
             {enableThirdPartyTracking && (
               <>
                 <Analytics />
