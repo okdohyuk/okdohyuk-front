@@ -65,7 +65,8 @@ function ApiKeyManagePageImpl({ lng }: ApiKeyManagePageImplProps) {
     queryKey: API_KEY_QUERY_KEY,
     queryFn: async () => {
       const token = await UserTokenUtil.getAccessToken();
-      const res = await apiKeyApi.getApiKey(`Bearer ${token}`);
+      // getAccessToken() 은 이미 "Bearer " 프리픽스를 포함한다(중복 프리픽스 금지).
+      const res = await apiKeyApi.getApiKey(token);
       return res.data;
     },
   });
@@ -73,7 +74,7 @@ function ApiKeyManagePageImpl({ lng }: ApiKeyManagePageImplProps) {
   const { mutate: issueKey, isPending: isIssuing } = useMutation({
     mutationFn: async (keyName: string) => {
       const token = await UserTokenUtil.getAccessToken();
-      const res = await apiKeyApi.postApiKey(`Bearer ${token}`, { name: keyName });
+      const res = await apiKeyApi.postApiKey(token, { name: keyName });
       return res.data;
     },
     onSuccess: (data) => {
@@ -91,7 +92,7 @@ function ApiKeyManagePageImpl({ lng }: ApiKeyManagePageImplProps) {
   const { mutate: revokeKey, isPending: isRevoking } = useMutation({
     mutationFn: async (id: string) => {
       const token = await UserTokenUtil.getAccessToken();
-      await apiKeyApi.deleteApiKeyId(id, `Bearer ${token}`);
+      await apiKeyApi.deleteApiKeyId(id, token);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: API_KEY_QUERY_KEY });
