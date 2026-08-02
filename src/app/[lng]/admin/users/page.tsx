@@ -45,7 +45,8 @@ export default function AdminUsersPage({ params }: LanguageParams) {
     queryKey: ['admin', 'users'],
     queryFn: async () => {
       const token = await UserTokenUtil.getAccessToken();
-      const res = await userApi.getUsers(`Bearer ${token}`);
+      // getAccessToken() 은 이미 "Bearer " 프리픽스를 포함한다(중복 프리픽스 금지).
+      const res = await userApi.getUsers(token);
       return res.data;
     },
   });
@@ -62,7 +63,7 @@ export default function AdminUsersPage({ params }: LanguageParams) {
     }) => {
       const token = await UserTokenUtil.getAccessToken();
       const updatedUser: User = { ...currentData, role };
-      await userApi.putUserUserId(`Bearer ${token}`, userId, updatedUser);
+      await userApi.putUserUserId(token, userId, updatedUser);
     },
     onSuccess: () => {
       // eslint-disable-next-line no-alert

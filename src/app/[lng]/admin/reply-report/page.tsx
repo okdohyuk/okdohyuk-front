@@ -28,7 +28,15 @@ import {
   ShieldAlert,
   Trash2,
 } from 'lucide-react';
+import { useTranslation } from '~/app/i18n/client';
 import { LanguageParams } from '~/app/[lng]/layout';
+import { Language } from '~/app/i18n/settings';
+
+/*
+ * 백엔드(BlogReplyServiceImpl.MAX_REPORT_LIST_SIZE)가 신고 목록을 최신 500건으로 잘라서 내려준다.
+ * 스펙에 페이지네이션 파라미터가 없으므로, 상한에 도달하면 잘렸을 수 있음을 관리자에게 알린다.
+ */
+const REPORT_LIST_MAX_SIZE = 500;
 
 const REASON_LABELS: Record<string, string> = {
   SPAM: '스팸 / 부적절한 홍보',
@@ -39,8 +47,10 @@ const REASON_LABELS: Record<string, string> = {
 
 function AdminReplyReportPage({ params }: LanguageParams) {
   const { lng } = use(params);
+  const { t } = useTranslation(lng as Language, 'common');
   const [reports, setReports] = useState<BlogReplyReport[]>([]);
   const [loading, setLoading] = useState(true);
+  const isListTruncated = reports.length >= REPORT_LIST_MAX_SIZE;
 
   const fetchReports = useCallback(async () => {
     setLoading(true);
@@ -131,6 +141,12 @@ function AdminReplyReportPage({ params }: LanguageParams) {
       <ServiceInfoNotice icon={<ShieldAlert className="h-5 w-5" />}>
         신고 내역을 빠르게 확인하고 부적절한 댓글을 즉시 정리하세요.
       </ServiceInfoNotice>
+
+      {isListTruncated ? (
+        <ServiceInfoNotice icon={<MessageSquareWarning className="h-5 w-5" />}>
+          {t('admin.replyReport.listTruncated', { limit: REPORT_LIST_MAX_SIZE })}
+        </ServiceInfoNotice>
+      ) : null}
 
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-2">

@@ -9,8 +9,19 @@
   },
   "error": {
     "unknown": "An unknown error occurred.",
+    "3": "Your login information is invalid. Please sign in again.",
+    "4": "You need to sign in to use this feature.",
+    "6": "Your session has expired. Please sign in again.",
+    "7": "This blog post does not exist.",
+    "13": "This comment does not exist.",
+    "14": "This report does not exist.",
+    "15": "You do not have permission.",
     "16": "You have already reported this comment.",
-    "17": "You can post up to 10 comments."
+    "17": "You can post up to 10 comments.",
+    "51": "Comments must be between 1 and 500 characters.",
+    "52": "The parent comment belongs to a different blog post.",
+    "53": "Comments can be nested up to 3 levels.",
+    "54": "This account is restricted."
   },
   "confirm": {
     "loginRequired": "Login is required. Would you like to go to the login page?",
@@ -30,6 +41,15 @@
       "edit": "Edit",
       "delete": "Delete",
       "report": "Report"
+    }
+  },
+  "like": {
+    "add": "Like",
+    "remove": "Unlike"
+  },
+  "admin": {
+    "replyReport": {
+      "listTruncated": "Only the most recent {{limit}} reports are shown. Older reports may be omitted from this list."
     }
   },
   "navigation": {
