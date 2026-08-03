@@ -12924,10 +12924,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:^6":
-  version: 6.15.0
-  resolution: "mobx@npm:6.15.0"
-  checksum: 10c0/afbfdc5659caac4ba620d1caca8eb471bbe56746403a8023ae402e27f9e04856394e1529ccf46feb7fdad0c6d695fa1972e8421e7fbfcb1cf453131739a12ac4
+"mobx@npm:^7":
+  version: 7.0.0
+  resolution: "mobx@npm:7.0.0"
+  checksum: 10c0/19e4d11a96efdbb21c14c6a7fb1b96bfc78810e0a8f382b4fce6778ff35fdb0c80c60b30b6282231258d9258ed80deded8f8d88b50ab51a2062cf6faef191d0f
   languageName: node
   linkType: hard
 
@@ -13460,7 +13460,7 @@ __metadata:
     lodash: "npm:^4.18.1"
     lucide-react: "npm:^0.537.0"
     markdown-to-jsx: "npm:~7.5.0"
-    mobx: "npm:^6"
+    mobx: "npm:^7"
     mobx-react: "npm:^9"
     next: "npm:16.2.6"
     next-i18next: "npm:~15.4.2"
