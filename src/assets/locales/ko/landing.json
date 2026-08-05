@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "eyebrow": "OKDOHYUK.DEV · 7 CATEGORIES · 48+ TOOLS",
+    "titleLine1": "필요한 도구는",
+    "titleLine2": "언제나 여기에.",
+    "statement": "포켓몬 타입 상성부터 서버 시계, 한글 금액 변환까지. 설치도 가입도 없이 브라우저에서 바로 씁니다.",
+    "capabilities": "한국어 · English · 日本語 · 中文",
+    "ctaPrimary": "도구 탐색하기",
+    "ctaSecondary": "로그인",
+    "ctaSearch": "빠른 검색",
+    "scrollHint": "SCROLL"
+  },
+  "stats": {
+    "toolsLabel": "무료 도구",
+    "categoriesLabel": "카테고리",
+    "languagesLabel": "지원 언어",
+    "languagesValue": "4개",
+    "loginLabel": "회원가입",
+    "loginValue": "불필요"
+  },
+  "story": {
+    "eyebrow": "MOST VISITED",
+    "titleLine1": "지금 가장 많이",
+    "titleLine2": "쓰이는 도구들.",
+    "cta": "열어보기",
+    "related": "함께 쓰면 좋은 도구",
+    "pokemon": {
+      "eyebrow": "01 · POKÉMON",
+      "titleLine1": "18개 타입 상성을",
+      "titleLine2": "한 화면에서.",
+      "body": "공격 타입 하나만 고르면 2배·½배·무효가 즉시 갈라집니다. 약점 계산기와 팀 커버리지까지 같은 흐름에서 이어집니다.",
+      "sequenceAlt": "포켓몬 타입 계산기에서 공격 타입을 눌러 2배·½배·무효 상성이 갈리는 실제 화면"
+    },
+    "clock": {
+      "eyebrow": "02 · TIME",
+      "titleLine1": "1초를 다투는 순간,",
+      "titleLine2": "기준이 되는 시계.",
+      "body": "티켓팅과 수강신청에 쓰는 서버 시각을 밀리초 단위로 확인합니다. 내 기기 시계와의 오차도 같이 보여줍니다.",
+      "sequenceAlt": "서버 시계에서 밀리초까지 흐르는 실제 화면"
+    },
+    "live": {
+      "eyebrow": "03 · LIVE",
+      "titleLine1": "여러 방송을",
+      "titleLine2": "한 화면에 나란히.",
+      "body": "유튜브·치지직·트위치 링크를 모아 원하는 레이아웃으로 배치하고, 그대로 주소 하나로 공유합니다.",
+      "sequenceAlt": "멀티 라이브에서 방송을 추가하고 레이아웃을 바꾸는 실제 화면"
+    }
+  },
+  "bento": {
+    "eyebrow": "ALL CATEGORIES",
+    "titleLine1": "7개 카테고리,",
+    "titleLine2": "48개가 넘는 도구.",
+    "lead": "필요한 순간에 바로 꺼내 쓰는 웹 유틸리티 모음입니다.",
+    "toolCount": "{{count}}개 도구",
+    "viewAll": "카테고리 전체 보기"
+  },
+  "closing": {
+    "eyebrow": "START NOW",
+    "titleLine1": "가입 없이,",
+    "titleLine2": "지금 바로 시작하세요.",
+    "body": "로그인하면 자주 쓰는 도구를 즐겨찾기해 홈에서 바로 열 수 있습니다.",
+    "ctaPrimary": "전체 도구 보기",
+    "ctaSecondary": "로그인하고 즐겨찾기"
+  },
+  "blend": {
+    "title": "48개가 넘는 도구가 한 곳에.",
+    "body": "일정·계산·생성·텍스트·개발·라이프·학습까지 7개 카테고리. 필요한 순간에 바로 꺼내 씁니다.",
+    "cta": "전체 도구 보기"
+  }
+}

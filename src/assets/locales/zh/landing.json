@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "eyebrow": "OKDOHYUK.DEV · 7 CATEGORIES · 48+ TOOLS",
+    "titleLine1": "你需要的工具，",
+    "titleLine2": "一直都在这里。",
+    "statement": "从宝可梦属性克制到服务器时钟、金额与文本转换。无需安装、无需注册，打开浏览器就能用。",
+    "capabilities": "한국어 · English · 日本語 · 中文",
+    "ctaPrimary": "浏览全部工具",
+    "ctaSecondary": "登录",
+    "ctaSearch": "快速搜索",
+    "scrollHint": "SCROLL"
+  },
+  "stats": {
+    "toolsLabel": "免费工具",
+    "categoriesLabel": "分类",
+    "languagesLabel": "支持语言",
+    "languagesValue": "4 种",
+    "loginLabel": "注册",
+    "loginValue": "无需"
+  },
+  "story": {
+    "eyebrow": "MOST VISITED",
+    "titleLine1": "当下使用最多的",
+    "titleLine2": "几个工具。",
+    "cta": "立即打开",
+    "related": "搭配使用更顺手",
+    "pokemon": {
+      "eyebrow": "01 · POKÉMON",
+      "titleLine1": "18 种属性克制，",
+      "titleLine2": "一屏看完。",
+      "body": "只要选一个攻击属性，2 倍、½ 倍与免疫立刻区分开。弱点计算与队伍覆盖率也在同一条流程里。",
+      "sequenceAlt": "宝可梦属性计算器中点击攻击属性、2 倍/½ 倍/无效克制关系随之变化的真实画面"
+    },
+    "clock": {
+      "eyebrow": "02 · TIME",
+      "titleLine1": "分秒必争的时刻，",
+      "titleLine2": "以服务器时间为准。",
+      "body": "抢票与选课时精确到毫秒的服务器时间，同时显示与你设备时钟之间的偏差。",
+      "sequenceAlt": "服务器时钟精确到毫秒流动的真实画面"
+    },
+    "live": {
+      "eyebrow": "03 · LIVE",
+      "titleLine1": "多个直播，",
+      "titleLine2": "同屏并排观看。",
+      "body": "把 YouTube、CHZZK、Twitch 的链接集中起来，排成你想要的布局，再用一个网址整体分享。",
+      "sequenceAlt": "多路直播中添加频道并切换布局的真实画面"
+    }
+  },
+  "bento": {
+    "eyebrow": "ALL CATEGORIES",
+    "titleLine1": "7 个分类，",
+    "titleLine2": "48 个以上的工具。",
+    "lead": "需要的时候随手就能取用的网页工具集合。",
+    "toolCount": "{{count}} 个工具",
+    "viewAll": "查看全部分类"
+  },
+  "closing": {
+    "eyebrow": "START NOW",
+    "titleLine1": "无需注册，",
+    "titleLine2": "现在就开始。",
+    "body": "登录后可以收藏常用工具，直接从首页打开。",
+    "ctaPrimary": "查看全部工具",
+    "ctaSecondary": "登录并收藏"
+  },
+  "blend": {
+    "title": "超过 48 个工具， 汇于一处。",
+    "body": "日程、计算、生成、文本、开发、生活、学习共 7 个分类。需要时随手取用。",
+    "cta": "查看全部工具"
+  }
+}

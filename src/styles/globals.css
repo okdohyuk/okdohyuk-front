@@ -524,3 +524,461 @@ table {
     animation: none !important;
   }
 }
+
+/* =========================================================================
+ * 랜딩(/) 스크롤 스토리 · 벤토 그리드 모션 토큰
+ *  - 기본값은 "보이는 상태". 스크롤 구동 애니메이션(animation-timeline: view())을
+ *    지원하는 브라우저에서만 리빌을 켜므로 JS 없이도 콘텐츠가 항상 노출된다.
+ *  - prefers-reduced-motion 에서는 전부 비활성화.
+ * ========================================================================= */
+
+/* 히어로 배경 워시 — 상단/하단 radial gradient (point 토큰 기반) */
+.landing-wash-top {
+  background:
+    radial-gradient(
+      120% 80% at 50% -10%,
+      color-mix(in srgb, var(--point-3) 22%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      80% 60% at 88% 8%,
+      color-mix(in srgb, var(--info-2) 14%, transparent),
+      transparent 62%
+    );
+}
+
+.landing-wash-bottom {
+  background: radial-gradient(
+    120% 90% at 50% 110%,
+    color-mix(in srgb, var(--point-3) 18%, transparent),
+    transparent 62%
+  );
+}
+
+/* 글래스 엣지 — inset 하이라이트 + 헤어라인 (Liquid Glass 표현) */
+.landing-glass {
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--basic-0) 70%, transparent),
+    0 18px 44px rgba(0, 0, 0, 0.08);
+}
+
+/* 모노 아이브로우 라벨 */
+.landing-eyebrow {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+}
+
+@keyframes landing-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/*
+ * LCP 후보 전용 진입 애니메이션.
+ * 히어로 h1 은 LCP 후보라 `opacity: 0` 으로 시작하면 "아직 그려지지 않은 것"으로 취급되어
+ * LCP 시점이 애니메이션 종료까지 밀린다. blur 도 페인트 비용을 키운다.
+ * 따라서 h1 에는 opacity/filter 없이 transform 만 쓰는 변형을 적용한다.
+ */
+@keyframes landing-rise-in-lcp {
+  from {
+    transform: translateY(18px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* 진입 애니메이션(히어로) — 스크롤과 무관하게 1회 재생 */
+@media (prefers-reduced-motion: no-preference) {
+  .landing-rise {
+    animation: landing-rise-in 800ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+  }
+
+  .landing-rise-lcp {
+    animation: landing-rise-in-lcp 800ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+  }
+}
+
+/* 스크롤 구동 리빌 — 지원 브라우저 한정 (자동 등장이므로 reduced-motion 에서 끈다) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .landing-reveal {
+      animation: landing-rise-in linear both;
+      animation-timeline: view();
+      animation-range: entry 6% cover 34%;
+    }
+
+    .landing-reveal-stagger > * {
+      animation: landing-rise-in linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 36%;
+    }
+    .landing-reveal-stagger > *:nth-child(2) {
+      animation-range: entry 12% cover 40%;
+    }
+    .landing-reveal-stagger > *:nth-child(3) {
+      animation-range: entry 16% cover 44%;
+    }
+    .landing-reveal-stagger > *:nth-child(4) {
+      animation-range: entry 20% cover 48%;
+    }
+    .landing-reveal-stagger > *:nth-child(5) {
+      animation-range: entry 24% cover 52%;
+    }
+    .landing-reveal-stagger > *:nth-child(6) {
+      animation-range: entry 28% cover 56%;
+    }
+    .landing-reveal-stagger > *:nth-child(7) {
+      animation-range: entry 32% cover 60%;
+    }
+  }
+}
+
+/*
+ * 스크롤 구동 애니메이션(SDA) 미지원 브라우저 폴백 — nogmi 의 `html.no-sda` 패턴.
+ *
+ * 위 `@supports (animation-timeline: view())` 블록은 미지원 브라우저에서 통째로 무시된다.
+ * 그러면 콘텐츠는 "보이긴 하지만 아무 움직임도 없는" 상태가 된다(Safari 26 미만이 여기 해당).
+ * `no-sda` 는 JS 가 지원 여부를 판정해 <html> 에 붙이므로, JS 가 없거나 실패하면 이 블록이
+ * 적용되지 않아 "기본 = 보이는 상태" 원칙이 그대로 유지된다.
+ *
+ * 시작/종료 상태와 이징은 `landing-rise-in` 키프레임과 같은 값으로 맞춰 두 경로의 결과가 동일하다.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html.no-sda .landing-reveal,
+  html.no-sda .landing-reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+    transition:
+      opacity 700ms cubic-bezier(0.2, 0.75, 0.2, 1),
+      transform 700ms cubic-bezier(0.2, 0.75, 0.2, 1),
+      filter 700ms cubic-bezier(0.2, 0.75, 0.2, 1);
+  }
+
+  html.no-sda .landing-reveal.is-in,
+  html.no-sda .landing-reveal-stagger > .is-in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  /* 스태거 — SDA 경로의 animation-range 4% 간격과 같은 리듬(자식 최대 7개) */
+  html.no-sda .landing-reveal-stagger > *:nth-child(2) {
+    transition-delay: 80ms;
+  }
+  html.no-sda .landing-reveal-stagger > *:nth-child(3) {
+    transition-delay: 160ms;
+  }
+  html.no-sda .landing-reveal-stagger > *:nth-child(4) {
+    transition-delay: 240ms;
+  }
+  html.no-sda .landing-reveal-stagger > *:nth-child(5) {
+    transition-delay: 320ms;
+  }
+  html.no-sda .landing-reveal-stagger > *:nth-child(6) {
+    transition-delay: 400ms;
+  }
+  html.no-sda .landing-reveal-stagger > *:nth-child(7) {
+    transition-delay: 480ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-rise,
+  .landing-rise-lcp,
+  .landing-reveal,
+  .landing-reveal-stagger > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* =========================================================================
+ * 애플 제품 페이지식 풀스크린 sticky 씬 (components/complex/Home/Landing)
+ *
+ * 강의(1분코딩 「애플 웹사이트 인터랙션 클론!」)는 씬 높이를 JS 로 써넣고
+ * `position: fixed` + body id 스위칭으로 현재 씬만 노출한다.
+ * 여기서는 두 가지를 바꿨다.
+ *  1) 높이를 `calc(N * 100svh)` CSS 로 선언 → SSR 시점에 확정되어 CLS 0,
+ *     리사이즈 시 `location.reload`(SPA 금기) 없이도 자동 반영된다.
+ *  2) fixed 대신 `position: sticky` → 씬끼리 겹치지 않으므로 `display:none` 은닉이
+ *     필요 없다. 포스터가 항상 보이는 상태로 남는다.
+ *
+ * `[data-scene]` 은 엔진(JS)이 붙인다. 스크럽 전용 배치는 전부 그 아래에만 둬,
+ * JS 가 없거나 실패하면 자연 흐름 + 보이는 상태로 남는다.
+ * ========================================================================= */
+
+/* ── 씬 배경 ───────────────────────────────────────────────────────────────
+ * 스크린샷 위에 카피를 얹지 않는다(= 스크림 불필요). 대신 카피와 제품 샷을
+ * 나란히 두고, 그 뒤에 깔리는 배경만 은은한 그라디언트로 처리한다.
+ * ------------------------------------------------------------------------ */
+.landing-scene-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      86% 70% at 12% -6%,
+      color-mix(in srgb, var(--point-3) 13%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      72% 76% at 104% 104%,
+      color-mix(in srgb, var(--info-2) 12%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--basic-0) 0%, var(--basic-1) 100%);
+}
+
+/* ── 제품 샷 프레임 (라운드 브라우저 창) ─────────────────────────────────── */
+.landing-device {
+  position: relative;
+  width: 100%;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--basic-3) 85%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--basic-0) 94%, var(--basic-2));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--basic-0) 85%, transparent),
+    0 2px 8px -3px rgb(16 18 34 / 14%),
+    0 30px 68px -22px rgb(16 18 34 / 34%);
+}
+
+.landing-device-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 2.1rem;
+  padding-inline: 0.85rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--basic-3) 70%, transparent);
+  background: color-mix(in srgb, var(--basic-1) 70%, var(--basic-0));
+}
+
+.landing-device-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--basic-4) 55%, transparent);
+}
+
+.landing-device-url {
+  margin-inline: auto;
+  /*
+   * flex 아이템의 기본 min-width 는 auto 라 nowrap 주소 문자열의 min-content 폭이
+   * 그대로 하한이 된다. 그 탓에 프레임이 320~360px 화면에서 348px 로 버텨 가로로 넘쳤다.
+   */
+  min-width: 0;
+  max-width: 60%;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--basic-0) 88%, transparent);
+  padding: 0.14rem 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.66rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--fg-5);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*
+ * 블렌딩 씬 주소 표시줄 — 시작 화면(직전 도구)과 도착 화면(전체 도구)의 주소를 둘 다
+ * 렌더해 두고 엔진이 거는 data-blend-phase 로만 바꾼다. 엔진이 없는 경로(JS 미지원,
+ * reduced-motion, 모바일)에서는 포스터가 도착 화면이므로 기본값이 그대로 맞다.
+ */
+.landing-device-url-base {
+  display: none;
+}
+
+[data-blend-phase='base'] .landing-device-url-base {
+  display: inline;
+}
+
+[data-blend-phase='base'] .landing-device-url-main {
+  display: none;
+}
+
+/*
+ * 화면부는 프레임 비율(16:10)을 그대로 갖는다.
+ * 캔버스를 여기에 100%/100% 로 눕히면 브라우저가 1600×1000 픽셀 버퍼를 자동으로
+ * 축소 렌더한다 → 프레임 전체가 항상 잘림 없이 보인다(contain).
+ */
+.landing-device-screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--basic-1);
+}
+
+.landing-scene-canvas {
+  position: absolute;
+  inset: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* 엔진이 돌 때만 캔버스가 포스터를 덮는다. JS 가 없으면 포스터가 그대로 남는다. */
+.landing-stage[data-scene] .landing-scene-canvas {
+  display: block;
+}
+
+/* ── 씬 레이아웃 ───────────────────────────────────────────────────────── */
+.landing-scene-sticky {
+  position: relative;
+  display: flex;
+  min-height: 62svh;
+  align-items: center;
+  padding-block: 4rem;
+}
+
+.landing-scene-split {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+/*
+ * 그리드 아이템의 기본 min-width 는 auto 라 트랙이 콘텐츠 min-content 까지 벌어진다.
+ * 카피의 `ch` 기반 max-width 가 좁은 화면의 가용 폭보다 크면 트랙이 그만큼 넓어져
+ * 컨테이너 밖으로 밀려났다(320px 화면에서 가용 280px 인데 348px 로 렌더). 0 으로 낮추면
+ * 트랙이 컨테이너에 맞춰 줄고, `ch` 상한은 넓은 화면에서만 실제로 작동한다.
+ */
+.landing-scene-split > * {
+  min-width: 0;
+}
+
+.landing-message-track > * + * {
+  margin-top: 1.25rem;
+}
+
+/*
+ * 2컬럼(카피 | 제품 샷) 배치. 이 폭부터 스크럽이 켜지므로 아래 스크럽 블록과 **같은 조건**이어야
+ * 한다. 조건이 갈리면 1컬럼 세로 배치인데 sticky 100svh 안에 갇혀 프레임이 잘린다.
+ */
+@media (min-width: 768px) {
+  /*
+   * 768~1023 은 고정 폭(26rem) 카피 열을 쓰면 남는 폭이 모자라 제품 샷이 오히려
+   * 1컬럼 정적 배치보다 작아진다. 이 구간만 비율 열로 둬 프레임 몫을 지킨다.
+   */
+  .landing-scene-split {
+    grid-template-columns: minmax(13rem, 34%) 1fr;
+  }
+
+  /*
+   * 블렌딩 씬은 제품 샷이 주인공이라 중앙 1열 + 하단 캡션으로 쌓는다.
+   *
+   * 선택자를 두 클래스로 겹쳐 쓴다. 한 클래스로만 두면 아래 1024 블록의
+   * `.landing-scene-split` 과 명시도가 같아 **뒤에 온 쪽이 이겨** 블렌딩 프레임이
+   * 카피 열(26rem)에 갇힌다. 실제로 1440 폭에서 416px 로 쪼그라들었다.
+   */
+  .landing-scene-split.landing-scene-split-stack {
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 3vh, 2.5rem);
+    justify-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-scene-split {
+    grid-template-columns: minmax(16rem, 26rem) 1fr;
+  }
+}
+
+/*
+ * 스크럽 트랙. 조건은 `LandingSceneStage` 의 `SCRUB_QUERY` 와 **글자 그대로 같아야 한다**.
+ *
+ * `prefers-reduced-motion` 을 조건에 넣지 않는다: 스크럽은 사용자가 스크롤한 만큼만 움직이는
+ * 사용자 주도 동작이다. 동작 줄이기가 끄는 대상은 자동 재생·자동 등장·장식 모션(위 landing-rise /
+ * landing-reveal 블록과 엔진의 감속 계수)이고, 여기서 끄면 화면이 정지 포스터로만 남는다.
+ */
+@media (min-width: 768px) {
+  /* 씬 높이 = 브라우저 높이의 N배. 고정 픽셀이면 기기마다 체감 속도가 달라진다. */
+  .landing-scene {
+    height: calc(var(--landing-scene-height, 1) * 100svh);
+  }
+
+  .landing-scene-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+    padding-block: 0;
+  }
+
+  /*
+   * 낮은 창에서도 제품 샷이 세로로 넘치지 않게 폭 상한을 높이로부터 역산한다.
+   * (16:10 이므로 사용할 수 있는 높이 × 1.6 이 폭 상한이다.)
+   */
+  .landing-scene-tool .landing-device {
+    max-width: min(100%, calc((100svh - 7rem) * 1.6));
+  }
+
+  .landing-scene-blend .landing-device {
+    max-width: min(100%, calc((100svh - 20rem) * 1.6));
+  }
+
+  /*
+   * 메시지 겹침 배치는 엔진이 붙인 [data-scene] 아래에만 둔다.
+   * 고정 높이 박스 안에서 겹쳐 교차 전환하므로 문단 줄 수가 달라도 정렬이 흔들리지 않는다.
+   */
+  .landing-stage[data-scene] .landing-message-track {
+    position: relative;
+    height: 7.5rem;
+  }
+
+  .landing-stage[data-scene] .landing-message-track > .landing-scene-message {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    /*
+     * `margin: 0` 으로 두면 문단의 `mx-auto` 까지 지워져 가운데 정렬이 풀린다.
+     * 세로 여백만 없애고 가로는 auto 를 유지해야 히어로 카피가 중앙에 선다.
+     */
+    margin-block: 0;
+    margin-inline: auto;
+  }
+
+  /*
+   * 엔진이 켜진 경우에만 카피/제품 샷을 숨긴 상태에서 시작한다.
+   * `[data-scene]` 은 JS 가 붙이고 곧바로 첫 프레임을 계산하므로 중간 페인트가 없다.
+   * JS 가 없으면 이 규칙이 적용되지 않아 카피가 그대로 읽힌다.
+   */
+  .landing-stage[data-scene] .landing-scene-message,
+  .landing-stage[data-scene] .landing-scene-frame {
+    opacity: 0;
+  }
+
+  /* will-change 는 현재 활성 씬에만. 남발하면 오히려 느려진다(강의 43292). */
+  .landing-stage[data-scene='0'] [data-scene-index='0'] .landing-scene-message,
+  .landing-stage[data-scene='1'] [data-scene-index='1'] .landing-scene-message,
+  .landing-stage[data-scene='2'] [data-scene-index='2'] .landing-scene-message,
+  .landing-stage[data-scene='3'] [data-scene-index='3'] .landing-scene-message,
+  .landing-stage[data-scene='4'] [data-scene-index='4'] .landing-scene-message,
+  .landing-stage[data-scene='1'] [data-scene-index='1'] .landing-scene-frame,
+  .landing-stage[data-scene='2'] [data-scene-index='2'] .landing-scene-frame,
+  .landing-stage[data-scene='3'] [data-scene-index='3'] .landing-scene-frame,
+  .landing-stage[data-scene='4'] [data-scene-index='4'] .landing-scene-frame {
+    will-change: transform, opacity;
+  }
+}

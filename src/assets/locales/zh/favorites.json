@@ -1,0 +1,49 @@
+{
+  "home": {
+    "eyebrow": "MY HOME",
+    "greeting": "{{name}}，欢迎回来。",
+    "greetingFallback": "欢迎回来。",
+    "subtitle": "在这里直接打开收藏的工具。",
+    "count": "收藏 {{count}} 个",
+    "browseAll": "查看全部工具",
+    "search": "快速搜索",
+    "edit": "调整顺序",
+    "editDone": "完成"
+  },
+  "list": {
+    "moveUp": "上移",
+    "moveDown": "下移",
+    "remove": "取消收藏"
+  },
+  "empty": {
+    "title": "还没有收藏任何工具。",
+    "body": "在工具列表中点击星标，工具就会集中到这里，从首页一键打开。",
+    "recommendTitle": "从最常用的工具开始",
+    "add": "加入收藏"
+  },
+  "state": {
+    "loading": "正在加载收藏。",
+    "errorTitle": "无法加载收藏。",
+    "errorBody": "请稍后再试。",
+    "retry": "重试"
+  },
+  "toggle": {
+    "add": "加入收藏",
+    "remove": "取消收藏"
+  },
+  "notice": {
+    "added": "已加入收藏。",
+    "removed": "已取消收藏。",
+    "reordered": "顺序已保存。"
+  },
+  "error": {
+    "duplicate": "该工具已在收藏中。",
+    "limitExceeded": "收藏最多可添加 {{max}} 个。",
+    "orderMismatch": "收藏列表已在别处更新，顺序未能保存。已重新加载最新列表。",
+    "notExist": "该收藏已被删除。",
+    "noPermission": "没有权限修改该收藏。",
+    "unauthorized": "请先登录。",
+    "invalidLink": "该工具无法加入收藏。",
+    "generic": "请求处理失败，请稍后再试。"
+  }
+}

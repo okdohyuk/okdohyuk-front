@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "eyebrow": "OKDOHYUK.DEV · 7 CATEGORIES · 48+ TOOLS",
+    "titleLine1": "Every tool you need,",
+    "titleLine2": "already open.",
+    "statement": "Pokémon type matchups, server clocks, currency and text converters. No install, no sign-up — it all runs in your browser.",
+    "capabilities": "한국어 · English · 日本語 · 中文",
+    "ctaPrimary": "Explore the tools",
+    "ctaSecondary": "Sign in",
+    "ctaSearch": "Quick search",
+    "scrollHint": "SCROLL"
+  },
+  "stats": {
+    "toolsLabel": "Free tools",
+    "categoriesLabel": "Categories",
+    "languagesLabel": "Languages",
+    "languagesValue": "4",
+    "loginLabel": "Sign-up",
+    "loginValue": "Not required"
+  },
+  "story": {
+    "eyebrow": "MOST VISITED",
+    "titleLine1": "The tools people",
+    "titleLine2": "actually open.",
+    "cta": "Open tool",
+    "related": "Pairs well with",
+    "pokemon": {
+      "eyebrow": "01 · POKÉMON",
+      "titleLine1": "All 18 type matchups,",
+      "titleLine2": "on one screen.",
+      "body": "Pick an attacking type and 2×, ½× and immune split apart instantly. The weakness calculator and team coverage follow in the same flow.",
+      "sequenceAlt": "The real Pokemon type calculator screen, splitting 2x, half and immune matchups as attack types are tapped"
+    },
+    "clock": {
+      "eyebrow": "02 · TIME",
+      "titleLine1": "When one second counts,",
+      "titleLine2": "start from the server.",
+      "body": "Read the exact server time down to the millisecond for ticketing and registration — with the drift from your own device shown alongside.",
+      "sequenceAlt": "The real server clock screen, ticking down to milliseconds"
+    },
+    "live": {
+      "eyebrow": "03 · LIVE",
+      "titleLine1": "Several streams,",
+      "titleLine2": "side by side.",
+      "body": "Collect YouTube, Chzzk and Twitch links, arrange the layout you want, then share the whole thing as a single URL.",
+      "sequenceAlt": "The real Multi Live screen, adding streams and switching layouts"
+    }
+  },
+  "bento": {
+    "eyebrow": "ALL CATEGORIES",
+    "titleLine1": "Seven categories,",
+    "titleLine2": "more than 48 tools.",
+    "lead": "A web utility belt you can reach for the moment you need it.",
+    "toolCount": "{{count}} tools",
+    "viewAll": "Browse every category"
+  },
+  "closing": {
+    "eyebrow": "START NOW",
+    "titleLine1": "No account.",
+    "titleLine2": "Just start.",
+    "body": "Sign in and your favourite tools show up right here on the home screen.",
+    "ctaPrimary": "See all tools",
+    "ctaSecondary": "Sign in to save favourites"
+  },
+  "blend": {
+    "title": "Over 48 tools, in one place.",
+    "body": "Seven categories — planning, calculation, generators, text, developer, lifestyle and learning. Pull out what you need, the moment you need it.",
+    "cta": "Browse all tools"
+  }
+}

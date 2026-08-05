@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
+import { observer } from 'mobx-react';
 import Link from '@components/basic/Link';
 import { ArrowUpRight, Search, X } from 'lucide-react';
 import { MenuItem, menus } from '@assets/datas/menus';
@@ -11,10 +12,14 @@ import {
 } from '@assets/datas/serviceCategories';
 import { Input } from '@components/basic/Input';
 import CursorGlowCard from '@components/complex/Service/CursorGlowCard';
+import FavoriteNoticeRegion from '@components/complex/Favorite/FavoriteNoticeRegion';
+import FavoriteStarButton from '@components/complex/Favorite/FavoriteStarButton';
 import {
   SERVICE_CARD_INTERACTIVE,
   SERVICE_PANEL_SOFT,
 } from '@components/complex/Service/interactiveStyles';
+import useFavoriteNotice from '@hooks/useFavoriteNotice';
+import useFavoriteToggle from '@hooks/useFavoriteToggle';
 import { cn } from '@utils/cn';
 import { sendGAEvent } from '@libs/client/gtag';
 import { useTranslation } from '~/app/i18n/client';
@@ -70,9 +75,18 @@ const matchesKeyword = (menu: MenuItem, lng: Language, keyword: string) => {
   return haystack.includes(keyword);
 };
 
-export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
+function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
   const { t } = useTranslation(lng, 'menu');
   const [query, setQuery] = useState('');
+  const { notice, notify } = useFavoriteNotice();
+
+  /*
+   * 도구 항목이 50개 남짓이라 항목마다 훅을 구독하면 같은 캐시를 향한 구독자가 그만큼 늘어난다.
+   * 여기서 한 번만 구독하고 자식에는 표시용 props 만 내려보낸다.
+   * `favorite.enabled` 는 "로그인 + 하이드레이션 완료" 를 뜻하며,
+   * SSR 결과(항상 비노출)와 클라이언트 첫 렌더를 맞춰 하이드레이션 불일치를 막는다.
+   */
+  const favorite = useFavoriteToggle(lng, notify);
 
   const keyword = normalizeKeyword(query);
 
@@ -170,43 +184,66 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
   const renderMenuItem = (menu: MenuItem, sectionKey: SectionKey) => {
     const title = menu.title[lng] || menu.title.en;
     const isInternal = menu.link.startsWith('/');
+    // 외부 링크는 도구 경로가 아니므로(스펙 pattern 위반) 즐겨찾기 대상이 아니다.
+    const showFavorite = favorite.enabled && isInternal;
+    const isFavorite = showFavorite && favorite.isFavorite(menu.link);
 
     return (
       <li key={`${title}-${menu.link}`} className="list-none">
         <CursorGlowCard>
-          <Link
-            href={menu.link}
-            hasTargetBlank={!isInternal}
-            rel={isInternal ? undefined : 'noopener noreferrer'}
-            prefetch={isInternal}
-            analyticsKey="tool_open"
-            analyticsParams={{
-              tool_id: getToolId(menu.link),
-              tool_category: sectionKey,
-              from: query.trim() ? 'search' : 'menu_grid',
-            }}
-            className={cn(
-              SERVICE_PANEL_SOFT,
-              SERVICE_CARD_INTERACTIVE,
-              'group flex items-start gap-4 rounded-2xl p-4',
-            )}
-          >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-basic-3 bg-basic-0/90 text-fg-3">
-              {menu.icon}
-            </div>
-            <div className="min-w-0 flex-1 space-y-1">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="text-sm font-semibold text-fg-1 md:text-base">{title}</span>
-                {!isInternal ? (
-                  <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[10px] font-bold text-fg-4">
-                    {t('outBadge')}
-                  </span>
-                ) : null}
+          <div className="relative">
+            <Link
+              href={menu.link}
+              hasTargetBlank={!isInternal}
+              rel={isInternal ? undefined : 'noopener noreferrer'}
+              prefetch={isInternal}
+              analyticsKey="tool_open"
+              analyticsParams={{
+                tool_id: getToolId(menu.link),
+                tool_category: sectionKey,
+                from: query.trim() ? 'search' : 'menu_grid',
+              }}
+              className={cn(
+                SERVICE_PANEL_SOFT,
+                SERVICE_CARD_INTERACTIVE,
+                'group flex items-start gap-4 rounded-2xl p-4',
+                // 별 토글이 겹치지 않도록 우측 공간을 확보한다(비로그인 시에는 여백을 만들지 않는다).
+                showFavorite && 'pr-14',
+              )}
+            >
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-basic-3 bg-basic-0/90 text-fg-3">
+                {menu.icon}
               </div>
-              <p className="text-xs text-fg-5">{getLinkPreview(menu.link)}</p>
-            </div>
-            <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-point-fg" />
-          </Link>
+              <div className="min-w-0 flex-1 space-y-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-sm font-semibold text-fg-1 md:text-base">{title}</span>
+                  {!isInternal ? (
+                    <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[10px] font-bold text-fg-4">
+                      {t('outBadge')}
+                    </span>
+                  ) : null}
+                </div>
+                <p className="text-xs text-fg-5">{getLinkPreview(menu.link)}</p>
+              </div>
+              {/*
+                우측 아이콘 슬롯은 항상 하나만 둔다. 로그인 상태에서는 같은 자리를 별 토글이
+                차지하므로 이동 화살표를 함께 그리면 장식과 조작 버튼이 한 모서리에서 겹친다.
+              */}
+              {!showFavorite ? (
+                <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-point-fg" />
+              ) : null}
+            </Link>
+
+            {showFavorite ? (
+              <FavoriteStarButton
+                isFavorite={isFavorite}
+                label={isFavorite ? favorite.labels.remove : favorite.labels.add}
+                onToggle={() => favorite.toggle(menu.link, 'menu')}
+                disabled={favorite.isPending || !favorite.canToggle(menu.link)}
+                className="absolute right-3 top-1/2 -translate-y-1/2"
+              />
+            ) : null}
+          </div>
         </CursorGlowCard>
       </li>
     );
@@ -214,6 +251,9 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
 
   return (
     <div className="space-y-4">
+      {/* 목록 상단에 끼워 넣으면 알림이 뜰 때마다 카드가 통째로 밀리므로 화면 하단 고정으로 띄운다. */}
+      <FavoriteNoticeRegion notice={notice} variant="fixed" />
+
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4 md:p-5')}>
         <div className="space-y-1">
           <p className="text-sm font-semibold text-fg-1">{t('search.label')}</p>
@@ -272,3 +312,6 @@ export default function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
     </div>
   );
 }
+
+// 즐겨찾기 별 토글 노출 여부가 MobX userStore 에 의존하므로 observer 로 감싼다.
+export default observer(MenuDirectoryClient);
