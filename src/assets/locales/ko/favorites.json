@@ -1,0 +1,49 @@
+{
+  "home": {
+    "eyebrow": "MY HOME",
+    "greeting": "{{name}}님, 다시 오셨네요.",
+    "greetingFallback": "다시 오셨네요.",
+    "subtitle": "즐겨찾기한 도구를 여기서 바로 엽니다.",
+    "count": "즐겨찾기 {{count}}개",
+    "browseAll": "전체 도구 보기",
+    "search": "빠른 검색",
+    "edit": "순서 편집",
+    "editDone": "편집 완료"
+  },
+  "list": {
+    "moveUp": "위로 이동",
+    "moveDown": "아래로 이동",
+    "remove": "즐겨찾기 해제"
+  },
+  "empty": {
+    "title": "아직 즐겨찾기한 도구가 없습니다.",
+    "body": "도구 목록에서 별을 누르면 이 자리에 모여, 홈에서 한 번에 열 수 있습니다.",
+    "recommendTitle": "많이 쓰는 도구부터 시작해보세요",
+    "add": "즐겨찾기 추가"
+  },
+  "state": {
+    "loading": "즐겨찾기를 불러오는 중입니다.",
+    "errorTitle": "즐겨찾기를 불러오지 못했습니다.",
+    "errorBody": "잠시 후 다시 시도해주세요.",
+    "retry": "다시 시도"
+  },
+  "toggle": {
+    "add": "즐겨찾기 추가",
+    "remove": "즐겨찾기 해제"
+  },
+  "notice": {
+    "added": "즐겨찾기에 추가했습니다.",
+    "removed": "즐겨찾기에서 제거했습니다.",
+    "reordered": "순서를 저장했습니다."
+  },
+  "error": {
+    "duplicate": "이미 즐겨찾기에 있는 도구입니다.",
+    "limitExceeded": "즐겨찾기는 최대 {{max}}개까지 추가할 수 있습니다.",
+    "orderMismatch": "즐겨찾기 목록이 갱신되어 순서를 저장하지 못했습니다. 최신 목록을 다시 불러왔습니다.",
+    "notExist": "이미 삭제된 즐겨찾기입니다.",
+    "noPermission": "이 즐겨찾기를 변경할 권한이 없습니다.",
+    "unauthorized": "로그인이 필요합니다.",
+    "invalidLink": "이 도구는 즐겨찾기에 추가할 수 없습니다.",
+    "generic": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해주세요."
+  }
+}

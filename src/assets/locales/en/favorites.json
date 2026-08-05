@@ -1,0 +1,49 @@
+{
+  "home": {
+    "eyebrow": "MY HOME",
+    "greeting": "Welcome back, {{name}}.",
+    "greetingFallback": "Welcome back.",
+    "subtitle": "Open your favorite tools straight from here.",
+    "count": "{{count}} favorites",
+    "browseAll": "Browse all tools",
+    "search": "Quick search",
+    "edit": "Edit order",
+    "editDone": "Done"
+  },
+  "list": {
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "remove": "Remove from favorites"
+  },
+  "empty": {
+    "title": "No favorite tools yet.",
+    "body": "Tap the star on any tool and it will show up here, one click away from home.",
+    "recommendTitle": "Start with the most used tools",
+    "add": "Add to favorites"
+  },
+  "state": {
+    "loading": "Loading your favorites.",
+    "errorTitle": "Could not load your favorites.",
+    "errorBody": "Please try again in a moment.",
+    "retry": "Try again"
+  },
+  "toggle": {
+    "add": "Add to favorites",
+    "remove": "Remove from favorites"
+  },
+  "notice": {
+    "added": "Added to favorites.",
+    "removed": "Removed from favorites.",
+    "reordered": "Order saved."
+  },
+  "error": {
+    "duplicate": "This tool is already in your favorites.",
+    "limitExceeded": "You can keep up to {{max}} favorites.",
+    "orderMismatch": "Your favorites changed elsewhere, so the new order was not saved. The latest list has been reloaded.",
+    "notExist": "This favorite has already been removed.",
+    "noPermission": "You are not allowed to change this favorite.",
+    "unauthorized": "Please sign in first.",
+    "invalidLink": "This tool cannot be added to favorites.",
+    "generic": "The request failed. Please try again in a moment."
+  }
+}

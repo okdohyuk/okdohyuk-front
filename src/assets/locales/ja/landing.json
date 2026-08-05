@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "eyebrow": "OKDOHYUK.DEV · 7 CATEGORIES · 48+ TOOLS",
+    "titleLine1": "必要な道具は",
+    "titleLine2": "いつでもここに。",
+    "statement": "ポケモンのタイプ相性からサーバー時計、金額・テキスト変換まで。インストールも登録も不要、ブラウザだけで使えます。",
+    "capabilities": "한국어 · English · 日本語 · 中文",
+    "ctaPrimary": "ツールを見る",
+    "ctaSecondary": "ログイン",
+    "ctaSearch": "クイック検索",
+    "scrollHint": "SCROLL"
+  },
+  "stats": {
+    "toolsLabel": "無料ツール",
+    "categoriesLabel": "カテゴリ",
+    "languagesLabel": "対応言語",
+    "languagesValue": "4",
+    "loginLabel": "会員登録",
+    "loginValue": "不要"
+  },
+  "story": {
+    "eyebrow": "MOST VISITED",
+    "titleLine1": "いま最も使われて",
+    "titleLine2": "いるツール。",
+    "cta": "開いてみる",
+    "related": "あわせて使えるツール",
+    "pokemon": {
+      "eyebrow": "01 · POKÉMON",
+      "titleLine1": "18タイプの相性を",
+      "titleLine2": "一画面で。",
+      "body": "攻撃タイプを選ぶだけで、2倍・½倍・無効が瞬時に分かれます。弱点計算やチームのカバー率まで同じ流れで確認できます。",
+      "sequenceAlt": "ポケモンタイプ計算機で攻撃タイプを押し、2倍・½倍・無効が分かれる実際の画面"
+    },
+    "clock": {
+      "eyebrow": "02 · TIME",
+      "titleLine1": "1秒を争う場面の、",
+      "titleLine2": "基準になる時計。",
+      "body": "チケット予約や履修登録で使うサーバー時刻をミリ秒単位で表示。自分の端末との誤差も同時に確認できます。",
+      "sequenceAlt": "サーバー時計がミリ秒まで刻む実際の画面"
+    },
+    "live": {
+      "eyebrow": "03 · LIVE",
+      "titleLine1": "複数の配信を",
+      "titleLine2": "一画面に並べて。",
+      "body": "YouTube・CHZZK・Twitch のリンクをまとめ、好きなレイアウトに配置して、URL 一つでそのまま共有できます。",
+      "sequenceAlt": "マルチライブで配信を追加しレイアウトを切り替える実際の画面"
+    }
+  },
+  "bento": {
+    "eyebrow": "ALL CATEGORIES",
+    "titleLine1": "7つのカテゴリ、",
+    "titleLine2": "48を超えるツール。",
+    "lead": "必要になった瞬間にすぐ取り出せる Web ユーティリティ集です。",
+    "toolCount": "{{count}}個のツール",
+    "viewAll": "カテゴリを全部見る"
+  },
+  "closing": {
+    "eyebrow": "START NOW",
+    "titleLine1": "登録なしで、",
+    "titleLine2": "いますぐ始める。",
+    "body": "ログインすると、よく使うツールをお気に入りに登録してホームからすぐ開けます。",
+    "ctaPrimary": "すべてのツールを見る",
+    "ctaSecondary": "ログインしてお気に入り"
+  },
+  "blend": {
+    "title": "48を超えるツールが ひとつの場所に。",
+    "body": "日程・計算・生成・テキスト・開発・ライフ・学習の7カテゴリ。必要な瞬間にすぐ取り出せます。",
+    "cta": "すべてのツールを見る"
+  }
+}

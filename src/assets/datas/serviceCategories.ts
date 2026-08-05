@@ -118,11 +118,18 @@ const getServiceCategoryBadge = (language: Language, link: string) => {
   return SERVICE_SECTION_BADGES[language][getServiceSectionKey(link)];
 };
 
+/** 카테고리 키로 직접 라벨을 얻는다(랜딩 벤토 그리드처럼 링크가 아닌 섹션 단위 렌더링용). */
+const getServiceSectionLabel = (language: Language, section: ServiceSectionKey) => {
+  return SERVICE_SECTION_BADGES[language][section];
+};
+
 export {
   SERVICE_SECTION_BY_LINK,
   SERVICE_SECTION_ORDER,
+  SERVICE_SECTION_BADGES,
   getServiceSectionKey,
   getServiceCategoryBadge,
+  getServiceSectionLabel,
 };
 
 export type { ServiceSectionKey };
