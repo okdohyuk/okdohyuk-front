@@ -2,8 +2,11 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { Viewport } from 'next';
 import InstallApp from '@components/complex/InstallApp';
-import InteractiveLanding from '@components/complex/Home/InteractiveLanding';
+import HomeGate from '@components/complex/Home/HomeGate';
+import FavoritesHome from '@components/complex/Home/FavoritesHome';
+import LandingHome from '@components/complex/Home/Landing/LandingHome';
 import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetadata';
+import { getLandingCopy } from '@libs/server/landingCopy';
 import { useTranslation as getServerTranslation } from '~/app/i18n';
 import { languages } from '~/app/i18n/settings';
 import { stringToLanguage } from '@utils/localeUtil';
@@ -35,15 +38,15 @@ export default async function Home({ params }: LanguageParams) {
   // redirect to notfound
   if (!language) notFound();
   const { t } = await getServerTranslation(language, 'index');
+  const copy = await getLandingCopy(language);
 
   return (
     <>
       <InstallApp text={t('downloads')} />
-      <InteractiveLanding
-        language={language}
-        domain={t('domain')}
-        title={t('title')}
-        subTitle={t('subTitle')}
+      {/* 로그인 분기: 서버는 항상 랜딩을 렌더하고, 세션이 확인되면 즐겨찾기 홈으로 교체된다. */}
+      <HomeGate
+        landing={<LandingHome lng={language} copy={copy} />}
+        favorites={<FavoritesHome lng={language} />}
       />
     </>
   );

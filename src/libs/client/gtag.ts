@@ -61,6 +61,15 @@ type LiveEvent =
 
 type MenuEvent = 'tool_open' | 'menu_search' | 'user_card_click';
 
+/** 로그인 사용자 즐겨찾기(홈 그리드 + /menu 별 토글) */
+type FavoriteEvent =
+  | 'favorite_add'
+  | 'favorite_remove'
+  | 'favorite_reorder'
+  | 'favorite_edit_toggle'
+  | 'favorites_tool_open'
+  | 'favorites_recommend_click';
+
 type AuthEvent = 'login_attempt' | 'login_success' | 'login_failure' | 'logout';
 
 type ToolEvent =
@@ -92,6 +101,7 @@ export type Event =
   | BlogEvent
   | LiveEvent
   | MenuEvent
+  | FavoriteEvent
   | AuthEvent
   | ToolEvent
   | UiEvent
