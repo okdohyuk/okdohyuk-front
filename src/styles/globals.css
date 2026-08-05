@@ -778,6 +778,11 @@ table {
 
 .landing-device-url {
   margin-inline: auto;
+  /*
+   * flex 아이템의 기본 min-width 는 auto 라 nowrap 주소 문자열의 min-content 폭이
+   * 그대로 하한이 된다. 그 탓에 프레임이 320~360px 화면에서 348px 로 버텨 가로로 넘쳤다.
+   */
+  min-width: 0;
   max-width: 60%;
   overflow: hidden;
   border-radius: 9999px;
@@ -852,6 +857,16 @@ table {
   align-items: center;
 }
 
+/*
+ * 그리드 아이템의 기본 min-width 는 auto 라 트랙이 콘텐츠 min-content 까지 벌어진다.
+ * 카피의 `ch` 기반 max-width 가 좁은 화면의 가용 폭보다 크면 트랙이 그만큼 넓어져
+ * 컨테이너 밖으로 밀려났다(320px 화면에서 가용 280px 인데 348px 로 렌더). 0 으로 낮추면
+ * 트랙이 컨테이너에 맞춰 줄고, `ch` 상한은 넓은 화면에서만 실제로 작동한다.
+ */
+.landing-scene-split > * {
+  min-width: 0;
+}
+
 .landing-message-track > * + * {
   margin-top: 1.25rem;
 }
@@ -869,8 +884,14 @@ table {
     grid-template-columns: minmax(13rem, 34%) 1fr;
   }
 
-  /* 블렌딩 씬은 제품 샷이 주인공이라 중앙 1열 + 하단 캡션으로 쌓는다. */
-  .landing-scene-split-stack {
+  /*
+   * 블렌딩 씬은 제품 샷이 주인공이라 중앙 1열 + 하단 캡션으로 쌓는다.
+   *
+   * 선택자를 두 클래스로 겹쳐 쓴다. 한 클래스로만 두면 아래 1024 블록의
+   * `.landing-scene-split` 과 명시도가 같아 **뒤에 온 쪽이 이겨** 블렌딩 프레임이
+   * 카피 열(26rem)에 갇힌다. 실제로 1440 폭에서 416px 로 쪼그라들었다.
+   */
+  .landing-scene-split.landing-scene-split-stack {
     grid-template-columns: 1fr;
     gap: clamp(1.5rem, 3vh, 2.5rem);
     justify-items: center;

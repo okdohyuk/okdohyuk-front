@@ -792,7 +792,8 @@ export default function LandingSceneStage({
             <p className={LANDING_EYEBROW}>{hero.eyebrow}</p>
             <h1
               id="landing-hero-title"
-              className="landing-rise-lcp mx-auto mt-6 max-w-[16ch] text-[clamp(2.6rem,7vw,5rem)] font-extrabold leading-[1.0] tracking-[-0.05em] text-fg-1"
+              /* 16ch 는 320px 화면에서 가용 폭(280px)을 넘겨 제목이 가로로 삐져나갔다. */
+              className="landing-rise-lcp mx-auto mt-6 max-w-[min(16ch,100%)] text-[clamp(2.6rem,7vw,5rem)] font-extrabold leading-[1.0] tracking-[-0.05em] text-fg-1"
             >
               <span className="block [word-break:keep-all]">{hero.titleLine1}</span>
               <span className="block bg-gradient-to-r from-point-2 via-point-3 to-info-2 bg-clip-text text-transparent [word-break:keep-all]">
