@@ -57,7 +57,11 @@ export default async function SolveQuizPage({ params, searchParams }: SolveQuizP
 
   return (
     <div className="mx-auto w-full max-w-3xl space-y-4 px-2 pb-24 pt-3 sm:px-3 md:px-4">
+      {/* key: 같은 라우트에서 searchParams(mode/sourceAttemptId/unitId)만 바뀌는 네비게이션
+          (예: 결과 화면 → 오답 다시 풀기)에서도 QuizClient 를 리마운트해 result/문항/인덱스
+          등 로컬 상태가 이전 시도에 남지 않도록 한다. */}
       <QuizClient
+        key={`${slug}:${unitId ?? ''}:${resolvedMode}:${parsedSourceId ?? ''}`}
         lng={language}
         slug={slug}
         unitId={unitId}

@@ -46,7 +46,14 @@
     "retryWrong": "Retry wrong answers",
     "noWrong": "No wrong answers. Perfect!",
     "backToSubjects": "Back to subjects",
-    "reviewMode": "Review"
+    "reviewMode": "Review",
+    "back": "Back",
+    "retryFull": "Retake from the beginning",
+    "wrongList": {
+      "title": "Review wrong answers",
+      "correctAnswer": "Answer",
+      "unanswered": "You did not answer this question."
+    }
   },
   "me": {
     "title": "My attempts",
@@ -75,7 +82,13 @@
     },
     "allUnits": "All",
     "resume": "Resume",
-    "viewResult": "View result"
+    "viewResult": "View result",
+    "result": {
+      "loading": "Loading result…",
+      "error": "Failed to load the result.",
+      "back": "Back to history",
+      "inProgress": "This attempt is still in progress. Resume solving to see the result."
+    }
   },
   "openGraph": {
     "title": "Quiz - Subject-based question practice",
