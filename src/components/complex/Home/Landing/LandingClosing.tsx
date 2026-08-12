@@ -20,7 +20,9 @@ export default function LandingClosing({ lng, closing }: LandingClosingProps) {
       <SectionViewTracker section="closing" />
       <div aria-hidden className="landing-wash-bottom pointer-events-none absolute inset-0 -z-10" />
 
-      <div className={cn(LANDING_CONTAINER, 'landing-reveal-stagger')}>
+      {/* landing-reveal-end: 문서 마지막 섹션은 cover 기반 리빌 종점에 스크롤이 도달할 수
+          없어(페이지가 먼저 끝남) entry 기반으로 완주시킨다. 없으면 CTA 버튼이 블러 상태로 남는다. */}
+      <div className={cn(LANDING_CONTAINER, 'landing-reveal-stagger', 'landing-reveal-end')}>
         <p className={cn(LANDING_EYEBROW, 'block')}>{closing.eyebrow}</p>
         <h2
           id="landing-closing-title"

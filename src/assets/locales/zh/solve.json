@@ -46,7 +46,14 @@
     "retryWrong": "重做错题",
     "noWrong": "没有错题，完美！",
     "backToSubjects": "返回科目列表",
-    "reviewMode": "复习"
+    "reviewMode": "复习",
+    "back": "返回",
+    "retryFull": "从头重新作答",
+    "wrongList": {
+      "title": "查看错题",
+      "correctAnswer": "正确答案",
+      "unanswered": "此题未作答。"
+    }
   },
   "me": {
     "title": "我的答题记录",
@@ -75,7 +82,13 @@
     },
     "allUnits": "全部",
     "resume": "继续",
-    "viewResult": "查看结果"
+    "viewResult": "查看结果",
+    "result": {
+      "loading": "正在加载结果…",
+      "error": "无法加载结果。",
+      "back": "返回记录",
+      "inProgress": "本次作答仍在进行中，继续作答后即可查看结果。"
+    }
   },
   "openGraph": {
     "title": "刷题 - 按科目的真题测验",

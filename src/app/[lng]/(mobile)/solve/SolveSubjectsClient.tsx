@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import { ListChecks } from 'lucide-react';
 import Skeleton from '@components/basic/Skeleton';
 import GoogleAd from '@components/google/GoogleAd';
 import { useSubjects, useSolveProgress } from '@queries/useSolveQueries';
+import { useDepthNavigation } from '@hooks/useDepthNavigation';
 import UserTokenUtil from '@utils/userTokenUtil';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
@@ -17,7 +17,7 @@ type SolveSubjectsClientProps = {
 
 export default function SolveSubjectsClient({ lng }: SolveSubjectsClientProps) {
   const { t } = useTranslation(lng, 'solve');
-  const router = useRouter();
+  const { pushDeeper } = useDepthNavigation();
 
   // 진행률(/solve/progress)은 로그인 필수다. 비회원이 호출하면 401 → axios 응답 인터셉터가
   // refresh 시도 실패 → logoutAndLogin 으로 로그인 리다이렉트되어 "목록 열람"이 깨진다.
@@ -85,7 +85,7 @@ export default function SolveSubjectsClient({ lng }: SolveSubjectsClientProps) {
               answeredCount={answered}
               completed={completed}
               color={subject.color}
-              onOpen={() => router.push(`/${lng}/solve/${subject.slug}`)}
+              onOpen={() => pushDeeper(`/${lng}/solve/${subject.slug}`)}
             />
           );
         })}
@@ -94,7 +94,7 @@ export default function SolveSubjectsClient({ lng }: SolveSubjectsClientProps) {
       <div className="flex justify-end">
         <button
           type="button"
-          onClick={() => router.push(`/${lng}/solve/me`)}
+          onClick={() => pushDeeper(`/${lng}/solve/me`)}
           className="inline-flex items-center gap-1 text-xs font-semibold text-fg-4 hover:text-point-fg"
         >
           <ListChecks className="h-4 w-4" />

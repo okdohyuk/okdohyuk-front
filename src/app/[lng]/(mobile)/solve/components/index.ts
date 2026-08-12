@@ -10,3 +10,4 @@ export * from './ShortAnswerInput';
 export * from './ClozeBlock';
 export * from './ExplanationPanel';
 export * from './SubjectCard';
+export { default as WrongAnswerList, type WrongAnswerItem } from './WrongAnswerList';

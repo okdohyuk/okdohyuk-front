@@ -221,8 +221,8 @@ export async function middleware(req: NextRequest) {
           expires: accessTokenExp,
         });
 
+        let refreshTokenExp = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
         if (newRefreshTokenValue) {
-          let refreshTokenExp = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
           try {
             const payload = Jwt.getPayload(newRefreshTokenValue);
             if (payload.exp) refreshTokenExp = new Date(payload.exp * 1000);
@@ -233,6 +233,21 @@ export async function middleware(req: NextRequest) {
           response.cookies.set({
             name: 'refresh_token',
             value: newRefreshTokenValue,
+            path: '/',
+            sameSite: 'strict',
+            secure: isProduction,
+            expires: refreshTokenExp,
+          });
+        }
+
+        // user_info 는 로그인 시 고정 7일로 저장되고 이후 연장되지 않는다. 토큰만 계속
+        // 회전·연장되면 user_info 가 먼저 만료돼, 위의 (refresh_token 있음 + userId 없음)
+        // 분기가 세 쿠키를 전부 지워 "로그인돼 있었는데 로그인하라는 페이지"가 된다.
+        // 토큰을 갱신할 때 user_info 만료도 refresh_token 수명에 맞춰 함께 연장한다.
+        if (userInfoRaw) {
+          response.cookies.set({
+            name: 'user_info',
+            value: userInfoRaw,
             path: '/',
             sameSite: 'strict',
             secure: isProduction,

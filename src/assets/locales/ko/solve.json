@@ -46,7 +46,14 @@
     "retryWrong": "오답 다시 풀기",
     "noWrong": "오답이 없어요. 완벽해요!",
     "backToSubjects": "과목 목록으로",
-    "reviewMode": "오답 복습"
+    "reviewMode": "오답 복습",
+    "back": "돌아가기",
+    "retryFull": "처음부터 다시 풀기",
+    "wrongList": {
+      "title": "오답 모아보기",
+      "correctAnswer": "정답",
+      "unanswered": "풀지 않은 문항이에요."
+    }
   },
   "me": {
     "title": "내 풀이 기록",
@@ -75,7 +82,13 @@
     },
     "allUnits": "전체",
     "resume": "이어풀기",
-    "viewResult": "결과 보기"
+    "viewResult": "결과 보기",
+    "result": {
+      "loading": "결과를 불러오는 중…",
+      "error": "결과를 불러오지 못했어요.",
+      "back": "기록으로",
+      "inProgress": "아직 진행 중인 풀이예요. 이어서 풀면 결과를 볼 수 있어요."
+    }
   },
   "openGraph": {
     "title": "문제풀이 - 과목별 기출 문제 퀴즈",
