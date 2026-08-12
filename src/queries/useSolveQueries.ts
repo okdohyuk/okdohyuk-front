@@ -25,6 +25,8 @@ export const SOLVE_KEYS = {
   attemptList: (page?: number, limit?: number) =>
     [...SOLVE_KEYS.attempts(), 'list', page ?? null, limit ?? null] as const,
   attempt: (id: number) => [...SOLVE_KEYS.attempts(), 'detail', id] as const,
+  startAttempt: () => [...SOLVE_KEYS.all, 'start-attempt'] as const,
+  attemptResult: (id: number) => [...SOLVE_KEYS.attempts(), 'result', id] as const,
 };
 
 // 서버 cap 과 동일(spec: questions/attempts limit max 100).
@@ -98,8 +100,7 @@ export const useQuestions = (
 export const useStartAttempt = (params: SolveCreateAttemptRequest, enabled = true) =>
   useQuery({
     queryKey: [
-      ...SOLVE_KEYS.all,
-      'start-attempt',
+      ...SOLVE_KEYS.startAttempt(),
       params.subjectSlug,
       params.unitId ?? null,
       params.mode,
@@ -155,9 +156,29 @@ export const useFinishAttempt = (attemptId: number) => {
       queryClient.invalidateQueries({ queryKey: SOLVE_KEYS.attempt(attemptId) });
       queryClient.invalidateQueries({ queryKey: SOLVE_KEYS.attempts() });
       queryClient.invalidateQueries({ queryKey: SOLVE_KEYS.progress() });
+      // start-attempt 캐시는 staleTime/gcTime Infinity 라 finish 뒤에도 완료된 attempt 를
+      // 계속 돌려준다. 제거하지 않으면 같은 범위 재진입(오답 다시 풀기 포함)이 완료된
+      // attemptId 로 이어져 "다시 풀기가 안 되는" 회귀가 난다.
+      queryClient.removeQueries({ queryKey: SOLVE_KEYS.startAttempt() });
     },
   });
 };
+
+// 완료된 시도의 결과 집계 재조회. 결과 DTO(SolveQuizResult)는 GET 이 없고 finish 응답에만
+// 존재하는데, finish 는 이미 completed 인 시도에 재호출해도 상태 변경 없이 집계만 다시
+// 계산해 돌려주는 멱등 POST 다. 그래서 useQuery 로 모델링한다.
+// ⚠️ in_progress 시도에 호출하면 정말로 완료 처리되므로, 호출 측이 반드시
+//    status === completed 일 때만 enabled 를 켜야 한다.
+export const useAttemptResult = (id: number | null, enabled = true) =>
+  useQuery({
+    queryKey: id != null ? SOLVE_KEYS.attemptResult(id) : [...SOLVE_KEYS.attempts(), 'result'],
+    queryFn: async () => {
+      const { data } = await solveApi.postSolveAttemptFinish(id as number, auth());
+      return data;
+    },
+    enabled: enabled && id != null && id > 0,
+    staleTime: Infinity,
+  });
 
 // 내 시도 목록(기록).
 export const useMyAttempts = (page = 0, limit = SOLVE_ATTEMPTS_PAGE_SIZE, enabled = true) =>

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 import Skeleton from '@components/basic/Skeleton';
 import { Text } from '@components/basic/Text';
@@ -12,6 +11,7 @@ import {
   SERVICE_CARD_INTERACTIVE,
 } from '@components/complex/Service/interactiveStyles';
 import { useSubjectDetail } from '@queries/useSolveQueries';
+import { useDepthNavigation } from '@hooks/useDepthNavigation';
 import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
@@ -23,14 +23,14 @@ type SolveUnitsClientProps = {
 
 export default function SolveUnitsClient({ lng, slug }: SolveUnitsClientProps) {
   const { t } = useTranslation(lng, 'solve');
-  const router = useRouter();
+  const { pushDeeper, goBack } = useDepthNavigation();
 
   const { data: subject, isLoading, isError } = useSubjectDetail(slug);
 
   // 전체 풀기: unitId 없이 quiz 진입. 단원별: unitId(=unitKey) 쿼리.
   const startQuiz = (unitId?: string) => {
     const base = `/${lng}/solve/${slug}/quiz`;
-    router.push(unitId ? `${base}?unitId=${encodeURIComponent(unitId)}` : base);
+    pushDeeper(unitId ? `${base}?unitId=${encodeURIComponent(unitId)}` : base);
   };
 
   if (isLoading) {
@@ -48,7 +48,7 @@ export default function SolveUnitsClient({ lng, slug }: SolveUnitsClientProps) {
       <div className="space-y-3">
         <button
           type="button"
-          onClick={() => router.push(`/${lng}/solve`)}
+          onClick={() => goBack(`/${lng}/solve`)}
           className="inline-flex items-center gap-1 text-xs font-semibold text-fg-4 hover:text-point-fg"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -65,7 +65,7 @@ export default function SolveUnitsClient({ lng, slug }: SolveUnitsClientProps) {
     <>
       <button
         type="button"
-        onClick={() => router.push(`/${lng}/solve`)}
+        onClick={() => goBack(`/${lng}/solve`)}
         className="inline-flex items-center gap-1 text-xs font-semibold text-fg-4 hover:text-point-fg"
       >
         <ArrowLeft className="h-4 w-4" />

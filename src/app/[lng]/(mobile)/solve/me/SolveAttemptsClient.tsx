@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import { Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@components/basic/Button';
 import GoogleAd from '@components/google/GoogleAd';
@@ -14,6 +13,7 @@ import {
   TableRow,
 } from '@components/basic/Table';
 import { useMyAttempts, SOLVE_ATTEMPTS_PAGE_SIZE } from '@queries/useSolveQueries';
+import { useDepthNavigation } from '@hooks/useDepthNavigation';
 import { cn } from '@utils/cn';
 import type { SolveAttempt } from '@api/Solve';
 import { SolveAttemptStatus, SolveAttemptMode } from '@api/Solve';
@@ -26,7 +26,7 @@ type SolveAttemptsClientProps = {
 
 export default function SolveAttemptsClient({ lng }: SolveAttemptsClientProps) {
   const { t } = useTranslation(lng, 'solve');
-  const router = useRouter();
+  const { pushDeeper } = useDepthNavigation();
   const [page, setPage] = React.useState(0);
 
   const { data, isLoading, isError } = useMyAttempts(page, SOLVE_ATTEMPTS_PAGE_SIZE);
@@ -40,7 +40,12 @@ export default function SolveAttemptsClient({ lng }: SolveAttemptsClientProps) {
 
   // 이어풀기/결과 보기 진입.
   // 진행 중: quiz 로 진입(서버가 in_progress 재사용). review 면 mode=review + sourceAttemptId 동봉.
+  // 완료: 읽기 전용 결과 페이지로 — quiz 로 보내면 새 시도가 시작돼 기록이 리셋된 것처럼 보인다.
   const openAttempt = (attempt: SolveAttempt) => {
+    if (attempt.status === SolveAttemptStatus.Completed) {
+      pushDeeper(`/${lng}/solve/me/${attempt.id}`);
+      return;
+    }
     const base = `/${lng}/solve/${attempt.subjectSlug}/quiz`;
     const params = new URLSearchParams();
     if (attempt.unitKey) params.set('unitId', attempt.unitKey);
@@ -50,7 +55,7 @@ export default function SolveAttemptsClient({ lng }: SolveAttemptsClientProps) {
       params.set('sourceAttemptId', String(attempt.id));
     }
     const qs = params.toString();
-    router.push(qs ? `${base}?${qs}` : base);
+    pushDeeper(qs ? `${base}?${qs}` : base);
   };
 
   if (isLoading) {
@@ -80,7 +85,7 @@ export default function SolveAttemptsClient({ lng }: SolveAttemptsClientProps) {
         <div className="flex justify-end">
           <Button
             type="button"
-            onClick={() => router.push(`/${lng}/solve`)}
+            onClick={() => pushDeeper(`/${lng}/solve`)}
             className="min-h-[40px] rounded-xl px-5"
           >
             {t('me.startSolving')}

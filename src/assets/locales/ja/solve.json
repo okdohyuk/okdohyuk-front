@@ -46,7 +46,14 @@
     "retryWrong": "間違いを解き直す",
     "noWrong": "間違いはありません。完璧です！",
     "backToSubjects": "科目一覧へ",
-    "reviewMode": "復習"
+    "reviewMode": "復習",
+    "back": "戻る",
+    "retryFull": "最初からやり直す",
+    "wrongList": {
+      "title": "間違えた問題を見る",
+      "correctAnswer": "正解",
+      "unanswered": "未回答の問題です。"
+    }
   },
   "me": {
     "title": "解答履歴",
@@ -75,7 +82,13 @@
     },
     "allUnits": "全体",
     "resume": "続きから",
-    "viewResult": "結果を見る"
+    "viewResult": "結果を見る",
+    "result": {
+      "loading": "結果を読み込み中…",
+      "error": "結果を読み込めませんでした。",
+      "back": "記録へ戻る",
+      "inProgress": "まだ進行中の挑戦です。続きを解くと結果を確認できます。"
+    }
   },
   "openGraph": {
     "title": "問題演習 - 科目別の過去問クイズ",

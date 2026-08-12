@@ -3,7 +3,6 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import { Loader2, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Text } from '@components/basic/Text';
 import { Button } from '@components/basic/Button';
@@ -21,6 +20,7 @@ import {
   useQuestions,
   SOLVE_QUESTIONS_PAGE_SIZE,
 } from '@queries/useSolveQueries';
+import { useDepthNavigation } from '@hooks/useDepthNavigation';
 import type {
   SolveAttemptMode,
   SolveQuestion,
@@ -65,21 +65,11 @@ function Centered({ children }: { children: React.ReactNode }) {
   return <div className="flex flex-col items-center justify-center gap-3 py-16">{children}</div>;
 }
 
-function BackButton({
-  lng,
-  slug,
-  label,
-  router,
-}: {
-  lng: Language;
-  slug: string;
-  label: string;
-  router: ReturnType<typeof useRouter>;
-}) {
+function BackButton({ label, onBack }: { label: string; onBack: () => void }) {
   return (
     <button
       type="button"
-      onClick={() => router.push(`/${lng}/solve/${slug}`)}
+      onClick={onBack}
       className="inline-flex items-center gap-1 text-xs font-semibold text-fg-4 hover:text-point-fg"
     >
       <ArrowLeft className="h-4 w-4" />
@@ -90,7 +80,9 @@ function BackButton({
 
 export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }: QuizClientProps) {
   const { t } = useTranslation(lng, 'solve');
-  const router = useRouter();
+  const { goBack } = useDepthNavigation();
+  // 그만두기/뒤로: 진입한 곳(단원 목록·기록 등)으로 뎁스 기반 복귀. 딥링크면 단원 목록으로.
+  const exitQuiz = () => goBack(`/${lng}/solve/${slug}`);
 
   // 1) attempt 시작/재개 — 서버가 in_progress 를 재사용(멱등)하거나 새로 생성한다.
   //    POST 지만 멱등이라 useQuery 로 모델링한다. (mutation 을 useEffect 에서 호출하면
@@ -310,7 +302,7 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
         <p className="rounded-2xl border border-basic-3 bg-basic-0 p-4 text-center text-sm text-fg-3">
           {t('quiz.noReview')}
         </p>
-        <BackButton lng={lng} slug={slug} label={t('subject.back')} router={router} />
+        <BackButton label={t('subject.back')} onBack={exitQuiz} />
       </Centered>
     );
   }
@@ -321,14 +313,25 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
         <p className="rounded-2xl border border-basic-3 bg-basic-0 p-4 text-center text-sm text-danger-1">
           {t('quiz.error')}
         </p>
-        <BackButton lng={lng} slug={slug} label={t('subject.back')} router={router} />
+        <BackButton label={t('subject.back')} onBack={exitQuiz} />
       </Centered>
     );
   }
 
-  // 결과 화면
+  // 결과 화면 — 오답 모아보기용으로 로드된 문항/채점 결과를 함께 전달한다.
+  // (마지막 문항까지 진행해야 finish 가 가능하므로 이 시점엔 범위 문항이 모두 로드돼 있다.)
   if (result && attemptId != null) {
-    return <SolveResultView lng={lng} slug={slug} result={result} attemptId={attemptId} />;
+    return (
+      <SolveResultView
+        lng={lng}
+        slug={slug}
+        result={result}
+        attemptId={attemptId}
+        questions={questions}
+        resultsByQuestionId={(id) => localResults.get(id) ?? submittedById.get(id)}
+        onExit={exitQuiz}
+      />
+    );
   }
 
   // 준비/로딩
@@ -349,7 +352,7 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
         <p className="rounded-2xl border border-basic-3 bg-basic-0 p-4 text-center text-sm text-danger-1">
           {t('quiz.error')}
         </p>
-        <BackButton lng={lng} slug={slug} label={t('subject.back')} router={router} />
+        <BackButton label={t('subject.back')} onBack={exitQuiz} />
       </Centered>
     );
   }
@@ -360,7 +363,7 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
         <p className="rounded-2xl border border-basic-3 bg-basic-0 p-4 text-center text-sm text-fg-3">
           {t('quiz.empty')}
         </p>
-        <BackButton lng={lng} slug={slug} label={t('subject.back')} router={router} />
+        <BackButton label={t('subject.back')} onBack={exitQuiz} />
       </Centered>
     );
   }
@@ -508,7 +511,7 @@ export default function QuizClient({ lng, slug, unitId, mode, sourceAttemptId }:
       <div className="flex justify-center">
         <button
           type="button"
-          onClick={() => router.push(`/${lng}/solve/${slug}`)}
+          onClick={exitQuiz}
           className="inline-flex items-center gap-1 py-1 text-xs font-semibold text-fg-5 hover:text-point-fg"
         >
           <ArrowLeft className="h-3.5 w-3.5" />

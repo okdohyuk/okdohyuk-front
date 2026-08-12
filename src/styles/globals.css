@@ -642,6 +642,28 @@ table {
     .landing-reveal-stagger > *:nth-child(7) {
       animation-range: entry 32% cover 60%;
     }
+
+    /*
+     * 문서 끝 섹션 전용(.landing-reveal-end) — cover 기반 종점은 요소가 뷰포트 위로
+     * 빠져나가는 스크롤을 전제하는데, 페이지 마지막 섹션은 그 지점까지 스크롤이 존재하지
+     * 않아 애니메이션이 중간(블러/반투명)에 멈춘다. entry 기반 종점은 요소가 뷰포트
+     * 하단으로 완전히 들어오면 반드시 100% 에 도달하므로 최하단에서도 완주가 보장된다.
+     */
+    .landing-reveal-stagger.landing-reveal-end > * {
+      animation-range: entry 0% entry 60%;
+    }
+    .landing-reveal-stagger.landing-reveal-end > *:nth-child(2) {
+      animation-range: entry 10% entry 70%;
+    }
+    .landing-reveal-stagger.landing-reveal-end > *:nth-child(3) {
+      animation-range: entry 20% entry 80%;
+    }
+    .landing-reveal-stagger.landing-reveal-end > *:nth-child(4) {
+      animation-range: entry 30% entry 90%;
+    }
+    .landing-reveal-stagger.landing-reveal-end > *:nth-child(5) {
+      animation-range: entry 40% entry 100%;
+    }
   }
 }
 

@@ -56,9 +56,9 @@ const getToolId = (link: string) => link.replace(/^\//, '') || '/';
  * 목적은 "빠른 접속"이다. 카드 클릭 = 즉시 이동이며, 편집/삭제는 편집 모드 안으로 격리해
  * 평상시 클릭 타깃을 오염시키지 않는다.
  *
- * 렌더 분기는 `HomeGate` 가 담당하므로 이 컴포넌트는 로그인 상태에서만 마운트된다.
- * 서버는 항상 랜딩을 렌더하고 하이드레이션 이후 이 화면으로 교체되므로,
- * 목록 로딩 구간은 스켈레톤으로 채워 레이아웃 점프를 막는다.
+ * 렌더 분기는 홈 서버 컴포넌트(`[lng]/page.tsx`)가 쿠키 기준으로 확정하므로
+ * 이 컴포넌트는 로그인 상태에서만 렌더된다. 목록 로딩 구간은 스켈레톤으로 채워
+ * 레이아웃 점프를 막는다.
  */
 function FavoritesHome({ lng }: FavoritesHomeProps) {
   const { t } = useTranslation(lng, 'favorites');
