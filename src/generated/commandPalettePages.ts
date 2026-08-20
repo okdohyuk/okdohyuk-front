@@ -577,6 +577,54 @@ export const commandPalettePages = {
       }
     },
     {
+      "path": "/ppt",
+      "access": "public",
+      "titles": {
+        "ko": "웹 프레젠테이션",
+        "en": "Web Presentation",
+        "ja": "Webプレゼンテーション",
+        "zh": "网页演示文稿"
+      },
+      "descriptions": {
+        "ko": "16:9 웹 슬라이드 작성, 전체화면 발표, 같은 계정 모바일 원격 조작을 지원하는 okdohyuk 웹 프레젠테이션입니다.",
+        "en": "Create 16:9 web slides, present in fullscreen, and control the active session from another device with the same account.",
+        "ja": "16:9 Webスライドの作成、全画面発表、同じアカウントの別端末からのリモート操作に対応します。",
+        "zh": "支持创建 16:9 网页幻灯片、全屏演示，以及使用同一账号从其他设备远程翻页。"
+      }
+    },
+    {
+      "path": "/ppt/new",
+      "access": "public",
+      "titles": {
+        "ko": "새 웹 프레젠테이션",
+        "en": "New Web Presentation",
+        "ja": "新しいWebプレゼンテーション",
+        "zh": "新建网页演示文稿"
+      },
+      "descriptions": {
+        "ko": "okdohyuk 디자인 시스템으로 새로운 웹 프레젠테이션을 만드세요.",
+        "en": "Create a new web presentation with the okdohyuk design system.",
+        "ja": "okdohyukデザインシステムで新しいWebプレゼンテーションを作成します。",
+        "zh": "使用 okdohyuk 设计系统创建新的网页演示文稿。"
+      }
+    },
+    {
+      "path": "/ppt/remote",
+      "access": "public",
+      "titles": {
+        "ko": "웹 프레젠테이션 리모컨",
+        "en": "Web Presentation Remote",
+        "ja": "Webプレゼンテーションリモート",
+        "zh": "网页演示文稿遥控器"
+      },
+      "descriptions": {
+        "ko": "같은 계정의 발표 화면을 모바일에서 원격으로 조작하세요.",
+        "en": "Control the presentation screen remotely from your mobile device.",
+        "ja": "モバイル端末から同じアカウントの発表画面を操作します。",
+        "zh": "通过移动设备远程控制同一账号的演示屏幕。"
+      }
+    },
+    {
       "path": "/privacy",
       "access": "public"
     },

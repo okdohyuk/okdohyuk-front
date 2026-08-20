@@ -13,7 +13,8 @@ type CommonLayoutProps = {
 
 const queryClient = new QueryClient();
 
-const navDisabledPath = ['/multi-live'];
+const navDisabledPath = ['/multi-live', '/ppt/present', '/ppt/remote'];
+const commandPaletteDisabledPath = ['/ppt/present', '/ppt/remote'];
 
 function CommonLayout({ children }: CommonLayoutProps) {
   const pathname = usePathname();
@@ -39,6 +40,7 @@ function CommonLayout({ children }: CommonLayoutProps) {
   }, []);
 
   const showNav = !navDisabledPath.some((path) => pathname.includes(path));
+  const showCommandPalette = !commandPaletteDisabledPath.some((path) => pathname.includes(path));
 
   return (
     <div ref={wrapperRef} className="w-full min-h-screen flex flex-col bg-basic-0">
@@ -50,7 +52,7 @@ function CommonLayout({ children }: CommonLayoutProps) {
             <Nav />
           </>
         )}
-        <CommandPalette />
+        {showCommandPalette && <CommandPalette />}
       </QueryClientProvider>
     </div>
   );

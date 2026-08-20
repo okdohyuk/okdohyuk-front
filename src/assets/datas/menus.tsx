@@ -34,6 +34,7 @@ import {
   Music,
   Network,
   Palette,
+  Presentation as PresentationIcon,
   QrCode,
   Receipt,
   Repeat,
@@ -406,6 +407,16 @@ const menus: Menus = {
       },
       icon: <ArrowLeftRight />,
       link: '/json-yaml-converter',
+    },
+    {
+      title: {
+        ko: '웹 프레젠테이션',
+        en: 'Web Presentation',
+        ja: 'Webプレゼンテーション',
+        zh: '网页演示文稿',
+      },
+      icon: <PresentationIcon />,
+      link: '/ppt',
     },
     {
       title: {
