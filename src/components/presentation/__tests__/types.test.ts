@@ -17,6 +17,18 @@ describe('presentation document normalization', () => {
     expect(document.slides[0].speakerNotes).toBe('');
   });
 
+  it('preserves imageUrl and drops empty values', () => {
+    const document = normalizePresentationDocument({
+      slides: [
+        { layout: 'media', title: 'With image', imageUrl: 'https://example.com/a.png' },
+        { layout: 'media', title: 'Empty image', imageUrl: '' },
+      ],
+    });
+
+    expect(document.slides[0].imageUrl).toBe('https://example.com/a.png');
+    expect(document.slides[1].imageUrl).toBeUndefined();
+  });
+
   it('falls back to the okdohyuk violet theme', () => {
     expect(normalizePresentationTheme({ themePreset: 'other', accent: 'unknown' })).toEqual({
       themePreset: 'okdohyuk',

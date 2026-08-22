@@ -17,5 +17,12 @@
   "saveSuccess": "Saved.",
   "saveError": "Could not save.",
   "remote": "Mobile remote",
-  "prompt": "Fill-in prompt"
+  "prompt": "Fill-in prompt",
+  "templateDownload": "Download template",
+  "htmlUpload": "Upload HTML",
+  "uploadError": "No slides found in the HTML. Check the template format.",
+  "imageUpload": "Upload image",
+  "imageRemove": "Remove image",
+  "imageUrl": "Image URL",
+  "uploadingImage": "Uploading…"
 }

@@ -3,11 +3,13 @@
 /* eslint-disable react/require-default-props, @typescript-eslint/no-use-before-define */
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, ChevronUp, Copy, Play, Plus, Save, Trash2 } from 'lucide-react';
+import { ChevronDown, ChevronUp, Copy, ImagePlus, Play, Plus, Save, Trash2 } from 'lucide-react';
 import { Button } from '@components/basic/Button';
 import { Input } from '@components/basic/Input';
 import { Textarea } from '@components/basic/Textarea';
 import type { Presentation } from '@api/Presentation';
+import { storageApi } from '@api';
+import UserTokenUtil from '@utils/userTokenUtil';
 import { cn } from '@utils/cn';
 import type { Language } from '~/app/i18n/settings';
 import {
@@ -31,6 +33,10 @@ import PromptBuilder from './PromptBuilder';
 interface PresentationEditorProps {
   language: Language;
   presentation?: Presentation;
+  /** HTML 업로드 등으로 만든 초기 문서(presentation이 없을 때만 적용) */
+  initialDocument?: PresentationDocument;
+  initialTheme?: PresentationTheme;
+  initialTitle?: string;
   onSave: (payload: {
     title: string;
     description: string;
@@ -53,31 +59,38 @@ const fromLines = (value: string) =>
 export default function PresentationEditor({
   language,
   presentation,
+  initialDocument,
+  initialTheme,
+  initialTitle,
   onSave,
   onStart,
   isSaving = false,
   className,
 }: PresentationEditorProps) {
-  const initialDocument = useMemo(
+  const initialDocState = useMemo(
     () =>
       presentation
         ? normalizePresentationDocument(presentation.document)
-        : createStarterPresentationDocument(),
+        : (initialDocument ?? createStarterPresentationDocument()),
     [presentation],
   );
-  const initialTheme = useMemo(
+  const initialThemeState = useMemo(
     () =>
-      presentation ? normalizePresentationTheme(presentation.theme) : DEFAULT_PRESENTATION_THEME,
+      presentation
+        ? normalizePresentationTheme(presentation.theme)
+        : (initialTheme ?? DEFAULT_PRESENTATION_THEME),
     [presentation],
   );
-  const [document, setDocument] = useState<PresentationDocument>(initialDocument);
-  const [theme, setTheme] = useState<PresentationTheme>(initialTheme);
-  const [title, setTitle] = useState(presentation?.title ?? '새 웹 프레젠테이션');
+  const [document, setDocument] = useState<PresentationDocument>(initialDocState);
+  const [theme, setTheme] = useState<PresentationTheme>(initialThemeState);
+  const [title, setTitle] = useState(presentation?.title ?? initialTitle ?? '새 웹 프레젠테이션');
   const [description, setDescription] = useState(presentation?.description ?? '');
   const [targetDurationSeconds, setTargetDurationSeconds] = useState(
     presentation?.targetDurationSeconds ?? 0,
   );
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const imageInputRef = useRef<HTMLInputElement>(null);
   const [templateToAdd, setTemplateToAdd] = useState(PRESENTATION_TEMPLATES[0].id);
   const [dirty, setDirty] = useState(!presentation);
   const [saveError, setSaveError] = useState<string | null>(null);
@@ -124,6 +137,22 @@ export default function PresentationEditor({
     }));
     setSelectedIndex(document.slides.length);
     setDirty(true);
+  };
+
+  /** /storage/file 로 업로드하고 반환 URL을 현재 슬라이드에 반영한다. */
+  const handleImageUpload = async (file: File) => {
+    setIsUploadingImage(true);
+    try {
+      const accessToken = UserTokenUtil.getAccessToken() ?? '';
+      const { data: imageUrl } = await storageApi.postStorageFile(
+        `Bearer ${accessToken}`,
+        undefined,
+        file,
+      );
+      updateSlide({ imageUrl });
+    } finally {
+      setIsUploadingImage(false);
+    }
   };
 
   const removeSlide = () => {
@@ -416,6 +445,62 @@ export default function PresentationEditor({
               rows={5}
               aria-label="슬라이드 항목"
             />
+            {currentSlide.layout === 'media' && (
+              <div className="space-y-2 rounded-2xl border border-basic-3 p-3">
+                <span className="block text-xs font-semibold text-fg-3">슬라이드 이미지</span>
+                {currentSlide.imageUrl && (
+                  /* eslint-disable-next-line @next/next/no-img-element -- 업로드된 스토리지 URL 미리보기 */
+                  <img
+                    src={currentSlide.imageUrl}
+                    alt="슬라이드 이미지 미리보기"
+                    className="max-h-40 w-full rounded-xl object-contain"
+                  />
+                )}
+                <div className="flex items-center gap-2">
+                  <Button
+                    type="button"
+                    className="border border-basic-3 bg-basic-0 text-fg-3 hover:bg-basic-1"
+                    disabled={isUploadingImage}
+                    onClick={() => imageInputRef.current?.click()}
+                  >
+                    <ImagePlus className="mr-1.5 h-4 w-4" />
+                    {isUploadingImage ? '업로드 중…' : '이미지 업로드'}
+                  </Button>
+                  {currentSlide.imageUrl && (
+                    <Button
+                      type="button"
+                      className="border border-basic-3 bg-basic-0 text-fg-3 hover:bg-basic-1"
+                      onClick={() => {
+                        updateSlide({ imageUrl: undefined });
+                        if (imageInputRef.current) imageInputRef.current.value = '';
+                      }}
+                    >
+                      제거
+                    </Button>
+                  )}
+                </div>
+                <input
+                  ref={imageInputRef}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(event) => {
+                    const target = event.currentTarget;
+                    const file = target.files?.[0];
+                    if (file) handleImageUpload(file);
+                    target.value = '';
+                  }}
+                />
+                <Input
+                  value={currentSlide.imageUrl ?? ''}
+                  onChange={(event) =>
+                    updateSlide({ imageUrl: event.target.value.trim() || undefined })
+                  }
+                  placeholder="또는 이미지 URL 직접 입력"
+                  aria-label="이미지 URL"
+                />
+              </div>
+            )}
             <Textarea
               value={currentSlide.speakerNotes}
               onChange={(event) => updateSlide({ speakerNotes: event.target.value })}

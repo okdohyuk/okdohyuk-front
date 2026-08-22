@@ -25,6 +25,8 @@ export default function PptPresentClient({ lng, presentationId }: PptPresentClie
   const startRequested = useRef(false);
   const presentation = usePresentation(presentationId, token);
   const sessionFromUrl = searchParams.get('sessionId');
+  // 발표 시작 버튼에서 온 진입(?fullscreen=1)만 전체화면 안내를 표시한다.
+  const autoFullscreen = searchParams.get('fullscreen') === '1';
   const startMutation = useStartPresentationSession();
   const commandMutation = useSendPresentationCommand();
   const session = usePresentationSession(sessionId, token);
@@ -76,6 +78,7 @@ export default function PptPresentClient({ lng, presentationId }: PptPresentClie
       session={session.data}
       onCommand={handleCommand}
       isCommandPending={commandMutation.isPending}
+      autoFullscreen={autoFullscreen}
     />
   );
 }

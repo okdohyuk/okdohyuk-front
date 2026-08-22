@@ -17,5 +17,12 @@
   "saveSuccess": "已保存。",
   "saveError": "保存失败。",
   "remote": "移动遥控器",
-  "prompt": "填空式提示词"
+  "prompt": "填空式提示词",
+  "templateDownload": "下载模板",
+  "htmlUpload": "上传 HTML",
+  "uploadError": "未能在 HTML 中找到幻灯片，请检查模板格式。",
+  "imageUpload": "上传图片",
+  "imageRemove": "移除图片",
+  "imageUrl": "图片 URL",
+  "uploadingImage": "上传中…"
 }

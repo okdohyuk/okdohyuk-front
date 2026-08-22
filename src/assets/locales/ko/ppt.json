@@ -17,5 +17,12 @@
   "saveSuccess": "저장했습니다.",
   "saveError": "저장하지 못했습니다.",
   "remote": "모바일 리모컨",
-  "prompt": "빈칸형 프롬프트"
+  "prompt": "빈칸형 프롬프트",
+  "templateDownload": "템플릿 다운로드",
+  "htmlUpload": "HTML 업로드",
+  "uploadError": "HTML에서 슬라이드를 찾지 못했습니다. 템플릿 형식을 확인하세요.",
+  "imageUpload": "이미지 업로드",
+  "imageRemove": "이미지 제거",
+  "imageUrl": "이미지 URL",
+  "uploadingImage": "업로드 중…"
 }

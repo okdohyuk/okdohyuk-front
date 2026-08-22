@@ -9,6 +9,7 @@ import { Input } from '@components/basic/Input';
 import { Textarea } from '@components/basic/Textarea';
 import { cn } from '@utils/cn';
 import type { Language } from '~/app/i18n/settings';
+import { PRESENTATION_THEME_TOKENS } from './types';
 import type { PresentationTheme } from './types';
 import styles from './PresentationCanvas.module.css';
 
@@ -43,6 +44,7 @@ const buildPrompt = (values: PromptValues, language: Language, theme: Presentati
   const localeRule = isKorean
     ? '모든 본문과 발표자 노트는 한국어로 작성한다.'
     : 'Write the content and speaker notes in English.';
+  const tokens = PRESENTATION_THEME_TOKENS[theme.accent];
   return `당신은 okdohyuk.dev Web Presentation 전용 프레젠테이션 디자이너다.
 
 [입력값]
@@ -53,7 +55,19 @@ const buildPrompt = (values: PromptValues, language: Language, theme: Presentati
 - 핵심 메시지: ${values.keyMessages || '[핵심 메시지를 입력하세요]'}
 - 문체/톤: ${values.tone || '[톤을 입력하세요]'}
 - 참고자료: ${values.references || '[참고자료가 없으면 비워두세요]'}
-- 테마: ${theme.themePreset} / ${theme.accent}
+- 테마: ${theme.themePreset} / accent=${theme.accent}
+
+[기본 템플릿 색상 값 (okdohyuk 디자인 시스템, accent=${theme.accent})]
+- point1 (deep/hover): ${tokens.point1}
+- point2 (primary CTA): ${tokens.point2}
+- point3 (hover light): ${tokens.point3}
+- point4 (tint): ${tokens.point4}
+- canvas (슬라이드 배경): ${tokens.canvas}
+- surface (카드·패널): ${tokens.surface}
+- fg1 (제목 텍스트): ${tokens.fg1}
+- fg3 (본문 텍스트): ${tokens.fg3}
+- fg5 (캡션·보조 텍스트): ${tokens.fg5}
+위 RGB hex값을 그대로 사용한다. 임의의 색상을 만들지 않는다.
 
 [작성 규칙]
 1. ${localeRule}
@@ -66,7 +80,7 @@ const buildPrompt = (values: PromptValues, language: Language, theme: Presentati
 JSON 하나만 반환한다. 마크다운 fence를 사용하지 않는다.
 {
   "schemaVersion": 1,
-  "theme": { "themePreset": "okdohyuk", "accent": "${theme.accent}" },
+  "theme": { "themePreset": "${theme.themePreset}", "accent": "${theme.accent}" },
   "slides": [
     {
       "id": "slide-1",

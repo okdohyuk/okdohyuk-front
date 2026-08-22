@@ -17,5 +17,12 @@
   "saveSuccess": "保存しました。",
   "saveError": "保存できませんでした。",
   "remote": "モバイルリモート",
-  "prompt": "入力式プロンプト"
+  "prompt": "入力式プロンプト",
+  "templateDownload": "テンプレートをダウンロード",
+  "htmlUpload": "HTMLをアップロード",
+  "uploadError": "HTMLからスライドを見つけられませんでした。テンプレート形式を確認してください。",
+  "imageUpload": "画像をアップロード",
+  "imageRemove": "画像を削除",
+  "imageUrl": "画像URL",
+  "uploadingImage": "アップロード中…"
 }

@@ -2,7 +2,13 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { FilePlus2, MonitorPlay, Presentation as PresentationIcon, Trash2 } from 'lucide-react';
+import {
+  FileDown,
+  FilePlus2,
+  MonitorPlay,
+  Presentation as PresentationIcon,
+  Trash2,
+} from 'lucide-react';
 import { Button } from '@components/basic/Button';
 import { Text } from '@components/basic/Text';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
@@ -53,6 +59,14 @@ export default function PptWorkspaceClient({ lng }: PptWorkspaceClientProps) {
           {visibleResults.length} decks
         </Text>
         <div className="flex flex-wrap gap-2">
+          <a href="/ppt/template.html" download>
+            <Button
+              type="button"
+              className="border border-basic-3 bg-basic-0 text-fg-3 hover:bg-basic-1"
+            >
+              <FileDown className="mr-1.5 h-4 w-4" /> {t('templateDownload')}
+            </Button>
+          </a>
           <Link href={`/${lng}/ppt/remote`}>
             <Button
               type="button"

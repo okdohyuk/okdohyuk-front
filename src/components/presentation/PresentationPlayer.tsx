@@ -12,6 +12,7 @@ import {
   Expand,
   FileText,
   LogOut,
+  Maximize,
   Pause,
   Play,
   Radio,
@@ -40,7 +41,11 @@ interface PresentationPlayerProps {
   session: PresentationSession;
   onCommand: (request: PresentationSessionCommandRequest) => void;
   isCommandPending?: boolean;
+  /** 발표 시작 진입(?fullscreen=1)일 때 true — 네이티브 전체화면 진입 안내를 표시한다 */
+  autoFullscreen?: boolean;
 }
+
+const CHROME_HIDE_DELAY_MS = 3000;
 
 const isTypingTarget = (target: EventTarget | null) => {
   if (!(target instanceof HTMLElement)) return false;
@@ -53,9 +58,14 @@ export default function PresentationPlayer({
   session,
   onCommand,
   isCommandPending = false,
+  autoFullscreen = false,
 }: PresentationPlayerProps) {
   const playerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  // 네이티브 전체화면 중 무활동 시 헤더/푸터 컨트롤을 숨긴다. 비전체화면에서는 항상 표시.
+  const [chromeVisible, setChromeVisible] = useState(true);
+  const [pendingAutoFullscreen, setPendingAutoFullscreen] = useState(autoFullscreen);
+  const chromeTimerRef = useRef<number | null>(null);
   const [showNotes, setShowNotes] = useState(false);
   const [copied, setCopied] = useState(false);
   const presentationDocument = useMemo(
@@ -111,6 +121,43 @@ export default function PresentationPlayer({
     return () => document.removeEventListener('fullscreenchange', handleFullscreen);
   }, []);
 
+  // 전체화면 중 3초 무활동이면 컨트롤을 숨기고, 입력이 있으면 되살린다.
+  useEffect(() => {
+    if (!isFullscreen) {
+      setChromeVisible(true);
+      return undefined;
+    }
+    const wakeChrome = () => {
+      setChromeVisible(true);
+      if (chromeTimerRef.current !== null) window.clearTimeout(chromeTimerRef.current);
+      chromeTimerRef.current = window.setTimeout(() => {
+        setChromeVisible(false);
+        chromeTimerRef.current = null;
+      }, CHROME_HIDE_DELAY_MS);
+    };
+    wakeChrome();
+    window.addEventListener('mousemove', wakeChrome);
+    window.addEventListener('touchstart', wakeChrome, { passive: true });
+    window.addEventListener('keydown', wakeChrome);
+    return () => {
+      if (chromeTimerRef.current !== null) window.clearTimeout(chromeTimerRef.current);
+      chromeTimerRef.current = null;
+      window.removeEventListener('mousemove', wakeChrome);
+      window.removeEventListener('touchstart', wakeChrome);
+      window.removeEventListener('keydown', wakeChrome);
+    };
+  }, [isFullscreen]);
+
+  /** 브라우저 정책상 requestFullscreen은 이 문서의 사용자 제스처에서 호출돼야 한다. */
+  const enterAutoFullscreen = async () => {
+    setPendingAutoFullscreen(false);
+    try {
+      await playerRef.current?.requestFullscreen();
+    } catch {
+      setIsFullscreen(false);
+    }
+  };
+
   const toggleFullscreen = async () => {
     try {
       if (document.fullscreenElement) {
@@ -143,13 +190,36 @@ export default function PresentationPlayer({
 
   const isPaused = session.status === PresentationSessionStatus.Paused;
   const isEnded = session.status === PresentationSessionStatus.Ended;
+  // 컨트롤 숨김 시 슬라이드가 확보하는 세로 여백(좌우 px-2 + pb-2 기준)
+  const slideReserveRem = isFullscreen && !chromeVisible ? '2rem' : '8rem';
+  const chromeHidden = isFullscreen && !chromeVisible;
 
   return (
     <div
       ref={playerRef}
       className="fixed inset-0 z-[100] flex min-h-screen flex-col bg-black text-white"
     >
-      <div className="flex min-h-12 items-center justify-between gap-3 px-3 py-2 text-xs text-white/70 sm:px-5">
+      {pendingAutoFullscreen && (
+        <button
+          type="button"
+          onClick={enterAutoFullscreen}
+          className="absolute inset-0 z-[110] grid place-items-center bg-black/85 backdrop-blur-sm"
+        >
+          <span className="flex flex-col items-center gap-4 rounded-3xl border border-white/15 bg-white/5 px-10 py-8">
+            <Maximize className="h-10 w-10 text-violet-300" />
+            <span className="text-lg font-bold">전체 화면으로 발표 시작</span>
+            <span className="text-sm text-white/60">
+              화면을 클릭하면 전체 화면에 맞춰 표시됩니다. (ESC로 해제)
+            </span>
+          </span>
+        </button>
+      )}
+      <div
+        className={cn(
+          'flex min-h-12 items-center justify-between gap-3 px-3 py-2 text-xs text-white/70 transition-opacity duration-300 sm:px-5',
+          chromeHidden && 'pointer-events-none opacity-0',
+        )}
+      >
         <div className="flex min-w-0 items-center gap-2">
           <Radio className="h-4 w-4 shrink-0 text-violet-300" />
           <span className="truncate font-semibold text-white">{presentation.title}</span>
@@ -192,7 +262,7 @@ export default function PresentationPlayer({
       <div className="flex min-h-0 flex-1 items-center justify-center px-2 pb-2">
         <div
           className="w-full max-w-[1920px]"
-          style={{ width: 'min(100%, calc((100vh - 8rem) * 1.7778))' }}
+          style={{ width: `min(100%, calc((100vh - ${slideReserveRem}) * 1.7778))` }}
         >
           <SlideCanvas
             slide={currentSlide}
@@ -204,7 +274,12 @@ export default function PresentationPlayer({
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-2 px-3 pb-3 sm:gap-3">
+      <div
+        className={cn(
+          'flex flex-wrap items-center justify-center gap-2 px-3 pb-3 transition-opacity duration-300 sm:gap-3',
+          chromeHidden && 'pointer-events-none opacity-0',
+        )}
+      >
         <button
           type="button"
           onClick={() => send(SessionCommand.Previous)}
@@ -240,6 +315,17 @@ export default function PresentationPlayer({
         </button>
         <button
           type="button"
+          onClick={toggleFullscreen}
+          disabled={isCommandPending || isEnded}
+          className="flex h-11 items-center gap-2 rounded-full bg-white/10 px-4 text-sm transition-colors hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-40"
+          aria-label={isFullscreen ? '전체 화면 종료' : '전체 화면'}
+          title={isFullscreen ? '전체 화면 종료 (ESC)' : '전체 화면'}
+        >
+          <Maximize className="h-4 w-4" />
+          {isFullscreen ? '전체화면 해제' : '전체화면'}
+        </button>
+        <button
+          type="button"
           onClick={() => send(SessionCommand.End)}
           disabled={isCommandPending || isEnded}
           className="flex h-11 items-center gap-2 rounded-full bg-red-500/80 px-4 text-sm transition-colors hover:bg-red-500 disabled:cursor-not-allowed disabled:opacity-40"
@@ -248,7 +334,12 @@ export default function PresentationPlayer({
         </button>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-2 px-3 pb-3 text-xs text-white/60">
+      <div
+        className={cn(
+          'flex flex-wrap items-center justify-center gap-2 px-3 pb-3 text-xs text-white/60 transition-opacity duration-300',
+          chromeHidden && 'pointer-events-none opacity-0',
+        )}
+      >
         <span>리모컨: {remoteUrl}</span>
         <Button
           type="button"

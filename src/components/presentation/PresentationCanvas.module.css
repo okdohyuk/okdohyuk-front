@@ -454,6 +454,23 @@
   font-weight: 700;
 }
 
+.mediaFigure {
+  margin: 0;
+  width: 100%;
+  max-width: 84%;
+  border: 1px solid var(--ppt-fg-5);
+  border-radius: 1.2cqw;
+  overflow: hidden;
+  background: var(--ppt-surface);
+}
+
+.mediaImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .notes {
   position: absolute;
   right: 2cqw;

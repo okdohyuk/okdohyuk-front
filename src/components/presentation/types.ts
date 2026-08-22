@@ -48,6 +48,8 @@ export interface PresentationSlide {
   subtitle: string;
   body: string;
   items: string[];
+  /** media 등 슬라이드 삽입 이미지 URL (/storage/file 로 업로드한 URL 포함) */
+  imageUrl?: string;
   speakerNotes: string;
   suggestedSeconds: number;
 }
@@ -189,6 +191,7 @@ const toSlide = (value: unknown, index: number): PresentationSlide | null => {
     subtitle: toStringValue(candidate.subtitle),
     body: toStringValue(candidate.body),
     items: toItems(candidate.items),
+    imageUrl: toStringValue(candidate.imageUrl) || undefined,
     speakerNotes: toStringValue(candidate.speakerNotes),
     suggestedSeconds:
       typeof candidate.suggestedSeconds === 'number' && candidate.suggestedSeconds >= 0

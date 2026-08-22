@@ -22,4 +22,44 @@ describe('presentation prompt builder', () => {
     expect(prompt).toContain('speakerNotes');
     expect(prompt).toContain('JSON 하나만 반환한다');
   });
+
+  it('embeds exact design-system rgb hex values for the selected accent', () => {
+    const prompt = buildPrompt(
+      {
+        topic: '',
+        purpose: '',
+        audience: '',
+        slideCount: '10',
+        keyMessages: '',
+        tone: '',
+        references: '',
+      },
+      'ko',
+      { themePreset: 'okdohyuk', accent: 'violet' },
+    );
+
+    expect(prompt).toContain('- point1 (deep/hover): #6D28D9');
+    expect(prompt).toContain('- point2 (primary CTA): #7C3AED');
+    expect(prompt).toContain('- canvas (슬라이드 배경): #FAFAFA');
+    expect(prompt).toContain('위 RGB hex값을 그대로 사용한다');
+  });
+
+  it('swaps the color table when the accent changes', () => {
+    const prompt = buildPrompt(
+      {
+        topic: '',
+        purpose: '',
+        audience: '',
+        slideCount: '10',
+        keyMessages: '',
+        tone: '',
+        references: '',
+      },
+      'en',
+      { themePreset: 'okdohyuk', accent: 'teal' },
+    );
+
+    expect(prompt).toContain('- point2 (primary CTA): #0D9488');
+    expect(prompt).not.toContain('#7C3AED');
+  });
 });

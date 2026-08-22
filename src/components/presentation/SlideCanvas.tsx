@@ -174,6 +174,14 @@ function SlideCanvas({
           </div>
         );
       case 'media':
+        if (slide.imageUrl) {
+          return (
+            <figure className={styles.mediaFigure}>
+              {/* eslint-disable-next-line @next/next/no-img-element -- 슬라이드 캔버스는 외부 스토리지 URL을 그대로 투사한다 */}
+              <img src={slide.imageUrl} alt={slide.title} className={styles.mediaImage} />
+            </figure>
+          );
+        }
         return <div className={styles.media}>이미지·스크린샷·영상 placeholder</div>;
       case 'cards':
       case 'glossary':
