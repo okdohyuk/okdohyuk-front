@@ -1,0 +1,2615 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>okdohyuk 웹 프레젠테이션 템플릿</title>
+<meta name="viewport" content="width=1920, initial-scale=1" />
+<style>
+/* ──────────────────────────────────────────────────────────────
+ * okdohyuk Design System — Colors & Type
+ * Source of truth: okdohyuk/okdohyuk-front tailwind.config.js + src/styles/globals.css
+ * Palette: Tailwind zinc (basic-*) + violet (point-*)
+ * Font: Pretendard (Korean), Inter fallback
+ * ──────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/PretendardVariable.woff2') format('woff2-variations'),
+       url('fonts/PretendardVariable.woff2') format('woff2-variations');
+}
+
+:root {
+  /* ── Base: Neutral (basic) — light mode ─────────────────── */
+  --basic-0: #ffffff;
+  --basic-1: #fafafa;   /* zinc-50  */
+  --basic-2: #f4f4f5;   /* zinc-100 */
+  --basic-3: #e4e4e7;   /* zinc-200 */
+  --basic-4: #d4d4d8;   /* zinc-300 */
+  --basic-5: #a1a1aa;   /* zinc-400 (boundary) */
+
+  /* Extended zinc scale for fg text (used by .t-basic-*) */
+  --zinc-50:  #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+
+  /* ── Point (violet accent) ──────────────────────────────── */
+  --point-1: #6D28D9;   /* violet-700 — deep / hover */
+  --point-2: #7C3AED;   /* violet-600 — primary CTA  */
+  --point-3: #8B5CF6;   /* violet-500 — hover light  */
+  --point-4: #DDD6FE;   /* violet-200 — tint         */
+  --point-tint-soft: #EEEAFE;      /* violet-100-ish, used for panel gradients */
+  --point-800: #5B21B6; /* deep purple (hero accent) */
+  --violet-400: #A78BFA;    /* violet-400 — light gradient */
+  --violet-900: #1C1033;    /* violet-900 — dark code blocks */
+  --violet-950: #4C1D95;    /* violet-950 — deep hero gradient */
+
+  /* ── Semantic foreground (mirrors .t-basic-N) ───────────── */
+  --fg-0: #000000;       /* t-basic-0 */
+  --fg-1: var(--zinc-900);
+  --fg-2: var(--zinc-800);
+  --fg-3: var(--zinc-700);
+  --fg-4: var(--zinc-600);
+  --fg-5: var(--zinc-500);
+  --fg-6: var(--zinc-400);
+  --fg-7: var(--zinc-300);
+
+  /* ── Semantic surface ───────────────────────────────────── */
+  --bg-canvas: var(--basic-1);
+  --bg-surface: var(--basic-0);
+  --bg-muted: var(--basic-2);
+  --border-subtle: var(--basic-3);
+  --border-default: var(--basic-4);
+
+  /* Focus ring — point-1 at ~50% (focus:ring-2 focus:ring-point-1) */
+  --ring-focus: rgba(109, 40, 217, 0.5);
+
+  /* Elevations (from Figma shadows) */
+  --shadow-xs: 0 1px 2px 0 rgba(0,0,0,0.04);
+  --shadow-sm: 0 2px 6px 0 rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 20px 0 rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 50px 0 rgba(0,0,0,0.08);
+  --shadow-xl: 0 20px 50px 0 rgba(0,0,0,0.2);
+
+  /* Radii — observed: 4, 8, 12, 14, 16, 20 (pill), 24 (panel) */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+  --radius-panel: 24px;
+
+  /* Spacing — 4/8/12/14/16/20/24/28/32/44/48/68/92 observed */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Type system
+     Tailwind scale (from Text.tsx cva):
+       t1: text-4xl bold  (36px)
+       t2: text-3xl bold  (30px)
+       t3: text-2xl bold  (24px)
+       d1: text-lg  norm  (18px)
+       d2: text-base norm (16px)
+       d3: text-sm  norm  (14px)
+       c1: text-xs  light (12px)
+       c2: 10px light
+       c3: 8px  light
+     Figma also observes 48px / 22px black (hero) — treat as display.
+  */
+  --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+               'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+               'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+               sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+               'Liberation Mono', monospace;
+
+  /* Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  /* Sizes (px) */
+  --fs-display: 48px;
+  --fs-t1: 36px;  /* text-4xl */
+  --fs-t2: 30px;  /* text-3xl */
+  --fs-t3: 24px;  /* text-2xl */
+  --fs-d1: 18px;  /* text-lg  */
+  --fs-d2: 16px;  /* text-base */
+  --fs-d3: 14px;  /* text-sm  */
+  --fs-c1: 12px;  /* text-xs  */
+  --fs-c2: 10px;
+  --fs-c3: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --basic-0: #000000;
+    --basic-1: #18181b;
+    --basic-2: #27272a;
+    --basic-3: #3f3f46;
+    --basic-4: #52525b;
+    --basic-5: #71717a;
+
+    --fg-0: #ffffff;
+    --fg-1: var(--zinc-50);
+    --fg-2: var(--zinc-100);
+    --fg-3: var(--zinc-200);
+    --fg-4: var(--zinc-300);
+    --fg-5: var(--zinc-400);
+    --fg-6: var(--zinc-500);
+    --fg-7: var(--zinc-600);
+
+    --bg-canvas: var(--basic-1);
+    --bg-surface: var(--basic-2);
+    --bg-muted: var(--basic-3);
+    --border-subtle: var(--basic-3);
+    --border-default: var(--basic-4);
+  }
+}
+
+/* ── Semantic element defaults ─────────────────────────────── */
+html, body {
+  font-family: var(--font-body);
+  color: var(--fg-1);
+  background: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1 { font-size: var(--fs-t1); font-weight: var(--fw-bold);  line-height: 1.1; letter-spacing: -0.02em; color: var(--fg-1); }
+h2, .h2 { font-size: var(--fs-t2); font-weight: var(--fw-bold);  line-height: 1.15; letter-spacing: -0.015em; color: var(--fg-1); }
+h3, .h3 { font-size: var(--fs-t3); font-weight: var(--fw-bold);  line-height: 1.2;  color: var(--fg-1); }
+p,  .d1 { font-size: var(--fs-d1); font-weight: var(--fw-regular); line-height: 1.55; color: var(--fg-3); }
+.d2     { font-size: var(--fs-d2); font-weight: var(--fw-regular); line-height: 1.55; color: var(--fg-3); }
+.d3     { font-size: var(--fs-d3); font-weight: var(--fw-regular); line-height: 1.55; color: var(--fg-3); }
+.c1     { font-size: var(--fs-c1); font-weight: var(--fw-light);   line-height: 1.4;  color: var(--fg-5); }
+.c2     { font-size: var(--fs-c2); font-weight: var(--fw-light);   line-height: 1.4;  color: var(--fg-5); }
+.c3     { font-size: var(--fs-c3); font-weight: var(--fw-light);   line-height: 1.4;  color: var(--fg-5); }
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+/* Common utility classes */
+.t-basic-0 { color: var(--fg-0); }
+.t-basic-1 { color: var(--fg-1); }
+.t-basic-2 { color: var(--fg-2); }
+.t-basic-3 { color: var(--fg-3); }
+.t-basic-4 { color: var(--fg-4); }
+.t-basic-5 { color: var(--fg-5); }
+.t-basic-6 { color: var(--fg-6); }
+.t-basic-7 { color: var(--fg-7); }
+
+.t-point   { color: var(--point-1); }
+
+/* Button recipe (from Button.tsx) */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 32px; border-radius: var(--radius-md); padding: 8px 16px;
+  font-weight: var(--fw-semibold); font-size: var(--fs-d3);
+  background: var(--point-2); color: #fff; border: 0;
+  transition: background 160ms ease, transform 120ms ease;
+}
+.btn-primary:hover   { background: var(--point-1); }
+.btn-primary:active  { background: var(--point-800); transform: translateY(1px); }
+.btn-primary:disabled{ opacity: .5; pointer-events: none; }
+
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 32px; border-radius: var(--radius-md); padding: 8px 16px;
+  font-weight: var(--fw-semibold); font-size: var(--fs-d3);
+  background: rgba(255,255,255,0.8); color: var(--zinc-700);
+  border: 1px solid var(--basic-3);
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.btn-outline:hover   { background: var(--basic-2); color: var(--zinc-900); }
+
+/* Input recipe (from Input.tsx) */
+.input {
+  display: flex; align-items: center; min-height: 32px; width: 100%;
+  padding: 6px 10px; border-radius: var(--radius-md);
+  background: var(--bg-surface); color: var(--fg-1);
+  border: 1px solid var(--basic-3);
+  outline: none; transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+.input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--point-1);
+}
+
+/* Tag / pill */
+.tag {
+  display: inline-flex; align-items: center;
+  padding: 2px 10px; border-radius: var(--radius-pill);
+  background: var(--basic-2); color: var(--zinc-700);
+  font-size: var(--fs-c1); font-weight: var(--fw-semibold);
+}
+.tag-violet { background: var(--point-4); color: var(--point-1); }
+.tag-new    { background: rgba(124,58,237,0.12); color: var(--point-1); }
+
+</style>
+<style>
+/* ──────────────────────────────────────────────────────────
+ * BSS 논문 발표 덱 — 슬라이드 전용 스타일
+ * 1920×1080, Pretendard, okdohyuk violet palette
+ * ──────────────────────────────────────────────────────── */
+
+/* Type scale (pt × 1.333 ≈ px) — projection-safe */
+:root {
+  --t-hero:     92px;  /* 표지 메인 */
+  --t-title:    64px;  /* 슬라이드 타이틀 */
+  --t-subtitle: 44px;
+  --t-body:     34px;
+  --t-bodyS:    28px;
+  --t-meta:     24px;
+  --t-eyebrow:  22px;
+
+  --pad-x: 120px;
+  --pad-top: 96px;
+  --pad-bottom: 96px;
+  --title-gap: 52px;
+  --item-gap: 28px;
+}
+
+deck-stage { background: #000; }
+
+section.slide {
+  box-sizing: border-box !important;
+  width: 1920px !important;
+  height: 1080px !important;
+  min-height: 1080px !important;
+  padding: var(--pad-top) var(--pad-x) 150px;
+  background: var(--bg-canvas);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ambient violet orbs — brand signature */
+section.slide::before,
+section.slide::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(2px);
+  z-index: 0;
+}
+section.slide::before {
+  width: 520px; height: 520px;
+  top: 0; left: 0;
+  background: radial-gradient(closest-side, rgba(124,58,237,0.22), rgba(124,58,237,0));
+}
+section.slide::after {
+  width: 620px; height: 620px;
+  top: 0; right: 0;
+  background: radial-gradient(closest-side, rgba(139,92,246,0.16), rgba(139,92,246,0));
+}
+
+section.slide > * { position: relative; z-index: 1; }
+
+/* Header row: eyebrow + counter */
+.s-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--title-gap);
+}
+.eyebrow {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--point-1);
+  text-transform: uppercase;
+}
+.kicker-ko {
+  font-size: var(--t-eyebrow);
+  font-weight: 700;
+  color: var(--point-1);
+  letter-spacing: 0.01em;
+}
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background: rgba(124,58,237,0.08);
+  color: var(--point-1);
+  font-size: var(--t-meta);
+  font-weight: 600;
+}
+.section-tag .dot { width: 10px; height: 10px; border-radius: 9999px; background: var(--point-2); }
+
+.s-counter {
+  font-size: var(--t-meta);
+  color: var(--fg-5);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Titles */
+h1.s-title {
+  font-size: var(--t-title);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--fg-1);
+  margin: 0 0 var(--title-gap) 0;
+  max-width: 1500px;
+  text-wrap: pretty;
+}
+h2.s-sub {
+  font-size: var(--t-subtitle);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--fg-2);
+  margin: 0;
+}
+.lede {
+  font-size: var(--t-body);
+  line-height: 1.5;
+  color: var(--fg-3);
+  max-width: 1400px;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* Footer */
+.s-foot {
+  position: absolute !important;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: 48px;
+  top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  color: var(--fg-5);
+  z-index: 2;
+  padding-top: 24px;
+  border-top: 1px solid var(--basic-3);
+  margin: 0;
+}
+.s-foot .brand-mark {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-weight: 700; color: var(--fg-3);
+}
+.s-foot .brand-mark .chip {
+  width: 14px; height: 14px; border-radius: 4px;
+  background: linear-gradient(135deg, var(--point-1), var(--point-3));
+}
+
+/* ─── Cover slide ─── */
+.cover {
+  background: linear-gradient(180deg, #fafafa 0%, #F3EEFE 100%);
+  justify-content: space-between;
+}
+.cover::before {
+  width: 900px; height: 900px;
+  top: 0; left: 0;
+  background: radial-gradient(closest-side, rgba(124,58,237,0.30), rgba(124,58,237,0));
+}
+.cover::after {
+  width: 780px; height: 780px;
+  bottom: 0; right: 0; top: auto;
+  background: radial-gradient(closest-side, rgba(139,92,246,0.22), rgba(139,92,246,0));
+}
+.cover .cover-body { margin-top: 160px; }
+.cover .cover-kicker {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--point-1);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.cover h1 {
+  font-size: var(--t-hero);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 28px 0;
+  color: #0b0714;
+  max-width: 1550px;
+  text-wrap: pretty;
+}
+.cover .cover-en {
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--point-1);
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+.cover .cover-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 60px;
+  border-top: 1px solid rgba(24,24,27,0.12);
+}
+.cover .cover-meta .meta-block .label {
+  font-size: 24px; font-weight: 600;
+  color: var(--point-1);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.cover .cover-meta .meta-block .value {
+  font-size: 28px; font-weight: 600; color: var(--fg-2);
+}
+.cover .course-badge {
+  display: inline-flex; flex-direction: column; gap: 6px;
+  padding: 20px 28px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(109,40,217,0.25);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+.cover .course-badge .c1 { font-size: 24px; color: var(--point-1); font-weight: 700; letter-spacing: 0.1em; }
+.cover .course-badge .c2 { font-size: 26px; font-weight: 700; color: var(--fg-1); }
+
+/* ─── TOC / Agenda ─── */
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 72px;
+  margin-top: 24px;
+}
+.toc-item {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  align-items: baseline;
+  padding: 20px 0 22px 0;
+  border-bottom: 1px solid var(--basic-3);
+  gap: 24px;
+}
+.toc-item .num {
+  font-size: 34px; font-weight: 800;
+  color: var(--point-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.toc-item .ttl {
+  font-size: 30px; font-weight: 600; color: var(--fg-1);
+  line-height: 1.3;
+}
+.toc-item .sub {
+  grid-column: 2;
+  font-size: 24px; color: var(--fg-5);
+  margin-top: 4px; font-weight: 400;
+}
+
+/* ─── Section divider ─── */
+.divider {
+  background: linear-gradient(140deg, #1a1030 0%, #2c0f66 45%, #5B21B6 100%);
+  color: #fff;
+  justify-content: center;
+  align-items: flex-start;
+}
+.divider::before {
+  width: 720px; height: 720px;
+  top: 0; right: 0; left: auto;
+  background: radial-gradient(closest-side, rgba(221,214,254,0.18), rgba(221,214,254,0));
+}
+.divider::after { display: none; }
+.divider .eyebrow { color: #DDD6FE; }
+.divider .d-num {
+  font-size: 240px; font-weight: 900;
+  color: rgba(255,255,255,0.08);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin-bottom: -40px;
+}
+.divider h1 {
+  font-size: 96px; font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff; margin: 0 0 32px 0;
+  line-height: 1.1;
+  max-width: 1500px;
+}
+.divider .d-desc {
+  font-size: var(--t-body);
+  color: rgba(255,255,255,0.78);
+  max-width: 1100px;
+  line-height: 1.5;
+}
+
+/* ─── Two-column ─── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  flex: 1;
+  align-items: start;
+}
+.col-label {
+  font-size: 24px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--point-1);
+  margin-bottom: 20px;
+}
+
+/* ─── Big stat blocks ─── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 12px;
+}
+.stat {
+  padding: 44px 40px;
+  background: var(--bg-surface);
+  border: 1px solid var(--basic-3);
+  border-radius: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.stat .num {
+  font-size: 92px; font-weight: 800;
+  color: var(--point-1);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
+}
+.stat .num .unit { font-size: 44px; font-weight: 700; color: var(--point-3); margin-left: 6px; }
+.stat .label { font-size: 26px; font-weight: 700; color: var(--fg-1); line-height: 1.35; margin-bottom: 10px; }
+.stat .src { font-size: 24px; color: var(--fg-5); line-height: 1.45; }
+
+/* ─── Crime-type horizontal bar chart ─── */
+.crime-chart {
+  display: flex; flex-direction: column;
+  gap: 22px;
+  margin-top: 32px;
+}
+.crime-row {
+  display: grid;
+  grid-template-columns: 360px 1fr 140px;
+  gap: 32px;
+  align-items: center;
+}
+.crime-row .ctype {
+  font-size: 28px; font-weight: 700; color: var(--fg-1);
+  letter-spacing: -0.005em;
+}
+.crime-row .ctype small {
+  display: block; font-size: 20px; font-weight: 500; color: var(--fg-5);
+  margin-top: 2px;
+}
+.crime-row .ctrack {
+  position: relative;
+  height: 44px;
+  background: var(--basic-2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.crime-row .cbar {
+  position: absolute; inset: 0 auto 0 0;
+  background: linear-gradient(90deg, var(--point-1), var(--point-2));
+  border-radius: 8px 4px 4px 8px;
+  display: flex; align-items: center; justify-content: flex-end;
+  padding-right: 14px;
+  color: #fff; font-weight: 800; font-size: 22px;
+  transition: width .4s ease;
+}
+.crime-row.muted .cbar {
+  background: linear-gradient(90deg, #94a3b8, #cbd5e1);
+}
+.crime-row .cval {
+  font-size: 32px; font-weight: 800; color: var(--point-1);
+  letter-spacing: -0.01em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.crime-row .cval small {
+  font-size: 20px; font-weight: 600; color: var(--fg-5);
+  margin-left: 2px;
+}
+
+/* ─── Selective chart primitives for template slides ─── */
+.deck-chart {
+  background: var(--bg-surface);
+  border: 1px solid var(--basic-3);
+  border-radius: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.deck-kpi .stat {
+  min-height: 250px;
+}
+.deck-spark {
+  color: var(--point-1);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.deck-seg .cbar {
+  background: linear-gradient(90deg, var(--point-1), var(--point-2));
+}
+.deck-bar-cell,
+.bar-cell,
+.progress {
+  display: block;
+  min-width: 42px;
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--point-1), var(--point-2));
+}
+.chart-cap {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-top: 18px;
+  font-size: 22px; color: var(--fg-5);
+}
+.chart-cap strong { color: var(--point-1); font-weight: 700; }
+
+
+/* Graph template primitives (slides 28–32) */
+.graph-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) 460px;
+  gap: 36px;
+  align-items: stretch;
+  margin-top: 8px;
+}
+.graph-layout-wide { grid-template-columns: minmax(0, 1.55fr) 420px; }
+.deck-chart-shell {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(124,58,237,0.16);
+  border-radius: 28px;
+  padding: 30px 34px 26px;
+  box-shadow: 0 22px 60px rgba(76,29,149,0.08);
+}
+.deck-chart-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 20px;
+  color: var(--fg-1);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.deck-chart-title small {
+  color: var(--fg-5);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.deck-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 24px;
+  margin-top: 20px;
+  color: var(--fg-4);
+  font-size: 20px;
+  font-weight: 700;
+}
+.deck-chart-legend span { display: inline-flex; align-items: center; gap: 9px; }
+.deck-chart-legend i {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--zinc-300);
+}
+.deck-chart-legend .primary { background: var(--point-1); }
+.deck-chart-legend .secondary { background: #A78BFA; }
+.deck-chart-legend .tertiary { background: #C4B5FD; }
+.deck-chart-legend .muted { background: #CBD5E1; }
+.deck-chart-legend .baseline { width: 24px; height: 4px; border-radius: 999px; background: #A1A1AA; }
+.graph-insight-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(244,240,254,0.94));
+  border: 1px solid rgba(124,58,237,0.18);
+  border-radius: 28px;
+  padding: 36px 38px;
+  box-shadow: 0 18px 50px rgba(76,29,149,0.08);
+  align-self: stretch;
+}
+.graph-insight-card .label {
+  color: var(--point-1);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.graph-insight-card p {
+  margin: 0;
+  color: var(--fg-3);
+  font-size: 27px;
+  line-height: 1.48;
+  font-weight: 500;
+}
+.graph-insight-card code {
+  color: var(--point-1);
+  font-weight: 800;
+  background: rgba(124,58,237,0.08);
+  border-radius: 8px;
+  padding: 2px 8px;
+}
+.deck-vbar-chart {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  gap: 18px;
+  height: 410px;
+}
+.deck-vbar-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 8px 0 50px;
+  color: var(--fg-5);
+  font-size: 18px;
+  font-weight: 700;
+}
+.deck-vbar-plot {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+  gap: 30px;
+  padding: 20px 22px 0;
+  border-left: 2px solid var(--basic-3);
+  border-bottom: 2px solid var(--basic-3);
+}
+.deck-vbar-grid {
+  position: absolute;
+  inset: 20px 22px 50px;
+  background: repeating-linear-gradient(to top, transparent 0, transparent 24%, rgba(212,212,216,0.8) 24.4%, transparent 25%);
+  border-top: 2px dashed rgba(124,58,237,0.28);
+  pointer-events: none;
+}
+.deck-vbar-group { position: relative; display: grid; grid-template-rows: 1fr 34px; height: 100%; z-index: 1; }
+.deck-vbar-pair { display: flex; align-items: end; justify-content: center; gap: 12px; }
+.deck-vbar {
+  width: 44px;
+  height: var(--h);
+  min-height: 28px;
+  border-radius: 14px 14px 6px 6px;
+  box-shadow: 0 12px 24px rgba(76,29,149,0.12);
+}
+.deck-vbar.primary { background: linear-gradient(180deg, var(--point-2), var(--point-1)); }
+.deck-vbar.secondary { background: linear-gradient(180deg, #DDD6FE, #A78BFA); }
+.deck-vbar-group b { align-self: end; text-align: center; color: var(--fg-4); font-size: 20px; }
+.deck-share-shell { min-height: 560px; }
+.share-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: center; padding: 24px 8px 10px; }
+.share-chart-block { display: grid; justify-items: center; gap: 10px; color: var(--fg-4); font-size: 20px; font-weight: 700; }
+.share-chart-block b { color: var(--fg-1); font-size: 28px; }
+.deck-pie,
+.deck-donut {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background: conic-gradient(var(--point-1) 0 46%, #A78BFA 46% 70%, #C4B5FD 70% 86%, #CBD5E1 86% 100%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.65), 0 24px 55px rgba(76,29,149,0.16);
+}
+.deck-donut { display: grid; place-items: center; }
+.deck-donut-center {
+  width: 142px;
+  height: 142px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.96);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  color: var(--point-1);
+  box-shadow: 0 12px 28px rgba(76,29,149,0.12);
+}
+.deck-donut-center strong { font-size: 40px; line-height: 1; }
+.deck-donut-center small { color: var(--fg-5); font-size: 18px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.deck-scatter {
+  position: relative;
+  height: 506px;
+  border: 2px solid var(--basic-3);
+  border-radius: 22px;
+  background: linear-gradient(90deg, transparent calc(50% - 1px), rgba(124,58,237,0.22) calc(50% - 1px), rgba(124,58,237,0.22) calc(50% + 1px), transparent calc(50% + 1px)), linear-gradient(0deg, transparent calc(50% - 1px), rgba(124,58,237,0.22) calc(50% - 1px), rgba(124,58,237,0.22) calc(50% + 1px), transparent calc(50% + 1px)), radial-gradient(circle at 18% 20%, rgba(124,58,237,0.08), transparent 28%), #fff;
+  overflow: hidden;
+}
+.deck-quadrant-label {
+  position: absolute;
+  color: rgba(39,39,42,0.42);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.deck-quadrant-label.q1 { left: 28px; top: 24px; }
+.deck-quadrant-label.q2 { right: 28px; top: 24px; text-align: right; }
+.deck-quadrant-label.q3 { left: 28px; bottom: 42px; }
+.deck-quadrant-label.q4 { right: 28px; bottom: 42px; text-align: right; }
+.deck-scatter-point {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 900;
+  box-shadow: 0 16px 32px rgba(76,29,149,0.18);
+}
+.deck-scatter-point.primary { background: var(--point-1); }
+.deck-scatter-point.secondary { background: #8B5CF6; }
+.deck-scatter-point.tertiary { background: #A78BFA; }
+.deck-scatter-point.muted { background: #94A3B8; }
+.deck-scatter .axis-x,
+.deck-scatter .axis-y { position: absolute; color: var(--fg-5); font-size: 18px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.deck-scatter .axis-x { right: 24px; bottom: 12px; }
+.deck-scatter .axis-y { left: 16px; top: 50%; transform: rotate(-90deg); transform-origin: left center; }
+.deck-tree-shell { margin-top: 4px; }
+.deck-tree {
+  position: relative;
+  height: 410px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(250,250,250,0.98), rgba(244,240,254,0.72));
+  border: 1px solid var(--basic-3);
+  overflow: hidden;
+}
+.deck-tree svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.deck-tree path { fill: none; stroke: rgba(124,58,237,0.28); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.deck-tree-node {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  min-width: 170px;
+  padding: 18px 24px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(124,58,237,0.18);
+  color: var(--fg-2);
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 14px 36px rgba(76,29,149,0.10);
+}
+.deck-tree-node.root { background: linear-gradient(135deg, var(--point-1), var(--point-2)); color: #fff; border: 0; }
+.deck-tree-node.leaf { min-width: 140px; color: var(--point-1); background: rgba(255,255,255,0.9); }
+.deck-treemap {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 82px);
+  gap: 12px;
+  padding: 12px;
+  border-radius: 24px;
+  background: var(--basic-2);
+  border: 1px solid var(--basic-3);
+}
+.deck-treemap-cell {
+  border-radius: 20px;
+  padding: 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+}
+.deck-treemap-cell b { font-size: 30px; letter-spacing: -0.01em; }
+.deck-treemap-cell span { font-size: 42px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.deck-treemap-cell.primary { background: linear-gradient(135deg, var(--point-1), #6D28D9); }
+.deck-treemap-cell.secondary { background: linear-gradient(135deg, #8B5CF6, #A78BFA); }
+.deck-treemap-cell.tertiary { background: linear-gradient(135deg, #A78BFA, #C4B5FD); color: #2E1065; }
+.deck-treemap-cell.soft { background: linear-gradient(135deg, #DDD6FE, #F4F0FE); color: #4C1D95; }
+.deck-treemap-cell.muted { background: linear-gradient(135deg, #94A3B8, #CBD5E1); color: #1F2937; }
+
+/* ─── Concept / callout card ─── */
+.concept-card {
+  padding: 56px 64px;
+  background: linear-gradient(135deg, #ffffff 0%, #EEEAFE 100%);
+  border: 1px solid rgba(124,58,237,0.22);
+  border-radius: 28px;
+  box-shadow: 0 20px 50px rgba(76,29,149,0.08);
+}
+.concept-card .label { font-size: 24px; font-weight: 700; letter-spacing: 0.12em; color: var(--point-1); text-transform: uppercase; margin-bottom: 20px; }
+.concept-card .def { font-size: 36px; line-height: 1.45; color: #1c1033; font-weight: 500; text-wrap: pretty; }
+.concept-card .def strong { font-weight: 800; color: var(--point-1); }
+.concept-card .cite { font-size: 24px; color: var(--fg-5); margin-top: 20px; font-style: italic; }
+
+/* ─── Glossary grid (slide 03) ─── */
+.gloss-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 36px;
+  margin-top: 24px;
+}
+.gloss-item {
+  background: linear-gradient(135deg, #ffffff 0%, #F4F0FE 100%);
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  border-radius: 22px;
+  padding: 28px 36px;
+  box-shadow: 0 12px 32px rgba(76,29,149,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.gloss-item .term {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--point-1);
+  letter-spacing: -0.005em;
+}
+.gloss-item .term .en {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--fg-4);
+  letter-spacing: 0.02em;
+  font-style: italic;
+}
+.gloss-item .desc {
+  font-size: 24px;
+  line-height: 1.5;
+  color: #1c1033;
+  text-wrap: pretty;
+}
+.gloss-item .desc strong { color: var(--point-1); font-weight: 700; }
+
+/* ─── Bullet list (tasteful) ─── */
+.bullets {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: var(--item-gap);
+}
+.bullets li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 24px;
+  font-size: var(--t-body);
+  line-height: 1.45;
+  color: var(--fg-2);
+}
+.bullets li .b-dot {
+  width: 14px; height: 14px; margin-top: 20px;
+  border-radius: 9999px;
+  background: var(--point-2);
+}
+.bullets li strong { color: var(--fg-1); font-weight: 700; }
+.bullets.small li { font-size: var(--t-bodyS); }
+
+.num-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 24px;
+}
+.num-list li {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 28px;
+  align-items: baseline;
+}
+.num-list li .n {
+  font-size: 40px; font-weight: 800;
+  color: var(--point-1);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.num-list li .t {
+  font-size: var(--t-body);
+  line-height: 1.45;
+  color: var(--fg-2);
+}
+.num-list li .t strong { color: var(--fg-1); font-weight: 700; }
+
+/* ─── Cycle diagram (3 phases) ─── */
+.cycle {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr 80px 1fr;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 16px;
+}
+.cycle-phase {
+  display: flex; flex-direction: column; gap: 16px;
+  padding: 44px 36px;
+  border-radius: 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--basic-3);
+  position: relative;
+}
+.cycle-phase .ph-num {
+  font-size: 24px; font-weight: 700;
+  letter-spacing: 0.14em; color: var(--point-1);
+  text-transform: uppercase;
+}
+.cycle-phase .ph-name {
+  font-size: 40px; font-weight: 800; color: var(--fg-1);
+  letter-spacing: -0.02em; line-height: 1.15;
+}
+.cycle-phase .ph-en {
+  font-size: 24px; color: var(--fg-5); font-style: italic;
+  margin-top: -4px;
+}
+.cycle-phase .ph-desc {
+  font-size: 24px; line-height: 1.5; color: var(--fg-3);
+}
+.cycle-phase.p1 { background: linear-gradient(180deg, #ffffff, #FDF7FF); }
+.cycle-phase.p2 { background: linear-gradient(180deg, #2c0f66 0%, #4c1d95 100%); color: #fff; border-color: rgba(124,58,237,0.4); }
+.cycle-phase.p2 .ph-num { color: #DDD6FE; }
+.cycle-phase.p2 .ph-name { color: #fff; }
+.cycle-phase.p2 .ph-en { color: rgba(255,255,255,0.7); }
+.cycle-phase.p2 .ph-desc { color: rgba(255,255,255,0.85); }
+.cycle-phase.p3 { background: linear-gradient(180deg, #ffffff, #F3EEFE); }
+
+.cycle-arrow {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--point-2);
+  font-size: 56px; font-weight: 300;
+}
+
+.cycle-loop {
+  display: flex; justify-content: center; align-items: center; gap: 14px;
+  margin-top: 28px;
+  color: var(--point-1);
+  font-size: 24px; font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.cycle-loop::before, .cycle-loop::after {
+  content: ""; height: 1px; flex: 1; max-width: 420px; background: var(--basic-3);
+}
+
+/* ─── Comparison / split ─── */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--basic-3);
+  background: var(--bg-surface);
+}
+.split > div {
+  padding: 48px 44px;
+}
+.split .left { background: #fafafa; }
+.split .right { background: linear-gradient(180deg, #F3EEFE, #EEEAFE); border-left: 1px solid rgba(124,58,237,0.2); }
+.split h3 { font-size: 32px; font-weight: 800; margin: 0 0 20px 0; letter-spacing: -0.01em; }
+.split .right h3 { color: var(--point-1); }
+.split ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+.split li { font-size: 24px; line-height: 1.5; color: var(--fg-2); padding-left: 26px; position: relative; }
+.split li::before {
+  content: ""; position: absolute; left: 0; top: 12px;
+  width: 10px; height: 10px; border-radius: 9999px; background: var(--point-2);
+}
+.split .left li::before { background: var(--zinc-400); }
+
+/* ─── Quote slide ─── */
+.quote-wrap {
+  display: flex; flex-direction: column; justify-content: center;
+  flex: 1;
+  max-width: 1500px;
+}
+.quote {
+  font-size: 68px; line-height: 1.25;
+  font-weight: 600;
+  color: #0b0714;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: pretty;
+}
+.quote .mark {
+  font-family: Georgia, serif;
+  font-size: 160px;
+  color: var(--point-2);
+  line-height: 0.2;
+  vertical-align: -20px;
+  margin-right: 12px;
+}
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 26px; font-weight: 500;
+  color: var(--point-1);
+  margin-top: 44px;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Table ─── */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 24px;
+  background: var(--bg-surface);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  border: 1px solid var(--basic-3);
+}
+.tbl th, .tbl td {
+  padding: 22px 26px;
+  text-align: left;
+  border-bottom: 1px solid var(--basic-3);
+  vertical-align: top;
+  line-height: 1.45;
+}
+.tbl thead th {
+  background: #F3EEFE;
+  color: var(--point-1);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+}
+.tbl tbody tr:last-child td { border-bottom: 0; }
+.tbl tbody td.first { font-weight: 700; color: var(--fg-1); }
+.tbl tbody td .src { color: var(--fg-5); font-size: 24px; display: block; margin-top: 4px; }
+
+/* ─── Reference list ─── */
+.refs {
+  list-style: none; padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 60px;
+}
+.refs li {
+  font-size: 24px; line-height: 1.5; color: var(--fg-3);
+  padding-left: 36px;
+  position: relative;
+}
+.refs li .num {
+  position: absolute; left: 0; top: 0;
+  color: var(--point-1);
+  font-weight: 700;
+}
+.refs li em { color: var(--fg-2); font-style: italic; }
+
+/* ─── Thank-you / closing ─── */
+.closing {
+  background: linear-gradient(180deg, #fafafa 0%, #F3EEFE 100%);
+  color: var(--fg-1);
+  justify-content: center;
+}
+.closing::before {
+  width: 900px; height: 900px;
+  top: 0; left: 0;
+  background: radial-gradient(closest-side, rgba(124,58,237,0.30), rgba(124,58,237,0));
+}
+.closing::after {
+  width: 780px; height: 780px;
+  right: 0; bottom: 0; top: auto;
+  background: radial-gradient(closest-side, rgba(139,92,246,0.22), rgba(139,92,246,0));
+}
+.closing h1 { font-size: 140px; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 24px 0; color: #0b0714; }
+.closing p { font-size: 34px; color: var(--fg-3); margin: 0; max-width: 1300px; }
+.closing .refs li { color: var(--fg-2) !important; }
+.closing .refs li em { color: var(--fg-3); font-style: italic; }
+.closing .refs li .num { color: var(--point-1); font-weight: 800; }
+.closing .eyebrow { color: var(--point-1) !important; }
+
+/* Key phrase highlight — violet underline */
+.hl {
+  background: linear-gradient(transparent 62%, rgba(124,58,237,0.22) 62%);
+  padding: 0 4px;
+  font-weight: 700;
+  color: var(--fg-1);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* LECTURE TEMPLATES */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.code-block {
+  background: var(--violet-900);
+  color: var(--point-tint-soft);
+  border-radius: var(--radius-md);
+  padding: 32px 36px;
+  font-family: 'Courier New', monospace;
+  font-size: 24px;
+  line-height: 1.5;
+  box-shadow: var(--shadow-md);
+  overflow-x: auto;
+}
+
+.code-block pre {
+  margin: 0;
+  white-space: pre;
+}
+
+.code-block .ln {
+  display: inline-block;
+  width: 36px;
+  color: var(--zinc-500);
+  text-align: right;
+  padding-right: 16px;
+  user-select: none;
+}
+
+.code-block mark {
+  background: rgba(139, 92, 246, 0.28);
+  color: var(--basic-0);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.num-list.step .n {
+  font-size: 28px;
+  color: var(--point-2);
+  white-space: pre-line;
+  min-width: 120px;
+}
+
+.gloss-item.is-correct {
+  border: 2px solid var(--point-1);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+  position: relative;
+}
+
+.gloss-item.is-correct::after {
+  content: '✓';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: var(--point-1);
+  font-weight: 900;
+  font-size: 18px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* MEDIA TEMPLATES */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.slide.has-fullbleed {
+  padding: 0;
+}
+
+.media-fullbleed {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, var(--violet-950), var(--point-2));
+  border-radius: 0;
+}
+
+.media-overlay {
+  position: absolute !important;
+  left: 120px;
+  bottom: 200px;
+  max-width: 900px;
+  padding: 36px 44px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  z-index: 1;
+}
+
+.media-pair {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 56px;
+}
+
+.media-frame {
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--point-4), var(--violet-400));
+  border: 1px solid rgba(124, 58, 237, 0.22);
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.media-frame::after {
+  content: '이미지 placeholder';
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.media-annotation {
+  position: relative;
+  height: 600px;
+}
+
+.pin {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--point-1);
+  color: var(--basic-0);
+  font-weight: 900;
+  font-size: 26px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 28px rgba(76, 29, 149, 0.3);
+}
+
+.split.media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.split.media h3 {
+  color: var(--point-2);
+  margin-top: 0;
+}
+
+.split.media .right h3 {
+  color: var(--point-1);
+}
+
+.split.media > div {
+  min-width: 0;
+}
+
+.split.media .media-frame {
+  width: 100%;
+  height: 420px !important;
+  aspect-ratio: auto;
+}
+
+.media-video {
+  aspect-ratio: 16 / 9;
+  background: radial-gradient(circle at center, var(--point-800), var(--violet-900));
+  border-radius: 24px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.media-video::before {
+  content: '▶';
+  font-size: 80px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.device-frame {
+  width: 760px;
+  border-radius: 20px;
+  background: var(--zinc-800);
+  padding: 24px 24px 56px 24px;
+}
+
+.device-frame.mobile {
+  width: 260px;
+  border-radius: 36px;
+  padding: 16px 10px 26px 10px;
+}
+
+.device-frame .screen {
+  background: linear-gradient(135deg, var(--point-4), var(--violet-400));
+  border-radius: 12px;
+  aspect-ratio: 16 / 10;
+}
+
+.device-frame.mobile .screen {
+  aspect-ratio: 9 / 19.5;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* OPERATIONS TEMPLATES */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.avatar-mono {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--point-1), var(--point-3));
+  color: var(--basic-0);
+  font-weight: 900;
+  font-size: 96px;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-lg);
+  flex-shrink: 0;
+}
+
+.avatar-mono.sm {
+  width: 80px;
+  height: 80px;
+  font-size: 36px;
+}
+
+.team-card {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--basic-3);
+}
+
+.team-card:last-child {
+  border-bottom: none;
+}
+
+.team-card .name {
+  font-weight: 700;
+  color: var(--fg-1);
+  margin-bottom: 4px;
+}
+
+.team-card .role {
+  font-size: 20px;
+  color: var(--point-2);
+  margin-bottom: 8px;
+}
+
+.team-card .bio {
+  font-size: 20px;
+  color: var(--fg-3);
+  line-height: 1.4;
+}
+
+.qr-card {
+  width: 280px;
+  height: 280px;
+  padding: 20px;
+  background: var(--basic-0);
+  border-radius: 20px;
+  border: 1px solid var(--basic-3);
+  box-shadow: var(--shadow-md);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.qr-card svg {
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+<script type="application/json" id="speaker-notes">
+[
+  "슬라이드 01은 표지 템플릿입니다. 발표 제목, 부제, 작성자, 소속, 연도를 치환합니다.",
+  "슬라이드 02는 그룹형 목차 템플릿입니다. 전체 30장을 나열하지 않고 기본·전략·제품·리서치·데이터·제안·워크숍·Closing 묶음으로 안내합니다.",
+  "슬라이드 03은 용어 정리 템플릿입니다. 핵심 용어, 영어 키워드, 간단한 정의를 치환합니다.",
+  "슬라이드 05는 지표 카드 템플릿입니다. 세 개의 대표 수치, 단위, 출처 표기를 예시 데이터로 치환합니다.",
+  "슬라이드 06은 개념 카드 템플릿입니다. 정의, 보조 설명, 출처 또는 메모를 입력합니다.",
+  "슬라이드 07은 두 단 구성 템플릿입니다. 왼쪽에는 배경, 오른쪽에는 핵심 메시지나 판단을 배치합니다.",
+  "슬라이드 09는 번호 목록 템플릿입니다. 3개의 핵심 조건이나 실행 단계를 순서대로 설명합니다.",
+  "슬라이드 10은 세 가지 조건 템플릿입니다. 조건명, 요약, 적용 포인트를 카드 단위로 교체합니다.",
+  "슬라이드 12는 표 예시 템플릿입니다. 기준, 항목, 설명, 출처를 placeholder로 유지하며 치환합니다.",
+  "슬라이드 18은 Strategy Roadmap 템플릿입니다. Now·Next·Later 단계의 목표, 산출물, 확인 지표를 치환합니다.",
+  "슬라이드 24는 Data Trend Line 템플릿입니다. 시점별 흐름, 전환점, 해석 문장을 placeholder 수치로 표시합니다.",
+  "슬라이드 41은 Media Full-bleed Image 템플릿입니다. 전체 화면 이미지 placeholder와 글래스 모피즘 캡션 오버레이를 배치합니다.",
+  "슬라이드 53은 Timeline 마일스톤 템플릿입니다. 분기·월 단위로 주요 마일스톤과 산출물을 가로 타임라인 위에 배치합니다.",
+  "슬라이드 54는 SWOT 분석 템플릿입니다. 강점·약점·기회·위협을 2×2 그리드로 정리하여 전략 도출의 출발점을 만듭니다.",
+  "슬라이드 59는 Closing 템플릿입니다. 감사 인사, Q&A 안내, 참고자료 placeholder를 입력합니다."
+]
+</script>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 -->
+<section class="slide cover" data-label="01 표지">
+    <div class="s-counter" style="position:absolute; top:92px; right:120px; color:rgba(255,255,255,0.78);">01 / 59</div>
+    <div>
+      <div class="cover-kicker">프레젠테이션 템플릿 · 카테고리</div>
+    </div>
+    <div class="cover-body">
+      <h1>프레젠테이션<br/>제목입니다</h1>
+      <div class="cover-en">Presentation Subtitle Template Text</div>
+    </div>
+    <div class="cover-meta">
+      <div style="display:flex; gap:80px;">
+        <div class="meta-block">
+          <div class="label">작성자</div>
+          <div class="value">이름을 입력하세요</div>
+        </div>
+        <div class="meta-block">
+          <div class="label">소속</div>
+          <div class="value">소속 또는 기관명</div>
+        </div>
+      </div>
+      <div class="course-badge">
+        <div class="c1">TEMPLATE · 2026</div>
+        <div class="c2">STYLE GUIDE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+<section class="slide" data-label="02 목차">
+    <div class="s-head">
+      <div class="eyebrow">Agenda · 목차</div>
+      <div class="s-counter">02 / 59</div>
+    </div>
+    <h1 class="s-title">발표 순서입니다</h1>
+    <div class="toc-grid">
+      <div class="toc-item"><div class="num">01</div><div><div class="ttl">기본 템플릿</div><div class="sub">표지, 목차, 용어, 문제 제기, 지표·그래프 기본형</div></div></div>
+      <div class="toc-item"><div class="num">02</div><div><div class="ttl">전략 · Strategy</div><div class="sub">Executive Summary, Decision Matrix, Roadmap</div></div></div>
+      <div class="toc-item"><div class="num">03</div><div><div class="ttl">제품 · Product</div><div class="sub">User Journey, Feature Priority, Before/After</div></div></div>
+      <div class="toc-item"><div class="num">04</div><div><div class="ttl">리서치 · Research</div><div class="sub">Findings Summary, Persona Snapshot</div></div></div>
+      <div class="toc-item"><div class="num">05</div><div><div class="ttl">데이터 · Graph Templates</div><div class="sub">Trend, KPI, Bar, Pie/Donut, Scatter, Tree, Treemap</div></div></div>
+      <div class="toc-item"><div class="num">06</div><div><div class="ttl">제안·영업 · Sales/Proposal</div><div class="sub">Pricing / Package Comparison</div></div></div>
+      <div class="toc-item"><div class="num">07</div><div><div class="ttl">워크숍 · Workshop</div><div class="sub">Activity Guide와 진행 산출물 안내</div></div></div>
+      <div class="toc-item"><div class="num">08</div><div><div class="ttl">Closing</div><div class="sub">Q&amp;A, 참고자료, 마무리 메시지</div></div></div>
+    </div>
+    <div class="s-foot">
+      <span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span>
+      <span>목차 · 스타일 예시</span>
+    </div>
+  </section>
+
+  <!-- 03 -->
+<section class="slide" data-label="03 용어 정리">
+    <div class="s-head">
+      <div class="eyebrow">Glossary · 핵심 용어</div>
+      <div class="s-counter">03 / 59</div>
+    </div>
+    <h1 class="s-title">핵심 용어 정리입니다</h1>
+
+    <div class="gloss-grid">
+      <div class="gloss-item">
+        <div class="term">용어 제목입니다<span class="en">Keyword Template</span></div>
+        <div class="desc">용어 설명을 입력하는 영역입니다. <strong>강조 텍스트</strong>를 포함할 수 있습니다.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="term">용어 제목입니다<span class="en">Keyword Template</span></div>
+        <div class="desc">용어 설명을 입력하는 영역입니다. <strong>강조 텍스트</strong>를 포함할 수 있습니다.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="term">용어 제목입니다<span class="en">Keyword Template</span></div>
+        <div class="desc">용어 설명을 입력하는 영역입니다. <strong>강조 텍스트</strong>를 포함할 수 있습니다.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="term">용어 제목입니다<span class="en">Keyword Template</span></div>
+        <div class="desc">용어 설명을 입력하는 영역입니다. <strong>강조 텍스트</strong>를 포함할 수 있습니다.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="term">용어 제목입니다<span class="en">Keyword Template</span></div>
+        <div class="desc">용어 설명을 입력하는 영역입니다. <strong>강조 텍스트</strong>를 포함할 수 있습니다.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="term">용어 제목입니다<span class="en">Keyword Template</span></div>
+        <div class="desc">용어 설명을 입력하는 영역입니다. <strong>강조 텍스트</strong>를 포함할 수 있습니다.</div>
+      </div>
+    </div>
+
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>용어 정리 · 스타일 예시</span></div>
+  </section>
+
+  <!-- 04 -->
+<section class="slide" data-label="05 지표 카드">
+    <div class="s-head">
+      <div class="eyebrow">02 · Context</div>
+      <div class="s-counter">05 / 59</div>
+    </div>
+    <h1 class="s-title">지표형 제목입니다</h1>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="num">00.0<span class="unit">%</span></div>
+        <div class="label">첫 번째 핵심 지표 설명입니다</div>
+        <div class="src">출처 또는 보조 설명입니다</div>
+      </div>
+      <div class="stat">
+        <div class="num">00.0<span class="unit">%</span></div>
+        <div class="label">두 번째 핵심 지표 설명입니다</div>
+        <div class="src">출처 또는 보조 설명입니다</div>
+      </div>
+      <div class="stat">
+        <div class="num">2026</div>
+        <div class="label">연도 또는 수치 지표 설명입니다</div>
+        <div class="src">출처 또는 보조 설명입니다</div>
+      </div>
+    </div>
+
+    <p class="lede" style="margin-top: 40px;">
+      핵심 요약 문장입니다. <strong>강조가 필요한 문장</strong>을 입력합니다.
+    </p>
+
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>02 · 지표</span></div>
+  </section>
+
+  <!-- 05 -->
+<section class="slide" data-label="06 개념 카드">
+    <div class="s-head">
+      <div class="eyebrow">03 · Definition</div>
+      <div class="s-counter">06 / 59</div>
+    </div>
+    <h1 class="s-title">개념 정의 제목입니다</h1>
+
+    <div class="concept-card">
+      <div class="label">CONCEPT LABEL · 개념 정의</div>
+      <div class="def">
+        <strong>핵심 개념을 설명하는 문장</strong>입니다. 정의, 범위, 특징을 간결하게 입력하고
+        <strong>중요한 문구</strong>를 강조합니다.
+      </div>
+      <div class="cite">참고 출처 또는 보조 설명을 입력하세요</div>
+    </div>
+
+    <ul class="bullets small" style="margin-top: 36px;">
+      <li><span class="b-dot"></span><span><strong>첫 번째 포인트</strong>를 설명하는 문장입니다</span></li>
+      <li><span class="b-dot"></span><span>두 번째 포인트와 <strong>강조 문구</strong>를 입력합니다</span></li>
+    </ul>
+
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>03 · 개념</span></div>
+  </section>
+
+  <!-- 06 -->
+<section class="slide" data-label="07 두 단 구성">
+    <div class="s-head">
+      <div class="eyebrow">04 · Theory I</div>
+      <div class="s-counter">07 / 59</div>
+    </div>
+    <h1 class="s-title">두 단 비교 제목입니다</h1>
+
+    <div class="two-col">
+      <div>
+        <div class="col-label">왼쪽 항목</div>
+        <ul class="bullets small">
+          <li><span class="b-dot"></span><span><strong>왼쪽 첫 번째</strong> 설명 문장입니다</span></li>
+          <li><span class="b-dot"></span><span>왼쪽 두 번째 설명 문장입니다</span></li>
+          <li><span class="b-dot"></span><span>왼쪽 세 번째 설명 문장입니다</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">오른쪽 항목</div>
+        <ul class="bullets small">
+          <li><span class="b-dot"></span><span><strong>오른쪽 첫 번째</strong> 설명 문장입니다</span></li>
+          <li><span class="b-dot"></span><span>오른쪽 두 번째 설명 문장입니다</span></li>
+          <li><span class="b-dot"></span><span>오른쪽 세 번째 설명 문장입니다</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="concept-card" style="margin-top: 52px; padding: 36px 48px;">
+      <div class="def" style="font-size: 30px;">
+        강조 박스에 들어갈 <strong>핵심 메시지 문장</strong>입니다. 발표의 요지를 한 문장으로 정리합니다.
+      </div>
+    </div>
+
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>04 · 두 단 구성</span></div>
+  </section>
+
+  <!-- 07 -->
+<section class="slide" data-label="09 번호 목록">
+    <div class="s-head">
+      <div class="eyebrow">05 · List</div>
+      <div class="s-counter">09 / 59</div>
+    </div>
+    <h1 class="s-title">번호 목록 제목입니다</h1>
+
+    <ol class="num-list" style="margin-top: 24px;">
+      <li>
+        <div class="n">01</div>
+        <div class="t"><strong>첫 번째 항목 제목입니다</strong><br/>
+          <span style="color:var(--fg-4); font-size:26px;">첫 번째 항목의 설명 문장을 입력합니다</span></div>
+      </li>
+      <li>
+        <div class="n">02</div>
+        <div class="t"><strong>두 번째 항목 제목입니다</strong> <span style="color:var(--point-1); font-size:24px;">— 강조 라벨</span><br/>
+          <span style="color:var(--fg-4); font-size:26px;">두 번째 항목의 설명 문장을 입력합니다</span></div>
+      </li>
+      <li>
+        <div class="n">03</div>
+        <div class="t"><strong>세 번째 항목 제목입니다</strong><br/>
+          <span style="color:var(--fg-4); font-size:26px;">세 번째 항목의 설명 문장을 입력합니다</span></div>
+      </li>
+    </ol>
+
+    <p class="lede" style="margin-top: 40px; font-size: 26px;">
+      목록을 요약하는 문장입니다. <span class="hl">강조 문구</span>를 넣을 수 있습니다.
+    </p>
+
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>05 · 목록</span></div>
+  </section>
+
+  <!-- 08 -->
+<section class="slide" data-label="10 세 가지 조건">
+    <div class="s-head">
+      <div class="eyebrow">06 · Framework I</div>
+      <div class="s-counter">10 / 59</div>
+    </div>
+    <h1 class="s-title">세 가지 조건 제목입니다</h1>
+
+    <div class="concept-card" style="padding: 40px 56px;">
+      <div class="label">인용 또는 원문 영역</div>
+      <div class="def" style="font-size: 30px; line-height:1.5;">
+        "<strong>강조 문장</strong>을 포함한 인용문 또는 핵심 정의 문장을 입력합니다."
+      </div>
+    </div>
+
+    <div class="stat-row" style="margin-top: 44px;">
+      <div class="stat">
+        <div class="num" style="font-size:64px;">조건 A</div>
+        <div class="label">첫 번째 조건 설명입니다</div>
+        <div class="src">보조 설명입니다</div>
+      </div>
+      <div class="stat">
+        <div class="num" style="font-size:64px;">조건 B</div>
+        <div class="label">두 번째 조건 설명입니다</div>
+        <div class="src">보조 설명입니다</div>
+      </div>
+      <div class="stat">
+        <div class="num" style="font-size:64px;">조건 C</div>
+        <div class="label">세 번째 조건 설명입니다</div>
+        <div class="src">보조 설명입니다</div>
+      </div>
+    </div>
+
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>06 · 조건</span></div>
+  </section>
+
+  <!-- 09 -->
+<section class="slide" data-label="12 표 예시">
+    <div class="s-head">
+      <div class="eyebrow">07 · Table</div>
+      <div class="s-counter">12 / 59</div>
+    </div>
+    <h1 class="s-title">표 형식 제목입니다</h1>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th style="width: 22%;">항목</th>
+          <th style="width: 18%;">구분</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="first">첫 번째 항목<span class="src">보조 설명</span></td>
+          <td>구분 A</td>
+          <td>첫 번째 항목의 설명 문장입니다. 필요한 내용을 입력하세요.</td>
+        </tr>
+        <tr>
+          <td class="first">두 번째 항목<span class="src">보조 설명</span></td>
+          <td>구분 B</td>
+          <td>두 번째 항목의 설명 문장입니다. 필요한 내용을 입력하세요.</td>
+        </tr>
+        <tr>
+          <td class="first">세 번째 항목<span class="src">보조 설명</span></td>
+          <td>구분 C</td>
+          <td>세 번째 항목의 설명 문장입니다. 필요한 내용을 입력하세요.</td>
+        </tr>
+        <tr>
+          <td class="first">네 번째 항목<span class="src">보조 설명</span></td>
+          <td>구분 D</td>
+          <td>네 번째 항목의 설명 문장입니다. <strong>강조 문구</strong>를 포함할 수 있습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="lede" style="margin-top: 36px; font-size: 24px; color: var(--fg-5);">
+      ※ 표에 대한 주석 또는 안내 문장입니다.
+    </p>
+
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>07 · 표</span></div>
+  </section>
+
+  <!-- 10 -->
+<section class="slide" data-label="18 Strategy Roadmap">
+    <div class="s-head">
+      <div class="eyebrow">Strategy · Roadmap</div>
+      <div class="s-counter">18 / 59</div>
+    </div>
+    <h1 class="s-title">Now · Next · Later 실행 흐름입니다</h1>
+    <ol class="num-list">
+      <li><div class="n">Now</div><div class="t"><strong>즉시 착수할 항목입니다.</strong><br/><span style="color:var(--fg-4);font-size:26px;">담당자, 시작 조건, 첫 산출물을 입력합니다.</span></div></li>
+      <li><div class="n">Next</div><div class="t"><strong>다음 단계의 확장 항목입니다.</strong><br/><span style="color:var(--fg-4);font-size:26px;">검증 지표와 완료 기준을 적습니다.</span></div></li>
+      <li><div class="n">Later</div><div class="t"><strong>장기 검토 또는 옵션 항목입니다.</strong><br/><span style="color:var(--fg-4);font-size:26px;">보류 이유와 재검토 조건을 남깁니다.</span></div></li>
+    </ol>
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>Strategy · Roadmap</span></div>
+  </section>
+
+  <!-- 11 -->
+<section class="slide" data-label="24 Data Trend Line">
+    <div class="s-head">
+      <div class="eyebrow">Data · Trend Line</div>
+      <div class="s-counter">24 / 59</div>
+    </div>
+    <h1 class="s-title">시간 흐름과 전환점을 보여줍니다</h1>
+    <div class="deck-chart chart" style="background:var(--bg-surface);border:1px solid var(--basic-3);border-radius:24px;padding:42px;">
+      <svg viewBox="0 0 1320 360" style="width:100%;height:360px;display:block;" role="img" aria-label="placeholder trend line chart">
+        <line x1="40" y1="300" x2="1280" y2="300" stroke="#E4E4E7" stroke-width="3"/>
+        <line x1="40" y1="40" x2="40" y2="300" stroke="#E4E4E7" stroke-width="3"/>
+        <polyline points="60,260 260,230 460,244 660,180 860,132 1060,150 1260,88" fill="none" stroke="#7C3AED" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="860" cy="132" r="16" fill="#8B5CF6"/><text x="900" y="122" fill="#5B21B6" font-size="34" font-weight="700">Turning point</text>
+      </svg>
+    </div>
+    <p class="chart-cap"><strong>읽는 법:</strong> 축 이름, 기간, 변곡점 설명을 실제 발표 맥락에 맞게 교체합니다.</p>
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>Data · Trend</span></div>
+  </section>
+
+  <!-- 12 -->
+<section class="slide has-fullbleed" data-label="41 Media Full-bleed Image">
+    <div class="media-fullbleed"></div>
+    <div class="media-overlay">
+      <div class="eyebrow" style="color:var(--point-2); margin-bottom:12px;">Visual · 풀스크린</div>
+      <h2 style="margin:0 0 8px 0; font-size:36px; color:var(--fg-1);">이미지 캡션 제목</h2>
+      <p style="margin:0; font-size:20px; color:var(--fg-3);">이미지에 대한 설명이나 출처, 핵심 메시지를 입력합니다.</p>
+    </div>
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>Media · Full-bleed</span></div>
+  </section>
+
+  <!-- 13 -->
+<section class="slide" data-label="53 Timeline 마일스톤">
+    <div class="s-head">
+      <div class="eyebrow">Project · Timeline</div>
+      <div class="s-counter">53 / 59</div>
+    </div>
+    <h1 class="s-title">프로젝트 타임라인입니다</h1>
+    <p class="lede" style="margin-top:14px; max-width:1500px;">분기·월 단위 마일스톤을 가로축에 배치하고, 각 노드에 산출물 또는 의사결정 시점을 표기합니다.</p>
+
+    <div style="position:relative; margin-top:120px; padding:0 40px;">
+      <div style="position:absolute; left:40px; right:40px; top:50%; height:6px; background:linear-gradient(90deg, var(--point-1), var(--point-2)); border-radius:999px; transform:translateY(-50%);"></div>
+      <div style="display:grid; grid-template-columns:repeat(5, 1fr); position:relative;">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:18px;">
+          <div style="font-size:22px; font-weight:700; color:var(--fg-5); letter-spacing:0.08em;">Q1 · 1월</div>
+          <div style="width:32px; height:32px; border-radius:999px; background:#fff; border:6px solid var(--point-1); box-shadow:0 4px 12px rgba(124,58,237,0.3);"></div>
+          <div style="text-align:center; max-width:240px;">
+            <div style="font-size:24px; font-weight:700; color:var(--fg-1); margin-bottom:6px;">킥오프</div>
+            <div style="font-size:18px; color:var(--fg-5); line-height:1.4;">기획 · 요구사항 정리</div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:18px;">
+          <div style="font-size:22px; font-weight:700; color:var(--fg-5); letter-spacing:0.08em;">Q1 · 3월</div>
+          <div style="width:32px; height:32px; border-radius:999px; background:#fff; border:6px solid var(--point-1); box-shadow:0 4px 12px rgba(124,58,237,0.3);"></div>
+          <div style="text-align:center; max-width:240px;">
+            <div style="font-size:24px; font-weight:700; color:var(--fg-1); margin-bottom:6px;">설계 완료</div>
+            <div style="font-size:18px; color:var(--fg-5); line-height:1.4;">아키텍처 · 디자인 확정</div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:18px;">
+          <div style="font-size:22px; font-weight:700; color:var(--point-1); letter-spacing:0.08em;">Q2 · 6월 (현재)</div>
+          <div style="width:44px; height:44px; border-radius:999px; background:var(--point-1); border:6px solid #fff; box-shadow:0 0 0 4px var(--point-1), 0 8px 20px rgba(124,58,237,0.4);"></div>
+          <div style="text-align:center; max-width:240px;">
+            <div style="font-size:24px; font-weight:700; color:var(--point-1); margin-bottom:6px;">베타 출시</div>
+            <div style="font-size:18px; color:var(--fg-3); line-height:1.4;">내부 검증 · 피드백 수집</div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:18px;">
+          <div style="font-size:22px; font-weight:700; color:var(--fg-5); letter-spacing:0.08em;">Q3 · 9월</div>
+          <div style="width:32px; height:32px; border-radius:999px; background:#fff; border:6px solid #C4B5FD;"></div>
+          <div style="text-align:center; max-width:240px;">
+            <div style="font-size:24px; font-weight:700; color:var(--fg-3); margin-bottom:6px;">정식 출시</div>
+            <div style="font-size:18px; color:var(--fg-5); line-height:1.4;">전체 사용자 공개</div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:18px;">
+          <div style="font-size:22px; font-weight:700; color:var(--fg-5); letter-spacing:0.08em;">Q4 · 12월</div>
+          <div style="width:32px; height:32px; border-radius:999px; background:#fff; border:6px solid #C4B5FD;"></div>
+          <div style="text-align:center; max-width:240px;">
+            <div style="font-size:24px; font-weight:700; color:var(--fg-3); margin-bottom:6px;">회고 · 차기 계획</div>
+            <div style="font-size:18px; color:var(--fg-5); line-height:1.4;">성과 측정 · 로드맵 갱신</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>Project · Milestones</span></div>
+  </section>
+
+  <!-- 14 -->
+<section class="slide" data-label="54 SWOT 분석">
+    <div class="s-head">
+      <div class="eyebrow">Strategy · SWOT Analysis</div>
+      <div class="s-counter">54 / 59</div>
+    </div>
+    <h1 class="s-title">SWOT 분석 템플릿입니다</h1>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px;">
+      <div style="padding:36px 40px; background:linear-gradient(135deg, #F5F3FF, #EDE9FE); border:1px solid var(--point-2); border-radius:18px; min-height:260px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+          <div style="width:40px; height:40px; border-radius:10px; background:var(--point-1); color:#fff; display:grid; place-items:center; font-size:22px; font-weight:800;">S</div>
+          <div style="font-size:24px; font-weight:700; color:var(--point-1); letter-spacing:0.08em; text-transform:uppercase;">Strengths · 강점</div>
+        </div>
+        <ul class="bullets" style="margin:0;">
+          <li><span class="b-dot"></span><span>내부에서 보유한 핵심 자산이나 역량을 입력하세요.</span></li>
+          <li><span class="b-dot"></span><span>경쟁자 대비 차별화되는 우위 요소를 작성합니다.</span></li>
+          <li><span class="b-dot"></span><span>지속 가능한 경쟁력의 원천을 정리합니다.</span></li>
+        </ul>
+      </div>
+      <div style="padding:36px 40px; background:#FEF7F0; border:1px solid #F5C9A8; border-radius:18px; min-height:260px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+          <div style="width:40px; height:40px; border-radius:10px; background:#D97706; color:#fff; display:grid; place-items:center; font-size:22px; font-weight:800;">W</div>
+          <div style="font-size:24px; font-weight:700; color:#B45309; letter-spacing:0.08em; text-transform:uppercase;">Weaknesses · 약점</div>
+        </div>
+        <ul class="bullets" style="margin:0;">
+          <li><span class="b-dot" style="background:#D97706;"></span><span>개선이 필요한 내부 한계점을 솔직하게 진단합니다.</span></li>
+          <li><span class="b-dot" style="background:#D97706;"></span><span>리소스·역량 부족으로 인한 제약을 작성합니다.</span></li>
+          <li><span class="b-dot" style="background:#D97706;"></span><span>구조적으로 보완이 필요한 영역을 정리합니다.</span></li>
+        </ul>
+      </div>
+      <div style="padding:36px 40px; background:#F0FDF4; border:1px solid #86EFAC; border-radius:18px; min-height:260px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+          <div style="width:40px; height:40px; border-radius:10px; background:#16A34A; color:#fff; display:grid; place-items:center; font-size:22px; font-weight:800;">O</div>
+          <div style="font-size:24px; font-weight:700; color:#15803D; letter-spacing:0.08em; text-transform:uppercase;">Opportunities · 기회</div>
+        </div>
+        <ul class="bullets" style="margin:0;">
+          <li><span class="b-dot" style="background:#16A34A;"></span><span>외부 환경에서 활용 가능한 시장 기회를 적습니다.</span></li>
+          <li><span class="b-dot" style="background:#16A34A;"></span><span>트렌드·정책 변화로 열리는 가능성을 정리합니다.</span></li>
+          <li><span class="b-dot" style="background:#16A34A;"></span><span>새롭게 진입할 수 있는 인접 영역을 작성합니다.</span></li>
+        </ul>
+      </div>
+      <div style="padding:36px 40px; background:#FEF2F2; border:1px solid #FCA5A5; border-radius:18px; min-height:260px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+          <div style="width:40px; height:40px; border-radius:10px; background:#DC2626; color:#fff; display:grid; place-items:center; font-size:22px; font-weight:800;">T</div>
+          <div style="font-size:24px; font-weight:700; color:#B91C1C; letter-spacing:0.08em; text-transform:uppercase;">Threats · 위협</div>
+        </div>
+        <ul class="bullets" style="margin:0;">
+          <li><span class="b-dot" style="background:#DC2626;"></span><span>외부 경쟁·환경 변화에서 오는 리스크를 적습니다.</span></li>
+          <li><span class="b-dot" style="background:#DC2626;"></span><span>대응 시점을 놓치면 치명적일 수 있는 요인을 정리합니다.</span></li>
+          <li><span class="b-dot" style="background:#DC2626;"></span><span>규제·기술·인력 측면의 위험 요소를 작성합니다.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="s-foot"><span class="brand-mark"><span class="chip"></span>프레젠테이션 템플릿</span><span>Strategy · SWOT</span></div>
+  </section>
+
+  <!-- 15 -->
+<section class="slide closing" data-label="59 Closing">
+    <div class="s-counter" style="position:absolute; top:92px; right:120px; color:var(--point-1);">59 / 59</div>
+    <div style="max-width: 1500px;">
+      <div class="eyebrow" style="margin-bottom: 20px;">Closing · Q&amp;A</div>
+      <h1>감사합니다.</h1>
+      <p>질문과 의견을 입력하세요.</p>
+
+      <div style="margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.32); padding-top: 36px;">
+        <div style="font-size: 24px; color:#DDD6FE; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom: 20px;">참고자료</div>
+        <ul class="refs" style="color: #ffffff;">
+          <li><span class="num">1.</span>참고자료 제목입니다. 출판 정보 또는 링크를 입력하세요.</li>
+          <li><span class="num">2.</span>참고자료 제목입니다. 출판 정보 또는 링크를 입력하세요.</li>
+          <li><span class="num">3.</span>참고자료 제목입니다. 출판 정보 또는 링크를 입력하세요.</li>
+          <li><span class="num">4.</span>참고자료 제목입니다. 출판 정보 또는 링크를 입력하세요.</li>
+          <li><span class="num">5.</span>참고자료 제목입니다. 출판 정보 또는 링크를 입력하세요.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+<script>
+/**
+ * <deck-stage> — reusable web component for HTML decks.
+ *
+ * Handles:
+ *  (a) speaker notes — reads <script type="application/json" id="speaker-notes">
+ *      and posts {slideIndexChanged: N} to the parent window on nav.
+ *  (b) keyboard navigation — ←/→, PgUp/PgDn, Space, Home/End, number keys.
+ *  (c) press R to reset to slide 0 (with a tasteful keyboard hint).
+ *  (d) bottom-center overlay showing slide count + hints, fades out on idle.
+ *  (e) auto-scaling — inner canvas is a fixed design size (default 1920×1080)
+ *      scaled with `transform: scale()` to fit the viewport, letterboxed.
+ *      Set the `noscale` attribute to render at authored size (1:1) — the
+ *      PPTX exporter sets this so its DOM capture sees unscaled geometry.
+ *  (f) print — `@media print` lays every slide out as its own page at the
+ *      design size, so the browser's Print → Save as PDF produces a clean
+ *      one-page-per-slide PDF with no extra setup.
+ *
+ * Slides are HIDDEN, not unmounted. Non-active slides stay in the DOM with
+ * `visibility: hidden` + `opacity: 0`, so their state (videos, iframes,
+ * form inputs, React trees) is preserved across navigation.
+ *
+ * Lifecycle event — the component dispatches a `slidechange` CustomEvent on
+ * itself whenever the active slide changes (including the initial mount).
+ * The event bubbles and composes out of shadow DOM, so you can listen on
+ * the <deck-stage> element or on document:
+ *
+ *   document.querySelector('deck-stage').addEventListener('slidechange', (e) => {
+ *     e.detail.index         // new 0-based index
+ *     e.detail.previousIndex // previous index, or -1 on init
+ *     e.detail.total         // total slide count
+ *     e.detail.slide         // the new active slide element
+ *     e.detail.previousSlide // the prior slide element, or null on init
+ *     e.detail.reason        // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+ *   });
+ *
+ * Persistence: none at the deck level. The host app keeps the current slide
+ * in its own URL (?slide=) and re-delivers it via location.hash on load, so a
+ * bare load with no hash always starts at slide 1.
+ *
+ * Usage:
+ *   <deck-stage width="1920" height="1080">
+ *     <section data-label="Title">...</section>
+ *     <section data-label="Agenda">...</section>
+ *   </deck-stage>
+ *
+ * Slides are the direct element children of <deck-stage>. Each slide is
+ * automatically tagged with:
+ *   - data-screen-label="NN Label"   (1-indexed, for comment flow)
+ *   - data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+ */
+
+(() => {
+  const DESIGN_W_DEFAULT = 1920;
+  const DESIGN_H_DEFAULT = 1080;
+  const OVERLAY_HIDE_MS = 1800;
+  const VALIDATE_ATTR = 'no_overflowing_text,no_overlapping_text,slide_sized_text';
+
+  const pad2 = (n) => String(n).padStart(2, '0');
+
+  const stylesheet = `
+    :host {
+      position: fixed;
+      inset: 0;
+      display: block;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .canvas {
+      position: relative;
+      transform-origin: center center;
+      flex-shrink: 0;
+      background: #fff;
+      will-change: transform;
+    }
+
+    /* Slides live in light DOM (via <slot>) so authored CSS still applies.
+       We absolutely position each slotted child to stack them. */
+    ::slotted(*) {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    ::slotted([data-deck-active]) {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    /* Tap zones for mobile — back/forward thirds like Stories.
+       Transparent, no visible UI, don't block the overlay. */
+    .tapzones {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      z-index: 2147482000;
+      pointer-events: none;
+    }
+    .tapzone {
+      flex: 1;
+      pointer-events: auto;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Only activate tap zones on coarse pointers (touch devices). */
+    @media (hover: hover) and (pointer: fine) {
+      .tapzones { display: none; }
+    }
+
+    .overlay {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translate(-50%, 6px) scale(0.92);
+      filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: #000;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-feature-settings: "tnum" 1;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease, transform 260ms cubic-bezier(.2,.8,.2,1), filter 260ms ease;
+      transform-origin: center bottom;
+      z-index: 2147483000;
+      user-select: none;
+    }
+    .overlay[data-visible] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .btn {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.72);
+      transition: background 140ms ease, color 140ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn:active { background: rgba(255,255,255,0.18); }
+    .btn:focus { outline: none; }
+    .btn:focus-visible { outline: none; }
+    .btn::-moz-focus-inner { border: 0; }
+    .btn svg { width: 14px; height: 14px; display: block; }
+    .btn.reset {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0 10px 0 12px;
+      gap: 6px;
+      color: rgba(255,255,255,0.72);
+    }
+    .btn.reset .kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 10px;
+      line-height: 1;
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+    }
+
+    .count {
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+      font-weight: 500;
+      padding: 0 8px;
+      min-width: 42px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .count .sep { color: rgba(255,255,255,0.45); margin: 0 3px; font-weight: 400; }
+    .count .total { color: rgba(255,255,255,0.55); }
+
+    .divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 2px;
+    }
+
+    /* ── Print: one page per slide, no chrome ────────────────────────────
+       The screen layout stacks every slide at inset:0 inside a scaled
+       canvas; for print we want them in document flow at the authored
+       design size so the browser paginates one slide per sheet. The
+       @page size is set from the width/height attributes via the inline
+       <style id="deck-stage-print-page"> that connectedCallback injects
+       into <head> (the @page at-rule has no effect inside shadow DOM). */
+    @media print {
+      :host {
+        position: static;
+        inset: auto;
+        background: none;
+        overflow: visible;
+        color: inherit;
+      }
+      .stage { position: static; display: block; }
+      .canvas {
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        background: none;
+        will-change: auto;
+      }
+      ::slotted(*) {
+        position: relative !important;
+        inset: auto !important;
+        width: var(--deck-design-w) !important;
+        height: var(--deck-design-h) !important;
+        box-sizing: border-box !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+      ::slotted(*:last-child) {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .overlay, .tapzones { display: none !important; }
+    }
+  `;
+
+  class DeckStage extends HTMLElement {
+    static get observedAttributes() { return ['width', 'height', 'noscale']; }
+
+    constructor() {
+      super();
+      this._root = this.attachShadow({ mode: 'open' });
+      this._index = 0;
+      this._slides = [];
+      this._notes = [];
+      this._hideTimer = null;
+      this._mouseIdleTimer = null;
+
+      this._onKey = this._onKey.bind(this);
+      this._onResize = this._onResize.bind(this);
+      this._onSlotChange = this._onSlotChange.bind(this);
+      this._onMouseMove = this._onMouseMove.bind(this);
+      this._onTapBack = this._onTapBack.bind(this);
+      this._onTapForward = this._onTapForward.bind(this);
+    }
+
+    get designWidth() {
+      return parseInt(this.getAttribute('width'), 10) || DESIGN_W_DEFAULT;
+    }
+    get designHeight() {
+      return parseInt(this.getAttribute('height'), 10) || DESIGN_H_DEFAULT;
+    }
+
+    connectedCallback() {
+      this._render();
+      this._loadNotes();
+      this._syncPrintPageRule();
+      window.addEventListener('keydown', this._onKey);
+      window.addEventListener('resize', this._onResize);
+      window.addEventListener('mousemove', this._onMouseMove, { passive: true });
+      // Initial collection + layout happens via slotchange, which fires on mount.
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener('keydown', this._onKey);
+      window.removeEventListener('resize', this._onResize);
+      window.removeEventListener('mousemove', this._onMouseMove);
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      if (this._mouseIdleTimer) clearTimeout(this._mouseIdleTimer);
+    }
+
+    attributeChangedCallback() {
+      if (this._canvas) {
+        this._canvas.style.width = this.designWidth + 'px';
+        this._canvas.style.height = this.designHeight + 'px';
+        this._canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+        this._canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+        this._fit();
+        this._syncPrintPageRule();
+      }
+    }
+
+    _render() {
+      const style = document.createElement('style');
+      style.textContent = stylesheet;
+
+      const stage = document.createElement('div');
+      stage.className = 'stage';
+
+      const canvas = document.createElement('div');
+      canvas.className = 'canvas';
+      canvas.style.width = this.designWidth + 'px';
+      canvas.style.height = this.designHeight + 'px';
+      canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+      canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+
+      const slot = document.createElement('slot');
+      slot.addEventListener('slotchange', this._onSlotChange);
+      canvas.appendChild(slot);
+      stage.appendChild(canvas);
+
+      // Tap zones (mobile): left third = back, right third = forward.
+      const tapzones = document.createElement('div');
+      tapzones.className = 'tapzones export-hidden';
+      tapzones.setAttribute('aria-hidden', 'true');
+      tapzones.setAttribute('data-noncommentable', '');
+      const tzBack = document.createElement('div');
+      tzBack.className = 'tapzone tapzone--back';
+      const tzMid = document.createElement('div');
+      tzMid.className = 'tapzone tapzone--mid';
+      tzMid.style.pointerEvents = 'none';
+      const tzFwd = document.createElement('div');
+      tzFwd.className = 'tapzone tapzone--fwd';
+      tzBack.addEventListener('click', this._onTapBack);
+      tzFwd.addEventListener('click', this._onTapForward);
+      tapzones.append(tzBack, tzMid, tzFwd);
+
+      // Overlay: compact, solid black, with clickable controls.
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay export-hidden';
+      overlay.setAttribute('role', 'toolbar');
+      overlay.setAttribute('aria-label', 'Deck controls');
+      overlay.setAttribute('data-noncommentable', '');
+      overlay.innerHTML = `
+        <button class="btn prev" type="button" aria-label="Previous slide" title="Previous (←)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+        </button>
+        <span class="count" aria-live="polite"><span class="current">1</span><span class="sep">/</span><span class="total">1</span></span>
+        <button class="btn next" type="button" aria-label="Next slide" title="Next (→)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+        <span class="divider"></span>
+        <button class="btn reset" type="button" aria-label="Reset to first slide" title="Reset (R)">Reset<span class="kbd">R</span></button>
+      `;
+
+      overlay.querySelector('.prev').addEventListener('click', () => this._go(this._index - 1, 'click'));
+      overlay.querySelector('.next').addEventListener('click', () => this._go(this._index + 1, 'click'));
+      overlay.querySelector('.reset').addEventListener('click', () => this._go(0, 'click'));
+
+      this._root.append(style, stage, tapzones, overlay);
+      this._canvas = canvas;
+      this._slot = slot;
+      this._overlay = overlay;
+      this._countEl = overlay.querySelector('.current');
+      this._totalEl = overlay.querySelector('.total');
+    }
+
+    /** @page must live in the document stylesheet — it's a no-op inside
+     *  shadow DOM. Inject/update a single <head> style tag so the print
+     *  sheet matches the design size and Save-as-PDF yields one slide per
+     *  page with no margins. */
+    _syncPrintPageRule() {
+      const id = 'deck-stage-print-page';
+      let tag = document.getElementById(id);
+      if (!tag) {
+        tag = document.createElement('style');
+        tag.id = id;
+        document.head.appendChild(tag);
+      }
+      tag.textContent =
+        '@page { size: ' + this.designWidth + 'px ' + this.designHeight + 'px; margin: 0; } ' +
+        '@media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } ' +
+        '* { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }';
+    }
+
+    _onSlotChange() {
+      this._collectSlides();
+      this._restoreIndex();
+      this._applyIndex({ showOverlay: false, broadcast: true, reason: 'init' });
+      this._fit();
+    }
+
+    _collectSlides() {
+      const assigned = this._slot.assignedElements({ flatten: true });
+      this._slides = assigned.filter((el) => {
+        // Skip template/style/script nodes even if someone slots them.
+        const tag = el.tagName;
+        return tag !== 'TEMPLATE' && tag !== 'SCRIPT' && tag !== 'STYLE';
+      });
+
+      this._slides.forEach((slide, i) => {
+        const n = i + 1;
+        // Determine a label for comment flow: prefer explicit data-label,
+        // then an existing data-screen-label, then first heading, else "Slide".
+        let label = slide.getAttribute('data-label');
+        if (!label) {
+          const existing = slide.getAttribute('data-screen-label');
+          if (existing) {
+            // Strip any leading number the author may have included.
+            label = existing.replace(/^\s*\d+\s*/, '').trim() || existing;
+          }
+        }
+        if (!label) {
+          const h = slide.querySelector('h1, h2, h3, [data-title]');
+          if (h) label = (h.textContent || '').trim().slice(0, 40);
+        }
+        if (!label) label = 'Slide';
+        slide.setAttribute('data-screen-label', `${pad2(n)} ${label}`);
+
+        // Validation attribute for comment flow / auto-checks.
+        if (!slide.hasAttribute('data-om-validate')) {
+          slide.setAttribute('data-om-validate', VALIDATE_ATTR);
+        }
+
+        slide.setAttribute('data-deck-slide', String(i));
+      });
+
+      if (this._totalEl) this._totalEl.textContent = String(this._slides.length || 1);
+      if (this._index >= this._slides.length) this._index = Math.max(0, this._slides.length - 1);
+    }
+
+    _loadNotes() {
+      const tag = document.getElementById('speaker-notes');
+      if (!tag) { this._notes = []; return; }
+      try {
+        const parsed = JSON.parse(tag.textContent || '[]');
+        if (Array.isArray(parsed)) this._notes = parsed;
+      } catch (e) {
+        console.warn('[deck-stage] Failed to parse #speaker-notes JSON:', e);
+        this._notes = [];
+      }
+    }
+
+    _restoreIndex() {
+      // The host's ?slide= param is delivered as a #<int> hash (1-indexed) on
+      // the iframe src. No hash → slide 1; the deck itself keeps no position
+      // state across loads.
+      const h = (location.hash || '').match(/^#(\d+)$/);
+      if (h) {
+        const n = parseInt(h[1], 10) - 1;
+        if (n >= 0 && n < this._slides.length) this._index = n;
+      }
+    }
+
+    _applyIndex({ showOverlay = true, broadcast = true, reason = 'init' } = {}) {
+      if (!this._slides.length) return;
+      const prev = this._prevIndex == null ? -1 : this._prevIndex;
+      const curr = this._index;
+      // Keep the iframe's own hash in sync so an in-iframe location.reload()
+      // (reload banner path in viewer-handle.ts) lands on the current slide,
+      // not the stale deep-link hash from initial load.
+      try { history.replaceState(null, '', '#' + (curr + 1)); } catch (e) {}
+      this._slides.forEach((s, i) => {
+        if (i === curr) s.setAttribute('data-deck-active', '');
+        else s.removeAttribute('data-deck-active');
+      });
+      if (this._countEl) this._countEl.textContent = String(curr + 1);
+
+      if (broadcast) {
+        // (1) Legacy: host-window postMessage for speaker-notes renderers.
+        try { window.postMessage({ slideIndexChanged: curr }, '*'); } catch (e) {}
+
+        // (2) In-page CustomEvent on the <deck-stage> element itself.
+        //     Bubbles and composes out of shadow DOM so slide code can listen:
+        //       document.querySelector('deck-stage').addEventListener('slidechange', e => {
+        //         e.detail.index, e.detail.previousIndex, e.detail.total, e.detail.slide, e.detail.reason
+        //       });
+        const detail = {
+          index: curr,
+          previousIndex: prev,
+          total: this._slides.length,
+          slide: this._slides[curr] || null,
+          previousSlide: prev >= 0 ? (this._slides[prev] || null) : null,
+          reason: reason, // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+        };
+        this.dispatchEvent(new CustomEvent('slidechange', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }));
+      }
+
+      this._prevIndex = curr;
+      if (showOverlay) this._flashOverlay();
+    }
+
+    _flashOverlay() {
+      if (!this._overlay) return;
+      this._overlay.setAttribute('data-visible', '');
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      this._hideTimer = setTimeout(() => {
+        this._overlay.removeAttribute('data-visible');
+      }, OVERLAY_HIDE_MS);
+    }
+
+    _fit() {
+      if (!this._canvas) return;
+      // PPTX export sets noscale so the DOM capture sees authored-size
+      // geometry — the scaled canvas is in shadow DOM, so the exporter's
+      // resetTransformSelector can't reach .canvas.style.transform directly.
+      if (this.hasAttribute('noscale')) {
+        this._canvas.style.transform = 'none';
+        return;
+      }
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const s = Math.min(vw / this.designWidth, vh / this.designHeight);
+      this._canvas.style.transform = `scale(${s})`;
+    }
+
+    _onResize() { this._fit(); }
+
+    _onMouseMove() {
+      // Keep overlay visible while mouse moves; hide after idle.
+      this._flashOverlay();
+    }
+
+    _onTapBack(e) {
+      e.preventDefault();
+      this._go(this._index - 1, 'tap');
+    }
+
+    _onTapForward(e) {
+      e.preventDefault();
+      this._go(this._index + 1, 'tap');
+    }
+
+    _onKey(e) {
+      // Ignore when the user is typing.
+      const t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      const key = e.key;
+      let handled = true;
+
+      if (key === 'ArrowRight' || key === 'PageDown' || key === ' ' || key === 'Spacebar') {
+        this._go(this._index + 1, 'keyboard');
+      } else if (key === 'ArrowLeft' || key === 'PageUp') {
+        this._go(this._index - 1, 'keyboard');
+      } else if (key === 'Home') {
+        this._go(0, 'keyboard');
+      } else if (key === 'End') {
+        this._go(this._slides.length - 1, 'keyboard');
+      } else if (key === 'r' || key === 'R') {
+        this._go(0, 'keyboard');
+      } else if (/^[0-9]$/.test(key)) {
+        // 1..9 jump to that slide; 0 jumps to 10.
+        const n = key === '0' ? 9 : parseInt(key, 10) - 1;
+        if (n < this._slides.length) this._go(n, 'keyboard');
+      } else {
+        handled = false;
+      }
+
+      if (handled) {
+        e.preventDefault();
+        this._flashOverlay();
+      }
+    }
+
+    _go(i, reason = 'api') {
+      if (!this._slides.length) return;
+      const clamped = Math.max(0, Math.min(this._slides.length - 1, i));
+      if (clamped === this._index) {
+        this._flashOverlay();
+        return;
+      }
+      this._index = clamped;
+      this._applyIndex({ showOverlay: true, broadcast: true, reason });
+    }
+
+    // Public API ------------------------------------------------------------
+
+    /** Current slide index (0-based). */
+    get index() { return this._index; }
+    /** Total slide count. */
+    get length() { return this._slides.length; }
+    /** Programmatically navigate. */
+    goTo(i) { this._go(i, 'api'); }
+    next() { this._go(this._index + 1, 'api'); }
+    prev() { this._go(this._index - 1, 'api'); }
+    reset() { this._go(0, 'api'); }
+  }
+
+  if (!customElements.get('deck-stage')) {
+    customElements.define('deck-stage', DeckStage);
+  }
+})();
+
+</script>
+</body>
+</html>

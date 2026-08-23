@@ -53,6 +53,7 @@
     }
   },
   "navigation": {
-    "backToMenu": "메뉴로 돌아가기"
+    "backToMenu": "메뉴로 돌아가기",
+    "backToPptList": "목록으로 돌아가기"
   }
 }

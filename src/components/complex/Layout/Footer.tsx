@@ -14,7 +14,7 @@ interface FooterProps {
   className?: string;
 }
 
-const blockedPaths = ['/multi-live', '/admin'];
+const blockedPaths = ['/multi-live', '/admin', '/ppt/present', '/ppt/remote'];
 
 function Footer({ lng, className = '' }: FooterProps) {
   const { t } = useTranslation(lng, 'common');

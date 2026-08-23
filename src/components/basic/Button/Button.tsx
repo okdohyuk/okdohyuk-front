@@ -9,7 +9,7 @@ import { cn } from '@utils/cn';
 import { useElementTracking } from '@hooks/analytics/useElementTracking';
 
 const buttonVariants = cva(
-  'flex items-center justify-center min-h-[32px] rounded-md bg-point-2 hover:bg-point-1 p-1 text-lg font-normal text-white transition-colors disabled:pointer-events-none disabled:opacity-50',
+  'flex items-center justify-center min-h-[32px] rounded-md bg-point-2 hover:bg-point-1 px-3 py-1 text-lg font-normal text-white transition-colors disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {},
     defaultVariants: {},
@@ -17,8 +17,7 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   /** GA4 추적 키. 지정 시 ui_button_click 이벤트가 발화됩니다. */
   analyticsKey?: string;

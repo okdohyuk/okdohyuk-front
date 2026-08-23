@@ -35,6 +35,7 @@ const SERVICE_SECTION_BY_LINK: Record<string, ServiceSectionKey> = {
   '/k-pass': 'finance',
   '/korean-amount': 'finance',
   '/shortener': 'generator',
+  '/ppt': 'generator',
   '/qr-generator': 'generator',
   '/lotto-generator': 'generator',
   '/coin-flip': 'generator',

@@ -53,6 +53,7 @@
     }
   },
   "navigation": {
-    "backToMenu": "Back to Menu"
+    "backToMenu": "Back to Menu",
+    "backToPptList": "Back to presentations"
   }
 }

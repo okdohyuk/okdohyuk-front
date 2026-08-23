@@ -53,6 +53,7 @@
     }
   },
   "navigation": {
-    "backToMenu": "返回菜单"
+    "backToMenu": "返回菜单",
+    "backToPptList": "返回列表"
   }
 }

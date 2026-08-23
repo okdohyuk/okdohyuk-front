@@ -1,0 +1,32 @@
+{
+  "title": "Web Presentation",
+  "description": "Create web slides with the okdohyuk design system and control the presentation from your mobile device.",
+  "openGraph": {
+    "title": "Web Presentation",
+    "description": "Create 16:9 web slides, present in fullscreen, and control the active session from another device with the same account."
+  },
+  "empty": "You have no presentations yet.",
+  "new": "New presentation",
+  "edit": "Edit",
+  "delete": "Delete",
+  "deleteConfirm": "Delete this presentation?",
+  "load": "Open",
+  "loginRequired": "Sign in to use Web Presentation.",
+  "loading": "Loading presentations...",
+  "error": "Could not load presentations.",
+  "saveSuccess": "Saved.",
+  "saveError": "Could not save.",
+  "remote": "Mobile remote",
+  "prompt": "Fill-in prompt",
+  "templateDownload": "Download template",
+  "htmlUpload": "Upload HTML",
+  "uploadError": "No slides found in the HTML. Check the template format.",
+  "imageUpload": "Upload image",
+  "imageRemove": "Remove image",
+  "imageUrl": "Image URL",
+  "uploadingImage": "Uploading…",
+  "uploadDialogHint": "Click this area or drop files. Upload one HTML file plus only the images it references.",
+  "uploadDialogClose": "Close",
+  "uploadNeedHtml": "Include exactly one HTML file.",
+  "uploadUnusedImages": "Images not used in the HTML cannot be uploaded"
+}

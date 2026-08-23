@@ -46,10 +46,17 @@ function BackToMenuNav() {
 
   // 포켓몬 하위 도구에서만 대상/라벨을 포켓몬 허브로 override.
   const isPokemonTool = isPokemonToolPath(normalizedPath);
-  const href = isPokemonTool ? `/${language}/pokemon` : `/${language}/menu`;
-  const label = isPokemonTool
-    ? tPokemon('navigation.backToPokemonTools')
-    : t('navigation.backToMenu');
+  const isPptEditorPath =
+    normalizedPath === '/ppt/new' || /^\/ppt\/\d+\/edit$/.test(normalizedPath);
+  let href = `/${language}/menu`;
+  let label = t('navigation.backToMenu');
+  if (isPokemonTool) {
+    href = `/${language}/pokemon`;
+    label = tPokemon('navigation.backToPokemonTools');
+  } else if (isPptEditorPath) {
+    href = `/${language}/ppt`;
+    label = t('navigation.backToPptList');
+  }
 
   if (!isVisible) {
     return null;

@@ -1,0 +1,32 @@
+{
+  "title": "网页演示文稿",
+  "description": "使用 okdohyuk 设计系统创建网页幻灯片，并通过移动设备远程控制演示。",
+  "openGraph": {
+    "title": "网页演示文稿",
+    "description": "支持创建 16:9 网页幻灯片、全屏演示，以及使用同一账号从其他设备远程翻页。"
+  },
+  "empty": "还没有演示文稿。",
+  "new": "新建演示文稿",
+  "edit": "编辑",
+  "delete": "删除",
+  "deleteConfirm": "要删除此演示文稿吗？",
+  "load": "打开",
+  "loginRequired": "登录后才能使用网页演示文稿。",
+  "loading": "正在加载演示文稿。",
+  "error": "无法加载演示文稿。",
+  "saveSuccess": "已保存。",
+  "saveError": "保存失败。",
+  "remote": "移动遥控器",
+  "prompt": "填空式提示词",
+  "templateDownload": "下载模板",
+  "htmlUpload": "上传 HTML",
+  "uploadError": "未能在 HTML 中找到幻灯片，请检查模板格式。",
+  "imageUpload": "上传图片",
+  "imageRemove": "移除图片",
+  "imageUrl": "图片 URL",
+  "uploadingImage": "上传中…",
+  "uploadDialogHint": "点击此区域或拖放文件。请上传一个 HTML 以及其中实际引用的图片。",
+  "uploadDialogClose": "关闭",
+  "uploadNeedHtml": "请包含且仅包含一个 HTML 文件。",
+  "uploadUnusedImages": "HTML 未使用的图片无法上传"
+}
