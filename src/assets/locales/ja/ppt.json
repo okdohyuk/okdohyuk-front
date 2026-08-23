@@ -1,0 +1,32 @@
+{
+  "title": "Webプレゼンテーション",
+  "description": "okdohyukデザインシステムでWebスライドを作成し、モバイルから発表を操作できます。",
+  "openGraph": {
+    "title": "Webプレゼンテーション",
+    "description": "16:9 Webスライドの作成、全画面発表、同じアカウントの別端末からのリモート操作に対応します。"
+  },
+  "empty": "プレゼンテーションはまだありません。",
+  "new": "新しいプレゼンテーション",
+  "edit": "編集",
+  "delete": "削除",
+  "deleteConfirm": "このプレゼンテーションを削除しますか？",
+  "load": "開く",
+  "loginRequired": "Webプレゼンテーションを使うにはログインしてください。",
+  "loading": "読み込み中です。",
+  "error": "プレゼンテーションを読み込めませんでした。",
+  "saveSuccess": "保存しました。",
+  "saveError": "保存できませんでした。",
+  "remote": "モバイルリモート",
+  "prompt": "入力式プロンプト",
+  "templateDownload": "テンプレートをダウンロード",
+  "htmlUpload": "HTMLをアップロード",
+  "uploadError": "HTMLからスライドを見つけられませんでした。テンプレート形式を確認してください。",
+  "imageUpload": "画像をアップロード",
+  "imageRemove": "画像を削除",
+  "imageUrl": "画像URL",
+  "uploadingImage": "アップロード中…",
+  "uploadDialogHint": "この領域をクリックするか、ファイルをドロップしてください。HTMLと、そのHTMLが参照する画像だけをアップロードできます。",
+  "uploadDialogClose": "閉じる",
+  "uploadNeedHtml": "HTMLファイルを1つ含めてください。",
+  "uploadUnusedImages": "HTMLで使われていない画像はアップロードできません"
+}
