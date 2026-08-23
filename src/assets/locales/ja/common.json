@@ -53,6 +53,7 @@
     }
   },
   "navigation": {
-    "backToMenu": "メニューに戻る"
+    "backToMenu": "メニューに戻る",
+    "backToPptList": "一覧に戻る"
   }
 }

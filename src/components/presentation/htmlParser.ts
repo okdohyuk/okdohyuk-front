@@ -2,11 +2,18 @@ import { PRESENTATION_SCHEMA_VERSION, normalizePresentationTheme } from './types
 import type { PresentationDocument, PresentationLayout, PresentationTheme } from './types';
 import { PRESENTATION_TEMPLATES, getPresentationTemplate } from './templates';
 
+export interface HtmlImageSource {
+  slideIndex: number;
+  src: string;
+}
+
 export interface ParseHtmlResult {
   document: PresentationDocument;
   theme: PresentationTheme;
   title: string;
   warnings: string[];
+  /** 슬라이드별 원본 img src. http는 imageUrl로도 들어가고, data/상대경로는 import 단계에서 업로드한다. */
+  imageSources: HtmlImageSource[];
 }
 
 const SUBTITLE_SELECTORS = ['.lede', '.cover-en', '.sub'];
@@ -70,11 +77,7 @@ const collectItems = (section: Element): string[] => {
   return items.filter((item) => item.length > 0);
 };
 
-const parseSlide = (
-  section: Element,
-  index: number,
-  notes: string[],
-): PresentationDocument['slides'][number] | null => {
+const parseSlide = (section: Element, index: number, notes: string[]) => {
   const label = section.getAttribute('data-label') ?? '';
   const eyebrow =
     textOf(section.querySelector('.eyebrow')) || textOf(section.querySelector('.cover-kicker'));
@@ -95,25 +98,27 @@ const parseSlide = (
   const templateMatch = findTemplateByLabel(label);
   const layout: PresentationLayout = templateMatch?.layout ?? inferLayout(section);
 
-  // media 슬라이드의 img는 외부/스토리지 URL만 취한다 (data URL은 문서 1MB 상한 위험)
   const imageSource =
     section.querySelector<HTMLImageElement>('img')?.getAttribute('src')?.trim() ?? '';
-  const imageUrl = imageSource.startsWith('http') ? imageSource : undefined;
+  const imageUrl = /^https?:\/\//i.test(imageSource) ? imageSource : undefined;
 
   return {
-    id: `slide-${index + 1}`,
-    templateId: templateMatch?.id ?? `imported-${layout}`,
-    layout,
-    variant: templateMatch?.variant ?? 'default',
-    eyebrow: eyebrow || (templateMatch ? templateMatch.eyebrow : ''),
-    title: title || '슬라이드 제목을 입력하세요',
-    subtitle,
-    body,
-    items: collectItems(section),
-    imageUrl,
-    speakerNotes: notes[index] ?? '',
-    suggestedSeconds:
-      templateMatch?.suggestedSeconds ?? (layout === 'cover' || layout === 'closing' ? 45 : 75),
+    slide: {
+      id: `slide-${index + 1}`,
+      templateId: templateMatch?.id ?? `imported-${layout}`,
+      layout,
+      variant: templateMatch?.variant ?? 'default',
+      eyebrow: eyebrow || (templateMatch ? templateMatch.eyebrow : ''),
+      title: title || '슬라이드 제목을 입력하세요',
+      subtitle,
+      body,
+      items: collectItems(section),
+      imageUrl,
+      speakerNotes: notes[index] ?? '',
+      suggestedSeconds:
+        templateMatch?.suggestedSeconds ?? (layout === 'cover' || layout === 'closing' ? 45 : 75),
+    },
+    imageSrc: imageSource,
   };
 };
 
@@ -135,9 +140,13 @@ export const parsePresentationHtml = (html: string): ParseHtmlResult => {
   })();
 
   const warnings: string[] = [];
-  const slides = sections
-    .map((section, index) => parseSlide(section, index, notes))
+  const parsedSlides = sections.map((section, index) => parseSlide(section, index, notes));
+  const slides = parsedSlides
+    .map((parsed) => parsed.slide)
     .filter((slide): slide is NonNullable<typeof slide> => slide !== null);
+  const imageSources: HtmlImageSource[] = parsedSlides.flatMap((parsed, index) =>
+    parsed.imageSrc ? [{ slideIndex: index, src: parsed.imageSrc }] : [],
+  );
 
   if (sections.length === 0) {
     warnings.push('NO_SLIDES');
@@ -162,6 +171,7 @@ export const parsePresentationHtml = (html: string): ParseHtmlResult => {
     theme: normalizePresentationTheme(undefined),
     title,
     warnings,
+    imageSources,
   };
 };
 

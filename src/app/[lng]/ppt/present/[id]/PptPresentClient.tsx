@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import type { Language } from '~/app/i18n/settings';
 import UserTokenUtil from '@utils/userTokenUtil';
 import {
@@ -19,14 +19,13 @@ interface PptPresentClientProps {
 }
 
 export default function PptPresentClient({ lng, presentationId }: PptPresentClientProps) {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [token, setToken] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState<number | null>(null);
   const startRequested = useRef(false);
   const presentation = usePresentation(presentationId, token);
   const sessionFromUrl = searchParams.get('sessionId');
-  // 발표 시작 버튼에서 온 진입(?fullscreen=1)만 전체화면 안내를 표시한다.
-  const autoFullscreen = searchParams.get('fullscreen') === '1';
   const startMutation = useStartPresentationSession();
   const commandMutation = useSendPresentationCommand();
   const session = usePresentationSession(sessionId, token);
@@ -56,6 +55,10 @@ export default function PptPresentClient({ lng, presentationId }: PptPresentClie
     commandMutation.mutate({ sessionId, request });
   };
 
+  const leaveToEditor = () => {
+    router.replace(`/${lng}/ppt/${presentationId}/edit`);
+  };
+
   if (!token || presentation.isPending || session.isPending || startMutation.isPending) {
     return (
       <div className="fixed inset-0 z-[100] grid place-items-center bg-black text-sm text-white/70">
@@ -78,7 +81,7 @@ export default function PptPresentClient({ lng, presentationId }: PptPresentClie
       session={session.data}
       onCommand={handleCommand}
       isCommandPending={commandMutation.isPending}
-      autoFullscreen={autoFullscreen}
+      onEnd={leaveToEditor}
     />
   );
 }

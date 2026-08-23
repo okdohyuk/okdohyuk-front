@@ -24,5 +24,9 @@
   "imageUpload": "画像をアップロード",
   "imageRemove": "画像を削除",
   "imageUrl": "画像URL",
-  "uploadingImage": "アップロード中…"
+  "uploadingImage": "アップロード中…",
+  "uploadDialogHint": "この領域をクリックするか、ファイルをドロップしてください。HTMLと、そのHTMLが参照する画像だけをアップロードできます。",
+  "uploadDialogClose": "閉じる",
+  "uploadNeedHtml": "HTMLファイルを1つ含めてください。",
+  "uploadUnusedImages": "HTMLで使われていない画像はアップロードできません"
 }

@@ -2,7 +2,7 @@
 
 /* eslint-disable react/require-default-props */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Download, FileUp } from 'lucide-react';
 import { Text } from '@components/basic/Text';
@@ -17,8 +17,15 @@ import {
   useUpdatePresentation,
 } from '@queries/usePresentationQueries';
 import PresentationEditor from '@components/presentation/PresentationEditor';
+import HtmlImportDialog from '@components/presentation/HtmlImportDialog';
 import { parsePresentationHtml } from '@components/presentation/htmlParser';
+import {
+  isHtmlFile,
+  resolveImportedImages,
+  unusedImageAssetNames,
+} from '@components/presentation/importHtmlImages';
 import type { PresentationDocument, PresentationTheme } from '@components/presentation/types';
+import { storageApi } from '@api';
 
 interface PptEditorClientProps {
   lng: Language;
@@ -36,21 +43,45 @@ interface HtmlImportSectionProps {
 
 function HtmlImportSection({ language, onImport }: HtmlImportSectionProps) {
   const { t } = useTranslation(language, 'ppt');
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const [error, setError] = useState<string | null>(null);
   const [isParsing, setIsParsing] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
-  const handleFile = async (file: File) => {
+  const handleFiles = async (fileList: File[]) => {
     setError(null);
     setIsParsing(true);
     try {
-      const html = await file.text();
-      const result = parsePresentationHtml(html);
+      const htmlFiles = fileList.filter(isHtmlFile);
+      if (htmlFiles.length !== 1) {
+        setError(t('uploadNeedHtml'));
+        return;
+      }
+      const htmlFile = htmlFiles[0];
+      const assets = fileList.filter((file) => file !== htmlFile);
+      const html = await htmlFile.text();
+      let result = parsePresentationHtml(html);
       if (result.document.slides.length === 0) {
         setError(t('uploadError'));
         return;
       }
+      const unused = unusedImageAssetNames(result.imageSources, assets);
+      if (unused.length > 0) {
+        setError(`${t('uploadUnusedImages')}: ${unused.join(', ')}`);
+        return;
+      }
+      if (result.imageSources.length > 0) {
+        const accessToken = UserTokenUtil.getAccessToken() ?? '';
+        result = await resolveImportedImages(result, assets, async (file) => {
+          const { data } = await storageApi.postStorageFile(
+            `Bearer ${accessToken}`,
+            undefined,
+            file,
+          );
+          return data;
+        });
+      }
       onImport(result);
+      setDialogOpen(false);
     } catch {
       setError(t('uploadError'));
     } finally {
@@ -68,26 +99,24 @@ function HtmlImportSection({ language, onImport }: HtmlImportSectionProps) {
           <Download className="mr-1.5 h-4 w-4" /> {t('templateDownload')}
         </Button>
       </a>
-      <Button type="button" onClick={() => fileInputRef.current?.click()} disabled={isParsing}>
+      <Button type="button" onClick={() => setDialogOpen(true)} disabled={isParsing}>
         <FileUp className="mr-1.5 h-4 w-4" /> {t('htmlUpload')}
       </Button>
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept=".html,.htm,text/html"
-        className="hidden"
-        onChange={(event) => {
-          const target = event.currentTarget;
-          const file = target.files?.[0];
-          if (file) handleFile(file).catch(() => setError(t('uploadError')));
-          target.value = '';
+      <HtmlImportDialog
+        open={dialogOpen}
+        title={t('htmlUpload')}
+        hint={t('uploadDialogHint')}
+        cancelLabel={t('uploadDialogClose')}
+        error={error}
+        isParsing={isParsing}
+        onClose={() => {
+          setDialogOpen(false);
+          setError(null);
+        }}
+        onFiles={(files) => {
+          handleFiles(files).catch(() => setError(t('uploadError')));
         }}
       />
-      {error && (
-        <span className="text-sm text-red-600" role="alert">
-          {error}
-        </span>
-      )}
     </section>
   );
 }
@@ -151,7 +180,7 @@ export default function PptEditorClient({ lng, id }: PptEditorClientProps) {
     if (!id) return;
     startMutation.mutate(id, {
       onSuccess: (session) => {
-        router.push(`/${lng}/ppt/present/${id}?sessionId=${session.id}&fullscreen=1`);
+        router.push(`/${lng}/ppt/present/${id}?sessionId=${session.id}`);
       },
     });
   };

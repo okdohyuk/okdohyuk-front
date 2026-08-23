@@ -24,5 +24,9 @@
   "imageUpload": "上传图片",
   "imageRemove": "移除图片",
   "imageUrl": "图片 URL",
-  "uploadingImage": "上传中…"
+  "uploadingImage": "上传中…",
+  "uploadDialogHint": "点击此区域或拖放文件。请上传一个 HTML 以及其中实际引用的图片。",
+  "uploadDialogClose": "关闭",
+  "uploadNeedHtml": "请包含且仅包含一个 HTML 文件。",
+  "uploadUnusedImages": "HTML 未使用的图片无法上传"
 }

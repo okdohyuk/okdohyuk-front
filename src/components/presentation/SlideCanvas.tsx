@@ -21,6 +21,8 @@ interface SlideCanvasProps {
   total: number;
   showNotes?: boolean;
   thumbnail?: boolean;
+  /** 전체화면 등에서 16:9 레터박스 없이 컨테이너를 채운다 */
+  fill?: boolean;
   className?: string;
 }
 
@@ -68,6 +70,7 @@ function SlideCanvas({
   total,
   showNotes = false,
   thumbnail = false,
+  fill = false,
   className,
 }: SlideCanvasProps) {
   const tokens = getTokens(theme);
@@ -212,7 +215,15 @@ function SlideCanvas({
 
   if (slide.layout === 'cover') {
     return (
-      <div className={cn(styles.frame, thumbnail && styles.thumbnail, className)} style={style}>
+      <div
+        className={cn(
+          styles.frame,
+          thumbnail && styles.thumbnail,
+          fill && styles.frameFill,
+          className,
+        )}
+        style={style}
+      >
         <section className={cn(styles.slide, styles.cover)} data-layout={slide.layout}>
           <div className={styles.coverBody}>
             <div className={styles.coverKicker}>{slide.eyebrow}</div>
@@ -244,7 +255,15 @@ function SlideCanvas({
   }
 
   return (
-    <div className={cn(styles.frame, thumbnail && styles.thumbnail, className)} style={style}>
+    <div
+      className={cn(
+        styles.frame,
+        thumbnail && styles.thumbnail,
+        fill && styles.frameFill,
+        className,
+      )}
+      style={style}
+    >
       <section className={styles.slide} data-layout={slide.layout}>
         <div className={styles.head}>
           <div className={styles.eyebrow}>{slide.eyebrow}</div>

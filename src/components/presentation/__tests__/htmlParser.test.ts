@@ -103,9 +103,14 @@ describe('parsePresentationHtml', () => {
         <img src="data:image/png;base64,AAAA" alt="인라인" />
       </section>
     </body></html>`;
-    const { document } = parsePresentationHtml(html);
+    const result = parsePresentationHtml(html);
+    const { document } = result;
 
     expect(document.slides[0].imageUrl).toBe('https://cdn.example.com/photo.png');
     expect(document.slides[1].imageUrl).toBeUndefined();
+    expect(result.imageSources).toEqual([
+      { slideIndex: 0, src: 'https://cdn.example.com/photo.png' },
+      { slideIndex: 1, src: 'data:image/png;base64,AAAA' },
+    ]);
   });
 });

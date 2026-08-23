@@ -24,5 +24,9 @@
   "imageUpload": "Upload image",
   "imageRemove": "Remove image",
   "imageUrl": "Image URL",
-  "uploadingImage": "Uploading…"
+  "uploadingImage": "Uploading…",
+  "uploadDialogHint": "Click this area or drop files. Upload one HTML file plus only the images it references.",
+  "uploadDialogClose": "Close",
+  "uploadNeedHtml": "Include exactly one HTML file.",
+  "uploadUnusedImages": "Images not used in the HTML cannot be uploaded"
 }
