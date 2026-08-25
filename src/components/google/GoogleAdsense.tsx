@@ -4,6 +4,7 @@ import React from 'react';
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
 import { markAdsenseScriptLoaded } from '@libs/client/adsenseScript';
+import { isAdEligiblePath } from '@libs/client/adPolicy';
 
 function GoogleAdsense({ pid }: { pid: string }) {
   const pathname = usePathname();
@@ -12,8 +13,7 @@ function GoogleAdsense({ pid }: { pid: string }) {
     return null;
   }
 
-  // 어드민 콘솔에서는 광고를 노출하지 않는다
-  if (pathname?.split('/').includes('admin')) {
+  if (!isAdEligiblePath(pathname ?? '')) {
     return null;
   }
 

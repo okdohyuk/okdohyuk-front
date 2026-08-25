@@ -22,6 +22,11 @@ import GoogleAd from '../GoogleAd';
 
 vi.mock('@libs/client/gtag', () => ({
   sendGAEvent: vi.fn(),
+  getPageGroup: () => 'tool',
+}));
+
+vi.mock('next/navigation', () => ({
+  usePathname: () => '/ko/coin-flip',
 }));
 
 const sendGAEventMock = vi.mocked(sendGAEvent);
