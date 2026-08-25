@@ -10,7 +10,7 @@ const replayEnabled = process.env.NEXT_PUBLIC_ENABLE_SENTRY_REPLAY === 'true';
 
 // 지속 관찰이 불필요한 노이즈 이벤트를 전송 전에 걸러낸다.
 // ⚠️ AdSense TagError(availableWidth 등)는 노출 회귀 감시를 위해 계속 수집한다(여기서 거르지 않음).
-type NoiseFrame = { function?: string };
+type NoiseFrame = { function?: string; filename?: string };
 type NoiseEvent = {
   exception?: { values?: Array<{ value?: string; stacktrace?: { frames?: NoiseFrame[] } }> };
 };
@@ -35,7 +35,12 @@ const isNoiseEvent = (event: NoiseEvent): boolean => {
     return true;
   }
 
-  // 2) 서드파티 애널리틱스 비콘의 네트워크 실패 (FRONT-20~24): 애드블록/오프라인 등 액션 불가.
+  // 2) 외부 userscript 주입 오류(FRONT-2N): 앱 번들 밖에서 실행되는 사용자 스크립트다.
+  if (frames.some((frame) => /userscript\.html/i.test(frame.filename ?? ''))) {
+    return true;
+  }
+
+  // 3) 서드파티 애널리틱스 비콘의 네트워크 실패 (FRONT-20~24): 애드블록/오프라인 등 액션 불가.
   if (
     /Failed to fetch|Load failed|NetworkError/i.test(message) &&
     /(google-analytics|googletagmanager|analytics\.google|googlesyndication)\.com/i.test(message)
@@ -43,7 +48,7 @@ const isNoiseEvent = (event: NoiseEvent): boolean => {
     return true;
   }
 
-  // 3) 기대된 4xx 응답 (FRONT-1J 404, FRONT-3 만료 단축 URL 410): 정상 흐름.
+  // 4) 기대된 4xx 응답 (FRONT-1J 404, FRONT-3 만료 단축 URL 410): 정상 흐름.
   if (/Request failed with status code (404|410)/.test(message)) {
     return true;
   }
