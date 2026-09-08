@@ -15,6 +15,7 @@
     "/admin/blog/write": "撰写博客文章",
     "/admin/reply-report": "评论举报管理",
     "/admin/users": "用户管理",
+    "/admin/short-url": "短链接管理",
     "/auth/login": "登录",
     "/privacy": "隐私政策",
     "/terms": "服务条款",

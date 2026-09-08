@@ -1,11 +1,16 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { shortUrlApi } from '@api';
-import type { ShortUrlCreateRequest, ShortUrlExpireUpdateRequest } from '@api/ShortUrl';
+import type {
+  ShortUrlBannedDomainCreateRequest,
+  ShortUrlCreateRequest,
+  ShortUrlExpireUpdateRequest,
+} from '@api/ShortUrl';
 import UserTokenUtil from '@utils/userTokenUtil';
 
 export const SHORT_URL_KEYS = {
   all: ['short-url'] as const,
   me: () => [...SHORT_URL_KEYS.all, 'me'] as const,
+  bannedDomains: () => [...SHORT_URL_KEYS.all, 'banned-domains'] as const,
 };
 
 // 단축 URL 생성: 로그인 여부와 무관하게 동작한다. 로그인 시 토큰을 함께 보내 소유자로 기록한다.
@@ -70,6 +75,46 @@ export const useDeleteShortUrl = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: SHORT_URL_KEYS.me() });
+    },
+  });
+};
+
+export const useShortUrlBannedDomains = () => {
+  return useQuery({
+    queryKey: SHORT_URL_KEYS.bannedDomains(),
+    queryFn: async () => {
+      const token = await UserTokenUtil.getAccessToken();
+      const { data } = await shortUrlApi.getShortUrlBannedDomains(token);
+      return data;
+    },
+  });
+};
+
+export const useCreateShortUrlBannedDomain = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (payload: ShortUrlBannedDomainCreateRequest) => {
+      const token = await UserTokenUtil.getAccessToken();
+      const { data } = await shortUrlApi.postShortUrlBannedDomains(token, payload);
+      return data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: SHORT_URL_KEYS.bannedDomains() });
+    },
+  });
+};
+
+export const useDeleteShortUrlBannedDomain = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (id: number) => {
+      const token = await UserTokenUtil.getAccessToken();
+      return shortUrlApi.deleteShortUrlBannedDomainsId(id, token);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: SHORT_URL_KEYS.bannedDomains() });
     },
   });
 };

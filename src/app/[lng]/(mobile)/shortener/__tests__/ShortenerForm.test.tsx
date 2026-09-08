@@ -27,6 +27,12 @@ vi.mock('@utils/logger', () => ({
   default: { error: vi.fn(), info: vi.fn(), warn: vi.fn(), debug: vi.fn() },
 }));
 
+// 광고 슬롯 자체 동작(정책 경로·폭 가드·렌더 결과 측정)은 GoogleAd.test.tsx 가 검증한다.
+// 여기서는 배치만 확인하면 되므로 stub 으로 대체한다.
+vi.mock('@components/google/GoogleAd', () => ({
+  default: ({ slotId }: { slotId: string }) => <div data-testid="google-ad" data-slot={slotId} />,
+}));
+
 // i18n 훅 mock — 키를 그대로 반환. 컴포넌트가 SSR/CSR 동기화 없이 즉시 렌더되도록.
 const I18N_LABELS: Record<string, string> = {
   'form.originalUrl.label': '원본 URL',
@@ -188,5 +194,20 @@ describe('<ShortenerForm lng="ko" />', () => {
     await vi.waitFor(() => {
       expect(writeText).toHaveBeenCalledWith('https://okdohyuk.dev/l/aB3xY9');
     });
+  });
+
+  it('결과가 없으면 폼 아래 광고 1개만 렌더한다', () => {
+    render(<ShortenerForm lng="ko" />);
+
+    const ads = screen.getAllByTestId('google-ad');
+    expect(ads).toHaveLength(1);
+    expect(ads[0]).toHaveAttribute('data-slot', '7911066601');
+  });
+
+  it('결과가 있으면 폼 아래와 결과 카드 아래에 광고 2개를 렌더한다', () => {
+    setMutationState({ data: sampleShortUrl });
+    render(<ShortenerForm lng="ko" />);
+
+    expect(screen.getAllByTestId('google-ad')).toHaveLength(2);
   });
 });

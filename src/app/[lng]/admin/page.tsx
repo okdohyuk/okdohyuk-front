@@ -13,6 +13,7 @@ import {
   KeyRound,
   MessageSquareWarning,
   ShieldCheck,
+  ShieldBan,
   Users,
 } from 'lucide-react';
 import { cn } from '@utils/cn';
@@ -47,6 +48,12 @@ const ADMIN_MENUS = [
     label: 'API Key 관리',
     description: '블로그 임시저장/이미지 업로드 전용 API Key 를 발급하고 폐기합니다.',
     icon: KeyRound,
+  },
+  {
+    href: '/admin/short-url',
+    label: '단축 URL 관리',
+    description: '단축 URL 생성과 이동을 막을 도메인을 관리합니다.',
+    icon: ShieldBan,
   },
 ];
 

@@ -15,6 +15,7 @@
     "/admin/blog/write": "블로그 글 작성",
     "/admin/reply-report": "댓글 신고 관리",
     "/admin/users": "사용자 관리",
+    "/admin/short-url": "단축 URL 관리",
     "/auth/login": "로그인",
     "/privacy": "개인정보처리방침",
     "/terms": "이용약관",

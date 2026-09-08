@@ -15,6 +15,7 @@
     "/admin/blog/write": "Write Blog Post",
     "/admin/reply-report": "Reply Report Management",
     "/admin/users": "User Management",
+    "/admin/short-url": "Short URL Management",
     "/auth/login": "Login",
     "/privacy": "Privacy Policy",
     "/terms": "Terms of Service",

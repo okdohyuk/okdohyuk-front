@@ -21,7 +21,10 @@
     "51": "Comments must be between 1 and 500 characters.",
     "52": "The parent comment belongs to a different blog post.",
     "53": "Comments can be nested up to 3 levels.",
-    "54": "This account is restricted."
+    "54": "This account is restricted.",
+    "68": "This URL uses a blocked domain.",
+    "69": "This blocked domain does not exist.",
+    "70": "This domain is already blocked."
   },
   "confirm": {
     "loginRequired": "Login is required. Would you like to go to the login page?",

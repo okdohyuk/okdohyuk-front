@@ -16,6 +16,7 @@ import type { ShortUrl, ShortUrlCreateRequest } from '@api/ShortUrl';
 import { ShortUrlCreateRequestExpirePresetEnum } from '@api/ShortUrl';
 import { cn } from '@utils/cn';
 import { buildShortUrl } from '@libs/shared/agentDiscovery';
+import GoogleAd from '@components/google/GoogleAd';
 import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import logger from '@utils/logger';
 import { useTranslation } from '~/app/i18n/client';
@@ -192,6 +193,9 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
         ) : null}
       </form>
 
+      {/* in-content 광고: form 바깥에 두어 입력 컨트롤과 경계를 분리한다. */}
+      <GoogleAd slotId="7911066601" className="w-full mt-4" />
+
       {result ? (
         <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')} aria-label={t('result.title')}>
           <div className="flex items-center gap-2 text-sm font-semibold text-fg-1">
@@ -241,6 +245,8 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
           </p>
         </section>
       ) : null}
+
+      {result ? <GoogleAd slotId="7911066601" className="w-full mt-4" /> : null}
     </div>
   );
 }

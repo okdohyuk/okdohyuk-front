@@ -11,7 +11,10 @@ import UserTokenUtil from '@utils/userTokenUtil';
 import { shortUrlApi } from '@api';
 import {
   useCreateShortUrl,
+  useCreateShortUrlBannedDomain,
   useMyShortUrls,
+  useShortUrlBannedDomains,
+  useDeleteShortUrlBannedDomain,
   useDeleteShortUrl,
   SHORT_URL_KEYS,
 } from '../useShortUrlQueries';
@@ -23,6 +26,9 @@ vi.mock('@api', () => ({
     postShortUrl: vi.fn(),
     getShortUrlMe: vi.fn(),
     deleteShortUrlCode: vi.fn(),
+    getShortUrlBannedDomains: vi.fn(),
+    postShortUrlBannedDomains: vi.fn(),
+    deleteShortUrlBannedDomainsId: vi.fn(),
   },
 }));
 
@@ -38,6 +44,13 @@ const getShortUrlMeMock = shortUrlApi.getShortUrlMe as unknown as ReturnType<typ
 const deleteShortUrlCodeMock = shortUrlApi.deleteShortUrlCode as unknown as ReturnType<
   typeof vi.fn
 >;
+const getShortUrlBannedDomainsMock = shortUrlApi.getShortUrlBannedDomains as unknown as ReturnType<
+  typeof vi.fn
+>;
+const postShortUrlBannedDomainsMock =
+  shortUrlApi.postShortUrlBannedDomains as unknown as ReturnType<typeof vi.fn>;
+const deleteShortUrlBannedDomainsIdMock =
+  shortUrlApi.deleteShortUrlBannedDomainsId as unknown as ReturnType<typeof vi.fn>;
 
 function makeWrapper() {
   const queryClient = new QueryClient({
@@ -66,6 +79,9 @@ describe('useShortUrlQueries', () => {
     postShortUrlMock.mockReset();
     getShortUrlMeMock.mockReset();
     deleteShortUrlCodeMock.mockReset();
+    getShortUrlBannedDomainsMock.mockReset();
+    postShortUrlBannedDomainsMock.mockReset();
+    deleteShortUrlBannedDomainsIdMock.mockReset();
     (UserTokenUtil.getAccessToken as ReturnType<typeof vi.fn>).mockReset();
   });
 
@@ -205,6 +221,60 @@ describe('useShortUrlQueries', () => {
   describe('SHORT_URL_KEYS', () => {
     it('me() 는 ["short-url","me"] 키를 반환한다', () => {
       expect(SHORT_URL_KEYS.me()).toEqual(['short-url', 'me']);
+    });
+  });
+
+  describe('admin banned domains', () => {
+    const sampleBannedDomain = {
+      id: 1,
+      domain: 'example.com',
+      createdAt: '2026-09-07T12:00:00',
+    };
+
+    it('useShortUrlBannedDomains 는 관리자 차단 도메인 목록을 호출한다', async () => {
+      (UserTokenUtil.getAccessToken as ReturnType<typeof vi.fn>).mockReturnValue('tok-admin');
+      getShortUrlBannedDomainsMock.mockResolvedValue({ data: [sampleBannedDomain] });
+      const { Wrapper } = makeWrapper();
+
+      const { result } = renderHook(() => useShortUrlBannedDomains(), { wrapper: Wrapper });
+
+      await waitFor(() => expect(result.current.isSuccess).toBe(true));
+      expect(getShortUrlBannedDomainsMock).toHaveBeenCalledWith('tok-admin');
+      expect(result.current.data).toEqual([sampleBannedDomain]);
+    });
+
+    it('useCreateShortUrlBannedDomain 성공 시 차단 도메인 목록 캐시를 invalidate 한다', async () => {
+      (UserTokenUtil.getAccessToken as ReturnType<typeof vi.fn>).mockReturnValue('tok-admin');
+      postShortUrlBannedDomainsMock.mockResolvedValue({ data: sampleBannedDomain });
+      const { Wrapper, queryClient } = makeWrapper();
+      const invalidateSpy = vi.spyOn(queryClient, 'invalidateQueries');
+
+      const { result } = renderHook(() => useCreateShortUrlBannedDomain(), { wrapper: Wrapper });
+      act(() => {
+        result.current.mutate({ domain: 'example.com' });
+      });
+      await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+      expect(postShortUrlBannedDomainsMock).toHaveBeenCalledWith('tok-admin', {
+        domain: 'example.com',
+      });
+      expect(invalidateSpy).toHaveBeenCalledWith({ queryKey: SHORT_URL_KEYS.bannedDomains() });
+    });
+
+    it('useDeleteShortUrlBannedDomain 성공 시 차단 도메인 목록 캐시를 invalidate 한다', async () => {
+      (UserTokenUtil.getAccessToken as ReturnType<typeof vi.fn>).mockReturnValue('tok-admin');
+      deleteShortUrlBannedDomainsIdMock.mockResolvedValue({});
+      const { Wrapper, queryClient } = makeWrapper();
+      const invalidateSpy = vi.spyOn(queryClient, 'invalidateQueries');
+
+      const { result } = renderHook(() => useDeleteShortUrlBannedDomain(), { wrapper: Wrapper });
+      act(() => {
+        result.current.mutate(1);
+      });
+      await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+      expect(deleteShortUrlBannedDomainsIdMock).toHaveBeenCalledWith(1, 'tok-admin');
+      expect(invalidateSpy).toHaveBeenCalledWith({ queryKey: SHORT_URL_KEYS.bannedDomains() });
     });
   });
 });
