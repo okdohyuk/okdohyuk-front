@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from '@components/basic/Select';
 import { useCreateShortUrl } from '@queries/useShortUrlQueries';
+import { useShortUrlRewardedAd } from '@hooks/useShortUrlRewardedAd';
 import type { ShortUrl, ShortUrlCreateRequest } from '@api/ShortUrl';
 import { ShortUrlCreateRequestExpirePresetEnum } from '@api/ShortUrl';
 import { cn } from '@utils/cn';
@@ -61,6 +62,15 @@ type ShortenerFormProps = {
   lng: Language;
 };
 
+type PendingCreate = {
+  payload: ShortUrlCreateRequest;
+  key: string;
+};
+
+function getPayloadKey(payload: ShortUrlCreateRequest) {
+  return `${payload.originalUrl}\n${payload.expirePreset ?? ''}`;
+}
+
 export default function ShortenerForm({ lng }: ShortenerFormProps) {
   const { t } = useTranslation(lng, 'shortener');
   const [originalUrl, setOriginalUrl] = React.useState('');
@@ -69,10 +79,29 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
   );
   const [validationError, setValidationError] = React.useState<string | null>(null);
   const [copied, setCopied] = React.useState(false);
+  const [pendingCreate, setPendingCreate] = React.useState<PendingCreate | null>(null);
+  const [earnedPayloadKey, setEarnedPayloadKey] = React.useState<string | null>(null);
+  const rewardRequestKeyRef = React.useRef<string | null>(null);
+  const submittedRewardKeyRef = React.useRef<string | null>(null);
   const createMutation = useCreateShortUrl();
+  const rewardedAd = useShortUrlRewardedAd();
   const result: ShortUrl | undefined = createMutation.data;
   // 표시·복사용 단축 URL 은 백엔드 shortUrl 대신 NEXT_PUBLIC_URL 기반으로 직접 구성한다.
   const displayShortUrl = result ? buildShortUrl(result.code) : '';
+  const isSubmitting = createMutation.isPending;
+  const isRewardFlowActive =
+    rewardedAd.enabled &&
+    Boolean(pendingCreate) &&
+    (rewardedAd.status === 'loading' ||
+      rewardedAd.status === 'ready' ||
+      rewardedAd.status === 'showing');
+  const isFormDisabled = isSubmitting || isRewardFlowActive;
+  const currentPayloadKey = getPayloadKey({
+    originalUrl: originalUrl.trim(),
+    expirePreset,
+  });
+  const shouldRequestRewardForCurrentPayload =
+    rewardedAd.enabled && earnedPayloadKey !== currentPayloadKey;
 
   const formatExpiresAt = (expiresAt: string | null | undefined) => {
     if (!expiresAt) return t('result.expiresNever');
@@ -81,8 +110,29 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
     return date.toLocaleString(lng);
   };
 
+  const createShortUrl = React.useCallback(
+    (payload: ShortUrlCreateRequest, rewardedPayloadKey?: string) => {
+      if (!rewardedPayloadKey) {
+        createMutation.mutate(payload);
+        return;
+      }
+
+      createMutation.mutate(payload, {
+        onSuccess: () => {
+          setEarnedPayloadKey((current) => (current === rewardedPayloadKey ? null : current));
+          rewardRequestKeyRef.current = null;
+          submittedRewardKeyRef.current = null;
+          rewardedAd.reset();
+        },
+      });
+    },
+    [createMutation, rewardedAd],
+  );
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (isSubmitting || isRewardFlowActive || pendingCreate) return;
+
     setCopied(false);
     const trimmed = originalUrl.trim();
     if (!trimmed) {
@@ -99,8 +149,45 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
       originalUrl: trimmed,
       expirePreset,
     };
-    createMutation.mutate(payload);
+    const payloadKey = getPayloadKey(payload);
+
+    if (rewardedAd.enabled && earnedPayloadKey !== payloadKey) {
+      if (rewardRequestKeyRef.current === payloadKey) return;
+      rewardRequestKeyRef.current = payloadKey;
+      setPendingCreate({ payload, key: payloadKey });
+      submittedRewardKeyRef.current = null;
+      rewardedAd.reset();
+      rewardedAd.prepare();
+      return;
+    }
+
+    createShortUrl(payload, rewardedAd.enabled ? payloadKey : undefined);
   };
+
+  const handleCancelReward = () => {
+    setPendingCreate(null);
+    rewardRequestKeyRef.current = null;
+    submittedRewardKeyRef.current = null;
+    rewardedAd.reset();
+  };
+
+  React.useEffect(() => {
+    if (!pendingCreate || rewardedAd.status !== 'granted') return;
+    if (submittedRewardKeyRef.current === pendingCreate.key) return;
+
+    submittedRewardKeyRef.current = pendingCreate.key;
+    setEarnedPayloadKey(pendingCreate.key);
+    createShortUrl(pendingCreate.payload, pendingCreate.key);
+    setPendingCreate(null);
+  }, [createShortUrl, pendingCreate, rewardedAd.status]);
+
+  React.useEffect(() => {
+    if (!pendingCreate) return;
+    if (rewardedAd.status !== 'cancelled' && rewardedAd.status !== 'unavailable') return;
+    setPendingCreate(null);
+    rewardRequestKeyRef.current = null;
+    submittedRewardKeyRef.current = null;
+  }, [pendingCreate, rewardedAd.status]);
 
   const handleCopy = async () => {
     if (!displayShortUrl) return;
@@ -113,8 +200,14 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
     }
   };
 
-  const isSubmitting = createMutation.isPending;
   const apiErrorMessage = createMutation.isError ? t('form.apiError') : null;
+  const shouldShowRewardPanel =
+    rewardedAd.enabled &&
+    (Boolean(pendingCreate) ||
+      rewardedAd.status === 'cancelled' ||
+      rewardedAd.status === 'unavailable');
+  const canCancelReward =
+    Boolean(pendingCreate) && (rewardedAd.status === 'loading' || rewardedAd.status === 'ready');
 
   return (
     <div className="space-y-4">
@@ -130,7 +223,7 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
             placeholder={t('form.originalUrl.placeholder')}
             value={originalUrl}
             onChange={(e) => setOriginalUrl(e.target.value)}
-            disabled={isSubmitting}
+            disabled={isFormDisabled}
             aria-invalid={!!validationError}
           />
           {validationError ? (
@@ -149,7 +242,7 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
           <Select
             value={expirePreset}
             onValueChange={(v) => setExpirePreset(v as ShortUrlCreateRequestExpirePresetEnum)}
-            disabled={isSubmitting}
+            disabled={isFormDisabled}
           >
             <SelectTrigger
               id="shortener-expire-preset"
@@ -170,7 +263,7 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
         <div className="flex justify-end">
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isFormDisabled}
             analyticsKey="shortener_submit"
             className="min-w-[120px]"
           >
@@ -180,7 +273,7 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
                 {t('form.submitting')}
               </span>
             ) : (
-              t('form.submit')
+              t(shouldRequestRewardForCurrentPayload ? 'form.rewardedAd.submit' : 'form.submit')
             )}
           </Button>
         </div>
@@ -189,6 +282,44 @@ export default function ShortenerForm({ lng }: ShortenerFormProps) {
           <p className="text-sm text-red-500" role="alert">
             {apiErrorMessage}
           </p>
+        ) : null}
+
+        {shouldShowRewardPanel ? (
+          <section
+            className="rounded-md border border-basic-3 bg-basic-0 p-3 text-sm text-fg-3"
+            role="status"
+            aria-live="polite"
+          >
+            <p>{t(`form.rewardedAd.status.${rewardedAd.status}`)}</p>
+            <p className="mt-1 text-xs text-fg-5">{t('form.rewardedAd.helper')}</p>
+            {rewardedAd.status === 'ready' ? (
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Button
+                  type="button"
+                  onClick={rewardedAd.show}
+                  analyticsKey="shortener_rewarded_ad_show"
+                >
+                  {t('form.rewardedAd.watch')}
+                </Button>
+              </div>
+            ) : null}
+            {rewardedAd.status === 'loading' ? (
+              <div className="mt-3 inline-flex items-center gap-2 text-xs text-fg-5">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                {t('form.rewardedAd.loading')}
+              </div>
+            ) : null}
+            {canCancelReward ? (
+              <Button
+                type="button"
+                className="mt-3 border border-basic-3 bg-basic-1 text-fg-2 hover:bg-basic-2"
+                onClick={handleCancelReward}
+                analyticsKey="shortener_rewarded_ad_cancel"
+              >
+                {t('form.rewardedAd.cancel')}
+              </Button>
+            ) : null}
+          </section>
         ) : null}
       </form>
 

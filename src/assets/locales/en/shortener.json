@@ -24,7 +24,23 @@
     },
     "submit": "Shorten",
     "submitting": "Creating…",
-    "apiError": "Failed to create the short URL. Please try again shortly."
+    "apiError": "Failed to create the short URL. Please try again shortly.",
+    "rewardedAd": {
+      "helper": "The ad reward applies only to creating one short URL for the current input.",
+      "loading": "Preparing the ad.",
+      "submit": "Watch ad to create",
+      "watch": "Watch ad and create",
+      "cancel": "Cancel",
+      "status": {
+        "idle": "A rewarded ad will be prepared before creating the short URL.",
+        "loading": "Loading a rewarded ad before creating the short URL.",
+        "ready": "Watch the full ad to create the short URL.",
+        "showing": "The short URL will be created after the ad is completed.",
+        "granted": "Ad completion confirmed. Creating the short URL.",
+        "unavailable": "No ad is available right now, so the short URL was not created. Please try again shortly.",
+        "cancelled": "The short URL was not created because the ad was not completed."
+      }
+    }
   },
   "result": {
     "title": "Short URL created",

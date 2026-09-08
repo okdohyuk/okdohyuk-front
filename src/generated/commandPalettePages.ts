@@ -21,6 +21,10 @@ export const commandPalettePages = {
       "access": "admin"
     },
     {
+      "path": "/admin/api-key",
+      "access": "admin"
+    },
+    {
       "path": "/admin/blog",
       "access": "admin"
     },
@@ -34,6 +38,10 @@ export const commandPalettePages = {
     },
     {
       "path": "/admin/reply-report",
+      "access": "admin"
+    },
+    {
+      "path": "/admin/short-url",
       "access": "admin"
     },
     {
@@ -302,6 +310,22 @@ export const commandPalettePages = {
         "en": "Free date difference calculator for schedules, trips, deadlines, and project planning. Compare two dates to see the total day count, week-and-day breakdown, weekday total, weekend total, and whether including the end date changes the result.",
         "ja": "無料で使える日付差分計算機です。開始日と終了日の間の合計日数、週と日の内訳、平日数、週末数をまとめて確認でき、終了日を含める設定にも対応して予定や旅行、締切管理に役立ちます。",
         "zh": "免费日期差计算器，可快速比较两个日期之间的总天数、周加天拆分、工作日数量与周末数量，并支持是否包含结束日期，适合安排日程、旅行计划和项目周期确认。"
+      }
+    },
+    {
+      "path": "/guestbook",
+      "access": "public",
+      "titles": {
+        "ko": "방명록",
+        "en": "Guestbook",
+        "ja": "ゲストブック",
+        "zh": "留言板"
+      },
+      "descriptions": {
+        "ko": "okdohyuk.dev 방명록에 자유롭게 메시지를 남겨보세요. 로그인 사용자는 계정으로, 비로그인 방문자는 닉네임과 삭제 비밀번호로 참여할 수 있습니다.",
+        "en": "Feel free to leave a message on the okdohyuk.dev guestbook. Logged-in users post with their account; visitors can join with a nickname and a deletion password.",
+        "ja": "okdohyuk.dev のゲストブックに自由にメッセージを残してください。ログインユーザーはアカウントで、未ログインの訪問者はニックネームと削除パスワードで参加できます。",
+        "zh": "欢迎在 okdohyuk.dev 留言板自由留言。登录用户以账号发布，未登录访客可使用昵称和删除密码参与。"
       }
     },
     {

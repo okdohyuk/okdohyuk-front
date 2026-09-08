@@ -135,3 +135,9 @@ Authorization: Token exampletoken
 ## 📄 라이선스
 
 MIT
+
+## 단축 URL 생성 보상형 광고
+
+`NEXT_PUBLIC_SHORT_URL_REWARDED_AD_UNIT`에 Google Ad Manager 웹 보상형 광고 단위 경로를
+설정하면 생성 화면에서 광고 보상 승인 후 링크를 만듭니다. 미설정 시 기존 생성 흐름을
+유지합니다. 연결 방법과 브라우저 검증의 한계는 [설정 문서](docs/short-url-rewarded-ads.md)를 참고하세요.
