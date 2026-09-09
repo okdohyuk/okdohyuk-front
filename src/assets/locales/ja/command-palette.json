@@ -15,6 +15,7 @@
     "/admin/blog/write": "ブログ記事作成",
     "/admin/reply-report": "コメント通報管理",
     "/admin/users": "ユーザー管理",
+    "/admin/short-url": "短縮URL管理",
     "/auth/login": "ログイン",
     "/privacy": "プライバシーポリシー",
     "/terms": "利用規約",
