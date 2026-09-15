@@ -23,6 +23,10 @@ const INJECTED_SCRIPT_FUNCTIONS = [
   'is_mark_able_element',
 ];
 
+// 브라우저 확장 프로그램이 addEventListener 를 훅하는 함수 시그니처(FRONT-2Q/2R/2S/2W).
+// 확장이 훅 내부에서 null 요소의 tagName 을 읽다가 던지는 오류로, 우리 번들 밖 코드라 수정 불가.
+const EXTENSION_HOOK_FUNCTIONS = ['addEL_hook', 'top.addEventListener'];
+
 const isNoiseEvent = (event: NoiseEvent): boolean => {
   const exception = event.exception?.values?.[0];
   const message = exception?.value ?? '';
@@ -37,6 +41,15 @@ const isNoiseEvent = (event: NoiseEvent): boolean => {
 
   // 2) 외부 userscript 주입 오류(FRONT-2N): 앱 번들 밖에서 실행되는 사용자 스크립트다.
   if (frames.some((frame) => /userscript\.html/i.test(frame.filename ?? ''))) {
+    return true;
+  }
+
+  // 2-1) 확장 프로그램의 addEventListener 훅 내부에서 발생한 tagName null 오류.
+  //      메시지가 좁고 훅 프레임이 동반될 때만 필터해 우리 코드의 동명 오류는 남긴다.
+  if (
+    /Cannot read properties of null \(reading 'tagName'\)/.test(message) &&
+    frames.some((frame) => frame.function && EXTENSION_HOOK_FUNCTIONS.includes(frame.function))
+  ) {
     return true;
   }
 
