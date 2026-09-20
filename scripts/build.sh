@@ -17,5 +17,6 @@ yarn run generate-api -- --name=Solve
 yarn run generate-api -- --name=Pokemon
 yarn run generate-api -- --name=PokemonTeam
 yarn run generate-api -- --name=Survey
+yarn run generate-api -- --name=Presentation
 yarn run build
 yarn run postbuild

@@ -6,6 +6,16 @@ console.log(args);
 
 const apiName = args.filter((arg) => arg.match(new RegExp('--name=')))[0].split('=')[1];
 
+// API_PATH 가 없으면 base.ts 에 문자열 "undefined" 가 박혀 런타임에 상대경로 요청이 나간다.
+// 조용히 깨지는 대신 생성 단계에서 멈춘다.
+if (!process.env.API_PATH) {
+  console.error(
+    '[generate-api] API_PATH 환경변수가 필요합니다.\n' +
+      `  예) API_PATH=https://api2.okdohyuk.dev yarn generate-api -- --name=${apiName}`,
+  );
+  process.exit(1);
+}
+
 let basePath = `"${process.env.API_PATH}"`;
 
 console.log('Run openapi-generator...');
