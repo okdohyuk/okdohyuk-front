@@ -101,4 +101,84 @@ describe('agent discovery metadata', () => {
     expect(markdown).toContain(enAgeCalculatorLocale.openGraph.description);
     expect(markdown).not.toContain('# Age Calculator\n\n- Page URL');
   });
+
+  it('extractBlogSlugFromPath extracts slug from localized, root, and .md blog paths', () => {
+    expect(agentDiscoveryModule.extractBlogSlugFromPath('/ko/blog/my-post')).toBe('my-post');
+    expect(agentDiscoveryModule.extractBlogSlugFromPath('/en/blog/my-post.md')).toBe('my-post');
+    expect(agentDiscoveryModule.extractBlogSlugFromPath('/blog/my-post.md')).toBe('my-post');
+    expect(
+      agentDiscoveryModule.extractBlogSlugFromPath('/ko/blog/%ED%95%9C%EA%B8%80-slug.md'),
+    ).toBe('한글-slug');
+    expect(agentDiscoveryModule.extractBlogSlugFromPath('/ko/blog')).toBeNull();
+    expect(agentDiscoveryModule.extractBlogSlugFromPath('/ko/age-calculator')).toBeNull();
+  });
+
+  it('buildBlogPostMarkdown formats YAML frontmatter and full markdown body', () => {
+    const markdown = agentDiscoveryModule.buildBlogPostMarkdown(
+      {
+        title: 'AI Search & "GEO" Guide',
+        urlSlug: 'ai-search-geo-guide',
+        contents: '## Overview\n\nFull markdown body content.',
+        createdAt: '2026-10-20T00:00:00.000Z',
+        updatedAt: '2026-10-26T00:00:00.000Z',
+        categoryChain: ['Engineering', 'Web'],
+        tags: ['SEO', 'GEO'],
+      },
+      'ko',
+    );
+
+    expect(markdown).toContain('---\n');
+    expect(markdown).toContain('title: "AI Search & \\"GEO\\" Guide"');
+    expect(markdown).toContain('canonical_url: "https://okdohyuk.dev/ko/blog/ai-search-geo-guide"');
+    expect(markdown).toContain('created_at: "2026-10-20T00:00:00.000Z"');
+    expect(markdown).toContain('updated_at: "2026-10-26T00:00:00.000Z"');
+    expect(markdown).toContain('category: "Engineering > Web"');
+    expect(markdown).toContain('tags: ["SEO", "GEO"]');
+    expect(markdown).toContain(
+      '# AI Search & "GEO" Guide\n\n## Overview\n\nFull markdown body content.',
+    );
+  });
+
+  it('resolveRouteMarkdown returns full blog post markdown when backend responds and falls back on failure', async () => {
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce(
+      new Response(
+        JSON.stringify({
+          title: 'Fetched Blog Title',
+          urlSlug: 'fetched-blog',
+          contents: 'Body paragraph from backend.',
+          createdAt: '2026-10-20T00:00:00.000Z',
+          updatedAt: '2026-10-26T00:00:00.000Z',
+          categoryChain: ['Tech'],
+          tags: ['NextJS'],
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } },
+      ),
+    );
+
+    const blogMarkdown = await agentDiscoveryModule.resolveRouteMarkdown(
+      'ko',
+      '/ko/blog/fetched-blog.md',
+    );
+    expect(blogMarkdown).toContain('title: "Fetched Blog Title"');
+    expect(blogMarkdown).toContain('Body paragraph from backend.');
+
+    fetchSpy.mockResolvedValueOnce(new Response('Not Found', { status: 404 }));
+    const fallbackMarkdown = await agentDiscoveryModule.resolveRouteMarkdown(
+      'ko',
+      '/ko/blog/missing-post',
+    );
+    expect(fallbackMarkdown).toContain('## Site discovery');
+
+    fetchSpy.mockRestore();
+  });
+
+  it('isDiscoveryBypassPath returns true for llms.txt, llms-full.txt, rss.xml, robots.txt, and sitemaps', () => {
+    expect(agentDiscoveryModule.isDiscoveryBypassPath('/llms.txt')).toBe(true);
+    expect(agentDiscoveryModule.isDiscoveryBypassPath('/llms-full.txt')).toBe(true);
+    expect(agentDiscoveryModule.isDiscoveryBypassPath('/rss.xml')).toBe(true);
+    expect(agentDiscoveryModule.isDiscoveryBypassPath('/robots.txt')).toBe(true);
+    expect(agentDiscoveryModule.isDiscoveryBypassPath('/sitemap.xml')).toBe(true);
+    expect(agentDiscoveryModule.isDiscoveryBypassPath('/server-sitemap.xml')).toBe(true);
+    expect(agentDiscoveryModule.isDiscoveryBypassPath('/ko/blog/test')).toBe(false);
+  });
 });

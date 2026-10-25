@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 import { getTranslations } from '~/app/i18n';
-import { Language } from '~/app/i18n/settings';
+import { fallbackLng, Language } from '~/app/i18n/settings';
 import { FlatNamespace } from 'i18next';
 import { OpenGraphType } from 'next/dist/lib/metadata/types/opengraph-types';
-import * as process from 'node:process';
+import { SITE_URL } from '@libs/shared/agentDiscovery';
 
 type MetaDataProps = {
   title: string;
@@ -12,6 +12,12 @@ type MetaDataProps = {
   image?: string;
   type?: OpenGraphType;
   language: Language;
+  pathname?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
+  tags?: string[];
+  section?: string;
 };
 
 type CustomMetadata = (props: MetaDataProps) => Metadata;
@@ -23,6 +29,7 @@ type TranslationsMetadataProps = {
   ns: FlatNamespace;
   type?: OpenGraphType;
   image?: string;
+  pathname?: string;
 };
 
 type TranslationsMetadata = ({
@@ -30,7 +37,22 @@ type TranslationsMetadata = ({
   ns,
   type,
   image,
+  pathname,
 }: TranslationsMetadataProps) => Promise<Metadata>;
+
+function normalizeMetadataPathname(pathname?: string): string | null {
+  if (!pathname) {
+    return null;
+  }
+
+  const trimmed = pathname.trim();
+  if (!trimmed || trimmed === '/') {
+    return '';
+  }
+
+  const withLeadingSlash = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+  return withLeadingSlash.replace(/\/+$/, '');
+}
 
 const metadata: CustomMetadata = ({
   title,
@@ -39,21 +61,69 @@ const metadata: CustomMetadata = ({
   image,
   type = 'website',
   language,
+  pathname,
+  publishedTime,
+  modifiedTime,
+  authors,
+  tags,
+  section,
 }) => {
+  const cleanPath = normalizeMetadataPathname(pathname);
+  const canonicalUrl = cleanPath !== null ? `${SITE_URL}/${language}${cleanPath}` : undefined;
+
+  const alternates: Metadata['alternates'] =
+    cleanPath !== null
+      ? {
+          canonical: canonicalUrl,
+          languages: {
+            ko: `${SITE_URL}/ko${cleanPath}`,
+            en: `${SITE_URL}/en${cleanPath}`,
+            ja: `${SITE_URL}/ja${cleanPath}`,
+            zh: `${SITE_URL}/zh${cleanPath}`,
+            'x-default': `${SITE_URL}/${fallbackLng}${cleanPath}`,
+          },
+          types: {
+            'application/rss+xml': `${SITE_URL}/rss.xml`,
+          },
+        }
+      : {
+          types: {
+            'application/rss+xml': `${SITE_URL}/rss.xml`,
+          },
+        };
+
+  const baseOpenGraph = {
+    title,
+    description,
+    locale: language,
+    ...(canonicalUrl ? { url: canonicalUrl } : {}),
+    images: image || '/opengraph_image.png',
+  };
+
+  const openGraph: Metadata['openGraph'] =
+    type === 'article'
+      ? {
+          ...baseOpenGraph,
+          type: 'article',
+          ...(publishedTime ? { publishedTime } : {}),
+          ...(modifiedTime ? { modifiedTime } : {}),
+          ...(authors && authors.length > 0 ? { authors } : {}),
+          ...(tags && tags.length > 0 ? { tags } : {}),
+          ...(section ? { section } : {}),
+        }
+      : {
+          ...baseOpenGraph,
+          type,
+        };
+
   return {
     manifest: '/manifest.json',
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL}`),
+    metadataBase: new URL(SITE_URL),
     title,
     description,
     keywords,
-    image: image || '/opengraph_image.png',
-    openGraph: {
-      type,
-      title,
-      description,
-      language,
-      images: image || '/opengraph_image.png',
-    },
+    alternates,
+    openGraph,
     icons: {
       icon: '/favicon.ico',
       shortcut: '/favicon.ico',
@@ -130,6 +200,7 @@ const translationsMetadata: TranslationsMetadata = async ({
   ns: namespace,
   type = 'website',
   image,
+  pathname,
 }) => {
   const { lng } = await params;
   const language = lng as Language;
@@ -143,9 +214,10 @@ const translationsMetadata: TranslationsMetadata = async ({
     image,
     type,
     language,
+    pathname,
   });
 };
 
 export { translationsMetadata, metadata };
 
-export type { GenerateMetadata };
+export type { GenerateMetadata, MetaDataProps };
