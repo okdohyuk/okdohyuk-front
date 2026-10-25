@@ -5,10 +5,11 @@ import { AxiosError } from 'axios';
 import { authApi } from '@api';
 import {
   appendAgentDiscoveryHeaders,
-  buildRouteMarkdown,
   estimateMarkdownTokens,
+  extractBlogSlugFromPath,
   isDiscoveryBypassPath,
   isMarkdownRequest,
+  resolveRouteMarkdown,
 } from '@libs/shared/agentDiscovery';
 import Jwt from '~/utils/jwtUtils';
 import { cookieName, fallbackLng, languages, type Language } from '~/app/i18n/settings';
@@ -67,7 +68,10 @@ export async function middleware(req: NextRequest) {
 
   const lng = resolvePreferredLanguage(req);
 
-  if (isMarkdownRequest(req.headers.get('accept'))) {
+  const isDirectBlogMarkdownUrl =
+    pathname.toLowerCase().endsWith('.md') && Boolean(extractBlogSlugFromPath(pathname));
+
+  if (isMarkdownRequest(req.headers.get('accept')) || isDirectBlogMarkdownUrl) {
     const requestedLanguage = languages.find(
       (language) => pathname === `/${language}` || pathname.startsWith(`/${language}/`),
     );
@@ -76,7 +80,7 @@ export async function middleware(req: NextRequest) {
     if (!requestedLanguage) {
       localizedPath = pathname === '/' ? `/${markdownLanguage}` : `/${markdownLanguage}${pathname}`;
     }
-    const markdown = buildRouteMarkdown(markdownLanguage, localizedPath);
+    const markdown = await resolveRouteMarkdown(markdownLanguage, localizedPath);
     const response = new NextResponse(markdown, {
       headers: {
         'Content-Type': 'text/markdown; charset=utf-8',
@@ -271,6 +275,6 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!api/|_next/static|_next/image|favicon.ico|sw.js|site.webmanifest|icons/|splashscreens/|.*\\.[a-zA-Z0-9]).*)',
+    '/((?!api/|_next/static|_next/image|favicon.ico|sw.js|site.webmanifest|icons/|splashscreens/|.*\\.(?!md$)[a-zA-Z0-9]+$).*)',
   ],
 };

@@ -67,7 +67,9 @@ const BlogDetail: BlogComponent = function BlogDetail({ blog, isPreview = false,
     <BlogDetailProvider blog={blog} lng={lng}>
       <LazyMotion features={domAnimation}>
         <Wrapper {...wrapperProps}>
-          <m.section
+          <m.article
+            itemScope
+            itemType="https://schema.org/TechArticle"
             className="w-full"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,7 +78,7 @@ const BlogDetail: BlogComponent = function BlogDetail({ blog, isPreview = false,
             <BlogHeader />
             <BlogContent isPreview={isPreview} />
             {isPreview ? null : <BlogBottom />}
-          </m.section>
+          </m.article>
         </Wrapper>
       </LazyMotion>
     </BlogDetailProvider>

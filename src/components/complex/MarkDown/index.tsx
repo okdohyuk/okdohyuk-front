@@ -37,7 +37,7 @@ const MarkDown: MarkDownProps = function MarkDown({ contents }) {
       )}
       options={{
         forceBlock: true,
-        wrapper: 'article',
+        wrapper: 'div',
         overrides: {
           h2: {
             component: Heading2,

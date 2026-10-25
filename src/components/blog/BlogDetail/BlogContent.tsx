@@ -24,6 +24,7 @@ function BlogContent({ isPreview }: BlogContentProps) {
 
   return (
     <section
+      itemProp="articleBody"
       className={cn(
         BLOG_GLASS_PANEL,
         'px-4 py-5 md:px-8 md:py-6',
