@@ -1,17 +1,26 @@
-import { getServerSideSitemap } from 'next-sitemap';
-import { blogApi } from '@api';
+import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
 import { notFound } from 'next/navigation';
+import { fetchAllPublicBlogs, toSafeIsoDate } from '@libs/server/blogFeedUtils';
+import { SITE_URL } from '@libs/shared/agentDiscovery';
+import { fallbackLng, languages } from '~/app/i18n/settings';
 
 export const GET = async () => {
   try {
-    const { data } = await blogApi.getBlogSearch(0, 100);
+    const blogs = await fetchAllPublicBlogs();
 
-    const newsSitemaps = data.results.map((blog) => ({
-      loc: `${process.env.NEXT_PUBLIC_URL}/blog/${blog.urlSlug}`,
-      lastmod: new Date().toISOString(),
-    }));
+    const fields: ISitemapField[] = blogs.map((blog) => {
+      const createdIso = toSafeIsoDate(blog.createdAt);
+      const lastmod = toSafeIsoDate(blog.updatedAt || blog.createdAt, createdIso);
 
-    const fields = [...newsSitemaps];
+      return {
+        loc: `${SITE_URL}/${fallbackLng}/blog/${blog.urlSlug}`,
+        lastmod,
+        alternateRefs: languages.map((lng) => ({
+          href: `${SITE_URL}/${lng}/blog/${blog.urlSlug}`,
+          hreflang: lng,
+        })),
+      };
+    });
 
     return await getServerSideSitemap(fields);
   } catch (error) {

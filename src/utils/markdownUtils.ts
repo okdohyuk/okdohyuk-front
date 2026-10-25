@@ -9,6 +9,8 @@ type Options = {
   preserveLinks?: boolean;
 };
 
+const DEFAULT_SUMMARY_MAX_LENGTH = 160;
+
 const defaultOptions: Required<Options> = {
   stripListLeaders: true,
   listUnicodeChar: '',
@@ -18,6 +20,31 @@ const defaultOptions: Required<Options> = {
 };
 
 export default class MarkdownUtils {
+  static extractPlainTextSummary = (
+    markdown: string,
+    maxLength: number = DEFAULT_SUMMARY_MAX_LENGTH,
+  ): string => {
+    if (!markdown || !markdown.trim()) {
+      return '';
+    }
+
+    const stripped = MarkdownUtils.removeMarkdown(markdown, {
+      useImgAltText: false,
+      gfm: true,
+    });
+
+    const singleLine = stripped
+      .replace(/[\r\n\t]+/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+
+    if (singleLine.length <= maxLength) {
+      return singleLine;
+    }
+
+    return `${singleLine.slice(0, maxLength).trim()}...`;
+  };
+
   static extractHeadings = (markdown: string): BlogToc[] => {
     const lines = markdown.split('\n');
     let inCodeBlock = false;
@@ -102,7 +129,17 @@ export default class MarkdownUtils {
         .replace(/```[ \t]*[a-zA-Z0-9]*\s*\n?([\s\S]*?)\n?```[ \t]*(\n|$)/g, '$1')
         // 혹시 남아있는 ``` 단독 라인, 줄 끝, 파일 끝 모두 제거
         .replace(/(^|\n)```[ \t]*($|\n|$)/g, '$1')
-        .replace(/```+[ \t]*($|\n|$)/g, '')
+        .replace(/```+[ \t]*($|\n|$)/g, '');
+
+      if (settings.gfm) {
+        output = output
+          // GFM 테이블 구분선(| :--- | --- |) 제거
+          .replace(/^\s*\|?(?:\s*:?-{2,}:?\s*\|)+\s*(?::?-{2,}:?\s*\|?)?\s*$/gm, '')
+          // GFM 테이블 파이프(|) 구분자 공백 치환
+          .replace(/\|/g, ' ');
+      }
+
+      output = output
         // 마지막 남은 개행/공백 모두 제거
         .replace(/[\n\r\s]+$/g, '')
         .trim()

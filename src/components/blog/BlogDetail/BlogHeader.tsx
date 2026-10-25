@@ -7,10 +7,23 @@ import { H1, Text } from '@components/basic/Text';
 import { BLOG_GLASS_PANEL } from '@components/blog/interactiveStyles';
 import ViewCount from './ViewCount';
 
+const parseSafeDate = (value?: string): Date | null => {
+  if (!value) return null;
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+};
+
 function BlogHeader() {
   const { blog } = useBlogDetail();
-  const { thumbnailImage, title, createdAt, categoryChain } = blog;
-  const createdDate = createdAt ? new Date(createdAt) : new Date();
+  const { thumbnailImage, title, createdAt, updatedAt, categoryChain } = blog;
+  const createdDate = parseSafeDate(createdAt) ?? new Date();
+  const updatedDate = parseSafeDate(updatedAt);
+  const createdFormatted = format(createdDate, 'yyyy-MM-dd');
+  const updatedFormatted = updatedDate ? format(updatedDate, 'yyyy-MM-dd') : null;
+  const hasDistinctUpdatedDate = Boolean(
+    updatedDate && updatedFormatted && updatedFormatted !== createdFormatted,
+  );
+  const effectiveModifiedIso = (updatedDate ?? createdDate).toISOString();
 
   const categoryRender = (category: string, index: number) => (
     <Link
@@ -40,11 +53,25 @@ function BlogHeader() {
         <Text className="mb-3 flex flex-wrap items-center gap-2 text-white" variant="d3">
           {categoryChain ? categoryChain.map(categoryRender) : null}
         </Text>
-        <H1 className="mb-4 text-2xl text-white lg:text-4xl">{title}</H1>
+        <H1 itemProp="headline" className="mb-4 text-2xl text-white lg:text-4xl">
+          {title}
+        </H1>
         <Text className="flex flex-wrap items-center gap-3 text-white/60" variant="c1">
           <span className="inline-flex items-center rounded-full bg-black/30 px-3 py-1">
-            {format(createdDate, 'yyyy-MM-dd')}
+            <time dateTime={createdDate.toISOString()} itemProp="datePublished">
+              {createdFormatted}
+            </time>
           </span>
+          {hasDistinctUpdatedDate && updatedDate ? (
+            <span className="inline-flex items-center rounded-full bg-black/30 px-3 py-1">
+              수정{' '}
+              <time dateTime={updatedDate.toISOString()} itemProp="dateModified" className="ml-1">
+                {updatedFormatted}
+              </time>
+            </span>
+          ) : (
+            <meta itemProp="dateModified" content={effectiveModifiedIso} />
+          )}
           <span className="inline-flex items-center rounded-full bg-black/30 px-3 py-1">
             <ViewCount />
           </span>

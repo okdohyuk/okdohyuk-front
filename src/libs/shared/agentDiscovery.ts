@@ -11,6 +11,8 @@ export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? `${SITE_URL}/api`
 export const DISCOVERY_VERSION = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 12) ?? '2026.04.20';
 export const CONTENT_SIGNAL_POLICY = 'ai-train=no, search=yes, ai-input=yes';
 
+const TOKENS_PER_CHAR_DIVISOR = 4;
+
 export const DISCOVERY_PATHS = {
   apiCatalog: '/.well-known/api-catalog',
   publicOpenApi: '/.well-known/openapi/public-apis.json',
@@ -23,7 +25,29 @@ export const DISCOVERY_PATHS = {
   apiDocs: '/docs/api',
   mcpEndpoint: '/mcp',
   status: '/api/status',
+  llmsTxt: '/llms.txt',
+  llmsFullTxt: '/llms-full.txt',
+  rssXml: '/rss.xml',
 } as const;
+
+const BYPASS_EXACT_PATHS = new Set<string>([
+  DISCOVERY_PATHS.llmsTxt,
+  DISCOVERY_PATHS.llmsFullTxt,
+  DISCOVERY_PATHS.rssXml,
+  '/robots.txt',
+  '/sitemap.xml',
+  '/server-sitemap.xml',
+]);
+
+export type BlogMarkdownSource = {
+  title: string;
+  urlSlug: string;
+  contents: string;
+  createdAt?: string;
+  updatedAt?: string;
+  categoryChain?: string[];
+  tags?: string[];
+};
 
 const HOME_TOOLS_HEADING: Record<Language, string> = {
   ko: '대표 도구',
@@ -57,6 +81,7 @@ export function isMarkdownRequest(acceptHeader: string | null) {
 
 export function isDiscoveryBypassPath(pathname: string) {
   return (
+    BYPASS_EXACT_PATHS.has(pathname) ||
     pathname.startsWith('/.well-known') ||
     pathname.startsWith('/docs/api') ||
     pathname.startsWith('/mcp')
@@ -103,6 +128,8 @@ export function appendAgentDiscoveryHeaders(headers: Headers) {
     `<${DISCOVERY_PATHS.apiDocs}>; rel="service-doc"; type="text/html"`,
     `<${DISCOVERY_PATHS.agentSkillsIndex}>; rel="describedby"; type="application/json"`,
     `<${DISCOVERY_PATHS.mcpServerCard}>; rel="describedby"; type="application/json"`,
+    `<${DISCOVERY_PATHS.llmsTxt}>; rel="describedby"; type="text/plain"`,
+    `<${DISCOVERY_PATHS.rssXml}>; rel="alternate"; type="application/rss+xml"`,
   ];
 
   linkValues.forEach((value) => headers.append('Link', value));
@@ -114,7 +141,112 @@ export function appendAgentDiscoveryHeaders(headers: Headers) {
 }
 
 export function estimateMarkdownTokens(markdown: string) {
-  return Math.max(1, Math.ceil(markdown.trim().length / 4));
+  return Math.max(1, Math.ceil(markdown.trim().length / TOKENS_PER_CHAR_DIVISOR));
+}
+
+function escapeYamlString(value: string): string {
+  return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\r?\n/g, ' ');
+}
+
+export function extractBlogSlugFromPath(pathname: string): string | null {
+  const { routePath } = stripLanguagePrefix(pathname);
+  const match = routePath.match(/^\/blog\/([^/]+?)(?:\.md)?\/?$/i);
+  if (!match || !match[1]) {
+    return null;
+  }
+
+  const rawSlug = match[1];
+  try {
+    return decodeURIComponent(rawSlug);
+  } catch {
+    return rawSlug;
+  }
+}
+
+export function buildBlogPostMarkdown(blog: BlogMarkdownSource, language: Language): string {
+  const canonicalUrl = absoluteUrl(`/${language}/blog/${blog.urlSlug}`);
+  const frontmatterLines = [
+    '---',
+    `title: "${escapeYamlString(blog.title)}"`,
+    `url: "${canonicalUrl}"`,
+    `canonical_url: "${canonicalUrl}"`,
+    `language: "${language}"`,
+  ];
+
+  if (blog.createdAt) {
+    frontmatterLines.push(`created_at: "${escapeYamlString(blog.createdAt)}"`);
+  }
+  if (blog.updatedAt || blog.createdAt) {
+    frontmatterLines.push(
+      `updated_at: "${escapeYamlString(blog.updatedAt ?? blog.createdAt ?? '')}"`,
+    );
+  }
+  if (blog.categoryChain && blog.categoryChain.length > 0) {
+    frontmatterLines.push(`category: "${escapeYamlString(blog.categoryChain.join(' > '))}"`);
+  }
+  if (blog.tags && blog.tags.length > 0) {
+    const serializedTags = blog.tags.map((tag) => `"${escapeYamlString(tag)}"`).join(', ');
+    frontmatterLines.push(`tags: [${serializedTags}]`);
+  }
+
+  frontmatterLines.push('---');
+
+  return [...frontmatterLines, '', `# ${blog.title}`, '', blog.contents].join('\n');
+}
+
+export async function fetchBlogMarkdownBySlug(
+  urlSlug: string,
+  language: Language,
+): Promise<string | null> {
+  const baseUrl = API_BASE_URL.replace(/\/+$/, '');
+  const endpoint = `${baseUrl}/blog/${encodeURIComponent(urlSlug)}`;
+
+  try {
+    const response = await fetch(endpoint, {
+      headers: { Accept: 'application/json' },
+    });
+
+    if (!response.ok) {
+      return null;
+    }
+
+    const payload = (await response.json()) as Partial<BlogMarkdownSource> | null;
+    if (
+      !payload ||
+      typeof payload.title !== 'string' ||
+      typeof payload.contents !== 'string' ||
+      typeof payload.urlSlug !== 'string'
+    ) {
+      return null;
+    }
+
+    return buildBlogPostMarkdown(
+      {
+        title: payload.title,
+        urlSlug: payload.urlSlug,
+        contents: payload.contents,
+        createdAt: payload.createdAt,
+        updatedAt: payload.updatedAt,
+        categoryChain: Array.isArray(payload.categoryChain) ? payload.categoryChain : [],
+        tags: Array.isArray(payload.tags) ? payload.tags : [],
+      },
+      language,
+    );
+  } catch {
+    return null;
+  }
+}
+
+export async function fetchBlogMarkdownIfApplicable(
+  language: Language,
+  pathname: string,
+): Promise<string | null> {
+  const slug = extractBlogSlugFromPath(pathname);
+  if (!slug) {
+    return null;
+  }
+
+  return fetchBlogMarkdownBySlug(slug, language);
 }
 
 export function buildHomepageMarkdown(language: Language) {
@@ -139,6 +271,9 @@ export function buildHomepageMarkdown(language: Language) {
     description,
     '',
     `- Canonical URL: ${absoluteUrl(`/${language}`)}`,
+    `- LLMs index: ${absoluteUrl(DISCOVERY_PATHS.llmsTxt)}`,
+    `- LLMs full corpus: ${absoluteUrl(DISCOVERY_PATHS.llmsFullTxt)}`,
+    `- RSS feed: ${absoluteUrl(DISCOVERY_PATHS.rssXml)}`,
     `- API catalog: ${absoluteUrl(DISCOVERY_PATHS.apiCatalog)}`,
     `- API docs: ${absoluteUrl(DISCOVERY_PATHS.apiDocs)}`,
     `- Agent skills index: ${absoluteUrl(DISCOVERY_PATHS.agentSkillsIndex)}`,
@@ -176,8 +311,19 @@ export function buildRouteMarkdown(language: Language, pathname: string) {
     '',
     '## Site discovery',
     `- Homepage: ${absoluteUrl(`/${language}`)}`,
+    `- LLMs index: ${absoluteUrl(DISCOVERY_PATHS.llmsTxt)}`,
+    `- RSS feed: ${absoluteUrl(DISCOVERY_PATHS.rssXml)}`,
     `- API docs: ${absoluteUrl(DISCOVERY_PATHS.apiDocs)}`,
     `- API catalog: ${absoluteUrl(DISCOVERY_PATHS.apiCatalog)}`,
     `- Agent skills: ${absoluteUrl(DISCOVERY_PATHS.agentSkillsIndex)}`,
   ].join('\n');
+}
+
+export async function resolveRouteMarkdown(language: Language, pathname: string): Promise<string> {
+  const blogMarkdown = await fetchBlogMarkdownIfApplicable(language, pathname);
+  if (blogMarkdown) {
+    return blogMarkdown;
+  }
+
+  return buildRouteMarkdown(language, pathname);
 }

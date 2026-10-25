@@ -86,6 +86,57 @@ describe('markdownUtils', () => {
         const expected = 'strikethrough';
         expect(markdownUtils.removeMarkdown(markdown)).toBe(expected);
       });
+
+      it('GFM 테이블 구분선과 파이프(|)를 제거해야 합니다', () => {
+        const markdown = '| 진단 항목 | 결과 |\n| :--- | --- |\n| 테스트 | 통과 |';
+        const result = markdownUtils.removeMarkdown(markdown);
+        expect(result).not.toContain('|');
+        expect(result).not.toContain(':---');
+        expect(result).toContain('진단 항목');
+        expect(result).toContain(' 통과');
+      });
+    });
+  });
+
+  describe('extractPlainTextSummary', () => {
+    it('빈 문자열이나 공백만 입력되면 빈 문자열을 반환해야 합니다', () => {
+      expect(markdownUtils.extractPlainTextSummary('')).toBe('');
+      expect(markdownUtils.extractPlainTextSummary('   \n\t  ')).toBe('');
+    });
+
+    it('GFM 테이블, 이미지, 코드 블록을 제거하고 한 줄 평문 요약을 반환해야 합니다', () => {
+      const markdown = [
+        '# 제목입니다',
+        '![대표이미지](https://example.com/hero.png)',
+        '| 항목 | 상태 |',
+        '| :--- | :---: |',
+        '| 빌드 | 성공 |',
+        '자세한 내용은 [공식 문서](https://okdohyuk.dev)를 참고하세요.',
+        '```ts',
+        'const a = 1;',
+        '```',
+      ].join('\n');
+
+      const summary = markdownUtils.extractPlainTextSummary(markdown, 200);
+
+      expect(summary).not.toContain('![');
+      expect(summary).not.toContain('대표이미지');
+      expect(summary).not.toContain('|');
+      expect(summary).not.toContain(':---');
+      expect(summary).not.toContain('```');
+      expect(summary).not.toContain('\n');
+      expect(summary).toContain('제목입니다');
+      expect(summary).toContain('항목 상태 빌드 성공');
+      expect(summary).toContain('자세한 내용은 공식 문서를 참고하세요.');
+    });
+
+    it('maxLength 이하일 때는 말줄임표 없이 반환하고, 초과 시 maxLength에서 절삭 후 ...을 붙여야 합니다', () => {
+      const shortText = '짧은 요약 문장입니다.';
+      expect(markdownUtils.extractPlainTextSummary(shortText, 50)).toBe(shortText);
+
+      const longText = '가'.repeat(60);
+      const truncated = markdownUtils.extractPlainTextSummary(longText, 30);
+      expect(truncated).toBe(`${'가'.repeat(30)}...`);
     });
   });
 });
