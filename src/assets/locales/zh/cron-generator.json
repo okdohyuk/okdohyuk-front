@@ -21,7 +21,7 @@
     "result": "结果"
   },
   "placeholder": "* * * * *",
-  "invalid": "无效的 Cron 表达式",
+  "invalid": "无效的 Cron 表达式。",
   "meta": {
     "title": "Cron 生成器 | Okdohyuk Multi-Tool",
     "description": "轻松生成 Cron 表达式。"

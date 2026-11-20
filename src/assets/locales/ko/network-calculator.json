@@ -6,7 +6,7 @@
     "keywords": ["네트워크", "IP", "서브넷", "VLSM", "CIDR", "와일드카드", "마스크", "계산기"]
   },
   "title": "네트워크 계산기",
-  "description": "IP 서브넷, VLSM, 와일드카드 마스크 계산을 한 곳에서",
+  "description": "IP 서브넷, VLSM, 와일드카드 마스크를 한 곳에서 계산합니다.",
   "tabs": {
     "ipSubnet": "IP/서브넷",
     "vlsm": "VLSM",
@@ -111,7 +111,7 @@
     "hostsTooLarge": "필요 호스트 수가 기본 네트워크 크기를 초과합니다.",
     "minOneSubnet": "서브넷을 하나 이상 추가해주세요.",
     "subnetOverflow": "서브넷 공간이 부족합니다. 기본 네트워크를 더 크게 설정하거나 호스트 수를 줄여주세요.",
-    "copied": "복사됨!"
+    "copied": "복사됨"
   },
   "actions": {
     "copy": "복사"

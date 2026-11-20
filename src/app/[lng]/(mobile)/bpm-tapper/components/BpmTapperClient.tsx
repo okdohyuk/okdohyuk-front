@@ -3,15 +3,10 @@
 import React, { useMemo, useState } from 'react';
 import { Button } from '@components/basic/Button';
 import { Text } from '@components/basic/Text';
-import { H1 } from '@components/basic/Text/Headers';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { sendGAEvent } from '@libs/client/gtag';
@@ -101,7 +96,7 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
           {t('hint')}
         </Text>
         <div className="flex items-baseline justify-center gap-2">
-          <H1>{bpm ?? '--'}</H1>
+          <p className="font-mono text-5xl font-medium tabular-nums text-fg-1">{bpm ?? '--'}</p>
           <Text variant="d2" color="basic-3">
             BPM
           </Text>
@@ -111,25 +106,25 @@ export default function BpmTapperClient({ lng }: BpmTapperClientProps) {
         </Text>
       </section>
 
-      <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'p-6 space-y-4')}>
+      <section className={cn(SERVICE_PANEL_SOFT, 'p-6 space-y-4')}>
         <Button onClick={handleTap} className="w-full py-4 text-xl">
           {t('tapButton')}
         </Button>
 
         <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-2xl border border-basic-3 bg-basic-0/80 p-4 text-center">
+          <div className="rounded-xl border border-basic-3 p-4 text-center">
             <Text variant="d3" color="basic-4">
               {t('taps')}
             </Text>
-            <Text variant="t2" color="basic-1">
+            <Text variant="t2" color="basic-1" className="font-mono tabular-nums">
               {taps.length}
             </Text>
           </div>
-          <div className="rounded-2xl border border-basic-3 bg-basic-0/80 p-4 text-center">
+          <div className="rounded-xl border border-basic-3 p-4 text-center">
             <Text variant="d3" color="basic-4">
               {t('averageInterval')}
             </Text>
-            <Text variant="t2" color="basic-1">
+            <Text variant="t2" color="basic-1" className="font-mono tabular-nums">
               {formatInterval(averageInterval)}
             </Text>
           </div>

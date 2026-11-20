@@ -20,6 +20,12 @@
   },
   "form": {
     "title": "开始新任务",
+    "dropzoneTitle": "拖放文件或点击选择",
+    "dropzoneHelper": "仅支持 .docx 格式（最大 20MB）",
+    "dropzoneDrag": "将文件放到这里",
+    "errorFileType": "只能上传 .docx 文件。",
+    "errorFileSize": "文件大小超过 20MB。",
+    "errorRequired": "请选择文件。",
     "fileLabel": "文档文件 (.docx)",
     "filePlaceholder": "拖拽文件或点击选择",
     "fileHelper": "仅支持 .docx 格式。",
@@ -56,6 +62,7 @@
   "progress": {
     "title": "进行中的任务",
     "iteration": "{{current}} / {{max}} 次",
+    "progressLabel": "进度",
     "plagPercent": "抄袭率",
     "aiPercent": "AI生成率",
     "notMeasuredYet": "尚未检测",

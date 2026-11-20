@@ -107,8 +107,8 @@ export default function AdminUsersPage({ params }: LanguageParams) {
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <Users className="h-4 w-4 text-point-fg" />
-            <h2 className="text-base font-bold text-fg-1">사용자 목록</h2>
-            <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[11px] font-bold text-fg-4">
+            <h2 className="text-base font-semibold text-fg-1">사용자 목록</h2>
+            <span className="rounded-sm bg-basic-3 px-2 py-0.5 text-2xs font-medium tabular-nums text-fg-4">
               {totalUsers}
             </span>
           </div>
@@ -162,7 +162,7 @@ export default function AdminUsersPage({ params }: LanguageParams) {
                           className="h-full w-full object-cover"
                         />
                       ) : (
-                        <div className="flex h-full w-full items-center justify-center text-sm font-bold text-fg-5">
+                        <div className="flex h-full w-full items-center justify-center text-sm font-semibold text-fg-5">
                           {user.name.charAt(0)}
                         </div>
                       )}
@@ -176,7 +176,7 @@ export default function AdminUsersPage({ params }: LanguageParams) {
                     <div className="flex items-center gap-2">
                       <span
                         className={cn(
-                          'inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold',
+                          'inline-flex rounded-sm border px-2 py-0.5 text-2xs font-medium tabular-nums',
                           getRoleBadgeClass(user.role),
                         )}
                       >

@@ -4,7 +4,7 @@ import { GenerateMetadata, translationsMetadata } from '@libs/server/customMetad
 import UserInfoCard from '@components/complex/Card/UserInfoCard';
 import { LanguageParams } from '~/app/[lng]/layout';
 import { Language, languages } from '~/app/i18n/settings';
-import { Sparkles } from 'lucide-react';
+import { Info } from 'lucide-react';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
 import ServiceInfoNotice from '@components/complex/Service/ServiceInfoNotice';
 import MenuDirectoryClient from './components/MenuDirectoryClient';
@@ -30,7 +30,7 @@ export default async function MenuPage({ params }: LanguageParams) {
         badge={t('headerBadge')}
       />
 
-      <ServiceInfoNotice icon={<Sparkles className="h-5 w-5" />}>{t('intro')}</ServiceInfoNotice>
+      <ServiceInfoNotice icon={<Info className="h-5 w-5" />}>{t('intro')}</ServiceInfoNotice>
 
       <UserInfoCard lng={language} />
 

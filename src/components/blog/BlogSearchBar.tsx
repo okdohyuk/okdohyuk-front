@@ -2,10 +2,9 @@
 
 import { observer } from 'mobx-react';
 import React, { useCallback, useEffect } from 'react';
-import { Filter, LayoutGrid, List, Search } from 'lucide-react';
+import { LayoutGrid, List, Search, SlidersHorizontal } from 'lucide-react';
 import useStore from '@hooks/useStore';
 import { cn } from '@utils/cn';
-import { motion, useReducedMotion } from 'framer-motion';
 import { BlogOrderByEnum } from '@api/Blog';
 import { sendGAEvent } from '@libs/client/gtag';
 import {
@@ -17,7 +16,21 @@ import {
 } from '@components/basic/Select';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import { BLOG_GLASS_PANEL_SOFT } from './interactiveStyles';
+import { BlogCardType } from './BlogCard/type';
+
+const CONTROL =
+  'h-10 rounded-lg border border-basic-3 bg-basic-0 text-sm outline-none transition-colors duration-150 dark:bg-basic-1';
+
+const FOCUS_RING = 'focus-ring';
+
+const VIEW_OPTIONS: {
+  type: BlogCardType;
+  Icon: typeof List;
+  labelKey: 'view.list' | 'view.grid';
+}[] = [
+  { type: 'discript', Icon: List, labelKey: 'view.list' },
+  { type: 'frame', Icon: LayoutGrid, labelKey: 'view.grid' },
+];
 
 type BlogSearchBarProps = {
   toggleDrawer: () => void;
@@ -28,7 +41,6 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
   const { t } = useTranslation(lng, 'blog/index');
   const { title, setTitle, viewType, setViewType, orderBy, setOrderBy } =
     useStore('blogSearchStore');
-  const shouldReduceMotion = useReducedMotion();
 
   const onOrderByChange = useCallback(
     (value: string) => {
@@ -54,66 +66,71 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
   }, [title]);
 
   return (
-    <motion.div
-      className={cn(
-        BLOG_GLASS_PANEL_SOFT,
-        'mb-4 flex flex-wrap items-center gap-3 p-3 md:flex-nowrap',
-      )}
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: shouldReduceMotion ? 0 : 0.35 }}
-    >
-      <label className="relative min-w-[220px] flex-1" htmlFor="blog-search-input">
-        <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-fg-6" />
+    // Toolbar sits on the page canvas: no panel, controls share one 40px height.
+    <div className="mb-4 flex flex-wrap items-center gap-2 md:flex-nowrap">
+      <label className="relative min-w-56 flex-1" htmlFor="blog-search-input">
+        <span className="sr-only">{t('searchPlaceholder')}</span>
+        <Search
+          className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-fg-5"
+          strokeWidth={1.75}
+          aria-hidden
+        />
         <input
           id="blog-search-input"
-          className="h-[46px] w-full rounded-xl border border-basic-3 bg-basic-0/90 pl-10 pr-3 text-sm font-medium text-fg-2 outline-none transition focus:border-point-2 focus:ring-2 focus:ring-point-2/40"
-          type="text"
+          className={cn(
+            CONTROL,
+            'w-full pl-9 pr-3 text-fg-1 placeholder:text-fg-5 focus:border-focus focus:ring-2 focus:ring-point-2/25',
+          )}
+          type="search"
           placeholder={t('searchPlaceholder')}
           value={title ?? ''}
           onChange={(e) => setTitle(e.target.value)}
         />
       </label>
 
-      <motion.button
+      <button
         type="button"
-        className="inline-flex h-[46px] items-center gap-1 rounded-xl border border-basic-3 bg-basic-0/90 px-3 text-sm font-semibold text-fg-3 transition-colors hover:border-point-2 hover:text-point-fg lg:hidden"
+        className={cn(
+          CONTROL,
+          'inline-flex items-center gap-2 px-3 text-fg-3 hover:bg-basic-2 hover:text-fg-1 lg:hidden',
+          FOCUS_RING,
+        )}
         onClick={toggleDrawer}
-        whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
       >
-        <Filter />
+        <SlidersHorizontal className="h-4 w-4 text-fg-5" strokeWidth={1.75} aria-hidden />
         {t('filter.index')}
-      </motion.button>
+      </button>
 
-      <div className="inline-flex h-[46px] items-center rounded-xl border border-basic-3 bg-basic-2/90 p-1">
-        <motion.button
-          type="button"
-          className={cn(
-            'rounded-lg p-2 transition-colors',
-            viewType === 'discript' ? 'bg-point-1 text-white' : 'text-fg-5 hover:text-fg-2',
-          )}
-          onClick={() => setViewType('discript')}
-          whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
-          aria-label="Description view"
-        >
-          <List className="h-5 w-5" />
-        </motion.button>
-        <motion.button
-          type="button"
-          className={cn(
-            'rounded-lg p-2 transition-colors',
-            viewType === 'frame' ? 'bg-point-1 text-white' : 'text-fg-5 hover:text-fg-2',
-          )}
-          onClick={() => setViewType('frame')}
-          whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
-          aria-label="Grid view"
-        >
-          <LayoutGrid className="h-5 w-5" />
-        </motion.button>
+      {/* Segmented view switch: selection is a raised surface step, not an accent fill */}
+      <div
+        role="group"
+        className="inline-flex h-10 items-center gap-1 rounded-lg border border-basic-3 bg-basic-2 p-1"
+      >
+        {VIEW_OPTIONS.map(({ type, Icon, labelKey }) => {
+          const isSelected = viewType === type;
+          return (
+            <button
+              key={type}
+              type="button"
+              className={cn(
+                'inline-flex h-8 w-8 items-center justify-center rounded-md transition-colors duration-150',
+                FOCUS_RING,
+                isSelected
+                  ? 'bg-basic-0 text-fg-1 shadow-xs dark:bg-basic-3'
+                  : 'text-fg-5 hover:text-fg-2',
+              )}
+              onClick={() => setViewType(type)}
+              aria-pressed={isSelected}
+              aria-label={t(labelKey)}
+            >
+              <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+            </button>
+          );
+        })}
       </div>
 
       <Select value={orderBy} onValueChange={onOrderByChange}>
-        <SelectTrigger className="h-[46px] w-[128px] rounded-xl bg-basic-0/90 text-sm font-semibold">
+        <SelectTrigger aria-label={t('sortLabel')} className="h-10 w-32 dark:bg-basic-1">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -122,7 +139,7 @@ function BlogSearchBar({ toggleDrawer, lng }: BlogSearchBarProps) {
           <SelectItem value={BlogOrderByEnum.Views}>{t('filter.orderBy.views')}</SelectItem>
         </SelectContent>
       </Select>
-    </motion.div>
+    </div>
   );
 }
 

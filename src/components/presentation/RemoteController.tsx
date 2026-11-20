@@ -58,10 +58,12 @@ export default function RemoteController({
       <div className="rounded-3xl border border-basic-3 bg-basic-0 p-5 shadow-sm">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-point-fg">
+            <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-point-fg">
               <Radio className="h-4 w-4" /> Live remote
             </div>
-            <h1 className="truncate text-xl font-bold text-fg-1">{session.presentationTitle}</h1>
+            <h1 className="truncate text-xl font-semibold text-fg-1">
+              {session.presentationTitle}
+            </h1>
             <p className="mt-1 text-sm text-fg-5">
               {session.currentSlideIndex + 1} / {session.slideCount} · {session.status}
             </p>
@@ -80,7 +82,7 @@ export default function RemoteController({
             type="button"
             onClick={() => send(SessionCommand.Previous)}
             disabled={isCommandPending || isEnded || session.currentSlideIndex === 0}
-            className="flex min-h-14 items-center justify-center gap-2 rounded-2xl border border-basic-3 bg-basic-1 text-sm font-semibold text-fg-2 transition-colors hover:border-point-2 hover:bg-point-4/40 disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex min-h-14 items-center justify-center gap-2 rounded-2xl border border-basic-3 bg-basic-1 text-sm font-semibold text-fg-2 transition-colors hover:border-point-2 hover:bg-basic-2 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ChevronLeft className="h-5 w-5" /> 이전
           </button>
@@ -102,7 +104,7 @@ export default function RemoteController({
             max={session.slideCount}
             value={gotoIndex}
             onChange={(event) => setGotoIndex(event.target.value)}
-            className="min-h-11 w-full rounded-xl border border-basic-3 bg-basic-0 px-3 text-sm text-fg-1 outline-none focus:border-point-2 focus:ring-2 focus:ring-point-2/30"
+            className="min-h-11 w-full rounded-xl border border-basic-3 bg-basic-0 px-3 text-sm text-fg-1 outline-none focus:border-focus focus:ring-2 focus:ring-point-2/30"
             aria-label="이동할 슬라이드 번호"
           />
           <Button

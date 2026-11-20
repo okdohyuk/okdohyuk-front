@@ -31,9 +31,9 @@
   "report": {
     "button": "신고",
     "title": "신고하기",
-    "descriptionLabel": "신고 사유를 선택해주세요.",
+    "descriptionLabel": "신고 사유를 선택해주세요",
     "detailLabel": "상세 설명 (선택)",
-    "detailPlaceholder": "신고 사유를 자세히 적어주세요.",
+    "detailPlaceholder": "신고 사유를 자세히 적어주세요",
     "submit": "신고",
     "cancel": "취소",
     "reason": {
@@ -44,7 +44,7 @@
     }
   },
   "list": {
-    "empty": "아직 남겨진 메시지가 없습니다. 첫 메시지를 남겨보세요!",
+    "empty": "아직 남겨진 메시지가 없습니다. 첫 메시지를 남겨보세요.",
     "loading": "불러오는 중..."
   },
   "deletedMessage": "삭제된 메시지입니다.",

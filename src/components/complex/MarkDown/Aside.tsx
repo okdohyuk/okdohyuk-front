@@ -7,8 +7,8 @@ const Aside: MarkdownComponent = function Aside({ children, ...props }) {
     <aside
       {...props}
       className={cn(
-        'my-4 w-full rounded-xl border border-point-2/45 bg-point-4/55 px-4 py-3',
-        'text-sm leading-relaxed text-fg-3 dark:border-point-2/35 dark:bg-point-1/20',
+        'my-4 w-full rounded-xl border border-basic-3 bg-basic-1 px-4 py-3',
+        'text-sm leading-relaxed text-fg-3',
         '[&>p]:my-0',
         props.className,
       )}

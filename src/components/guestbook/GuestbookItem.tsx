@@ -127,7 +127,7 @@ export default function GuestbookItem({ guestbook, onRefresh, lng }: GuestbookIt
     'rounded-md px-2 py-1 text-xs font-medium text-fg-5 transition-colors hover:bg-danger-4 hover:text-danger-2';
 
   return (
-    <div className="group rounded-xl border border-basic-3/80 bg-basic-0/70 p-3 backdrop-blur-sm md:p-4">
+    <div className="group rounded-xl border border-basic-3/80 bg-basic-0/70 p-3 md:p-4">
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-basic-2 dark:bg-basic-3">
@@ -142,11 +142,11 @@ export default function GuestbookItem({ guestbook, onRefresh, lng }: GuestbookIt
                 />
               </div>
             ) : (
-              <span className="text-xs font-bold text-fg-5">{displayName.charAt(0)}</span>
+              <span className="text-xs font-semibold text-fg-5">{displayName.charAt(0)}</span>
             )}
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-bold text-fg-1">{displayName}</span>
+            <span className="text-sm font-semibold text-fg-1">{displayName}</span>
             <span className="text-xs text-fg-5">
               {new Date(guestbook.createdAt).toLocaleString()}
             </span>
@@ -172,7 +172,7 @@ export default function GuestbookItem({ guestbook, onRefresh, lng }: GuestbookIt
       <div className="ml-11 mt-3">
         <p
           className={`whitespace-pre-wrap break-words text-base leading-relaxed ${
-            guestbook.isDeleted ? 'italic text-fg-6' : 'text-fg-2'
+            guestbook.isDeleted ? 'text-fg-5' : 'text-fg-2'
           }`}
         >
           {guestbook.isDeleted ? t('deletedMessage') : guestbook.content}

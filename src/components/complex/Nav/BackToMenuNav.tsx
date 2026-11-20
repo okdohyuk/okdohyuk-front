@@ -3,10 +3,8 @@
 import React, { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
 import Link from '@components/basic/Link';
 import { stringToLanguage } from '@utils/localeUtil';
-import { cn } from '@utils/cn';
 import { fallbackLng } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
 
@@ -26,7 +24,6 @@ const isPokemonToolPath = (normalizedPath: string): boolean =>
 
 function BackToMenuNav() {
   const pathname = usePathname();
-  const shouldReduceMotion = useReducedMotion();
 
   const { language, normalizedPath } = useMemo(() => {
     const path = pathname ?? '/';
@@ -62,25 +59,18 @@ function BackToMenuNav() {
     return null;
   }
 
+  // Quiet text link: no surface until hover, no entrance animation, no arrow nudge.
   return (
-    <motion.div
-      className="mb-3"
-      initial={{ opacity: 0, y: -8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
-    >
+    <div className="mb-2">
       <Link
         href={href}
         prefetch
-        className={cn(
-          'group inline-flex h-10 items-center gap-2 rounded-2xl border border-basic-3/80 bg-basic-0/80 px-3 text-sm font-semibold text-fg-3 shadow-sm backdrop-blur-md transition-colors',
-          'hover:border-point-2/70 hover:text-point-fg',
-        )}
+        className="-ml-2 inline-flex h-8 items-center gap-2 rounded-lg px-2 text-sm text-fg-4 transition-colors hover:bg-basic-2 hover:text-fg-1 focus-ring"
       >
-        <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+        <ArrowLeft className="h-4 w-4" strokeWidth={1.75} aria-hidden />
         <span>{label}</span>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 

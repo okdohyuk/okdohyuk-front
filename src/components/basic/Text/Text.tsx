@@ -7,15 +7,16 @@ import { cn } from '@utils/cn';
 const textVariants = cva('', {
   variants: {
     variant: {
-      t1: 'text-4xl font-bold',
-      t2: 'text-3xl font-bold',
-      t3: 'text-2xl font-bold',
+      // Hierarchy by size and colour; 500 for titles, 400 for body. Captions floor at 11px.
+      t1: 'text-4xl font-medium leading-tight',
+      t2: 'text-3xl font-medium leading-tight',
+      t3: 'text-2xl font-medium leading-snug',
       d1: 'text-lg font-normal',
       d2: 'text-base font-normal',
       d3: 'text-sm font-normal',
-      c1: 'text-xs font-light',
-      c2: 'text-[10px] font-light',
-      c3: 'text-[8px] font-light',
+      c1: 'text-xs font-normal',
+      c2: 'text-2xs font-normal',
+      c3: 'text-2xs font-normal',
     },
     color: {
       'basic-0': 'text-fg-0',
@@ -29,6 +30,8 @@ const textVariants = cva('', {
       'basic-8': 'text-basic-3',
       'basic-9': 'text-basic-2',
       'basic-10': 'text-basic-1',
+      // Opt out of the default fg colour so the parent's color (e.g. an inline style) applies.
+      inherit: 'text-inherit',
     },
   },
   defaultVariants: {
@@ -38,8 +41,7 @@ const textVariants = cva('', {
 });
 
 export interface TextProps
-  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>,
-    VariantProps<typeof textVariants> {
+  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>, VariantProps<typeof textVariants> {
   asChild?: boolean;
 }
 

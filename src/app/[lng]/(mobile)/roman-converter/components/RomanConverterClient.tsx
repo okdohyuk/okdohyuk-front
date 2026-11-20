@@ -7,10 +7,7 @@ import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
 import { Button } from '@components/basic/Button';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -201,7 +198,7 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
         <p className="text-xs text-fg-5">{t('helper.text')}</p>
       </div>
 
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex items-center justify-between gap-3">
           <h3 className="text-sm font-medium text-fg-3">{t('section.numberToRoman')}</h3>
           <Button
@@ -245,7 +242,7 @@ export default function RomanConverterClient({ lng }: RomanConverterClientProps)
         />
       </div>
 
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex items-center justify-between gap-3">
           <h3 className="text-sm font-medium text-fg-3">{t('section.romanToNumber')}</h3>
           <Button

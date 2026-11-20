@@ -8,10 +8,7 @@ import { H1, Text } from '@components/basic/Text';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import {
   convertKoreanAmount,
   MAX_KOREAN_AMOUNT_DIGITS,
@@ -104,7 +101,7 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
             value={formattedValue}
             onChange={(event) => onAmountChange(event.target.value)}
             maxLength={MAX_KOREAN_AMOUNT_FORMATTED_LENGTH}
-            className="text-lg font-semibold"
+            className="text-lg font-medium"
           />
           <Text variant="c1" color="basic-5">
             {helperText}
@@ -140,7 +137,7 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
         </div>
       </section>
 
-      <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
+      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="flex items-center justify-between gap-4">
           <H1 className="text-2xl text-fg-1">{t('result.title')}</H1>
           <div className="flex gap-2">
@@ -160,7 +157,7 @@ export default function KoreanAmountClient({ lng }: KoreanAmountClientProps) {
           rows={3}
           readOnly
           value={result || t('result.placeholder')}
-          className="text-base font-semibold"
+          className="text-base font-medium"
         />
         <Text variant="d3" color="basic-4" className="leading-relaxed">
           {t('result.tip')}

@@ -45,10 +45,9 @@ export default function CustomUrlInput({
       <motion.button
         onClick={handleCustomUrlFetch}
         disabled={isLoading || !inputCustomUrl}
-        className={`h-[44px] rounded-lg bg-success-2 px-4 py-2 font-semibold text-white transition-colors hover:bg-success-1 focus:outline-none focus:ring-2 focus:ring-success-2 focus:ring-offset-2 ${
+        className={`h-11 rounded-lg bg-point-2 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-point-1 focus-ring ${
           isLoading || !inputCustomUrl ? 'cursor-not-allowed opacity-50' : ''
         }`}
-        whileHover={{ scale: isLoading || !inputCustomUrl ? 1 : 1.05 }}
         whileTap={{ scale: isLoading || !inputCustomUrl ? 1 : 0.95 }}
       >
         {t('fetchTime')}

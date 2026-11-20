@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from '@components/basic/Link';
 import { Button } from '@components/basic/Button/Button';
 import { setConsentUpdate, sendGAEvent } from '@libs/client/gtag';
+import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 
@@ -86,35 +87,44 @@ export default function ConsentBanner() {
 
   if (!mounted || !visible) return null;
 
+  // Small corner card (desktop bottom-left) / compact bar above the mobile nav — never
+  // covers the centre of the first screen.
   return (
     <div
       role="dialog"
       aria-label={t('ariaLabel')}
       aria-describedby="consent-banner-desc"
       aria-live="polite"
-      className="fixed inset-x-0 bottom-0 z-40 flex justify-center px-4 pb-4 sm:pb-6"
+      className={cn(
+        // Below lg the nav is a floating bottom bar: sit above it and the language select.
+        'fixed inset-x-2 bottom-[var(--mobile-floating-clearance)] z-40',
+        'lg:inset-x-auto lg:bottom-6 lg:left-6 lg:w-full lg:max-w-sm',
+        'rounded-xl border border-basic-3 bg-basic-0 p-3 shadow-md dark:bg-basic-1',
+      )}
     >
-      <div className="w-full max-w-lg rounded-2xl border border-basic-3 bg-basic-0 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.18)] sm:p-5">
-        <p id="consent-banner-desc" className="text-sm leading-relaxed text-fg-1 sm:text-base">
-          {t('description')}{' '}
-          <Link href="./privacy" className="underline underline-offset-2 hover:text-point-1">
-            {t('privacyLink')}
-          </Link>
-          {t('descriptionSuffix')}
-        </p>
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
-          <Button
-            type="button"
-            onClick={handleDeny}
-            className="bg-basic-2 text-fg-1 hover:bg-basic-3"
-            aria-label={t('denyAriaLabel')}
-          >
-            {t('deny')}
-          </Button>
-          <Button type="button" onClick={handleAccept} aria-label={t('acceptAriaLabel')}>
-            {t('accept')}
-          </Button>
-        </div>
+      <p id="consent-banner-desc" className="text-xs leading-5 text-fg-3">
+        {t('description')}{' '}
+        <Link
+          href="./privacy"
+          className="text-fg-1 underline underline-offset-2 transition-colors hover:text-point-fg"
+        >
+          {t('privacyLink')}
+        </Link>
+        {t('descriptionSuffix')}
+      </p>
+      <div className="mt-3 flex justify-end gap-2">
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          onClick={handleDeny}
+          aria-label={t('denyAriaLabel')}
+        >
+          {t('deny')}
+        </Button>
+        <Button type="button" size="sm" onClick={handleAccept} aria-label={t('acceptAriaLabel')}>
+          {t('accept')}
+        </Button>
       </div>
     </div>
   );

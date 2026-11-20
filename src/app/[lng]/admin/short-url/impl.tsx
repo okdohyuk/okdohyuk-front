@@ -100,7 +100,7 @@ function ShortUrlAdminPageImpl({ lng }: ShortUrlAdminPageImplProps) {
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex items-center gap-2">
           <Plus className="h-4 w-4 text-point-fg" />
-          <h2 className="text-base font-bold text-fg-1">차단 도메인 추가</h2>
+          <h2 className="text-base font-semibold text-fg-1">차단 도메인 추가</h2>
         </div>
         <form onSubmit={handleSubmit} className="flex flex-wrap items-start gap-2">
           <div className="min-w-56 max-w-sm flex-1">
@@ -108,7 +108,7 @@ function ShortUrlAdminPageImpl({ lng }: ShortUrlAdminPageImplProps) {
               <span className="sr-only">차단할 도메인</span>
               <input
                 id="short-url-banned-domain"
-                className="flex min-h-[32px] h-10 w-full resize-none items-center rounded-lg border border-basic-3 bg-basic-0/90 p-1 text-fg-1 outline-none transition-all duration-200 focus:border-transparent focus:ring-2 focus:ring-point-1"
+                className="flex min-h-[32px] h-10 w-full resize-none items-center rounded-lg border border-basic-3 bg-basic-0/90 p-1 text-fg-1 outline-none transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-point-1"
                 inputMode="url"
                 autoCapitalize="none"
                 autoComplete="off"
@@ -147,8 +147,8 @@ function ShortUrlAdminPageImpl({ lng }: ShortUrlAdminPageImplProps) {
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <ShieldBan className="h-4 w-4 text-point-fg" />
-            <h2 className="text-base font-bold text-fg-1">차단 도메인 목록</h2>
-            <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[11px] font-bold text-fg-4">
+            <h2 className="text-base font-semibold text-fg-1">차단 도메인 목록</h2>
+            <span className="rounded-sm bg-basic-3 px-2 py-0.5 text-2xs font-medium tabular-nums text-fg-4">
               {totalDomains}
             </span>
           </div>

@@ -22,11 +22,11 @@ function getStatusBadgeVariant(status: CopykillerJobStatus): BadgeVariant {
 }
 
 const BADGE_CLASSES: Record<BadgeVariant, string> = {
-  success: 'bg-success-4/60 text-success-2',
-  danger: 'bg-danger-4/60 text-danger-2',
-  warn: 'bg-warn-4/60 text-warn-2',
+  success: 'bg-success-4/60 text-success-1 dark:text-success-3',
+  danger: 'bg-danger-4/60 text-danger-1 dark:text-danger-3',
+  warn: 'bg-warn-4/60 text-warn-1 dark:text-warn-3',
   neutral: 'bg-neutral-4/60 text-neutral-2',
-  running: 'bg-point-4/60 text-point-fg',
+  running: 'bg-basic-2 text-fg-3',
 };
 
 function StatusBadge({ status, label }: { status: CopykillerJobStatus; label: string }) {
@@ -36,7 +36,7 @@ function StatusBadge({ status, label }: { status: CopykillerJobStatus; label: st
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold',
+        'inline-flex items-center gap-1 rounded-sm px-2 py-0.5 text-xs font-medium',
         BADGE_CLASSES[variant],
       )}
     >
@@ -138,7 +138,7 @@ function JobHistoryList({ jobs, onDownload, labels, locale }: JobHistoryListProp
               >
                 {/* 파일 아이콘 */}
                 <div
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-point-4/50 text-point-fg"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-basic-2 text-fg-4"
                   aria-hidden="true"
                 >
                   <FileText className="h-5 w-5" />
@@ -147,7 +147,7 @@ function JobHistoryList({ jobs, onDownload, labels, locale }: JobHistoryListProp
                 {/* 메타 정보 */}
                 <div className="min-w-0 flex-1 space-y-1">
                   <p
-                    className="truncate text-sm font-semibold text-fg-1"
+                    className="truncate text-sm font-medium text-fg-1"
                     title={job.originalFilename}
                   >
                     {job.originalFilename}

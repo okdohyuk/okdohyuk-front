@@ -12,7 +12,7 @@ function Skeleton({ className = '', h, w }: SkeletonProps) {
   return (
     <div
       className={cn(
-        'animate-pulse bg-basic-4',
+        'animate-pulse rounded-lg bg-basic-2',
         h ? `h-${h}` : 'h-32',
         w ? `w-${w}` : 'w-full',
         className,

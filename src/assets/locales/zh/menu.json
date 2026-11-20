@@ -11,10 +11,10 @@
   "search": {
     "label": "搜索工具",
     "placeholder": "按工具名称或路径搜索",
-    "browse": "可在此一次浏览 {{count}} 个菜单项目。",
+    "browse": "一次浏览全部 {{count}} 个工具",
     "results": "找到 {{count}} 个结果",
     "clear": "清除搜索",
-    "emptyTitle": "没有找到匹配的工具。",
+    "emptyTitle": "没有找到匹配的工具",
     "emptyDescription": "请尝试其他关键词，或查看别的分类。"
   },
   "group": {
@@ -59,7 +59,7 @@
   "out": "外部链接",
   "trash": "回收站",
   "login": {
-    "description": "去登录！",
+    "description": "去登录",
     "logout": "退出登录",
     "logoutAll": "退出所有设备"
   }

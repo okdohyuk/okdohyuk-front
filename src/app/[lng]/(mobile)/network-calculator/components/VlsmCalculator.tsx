@@ -21,11 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@components/basic/Select';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import GoogleAd from '@components/google/GoogleAd';
@@ -240,7 +236,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
           <div className="space-y-2">
             {rows.map((row, idx) => (
               <div key={row.id} className="flex items-center gap-2">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-point-4 text-xs font-bold text-point-fg dark:bg-point-1/20 dark:text-point-3">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-basic-3 bg-basic-1 font-mono text-xs font-medium tabular-nums text-fg-3">
                   {idx + 1}
                 </div>
                 <Input
@@ -302,7 +298,7 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
       </div>
 
       {/* Results panel */}
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4 md:p-5')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4 md:p-5')}>
         <H1 className="text-2xl md:text-3xl">{t('vlsm.results')}</H1>
 
         {!result && !error && (
@@ -358,9 +354,9 @@ export function VlsmCalculator({ lng }: VlsmCalculatorProps) {
                 >
                   <div className="flex items-center justify-between">
                     <Text asChild variant="d2">
-                      <p className="font-bold">{subnet.name}</p>
+                      <p className="font-semibold">{subnet.name}</p>
                     </Text>
-                    <span className="rounded-full bg-point-4 px-2 py-0.5 text-xs font-semibold text-point-fg dark:bg-point-1/20 dark:text-point-3">
+                    <span className="rounded-sm bg-basic-2 px-2 py-0.5 font-mono text-xs font-medium tabular-nums text-fg-3">
                       /{subnet.cidr}
                     </span>
                   </div>

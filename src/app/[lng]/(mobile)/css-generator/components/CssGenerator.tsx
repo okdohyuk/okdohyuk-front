@@ -499,7 +499,7 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
           <div className="space-y-6">
             <div className="rounded-lg border border-basic-3 bg-basic-1 p-4">
               <div
-                className="h-56 rounded-lg border border-dashed border-basic-3 bg-basic-0/80 p-2"
+                className="h-56 rounded-lg border border-dashed border-basic-3 p-2"
                 style={{
                   display: 'flex',
                   flexDirection: flex.direction,
@@ -512,7 +512,7 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
                 {FLEX_PREVIEW_ITEMS.map((item) => (
                   <div
                     key={item}
-                    className="flex min-w-10 items-center justify-center rounded-md border border-point-1/40 bg-point-1/10 px-3 py-2 text-xs font-semibold text-point-fg"
+                    className="flex min-w-10 items-center justify-center rounded-md border border-basic-4 bg-basic-2 px-3 py-2 text-xs font-medium tabular-nums text-fg-3"
                   >
                     {item}
                   </div>
@@ -585,7 +585,7 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
           <div className="space-y-6">
             <div className="rounded-lg border border-basic-3 bg-basic-1 p-4">
               <div
-                className="h-56 rounded-lg border border-dashed border-basic-3 bg-basic-0/80 p-2"
+                className="h-56 rounded-lg border border-dashed border-basic-3 p-2"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: `repeat(${grid.columns}, minmax(0, 1fr))`,
@@ -599,7 +599,7 @@ export default function CssGenerator({ lng }: CssGeneratorProps) {
                   (item) => (
                     <div
                       key={item}
-                      className="flex rounded-md border border-point-1/40 bg-point-1/10 text-xs font-semibold text-point-fg"
+                      className="flex rounded-md border border-basic-4 bg-basic-2 text-xs font-medium tabular-nums text-fg-3"
                       style={{
                         width: grid.justifyItems === 'stretch' ? '100%' : '2.5rem',
                         height: grid.alignItems === 'stretch' ? '100%' : '2.5rem',

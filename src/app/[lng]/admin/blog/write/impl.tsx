@@ -204,7 +204,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
           className={cn('space-y-4', isEditMode ? 'lg:min-h-[calc(100vh-110px)]' : '')}
         >
           <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-            <h2 className="text-base font-bold text-fg-1">기본 정보</h2>
+            <h2 className="text-base font-semibold text-fg-1">기본 정보</h2>
 
             <Input
               id="title"
@@ -237,10 +237,10 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
           </section>
 
           <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-            <h2 className="text-base font-bold text-fg-1">본문 작성</h2>
+            <h2 className="text-base font-semibold text-fg-1">본문 작성</h2>
             <textarea
               className={cn(
-                'w-full resize-y rounded-xl border border-basic-3 bg-basic-0/90 p-3 text-sm leading-relaxed text-fg-1 outline-none transition-colors focus:border-point-2 focus:ring-2 focus:ring-point-2/40',
+                'w-full resize-y rounded-xl border border-basic-3 bg-basic-0/90 p-3 text-sm leading-relaxed text-fg-1 outline-none transition-colors focus:border-focus focus:ring-2 focus:ring-point-2/40',
                 isEditMode
                   ? 'min-h-[calc(100vh-380px)] lg:min-h-[calc(100vh-270px)]'
                   : 'min-h-[360px]',
@@ -272,7 +272,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
               type="submit"
               className={cn(
                 SERVICE_CARD_INTERACTIVE,
-                'inline-flex h-10 items-center gap-1 rounded-xl bg-point-1 px-4 text-sm font-bold text-white transition-colors hover:bg-point-2 disabled:cursor-not-allowed disabled:opacity-55',
+                'inline-flex h-10 items-center gap-1 rounded-xl bg-point-1 px-4 text-sm font-semibold text-white transition-colors hover:bg-point-2 disabled:cursor-not-allowed disabled:opacity-55',
               )}
               disabled={isSubmitting}
             >
@@ -315,7 +315,7 @@ function BlogWritePageImpl({ lng, blog, category }: BlogWritePageImplProps) {
         >
           <div className="flex items-center gap-2 border-b border-basic-3 px-4 py-3">
             <Eye className="h-4 w-4 text-point-fg" />
-            <h2 className="text-sm font-bold text-fg-1">실시간 프리뷰</h2>
+            <h2 className="text-sm font-semibold text-fg-1">실시간 프리뷰</h2>
           </div>
           <div
             className={cn(

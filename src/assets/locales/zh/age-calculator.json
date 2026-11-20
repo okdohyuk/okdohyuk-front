@@ -31,7 +31,7 @@
   "messages": {
     "invalid": "请输入有效日期。",
     "futureBirth": "出生日期不能晚于基准日期。",
-    "copied": "已复制！"
+    "copied": "已复制"
   },
   "example": {
     "title": "示例",

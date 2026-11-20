@@ -13,6 +13,9 @@ import MobileScreenWrapper from '@components/complex/Layout/MobileScreenWrapper'
 import AsideScreenWrapper from '@components/complex/Layout/AsideScreenWrapper';
 import { sendGAEvent } from '@libs/client/gtag';
 
+// Same curve as the --ease-out token; the article is the page's only entrance.
+const ENTER_EASE = [0.22, 1, 0.36, 1] as const;
+
 const BlogBottom = dynamic(() => import('components/blog/BlogDetail/BlogBottom'), {
   loading: () => <div className="h-64" />,
 });
@@ -70,10 +73,10 @@ const BlogDetail: BlogComponent = function BlogDetail({ blog, isPreview = false,
           <m.article
             itemScope
             itemType="https://schema.org/TechArticle"
-            className="w-full"
-            initial={{ opacity: 0, y: 10 }}
+            className="mx-auto w-full max-w-3xl"
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.4 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.3, ease: ENTER_EASE }}
           >
             <BlogHeader />
             <BlogContent isPreview={isPreview} />

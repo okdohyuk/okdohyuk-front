@@ -62,20 +62,15 @@ function SponsorGate({
     >
       {/* 아이콘 */}
       <div
-        className={cn(
-          'flex h-16 w-16 items-center justify-center rounded-2xl',
-          isGuest
-            ? 'bg-info-4/60 text-info-2 dark:bg-info-3/20'
-            : 'bg-warn-4/60 text-warn-2 dark:bg-warn-3/20',
-        )}
+        className={cn('flex h-12 w-12 items-center justify-center rounded-xl bg-basic-2 text-fg-4')}
         aria-hidden="true"
       >
-        {isGuest ? <LogIn className="h-8 w-8" /> : <Lock className="h-8 w-8" />}
+        {isGuest ? <LogIn className="h-6 w-6" /> : <Lock className="h-6 w-6" />}
       </div>
 
       {/* 제목 + 설명 */}
       <div className="max-w-xs space-y-2">
-        <p className="text-base font-bold text-fg-1">{isGuest ? loginTitle : sponsorTitle}</p>
+        <p className="text-base font-medium text-fg-1">{isGuest ? loginTitle : sponsorTitle}</p>
         <p className="text-sm leading-relaxed text-fg-4">
           {isGuest ? loginDescription : sponsorDescription}
         </p>

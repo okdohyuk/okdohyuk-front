@@ -12,11 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@components/basic/Select';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import GoogleAd from '@components/google/GoogleAd';
@@ -68,9 +64,9 @@ function BinaryDisplay({ segments, cidr }: BinaryDisplayProps) {
           {seg.position > 0 && seg.position % 8 === 0 && <span className="w-1.5" />}
           <span
             className={cn(
-              'flex h-6 w-5 items-center justify-center rounded-sm font-bold transition-colors',
+              'flex h-6 w-5 items-center justify-center rounded-sm font-semibold transition-colors',
               seg.type === 'network'
-                ? 'bg-point-4 text-point-fg dark:bg-point-1/30 dark:text-point-3'
+                ? 'bg-point-2 text-white'
                 : 'bg-warn-4 text-warn-1 dark:bg-warn-1/30 dark:text-warn-3',
               seg.position === cidr - 1 && 'border-r-2 border-point-1',
             )}
@@ -216,7 +212,7 @@ export function IpSubnetCalculator({ lng }: IpSubnetCalculatorProps) {
       </div>
 
       {/* Results panel */}
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4 md:p-5')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4 md:p-5')}>
         <H1 className="text-2xl md:text-3xl">{t('ipSubnet.results')}</H1>
 
         {!result && !error && (

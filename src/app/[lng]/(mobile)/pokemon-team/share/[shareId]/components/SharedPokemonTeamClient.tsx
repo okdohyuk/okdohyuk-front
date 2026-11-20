@@ -35,7 +35,7 @@ export default function SharedPokemonTeamClient({ lng, shareId }: SharedPokemonT
   if (isError || !team) {
     return (
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-5 text-center')}>
-        <Text variant="d2" className="block font-bold">
+        <Text variant="d2" className="block font-semibold">
           {t('shareView.notFound')}
         </Text>
         <Link
@@ -54,7 +54,7 @@ export default function SharedPokemonTeamClient({ lng, shareId }: SharedPokemonT
     <div className="w-full space-y-5">
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex items-center justify-between gap-2">
-          <Text variant="d1" className="font-bold">
+          <Text variant="d1" className="font-semibold">
             {team.name}
           </Text>
           <Link

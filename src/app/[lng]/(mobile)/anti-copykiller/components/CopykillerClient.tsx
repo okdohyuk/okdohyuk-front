@@ -144,6 +144,7 @@ function CopykillerClient({ lng }: CopykillerClientProps) {
   const progressLabels: Record<string, string> = {
     title: t('progress.title'),
     iteration: t('progress.iteration'),
+    progressLabel: t('progress.progressLabel'),
     errorLabel: t('progress.error'),
     plagPercent: t('progress.plagPercent'),
     aiPercent: t('progress.aiPercent'),

@@ -16,14 +16,14 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'flex h-10 w-full items-center justify-between rounded-md border border-basic-3 bg-basic-0 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-point-1 disabled:cursor-not-allowed disabled:opacity-50',
+      'flex h-9 w-full items-center justify-between gap-2 rounded-lg border border-basic-3 bg-basic-0 px-3 py-2 text-sm text-fg-1 transition-colors duration-150 focus:border-focus focus:outline-none focus:ring-2 focus:ring-point-2/25 disabled:cursor-not-allowed disabled:opacity-50',
       className ?? '',
     )}
     {...props}
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50" />
+      <ChevronDown className="h-4 w-4 shrink-0 text-fg-5" aria-hidden />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
@@ -37,7 +37,7 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        'relative z-50 min-w-[8rem] overflow-hidden rounded-md border border-basic-3 bg-basic-0 text-fg-1 shadow-md',
+        'relative z-50 min-w-32 overflow-hidden rounded-xl border border-basic-3 bg-basic-0 text-fg-1 shadow-md dark:bg-basic-1',
         position === 'popper'
           ? 'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1'
           : '',
@@ -67,7 +67,7 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn('py-1.5 pl-8 pr-2 text-sm font-semibold', className ?? '')}
+    className={cn('py-1.5 pl-8 pr-2 text-xs font-medium text-fg-5', className ?? '')}
     {...props}
   />
 ));
@@ -80,7 +80,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-point-3 focus:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'relative flex w-full cursor-pointer select-none items-center rounded-lg py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-basic-2 focus:text-fg-1 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className ?? '',
     )}
     {...props}

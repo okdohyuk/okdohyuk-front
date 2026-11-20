@@ -9,10 +9,7 @@ import { RotateCcw } from 'lucide-react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 
 type TextCounterClientProps = {
@@ -47,7 +44,6 @@ export default function TextCounterClient({ lng }: TextCounterClientProps) {
       trackUse({ action_type: 'count', success: true });
     }
     // 결과(stats) 변경 시점에만 발화
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stats.characters, stats.words, stats.lines, stats.bytes]);
 
   const statItems = [
@@ -96,14 +92,11 @@ export default function TextCounterClient({ lng }: TextCounterClientProps) {
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {statItems.map((item) => (
-          <div
-            key={item.key}
-            className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-2 p-3')}
-          >
-            <Text variant="c1" className="uppercase tracking-wide text-fg-5">
+          <div key={item.key} className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-3')}>
+            <Text variant="c1" className="text-fg-5">
               {item.label}
             </Text>
-            <Text variant="t3" className="font-bold text-fg-1">
+            <Text variant="t3" className="font-semibold text-fg-1">
               {item.value.toLocaleString()}
             </Text>
           </div>

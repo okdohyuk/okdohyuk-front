@@ -11,10 +11,10 @@
   "search": {
     "label": "서비스 검색",
     "placeholder": "도구 이름이나 경로로 검색",
-    "browse": "총 {{count}}개 메뉴를 한 번에 찾아보세요.",
+    "browse": "도구 {{count}}개를 한 번에 찾아보세요",
     "results": "검색 결과 {{count}}개",
     "clear": "검색어 지우기",
-    "emptyTitle": "검색 결과가 없습니다.",
+    "emptyTitle": "검색 결과가 없습니다",
     "emptyDescription": "다른 키워드로 검색하거나 카테고리를 다시 확인해보세요."
   },
   "group": {
@@ -59,7 +59,7 @@
   "out": "외부 링크",
   "trash": "휴지통",
   "login": {
-    "description": "로그인하러가기!",
+    "description": "로그인하러가기",
     "logout": "로그아웃",
     "logoutAll": "모두 로그아웃"
   }

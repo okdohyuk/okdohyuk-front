@@ -26,18 +26,13 @@ function ServiceInfoNotice({
     >
       <div
         className={cn(
-          'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-point-4/70 text-point-fg dark:bg-point-1/20',
+          'flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-basic-2 text-fg-4 [&_svg]:h-4 [&_svg]:w-4',
           iconContainerClassName,
         )}
       >
         {icon}
       </div>
-      <div
-        className={cn(
-          'min-w-0 flex-1 text-sm font-medium leading-relaxed text-fg-3',
-          textClassName,
-        )}
-      >
+      <div className={cn('min-w-0 flex-1 text-sm leading-relaxed text-fg-3', textClassName)}>
         {children}
       </div>
       {action ? <div className="shrink-0">{action}</div> : null}

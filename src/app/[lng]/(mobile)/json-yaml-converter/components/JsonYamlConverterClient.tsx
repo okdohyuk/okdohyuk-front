@@ -6,12 +6,9 @@ import { Text } from '@components/basic/Text';
 import { Textarea } from '@components/basic/Textarea';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import { ArrowLeftRight, Copy, RefreshCcw, RotateCw, Sparkles } from 'lucide-react';
+import { ArrowLeftRight, Copy, RefreshCcw, RotateCw, FileText } from 'lucide-react';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { parse, stringify } from 'yaml';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
@@ -159,7 +156,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
             onClick={handleSample}
             className="flex items-center gap-2 px-3 py-1 text-sm bg-basic-2 text-fg-1 hover:bg-basic-3"
           >
-            <Sparkles size={16} />
+            <FileText size={16} className="text-fg-4" aria-hidden="true" />
             {direction === 'json-to-yaml' ? t('button.sampleJson') : t('button.sampleYaml')}
           </Button>
         </div>
@@ -187,7 +184,7 @@ export default function JsonYamlConverterClient({ lng }: JsonYamlConverterClient
         </Text>
       </div>
 
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="flex flex-wrap gap-2">
           <Button
             type="button"

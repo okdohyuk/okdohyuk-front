@@ -5,11 +5,7 @@ import { Button } from '@components/basic/Button';
 import { Input } from '@components/basic/Input';
 import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -266,14 +262,14 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
           </Button>
           <button
             type="button"
-            className="rounded-md border border-basic-3 px-3 py-1 text-xs font-medium text-fg-4 transition hover:border-point-2/70 hover:text-point-2"
+            className="rounded-md border border-basic-3 px-3 py-1 text-xs font-medium text-fg-4 transition-colors hover:bg-basic-2 hover:text-fg-1 focus-ring"
             onClick={handleClear}
           >
             {strings.buttons.clear}
           </button>
           <button
             type="button"
-            className="rounded-md border border-basic-3 px-3 py-1 text-xs font-medium text-fg-4 transition hover:border-point-2/70 hover:text-point-2"
+            className="rounded-md border border-basic-3 px-3 py-1 text-xs font-medium text-fg-4 transition-colors hover:bg-basic-2 hover:text-fg-1 focus-ring"
             onClick={handleReset}
           >
             {strings.buttons.reset}
@@ -281,13 +277,13 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
         </div>
       </section>
 
-      <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
+      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-2">
           <Text className="text-sm font-semibold text-fg-1">{strings.resultsTitle}</Text>
           <div className="flex items-center gap-2">
             <button
               type="button"
-              className="rounded-md border border-basic-3 px-3 py-1 text-xs font-medium text-fg-4 transition hover:border-point-2/70 hover:text-point-2 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-md border border-basic-3 px-3 py-1 text-xs font-medium text-fg-4 transition-colors hover:bg-basic-2 hover:text-fg-1 focus-ring disabled:cursor-not-allowed disabled:opacity-50"
               onClick={handleCopy}
               disabled={!resultsText}
             >
@@ -310,13 +306,13 @@ export default function LottoGenerator({ strings }: LottoGeneratorProps) {
                   {result.numbers.map((number) => (
                     <span
                       key={number}
-                      className="rounded-full bg-point-1/10 px-3 py-1 text-xs font-semibold text-point-fg"
+                      className="rounded-md bg-basic-2 px-3 py-1 font-mono text-xs font-medium tabular-nums text-fg-1"
                     >
                       {number}
                     </span>
                   ))}
                   {result.bonus !== undefined && (
-                    <span className="rounded-full bg-point-2/10 px-3 py-1 text-xs font-semibold text-point-2">
+                    <span className="rounded-md border border-basic-3 px-3 py-1 font-mono text-xs font-medium tabular-nums text-fg-4">
                       + {result.bonus}
                     </span>
                   )}

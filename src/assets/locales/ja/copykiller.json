@@ -20,6 +20,12 @@
   },
   "form": {
     "title": "新しいジョブを開始",
+    "dropzoneTitle": "ファイルをドラッグするか、クリックして選択",
+    "dropzoneHelper": ".docx 形式のみ対応しています（最大 20MB）",
+    "dropzoneDrag": "ここにファイルをドロップ",
+    "errorFileType": ".docx ファイルのみアップロードできます。",
+    "errorFileSize": "ファイルサイズが 20MB を超えています。",
+    "errorRequired": "ファイルを選択してください。",
     "fileLabel": "ドキュメントファイル (.docx)",
     "filePlaceholder": "ファイルをドラッグするかクリックして選択してください",
     "fileHelper": ".docx形式のファイルのみサポートされています。",
@@ -56,6 +62,7 @@
   "progress": {
     "title": "進行中のジョブ",
     "iteration": "{{current}} / {{max}} 回",
+    "progressLabel": "進捗",
     "plagPercent": "剽窃率",
     "aiPercent": "AI生成率",
     "notMeasuredYet": "未測定",

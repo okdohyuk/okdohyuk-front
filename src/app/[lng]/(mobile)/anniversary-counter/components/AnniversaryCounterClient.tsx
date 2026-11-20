@@ -7,10 +7,7 @@ import { Button } from '@components/basic/Button';
 import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { addDays, calculateDDay, formatDateInput } from '../utils/anniversaryCounter';
@@ -173,11 +170,11 @@ export default function AnniversaryCounterClient({ lng }: AnniversaryCounterClie
         </div>
       </div>
 
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-wide text-fg-5">{t('label.result')}</p>
-            <p className="text-3xl font-semibold text-fg-1">
+            <p className="text-xs text-fg-5">{t('label.result')}</p>
+            <p className="font-mono text-3xl font-medium tabular-nums text-fg-1">
               {result ? result.label : t('result.empty')}
             </p>
           </div>

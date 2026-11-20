@@ -3,7 +3,16 @@
     "title": "Find My IP Address",
     "ogTitle": "Find My Public IP Address - Location, ISP & Port Info",
     "description": "Instantly look up your public IP address along with detailed location (country, city, coordinates), ISP, ASN, hostname, proxy detection, and a common port scanner.",
-    "keywords": ["IP address", "my IP", "public IP", "geolocation", "ISP", "port scan", "network info", "IP lookup"]
+    "keywords": [
+      "IP address",
+      "my IP",
+      "public IP",
+      "geolocation",
+      "ISP",
+      "port scan",
+      "network info",
+      "IP lookup"
+    ]
   },
   "title": "Find My IP",
   "description": "Check your public IP address with full location, network details, and port scan.",
@@ -20,7 +29,7 @@
   },
   "actions": {
     "copyIp": "Copy IP",
-    "copied": "Copied!",
+    "copied": "Copied",
     "refresh": "Refresh",
     "startScan": "Start Port Scan",
     "rescan": "Rescan"

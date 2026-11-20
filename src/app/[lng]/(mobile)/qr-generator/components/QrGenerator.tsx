@@ -8,10 +8,7 @@ import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Download, Share2 } from 'lucide-react';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -114,7 +111,6 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
       <div
         className={cn(
           SERVICE_PANEL_SOFT,
-          SERVICE_CARD_INTERACTIVE,
           'flex flex-col items-center justify-center space-y-6 p-8',
         )}
       >
@@ -122,7 +118,7 @@ export default function QrGenerator({ lng }: UrlQrGeneratorProps) {
           {url ? (
             <QRCodeCanvas value={url} size={200} level="H" includeMargin />
           ) : (
-            <div className="w-[200px] h-[200px] bg-basic-2 flex items-center justify-center text-fg-6 text-sm">
+            <div className="w-[200px] h-[200px] bg-basic-2 flex items-center justify-center text-fg-5 text-sm">
               {t('preview.waiting')}
             </div>
           )}

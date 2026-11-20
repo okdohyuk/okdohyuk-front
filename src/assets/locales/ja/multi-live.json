@@ -10,7 +10,8 @@
   "chzzk": "Chzzk",
   "soop": "Soop",
   "kick": "Kick",
-  "input-placeholder": "配信IDを入力してください。",
+  "input-placeholder": "配信IDを入力してください",
   "add": "追加",
-  "close": "閉じる"
+  "close": "閉じる",
+  "go-menu": "他のサービスを見る"
 }

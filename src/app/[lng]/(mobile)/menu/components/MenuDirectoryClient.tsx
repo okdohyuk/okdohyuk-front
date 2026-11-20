@@ -5,6 +5,7 @@ import { observer } from 'mobx-react';
 import Link from '@components/basic/Link';
 import { ArrowUpRight, Search, X } from 'lucide-react';
 import { MenuItem, menus } from '@assets/datas/menus';
+import { SERVICE_TOOL_COUNT } from '@assets/datas/landingShowcase';
 import {
   SERVICE_SECTION_ORDER,
   ServiceSectionKey,
@@ -167,7 +168,8 @@ function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
     return serviceSections;
   }, [keyword, lng, t]);
 
-  const totalMenuCount = menus.service.length + menus.out.length + menus.trash.length;
+  // 사이트 전체에서 쓰는 "도구 수"와 같은 값 — 직접 세지 말고 상수를 쓴다(허브·방명록 제외).
+  const totalMenuCount = SERVICE_TOOL_COUNT;
   const totalVisibleCount = sections.reduce((sum, section) => sum + section.items.length, 0);
 
   useEffect(() => {
@@ -218,7 +220,7 @@ function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-sm font-semibold text-fg-1 md:text-base">{title}</span>
                   {!isInternal ? (
-                    <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[10px] font-bold text-fg-4">
+                    <span className="rounded-full bg-basic-3 px-2 py-0.5 text-2xs font-semibold text-fg-4">
                       {t('outBadge')}
                     </span>
                   ) : null}
@@ -230,7 +232,7 @@ function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
                 차지하므로 이동 화살표를 함께 그리면 장식과 조작 버튼이 한 모서리에서 겹친다.
               */}
               {!showFavorite ? (
-                <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-point-fg" />
+                <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:text-point-fg" />
               ) : null}
             </Link>
 
@@ -291,10 +293,10 @@ function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
           <section key={section.key} className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4 md:p-5')}>
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="space-y-1">
-                <h2 className="text-lg font-extrabold text-fg-1">{section.title}</h2>
+                <h2 className="text-lg font-semibold text-fg-1">{section.title}</h2>
                 <p className="text-sm text-fg-5">{section.description}</p>
               </div>
-              <span className="rounded-full bg-point-4/70 px-2.5 py-1 text-xs font-bold text-point-fg dark:bg-point-1/20">
+              <span className="font-mono text-xs tabular-nums text-fg-5">
                 {section.items.length}
               </span>
             </div>
@@ -305,7 +307,7 @@ function MenuDirectoryClient({ lng }: MenuDirectoryClientProps) {
         ))
       ) : (
         <section className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-5 text-center')}>
-          <h2 className="text-base font-bold text-fg-1">{t('search.emptyTitle')}</h2>
+          <h2 className="text-base font-semibold text-fg-1">{t('search.emptyTitle')}</h2>
           <p className="text-sm text-fg-5">{t('search.emptyDescription')}</p>
         </section>
       )}

@@ -1,8 +1,7 @@
 {
   "home": {
-    "eyebrow": "MY HOME",
-    "greeting": "{{name}}さん、おかえりなさい。",
-    "greetingFallback": "おかえりなさい。",
+    "greeting": "{{name}}さんのお気に入り",
+    "greetingFallback": "お気に入り",
     "subtitle": "お気に入りのツールをここからすぐに開けます。",
     "count": "お気に入り {{count}}件",
     "browseAll": "すべてのツールを見る",
@@ -16,14 +15,14 @@
     "remove": "お気に入りから削除"
   },
   "empty": {
-    "title": "まだお気に入りのツールがありません。",
+    "title": "まだお気に入りのツールがありません",
     "body": "ツール一覧で星を押すとここに集まり、ホームからすぐに開けます。",
     "recommendTitle": "よく使われるツールから始めましょう",
     "add": "お気に入りに追加"
   },
   "state": {
     "loading": "お気に入りを読み込んでいます。",
-    "errorTitle": "お気に入りを読み込めませんでした。",
+    "errorTitle": "お気に入りを読み込めませんでした",
     "errorBody": "しばらくしてからもう一度お試しください。",
     "retry": "再試行"
   },

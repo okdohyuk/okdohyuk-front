@@ -5,7 +5,7 @@ import { cn } from '@utils/cn';
 // 래퍼가 라운드 보더·배경을 담당하고, 행 사이는 가로 구분선만 사용한다.
 const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
-    <div className="relative w-full overflow-x-auto rounded-xl border border-basic-3/85 bg-basic-0/80">
+    <div className="relative w-full overflow-x-auto rounded-xl border border-basic-3 bg-basic-0">
       <table
         ref={ref}
         className={cn('min-w-full caption-bottom border-collapse text-sm', className)}
@@ -20,7 +20,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn('bg-basic-2/80', className)} {...props} />
+  <thead ref={ref} className={cn('bg-basic-1', className)} {...props} />
 ));
 TableHeader.displayName = 'TableHeader';
 
@@ -34,7 +34,7 @@ const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <tfoot ref={ref} className={cn('bg-basic-1 font-medium t-basic-5', className)} {...props} />
+  <tfoot ref={ref} className={cn('bg-basic-1 font-medium text-fg-5', className)} {...props} />
 ));
 TableFooter.displayName = 'TableFooter';
 
@@ -43,7 +43,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTML
     <tr
       ref={ref}
       className={cn(
-        'border-t border-basic-3/80 transition-colors hover:bg-basic-2/50 data-[state=selected]:bg-basic-2',
+        'border-t border-basic-3 transition-colors hover:bg-basic-1 data-[state=selected]:bg-basic-2',
         className,
       )}
       {...props}
@@ -59,7 +59,7 @@ const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      'whitespace-nowrap px-3 py-2 text-left align-middle text-[11px] font-bold uppercase tracking-wide text-fg-5 [&:has([role=checkbox])]:pr-0',
+      'whitespace-nowrap px-3 py-2 text-left align-middle text-xs font-medium text-fg-5 [&:has([role=checkbox])]:pr-0',
       className,
     )}
     {...props}
@@ -74,7 +74,7 @@ const TableCell = React.forwardRef<
   <td
     ref={ref}
     className={cn(
-      'break-keep px-3 py-2 align-middle text-fg-3 [&:has([role=checkbox])]:pr-0',
+      'break-keep px-3 py-2 align-middle text-fg-3 tabular-nums [&:has([role=checkbox])]:pr-0',
       className,
     )}
     {...props}
@@ -86,7 +86,7 @@ const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
   React.HTMLAttributes<HTMLTableCaptionElement>
 >(({ className, ...props }, ref) => (
-  <caption ref={ref} className={cn('mt-4 text-sm t-basic-5', className)} {...props} />
+  <caption ref={ref} className={cn('mt-4 text-sm text-fg-5', className)} {...props} />
 ));
 TableCaption.displayName = 'TableCaption';
 

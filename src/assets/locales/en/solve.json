@@ -44,7 +44,7 @@
     "correctOf": "{{correct}} / {{total}} correct",
     "byUnit": "Score by unit",
     "retryWrong": "Retry wrong answers",
-    "noWrong": "No wrong answers. Perfect!",
+    "noWrong": "No wrong answers. Perfect.",
     "backToSubjects": "Back to subjects",
     "reviewMode": "Review",
     "back": "Back",

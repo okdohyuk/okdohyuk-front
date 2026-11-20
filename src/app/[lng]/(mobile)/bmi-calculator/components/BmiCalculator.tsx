@@ -6,10 +6,7 @@ import { Button } from '@components/basic/Button';
 import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Copy, RefreshCcw } from 'lucide-react';
@@ -98,10 +95,10 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
   };
 
   const categoryClass = {
-    underweight: 'text-sky-600 dark:text-sky-400',
-    normal: 'text-emerald-600 dark:text-emerald-400',
+    underweight: 'text-info-1 dark:text-info-3',
+    normal: 'text-success-1 dark:text-success-3',
     overweight: 'text-warn-1 dark:text-warn-3',
-    obese: 'text-rose-600 dark:text-rose-400',
+    obese: 'text-danger-1 dark:text-danger-3',
   } as const;
 
   return (
@@ -160,9 +157,7 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
         </div>
       </section>
 
-      <section
-        className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4 text-center')}
-      >
+      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4 text-center')}>
         <Text variant="t3" className="block">
           {t('result.title')}
         </Text>
@@ -178,13 +173,13 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
         )}
         {result?.valid && result.bmi && (
           <div className="space-y-2">
-            <Text variant="t1" className="block">
+            <p className="font-mono text-4xl font-medium tabular-nums text-fg-1 md:text-5xl">
               {result.bmi}
-            </Text>
+            </p>
             {result.category && (
               <Text
                 variant="d1"
-                className={cn('block font-semibold', categoryClass[result.category])}
+                className={cn('block font-medium', categoryClass[result.category])}
               >
                 {t(`category.${result.category}`)}
               </Text>
@@ -196,7 +191,7 @@ export default function BmiCalculator({ lng }: BmiCalculatorProps) {
       {result?.valid && result.bmi && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-        <Text variant="d2" className="block font-semibold">
+        <Text variant="d2" className="block font-medium">
           {t('range.title')}
         </Text>
         <ul className="space-y-2 text-sm text-fg-4">

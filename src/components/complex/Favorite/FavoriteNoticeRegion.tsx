@@ -43,13 +43,13 @@ export default function FavoriteNoticeRegion({
       {notice ? (
         <p
           className={cn(
-            'rounded-2xl border px-4 py-3 text-sm font-medium',
+            'rounded-xl border px-4 py-3 text-sm font-medium',
             // 다크 모드에서 --danger-1/--success-1 은 그대로라 대비가 낮다.
             // globals.css 의 --status-*-fg 가 다크에서 3단계 톤으로 바뀌는 규칙을 그대로 따른다.
             notice.tone === 'error'
               ? 'border-danger-2/60 bg-danger-4 text-danger-1 dark:text-danger-3'
               : 'border-success-2/60 bg-success-4 text-success-1 dark:text-success-3',
-            isFixed && 'pointer-events-auto mx-auto w-fit max-w-full shadow-lg backdrop-blur-md',
+            isFixed && 'pointer-events-auto mx-auto w-fit max-w-full shadow-md',
           )}
         >
           {notice.message}

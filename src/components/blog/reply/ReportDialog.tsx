@@ -15,22 +15,32 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@components/ui/select';
+import { Button } from '@components/basic/Button';
 import { BlogReplyReportRequestReasonEnum } from '@api/BlogReply';
+import { useTranslation } from '~/app/i18n/client';
+import { Language } from '~/app/i18n/settings';
 
 interface ReportDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onSubmit: (reason: BlogReplyReportRequestReasonEnum) => void;
+  lng: Language;
 }
 
-const REASONS: { value: BlogReplyReportRequestReasonEnum; label: string }[] = [
-  { value: 'SPAM', label: '스팸 / 부적절한 홍보' },
-  { value: 'INAPPROPRIATE', label: '부적절한 콘텐츠' },
-  { value: 'HARASSMENT', label: '욕설 / 비하 발언' },
-  { value: 'OTHER', label: '기타' },
+const REASONS: {
+  value: BlogReplyReportRequestReasonEnum;
+  labelKey: `report.reason.${'spam' | 'inappropriate' | 'harassment' | 'other'}`;
+}[] = [
+  { value: 'SPAM', labelKey: 'report.reason.spam' },
+  { value: 'INAPPROPRIATE', labelKey: 'report.reason.inappropriate' },
+  { value: 'HARASSMENT', labelKey: 'report.reason.harassment' },
+  { value: 'OTHER', labelKey: 'report.reason.other' },
 ];
 
-export default function ReportDialog({ open, onOpenChange, onSubmit }: ReportDialogProps) {
+const REASON_SELECT_ID = 'blog-reply-report-reason';
+
+export default function ReportDialog({ open, onOpenChange, onSubmit, lng }: ReportDialogProps) {
+  const { t } = useTranslation(lng, 'blog/index');
   const [reason, setReason] = useState<BlogReplyReportRequestReasonEnum>('SPAM');
 
   const handleSubmit = () => {
@@ -40,45 +50,37 @@ export default function ReportDialog({ open, onOpenChange, onSubmit }: ReportDia
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] rounded-2xl border-basic-3 bg-basic-0/95">
+      <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-fg-1">신고하기</DialogTitle>
+          <DialogTitle className="text-fg-1">{t('report.title')}</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="flex flex-col gap-2">
-            <span className="text-sm font-medium text-fg-3">신고 사유를 선택해주세요.</span>
-            <Select
-              value={reason}
-              onValueChange={(val) => setReason(val as BlogReplyReportRequestReasonEnum)}
-            >
-              <SelectTrigger className="rounded-xl">
-                <SelectValue placeholder="사유 선택" />
-              </SelectTrigger>
-              <SelectContent>
-                {REASONS.map((r) => (
-                  <SelectItem key={r.value} value={r.value}>
-                    {r.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+        <div className="flex flex-col gap-2 py-2">
+          <label htmlFor={REASON_SELECT_ID} className="text-sm text-fg-3">
+            {t('report.reasonLabel')}
+          </label>
+          <Select
+            value={reason}
+            onValueChange={(val) => setReason(val as BlogReplyReportRequestReasonEnum)}
+          >
+            <SelectTrigger id={REASON_SELECT_ID}>
+              <SelectValue placeholder={t('report.reasonPlaceholder')} />
+            </SelectTrigger>
+            <SelectContent>
+              {REASONS.map((r) => (
+                <SelectItem key={r.value} value={r.value}>
+                  {t(r.labelKey)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         <DialogFooter>
-          <button
-            type="button"
-            onClick={() => onOpenChange(false)}
-            className="rounded-md px-4 py-2 text-sm font-medium text-fg-4 transition-colors hover:bg-basic-2"
-          >
-            취소
-          </button>
-          <button
-            type="button"
-            onClick={handleSubmit}
-            className="rounded-md bg-danger-2 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-danger-1"
-          >
-            신고
-          </button>
+          <Button type="button" variant="ghost" onClick={() => onOpenChange(false)}>
+            {t('report.cancel')}
+          </Button>
+          <Button type="button" variant="danger" onClick={handleSubmit}>
+            {t('report.submit')}
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

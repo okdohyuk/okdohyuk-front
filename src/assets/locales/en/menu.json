@@ -11,10 +11,10 @@
   "search": {
     "label": "Search tools",
     "placeholder": "Search by tool name or path",
-    "browse": "Browse all {{count}} menu items in one place.",
+    "browse": "Search all {{count}} tools in one place",
     "results": "{{count}} search results",
     "clear": "Clear search",
-    "emptyTitle": "No matching tools found.",
+    "emptyTitle": "No matching tools found",
     "emptyDescription": "Try a different keyword or browse another category."
   },
   "group": {
@@ -59,7 +59,7 @@
   "out": "Out Links",
   "trash": "Trash",
   "login": {
-    "description": "Go to Login!",
+    "description": "Go to Login",
     "logout": "Logout",
     "logoutAll": "Logout All"
   }

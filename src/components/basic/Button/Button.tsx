@@ -8,11 +8,41 @@ import { Slot } from '@radix-ui/react-slot';
 import { cn } from '@utils/cn';
 import { useElementTracking } from '@hooks/analytics/useElementTracking';
 
+/*
+ * Variants (unslop 2026-11-19)
+ *  - primary   solid accent (point-2, white text 5.7:1). One per view: the main action.
+ *  - secondary neutral raised surface + hairline, primary text.
+ *  - ghost     no surface until hover. Toolbars, inline actions, "back" links.
+ *  - danger    solid red for destructive confirmation only.
+ * Radius 10px (rounded-lg) for every size so buttons share the control radius.
+ * `flex` (not inline-flex) is kept in the base so existing layouts don't reflow.
+ */
 const buttonVariants = cva(
-  'flex items-center justify-center min-h-[32px] rounded-md bg-point-2 hover:bg-point-1 px-3 py-1 text-lg font-normal text-white transition-colors disabled:pointer-events-none disabled:opacity-50',
+  [
+    'flex items-center justify-center gap-2 rounded-lg font-medium',
+    'transition-colors duration-150 ease-out',
+    'focus-ring',
+    'disabled:pointer-events-none disabled:opacity-50',
+  ],
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {
+      variant: {
+        primary: 'bg-point-2 text-white hover:bg-point-1',
+        secondary: 'border border-basic-3 bg-basic-1 text-fg-1 hover:bg-basic-2',
+        ghost: 'bg-transparent text-fg-3 hover:bg-basic-2 hover:text-fg-1',
+        danger: 'bg-danger-1 text-white hover:bg-danger-1/90',
+      },
+      size: {
+        sm: 'min-h-8 px-3 py-1 text-xs',
+        md: 'min-h-9 px-4 py-2 text-sm',
+        lg: 'min-h-11 px-5 py-2.5 text-base',
+        icon: 'h-9 w-9 p-0',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
+      size: 'md',
+    },
   },
 );
 
@@ -31,6 +61,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
+      variant,
+      size,
       asChild = false,
       analyticsKey,
       analyticsParams,
@@ -73,7 +105,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        className={cn(buttonVariants({ className }))}
+        className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         onClick={composedClick}
         onMouseEnter={composedMouseEnter}

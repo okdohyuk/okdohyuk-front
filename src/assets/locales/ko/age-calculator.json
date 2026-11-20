@@ -31,7 +31,7 @@
   "messages": {
     "invalid": "올바른 날짜를 입력해주세요.",
     "futureBirth": "생년월일이 기준일보다 늦을 수 없습니다.",
-    "copied": "복사됨!"
+    "copied": "복사됨"
   },
   "example": {
     "title": "예시",

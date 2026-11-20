@@ -8,7 +8,6 @@
     "privacy": "Privacy Policy"
   },
   "error": {
-    "unknown": "An unknown error occurred.",
     "3": "Your login information is invalid. Please sign in again.",
     "4": "You need to sign in to use this feature.",
     "6": "Your session has expired. Please sign in again.",
@@ -24,7 +23,8 @@
     "54": "This account is restricted.",
     "68": "This URL uses a blocked domain.",
     "69": "This blocked domain does not exist.",
-    "70": "This domain is already blocked."
+    "70": "This domain is already blocked.",
+    "unknown": "An unknown error occurred."
   },
   "confirm": {
     "loginRequired": "Login is required. Would you like to go to the login page?",
@@ -57,6 +57,12 @@
   },
   "navigation": {
     "backToMenu": "Back to Menu",
-    "backToPptList": "Back to presentations"
+    "backToPptList": "Back to presentations",
+    "home": "Home",
+    "blog": "Blog",
+    "menu": "Menu",
+    "mainNav": "Main navigation",
+    "selectLanguage": "Select language",
+    "openSearch": "Open page search"
   }
 }

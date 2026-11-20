@@ -28,13 +28,12 @@ function ViewCount() {
     };
 
     incrementView();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blog.urlSlug, sessionId]); // 슬러그/세션 변경 시 1회 카운트
 
   return (
-    <span className="inline-flex items-center justify-center gap-1 align-middle leading-none">
-      <Eye className="h-4 w-4 shrink-0" aria-hidden />
-      <span className="inline-flex items-center tabular-nums leading-none">{viewCount}</span>
+    <span className="inline-flex items-center gap-1">
+      <Eye className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} aria-hidden />
+      <span className="font-mono tabular-nums">{viewCount.toLocaleString('en-US')}</span>
     </span>
   );
 }

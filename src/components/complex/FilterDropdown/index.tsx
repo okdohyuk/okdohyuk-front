@@ -25,7 +25,7 @@ const FilterDropdown: FilterDropdownFC = function FilterDropdown({ title, items,
           type="button"
           className={cn(
             'mb-1 flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-left transition-colors',
-            item.type === 'in' && 'bg-point-4/50 dark:bg-point-1/15',
+            item.type === 'in' && 'bg-basic-2 ring-1 ring-inset ring-point-2',
             item.type === 'notIn' && 'bg-danger-4/80 dark:bg-danger-1/25',
             item.type === 'idle' && 'hover:bg-basic-2',
           )}
@@ -53,7 +53,7 @@ const FilterDropdown: FilterDropdownFC = function FilterDropdown({ title, items,
 
   return (
     <div>
-      <div className="border-b border-basic-3/80 bg-basic-2/80 px-3 py-2 text-sm font-bold text-fg-1">
+      <div className="border-b border-basic-3 bg-basic-1 px-3 py-2 text-sm font-medium text-fg-1">
         {title}
       </div>
       <div className="space-y-1 p-2">

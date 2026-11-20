@@ -145,7 +145,7 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
   return (
     <div className="w-full space-y-6">
       <div className="space-y-1">
-        <Text variant="d2" className="font-semibold text-fg-2">
+        <Text variant="d2" className="font-medium text-fg-2">
           {t('builder.title')}
         </Text>
       </div>
@@ -251,7 +251,7 @@ function CronGeneratorClient({ lng }: CronGeneratorClientProps) {
       </div>
 
       <CronExpressionInput label={t('label.expression')} expression={expression} />
-      {error && <p className="animate-pulse text-sm font-medium text-danger-2">{error}</p>}
+      {error && <p className="text-sm text-danger-1 dark:text-danger-3">{error}</p>}
 
       <CronResultCard title={t('label.result')} result={humanReadable || '-'} />
 

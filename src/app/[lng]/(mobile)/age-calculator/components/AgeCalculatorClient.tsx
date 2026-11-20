@@ -23,11 +23,7 @@ import { H1, Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -179,7 +175,7 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
         </div>
       </div>
 
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4 md:p-5')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4 md:p-5')}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <H1 className="text-2xl md:text-3xl">{t('results.title')}</H1>
           <Button
@@ -205,22 +201,22 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
         {result.data && !result.error && (
           <div className="space-y-3">
             <div className="grid gap-3 md:grid-cols-3">
-              <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">
+              <div className="rounded-xl border border-basic-3 p-3">
                 <Text variant="c1" color="basic-5">
                   {t('results.ageYears')}
                 </Text>
                 <Text asChild variant="t3">
-                  <p className="mt-1 font-semibold">
+                  <p className="mt-1 font-mono font-medium tabular-nums">
                     {t('results.yearsValue', { years: result.data.years })}
                   </p>
                 </Text>
               </div>
-              <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">
+              <div className="rounded-xl border border-basic-3 p-3">
                 <Text variant="c1" color="basic-5">
                   {t('results.ageFullLabel')}
                 </Text>
                 <Text asChild variant="d1">
-                  <p className="mt-1 font-semibold">
+                  <p className="mt-1 font-mono font-medium tabular-nums">
                     {t('results.ageFull', {
                       years: result.data.years,
                       months: result.data.months,
@@ -229,18 +225,18 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
                   </p>
                 </Text>
               </div>
-              <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">
+              <div className="rounded-xl border border-basic-3 p-3">
                 <Text variant="c1" color="basic-5">
                   {t('results.daysUntil')}
                 </Text>
                 <Text asChild variant="t3">
-                  <p className="mt-1 font-semibold">
+                  <p className="mt-1 font-mono font-medium tabular-nums">
                     {t('results.daysUntilValue', { days: result.data.daysUntil })}
                   </p>
                 </Text>
               </div>
             </div>
-            <div className="rounded-2xl bg-basic-0/70 p-3 text-sm shadow-sm">
+            <div className="rounded-xl border border-basic-3 p-3 text-sm">
               <Text asChild variant="d2" color="basic-3">
                 <p>
                   {t('results.nextBirthday', {
@@ -257,7 +253,7 @@ export default function AgeCalculatorClient({ lng }: AgeCalculatorClientProps) {
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-4')}>
         <Text asChild variant="d2" color="basic-4">
-          <p className="font-semibold">{t('example.title')}</p>
+          <p className="font-medium">{t('example.title')}</p>
         </Text>
         <Text variant="d2" color="basic-5">
           {t('example.text')}

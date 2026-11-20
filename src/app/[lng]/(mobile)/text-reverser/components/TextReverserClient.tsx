@@ -15,10 +15,7 @@ import { cn } from '@utils/cn';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 
 type ReverseMode = 'characters' | 'words' | 'lines';
@@ -55,7 +52,6 @@ export default function TextReverserClient({ lng }: TextReverserClientProps) {
     if (reversed) {
       trackUse({ action_type: 'reverse', success: true });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reversed]);
 
   const handleCopy = async () => {
@@ -105,7 +101,7 @@ export default function TextReverserClient({ lng }: TextReverserClientProps) {
         />
       </section>
 
-      <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
+      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="flex items-center justify-between gap-3">
           <label htmlFor="text-reverser-output" className="text-sm font-medium t-basic-1">
             {t('label.output')}

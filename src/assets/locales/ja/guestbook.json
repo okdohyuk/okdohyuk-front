@@ -31,9 +31,9 @@
   "report": {
     "button": "通報",
     "title": "通報する",
-    "descriptionLabel": "通報の理由を選択してください。",
+    "descriptionLabel": "通報の理由を選択してください",
     "detailLabel": "詳細説明（任意）",
-    "detailPlaceholder": "通報理由を詳しく記入してください。",
+    "detailPlaceholder": "通報理由を詳しく記入してください",
     "submit": "通報",
     "cancel": "キャンセル",
     "reason": {
@@ -44,7 +44,7 @@
     }
   },
   "list": {
-    "empty": "まだメッセージがありません。最初のメッセージを残してみましょう！",
+    "empty": "まだメッセージがありません。最初のメッセージを残してみましょう。",
     "loading": "読み込み中..."
   },
   "deletedMessage": "削除されたメッセージです。",
