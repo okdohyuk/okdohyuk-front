@@ -168,7 +168,7 @@ export default function PresentationPlayer({
       {!isFullscreen && (
         <div className="flex min-h-12 items-center justify-between gap-3 px-3 py-2 text-xs text-white/70 sm:px-5">
           <div className="flex min-w-0 items-center gap-2">
-            <Radio className="h-4 w-4 shrink-0 text-violet-300" />
+            <Radio className="h-4 w-4 shrink-0 text-white/70" />
             <span className="truncate font-semibold text-white">{presentation.title}</span>
             <span className="hidden sm:inline">
               · {session.currentSlideIndex + 1}/{session.slideCount}
@@ -181,7 +181,7 @@ export default function PresentationPlayer({
               onClick={() => setShowNotes((previous) => !previous)}
               className={cn(
                 'rounded-full p-2 transition-colors hover:bg-white/10',
-                showNotes && 'bg-white/15 text-violet-200',
+                showNotes && 'bg-white/15 text-white',
               )}
               aria-label="발표자 노트"
               title="발표자 노트 (N)"
@@ -252,7 +252,7 @@ export default function PresentationPlayer({
             <ChevronRight className="h-5 w-5" />
           </button>
           <div className="mx-1 flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-sm tabular-nums">
-            <Clock3 className="h-4 w-4 text-violet-200" />
+            <Clock3 className="h-4 w-4 text-white/70" />
             <PresentationTimer session={session} />
           </div>
           <button

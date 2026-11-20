@@ -30,6 +30,8 @@ module.exports = {
           soft: 'var(--point-tint-soft)',
           fg: 'var(--accent-fg)',
         },
+        // Focus indicator colour (solid, per theme). Field borders use `focus:border-focus`.
+        focus: 'var(--ring-focus)',
         success: {
           1: 'var(--success-1)',
           2: 'var(--success-2)',

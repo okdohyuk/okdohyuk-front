@@ -62,6 +62,7 @@
   "progress": {
     "title": "진행 중인 잡",
     "iteration": "{{current}} / {{max}} 반복",
+    "progressLabel": "진행률",
     "plagPercent": "표절률",
     "aiPercent": "AI 생성률",
     "notMeasuredYet": "측정 전",

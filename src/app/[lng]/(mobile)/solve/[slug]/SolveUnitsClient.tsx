@@ -83,7 +83,7 @@ export default function SolveUnitsClient({ lng, slug }: SolveUnitsClientProps) {
           SERVICE_CARD_INTERACTIVE,
           'flex w-full items-center justify-between gap-3 p-4 text-left',
           'border-point-1 bg-point-soft',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-point-1 focus-visible:ring-offset-2 focus-visible:ring-offset-basic-0',
+          'focus-ring',
         )}
       >
         <div className="min-w-0">
@@ -108,7 +108,7 @@ export default function SolveUnitsClient({ lng, slug }: SolveUnitsClientProps) {
               SERVICE_PANEL_SOFT,
               SERVICE_CARD_INTERACTIVE,
               'flex w-full items-center justify-between gap-3 p-4 text-left',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-point-1 focus-visible:ring-offset-2 focus-visible:ring-offset-basic-0',
+              'focus-ring',
             )}
           >
             <div className="min-w-0">

@@ -77,7 +77,7 @@ export default function GuestbookForm({ onSuccess, lng }: GuestbookFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-3 rounded-xl border border-basic-3/80 bg-basic-0/70 p-4 backdrop-blur-sm"
+      className="flex flex-col gap-3 rounded-xl border border-basic-3/80 bg-basic-0/70 p-4"
     >
       {!isLoggedIn && (
         <div className="grid gap-2 sm:grid-cols-2">
@@ -123,7 +123,7 @@ export default function GuestbookForm({ onSuccess, lng }: GuestbookFormProps) {
         </p>
         <Button
           type="submit"
-          className="px-6 py-2 text-sm font-bold"
+          className="px-6 py-2 text-sm font-semibold"
           disabled={isSubmitting || !content.trim()}
         >
           {isSubmitting ? t('form.submitting') : t('form.submit')}

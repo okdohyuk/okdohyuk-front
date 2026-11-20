@@ -30,7 +30,13 @@ export default function EffectivenessGroup({
   return (
     <div className={cn(SERVICE_PANEL_SOFT, 'p-3 space-y-2')}>
       <div className="flex items-center gap-2">
-        <span className={cn('text-sm font-bold px-2 py-0.5 rounded-full', bgClass, colorClass)}>
+        <span
+          className={cn(
+            'font-mono text-sm font-medium tabular-nums px-2 py-0.5 rounded-sm',
+            bgClass,
+            colorClass,
+          )}
+        >
           {label}
         </span>
         <Text variant="c1" color="basic-5">

@@ -2,7 +2,8 @@
   "openGraph": {
     "title": "okdohyuk - Web Multi Tool Platform",
     "ogTitle": "okdohyuk - Web Multi Tool Platform",
-    "description": "The Web Multi Tool Platform provides several easy-to-use web tools."
+    "description": "The Web Multi Tool Platform provides several easy-to-use web tools.",
+    "keywords": ["wef", "few"]
   },
   "downloads": "Downloads",
   "domain": "okdohyuk.dev",

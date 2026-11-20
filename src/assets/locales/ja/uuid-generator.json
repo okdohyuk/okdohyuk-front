@@ -23,10 +23,10 @@
   "button": {
     "generate": "生成",
     "copy": "コピー",
-    "copied": "コピーしました！"
+    "copied": "コピーしました"
   },
   "placeholder": {
     "format": "形式を選択",
-    "output": "生成された UUID がここに表示されます。"
+    "output": "生成された UUID がここに表示されます"
   }
 }

@@ -12,10 +12,7 @@ import { Input } from '@components/basic/Input';
 import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -130,8 +127,8 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
         </div>
       </div>
 
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
-        <h3 className="text-sm font-semibold text-fg-1">
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
+        <h3 className="text-sm font-medium text-fg-1">
           {mode === 'wake' ? t('result.sleepTimes') : t('result.wakeTimes')}
         </h3>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -140,17 +137,16 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
             const sleepHours = item.cycle * 1.5;
 
             return (
-              <div
-                key={item.cycle}
-                className="rounded-2xl border border-basic-3/70 p-3 dark:border-basic-4/70"
-              >
+              <div key={item.cycle} className="rounded-xl border border-basic-3 p-3">
                 <p className="text-xs text-fg-5">
                   {t('result.cycle', { count: item.cycle })} ·{' '}
                   {t('result.sleepHours', {
                     hours: sleepHours,
                   })}
                 </p>
-                <p className="text-lg font-semibold text-fg-1">{formatter.format(item.target)}</p>
+                <p className="font-mono text-lg font-medium tabular-nums text-fg-1">
+                  {formatter.format(item.target)}
+                </p>
                 {dayLabel ? <p className="text-xs text-fg-5">{dayLabel}</p> : null}
               </div>
             );
@@ -159,7 +155,7 @@ export default function BedtimePlannerClient({ lng }: BedtimePlannerClientProps)
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-4')}>
-        <h3 className="text-sm font-semibold text-fg-1">{t('tips.title')}</h3>
+        <h3 className="text-sm font-medium text-fg-1">{t('tips.title')}</h3>
         <ul className="list-disc space-y-1 pl-4 text-sm text-fg-4">
           {(t('tips.items', { returnObjects: true }) as string[]).map((tip) => (
             <li key={tip}>{tip}</li>

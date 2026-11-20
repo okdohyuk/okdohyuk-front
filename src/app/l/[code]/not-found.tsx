@@ -20,14 +20,14 @@ export default async function ShortLinkNotFound() {
 
   return (
     <main className="mx-auto flex min-h-[60vh] max-w-md flex-col items-center justify-center gap-4 px-4 py-12 text-center">
-      <p className="text-sm font-semibold tracking-wide text-fg-5">{t('notFound.status')}</p>
-      <h1 className="text-2xl font-extrabold text-fg-1">{t('notFound.title')}</h1>
+      <p className="font-mono text-sm tabular-nums text-fg-5">{t('notFound.status')}</p>
+      <h1 className="text-2xl font-medium text-fg-1">{t('notFound.title')}</h1>
       <p className="whitespace-pre-line text-sm leading-relaxed text-fg-4">
         {t('notFound.description')}
       </p>
       <Link
         href={`/${language}/shortener`}
-        className="mt-2 inline-flex h-10 items-center rounded-md bg-point-2 px-4 text-sm font-semibold text-white transition hover:bg-point-1"
+        className="mt-2 inline-flex h-10 items-center rounded-md bg-point-2 px-4 text-sm font-medium text-white transition-colors hover:bg-point-1 focus-ring"
       >
         {t('notFound.action')}
       </Link>

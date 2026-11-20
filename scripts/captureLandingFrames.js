@@ -14,6 +14,7 @@
  *   환경 변수(선택)
  *     BASE_URL=http://localhost:3000   대상 서버
  *     TOOLS=pokemon,clock,live         촬영할 도구만 지정(쉼표 구분)
+ *     TOOLS=blend                      도구 시퀀스 없이 blend(도구 목록) 한 장만 다시 촬영
  *     FRAMES=90                        도구당 프레임 수
  *     QUALITY=72                       webp 품질
  *     WIDTH=1280                       저장 폭(px). 뷰포트 1280×800 을 그대로 담는다
@@ -92,6 +93,8 @@ const HIDE_CHROME_CSS = `
   footer { display: none !important; }
   button[aria-label="Select language"] { display: none !important; }
   [aria-label="Select language"] { display: none !important; }
+  /* 언어 선택 라벨은 i18n 이라 촬영 로케일(ko) 문구로도 숨긴다. */
+  [aria-label="언어 선택"] { display: none !important; }
   /* 개발 서버에서만 붙는 Next.js 개발 도구 인디케이터(좌하단 동그라미) */
   nextjs-portal { display: none !important; }
   /* 좌우 광고 레일(AsideScreenWrapper) — 제품 샷에서는 본문만 남긴다. */
@@ -147,7 +150,7 @@ const typeShots = (selector, text, wait) =>
 const CLOCK_SITES = ['Yes24', 'Interpark', 'Melon'];
 const CLOCK_CUSTOM_HOST = 'okdohyuk.dev';
 
-const LIVE_INPUT = 'input[placeholder="생방송의 ID를 입력하세요."]';
+const LIVE_INPUT = 'input[placeholder="생방송의 ID를 입력하세요"]';
 
 const TOOLS = {
   /**
@@ -580,9 +583,11 @@ async function captureBlendImage(browser) {
 }
 
 async function main() {
+  // blend 는 매번 함께 촬영되므로 'blend' 만 지정하면 도구 시퀀스는 건너뛴다.
   const requested = (process.env.TOOLS || Object.keys(TOOLS).join(','))
     .split(',')
-    .map((s) => s.trim());
+    .map((s) => s.trim())
+    .filter((name) => name && name !== 'blend');
 
   const response = await fetch(BASE_URL).catch(() => null);
   if (!response) {

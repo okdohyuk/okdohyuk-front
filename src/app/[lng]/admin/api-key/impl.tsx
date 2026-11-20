@@ -154,7 +154,7 @@ function ApiKeyManagePageImpl({ lng }: ApiKeyManagePageImplProps) {
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex items-center gap-2">
           <Plus className="h-4 w-4 text-point-fg" />
-          <h2 className="text-base font-bold text-fg-1">새 API Key 발급</h2>
+          <h2 className="text-base font-semibold text-fg-1">새 API Key 발급</h2>
         </div>
         <form onSubmit={handleIssue} className="flex flex-wrap items-center gap-2">
           <Input
@@ -180,8 +180,8 @@ function ApiKeyManagePageImpl({ lng }: ApiKeyManagePageImplProps) {
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <KeyRound className="h-4 w-4 text-point-fg" />
-            <h2 className="text-base font-bold text-fg-1">발급된 키 목록</h2>
-            <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[11px] font-bold text-fg-4">
+            <h2 className="text-base font-semibold text-fg-1">발급된 키 목록</h2>
+            <span className="rounded-sm bg-basic-3 px-2 py-0.5 text-2xs font-medium tabular-nums text-fg-4">
               {totalKeys}
             </span>
           </div>
@@ -237,7 +237,7 @@ function ApiKeyManagePageImpl({ lng }: ApiKeyManagePageImplProps) {
                   <TableCell className="whitespace-nowrap">
                     <span
                       className={cn(
-                        'inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold',
+                        'inline-flex rounded-sm border px-2 py-0.5 text-2xs font-medium tabular-nums',
                         key.isActive
                           ? 'border-emerald-300 bg-emerald-100 text-emerald-800 dark:border-emerald-500/50 dark:bg-emerald-500/20 dark:text-emerald-100'
                           : 'border-basic-3 bg-basic-2 text-fg-5',

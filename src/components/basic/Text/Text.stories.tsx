@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { H1, H2, H3 } from './Headers';
 import { Text } from './Text';
@@ -25,6 +26,20 @@ export const Headings: Story = {
       <H1>Heading 1</H1>
       <H2>Heading 2</H2>
       <H3>Heading 3</H3>
+    </div>
+  ),
+};
+
+/** `color="inherit"` drops the default fg colour so a parent's colour (e.g. inline style) applies. */
+export const InheritColor: Story = {
+  render: () => (
+    <div className="rounded-lg p-6" style={{ backgroundColor: '#ffffff', color: '#1f2937' }}>
+      <Text variant="t3" color="inherit">
+        Preview heading
+      </Text>
+      <Text variant="d3" color="inherit" className="mt-2 block">
+        Body text in the parent colour
+      </Text>
     </div>
   ),
 };

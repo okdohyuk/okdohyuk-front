@@ -1,4 +1,4 @@
-import { menus, MenuItem } from '@assets/datas/menus';
+import { menus, MenuItem, isStandaloneTool } from '@assets/datas/menus';
 import {
   ServiceSectionKey,
   SERVICE_SECTION_ORDER,
@@ -20,12 +20,18 @@ const SERVICE_MENU_BY_LINK: Map<string, MenuItem> = new Map(
 export const getServiceMenuItem = (link: string): MenuItem | undefined =>
   SERVICE_MENU_BY_LINK.get(link);
 
-/** 랜딩에서 소개 가능한 전체 도구 수 (히어로 지표에 사용) */
-export const SERVICE_TOOL_COUNT = menus.service.length;
+const STANDALONE_TOOLS: MenuItem[] = menus.service.filter(isStandaloneTool);
+
+/**
+ * 사이트 전체의 도구 수 — 랜딩 지표·헤드라인, 메뉴 검색 안내, llms.txt 가 모두 이 값 하나를 쓴다.
+ * 허브(/pokemon)와 방명록처럼 `kind` 가 붙은 항목은 도구가 아니므로 세지 않는다.
+ * 문구에 숫자를 직접 적지 말고 `{{count}}` 로 끼워 넣을 것.
+ */
+export const SERVICE_TOOL_COUNT = STANDALONE_TOOLS.length;
 
 /** 카테고리별 도구 수 */
 export const SERVICE_TOOL_COUNT_BY_SECTION: Record<ServiceSectionKey, number> =
-  menus.service.reduce(
+  STANDALONE_TOOLS.reduce(
     (acc, item) => {
       const section = getServiceSectionKey(item.link);
       acc[section] += 1;

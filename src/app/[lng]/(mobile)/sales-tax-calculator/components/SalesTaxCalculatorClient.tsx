@@ -6,10 +6,7 @@ import { Button } from '@components/basic/Button';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -120,29 +117,29 @@ export default function SalesTaxCalculatorClient({ lng }: SalesTaxCalculatorClie
 
       {price && <GoogleAd slotId="7911066601" className="w-full mt-4" />}
 
-      <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
+      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <h3 className="text-base font-semibold text-fg-1">{t('summary.title')}</h3>
         <div className="grid gap-3 md:grid-cols-2">
           <div className="space-y-1">
-            <p className="text-xs uppercase tracking-wide text-fg-5">{t('summary.subtotal')}</p>
+            <p className="text-xs text-fg-5">{t('summary.subtotal')}</p>
             <p className="text-lg font-semibold text-fg-1">
               {subtotal.toLocaleString()} {t('summary.currency')}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-xs uppercase tracking-wide text-fg-5">{t('summary.tax')}</p>
+            <p className="text-xs text-fg-5">{t('summary.tax')}</p>
             <p className="text-lg font-semibold text-fg-1">
               {taxAmount.toLocaleString()} {t('summary.currency')}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-xs uppercase tracking-wide text-fg-5">{t('summary.total')}</p>
+            <p className="text-xs text-fg-5">{t('summary.total')}</p>
             <p className="text-lg font-semibold text-fg-1">
               {total.toLocaleString()} {t('summary.currency')}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-xs uppercase tracking-wide text-fg-5">{t('summary.totalPerItem')}</p>
+            <p className="text-xs text-fg-5">{t('summary.totalPerItem')}</p>
             <p className="text-lg font-semibold text-fg-1">
               {totalPerItem.toLocaleString()} {t('summary.currency')}
             </p>

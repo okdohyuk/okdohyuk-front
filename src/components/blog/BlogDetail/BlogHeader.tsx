@@ -1,10 +1,12 @@
 import React from 'react';
 import { format } from 'date-fns';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Link from '@components/basic/Link';
 import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
-import { H1, Text } from '@components/basic/Text';
-import { BLOG_GLASS_PANEL } from '@components/blog/interactiveStyles';
+import { BLOG_META } from '@components/blog/interactiveStyles';
+import ServicePageMeta from '@components/complex/Service/ServicePageMeta';
+import { cn } from '@utils/cn';
+import { useTranslation } from '~/app/i18n/client';
 import ViewCount from './ViewCount';
 
 const parseSafeDate = (value?: string): Date | null => {
@@ -13,8 +15,23 @@ const parseSafeDate = (value?: string): Date | null => {
   return Number.isNaN(parsed.getTime()) ? null : parsed;
 };
 
+function MetaDot() {
+  return (
+    <span aria-hidden className="text-fg-6">
+      ·
+    </span>
+  );
+}
+
+/*
+ * Post header on the page canvas: the site's mono path signature (same row as tool headers),
+ * a size-led title, one muted meta line
+ * (category trail · dates · views), then the cover as a plain framed figure. The cover is
+ * shown as-is — no colour overlay or scrim, and no text is laid over it.
+ */
 function BlogHeader() {
-  const { blog } = useBlogDetail();
+  const { blog, lng } = useBlogDetail();
+  const { t } = useTranslation(lng, 'blog/index');
   const { thumbnailImage, title, createdAt, updatedAt, categoryChain } = blog;
   const createdDate = parseSafeDate(createdAt) ?? new Date();
   const updatedDate = parseSafeDate(updatedAt);
@@ -24,59 +41,86 @@ function BlogHeader() {
     updatedDate && updatedFormatted && updatedFormatted !== createdFormatted,
   );
   const effectiveModifiedIso = (updatedDate ?? createdDate).toISOString();
-
-  const categoryRender = (category: string, index: number) => (
-    <Link
-      key={category}
-      href={`/blog?categoryIn=${categoryChain.slice(0, index + 1).join(',')}`}
-      className="rounded-full border border-white/25 bg-black/25 px-3 py-1 text-xs font-semibold text-white/75 backdrop-blur-sm transition-colors duration-150 hover:border-point-2/80 hover:text-white"
-    >
-      {category}
-    </Link>
-  );
+  const categories = categoryChain ?? [];
 
   return (
-    <header className={`${BLOG_GLASS_PANEL} relative mb-6 min-h-[260px] overflow-hidden`}>
-      {thumbnailImage ? (
-        <Image
-          src={`${thumbnailImage}?w=1280`}
-          alt={title}
-          layout="fill"
-          objectFit="cover"
-          unoptimized
-        />
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-point-2/40 via-violet-500/25 to-cyan-500/20 dark:from-point-1/30 dark:via-violet-800/20 dark:to-cyan-800/20" />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/55 to-black/35" />
-      <div className="relative z-10 flex min-h-[260px] flex-col justify-end p-6 md:p-10">
-        <Text className="mb-3 flex flex-wrap items-center gap-2 text-white" variant="d3">
-          {categoryChain ? categoryChain.map(categoryRender) : null}
-        </Text>
-        <H1 itemProp="headline" className="mb-4 text-2xl text-white lg:text-4xl">
-          {title}
-        </H1>
-        <Text className="flex flex-wrap items-center gap-3 text-white/60" variant="c1">
-          <span className="inline-flex items-center rounded-full bg-black/30 px-3 py-1">
-            <time dateTime={createdDate.toISOString()} itemProp="datePublished">
-              {createdFormatted}
-            </time>
-          </span>
-          {hasDistinctUpdatedDate && updatedDate ? (
-            <span className="inline-flex items-center rounded-full bg-black/30 px-3 py-1">
-              수정{' '}
-              <time dateTime={updatedDate.toISOString()} itemProp="dateModified" className="ml-1">
+    <header className="mb-8">
+      <ServicePageMeta />
+      <h1
+        itemProp="headline"
+        className="mt-3 text-3xl font-semibold leading-tight text-fg-1 md:text-4xl"
+      >
+        {title}
+      </h1>
+
+      <div className={cn(BLOG_META, 'mt-4 flex flex-wrap items-center gap-x-2 gap-y-1')}>
+        {categories.length > 0 ? (
+          <>
+            <nav aria-label={t('filter.category')} className="flex flex-wrap items-center gap-1">
+              {categories.map((category, index) => (
+                <React.Fragment key={category}>
+                  {index > 0 ? (
+                    <span aria-hidden className="text-fg-6">
+                      /
+                    </span>
+                  ) : null}
+                  <Link
+                    href={`/blog?categoryIn=${categories.slice(0, index + 1).join(',')}`}
+                    className="rounded-xs text-fg-4 transition-colors duration-150 hover:text-fg-1 focus-ring"
+                  >
+                    {category}
+                  </Link>
+                </React.Fragment>
+              ))}
+            </nav>
+            <MetaDot />
+          </>
+        ) : null}
+
+        <time
+          dateTime={createdDate.toISOString()}
+          itemProp="datePublished"
+          className="font-mono tabular-nums"
+        >
+          {createdFormatted}
+        </time>
+
+        {hasDistinctUpdatedDate && updatedDate ? (
+          <>
+            <MetaDot />
+            <span>
+              {t('updated')}{' '}
+              <time
+                dateTime={updatedDate.toISOString()}
+                itemProp="dateModified"
+                className="font-mono tabular-nums"
+              >
                 {updatedFormatted}
               </time>
             </span>
-          ) : (
-            <meta itemProp="dateModified" content={effectiveModifiedIso} />
-          )}
-          <span className="inline-flex items-center rounded-full bg-black/30 px-3 py-1">
-            <ViewCount />
-          </span>
-        </Text>
+          </>
+        ) : (
+          <meta itemProp="dateModified" content={effectiveModifiedIso} />
+        )}
+
+        <MetaDot />
+        <ViewCount />
       </div>
+
+      {thumbnailImage ? (
+        // Panel 16px radius, image clipped by it — no inner padding, so no nested radius.
+        <figure className="relative mt-6 aspect-video w-full overflow-hidden rounded-2xl border border-basic-3 bg-basic-1">
+          <Image
+            src={`${thumbnailImage}?w=1280`}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover"
+            priority
+            unoptimized
+          />
+        </figure>
+      ) : null}
     </header>
   );
 }

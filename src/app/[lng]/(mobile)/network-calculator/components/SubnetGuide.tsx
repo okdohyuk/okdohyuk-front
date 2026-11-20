@@ -32,7 +32,7 @@ function StatCard({ label, value, mono, highlight }: StatCardProps) {
     <div
       className={cn(
         'rounded-2xl p-3 shadow-sm',
-        highlight ? 'bg-point-4/60 dark:bg-point-1/20' : 'bg-basic-0/70',
+        highlight ? 'border-point-2/40 bg-basic-1' : 'bg-basic-0',
       )}
     >
       <Text variant="c1" color="basic-5">
@@ -65,9 +65,9 @@ function BinaryRow({ segments, cidr }: BinaryRowProps) {
           {seg.position > 0 && seg.position % 8 === 0 && <span className="w-1.5" />}
           <span
             className={cn(
-              'flex h-6 w-5 items-center justify-center rounded-sm font-bold transition-colors duration-200',
+              'flex h-6 w-5 items-center justify-center rounded-sm font-semibold transition-colors duration-200',
               seg.type === 'network'
-                ? 'bg-point-4 text-point-fg dark:bg-point-1/30 dark:text-point-3'
+                ? 'bg-point-2 text-white'
                 : 'bg-warn-4 text-warn-1 dark:bg-warn-1/30 dark:text-warn-3',
               seg.position === cidr - 1 && 'border-r-2 border-point-1',
             )}
@@ -113,10 +113,10 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
         </Text>
 
         <div className="flex items-end gap-3">
-          <div className="text-5xl font-black text-point-2 leading-none">/{cidr}</div>
+          <div className="text-5xl font-semibold text-point-fg leading-none">/{cidr}</div>
           <div className="space-y-0.5 pb-1">
             <Text variant="c1" color="basic-5">
-              {t('guide.networkBits')}: <span className="font-semibold text-point-2">{cidr}</span>
+              {t('guide.networkBits')}: <span className="font-semibold text-point-fg">{cidr}</span>
             </Text>
             <Text variant="c1" color="basic-5">
               {t('guide.hostBits')}: <span className="font-semibold text-warn-2">{32 - cidr}</span>
@@ -157,7 +157,7 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
               type="button"
               onClick={() => setCidr(c)}
               className={cn(
-                'rounded-xl px-3 py-1.5 text-sm font-semibold transition-all',
+                'rounded-xl px-3 py-1.5 text-sm font-semibold transition-colors',
                 cidr === c ? 'bg-point-2 text-white' : 'bg-basic-2 text-fg-4 hover:bg-basic-3',
               )}
             >
@@ -187,7 +187,7 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
           </Text>
           <div className="h-5 w-full overflow-hidden rounded-full bg-basic-2">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-point-2 to-point-3 transition-all duration-300"
+              className="h-full rounded-full bg-point-2 transition-[width] duration-300"
               style={{ width: `${hostPercent}%` }}
             />
           </div>
@@ -248,15 +248,13 @@ export function SubnetGuide({ lng }: SubnetGuideProps) {
                 type="button"
                 onClick={() => setCidr(c)}
                 className={cn(
-                  'flex items-start gap-3 rounded-2xl p-3 text-left transition-all',
-                  isActive
-                    ? 'bg-point-4/80 dark:bg-point-1/20'
-                    : 'bg-basic-0/60 hover:bg-basic-0/90',
+                  'flex items-start gap-3 rounded-2xl p-3 text-left transition-colors',
+                  isActive ? 'bg-basic-2' : 'bg-basic-0/60 hover:bg-basic-0/90',
                 )}
               >
                 <span
                   className={cn(
-                    'rounded-lg px-2 py-0.5 font-mono text-sm font-bold',
+                    'rounded-lg px-2 py-0.5 font-mono text-sm font-semibold',
                     isActive ? 'bg-point-2 text-white' : 'bg-basic-2 text-fg-3',
                   )}
                 >

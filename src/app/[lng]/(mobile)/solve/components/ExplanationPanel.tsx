@@ -48,7 +48,7 @@ function ExplanationPanel({
       >
         <p
           className={cn(
-            'mb-2.5 flex items-center gap-2 text-lg font-bold',
+            'mb-2.5 flex items-center gap-2 text-lg font-semibold',
             correct ? 'text-success-1' : 'text-danger-1',
           )}
         >

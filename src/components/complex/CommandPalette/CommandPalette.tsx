@@ -7,6 +7,7 @@ import { Search, ArrowRight, Shield, CornerDownLeft } from 'lucide-react';
 import { observer } from 'mobx-react';
 import { UserRoleEnum } from '@api/User';
 import { Input } from '@components/basic/Input';
+import { Keycap } from '@components/basic/Keycap';
 import { cn } from '@utils/cn';
 import { OPEN_COMMAND_PALETTE_EVENT } from '@utils/commandPalette';
 import { rememberLoginRedirect } from '@utils/loginRedirect';
@@ -219,7 +220,7 @@ function CommandPalette() {
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay
           className={cn(
-            'fixed inset-0 z-50 bg-black/50 backdrop-blur-sm',
+            'fixed inset-0 z-50 bg-black/40',
             'data-[state=open]:animate-in data-[state=closed]:animate-out',
             'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
           )}
@@ -228,12 +229,10 @@ function CommandPalette() {
           onKeyDown={handleKeyDown}
           className={cn(
             'fixed left-[50%] top-[15%] z-50 w-full max-w-lg translate-x-[-50%]',
-            'rounded-2xl border border-basic-3/70 bg-basic-0 shadow-2xl',
+            'rounded-2xl border border-basic-3 bg-basic-0 shadow-xl dark:bg-basic-1',
             'data-[state=open]:animate-in data-[state=closed]:animate-out',
             'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
             'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
-            'data-[state=closed]:slide-out-to-left-1/2 data-[state=open]:slide-in-from-left-1/2',
-            'data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-top-[48%]',
             'duration-200',
           )}
         >
@@ -241,7 +240,7 @@ function CommandPalette() {
 
           {/* 검색 입력 */}
           <div className="flex items-center gap-3 border-b border-basic-3 px-4">
-            <Search className="h-5 w-5 shrink-0 text-fg-6" />
+            <Search size={18} strokeWidth={1.75} className="shrink-0 text-fg-5" aria-hidden />
             <Input
               ref={inputRef}
               type="text"
@@ -251,9 +250,7 @@ function CommandPalette() {
               className="min-h-12 border-0 bg-transparent px-0 text-base focus:ring-0 dark:bg-transparent"
               autoFocus
             />
-            <kbd className="hidden shrink-0 rounded-md border border-basic-3 bg-basic-2 px-1.5 py-0.5 text-[10px] font-medium text-fg-5 sm:inline-block">
-              ESC
-            </kbd>
+            <Keycap className="hidden shrink-0 sm:inline-flex">ESC</Keycap>
           </div>
 
           {/* 결과 목록 */}
@@ -272,8 +269,8 @@ function CommandPalette() {
                     onClick={() => navigateTo(page)}
                     onMouseEnter={() => setSelectedIndex(index)}
                     className={cn(
-                      'flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-colors',
-                      isSelected ? 'bg-point-4/50 dark:bg-point-1/20' : 'hover:bg-basic-2',
+                      'flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors',
+                      isSelected ? 'bg-basic-2' : 'hover:bg-basic-2',
                     )}
                   >
                     {page.access === 'admin' ? (
@@ -285,12 +282,10 @@ function CommandPalette() {
                       <div className="flex items-center gap-2">
                         <span className="truncate text-sm font-medium text-fg-1">{title}</span>
                         {categoryBadge && (
-                          <span className="shrink-0 rounded-full bg-basic-3/80 px-2 py-0.5 text-[10px] font-medium text-fg-5">
-                            {categoryBadge}
-                          </span>
+                          <span className="shrink-0 text-xs text-fg-5">{categoryBadge}</span>
                         )}
                       </div>
-                      <p className="truncate text-xs text-fg-5">
+                      <p className="truncate font-mono text-xs text-fg-5">
                         /{lng}
                         {page.path === '/' ? '' : page.path}
                       </p>
@@ -309,15 +304,11 @@ function CommandPalette() {
 
           {/* 하단 힌트 */}
           <div className="flex items-center justify-between border-t border-basic-3 px-4 py-2">
-            <p className="text-xs text-fg-6">{t('hint')}</p>
+            <p className="text-xs text-fg-5">{t('hint')}</p>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
-                <kbd className="rounded border border-basic-3 bg-basic-2 px-1 py-0.5 text-[10px] text-fg-5">
-                  ↑↓
-                </kbd>
-                <kbd className="rounded border border-basic-3 bg-basic-2 px-1 py-0.5 text-[10px] text-fg-5">
-                  ↵
-                </kbd>
+                <Keycap>↑↓</Keycap>
+                <Keycap>↵</Keycap>
               </div>
             </div>
           </div>

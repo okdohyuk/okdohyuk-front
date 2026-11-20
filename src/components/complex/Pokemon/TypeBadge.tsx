@@ -79,9 +79,9 @@ export default function TypeBadge({
 
   // CSS-based icon sizing: overrides Lucide default via class (no size prop passed)
   const iconContainerClasses = {
-    sm: '[&>svg]:w-[16px] [&>svg]:h-[16px]',
-    md: '[&>svg]:w-[15px] [&>svg]:h-[15px] sm:[&>svg]:w-[20px] sm:[&>svg]:h-[20px]',
-    lg: '[&>svg]:w-[26px] [&>svg]:h-[26px]',
+    sm: '[&>svg]:size-4',
+    md: '[&>svg]:size-4 sm:[&>svg]:size-5',
+    lg: '[&>svg]:size-6',
   };
 
   const buttonPaddingClass = {
@@ -91,9 +91,9 @@ export default function TypeBadge({
   };
 
   const nameSizeClass = {
-    sm: 'text-[9px]',
-    md: 'text-[9px] sm:text-[10px]',
-    lg: 'text-[10px]',
+    sm: 'text-2xs',
+    md: 'text-2xs sm:text-xs',
+    lg: 'text-xs',
   };
 
   // onClick 이 없으면 순수 표시용 배지 → 비인터랙티브 <span> 으로 렌더한다.
@@ -105,12 +105,12 @@ export default function TypeBadge({
     <>
       <div
         className={cn(
-          'rounded-full flex-shrink-0 flex items-center justify-center transition-all duration-200',
+          'rounded-full flex-shrink-0 flex items-center justify-center transition-shadow duration-150',
           sizeClasses[size],
         )}
         style={{
           backgroundColor: color,
-          boxShadow: selected ? `0 0 0 3px white, 0 0 0 5px ${color}` : undefined,
+          boxShadow: selected ? `0 0 0 2px var(--basic-0), 0 0 0 4px ${color}` : undefined,
         }}
       >
         <span
@@ -120,9 +120,7 @@ export default function TypeBadge({
         </span>
       </div>
       {showName && (
-        <span
-          className={cn('font-semibold text-fg-4 leading-none text-center', nameSizeClass[size])}
-        >
+        <span className={cn('font-medium text-fg-4 leading-none text-center', nameSizeClass[size])}>
           {name}
         </span>
       )}
@@ -130,7 +128,7 @@ export default function TypeBadge({
   );
 
   const layoutClass = cn(
-    'flex flex-col items-center gap-1 rounded-xl transition-all duration-200',
+    'flex flex-col items-center gap-1 rounded-xl transition-colors duration-200',
     buttonPaddingClass[size],
   );
 

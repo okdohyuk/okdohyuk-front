@@ -144,19 +144,24 @@ function CoderPage({ params }: LanguageParams) {
             control={control}
             name="isEncoder"
             render={({ field: { value, onChange } }) => (
-              <div className="flex min-h-[32px] p-1 bg-point-3 rounded-md">
+              <div className="flex min-h-8 gap-1 rounded-lg border border-basic-3 bg-basic-1 p-1">
                 <button
                   type="button"
-                  className={cn(value ? 'bg-point-1' : '', 'px-3 rounded-md text-white t-basic-10')}
+                  aria-pressed={value}
+                  className={cn(
+                    value ? 'bg-point-2 text-white' : 'text-fg-3 hover:bg-basic-2',
+                    'rounded-md px-3 text-sm font-medium transition-colors',
+                  )}
                   onClick={() => onChange(true)}
                 >
                   {t('encoder')}
                 </button>
                 <button
                   type="button"
+                  aria-pressed={!value}
                   className={cn(
-                    !value ? 'bg-point-1' : '',
-                    'px-3 rounded-md text-white t-basic-10',
+                    !value ? 'bg-point-2 text-white' : 'text-fg-3 hover:bg-basic-2',
+                    'rounded-md px-3 text-sm font-medium transition-colors',
                   )}
                   onClick={() => onChange(false)}
                 >

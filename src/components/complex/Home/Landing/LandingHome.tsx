@@ -29,7 +29,8 @@ const toToolLink = (lng: Language, href: string): StoryToolLink | null => {
 /**
  * 비로그인 사용자용 서비스 소개 랜딩 — 애플 제품 페이지식 풀스크린 sticky 씬 연속.
  *
- * 씬 흐름: 히어로 텍스트 연출 → 도구 시퀀스 ×3 → 블렌딩(전체 도구 목록) → 일반 스크롤(벤토·클로징).
+ * 씬 흐름: 히어로(카피 | 제품 샷 분할, 일반 섹션) → 도구 시퀀스 ×3 → 블렌딩(전체 도구 목록)
+ * → 일반 스크롤(벤토·클로징).
  * 카피/링크는 전부 서버에서 해석해 평문으로 넘기므로 locale 리소스가 클라이언트 번들에 실리지 않는다.
  */
 export default function LandingHome({ lng, copy }: LandingHomeProps) {
@@ -69,10 +70,9 @@ export default function LandingHome({ lng, copy }: LandingHomeProps) {
             ctaPrimary={copy.hero.ctaPrimary}
             ctaSecondary={copy.hero.ctaSecondary}
             ctaSearch={copy.hero.ctaSearch}
-            className="justify-center"
           />
         }
-        heroStats={<LandingHeroStats stats={copy.stats} />}
+        heroStats={<LandingHeroStats stats={copy.stats} languages={copy.hero.capabilities} />}
       >
         <LandingBento lng={lng} bento={copy.bento} toolCountLabel={copy.toolCountLabel} />
         <LandingClosing lng={lng} closing={copy.closing} />

@@ -13,6 +13,7 @@ import NextImage from 'next/image';
 import NextLink from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { SHOWCASE_SEQUENCES } from '@assets/datas/landingSequences';
+import { Button } from '@components/basic/Button';
 import { sendGAEvent } from '@libs/client/gtag';
 import { cn } from '@utils/cn';
 import useMediaQuery from '@hooks/useMediaQuery';
@@ -26,20 +27,12 @@ import {
   BLEND_SCENE_TIMING,
   CANVAS_HEIGHT,
   CANVAS_WIDTH,
-  HERO_MESSAGE_TIMINGS,
-  HERO_WASH_OPACITY,
   LANDING_SCENES,
   SCENE_ENTER_SPAN,
   SCROLL_ACCELERATION,
   TOOL_SCENE_VALUES,
 } from './landingScenes';
-import {
-  calcInOut,
-  calcValue,
-  enterAlpha as calcEnterAlpha,
-  messageValues,
-  type SceneValue,
-} from './sceneEngine';
+import { calcInOut, calcValue, enterAlpha as calcEnterAlpha, type SceneValue } from './sceneEngine';
 import {
   createFrameStore,
   nearestLoadedFrame,
@@ -48,11 +41,10 @@ import {
   type FrameStore,
 } from './landingFrameLoader';
 import {
-  LANDING_CONTAINER,
-  LANDING_CTA_PRIMARY,
-  LANDING_CTA_SECONDARY,
-  LANDING_EYEBROW,
-  LANDING_TOOL_PILL,
+  LANDING_BODY,
+  LANDING_CHAPTER_TITLE,
+  LANDING_META,
+  LANDING_TOOL_LINK,
   LANDING_WIDE_CONTAINER,
 } from './landingStyles';
 
@@ -64,6 +56,8 @@ const SITE_HOST = 'okdohyuk.dev';
  *
  * 안쪽 화면은 `aspect-ratio: 16/10` 이라 1600×1000 프레임이 잘림 없이 그대로 들어간다.
  * 포스터(`NextImage`)는 항상 DOM 에 남고, 엔진이 돌 때만 캔버스가 그 위를 덮는다.
+ * 히어로처럼 시퀀스를 재생하지 않는 정지 샷은 `canvas={false}` 로 캔버스를 빼야 한다
+ * (엔진이 켜지면 스테이지 안의 모든 캔버스가 포스터를 덮도록 CSS 가 짜여 있다).
  */
 function DeviceFrame({
   url,
@@ -71,6 +65,8 @@ function DeviceFrame({
   poster,
   alt,
   priority = false,
+  canvas = true,
+  sizes = '(min-width: 768px) 62vw, 100vw',
 }: {
   url: string;
   /**
@@ -82,6 +78,8 @@ function DeviceFrame({
   poster: string;
   alt: string;
   priority?: boolean;
+  canvas?: boolean;
+  sizes?: string;
 }) {
   return (
     <figure className="landing-device">
@@ -105,16 +103,18 @@ function DeviceFrame({
           src={poster}
           alt={alt}
           fill
-          sizes="(min-width: 768px) 62vw, 100vw"
+          sizes={sizes}
           priority={priority}
           className="object-cover"
         />
-        <canvas
-          aria-hidden
-          width={CANVAS_WIDTH}
-          height={CANVAS_HEIGHT}
-          className="landing-scene-canvas"
-        />
+        {canvas ? (
+          <canvas
+            aria-hidden
+            width={CANVAS_WIDTH}
+            height={CANVAS_HEIGHT}
+            className="landing-scene-canvas"
+          />
+        ) : null}
       </div>
     </figure>
   );
@@ -129,7 +129,7 @@ type LandingSceneStageProps = {
   chapters: StoryChapterData[];
   /** 씬 흐름이 끝난 뒤 이어지는 일반 스크롤 콘텐츠(벤토 + 클로징) */
   children: React.ReactNode;
-  /** 히어로 CTA(클라이언트 상호작용)와 지표 등 서버에서 만든 노드 */
+  /** 히어로 CTA(클라이언트 상호작용)와 지표 — 서버에서 만든 노드 */
   heroActions: React.ReactNode;
   heroStats: React.ReactNode;
   blendCaption: { title: string; body: string; cta: string };
@@ -158,15 +158,12 @@ const FIRST_TOOL_SCENE = 1;
 const TOOL_SCENE_COUNT = 3;
 const BLEND_SCENE = FIRST_TOOL_SCENE + TOOL_SCENE_COUNT;
 
-const HERO_MESSAGE_VALUES = HERO_MESSAGE_TIMINGS.map(messageValues);
-
 type SceneRuntime = {
   section: HTMLElement;
   sticky: HTMLElement | null;
   messages: HTMLElement[];
   canvas: HTMLCanvasElement | null;
   context: CanvasRenderingContext2D | null;
-  wash: HTMLElement | null;
   cta: HTMLElement | null;
   /** 제품 샷 프레임 컨테이너(포스터 + 캔버스를 함께 페이드/스케일) */
   frame: HTMLElement | null;
@@ -244,7 +241,6 @@ export default function LandingSceneStage({
         messages: Array.from(section.querySelectorAll<HTMLElement>('[data-scene-message]')),
         canvas,
         context: canvas ? canvas.getContext('2d') : null,
-        wash: section.querySelector<HTMLElement>('[data-scene-wash]'),
         cta: section.querySelector<HTMLElement>('[data-scene-cta]'),
         frame: section.querySelector<HTMLElement>('[data-scene-frame]'),
         scrollHeight: 0,
@@ -512,29 +508,8 @@ export default function LandingSceneStage({
       // 캔버스만 감속된 좌표를 쓴다. 텍스트까지 걸면 "부드럽다"가 아니라 "반응이 늦다"로 읽힌다.
       const canvasYOffset = delayedYOffset - sceneTop;
 
-      if (sceneIndex === HERO_SCENE) {
-        HERO_MESSAGE_VALUES.forEach((values, index) => {
-          const message = scene.messages[index];
-          if (!message) return;
-          setStyle(
-            message,
-            calcInOut(values.opacityIn, values.opacityOut, values.split, textYOffset, scrollHeight),
-            calcInOut(
-              values.translateIn,
-              values.translateOut,
-              values.split,
-              textYOffset,
-              scrollHeight,
-            ),
-          );
-        });
-        if (scene.wash) {
-          scene.wash.style.opacity = String(
-            calcValue(HERO_WASH_OPACITY, textYOffset, scrollHeight),
-          );
-        }
-        return;
-      }
+      // 히어로는 일반 섹션이다(카피·제품 샷이 처음부터 보인다). 엔진이 그릴 것이 없다.
+      if (sceneIndex === HERO_SCENE) return;
 
       if (sceneIndex >= FIRST_TOOL_SCENE && sceneIndex < BLEND_SCENE) {
         drawToolCanvas(sceneIndex, canvasYOffset);
@@ -588,12 +563,16 @@ export default function LandingSceneStage({
      * sticky 씬의 마지막 1vh 는 고정이 풀려 위로 흘러가는 구간이고, 그동안 **다음 씬은 이미
      * 화면 아래에서 올라와 있다**. 현재 씬 하나만 그리면 그 겹침 구간에서 다음 씬이 CSS 기본값
      * (`opacity: 0`)으로 남아 화면이 통째로 빈다 — 실측 약 950px.
+     *
+     * "다음 씬의 윗변이 뷰포트 안에 들어왔는가"로 판정한다. sticky 씬에서는
+     * `scrollHeight = animHeight + 뷰포트 높이` 라 예전 식(`> animHeight`)과 같고,
+     * 일반 섹션(히어로)에서도 그대로 맞는다.
      */
     const playAnimation = () => {
       playScene(currentScene, prevScrollHeight);
 
       const current = scenes[currentScene];
-      const isTail = delayedYOffset - prevScrollHeight > current.animHeight;
+      const isTail = delayedYOffset + window.innerHeight > prevScrollHeight + current.scrollHeight;
       if (!isTail || currentScene >= scenes.length - 1) return;
 
       const nextIndex = currentScene + 1;
@@ -682,7 +661,7 @@ export default function LandingSceneStage({
           message.style.removeProperty('opacity');
           message.style.removeProperty('transform');
         });
-        [scene.wash, scene.cta, scene.frame].forEach((el) => {
+        [scene.cta, scene.frame].forEach((el) => {
           el?.style.removeProperty('opacity');
           el?.style.removeProperty('transform');
         });
@@ -774,54 +753,43 @@ export default function LandingSceneStage({
   }, [scrub, reducedMotion]);
 
   const toolScenes = chapters.slice(0, TOOL_SCENE_COUNT);
+  const heroTool = toolScenes[0];
   /* 블렌딩 씬은 마지막 도구 화면에서 출발하므로 주소 표시줄도 거기서 시작한다. */
   const LAST_TOOL_HREF = toolScenes[toolScenes.length - 1]?.primary.href ?? '/menu';
 
   return (
     <div ref={stageRef} className="landing-stage">
-      {/* ── 씬 0: 히어로 텍스트 연출 ─────────────────────────────── */}
-      <section
-        data-scene-index={0}
-        aria-labelledby="landing-hero-title"
-        className="landing-scene"
-        style={{ '--landing-scene-height': 4 } as React.CSSProperties}
-      >
-        <div data-scene-sticky className="landing-scene-sticky">
-          <div data-scene-wash aria-hidden className="landing-wash-top absolute inset-0 -z-10" />
-          <div className={cn(LANDING_CONTAINER, 'relative z-10 text-center')}>
-            <p className={LANDING_EYEBROW}>{hero.eyebrow}</p>
+      {/* ── 씬 0: 히어로 — 카피 | 실제 제품 샷 분할. 첫 화면을 한 덩어리로 채운다. ── */}
+      <section data-scene-index={0} aria-labelledby="landing-hero-title" className="landing-hero">
+        <div className={cn(LANDING_WIDE_CONTAINER, 'landing-hero-grid')}>
+          <div className="landing-rise-lcp">
             <h1
               id="landing-hero-title"
-              /* 16ch 는 320px 화면에서 가용 폭(280px)을 넘겨 제목이 가로로 삐져나갔다. */
-              className="landing-rise-lcp mx-auto mt-6 max-w-[min(16ch,100%)] text-[clamp(2.6rem,7vw,5rem)] font-extrabold leading-[1.0] tracking-[-0.05em] text-fg-1"
+              className="text-4xl font-medium leading-[1.08] text-fg-1 [word-break:keep-all] sm:text-5xl sm:tracking-[-0.02em] xl:text-6xl xl:tracking-[-0.03em]"
             >
-              <span className="block [word-break:keep-all]">{hero.titleLine1}</span>
-              <span className="block bg-gradient-to-r from-point-2 via-point-3 to-info-2 bg-clip-text text-transparent [word-break:keep-all]">
-                {hero.titleLine2}
-              </span>
+              <span className="block">{hero.titleLine1}</span>
+              <span className="block">{hero.titleLine2}</span>
             </h1>
-
-            {/*
-              고정 높이 박스 + flex center. 문단이 1줄이든 3줄이든 정렬이 흔들리지 않는다(강의 41401).
-              스크럽이 꺼진 경로에서는 세로로 쌓여 전부 읽힌다.
-            */}
-            <div className="landing-message-track mt-10">
-              {[hero.statement, hero.capabilities, `${story.titleLine1} ${story.titleLine2}`].map(
-                (message) => (
-                  <p
-                    key={message}
-                    data-scene-message
-                    className="landing-scene-message mx-auto max-w-[34ch] text-[clamp(1.05rem,2vw,1.5rem)] font-semibold leading-[1.45] tracking-[-0.03em] text-fg-3 [word-break:keep-all]"
-                  >
-                    {message}
-                  </p>
-                ),
-              )}
-            </div>
-
-            <div className="mt-10">{heroActions}</div>
+            <p className="mt-6 max-w-[36rem] text-lg leading-7 text-fg-4 [word-break:keep-all] sm:text-xl sm:leading-8">
+              {hero.statement}
+            </p>
+            <div className="mt-8">{heroActions}</div>
             <div className="mt-12">{heroStats}</div>
           </div>
+
+          {/* 이 페이지의 모먼트: 실제 도구 화면. 타입 색은 의미가 있는 색이라 그대로 둔다. */}
+          {heroTool ? (
+            <div className="landing-rise landing-rise-late">
+              <DeviceFrame
+                url={`${SITE_HOST}/${lng}${heroTool.primary.href}`}
+                poster={SHOWCASE_SEQUENCES[heroTool.id].poster}
+                alt={heroTool.copy.sequenceAlt}
+                sizes="(min-width: 1024px) 58vw, 100vw"
+                canvas={false}
+                priority
+              />
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -842,47 +810,44 @@ export default function LandingSceneStage({
               {/* 카피와 제품 샷을 나란히 둔다 → 스크린샷 위에 글자를 얹지 않으므로 스크림이 필요 없다. */}
               <div className={cn(LANDING_WIDE_CONTAINER, 'landing-scene-split')}>
                 <div>
-                  <p className={LANDING_EYEBROW}>{chapter.copy.eyebrow}</p>
-                  {/* 타이포 클래스는 각 요소에 직접 준다. 래퍼에 두면 본문이 제목의 음수 자간을 상속한다. */}
+                  <p className={LANDING_META}>{chapter.copy.eyebrow}</p>
+                  {/* 타이포 클래스는 각 요소에 직접 준다. 래퍼에 두면 본문이 제목의 자간을 상속한다. */}
                   <div data-scene-message className="landing-scene-message mt-4">
                     <h2
                       id={`landing-scene-${chapter.id}`}
-                      className="max-w-[16ch] text-[clamp(1.9rem,3.2vw,2.9rem)] font-extrabold leading-[1.08] tracking-[-0.045em] text-fg-1 [word-break:keep-all]"
+                      className={cn(LANDING_CHAPTER_TITLE, 'max-w-[16ch]')}
                     >
                       <span className="block">{chapter.copy.titleLine1}</span>
-                      <span className="block">{chapter.copy.titleLine2}</span>
+                      <span className="block text-fg-4">{chapter.copy.titleLine2}</span>
                     </h2>
-                    <p className="mt-5 max-w-[34ch] text-[15px] font-medium leading-[1.7] tracking-normal text-fg-3 [word-break:keep-all]">
-                      {chapter.copy.body}
-                    </p>
+                    <p className={cn(LANDING_BODY, 'mt-4 max-w-[34ch]')}>{chapter.copy.body}</p>
                   </div>
 
-                  <div data-scene-cta className="landing-scene-message mt-7">
-                    <NextLink
-                      href={`/${lng}${chapter.primary.href}`}
-                      onClick={() =>
-                        sendGAEvent('tool_open', chapter.primary.href, {
-                          from_section: `scene_${chapter.id}`,
-                          entry_point: 'landing',
-                        })
-                      }
-                      className={LANDING_CTA_PRIMARY}
-                    >
-                      {chapter.primary.label}
-                      <ArrowRight className="h-4 w-4" aria-hidden />
-                    </NextLink>
+                  <div data-scene-cta className="landing-scene-message mt-8">
+                    <Button asChild size="md" className="w-fit">
+                      <NextLink
+                        href={`/${lng}${chapter.primary.href}`}
+                        onClick={() =>
+                          sendGAEvent('tool_open', chapter.primary.href, {
+                            from_section: `scene_${chapter.id}`,
+                            entry_point: 'landing',
+                          })
+                        }
+                      >
+                        {chapter.primary.label}
+                        <ArrowRight className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                      </NextLink>
+                    </Button>
 
                     {chapter.related.length > 0 ? (
-                      <div className="mt-5">
-                        <p className="text-[11px] font-semibold tracking-[0.04em] text-fg-5">
-                          {story.related}
-                        </p>
-                        <div className="mt-2.5 flex flex-wrap gap-2">
+                      <div className="mt-6">
+                        <p className="text-sm leading-5 text-fg-5">{story.related}</p>
+                        <div className="mt-2 flex flex-wrap gap-2">
                           {chapter.related.map((tool) => (
                             <NextLink
                               key={tool.href}
                               href={`/${lng}${tool.href}`}
-                              className={LANDING_TOOL_PILL}
+                              className={LANDING_TOOL_LINK}
                               onClick={() =>
                                 sendGAEvent('tool_open', tool.href, {
                                   from_section: `scene_${chapter.id}_related`,
@@ -891,7 +856,11 @@ export default function LandingSceneStage({
                               }
                             >
                               {tool.label}
-                              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+                              <ArrowUpRight
+                                className="h-4 w-4 text-fg-5"
+                                strokeWidth={1.75}
+                                aria-hidden
+                              />
                             </NextLink>
                           ))}
                         </div>
@@ -905,7 +874,6 @@ export default function LandingSceneStage({
                     url={`${SITE_HOST}/${lng}${chapter.primary.href}`}
                     poster={sequence.poster}
                     alt={chapter.copy.sequenceAlt}
-                    priority={index === 0}
                   />
                 </div>
               </div>
@@ -939,17 +907,17 @@ export default function LandingSceneStage({
             <div data-scene-message className="landing-scene-message w-full text-center">
               <h2
                 id="landing-blend-title"
-                className="mx-auto max-w-[20ch] text-[clamp(1.7rem,3.2vw,2.6rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-fg-1 [word-break:keep-all]"
+                className={cn(LANDING_CHAPTER_TITLE, 'mx-auto max-w-[20ch]')}
               >
                 {blendCaption.title}
               </h2>
-              <p className="mx-auto mt-4 max-w-[46ch] text-[15px] leading-[1.7] text-fg-3 [word-break:keep-all]">
-                {blendCaption.body}
-              </p>
-              <NextLink href={`/${lng}/menu`} className={cn(LANDING_CTA_SECONDARY, 'mt-6')}>
-                {blendCaption.cta}
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </NextLink>
+              <p className={cn(LANDING_BODY, 'mx-auto mt-4 max-w-[46ch]')}>{blendCaption.body}</p>
+              <Button asChild variant="secondary" className="mx-auto mt-6 w-fit">
+                <NextLink href={`/${lng}/menu`}>
+                  {blendCaption.cta}
+                  <ArrowRight className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                </NextLink>
+              </Button>
             </div>
           </div>
         </div>

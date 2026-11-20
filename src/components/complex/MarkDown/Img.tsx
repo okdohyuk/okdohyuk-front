@@ -17,7 +17,7 @@ const Img = function Img({ src, alt }: ImgProps) {
       src={optimizedSrc}
       alt={alt || ''}
       loading="lazy"
-      className="my-8 block h-auto w-full max-w-full rounded-2xl border border-basic-3 bg-basic-2 shadow-sm"
+      className="my-8 block h-auto w-full max-w-full rounded-2xl border border-basic-3 bg-basic-1"
     />
   );
 };

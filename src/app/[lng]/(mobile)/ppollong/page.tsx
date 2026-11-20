@@ -157,7 +157,7 @@ export default function PpollongPage({ params }: LanguageParams) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
       >
-        <h2 className="flex items-center gap-2 text-base font-semibold text-fg-2">
+        <h2 className="flex items-center gap-2 text-base font-medium text-fg-2">
           <Settings2 className="h-4 w-4 text-point-fg" />
           {t('settingsTitle')}
         </h2>
@@ -180,7 +180,7 @@ export default function PpollongPage({ params }: LanguageParams) {
               type="button"
               className={cn(
                 SERVICE_CARD_INTERACTIVE,
-                'h-10 shrink-0 whitespace-nowrap rounded-xl bg-point-1 px-4 text-sm font-bold text-white disabled:cursor-not-allowed disabled:opacity-60',
+                'h-10 shrink-0 whitespace-nowrap rounded-lg bg-point-2 px-4 text-sm font-medium text-white hover:bg-point-1 disabled:cursor-not-allowed disabled:opacity-60',
               )}
               disabled={isLoading}
               onClick={handleInitialize}
@@ -205,20 +205,22 @@ export default function PpollongPage({ params }: LanguageParams) {
         </div>
 
         {error && !isLoading && (
-          <p className="animate-pulse text-sm font-medium text-danger-2">{error}</p>
+          <p className="text-sm font-medium text-danger-2" role="alert">
+            {error}
+          </p>
         )}
       </motion.section>
 
       {isInitialized && (
         <motion.section
-          className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-5 p-4')}
+          className={cn(SERVICE_PANEL_SOFT, 'space-y-5 p-4')}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
         >
           <div className="text-center">
             <motion.div
-              className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-point-1/20 to-violet-500/20 text-point-fg"
+              className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl border border-basic-3 bg-basic-1 text-fg-4"
               animate={
                 isLoading ? { rotate: [0, -8, 8, -8, 0], scale: [1, 1.08, 1, 1.08, 1] } : undefined
               }
@@ -239,7 +241,7 @@ export default function PpollongPage({ params }: LanguageParams) {
               type="button"
               className={cn(
                 SERVICE_CARD_INTERACTIVE,
-                'flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-point-1 to-violet-500 text-sm font-extrabold text-white shadow-[0_12px_28px_rgba(0,0,0,0.14)] disabled:cursor-not-allowed disabled:opacity-55',
+                'flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-point-2 text-sm font-medium text-white transition-colors hover:bg-point-1 focus-ring disabled:cursor-not-allowed disabled:opacity-55',
               )}
               onClick={handleDraw}
               disabled={isLoading || availableNumbers.length === 0}
@@ -253,16 +255,14 @@ export default function PpollongPage({ params }: LanguageParams) {
           <AnimatePresence>
             {currentNumber !== null && (
               <motion.div
-                className="rounded-2xl border border-warn-3/70 bg-warn-4/75 p-6 text-center shadow-inner dark:border-warn-1/50 dark:bg-warn-1/25"
-                initial={{ opacity: 0, scale: 0.5, rotate: -12 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                exit={{ opacity: 0, scale: 0.5, rotate: 12, transition: { duration: 0.2 } }}
-                transition={{ type: 'spring', stiffness: 180, damping: 12 }}
+                className="rounded-xl border border-basic-3 bg-basic-1 p-6 text-center"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.15 } }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.2, ease: [0.22, 1, 0.36, 1] }}
               >
-                <p className="text-xs font-semibold text-warn-1 dark:text-warn-3">
-                  {t('drawnNumberPrefix')}
-                </p>
-                <span className="mt-2 block bg-gradient-to-br from-warn-2 to-danger-1 bg-clip-text text-6xl font-black text-transparent md:text-7xl">
+                <p className="text-xs font-medium text-fg-4">{t('drawnNumberPrefix')}</p>
+                <span className="mt-2 block font-mono text-6xl font-medium tabular-nums text-fg-1 md:text-7xl">
                   {currentNumber}
                 </span>
               </motion.div>
@@ -278,7 +278,7 @@ export default function PpollongPage({ params }: LanguageParams) {
           animate={{ opacity: 1 }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
         >
-          <h3 className="text-sm font-semibold text-fg-2">
+          <h3 className="text-sm font-medium text-fg-2">
             {t('numberBoardTitle', {
               maxNumber,
               drawnCount: drawnNumbers.length,
@@ -296,12 +296,12 @@ export default function PpollongPage({ params }: LanguageParams) {
                 <div
                   key={number}
                   className={cn(
-                    'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-bold transition-all md:h-10 md:w-10 md:text-sm',
+                    'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-medium tabular-nums transition-colors md:h-10 md:w-10 md:text-sm',
                     isDrawn
                       ? 'border-basic-4 bg-basic-2 text-fg-5 opacity-60'
-                      : 'border-point-2/70 bg-point-2/25 text-point-fg dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
+                      : 'border-basic-3 bg-basic-0 text-fg-2',
                     currentNumber === number && isLoading
-                      ? 'scale-110 animate-pulse shadow-md'
+                      ? 'border-point-2 ring-2 ring-point-2/40'
                       : '',
                   )}
                 >
@@ -311,7 +311,7 @@ export default function PpollongPage({ params }: LanguageParams) {
             })}
 
             {displayedNumbers.tail.length > 0 ? (
-              <div className="flex items-center px-1 text-sm font-bold text-fg-5">...</div>
+              <div className="flex items-center px-1 text-sm font-semibold text-fg-5">...</div>
             ) : null}
 
             {displayedNumbers.tail.map((number) => {
@@ -320,10 +320,10 @@ export default function PpollongPage({ params }: LanguageParams) {
                 <div
                   key={number}
                   className={cn(
-                    'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-bold transition-all md:h-10 md:w-10 md:text-sm',
+                    'flex h-9 w-9 items-center justify-center rounded-full border text-xs font-medium tabular-nums transition-colors md:h-10 md:w-10 md:text-sm',
                     isDrawn
                       ? 'border-basic-4 bg-basic-2 text-fg-5 opacity-60'
-                      : 'border-point-2/70 bg-point-2/25 text-point-fg dark:border-point-2/60 dark:bg-point-1/20 dark:text-point-2',
+                      : 'border-basic-3 bg-basic-0 text-fg-2',
                   )}
                 >
                   {number}

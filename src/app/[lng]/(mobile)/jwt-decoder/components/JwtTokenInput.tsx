@@ -28,7 +28,7 @@ function JwtTokenInput({ label, placeholder, token, error, onChange }: JwtTokenI
         onChange={(event) => onChange(event.target.value)}
       />
       {error && (
-        <Text variant="d3" className="font-medium text-danger-2 animate-pulse">
+        <Text variant="d3" className="text-danger-1 dark:text-danger-3">
           {error}
         </Text>
       )}

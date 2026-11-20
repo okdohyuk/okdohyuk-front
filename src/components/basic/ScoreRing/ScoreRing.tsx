@@ -36,7 +36,7 @@ function ScoreRing({ correct, total, className }: ScoreRingProps) {
         'solve-score-ring relative mx-auto flex aspect-square items-center justify-center rounded-full',
         'w-[clamp(180px,56vw,232px)]',
         // 가운데 구멍(도넛): basic-0 토큰 + shadow-sm
-        'before:absolute before:inset-3.5 before:rounded-full before:bg-basic-0 before:shadow-sm before:content-[""]',
+        'before:absolute before:inset-3.5 before:rounded-full before:bg-basic-0 before:content-[""]',
         'motion-safe:animate-[solve-ring-sweep_600ms_ease_both]',
         className,
       )}
@@ -44,10 +44,10 @@ function ScoreRing({ correct, total, className }: ScoreRingProps) {
       role="img"
       aria-label={`총 ${total}문항 중 ${correct}문항 정답`}
     >
-      <span className="relative z-[1] text-5xl font-black leading-none tracking-tight tabular-nums text-fg-1">
+      <span className="relative z-[1] font-mono text-5xl font-medium leading-none tabular-nums text-fg-1">
         {correct}
       </span>
-      <span className="absolute bottom-[clamp(34px,12vw,48px)] z-[1] text-sm font-semibold tabular-nums text-fg-5">
+      <span className="absolute bottom-[clamp(34px,12vw,48px)] z-[1] font-mono text-sm tabular-nums text-fg-5">
         / {total}
       </span>
     </div>

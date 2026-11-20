@@ -114,10 +114,10 @@ export const commandPalettePages = {
         "zh": "开发者 You Dohyuk 的博客"
       },
       "descriptions": {
-        "ko": "okdohyuk에는 Web에 대한 다양한 포스팅이 있습니다. {{title}} 기술을 확인해 보세요!",
-        "en": "The okdohyuk site includes a variety of posts about the web. Explore topics related to {{title}}.",
-        "ja": "okdohyukにはWebに関する様々な投稿があります。{{title}}の技術を確認してみてください！",
-        "zh": "okdohyuk 上有各种关于 Web 的帖子。查看 {{title}} 技术！"
+        "ko": "웹 개발에 관한 글을 모았습니다. {{title}} 관련 글을 확인해 보세요.",
+        "en": "Posts about web development. Read what's here on {{title}}.",
+        "ja": "Web開発に関する記事をまとめています。{{title}}に関する記事をご覧ください。",
+        "zh": "收录 Web 开发相关文章。查看 {{title}} 相关内容。"
       }
     },
     {
@@ -514,10 +514,10 @@ export const commandPalettePages = {
         "zh": "百分比计算器"
       },
       "descriptions": {
-        "ko": "할인율, 퍼센트의 계산을 간단하게 하고 싶은 분들이 많습니다. 총 6가지의 퍼센트 계산을 활용해서 원하는 결과를 찾아보세요!",
-        "en": "There are many people who want to simplify the calculation of discount rates and percentages. Find the results you want by using a total of 6 percent calculations!",
-        "ja": "割引率やパーセンテージの計算を簡単にしたい方々のために、合計6種類のパーセント計算を活用して、お探しの結果を見つけてください！",
-        "zh": "有很多人希望简化折扣率和百分比的计算。通过使用总共6种百分比计算，找到您想要的结果！"
+        "ko": "할인율, 퍼센트의 계산을 간단하게 하고 싶은 분들이 많습니다. 총 6가지의 퍼센트 계산을 활용해서 원하는 결과를 찾아보세요.",
+        "en": "There are many people who want to simplify the calculation of discount rates and percentages. Find the results you want by using a total of 6 percent calculations.",
+        "ja": "割引率やパーセンテージの計算を簡単にしたい方々のために、合計6種類のパーセント計算を活用して、お探しの結果を見つけてください。",
+        "zh": "有很多人希望简化折扣率和百分比的计算。通过使用总共6种百分比计算，找到您想要的结果。"
       }
     },
     {
@@ -594,10 +594,10 @@ export const commandPalettePages = {
         "zh": "大炮砰砰抽奖"
       },
       "descriptions": {
-        "ko": "대포 뽈롱 뽑기로 무작위 숫자를 뽑아보세요! 최대 숫자를 설정하고, 뽑힌 숫자를 확인할 수 있습니다.",
-        "en": "Draw random numbers with the Cannon Ppollong! Set a maximum number and check the drawn numbers.",
-        "ja": "大砲ポロロンでランダムな数字を抽選しましょう！最大数を設定して、選ばれた数字を確認できます。",
-        "zh": "使用大炮砰砰来抽取随机数字！设置最大数字并查看抽中的号码。"
+        "ko": "대포 뽈롱 뽑기로 무작위 숫자를 뽑아보세요. 최대 숫자를 설정하고, 뽑힌 숫자를 확인할 수 있습니다.",
+        "en": "Draw random numbers with the Cannon Ppollong. Set a maximum number and check the drawn numbers.",
+        "ja": "大砲ポロロンでランダムな数字を抽選しましょう。最大数を設定して、選ばれた数字を確認できます。",
+        "zh": "使用大炮砰砰来抽取随机数字。设置最大数字并查看抽中的号码。"
       }
     },
     {
@@ -665,7 +665,7 @@ export const commandPalettePages = {
         "ko": "무료 온라인 QR 코드 생성기입니다. URL, 텍스트, 이메일 등 다양한 정보를 즉시 고화질 QR 코드로 변환하세요. 회원가입 없이 누구나 간편하게 사용할 수 있으며, 생성된 QR 코드는 PNG 이미지로 다운로드하거나 바로 공유할 수 있습니다. 개인 및 비즈니스 용도로 만료 기한 없는 평생 무료 QR 코드를 지금 바로 만들어보세요.",
         "en": "Free Online QR Code Generator. Instantly convert URLs, text, emails, and more into high-quality QR codes. No sign-up required, completely free to use. Download your QR codes as PNG images or share them directly. Create lifetime valid QR codes for personal and business use without expiration.",
         "ja": "無料オンラインQRコード作成ツール。URL、テキスト、メールなどを即座に高品質なQRコードに変換します。登録不要で、誰でも簡単に利用可能です。作成したQRコードはPNG画像としてダウンロードしたり、直接共有したりできます。個人・ビジネス用途問わず、有効期限のない永久無料のQRコードを今すぐ作成しましょう。",
-        "zh": "免费在线二维码生成器。即时将URL、文本、电子邮件等转换为高质量的二维码。无需注册，完全免费使用。生成的二维码可以下载为PNG图片或直接分享。适用于个人和商业用途，创建永久有效、无过期的二维码。Okdohyuk Multi-Tool提供快速、安全且易于使用的二维码制作工具。立即体验！"
+        "zh": "免费在线二维码生成器。即时将URL、文本、电子邮件等转换为高质量的二维码。无需注册，完全免费使用。生成的二维码可以下载为PNG图片或直接分享。适用于个人和商业用途，创建永久有效、无过期的二维码。Okdohyuk Multi-Tool提供快速、安全且易于使用的二维码制作工具。立即体验。"
       }
     },
     {
@@ -726,10 +726,10 @@ export const commandPalettePages = {
         "zh": "在线服务器时间检查器"
       },
       "descriptions": {
-        "ko": "티켓팅, 수강신청 성공의 열쇠는 정확한 서버 시간! 서버 시간 페이지에서 실시간으로 제공하는 현재 서버 시간 정보를 확인하고, 중요한 예매와 신청에서 경쟁 우위를 확보하세요. 정확하고 빠른 서버 시간을 제공하여, 0.1초의 차이로 결정되는 티켓팅 전쟁과 3시 싸움에서 1위를 차지할 수 있도록 돕습니다. 지금 바로 방문하여 성공적인 티켓팅과 수강신청을 위한 필수 서버 시간을 확인하세요!",
-        "en": "Accurate server times are the key to ticketing and enrollment success! Get current server time information in real-time on our server time page and gain a competitive edge in those all-important ticketing and enrollment wars. By providing accurate and fast server times, we help you come out on top in ticketing wars and 3-hour fights that are decided by 0.1 seconds. Visit now to get the essential server times for successful ticketing and enrollment!",
-        "ja": "チケット販売や申し込み成功のカギは正確なサーバー時間です！サーバー時間ページでリアルタイムに現在のサーバー時間情報を確認し、重要なチケット販売や申し込みで競争優位に立ちましょう。正確で迅速なサーバー時間を提供することで、0.1秒の差で決まるチケット販売戦争や3時間の戦いで優位に立てるようお手伝いします。今すぐアクセスして、成功するチケット購入と申し込みに必要なサーバー時間を確認してください！",
-        "zh": "准确的服务器时间是抢票和报名成功的关键！在我们的服务器时间页面上实时获取当前服务器时间信息，在重要的抢票和报名大战中占据竞争优势。通过提供准确快速的服务器时间，我们帮助您在0.1秒决定胜负的抢票战争和3小时激战中脱颖而出。立即访问，获取成功抢票和报名所需的关键服务器时间！"
+        "ko": "티켓팅, 수강신청 성공의 열쇠는 정확한 서버 시간. 서버 시간 페이지에서 실시간으로 제공하는 현재 서버 시간 정보를 확인하고, 중요한 예매와 신청에서 경쟁 우위를 확보하세요. 정확하고 빠른 서버 시간을 제공하여, 0.1초의 차이로 결정되는 티켓팅 전쟁과 3시 싸움에서 1위를 차지할 수 있도록 돕습니다. 지금 바로 방문하여 성공적인 티켓팅과 수강신청을 위한 필수 서버 시간을 확인하세요.",
+        "en": "Accurate server times are the key to ticketing and enrollment success. Get current server time information in real-time on our server time page and gain a competitive edge in those all-important ticketing and enrollment wars. By providing accurate and fast server times, we help you come out on top in ticketing wars and 3-hour fights that are decided by 0.1 seconds. Visit now to get the essential server times for successful ticketing and enrollment.",
+        "ja": "チケット販売や申し込み成功のカギは正確なサーバー時間です。サーバー時間ページでリアルタイムに現在のサーバー時間情報を確認し、重要なチケット販売や申し込みで競争優位に立ちましょう。正確で迅速なサーバー時間を提供することで、0.1秒の差で決まるチケット販売戦争や3時間の戦いで優位に立てるようお手伝いします。今すぐアクセスして、成功するチケット購入と申し込みに必要なサーバー時間を確認してください。",
+        "zh": "准确的服务器时间是抢票和报名成功的关键。在我们的服务器时间页面上实时获取当前服务器时间信息，在重要的抢票和报名大战中占据竞争优势。通过提供准确快速的服务器时间，我们帮助您在0.1秒决定胜负的抢票战争和3小时激战中脱颖而出。立即访问，获取成功抢票和报名所需的关键服务器时间。"
       }
     },
     {
@@ -866,10 +866,10 @@ export const commandPalettePages = {
         "zh": "待办事项应用"
       },
       "descriptions": {
-        "ko": "투두앱으로 자신의 할 일을 관리해보세요!",
-        "en": "Manage your to-dos with the To-Do app!",
-        "ja": "ToDoアプリで自分のやることを管理しましょう！",
-        "zh": "使用待办事项应用来管理您的任务！"
+        "ko": "투두앱으로 자신의 할 일을 관리해보세요",
+        "en": "Manage your to-dos with the To-Do app",
+        "ja": "ToDoアプリで自分のやることを管理しましょう",
+        "zh": "使用待办事项应用来管理您的任务"
       }
     },
     {

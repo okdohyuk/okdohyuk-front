@@ -23,10 +23,10 @@
   "button": {
     "generate": "생성",
     "copy": "복사",
-    "copied": "복사됨!"
+    "copied": "복사됨"
   },
   "placeholder": {
     "format": "형식을 선택하세요",
-    "output": "생성된 UUID가 여기에 표시됩니다."
+    "output": "생성된 UUID가 여기에 표시됩니다"
   }
 }

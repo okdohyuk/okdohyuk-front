@@ -30,7 +30,7 @@ function SegmentedControlInner<T extends string>({
   className,
   size = 'md',
 }: SegmentedControlProps<T>) {
-  const sizeClass = size === 'sm' ? 'px-3 py-1.5 text-xs' : 'px-3 py-2 text-sm';
+  const sizeClass = size === 'sm' ? 'min-h-8 px-3 py-1.5 text-xs' : 'min-h-9 px-3 py-2 text-sm';
 
   return (
     <div role="radiogroup" aria-label={ariaLabel} className={cn('flex flex-wrap gap-2', className)}>
@@ -47,13 +47,13 @@ function SegmentedControlInner<T extends string>({
             name={name}
             onClick={() => onChange(option.value)}
             className={cn(
-              'rounded-md font-semibold transition-colors outline-none',
-              'focus-visible:ring-2 focus-visible:ring-point-1',
+              'rounded-lg border font-medium transition-colors duration-150 outline-none',
+              'focus-ring',
               'disabled:cursor-not-allowed disabled:opacity-50',
               sizeClass,
               active
-                ? 'bg-point-2 text-white shadow-sm'
-                : 'bg-basic-2 text-fg-5 hover:bg-basic-3 hover:text-fg-3',
+                ? 'border-point-2 bg-point-2 text-white'
+                : 'border-basic-3 bg-basic-0 text-fg-4 hover:bg-basic-2 hover:text-fg-1',
             )}
           >
             {option.label}

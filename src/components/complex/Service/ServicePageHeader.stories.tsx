@@ -6,9 +6,9 @@ const meta: Meta<typeof ServicePageHeader> = {
   component: ServicePageHeader,
   tags: ['autodocs'],
   args: {
-    title: '서비스 대시보드',
-    description: '핵심 도구와 운영 지표를 한 화면에서 관리합니다.',
-    badge: 'Service Console',
+    title: '퍼센트 계산기',
+    description: '할인율, 증감률처럼 자주 쓰는 퍼센트 계산 6가지',
+    badge: '계산/금융',
   },
 };
 

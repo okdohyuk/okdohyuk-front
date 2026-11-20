@@ -4,7 +4,8 @@ import React, { useCallback, useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 import { sendGAEvent } from '@libs/client/gtag';
 import { Languages } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { stringToLanguage } from '@utils/localeUtil';
+import { cn } from '@utils/cn';
 import {
   Select,
   SelectContent,
@@ -12,6 +13,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@components/basic/Select';
+import { fallbackLng } from '~/app/i18n/settings';
+import { useTranslation } from '~/app/i18n/client';
 
 const LANGUAGES = [
   { code: 'ko', name: '한국어' },
@@ -20,15 +23,22 @@ const LANGUAGES = [
   { code: 'zh', name: '中文' },
 ];
 
+/*
+ * Language select. Mobile: floats bottom-right just above the bottom nav (nav = 58px + 8px
+ * offset, plus 8px gap). Desktop (lg): rendered static at the top of the fixed dock in
+ * CommonLayout, so it stacks on the nav without a magic offset.
+ * The trigger sizes to its content so "한국어" / "English" never truncate.
+ */
 function LocalesNav() {
   const pathname = usePathname();
-  const shouldReduceMotion = useReducedMotion();
 
   const currentLang = useMemo(() => {
     if (!pathname) return 'ko';
     const match = pathname.match(/^\/([^/]+)/);
     return match ? match[1] : 'ko';
   }, [pathname]);
+
+  const { t } = useTranslation(stringToLanguage(currentLang) ?? fallbackLng, 'common');
 
   const handleLanguageChange = useCallback(
     (newLang: string) => {
@@ -46,29 +56,24 @@ function LocalesNav() {
   if (!pathname) return null;
 
   return (
-    <motion.div
-      className="fixed bottom-[calc(80px+env(safe-area-inset-bottom))] right-4 z-30 lg:bottom-[calc(344px+env(safe-area-inset-bottom))] lg:right-6"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: shouldReduceMotion ? 0 : 0.3 }}
-    >
+    <div className={cn('fixed bottom-[var(--mobile-nav-clearance)] right-2 z-30', 'lg:static')}>
       <Select value={currentLang} onValueChange={handleLanguageChange}>
         <SelectTrigger
-          className="h-12 w-24 gap-1.5 rounded-2xl border-basic-3/80 bg-basic-0/80 px-3 text-xs font-semibold text-fg-2 shadow-[0_10px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl focus:ring-point-1/50"
-          aria-label="Select language"
+          className="h-9 w-auto gap-2 whitespace-nowrap rounded-xl border-basic-3 bg-basic-0 px-3 text-xs font-medium text-fg-2 shadow-md dark:bg-basic-1 [&>span]:line-clamp-none"
+          aria-label={t('navigation.selectLanguage')}
         >
-          <Languages className="h-4 w-4 shrink-0 text-fg-5" />
+          <Languages size={16} strokeWidth={1.75} className="shrink-0 text-fg-5" aria-hidden />
           <SelectValue />
         </SelectTrigger>
         <SelectContent align="end">
           {LANGUAGES.map((lang) => (
-            <SelectItem key={lang.code} value={lang.code} className="text-xs">
+            <SelectItem key={lang.code} value={lang.code} lang={lang.code} className="text-xs">
               {lang.name}
             </SelectItem>
           ))}
         </SelectContent>
       </Select>
-    </motion.div>
+    </div>
   );
 }
 

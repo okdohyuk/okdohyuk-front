@@ -45,7 +45,7 @@ export default function PptRemoteClient({ lng }: PptRemoteClientProps) {
       <div className="min-h-screen bg-basic-1 px-4 py-12">
         <div className="mx-auto max-w-lg space-y-4 rounded-3xl border border-basic-3 bg-basic-0 p-6 text-center shadow-sm">
           <MonitorPlay className="mx-auto h-8 w-8 text-point-fg" />
-          <h1 className="text-lg font-bold text-fg-1">활성 발표가 없습니다.</h1>
+          <h1 className="text-lg font-semibold text-fg-1">활성 발표가 없습니다.</h1>
           <p className="text-sm leading-6 text-fg-5">
             발표 PC에서 웹 프레젠테이션을 시작한 뒤 이 화면을 새로고침하세요.
           </p>
@@ -69,7 +69,7 @@ export default function PptRemoteClient({ lng }: PptRemoteClientProps) {
         onCommand={handleCommand}
         isCommandPending={commandMutation.isPending}
       />
-      <p className="mx-auto mt-4 max-w-lg text-center text-xs text-fg-6">
+      <p className="mx-auto mt-4 max-w-lg text-center text-xs text-fg-5">
         {lng === 'ko'
           ? '발표 화면의 슬라이드와 타이머가 자동으로 동기화됩니다.'
           : 'The slide and timer sync automatically with the presentation screen.'}

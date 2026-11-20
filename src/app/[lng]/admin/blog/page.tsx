@@ -6,15 +6,7 @@ import useStore from '@hooks/useStore';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import { observer } from 'mobx-react';
 import Link from '@components/basic/Link';
-import {
-  FilePenLine,
-  FileSearch,
-  FolderKanban,
-  Plus,
-  RefreshCcw,
-  Sparkles,
-  SquarePen,
-} from 'lucide-react';
+import { FilePenLine, FileSearch, FolderKanban, Plus, RefreshCcw } from 'lucide-react';
 import { BlogSearch } from '~/spec/api/Blog';
 import { LanguageParams } from '~/app/[lng]/layout';
 import ServicePageHeader from '@components/complex/Service/ServicePageHeader';
@@ -67,7 +59,7 @@ function BlogAdminPage({ params }: LanguageParams) {
             href={`/${lng}/admin/blog/write`}
             className={cn(
               SERVICE_CARD_INTERACTIVE,
-              'inline-flex h-10 items-center gap-1 rounded-xl bg-point-1 px-4 text-sm font-bold text-white transition-colors hover:bg-point-2',
+              'inline-flex h-10 items-center gap-1 rounded-xl bg-point-1 px-4 text-sm font-semibold text-white transition-colors hover:bg-point-2',
             )}
           >
             <Plus className="h-4 w-4" />새 글 작성
@@ -81,9 +73,9 @@ function BlogAdminPage({ params }: LanguageParams) {
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <FileSearch className="h-4 w-4 text-point-fg" />
-            <h2 className="text-base font-bold text-fg-1">게시글 목록</h2>
+            <h2 className="text-base font-semibold text-fg-1">게시글 목록</h2>
           </div>
-          <span className="rounded-full bg-basic-3 px-2.5 py-1 text-[11px] font-bold text-fg-4">
+          <span className="rounded-sm bg-basic-3 px-2 py-0.5 text-2xs font-medium tabular-nums text-fg-4">
             Total {blogCount}
           </span>
         </div>
@@ -109,9 +101,7 @@ function BlogAdminPage({ params }: LanguageParams) {
           {status !== 'loading' && blogCount === 0 ? (
             <div className="rounded-xl border border-dashed border-basic-3 bg-basic-0/65 px-4 py-8 text-center">
               <div className="mb-2 flex items-center justify-center gap-2 text-fg-5">
-                <Sparkles className="h-4 w-4 text-point-fg" />
-                <SquarePen className="h-4 w-4 text-point-fg" />
-                <FilePenLine className="h-4 w-4 text-point-fg" />
+                <FilePenLine className="h-4 w-4" aria-hidden />
               </div>
               <p className="text-sm font-semibold text-fg-3">아직 게시글이 없습니다.</p>
               <p className="mt-1 text-xs text-fg-5">

@@ -47,7 +47,7 @@ export default function HtmlImportDialog({
         className="w-full max-w-lg rounded-3xl border border-basic-3 bg-basic-0 p-4 shadow-xl"
       >
         <div className="mb-3 flex items-center justify-between gap-2">
-          <h2 id="ppt-import-title" className="text-base font-bold text-fg-1">
+          <h2 id="ppt-import-title" className="text-base font-semibold text-fg-1">
             {title}
           </h2>
           <button
@@ -83,7 +83,7 @@ export default function HtmlImportDialog({
           className={cn(
             'flex min-h-52 w-full flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed px-6 py-8 text-center transition-colors',
             isDragging
-              ? 'border-point-2 bg-point-4/40'
+              ? 'border-point-2 bg-basic-1'
               : 'border-basic-3 bg-basic-1 hover:border-point-2',
             isParsing && 'pointer-events-none opacity-60',
           )}

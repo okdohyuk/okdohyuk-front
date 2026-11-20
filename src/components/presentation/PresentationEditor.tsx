@@ -226,7 +226,7 @@ export default function PresentationEditor({
                 setTitle(event.target.value);
                 setDirty(true);
               }}
-              className="border-0 px-0 text-xl font-bold shadow-none focus:ring-0"
+              className="border-0 px-0 text-xl font-semibold shadow-none focus:ring-0"
               aria-label="프레젠테이션 제목"
             />
             <Input
@@ -288,11 +288,11 @@ export default function PresentationEditor({
       <div className="grid gap-4 xl:grid-cols-[15rem_minmax(0,1fr)_18rem]">
         <aside className="order-2 space-y-3 xl:order-1">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-bold text-fg-1">슬라이드 {document.slides.length}</h2>
+            <h2 className="text-sm font-semibold text-fg-1">슬라이드 {document.slides.length}</h2>
             <button
               type="button"
               onClick={addSlide}
-              className="rounded-full p-2 text-point-fg hover:bg-point-4/40"
+              className="rounded-full p-2 text-point-fg hover:bg-basic-2"
               aria-label="슬라이드 추가"
             >
               <Plus className="h-4 w-4" />
@@ -301,7 +301,7 @@ export default function PresentationEditor({
           <select
             value={templateToAdd}
             onChange={(event) => setTemplateToAdd(event.target.value)}
-            className="min-h-10 w-full rounded-xl border border-basic-3 bg-basic-0 px-2 text-xs text-fg-1 outline-none focus:border-point-2 focus:ring-2 focus:ring-point-2/30"
+            className="min-h-10 w-full rounded-xl border border-basic-3 bg-basic-0 px-2 text-xs text-fg-1 outline-none focus:border-focus focus:ring-2 focus:ring-point-2/30"
             aria-label="추가할 슬라이드 템플릿"
           >
             {PRESENTATION_TEMPLATES.map((template) => (
@@ -381,7 +381,7 @@ export default function PresentationEditor({
 
         <aside className="order-3 space-y-3">
           <section className="space-y-3 rounded-3xl border border-basic-3 bg-basic-0 p-4 shadow-sm">
-            <h2 className="text-sm font-bold text-fg-1">슬라이드 편집</h2>
+            <h2 className="text-sm font-semibold text-fg-1">슬라이드 편집</h2>
             <label
               htmlFor="ppt-slide-template"
               className="block space-y-1 text-xs font-semibold text-fg-3"
@@ -404,7 +404,7 @@ export default function PresentationEditor({
                     suggestedSeconds: template.suggestedSeconds,
                   });
                 }}
-                className="min-h-10 w-full rounded-xl border border-basic-3 bg-basic-0 px-2 text-sm font-normal text-fg-1 outline-none focus:border-point-2 focus:ring-2 focus:ring-point-2/30"
+                className="min-h-10 w-full rounded-xl border border-basic-3 bg-basic-0 px-2 text-sm font-normal text-fg-1 outline-none focus:border-focus focus:ring-2 focus:ring-point-2/30"
               >
                 {PRESENTATION_TEMPLATES.map((template) => (
                   <option key={template.id} value={template.id}>
@@ -525,7 +525,7 @@ export default function PresentationEditor({
           </section>
 
           <section className="space-y-3 rounded-3xl border border-basic-3 bg-basic-0 p-4 shadow-sm">
-            <h2 className="text-sm font-bold text-fg-1">디자인 시스템 테마</h2>
+            <h2 className="text-sm font-semibold text-fg-1">디자인 시스템 테마</h2>
             <label htmlFor="ppt-accent" className="block space-y-1 text-xs font-semibold text-fg-3">
               포인트 컬러
               <select
@@ -536,7 +536,7 @@ export default function PresentationEditor({
                   setTheme({ ...theme, accent });
                   setDirty(true);
                 }}
-                className="min-h-10 w-full rounded-xl border border-basic-3 bg-basic-0 px-2 text-sm font-normal text-fg-1 outline-none focus:border-point-2 focus:ring-2 focus:ring-point-2/30"
+                className="min-h-10 w-full rounded-xl border border-basic-3 bg-basic-0 px-2 text-sm font-normal text-fg-1 outline-none focus:border-focus focus:ring-2 focus:ring-point-2/30"
               >
                 <option value="violet">Violet · 기본</option>
                 <option value="teal">Teal</option>

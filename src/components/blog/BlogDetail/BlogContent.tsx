@@ -3,12 +3,15 @@ import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
 import MarkDown from '@components/complex/MarkDown';
 import MarkdownUtils from '@utils/markdownUtils';
 import { cn } from '@utils/cn';
-import { BLOG_GLASS_PANEL } from '@components/blog/interactiveStyles';
 
 type BlogContentProps = {
   isPreview: boolean;
 };
 
+/*
+ * Article body sits straight on the page canvas — reading text needs no card around it.
+ * The column width (max-w-3xl on the article) keeps the measure near 65–75 characters.
+ */
 function BlogContent({ isPreview }: BlogContentProps) {
   const {
     blog: { contents },
@@ -25,12 +28,7 @@ function BlogContent({ isPreview }: BlogContentProps) {
   return (
     <section
       itemProp="articleBody"
-      className={cn(
-        BLOG_GLASS_PANEL,
-        'px-4 py-5 md:px-8 md:py-6',
-        '[&_.prose]:my-0 [&_.prose]:max-w-none',
-        isPreview ? '' : 'mb-6',
-      )}
+      className={cn('[&_.prose]:my-0 [&_.prose]:max-w-none', isPreview ? '' : 'mb-12')}
     >
       {blogContent}
     </section>

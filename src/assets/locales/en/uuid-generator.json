@@ -23,10 +23,10 @@
   "button": {
     "generate": "Generate",
     "copy": "Copy",
-    "copied": "Copied!"
+    "copied": "Copied"
   },
   "placeholder": {
     "format": "Select a format",
-    "output": "Generated UUIDs will appear here."
+    "output": "Generated UUIDs will appear here"
   }
 }

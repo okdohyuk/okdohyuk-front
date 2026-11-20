@@ -44,7 +44,7 @@
     "correctOf": "{{correct}} / {{total}} 正解",
     "byUnit": "単元別スコア",
     "retryWrong": "間違いを解き直す",
-    "noWrong": "間違いはありません。完璧です！",
+    "noWrong": "間違いはありません。完璧です。",
     "backToSubjects": "科目一覧へ",
     "reviewMode": "復習",
     "back": "戻る",

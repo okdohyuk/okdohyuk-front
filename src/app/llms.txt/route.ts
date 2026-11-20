@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { SERVICE_TOOL_COUNT } from '@assets/datas/landingShowcase';
 import { fetchAllPublicBlogs } from '@libs/server/blogFeedUtils';
 import {
   absoluteUrl,
@@ -62,7 +63,7 @@ export async function GET() {
   const lines = [
     '# okdohyuk.dev',
     '',
-    '> Multilingual (ko/en/ja/zh) developer multi-tool platform (48+ tools) and technical engineering blog by Dohyuk You.',
+    `> Multilingual (ko/en/ja/zh) developer multi-tool platform (${SERVICE_TOOL_COUNT} tools) and technical engineering blog by Dohyuk You.`,
     '',
     '## Machine-Readable Feeds & Discovery',
     `- [Full Blog Corpus for LLMs (llms-full.txt)](${absoluteUrl(DISCOVERY_PATHS.llmsFullTxt)}): Complete markdown text of all public technical blog posts.`,

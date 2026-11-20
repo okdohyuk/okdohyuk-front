@@ -156,7 +156,7 @@ function DocxUploadForm({ onSubmit, submitting, labels }: DocxUploadFormProps) {
           className={cn(
             SERVICE_PANEL_SOFT,
             'flex cursor-pointer flex-col items-center justify-center gap-3 px-6 py-8 transition-colors',
-            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-point-1',
+            'focus-ring',
             isDragOver && 'border-point-2/80 bg-point-4/30',
             fileError && 'border-danger-2/60',
           )}
@@ -178,13 +178,13 @@ function DocxUploadForm({ onSubmit, submitting, labels }: DocxUploadFormProps) {
             <div className="flex w-full items-center gap-3">
               <FileText className="h-8 w-8 shrink-0 text-point-fg" aria-hidden="true" />
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-semibold text-fg-1">{file.name}</p>
+                <p className="truncate text-sm font-medium text-fg-1">{file.name}</p>
                 <p className="text-xs text-fg-5">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
               </div>
               <button
                 type="button"
                 aria-label={t('fileRemove', 'copykiller.form.file.remove')}
-                className="shrink-0 rounded-md p-1 text-fg-4 hover:bg-basic-2 hover:text-danger-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-point-1"
+                className="shrink-0 rounded-md p-1 text-fg-4 hover:bg-basic-2 hover:text-danger-2 focus-ring"
                 onClick={(e) => {
                   e.stopPropagation();
                   setFile(null);
@@ -197,13 +197,13 @@ function DocxUploadForm({ onSubmit, submitting, labels }: DocxUploadFormProps) {
           ) : (
             <>
               <div
-                className="flex h-14 w-14 items-center justify-center rounded-2xl bg-point-4/60 text-point-fg dark:bg-point-1/20"
+                className="flex h-14 w-14 items-center justify-center rounded-xl bg-basic-2 text-fg-4"
                 aria-hidden="true"
               >
                 <Upload className="h-7 w-7" />
               </div>
               <div className="space-y-1 text-center">
-                <p className="text-sm font-semibold text-fg-2">
+                <p className="text-sm font-medium text-fg-2">
                   {t('dropzoneTitle', 'copykiller.form.dropzone.title')}
                 </p>
                 <p className="text-xs text-fg-5" id="docx-file-helper">
@@ -239,7 +239,7 @@ function DocxUploadForm({ onSubmit, submitting, labels }: DocxUploadFormProps) {
       <div className={cn(SERVICE_PANEL_SOFT, 'grid grid-cols-1 gap-5 p-5 sm:grid-cols-2')}>
         {/* docType */}
         <div className="space-y-1.5">
-          <label htmlFor="ck-doc-type" className="text-sm font-semibold text-fg-1">
+          <label htmlFor="ck-doc-type" className="text-sm font-medium text-fg-1">
             {t('docTypeLabel', 'copykiller.form.docType.label')}
           </label>
           <Select
@@ -265,7 +265,7 @@ function DocxUploadForm({ onSubmit, submitting, labels }: DocxUploadFormProps) {
 
         {/* styleMode */}
         <div className="space-y-1.5">
-          <label htmlFor="ck-style-mode" className="text-sm font-semibold text-fg-1">
+          <label htmlFor="ck-style-mode" className="text-sm font-medium text-fg-1">
             {t('styleModeLabel', 'copykiller.form.styleMode.label')}
           </label>
           <Select
@@ -291,7 +291,7 @@ function DocxUploadForm({ onSubmit, submitting, labels }: DocxUploadFormProps) {
 
         {/* targetPlag */}
         <div className="space-y-1.5">
-          <label htmlFor="ck-target-plag" className="text-sm font-semibold text-fg-1">
+          <label htmlFor="ck-target-plag" className="text-sm font-medium text-fg-1">
             {t('targetPlagLabel', 'copykiller.form.targetPlag.label')}
           </label>
           <div className="flex items-center gap-3">
@@ -325,7 +325,7 @@ function DocxUploadForm({ onSubmit, submitting, labels }: DocxUploadFormProps) {
 
         {/* targetAi */}
         <div className="space-y-1.5">
-          <label htmlFor="ck-target-ai" className="text-sm font-semibold text-fg-1">
+          <label htmlFor="ck-target-ai" className="text-sm font-medium text-fg-1">
             {t('targetAiLabel', 'copykiller.form.targetAi.label')}
           </label>
           <div className="flex items-center gap-3">
@@ -359,7 +359,7 @@ function DocxUploadForm({ onSubmit, submitting, labels }: DocxUploadFormProps) {
 
         {/* maxIterations */}
         <div className="space-y-1.5 sm:col-span-2">
-          <label htmlFor="ck-max-iter" className="text-sm font-semibold text-fg-1">
+          <label htmlFor="ck-max-iter" className="text-sm font-medium text-fg-1">
             {t('maxIterationsLabel', 'copykiller.form.maxIterations.label')}
           </label>
           <Input

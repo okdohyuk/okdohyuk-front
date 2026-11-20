@@ -20,6 +20,12 @@
   },
   "form": {
     "title": "Start New Job",
+    "dropzoneTitle": "Drag a file here or click to choose",
+    "dropzoneHelper": "Only .docx is supported (up to 20 MB)",
+    "dropzoneDrag": "Drop the file here",
+    "errorFileType": "Only .docx files can be uploaded.",
+    "errorFileSize": "The file is larger than 20 MB.",
+    "errorRequired": "Please select a file.",
     "fileLabel": "Document File (.docx)",
     "filePlaceholder": "Drag and drop or click to select a file",
     "fileHelper": "Only .docx format is supported.",
@@ -56,6 +62,7 @@
   "progress": {
     "title": "Active Job",
     "iteration": "{{current}} / {{max}} iterations",
+    "progressLabel": "Progress",
     "plagPercent": "Plagiarism",
     "aiPercent": "AI Rate",
     "notMeasuredYet": "Not measured yet",

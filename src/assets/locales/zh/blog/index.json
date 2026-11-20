@@ -1,12 +1,19 @@
 {
   "openGraph": {
     "defaultTitle": "开发者 You Dohyuk 的博客",
-    "defaultDescription": "okdohyuk 网站上有各种关于 Web 的帖子。使用各种搜索筛选器查看您感兴趣的技术信息！",
-    "description": "okdohyuk 上有各种关于 Web 的帖子。查看 {{title}} 技术！"
+    "defaultDescription": "收录 Web 开发相关文章。可按分类和标签查找感兴趣的技术。",
+    "description": "收录 Web 开发相关文章。查看 {{title}} 相关内容。"
   },
   "title": "博客",
-  "searchPlaceholder": "请输入搜索词",
-  "resultCount": "搜索结果：",
+  "searchPlaceholder": "搜索文章",
+  "resultCount": "搜索结果",
+  "updated": "更新于",
+  "toc": "目录",
+  "view": {
+    "list": "列表视图",
+    "grid": "网格视图"
+  },
+  "sortLabel": "排序",
   "filter": {
     "index": "筛选",
     "category": "分类",
@@ -16,5 +23,18 @@
       "title": "标题",
       "views": "浏览量"
     }
+  },
+  "report": {
+    "title": "举报评论",
+    "reasonLabel": "举报原因",
+    "reasonPlaceholder": "选择原因",
+    "reason": {
+      "spam": "垃圾信息或广告",
+      "inappropriate": "不当内容",
+      "harassment": "辱骂或贬低",
+      "other": "其他"
+    },
+    "cancel": "取消",
+    "submit": "举报"
   }
 }

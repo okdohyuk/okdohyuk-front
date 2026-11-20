@@ -13,11 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@components/basic/Select';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import GoogleAd from '@components/google/GoogleAd';
@@ -159,7 +155,7 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
       </div>
 
       {/* Results panel */}
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4 md:p-5')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4 md:p-5')}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <H1 className="text-2xl md:text-3xl">{t('wildcard.results')}</H1>
           {result && (
@@ -191,12 +187,12 @@ export function WildcardCalculator({ lng }: WildcardCalculatorProps) {
                   <p className="mt-1 font-mono font-semibold">{result.subnetMask}</p>
                 </Text>
               </div>
-              <div className="rounded-2xl bg-point-4/60 p-3 shadow-sm dark:bg-point-1/20">
+              <div className="rounded-xl border border-point-2/40 bg-basic-1 p-3">
                 <Text variant="c1" color="basic-5">
                   {t('wildcard.wildcardMask')}
                 </Text>
                 <Text asChild variant="t3">
-                  <p className="mt-1 font-mono font-bold text-point-fg">{result.wildcard}</p>
+                  <p className="mt-1 font-mono font-semibold text-point-fg">{result.wildcard}</p>
                 </Text>
               </div>
               <div className="rounded-2xl bg-basic-0/70 p-3 shadow-sm">

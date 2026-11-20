@@ -7,10 +7,7 @@ import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '~/app/i18n/client';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { sendGAEvent } from '@libs/client/gtag';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -164,7 +161,7 @@ export default function StopwatchClient({ lng }: StopwatchClientProps) {
         </Text>
       </section>
 
-      <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
+      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="grid grid-cols-2 gap-2">
           <Button type="button" onClick={isRunning ? handlePause : handleStart}>
             {primaryLabel}
@@ -205,7 +202,7 @@ export default function StopwatchClient({ lng }: StopwatchClientProps) {
           <Text asChild variant="d3" color="basic-4">
             <p>{t('label.laps')}</p>
           </Text>
-          <Text asChild variant="c1" color="basic-6">
+          <Text asChild variant="c1" color="basic-5">
             <p>{t('label.total', { count: laps.length })}</p>
           </Text>
         </div>

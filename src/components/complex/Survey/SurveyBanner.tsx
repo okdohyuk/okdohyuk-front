@@ -10,6 +10,7 @@ import UserTokenUtil from '@utils/userTokenUtil';
 import LocalStorage from '@utils/localStorage';
 import logger from '@utils/logger';
 import { cn } from '@utils/cn';
+import { X } from 'lucide-react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 
@@ -163,25 +164,25 @@ export default function SurveyBanner() {
       role="dialog"
       aria-label={t('ariaLabel')}
       aria-live="polite"
-      className="fixed inset-x-0 bottom-0 z-40 flex justify-center px-4 pb-4 sm:pb-6"
+      className="fixed inset-x-0 bottom-[var(--mobile-floating-clearance)] z-40 flex justify-center px-2 sm:px-4 lg:bottom-6"
     >
-      <div className="w-full max-w-xl rounded-2xl border border-basic-3 bg-basic-0 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.18)] sm:p-5">
+      <div className="w-full max-w-xl rounded-xl border border-basic-3 bg-basic-0 p-4 shadow-md dark:bg-basic-1">
         {done ? (
           <p className="py-2 text-center text-sm text-fg-1 sm:text-base">{t('thanks')}</p>
         ) : (
           <>
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-base font-semibold text-fg-1">{t('title')}</p>
-                <p className="mt-1 text-sm text-fg-2">{t('description')}</p>
+                <p className="text-base font-medium text-fg-1">{t('title')}</p>
+                <p className="mt-1 text-sm text-fg-4">{t('description')}</p>
               </div>
               <button
                 type="button"
                 onClick={handleDismiss}
                 aria-label={t('dismissAriaLabel')}
-                className="shrink-0 rounded-md p-1 text-fg-3 transition-colors hover:bg-basic-2 hover:text-fg-1"
+                className="shrink-0 rounded-md p-1 text-fg-5 transition-colors hover:bg-basic-2 hover:text-fg-1 focus-ring"
               >
-                <span aria-hidden>✕</span>
+                <X size={16} strokeWidth={1.75} aria-hidden />
               </button>
             </div>
 
@@ -200,17 +201,18 @@ export default function SurveyBanner() {
                   aria-label={t('scoreAriaLabel', { score: n })}
                   onClick={() => setScore(n)}
                   className={cn(
-                    'h-9 min-w-9 flex-1 rounded-md border text-sm transition-colors',
+                    'h-9 min-w-9 flex-1 rounded-md border text-sm tabular-nums transition-colors',
+                    'focus-ring',
                     score === n
                       ? 'border-point-2 bg-point-2 text-white'
-                      : 'border-basic-3 bg-basic-1 text-fg-1 hover:border-point-2 hover:bg-basic-2',
+                      : 'border-basic-3 bg-basic-0 text-fg-2 hover:bg-basic-2',
                   )}
                 >
                   {n}
                 </button>
               ))}
             </div>
-            <div className="mt-1 flex justify-between text-xs text-fg-3">
+            <div className="mt-1 flex justify-between text-xs text-fg-5">
               <span>{t('npsLow')}</span>
               <span>{t('npsHigh')}</span>
             </div>
@@ -227,8 +229,8 @@ export default function SurveyBanner() {
             <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:justify-end">
               <Button
                 type="button"
+                variant="ghost"
                 onClick={handleDismiss}
-                className="bg-basic-2 text-fg-1 hover:bg-basic-3"
                 aria-label={t('dismissAriaLabel')}
               >
                 {t('dismiss')}

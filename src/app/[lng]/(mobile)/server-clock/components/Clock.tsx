@@ -86,10 +86,10 @@ export default function Clock({ lng }: ClockProps) {
   };
 
   return (
-    <div className="mx-auto flex min-h-[calc(100vh-220px)] w-full max-w-4xl flex-col justify-center gap-4 text-center">
+    <div className="flex w-full flex-col gap-4">
       <ServicePageHeader title={t('title')} description={t('availableSites')} badge={badge} />
 
-      <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4`}>
+      <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4 text-center`}>
         <SiteSelectionButtons
           selectedSite={selectedSite}
           isLoading={isLoading}

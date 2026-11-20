@@ -17,10 +17,7 @@ import {
   SelectValue,
 } from '@components/basic/Select';
 import { Text } from '@components/basic/Text';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -154,7 +151,7 @@ export default function UuidGeneratorClient({ lng }: { lng: Language }) {
         </div>
       </section>
 
-      <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-2 p-4')}>
+      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-4')}>
         <Text className="t-basic-1" variant="t3">
           {t('label.output')}
         </Text>

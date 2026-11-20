@@ -8,7 +8,7 @@ import FilterDropdown from '@components/complex/FilterDropdown';
 import TagFilterSection from '@components/complex/TagFilterSection';
 import useStore from '@hooks/useStore';
 import { cn } from '@utils/cn';
-import { BLOG_GLASS_PANEL_SOFT } from '@components/blog/interactiveStyles';
+import { BLOG_PANEL } from '@components/blog/interactiveStyles';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 
@@ -24,10 +24,11 @@ const BlogSearchNav = function BlogSearchNav({ hasMargin = false, lng }: BlogSea
   return (
     <div
       className={cn(
-        BLOG_GLASS_PANEL_SOFT,
-        'w-full p-0',
+        'w-full',
+        // Desktop: a sticky card beside the column, top-aligned with the page header.
+        // Drawer: the drawer itself is the surface, so no second box here.
         hasMargin
-          ? 'sticky top-6 mt-52 mr-4 ml-auto h-fit w-[280px] overflow-hidden'
+          ? `${BLOG_PANEL} sticky top-8 mx-4 mt-8 h-fit w-64 shrink-0 overflow-hidden`
           : 'h-full overflow-y-auto',
       )}
     >

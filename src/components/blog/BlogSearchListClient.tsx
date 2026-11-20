@@ -9,7 +9,6 @@ import { sendGAEvent } from '@libs/client/gtag';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { BlogCategory } from '~/spec/api/Blog';
-import { BLOG_GLASS_PANEL_SOFT } from './interactiveStyles';
 import BlogCard from './BlogCard';
 import BlogCardSkeleton from './BlogCardSkeleton';
 
@@ -59,18 +58,14 @@ const BlogSearchListClient = function BlogSearchListClient({
   }, [blogs, status]);
 
   return (
-    <section className="mt-2">
-      <div
-        className={cn(BLOG_GLASS_PANEL_SOFT, 'mb-4 flex items-center justify-between px-4 py-3')}
-      >
-        <div className="text-sm font-semibold text-fg-3">
-          {t('resultCount')}
-          <span className="ml-1 text-base font-black text-point-fg">{count ?? 0}</span>
-        </div>
-      </div>
+    <section>
+      <p className="mb-3 flex items-baseline gap-2 text-sm text-fg-4" aria-live="polite">
+        {t('resultCount')}
+        <span className="font-mono tabular-nums text-fg-1">{count ?? 0}</span>
+      </p>
       <div
         className={cn(
-          'mt-4 w-full gap-4',
+          'w-full gap-3 md:gap-4',
           viewType === 'frame' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'flex flex-col',
         )}
       >

@@ -1,5 +1,6 @@
 import React from 'react';
 import Script from 'next/script';
+import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -19,6 +20,21 @@ import OutboundLinkTracker from '@components/analytics/OutboundLinkTracker';
 import '~/styles/globals.css';
 import { Language, languages } from '~/app/i18n/settings';
 import { StoreProvider } from './provider';
+
+// Pretendard Variable — interface family. Exposed as --font-pretendard and consumed by
+// --font-sans in globals.css (@theme). ko/en: Pretendard first; ja/zh: system CJK face first (see globals.css).
+const pretendard = localFont({
+  src: '../../assets/fonts/PretendardVariable.woff2',
+  variable: '--font-pretendard',
+  weight: '45 920',
+  display: 'swap',
+  // The file is ~2 MB (11k Hangul glyphs × variable axes; a Korean+Latin subset only saves ~11%).
+  // Preloading it would compete with the LCP image on every route, so let it load at normal
+  // priority; system Korean/CJK faces render first via --font-sans.
+  preload: false,
+  // No generic fallback here: --font-sans continues the chain (CJK per language, then system).
+  fallback: [],
+});
 
 // GA gtag.js 보다 먼저 실행되어야 하는 Consent Mode 기본값 스크립트
 const CONSENT_DEFAULT_SCRIPT = `
@@ -48,7 +64,10 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: '#AA90FA',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#141415' },
+  ],
 };
 
 export async function generateStaticParams() {
@@ -65,7 +84,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
   const googleAdsenseClientId = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID;
 
   return (
-    <html lang={language} dir={dir(language)}>
+    <html lang={language} dir={dir(language)} className={pretendard.variable}>
       <head>
         {enableThirdPartyTracking && (
           <Script

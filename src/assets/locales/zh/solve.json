@@ -44,7 +44,7 @@
     "correctOf": "{{correct}} / {{total}} 正确",
     "byUnit": "各单元得分",
     "retryWrong": "重做错题",
-    "noWrong": "没有错题，完美！",
+    "noWrong": "没有错题，完美。",
     "backToSubjects": "返回科目列表",
     "reviewMode": "复习",
     "back": "返回",

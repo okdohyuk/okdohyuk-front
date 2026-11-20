@@ -6,7 +6,7 @@
     "keywords": ["network", "ip", "subnet", "vlsm", "cidr", "wildcard", "mask", "calculator"]
   },
   "title": "Network Calculator",
-  "description": "IP subnet, VLSM, and wildcard mask calculations in one place",
+  "description": "Calculate IP subnets, VLSM and wildcard masks in one place.",
   "tabs": {
     "ipSubnet": "IP/Subnet",
     "vlsm": "VLSM",
@@ -111,7 +111,7 @@
     "hostsTooLarge": "Required hosts exceed the base network capacity.",
     "minOneSubnet": "Please add at least one subnet.",
     "subnetOverflow": "Not enough subnet space. Increase the base network size or reduce host counts.",
-    "copied": "Copied!"
+    "copied": "Copied"
   },
   "actions": {
     "copy": "Copy"

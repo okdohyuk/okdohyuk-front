@@ -162,7 +162,7 @@ function DateDiffClient({ labels }: DateDiffClientProps) {
         </div>
       </div>
       <div className="space-y-3 rounded-xl border border-basic-3 p-4">
-        <Text className="text-sm font-semibold text-fg-2">{labels.resultTitle}</Text>
+        <Text className="text-sm font-medium text-fg-2">{labels.resultTitle}</Text>
         {!startDate || !endDate ? <Text className="text-sm text-fg-5">{labels.empty}</Text> : null}
         {startDate && endDate && isInvalidRange ? (
           <Text className="text-sm text-danger-2">{labels.invalidRange}</Text>

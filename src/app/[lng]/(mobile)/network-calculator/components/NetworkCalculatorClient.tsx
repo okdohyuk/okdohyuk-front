@@ -41,7 +41,7 @@ export default function NetworkCalculatorClient({ lng }: NetworkCalculatorClient
                 type="button"
                 onClick={() => setActiveTab(tab.key)}
                 className={cn(
-                  'rounded-2xl px-4 py-2.5 transition-all duration-200',
+                  'rounded-2xl px-4 py-2.5 transition-colors duration-200',
                   isActive ? 'bg-point-2 text-white shadow-sm' : 'hover:bg-basic-2',
                 )}
               >
