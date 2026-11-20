@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Heart } from 'lucide-react';
-import { Text } from '@components/basic/Text';
+import { cn } from '@utils/cn';
 import { useSession } from '@hooks/useSession';
 import { useGetBlogLike, useToggleBlogLike } from '@queries/useBlogQueries';
 import { getErrorMessage } from '@utils/errorHandler';
@@ -18,6 +18,7 @@ function LikeButton() {
   // Authorization 은 axios 요청 인터셉터가 주입하므로 여기서 토큰을 다루지 않는다.
   const { sessionId } = useSession();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const { data: like } = useGetBlogLike(blog.urlSlug, sessionId ?? undefined);
   const { mutate: toggleLike, isPending } = useToggleBlogLike(blog.urlSlug, sessionId ?? undefined);
@@ -40,40 +41,46 @@ function LikeButton() {
   };
 
   return (
-    <div className="my-8 flex flex-col items-center justify-center gap-2">
+    <div className="my-10 flex flex-col items-center justify-center gap-2">
       <motion.button
         type="button"
         onClick={handleLike}
         aria-pressed={isLiked}
         aria-label={isLiked ? t('like.remove') : t('like.add')}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.9 }}
-        className={`rounded-full border p-3 shadow-lg transition-colors ${
+        whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
+        className={cn(
+          'inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-150',
+          'focus-ring',
           isLiked
-            ? 'border-danger-3 bg-danger-2 text-white'
-            : 'border-basic-3 bg-basic-0/90 text-fg-6'
-        }`}
+            ? 'border-danger-3/60 bg-danger-4/40 text-danger-2 dark:bg-danger-1/15'
+            : 'border-basic-3 bg-basic-0 text-fg-5 hover:bg-basic-2 hover:text-fg-2 dark:bg-basic-1',
+        )}
         disabled={isLoading}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
             key={isLiked ? 'liked' : 'unliked'}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
-            transition={{ duration: 0.2 }}
+            className="inline-flex"
+            initial={shouldReduceMotion ? false : { scale: 0.6, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={shouldReduceMotion ? undefined : { scale: 0.6, opacity: 0 }}
+            transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Heart className={`w-8 h-8 ${isLiked ? 'fill-current' : ''}`} />
-          </motion.div>
+            <Heart
+              className={cn('h-5 w-5', isLiked && 'fill-current')}
+              strokeWidth={1.75}
+              aria-hidden
+            />
+          </motion.span>
         </AnimatePresence>
       </motion.button>
-      <Text variant="d3" color="basic-5" className="font-semibold">
-        {likeCount}
-      </Text>
+      <span className="font-mono text-sm tabular-nums text-fg-4">
+        {likeCount.toLocaleString('en-US')}
+      </span>
       {errorMessage ? (
-        <Text variant="d3" className="text-center font-semibold text-danger-2" role="alert">
+        <p className="text-center text-sm text-danger-2" role="alert">
           {errorMessage}
-        </Text>
+        </p>
       ) : null}
     </div>
   );

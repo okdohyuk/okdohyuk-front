@@ -44,7 +44,7 @@
     "correctOf": "{{correct}} / {{total}} 정답",
     "byUnit": "단원별 점수",
     "retryWrong": "오답 다시 풀기",
-    "noWrong": "오답이 없어요. 완벽해요!",
+    "noWrong": "오답이 없어요. 완벽해요.",
     "backToSubjects": "과목 목록으로",
     "reviewMode": "오답 복습",
     "back": "돌아가기",

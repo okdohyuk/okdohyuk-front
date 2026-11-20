@@ -18,7 +18,7 @@
   },
   "result": {
     "title": "转换结果",
-    "placeholder": "结果会显示在这里。",
+    "placeholder": "结果会显示在这里",
     "tip": "复制后直接粘贴使用。输入时会自动加上逗号。"
   },
   "button": {

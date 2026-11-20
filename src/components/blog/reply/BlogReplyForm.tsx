@@ -7,8 +7,11 @@ import { useRouter } from 'next/navigation';
 import UserTokenUtil from '@utils/userTokenUtil';
 import { getErrorMessage } from '@utils/errorHandler';
 import { rememberLoginRedirect } from '@utils/loginRedirect';
+import { Button } from '@components/basic/Button';
 import { Language } from '~/app/i18n/settings';
 import { useTranslation } from '../../../app/i18n/client';
+
+const REPLY_MAX_LENGTH = 500;
 
 interface BlogReplyFormProps {
   urlSlug: string;
@@ -81,38 +84,32 @@ function BlogReplyForm({
     <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2">
       <div className="relative">
         <textarea
-          className="w-full resize-none rounded-xl border border-basic-3 bg-basic-0/90 p-4 pb-8 text-fg-1 outline-none transition-all duration-200 focus:border-point-2 focus:ring-2 focus:ring-point-2/40"
+          aria-label={t('reply.listTitle')}
+          className="w-full resize-none rounded-lg border border-basic-3 bg-basic-0 px-3 pb-8 pt-3 text-sm leading-relaxed text-fg-1 outline-none transition-colors duration-150 placeholder:text-fg-5 focus:border-focus focus:ring-2 focus:ring-point-2/25 dark:bg-basic-1 md:text-base"
           rows={3}
-          maxLength={500}
+          maxLength={REPLY_MAX_LENGTH}
           placeholder={t('reply.placeholder')}
           value={content}
           onChange={(e) => setContent(e.target.value)}
           disabled={isSubmitting}
         />
-        <div className="absolute bottom-2 right-4 text-xs text-fg-6">{content.length}/500</div>
+        <div className="pointer-events-none absolute bottom-2 right-3 font-mono text-xs tabular-nums text-fg-5">
+          {content.length}/{REPLY_MAX_LENGTH}
+        </div>
       </div>
       <div className="flex justify-end gap-2">
         {onCancel && (
-          <button
-            type="button"
-            onClick={onCancel}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-fg-4 transition-colors hover:bg-basic-2"
-            disabled={isSubmitting}
-          >
+          <Button type="button" variant="ghost" onClick={onCancel} disabled={isSubmitting}>
             {t('reply.cancel')}
-          </button>
+          </Button>
         )}
-        <button
-          type="submit"
-          className="rounded-lg bg-point-1 px-6 py-2 text-sm font-bold text-white transition-colors hover:bg-point-2 active:bg-point-3 disabled:cursor-not-allowed disabled:opacity-50"
-          disabled={isSubmitting || !content.trim()}
-        >
+        <Button type="submit" disabled={isSubmitting || !content.trim()}>
           {(() => {
             if (isSubmitting) return '...';
             if (replyToEdit) return t('reply.action.edit');
             return t('reply.submit');
           })()}
-        </button>
+        </Button>
       </div>
     </form>
   );

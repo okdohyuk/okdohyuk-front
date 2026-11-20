@@ -80,7 +80,7 @@ export default function PokemonHubClient({ lng }: PokemonHubClientProps) {
                 </div>
                 <p className="text-xs leading-relaxed text-fg-5">{card.description}</p>
               </div>
-              <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-point-fg" />
+              <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:text-point-fg" />
             </Link>
           </CursorGlowCard>
         </li>

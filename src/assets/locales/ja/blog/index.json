@@ -1,20 +1,40 @@
 {
   "openGraph": {
     "defaultTitle": "開発者 ユ・ドヒョクのブログ",
-    "defaultDescription": "okdohyukのサイトにはWebに関する様々な投稿があります。気になる技術情報を様々な検索フィルターで確認してみてください！",
-    "description": "okdohyukにはWebに関する様々な投稿があります。{{title}}の技術を確認してみてください！"
+    "defaultDescription": "Web開発に関する記事をまとめています。カテゴリーとタグで気になる技術を探せます。",
+    "description": "Web開発に関する記事をまとめています。{{title}}に関する記事をご覧ください。"
   },
   "title": "ブログ",
-  "searchPlaceholder": "検索語を入力してください",
-  "resultCount": "検索結果: ",
+  "searchPlaceholder": "記事を検索",
+  "resultCount": "検索結果",
+  "updated": "更新",
+  "toc": "目次",
+  "view": {
+    "list": "リスト表示",
+    "grid": "グリッド表示"
+  },
+  "sortLabel": "並び替え",
   "filter": {
     "index": "フィルター",
     "category": "カテゴリー",
     "tag": "タグ",
     "orderBy": {
       "resent": "最新順",
-      "title": "タイトル",
+      "title": "タイトル順",
       "views": "閲覧数順"
     }
+  },
+  "report": {
+    "title": "コメントを報告",
+    "reasonLabel": "報告理由",
+    "reasonPlaceholder": "理由を選択",
+    "reason": {
+      "spam": "スパム・宣伝",
+      "inappropriate": "不適切な内容",
+      "harassment": "暴言・誹謗",
+      "other": "その他"
+    },
+    "cancel": "キャンセル",
+    "submit": "報告"
   }
 }

@@ -27,11 +27,11 @@ function BlogReplyList({ urlSlug, lng }: BlogReplyListProps) {
 
   return (
     <div className="w-full">
-      <h3 className="mb-4 text-xl font-bold t-basic-1">{t('reply.listTitle')}</h3>
+      <h3 className="text-lg font-semibold text-fg-1">{t('reply.listTitle')}</h3>
 
       <BlogReplyForm urlSlug={urlSlug} onSuccess={() => refetch()} lng={lng} />
 
-      <div className="mt-8 space-y-4">
+      <div className="mt-6 space-y-3">
         {data?.pages.map((group, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <Fragment key={i}>
@@ -50,7 +50,7 @@ function BlogReplyList({ urlSlug, lng }: BlogReplyListProps) {
 
       <div ref={ref} className="h-4">
         {isFetchingNextPage && (
-          <div className="mx-auto h-4 w-4 animate-spin rounded-full border-2 border-point-2 border-t-transparent" />
+          <div className="mx-auto h-4 w-4 animate-spin rounded-full border-2 border-basic-4 border-t-transparent" />
         )}
       </div>
     </div>

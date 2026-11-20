@@ -56,10 +56,19 @@ import { Language } from '~/app/i18n/settings';
 
 type Title = Record<Language, string>;
 
+/**
+ * Non-tool entries listed alongside tools. They stay in the menu but are not counted as tools.
+ * - `hub`: a collection page that only links to tools counted on their own (e.g. /pokemon)
+ * - `community`: a page for visitors rather than a utility (e.g. /guestbook)
+ */
+type MenuItemKind = 'hub' | 'community';
+
 type MenuItem = {
   title: Title;
   icon: React.ReactNode;
   link: string;
+  /** Omitted for standalone tools. */
+  kind?: MenuItemKind;
 };
 
 type Menus = {
@@ -527,6 +536,7 @@ const menus: Menus = {
       },
       icon: <Gamepad2 />,
       link: '/pokemon',
+      kind: 'hub',
     },
     {
       title: {
@@ -567,6 +577,7 @@ const menus: Menus = {
       },
       icon: <MessageSquareText />,
       link: '/guestbook',
+      kind: 'community',
     },
   ],
   out: [
@@ -634,5 +645,8 @@ const menus: Menus = {
   trash: [],
 };
 
-export type { MenuItem, Menus };
-export { menus };
+/** A standalone tool — what every "N tools" figure counts. */
+const isStandaloneTool = (item: MenuItem): boolean => item.kind === undefined;
+
+export type { MenuItem, MenuItemKind, Menus };
+export { menus, isStandaloneTool };

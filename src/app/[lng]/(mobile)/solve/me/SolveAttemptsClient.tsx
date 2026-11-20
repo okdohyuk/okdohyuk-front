@@ -126,8 +126,10 @@ export default function SolveAttemptsClient({ lng }: SolveAttemptsClientProps) {
                 <TableCell>
                   <span
                     className={cn(
-                      'inline-flex rounded-full px-2 py-0.5 text-[11px] font-semibold',
-                      inProgress ? 'bg-point-soft text-point-1' : 'bg-success-4 text-success-1',
+                      'inline-flex rounded-sm px-2 py-0.5 text-2xs font-medium tabular-nums',
+                      inProgress
+                        ? 'bg-point-soft text-point-fg'
+                        : 'bg-success-4 text-success-1 dark:text-success-3',
                     )}
                   >
                     {inProgress ? t('me.status.in_progress') : t('me.status.completed')}

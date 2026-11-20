@@ -2,7 +2,7 @@
   "openGraph": {
     "title": "percent calculator",
     "ogTitle": "Discount Rate, Sale, Percentage, Partial Value, Percent Calculator",
-    "description": "There are many people who want to simplify the calculation of discount rates and percentages. Find the results you want by using a total of 6 percent calculations!",
+    "description": "There are many people who want to simplify the calculation of discount rates and percentages. Find the results you want by using a total of 6 percent calculations.",
     "keywords": [
       "percent",
       "calculator",
@@ -28,7 +28,7 @@
     "text": ["from", "part of", "=", "%"]
   },
   "findPercentage": {
-    "title": "When one value fluctuates with another value, the percentage change is calculated.",
+    "title": "When one value fluctuates with another value, the percentage change is calculated",
     "placeholder": ["80000", "50000", "-37.5"],
     "text": ["from", "to?", "=", "%"]
   },
@@ -38,7 +38,7 @@
     "text": ["from", "%", "="]
   },
   "findPercentageValue": {
-    "title": "When one value fluctuates with another value, the percentage change is calculated.",
+    "title": "When one value fluctuates with another value, the percentage change is calculated",
     "placeholder": ["10", "200", "2,000"],
     "text": ["% is", "if?", "="]
   },

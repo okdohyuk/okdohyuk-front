@@ -34,7 +34,7 @@ export default function TimeDisplay({
   }
 
   return (
-    <div className="mx-auto inline-block min-w-[320px] rounded-2xl bg-basic-1 p-6 shadow-xl transition-all duration-300 md:min-w-[500px] md:p-10">
+    <div className="mx-auto inline-block min-w-80 rounded-2xl border border-basic-3 bg-basic-1 p-6 md:min-w-[500px] md:p-10">
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.p
@@ -42,7 +42,7 @@ export default function TimeDisplay({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex h-[120px] items-center justify-center text-2xl"
+            className="flex h-30 items-center justify-center text-2xl"
           >
             {t('loading')}
           </motion.p>
@@ -53,7 +53,7 @@ export default function TimeDisplay({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex h-[120px] items-center justify-center text-xl text-danger-2"
+            className="flex h-30 items-center justify-center text-xl text-danger-2"
           >
             {error}
           </motion.p>
@@ -64,15 +64,15 @@ export default function TimeDisplay({
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="flex h-[120px] flex-col justify-center"
+            className="flex h-30 flex-col justify-center"
           >
             <p
               className="mb-2 truncate text-xl text-fg-4 md:text-2xl"
               title={selectedSite === 'custom' ? customServerUrl : selectedSite}
             >
-              <span className="font-semibold capitalize">{siteLabel}</span>
+              <span className="font-medium capitalize">{siteLabel}</span>
             </p>
-            <p className="font-mono tabular-nums text-6xl tracking-tighter text-fg-1 md:text-7xl">
+            <p className="font-mono tabular-nums text-6xl text-fg-1 md:text-7xl">
               <motion.span
                 className="inline-block"
                 animate={urgentStyle}

@@ -33,16 +33,15 @@ export default function SiteSelectionButtons({
           key={site}
           onClick={() => handleSiteSelection(site)}
           disabled={isLoading}
-          className={`transform rounded-lg px-4 py-2 font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+          className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors focus-ring ${
             selectedSite === site
-              ? 'scale-105 bg-info-1 text-white shadow-lg'
-              : 'bg-basic-0 text-fg-3 hover:bg-basic-2'
+              ? 'border-point-2 bg-point-2 text-white'
+              : 'border-basic-3 bg-basic-0 text-fg-3 hover:bg-basic-2'
           } ${isLoading ? 'cursor-not-allowed opacity-50' : ''}`}
           variants={{
             visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: 20 },
+            hidden: { opacity: 0, y: 4 },
           }}
-          whileHover={{ y: isLoading ? 0 : -2 }}
           whileTap={{ scale: isLoading ? 1 : 0.98 }}
         >
           {site.charAt(0).toUpperCase() + site.slice(1)}
@@ -52,16 +51,15 @@ export default function SiteSelectionButtons({
         key="custom"
         onClick={() => handleSiteSelection('custom')}
         disabled={isLoading}
-        className={`transform rounded-lg px-4 py-2 font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-black ${
+        className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors focus-ring ${
           selectedSite === 'custom'
-            ? 'scale-105 bg-point-1 text-white shadow-lg'
-            : 'bg-basic-0 text-fg-3 hover:bg-basic-2'
+            ? 'border-point-2 bg-point-2 text-white'
+            : 'border-basic-3 bg-basic-0 text-fg-3 hover:bg-basic-2'
         } ${isLoading ? 'cursor-not-allowed opacity-50' : ''}`}
         variants={{
           visible: { opacity: 1, y: 0 },
-          hidden: { opacity: 0, y: 20 },
+          hidden: { opacity: 0, y: 4 },
         }}
-        whileHover={{ y: isLoading ? 0 : -2 }}
         whileTap={{ scale: isLoading ? 1 : 0.98 }}
       >
         {t('customServer')}

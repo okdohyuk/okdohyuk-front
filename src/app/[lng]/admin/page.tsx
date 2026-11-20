@@ -90,10 +90,10 @@ export default async function AdminPage({ params }: LanguageParams) {
                 <Icon className="h-5 w-5" />
               </div>
               <div className="flex min-w-0 flex-1 flex-col">
-                <p className="text-sm font-extrabold text-fg-1">{menu.label}</p>
+                <p className="text-sm font-semibold text-fg-1">{menu.label}</p>
                 <p className="mt-1 text-xs leading-relaxed text-fg-4">{menu.description}</p>
               </div>
-              <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:translate-x-0.5 group-hover:text-point-fg" />
+              <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-fg-6 transition-transform group-hover:text-point-fg" />
             </Link>
           );
         })}

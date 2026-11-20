@@ -71,7 +71,7 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
       <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4`}>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-fg-3">{t('roundTripLabel')}</span>
+            <span className="text-sm font-medium text-fg-3">{t('roundTripLabel')}</span>
             <Input
               type="number"
               min={0}
@@ -85,7 +85,7 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
             />
           </div>
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-fg-3">{t('daysLabel')}</span>
+            <span className="text-sm font-medium text-fg-3">{t('daysLabel')}</span>
             <Input
               type="number"
               min={1}
@@ -99,7 +99,7 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
             />
           </div>
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-fg-3">{t('weeksLabel')}</span>
+            <span className="text-sm font-medium text-fg-3">{t('weeksLabel')}</span>
             <Input
               type="number"
               min={1}
@@ -112,7 +112,7 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
             />
           </div>
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-fg-3">{t('passLabel')}</span>
+            <span className="text-sm font-medium text-fg-3">{t('passLabel')}</span>
             <Input
               type="number"
               min={0}
@@ -140,25 +140,25 @@ export default function CommuteCostClient({ lng }: CommuteCostClientProps) {
 
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-fg-3">{t('monthlyCostLabel')}</p>
-          <p className="text-lg font-semibold text-fg-2">
+          <p className="text-sm font-medium text-fg-3">{t('monthlyCostLabel')}</p>
+          <p className="font-mono text-lg font-medium tabular-nums text-fg-2">
             {t('currency', { value: values.monthlyCost.toFixed(0) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-fg-3">{t('passCostLabel')}</p>
-          <p className="text-lg font-semibold text-fg-2">
+          <p className="text-sm font-medium text-fg-3">{t('passCostLabel')}</p>
+          <p className="font-mono text-lg font-medium tabular-nums text-fg-2">
             {t('currency', { value: values.monthlyWithPass.toFixed(0) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-fg-3">{t('dailyAverageLabel')}</p>
+          <p className="text-sm font-medium text-fg-3">{t('dailyAverageLabel')}</p>
           <p className="text-base font-medium text-fg-3">
             {t('currency', { value: values.dailyAverage.toFixed(0) })}
           </p>
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-fg-3">{t('annualCostLabel')}</p>
+          <p className="text-sm font-medium text-fg-3">{t('annualCostLabel')}</p>
           <p className="text-base font-medium text-fg-3">
             {t('currency', { value: values.annualCost.toFixed(0) })}
           </p>

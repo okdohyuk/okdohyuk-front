@@ -8,15 +8,15 @@ type TagProps = {
 
 function Tag({ value, removeTag }: TagProps) {
   return (
-    <span className="inline-flex h-8 items-center gap-1 rounded-full border border-point-2/50 bg-point-4/80 px-3 text-xs font-semibold text-point-fg dark:border-point-2/40 dark:bg-point-1/20 dark:text-point-2">
+    <span className="inline-flex h-7 items-center gap-1 rounded-md border border-basic-3 bg-basic-2 pl-2.5 pr-1 text-xs font-medium text-fg-2">
       <span className="max-w-[180px] truncate">{value}</span>
       <button
         type="button"
-        className="inline-flex h-5 w-5 items-center justify-center rounded-full text-point-fg/80 transition-colors hover:bg-point-1/15 hover:text-point-fg/80 dark:hover:bg-point-2/20 dark:hover:text-point-2"
+        className="inline-flex h-5 w-5 items-center justify-center rounded-sm text-fg-5 transition-colors hover:bg-basic-3 hover:text-fg-1 focus-ring"
         onClick={() => removeTag(value)}
         aria-label={`remove ${value}`}
       >
-        <X size={14} />
+        <X size={14} aria-hidden />
       </button>
     </span>
   );

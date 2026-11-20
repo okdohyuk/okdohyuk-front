@@ -24,19 +24,19 @@ function RecommendedPosts({ urlSlug, lng }: RecommendedPostsProps) {
 
   return (
     <div ref={ref} className="w-full">
-      <h3 className="mb-4 text-xl font-bold t-basic-1">{t('recommended_posts')}</h3>
+      <h3 className="mb-4 text-lg font-semibold text-fg-1">{t('recommended_posts')}</h3>
       <div
         className={cn(
           'gap-4 pb-1',
           posts
             ? 'flex overflow-x-auto scrollbar-hide'
-            : 'grid h-80 grid-cols-1 gap-4 overflow-hidden sm:grid-cols-2 lg:h-96 lg:grid-cols-3',
+            : 'grid h-80 grid-cols-1 overflow-hidden sm:grid-cols-2 md:h-96 lg:grid-cols-3',
         )}
       >
         {posts
           ? posts.map((post) => (
-              <div key={post.id} className="min-w-[280px] md:min-w-[320px]">
-                <BlogCard blog={post} type="frame" />
+              <div key={post.id} className="w-70 shrink-0 md:w-80">
+                <BlogCard blog={post} type="frame" lng={lng} />
               </div>
             ))
           : Array.from({ length: 3 }, (_, index) => (

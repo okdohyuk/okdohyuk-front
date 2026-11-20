@@ -1,6 +1,7 @@
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import nextPlugin from '@next/eslint-plugin-next';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -42,8 +43,10 @@ export default [
   {
     // next/core-web-vitals 가 임시 제외된 동안에도 @next/next 플러그인을 직접 등록해
     // 기존 eslint-disable 주석이 unknown rule 에러가 되지 않도록 한다.
+    // react-hooks 도 같은 이유로 등록만 한다(규칙은 켜지 않음).
     plugins: {
       '@next/next': nextPlugin,
+      'react-hooks': reactHooksPlugin,
     },
     languageOptions: {
       parserOptions: {

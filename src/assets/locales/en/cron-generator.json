@@ -21,7 +21,7 @@
     "result": "Result"
   },
   "placeholder": "* * * * *",
-  "invalid": "Invalid Cron Expression",
+  "invalid": "Invalid Cron expression.",
   "meta": {
     "title": "Cron Generator | Okdohyuk Multi-Tool",
     "description": "Generate cron expressions with ease."

@@ -31,9 +31,9 @@
   "report": {
     "button": "Report",
     "title": "Report",
-    "descriptionLabel": "Please select a reason for reporting.",
+    "descriptionLabel": "Please select a reason for reporting",
     "detailLabel": "Details (optional)",
-    "detailPlaceholder": "Describe the reason in detail.",
+    "detailPlaceholder": "Describe the reason in detail",
     "submit": "Report",
     "cancel": "Cancel",
     "reason": {
@@ -44,7 +44,7 @@
     }
   },
   "list": {
-    "empty": "No messages yet. Be the first to leave one!",
+    "empty": "No messages yet. Be the first to leave one.",
     "loading": "Loading..."
   },
   "deletedMessage": "This message has been deleted.",

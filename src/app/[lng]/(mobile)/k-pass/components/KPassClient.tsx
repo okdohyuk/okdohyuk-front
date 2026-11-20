@@ -102,7 +102,7 @@ export default function KPassClient({ lng }: KPassClientProps) {
       <section className={`${SERVICE_PANEL_SOFT} space-y-4 p-4`}>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-fg-3">{t('form.fare')}</span>
+            <span className="text-sm font-medium text-fg-3">{t('form.fare')}</span>
             <Input
               type="number"
               min={0}
@@ -117,7 +117,7 @@ export default function KPassClient({ lng }: KPassClientProps) {
             />
           </div>
           <div className="space-y-2">
-            <span className="text-sm font-semibold text-fg-3">{t('form.uses')}</span>
+            <span className="text-sm font-medium text-fg-3">{t('form.uses')}</span>
             <Input
               type="number"
               min={0}
@@ -135,7 +135,7 @@ export default function KPassClient({ lng }: KPassClientProps) {
         </div>
 
         <div className="space-y-2">
-          <span className="text-sm font-semibold text-fg-3">{t('form.tier')}</span>
+          <span className="text-sm font-medium text-fg-3">{t('form.tier')}</span>
           <SegmentedControl
             value={tier}
             onChange={setTier}
@@ -145,7 +145,7 @@ export default function KPassClient({ lng }: KPassClientProps) {
         </div>
 
         <div className="space-y-2">
-          <span className="text-sm font-semibold text-fg-3">{t('form.region')}</span>
+          <span className="text-sm font-medium text-fg-3">{t('form.region')}</span>
           <SegmentedControl
             value={region}
             onChange={setRegion}
@@ -173,26 +173,26 @@ export default function KPassClient({ lng }: KPassClientProps) {
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="space-y-1">
-            <p className="text-sm font-semibold text-fg-3">{t('result.farePerRide')}</p>
-            <p className="text-lg font-semibold text-fg-2">
+            <p className="text-sm font-medium text-fg-3">{t('result.farePerRide')}</p>
+            <p className="font-mono text-lg font-medium tabular-nums text-fg-2">
               {t('currency', { value: formatKRW(result.farePerRide) })}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-sm font-semibold text-fg-3">{t('result.perRide')}</p>
-            <p className="text-lg font-semibold text-fg-2">
+            <p className="text-sm font-medium text-fg-3">{t('result.perRide')}</p>
+            <p className="font-mono text-lg font-medium tabular-nums text-fg-2">
               {t('currency', { value: formatKRW(result.refundPerRide) })}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-sm font-semibold text-fg-3">{t('result.monthly')}</p>
-            <p className="text-2xl font-bold text-fg-1">
+            <p className="text-sm font-medium text-fg-3">{t('result.monthly')}</p>
+            <p className="font-mono text-3xl font-medium tabular-nums text-fg-1">
               {t('currency', { value: formatKRW(result.monthlyRefund) })}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-sm font-semibold text-fg-3">{t('result.annual')}</p>
-            <p className="text-2xl font-bold text-fg-1">
+            <p className="text-sm font-medium text-fg-3">{t('result.annual')}</p>
+            <p className="font-mono text-3xl font-medium tabular-nums text-fg-1">
               {t('currency', { value: formatKRW(result.annualSaving) })}
             </p>
           </div>
@@ -201,7 +201,7 @@ export default function KPassClient({ lng }: KPassClientProps) {
         {tier !== 'general' && hasInput && result.eligible && (
           <div className="border-t border-basic-3 pt-3 text-sm text-fg-3">
             {t('result.vsGeneral')}:{' '}
-            <span className="font-semibold text-fg-1">
+            <span className="font-medium text-fg-1">
               +{t('currency', { value: formatKRW(result.vsGeneral) })}
             </span>
           </div>
@@ -218,13 +218,13 @@ export default function KPassClient({ lng }: KPassClientProps) {
 
       {/* 제도 요약 (SEO 본문) */}
       <section className={`${SERVICE_PANEL_SOFT} space-y-2 p-4`}>
-        <h2 className="text-base font-bold text-fg-1">{t('about.title')}</h2>
+        <h2 className="text-base font-medium text-fg-1">{t('about.title')}</h2>
         <p className="text-sm leading-6 text-fg-3 whitespace-pre-line">{t('about.body')}</p>
       </section>
 
       {/* 비교 표 */}
       <section className={`${SERVICE_PANEL_SOFT} space-y-3 p-4`}>
-        <h2 className="text-base font-bold text-fg-1">{t('compare.title')}</h2>
+        <h2 className="text-base font-medium text-fg-1">{t('compare.title')}</h2>
         <Table>
           <TableHeader>
             <TableRow>
@@ -249,11 +249,11 @@ export default function KPassClient({ lng }: KPassClientProps) {
 
       {/* FAQ */}
       <section className={`${SERVICE_PANEL_SOFT} space-y-2 p-4`}>
-        <h2 className="text-base font-bold text-fg-1">{t('faq.title')}</h2>
+        <h2 className="text-base font-medium text-fg-1">{t('faq.title')}</h2>
         <div className="space-y-2">
           {FAQ_KEYS.map((key) => (
             <details key={key} className="group rounded-md bg-basic-2 p-3">
-              <summary className="cursor-pointer text-sm font-semibold text-fg-2">
+              <summary className="cursor-pointer text-sm font-medium text-fg-2">
                 {t(`faq.${key}.q`)}
               </summary>
               <p className="mt-2 text-sm leading-6 text-fg-3 whitespace-pre-line">

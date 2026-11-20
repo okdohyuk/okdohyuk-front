@@ -40,7 +40,7 @@
   "messages": {
     "invalid": "Please enter a valid date.",
     "futureBirth": "Birth date cannot be later than the reference date.",
-    "copied": "Copied!"
+    "copied": "Copied"
   },
   "example": {
     "title": "Example",

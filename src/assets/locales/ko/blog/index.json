@@ -1,20 +1,40 @@
 {
   "openGraph": {
     "defaultTitle": "개발자 유도혁의 블로그",
-    "defaultDescription": "okdohyuk 사이트에는 Web에 대한 다양한 포스팅이 있습니다. 궁금한 기술의 정보를 다양한 검색 필터로 확인해 보세요!",
-    "description": "okdohyuk에는 Web에 대한 다양한 포스팅이 있습니다. {{title}} 기술을 확인해 보세요!"
+    "defaultDescription": "웹 개발에 관한 글을 모았습니다. 카테고리와 태그로 궁금한 기술을 찾아보세요.",
+    "description": "웹 개발에 관한 글을 모았습니다. {{title}} 관련 글을 확인해 보세요."
   },
   "title": "블로그",
-  "searchPlaceholder": "검색어를 입력하세요",
-  "resultCount": "검색 결과: ",
+  "searchPlaceholder": "글 검색",
+  "resultCount": "검색 결과",
+  "updated": "수정",
+  "toc": "목차",
+  "view": {
+    "list": "목록 보기",
+    "grid": "그리드 보기"
+  },
+  "sortLabel": "정렬",
   "filter": {
     "index": "필터",
     "category": "카테고리",
     "tag": "태그",
     "orderBy": {
       "resent": "최신순",
-      "title": "제목",
+      "title": "제목순",
       "views": "조회수순"
     }
+  },
+  "report": {
+    "title": "댓글 신고",
+    "reasonLabel": "신고 사유",
+    "reasonPlaceholder": "사유 선택",
+    "reason": {
+      "spam": "스팸 또는 홍보",
+      "inappropriate": "부적절한 내용",
+      "harassment": "욕설 또는 비하",
+      "other": "기타"
+    },
+    "cancel": "취소",
+    "submit": "신고"
   }
 }

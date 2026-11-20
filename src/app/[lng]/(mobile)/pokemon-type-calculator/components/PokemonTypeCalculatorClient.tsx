@@ -11,10 +11,7 @@ import {
 } from '@components/basic/Table';
 import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import GoogleAd from '@components/google/GoogleAd';
@@ -126,7 +123,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
 
       {/* Selected types display */}
       {selectedTypes.length > 0 && (
-        <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'p-4 space-y-3')}>
+        <section className={cn(SERVICE_PANEL_SOFT, 'p-4 space-y-3')}>
           <div className="flex items-center justify-between">
             <Text variant="d2" className="font-semibold">
               {t('section.selectedTypes')}
@@ -144,7 +141,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
             {selectedTypes.map((type) => (
               <div
                 key={type}
-                className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-white text-sm font-semibold"
+                className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-white text-sm font-medium"
                 style={{ backgroundColor: TYPE_COLORS[type] }}
               >
                 <span>{getTypeName(type)}</span>
@@ -212,13 +209,13 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
           <Table className="mx-auto min-w-max">
             <TableHeader className="bg-transparent">
               <TableRow className="border-0">
-                <TableHead className="sticky left-0 z-10 min-w-[56px] whitespace-nowrap bg-basic-0 p-1 text-left font-normal normal-case tracking-normal text-fg-6">
+                <TableHead className="sticky left-0 z-10 min-w-[56px] whitespace-nowrap bg-basic-0 p-1 text-left font-normal normal-case tracking-normal text-fg-5">
                   <span className="text-xs">{t('chart.atkVsDef')}</span>
                 </TableHead>
                 {POKEMON_TYPES.map((type) => (
                   <TableHead key={type} className="p-0.5 font-normal">
                     <div
-                      className="rounded w-6 h-6 mx-auto flex items-center justify-center text-white text-[9px] font-bold"
+                      className="rounded w-6 h-6 mx-auto flex items-center justify-center text-white text-2xs font-medium"
                       style={{ backgroundColor: TYPE_COLORS[type] }}
                       title={getTypeName(type)}
                     >
@@ -233,7 +230,7 @@ export default function PokemonTypeCalculatorClient({ lng }: PokemonTypeCalculat
                 <TableRow key={attacker} className="border-0 hover:bg-basic-1">
                   <TableCell className="sticky left-0 z-10 bg-basic-0 p-1">
                     <div
-                      className="rounded px-1 py-0.5 text-white text-xs font-bold text-center"
+                      className="rounded px-1 py-0.5 text-white text-xs font-medium text-center"
                       style={{ backgroundColor: TYPE_COLORS[attacker] }}
                     >
                       {getTypeName(attacker).slice(0, 2)}

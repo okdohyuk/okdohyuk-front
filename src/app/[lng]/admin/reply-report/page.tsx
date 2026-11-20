@@ -152,8 +152,8 @@ function AdminReplyReportPage({ params }: LanguageParams) {
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <ListChecks className="h-4 w-4 text-point-fg" />
-            <h2 className="text-base font-bold text-fg-1">신고 목록</h2>
-            <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[11px] font-bold text-fg-4">
+            <h2 className="text-base font-semibold text-fg-1">신고 목록</h2>
+            <span className="rounded-sm bg-basic-3 px-2 py-0.5 text-2xs font-medium tabular-nums text-fg-4">
               {reports.length}
             </span>
           </div>
@@ -204,7 +204,7 @@ function AdminReplyReportPage({ params }: LanguageParams) {
                     {report.reporter?.name ?? '-'}
                   </TableCell>
                   <TableCell className="whitespace-nowrap px-4 py-3">
-                    <span className="inline-flex rounded-full border border-danger-3 bg-danger-4 px-2 py-0.5 text-[11px] font-semibold text-danger-1 dark:border-danger-2/50 dark:bg-danger-2/20 dark:text-danger-4">
+                    <span className="inline-flex rounded-sm border border-danger-3 bg-danger-4 px-2 py-0.5 text-2xs font-medium text-danger-1 dark:border-danger-2/50 dark:bg-danger-2/20 dark:text-danger-4">
                       {REASON_LABELS[report.reason] || report.reason}
                     </span>
                   </TableCell>

@@ -31,9 +31,9 @@
   "report": {
     "button": "举报",
     "title": "举报",
-    "descriptionLabel": "请选择举报理由。",
+    "descriptionLabel": "请选择举报理由",
     "detailLabel": "详细说明（可选）",
-    "detailPlaceholder": "请详细说明举报理由。",
+    "detailPlaceholder": "请详细说明举报理由",
     "submit": "举报",
     "cancel": "取消",
     "reason": {
@@ -44,7 +44,7 @@
     }
   },
   "list": {
-    "empty": "还没有留言，来留下第一条吧！",
+    "empty": "还没有留言，来留下第一条吧。",
     "loading": "加载中..."
   },
   "deletedMessage": "该消息已被删除。",

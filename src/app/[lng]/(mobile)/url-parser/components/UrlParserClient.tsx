@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Clipboard, ClipboardCheck, Eraser, Sparkles } from 'lucide-react';
+import { Clipboard, ClipboardCheck, Eraser, FileText } from 'lucide-react';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { Input } from '@components/basic/Input';
@@ -17,10 +17,7 @@ import {
   TableRow,
 } from '@components/basic/Table';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -161,7 +158,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
               onClick={() => setValue(SAMPLE_URL)}
               className="flex items-center gap-2 px-3 py-2 text-xs"
             >
-              <Sparkles size={16} />
+              <FileText size={16} />
               {t('button.sample')}
             </Button>
             <Button
@@ -200,7 +197,7 @@ export default function UrlParserClient({ lng }: UrlParserClientProps) {
         ) : null}
       </div>
 
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-4 p-4')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Text variant="d2" className="font-semibold text-fg-3">
             {t('label.output')}

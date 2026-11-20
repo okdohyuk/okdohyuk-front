@@ -31,7 +31,7 @@
   "messages": {
     "invalid": "正しい日付を入力してください。",
     "futureBirth": "生年月日が基準日より後にはできません。",
-    "copied": "コピーしました！"
+    "copied": "コピーしました"
   },
   "example": {
     "title": "例",

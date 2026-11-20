@@ -3,6 +3,74 @@
 
 @config "../../tailwind.config.js";
 
+/*
+ * Type + radius tokens (unslop pass, 2026-11-19)
+ *  - sans: Pretendard Variable (next/font/local → --font-pretendard on <html>) then a
+ *    per-language CJK face (--font-cjk, set below by :lang).
+ *    ko/en: Pretendard first, system Korean face as fallback.
+ *    ja/zh: the system CJK face goes FIRST (overrides --font-sans below). Pretendard has
+ *    kana and CJK punctuation but no Han ideographs, so Pretendard-first would draw kana
+ *    and 、。 in Pretendard and kanji/hanzi in Hiragino/PingFang inside the same word.
+ *    Latin in ja/zh therefore comes from the CJK face too; that is the intended trade-off.
+ *  - mono: system stack, used for figures, paths and meta. Mono faces have no Hangul/kana/Han,
+ *    so --font-cjk comes before the generic fallback; otherwise the browser picks an
+ *    arbitrary CJK face and Korean comments in code render widely spaced.
+ *  - text-2xs (11px) is the smallest caption size. Nothing renders below it.
+ *  - bold/extrabold/black are capped at 600 so legacy `font-bold` call sites stop
+ *    shouting until each page is cleaned up. New code should use font-medium/semibold.
+ *  - radius: controls 8–10 (md/lg), cards 12–16 (xl/2xl), panels 20 (3xl).
+ */
+@theme {
+  --font-sans:
+    var(--font-pretendard, 'Pretendard Variable'), var(--font-cjk), -apple-system,
+    BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono',
+    var(--font-cjk), 'Courier New', monospace;
+
+  --text-2xs: 11px;
+  --text-2xs--line-height: 16px;
+
+  --font-weight-bold: 600;
+  --font-weight-extrabold: 600;
+  --font-weight-black: 600;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  --default-transition-duration: 160ms;
+}
+
+/*
+ * Focus indicator (WCAG 1.4.11 / 2.4.7). One solid outline for every interactive
+ * element, so tab focus reads the same everywhere. Outline (not ring) follows the
+ * element radius and needs no ring-offset colour matched to the surface.
+ *  - focus-ring: 2px outline, 2px gap. Default.
+ *  - focus-ring-inset: drawn inside the box, for items in scroll containers that
+ *    would clip an outer outline (e.g. the blog TOC).
+ */
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--ring-focus);
+    outline-offset: 2px;
+  }
+}
+
+@utility focus-ring-inset {
+  &:focus-visible {
+    outline: 2px solid var(--ring-focus);
+    outline-offset: -2px;
+  }
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -162,13 +230,13 @@ table {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+  background: var(--basic-4);
+  border-radius: 4px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--basic-5);
 }
 
 @layer base {
@@ -180,7 +248,11 @@ table {
     --basic-4: #d4d4d8;
     --basic-5: #a1a1aa;
 
-    /* Point (violet accent) */
+    /* Per-language CJK fallback for --font-sans (see @theme) */
+    --font-cjk: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic';
+
+    /* Point (violet accent) — solid only. point-2 carries white text at 5.7:1.
+       Never use point-3 as a fill behind white text (4.2:1). */
     --point-1: #6d28d9;
     --point-2: #7c3aed;
     --point-3: #8b5cf6;
@@ -200,7 +272,10 @@ table {
     --fg-3: #3f3f46;
     --fg-4: #52525b;
     --fg-5: #71717a;
-    --fg-6: #a1a1aa;
+    /* fg-6 is for icons, separators and disabled states only (non-text, ≥3:1 on basic-0..2:
+       3.43/3.28/3.12). Any readable text — captions, placeholders, empty states — uses fg-5
+       or darker (4.83:1 on white). */
+    --fg-6: #8a8a91;
     --fg-7: #d4d4d8;
 
     /* Semantic surface */
@@ -209,23 +284,34 @@ table {
     --bg-muted: #f4f4f5;
     --border-subtle: #e4e4e7;
     --border-default: #d4d4d8;
-    --ring-focus: rgba(109, 40, 217, 0.5);
+    /* Focus indicator — solid, ≥3:1 on every surface (basic-0..3): 5.70/5.46/5.18/4.49 */
+    --ring-focus: var(--point-2);
 
-    /* Shadow */
-    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-    --shadow-sm: 0 2px 6px 0 rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 20px 50px 0 rgba(0, 0, 0, 0.08);
-    --shadow-xl: 0 20px 50px 0 rgba(0, 0, 0, 0.2);
+    /* Floating mobile chrome (below lg). Nav = h-12 item + p-1 + 1px border = 58px, sitting
+       max(8px, safe-area) from the bottom; +10px gap → 76px above the safe area.
+       Floating controls (language select h-9 = 36px) sit at --mobile-nav-clearance; banners
+       stack above them at --mobile-floating-clearance (+36px select +8px gap). */
+    --mobile-nav-clearance: calc(76px + env(safe-area-inset-bottom, 0px));
+    --mobile-floating-clearance: calc(var(--mobile-nav-clearance) + 44px);
 
-    /* Border radius */
+    /* Hairline — primary text at ~8% */
+    --hairline: rgba(24, 24, 27, 0.08);
+
+    /* Shadow — neutral and small. Floating things only. */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 24px 0 rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 24px 0 rgba(0, 0, 0, 0.06);
+    --shadow-xl: 0 12px 32px 0 rgba(0, 0, 0, 0.08);
+
+    /* Border radius — mirrors the @theme radius scale above */
     --radius-xs: 4px;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 14px;
-    --radius-xl: 16px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
     --radius-pill: 9999px;
-    --radius-panel: 24px;
+    --radius-panel: 16px;
 
     /* Spacing */
     --space-1: 4px;
@@ -236,11 +322,11 @@ table {
     --space-6: 24px;
     --space-8: 32px;
 
-    /* Sub palette — Primary (alias) */
-    --primary-1: #6d28d9;
-    --primary-2: #7c3aed;
-    --primary-3: #8b5cf6;
-    --primary-4: #ddd6fe;
+    /* Sub palette — Primary (alias of point) */
+    --primary-1: var(--point-1);
+    --primary-2: var(--point-2);
+    --primary-3: var(--point-3);
+    --primary-4: var(--point-4);
 
     /* Success · emerald */
     --success-1: #047857;
@@ -299,12 +385,13 @@ table {
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --basic-0: #000000;
-      --basic-1: #18181b;
-      --basic-2: #27272a;
-      --basic-3: #3f3f46;
-      --basic-4: #52525b;
-      --basic-5: #71717a;
+      /* Graphite ramp: page #141415, card #19191b, raised #232325, hairline-ish #2c2c2f */
+      --basic-0: #141415;
+      --basic-1: #19191b;
+      --basic-2: #232325;
+      --basic-3: #2c2c2f;
+      --basic-4: #48484d;
+      --basic-5: #85858b;
 
       /* fg 반전 */
       --fg-0: #ffffff;
@@ -316,14 +403,15 @@ table {
       --fg-6: #71717a;
       --fg-7: #52525b;
 
-      --bg-canvas: #18181b;
-      --bg-surface: #27272a;
-      --bg-muted: #3f3f46;
-      --border-subtle: #3f3f46;
-      --border-default: #52525b;
+      --bg-canvas: #141415;
+      --bg-surface: #19191b;
+      --bg-muted: #232325;
+      --border-subtle: #2c2c2f;
+      --border-default: #48484d;
+
+      --hairline: rgba(237, 237, 237, 0.08);
 
       /* sub palette tint — 반투명 */
-      --primary-4: rgba(124, 58, 237, 0.22);
       --point-4: rgba(124, 58, 237, 0.22);
       --point-tint-soft: rgba(139, 92, 246, 0.15);
       --success-4: rgba(16, 185, 129, 0.18);
@@ -334,12 +422,13 @@ table {
       --accent2-4: rgba(20, 184, 166, 0.18);
       --accent3-4: rgba(236, 72, 153, 0.18);
 
-      /* Dark text accent — violet-300, 9.62:1 on #18181b (WCAG AAA) */
+      /* Dark text accent — violet-300, ~10:1 on #141415 (WCAG AAA) */
       --accent-fg: #c4b5fd;
       --accent-tint: rgba(196, 181, 253, 0.14);
       --accent-tint-soft: rgba(196, 181, 253, 0.06);
 
-      --ring-focus: rgba(196, 181, 253, 0.55);
+      /* violet-400 — 6.77/6.45/5.76/5.12 on basic-0..3 */
+      --ring-focus: #a78bfa;
 
       /* status fg — light stops */
       --status-success-fg: var(--success-3);
@@ -348,6 +437,35 @@ table {
       --status-danger-fg: var(--danger-3);
       --status-neutral-fg: var(--neutral-3);
     }
+  }
+
+  /* ja/zh: CJK face before Pretendard so kana, kanji/hanzi and CJK punctuation share one
+     face (see the @theme note). --font-sans is redeclared here because @theme only sets
+     the default order. */
+  :root:lang(ja) {
+    --font-cjk:
+      'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Yu Gothic', Meiryo,
+      'Noto Sans JP';
+    --font-sans:
+      var(--font-cjk), var(--font-pretendard, 'Pretendard Variable'), -apple-system,
+      BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji';
+  }
+
+  :root:lang(zh) {
+    --font-cjk: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC';
+    --font-sans:
+      var(--font-cjk), var(--font-pretendard, 'Pretendard Variable'), -apple-system,
+      BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji';
+  }
+
+  body {
+    background-color: var(--basic-0);
+    color: var(--fg-1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   button:not(:disabled),
@@ -374,14 +492,15 @@ table {
 
 @layer components {
   /* Legacy Typography Sizes */
+  /* Hierarchy by size, not weight (400/500, 600 rare) */
   .t-t-1 {
-    @apply text-4xl font-bold;
+    @apply text-4xl font-medium leading-tight;
   }
   .t-t-2 {
-    @apply text-3xl font-bold;
+    @apply text-3xl font-medium leading-tight;
   }
   .t-t-3 {
-    @apply text-2xl font-bold;
+    @apply text-2xl font-medium leading-snug;
   }
 
   .t-d-1 {
@@ -394,68 +513,69 @@ table {
     @apply text-sm font-normal;
   }
 
+  /* Captions never go below 11px or lighter than 400 */
   .t-c-1 {
-    @apply text-xs font-light;
+    @apply text-xs font-normal;
   }
   .t-c-2 {
-    @apply text-[10px] font-light;
+    @apply text-2xs font-normal;
   }
   .t-c-3 {
-    @apply text-[8px] font-light;
+    @apply text-2xs font-normal;
   }
 
   /* Legacy Typography Colors */
   .t-basic-0 {
-    @apply text-black dark:text-white;
+    @apply text-fg-0;
   }
   .t-basic-1 {
-    @apply text-zinc-900 dark:text-zinc-50;
+    @apply text-fg-1;
   }
   .t-basic-2 {
-    @apply text-zinc-800 dark:text-zinc-100;
+    @apply text-fg-2;
   }
   .t-basic-3 {
-    @apply text-zinc-700 dark:text-zinc-200;
+    @apply text-fg-3;
   }
   .t-basic-4 {
-    @apply text-zinc-600 dark:text-zinc-300;
+    @apply text-fg-4;
   }
   .t-basic-5 {
-    @apply text-zinc-500 dark:text-zinc-400;
+    @apply text-fg-5;
   }
   .t-basic-6 {
-    @apply text-zinc-400 dark:text-zinc-500;
+    @apply text-fg-6;
   }
   .t-basic-7 {
-    @apply text-zinc-300 dark:text-zinc-600;
+    @apply text-fg-7;
   }
   .t-basic-8 {
-    @apply text-zinc-200 dark:text-zinc-700;
+    @apply text-basic-3;
   }
   .t-basic-9 {
-    @apply text-zinc-100 dark:text-zinc-800;
+    @apply text-basic-2;
   }
   .t-basic-10 {
-    @apply text-zinc-50 dark:text-zinc-900;
+    @apply text-basic-1;
   }
 
   /* Legacy Components */
   .input-text {
-    @apply flex items-center min-h-[32px] rounded-md bg-basic-1 border border-basic-4 focus:outline outline-2 outline-point-2 p-1 text-lg font-normal text-zinc-900 dark:text-zinc-50;
+    @apply flex min-h-9 items-center rounded-lg border border-basic-3 bg-basic-0 px-3 text-base font-normal text-fg-1 outline-none transition-colors focus:border-focus focus:ring-2 focus:ring-point-2/25;
   }
 
   .button {
-    @apply flex items-center justify-center min-h-[32px] rounded-md bg-point-2 hover:bg-point-1 p-1 text-lg font-normal text-white;
+    @apply flex min-h-9 items-center justify-center rounded-lg bg-point-2 px-4 text-sm font-medium text-white transition-colors hover:bg-point-1 focus-ring;
   }
 
   .table th,
   .table td {
-    @apply p-2 border border-solid border-basic-5 align-middle break-keep;
+    @apply p-2 border border-solid border-basic-3 align-middle break-keep;
   }
 
   /* Badge / status pill */
   .badge {
-    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold;
+    @apply inline-flex items-center gap-1 rounded-sm px-2 py-0.5 text-xs font-medium;
   }
   .badge-primary {
     background: var(--primary-4);
@@ -532,55 +652,14 @@ table {
  *  - prefers-reduced-motion 에서는 전부 비활성화.
  * ========================================================================= */
 
-/* 히어로 배경 워시 — 상단/하단 radial gradient (point 토큰 기반) */
-.landing-wash-top {
-  background:
-    radial-gradient(
-      120% 80% at 50% -10%,
-      color-mix(in srgb, var(--point-3) 22%, transparent),
-      transparent 60%
-    ),
-    radial-gradient(
-      80% 60% at 88% 8%,
-      color-mix(in srgb, var(--info-2) 14%, transparent),
-      transparent 62%
-    );
-}
-
-.landing-wash-bottom {
-  background: radial-gradient(
-    120% 90% at 50% 110%,
-    color-mix(in srgb, var(--point-3) 18%, transparent),
-    transparent 62%
-  );
-}
-
-/* 글래스 엣지 — inset 하이라이트 + 헤어라인 (Liquid Glass 표현) */
-.landing-glass {
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, var(--basic-0) 70%, transparent),
-    0 18px 44px rgba(0, 0, 0, 0.08);
-}
-
-/* 모노 아이브로우 라벨 */
-.landing-eyebrow {
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: 0.1em;
-}
-
 @keyframes landing-rise-in {
   from {
     opacity: 0;
-    transform: translateY(28px);
-    filter: blur(6px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -592,7 +671,7 @@ table {
  */
 @keyframes landing-rise-in-lcp {
   from {
-    transform: translateY(18px);
+    transform: translateY(8px);
   }
   to {
     transform: translateY(0);
@@ -602,11 +681,16 @@ table {
 /* 진입 애니메이션(히어로) — 스크롤과 무관하게 1회 재생 */
 @media (prefers-reduced-motion: no-preference) {
   .landing-rise {
-    animation: landing-rise-in 800ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+    animation: landing-rise-in 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .landing-rise-lcp {
-    animation: landing-rise-in-lcp 800ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+    animation: landing-rise-in-lcp 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* 히어로의 유일한 진입 연출 — 카피 다음에 제품 샷이 한 박자(60ms) 늦게 오른다. */
+  .landing-rise-late {
+    animation-delay: 60ms;
   }
 }
 
@@ -681,39 +765,36 @@ table {
   html.no-sda .landing-reveal,
   html.no-sda .landing-reveal-stagger > * {
     opacity: 0;
-    transform: translateY(28px);
-    filter: blur(6px);
+    transform: translateY(8px);
     transition:
-      opacity 700ms cubic-bezier(0.2, 0.75, 0.2, 1),
-      transform 700ms cubic-bezier(0.2, 0.75, 0.2, 1),
-      filter 700ms cubic-bezier(0.2, 0.75, 0.2, 1);
+      opacity 400ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   html.no-sda .landing-reveal.is-in,
   html.no-sda .landing-reveal-stagger > .is-in {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 
   /* 스태거 — SDA 경로의 animation-range 4% 간격과 같은 리듬(자식 최대 7개) */
   html.no-sda .landing-reveal-stagger > *:nth-child(2) {
-    transition-delay: 80ms;
+    transition-delay: 50ms;
   }
   html.no-sda .landing-reveal-stagger > *:nth-child(3) {
-    transition-delay: 160ms;
+    transition-delay: 100ms;
   }
   html.no-sda .landing-reveal-stagger > *:nth-child(4) {
-    transition-delay: 240ms;
+    transition-delay: 150ms;
   }
   html.no-sda .landing-reveal-stagger > *:nth-child(5) {
-    transition-delay: 320ms;
+    transition-delay: 200ms;
   }
   html.no-sda .landing-reveal-stagger > *:nth-child(6) {
-    transition-delay: 400ms;
+    transition-delay: 250ms;
   }
   html.no-sda .landing-reveal-stagger > *:nth-child(7) {
-    transition-delay: 480ms;
+    transition-delay: 300ms;
   }
 }
 
@@ -744,6 +825,39 @@ table {
  * JS 가 없거나 실패하면 자연 흐름 + 보이는 상태로 남는다.
  * ========================================================================= */
 
+/* ── 히어로 (씬 0, 일반 섹션) ─────────────────────────────────────────────
+ * 카피 | 실제 제품 샷의 비대칭 분할. 제품 샷이 폭의 절반 이상(7/12)을 갖는다.
+ * 데스크톱에서는 첫 화면을 한 덩어리로 채우고(min-height 100svh) 세로 가운데 정렬,
+ * 좁은 화면에서는 읽는 순서대로 카피 → 액션 → 지표 → 제품 샷으로 쌓인다.
+ * ------------------------------------------------------------------------ */
+.landing-hero {
+  padding-block: 3rem 4rem;
+}
+
+.landing-hero-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.landing-hero-grid > * {
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .landing-hero {
+    display: flex;
+    align-items: center;
+    min-height: 100svh;
+    padding-block: 6rem;
+  }
+
+  .landing-hero-grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 4rem;
+  }
+}
+
 /* ── 씬 배경 ───────────────────────────────────────────────────────────────
  * 스크린샷 위에 카피를 얹지 않는다(= 스크림 불필요). 대신 카피와 제품 샷을
  * 나란히 두고, 그 뒤에 깔리는 배경만 은은한 그라디언트로 처리한다.
@@ -752,18 +866,8 @@ table {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(
-      86% 70% at 12% -6%,
-      color-mix(in srgb, var(--point-3) 13%, transparent),
-      transparent 62%
-    ),
-    radial-gradient(
-      72% 76% at 104% 104%,
-      color-mix(in srgb, var(--info-2) 12%, transparent),
-      transparent 60%
-    ),
-    linear-gradient(180deg, var(--basic-0) 0%, var(--basic-1) 100%);
+  /* Neutral tone shift only (unslop: no hue washes behind content) */
+  background: linear-gradient(180deg, var(--basic-0) 0%, var(--basic-1) 100%);
 }
 
 /* ── 제품 샷 프레임 (라운드 브라우저 창) ─────────────────────────────────── */
@@ -772,30 +876,27 @@ table {
   width: 100%;
   margin-inline: auto;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--basic-3) 85%, transparent);
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--basic-0) 94%, var(--basic-2));
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, var(--basic-0) 85%, transparent),
-    0 2px 8px -3px rgb(16 18 34 / 14%),
-    0 30px 68px -22px rgb(16 18 34 / 34%);
+  border: 1px solid var(--basic-3);
+  border-radius: 16px;
+  background: var(--basic-0);
+  box-shadow: var(--shadow-xs), var(--shadow-md);
 }
 
 .landing-device-bar {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  height: 2.1rem;
-  padding-inline: 0.85rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--basic-3) 70%, transparent);
-  background: color-mix(in srgb, var(--basic-1) 70%, var(--basic-0));
+  gap: 6px;
+  height: 2rem;
+  padding-inline: 0.75rem;
+  border-bottom: 1px solid var(--basic-3);
+  background: var(--basic-1);
 }
 
 .landing-device-dot {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 9999px;
-  background: color-mix(in srgb, var(--basic-4) 55%, transparent);
+  background: var(--basic-3);
 }
 
 .landing-device-url {
@@ -807,13 +908,14 @@ table {
   min-width: 0;
   max-width: 60%;
   overflow: hidden;
-  border-radius: 9999px;
-  background: color-mix(in srgb, var(--basic-0) 88%, transparent);
-  padding: 0.14rem 0.75rem;
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-  font-size: 0.66rem;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
+  border-radius: 6px;
+  background: var(--basic-0);
+  padding: 2px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
   color: var(--fg-5);
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -889,10 +991,6 @@ table {
   min-width: 0;
 }
 
-.landing-message-track > * + * {
-  margin-top: 1.25rem;
-}
-
 /*
  * 2컬럼(카피 | 제품 샷) 배치. 이 폭부터 스크럽이 켜지므로 아래 스크럽 블록과 **같은 조건**이어야
  * 한다. 조건이 갈리면 1컬럼 세로 배치인데 sticky 100svh 안에 갇혀 프레임이 잘린다.
@@ -961,27 +1059,6 @@ table {
   }
 
   /*
-   * 메시지 겹침 배치는 엔진이 붙인 [data-scene] 아래에만 둔다.
-   * 고정 높이 박스 안에서 겹쳐 교차 전환하므로 문단 줄 수가 달라도 정렬이 흔들리지 않는다.
-   */
-  .landing-stage[data-scene] .landing-message-track {
-    position: relative;
-    height: 7.5rem;
-  }
-
-  .landing-stage[data-scene] .landing-message-track > .landing-scene-message {
-    position: absolute;
-    inset-inline: 0;
-    top: 0;
-    /*
-     * `margin: 0` 으로 두면 문단의 `mx-auto` 까지 지워져 가운데 정렬이 풀린다.
-     * 세로 여백만 없애고 가로는 auto 를 유지해야 히어로 카피가 중앙에 선다.
-     */
-    margin-block: 0;
-    margin-inline: auto;
-  }
-
-  /*
    * 엔진이 켜진 경우에만 카피/제품 샷을 숨긴 상태에서 시작한다.
    * `[data-scene]` 은 JS 가 붙이고 곧바로 첫 프레임을 계산하므로 중간 페인트가 없다.
    * JS 가 없으면 이 규칙이 적용되지 않아 카피가 그대로 읽힌다.
@@ -992,7 +1069,6 @@ table {
   }
 
   /* will-change 는 현재 활성 씬에만. 남발하면 오히려 느려진다(강의 43292). */
-  .landing-stage[data-scene='0'] [data-scene-index='0'] .landing-scene-message,
   .landing-stage[data-scene='1'] [data-scene-index='1'] .landing-scene-message,
   .landing-stage[data-scene='2'] [data-scene-index='2'] .landing-scene-message,
   .landing-stage[data-scene='3'] [data-scene-index='3'] .landing-scene-message,

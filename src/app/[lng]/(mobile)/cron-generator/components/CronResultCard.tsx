@@ -11,7 +11,9 @@ function CronResultCard({ title, result }: CronResultCardProps) {
   return (
     <div className={cn(SERVICE_PANEL_SOFT, 'p-6')}>
       <h3 className="text-sm font-medium text-fg-5 mb-2">{title}</h3>
-      <p className="text-2xl font-bold text-fg-1">{result}</p>
+      <p className="break-all font-mono text-2xl font-medium tabular-nums text-fg-1 md:text-3xl">
+        {result}
+      </p>
     </div>
   );
 }

@@ -45,6 +45,7 @@ export interface JobProgressPanelProps {
   labels: Partial<{
     title: string;
     iteration: string;
+    progressLabel: string;
     plagPercent: string;
     aiPercent: string;
     downloadCta: string;
@@ -66,19 +67,19 @@ export interface JobProgressPanelProps {
 // ──────────────────────────────────────────────
 // 서브 컴포넌트: ProgressBar
 // ──────────────────────────────────────────────
-function ProgressBar({ value }: { value: number }) {
+function ProgressBar({ value, label }: { value: number; label: string }) {
   const clamped = Math.min(100, Math.max(0, value));
   return (
     <div
       className="h-2 w-full overflow-hidden rounded-full bg-basic-2"
       role="progressbar"
-      aria-label="진행률"
+      aria-label={label}
       aria-valuenow={clamped}
       aria-valuemin={0}
       aria-valuemax={100}
     >
       <div
-        className="h-full rounded-full bg-point-2 transition-all duration-500"
+        className="h-full rounded-full bg-point-2 transition-[width] duration-500"
         style={{ width: `${clamped}%` }}
       />
     </div>
@@ -104,12 +105,14 @@ function StatBadge({
   return (
     <div
       className={cn(
-        'flex flex-col items-center rounded-xl px-4 py-2 text-center',
-        isOk ? 'bg-success-4/60 text-success-2' : 'bg-warn-4/60 text-warn-2',
+        'flex flex-col items-center rounded-lg px-4 py-2 text-center',
+        isOk
+          ? 'bg-success-4/60 text-success-1 dark:text-success-3'
+          : 'bg-warn-4/60 text-warn-1 dark:text-warn-3',
       )}
     >
       <span className="text-xs font-medium opacity-80">{label}</span>
-      <span className="text-lg font-black tabular-nums">
+      <span className="font-mono text-lg font-medium tabular-nums">
         {value}
         {unit}
       </span>
@@ -148,7 +151,7 @@ function JobProgressPanel({ job, onDownload, onCancel, labels }: JobProgressPane
       {/* ── 헤더 ── */}
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1 space-y-0.5">
-          <p className="truncate text-sm font-bold text-fg-1">{job.originalFilename}</p>
+          <p className="truncate text-sm font-medium text-fg-1">{job.originalFilename}</p>
           <p className="text-xs text-fg-5">
             {t('iteration', '{{current}} / {{max}}')
               .replace('{{current}}', String(job.currentIteration))
@@ -168,7 +171,9 @@ function JobProgressPanel({ job, onDownload, onCancel, labels }: JobProgressPane
       </div>
 
       {/* ── 진행률 바 (QUEUED·진행 중일 때) ── */}
-      {(isRunning || job.status === 'QUEUED') && <ProgressBar value={progressPct} />}
+      {(isRunning || job.status === 'QUEUED') && (
+        <ProgressBar value={progressPct} label={t('progressLabel', 'Progress')} />
+      )}
 
       {/* ── 단계 스텝퍼 ── */}
       {!isFailed && !isCanceled && (
@@ -186,7 +191,7 @@ function JobProgressPanel({ job, onDownload, onCancel, labels }: JobProgressPane
                 >
                   <div
                     className={cn(
-                      'flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold transition-colors',
+                      'flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium tabular-nums transition-colors',
                       state === 'completed' && 'bg-success-2 text-white',
                       state === 'current' && 'bg-point-2 text-white ring-2 ring-point-2/40',
                       state === 'pending' && 'bg-basic-2 text-fg-5',
@@ -197,9 +202,9 @@ function JobProgressPanel({ job, onDownload, onCancel, labels }: JobProgressPane
                   </div>
                   <span
                     className={cn(
-                      'hidden text-center text-[10px] leading-tight sm:block',
+                      'hidden text-center text-2xs sm:block',
                       state === 'completed' && 'text-success-2',
-                      state === 'current' && 'font-semibold text-point-fg',
+                      state === 'current' && 'font-medium text-point-fg',
                       state === 'pending' && 'text-fg-5',
                     )}
                   >
@@ -246,12 +251,12 @@ function JobProgressPanel({ job, onDownload, onCancel, labels }: JobProgressPane
       {/* ── 에러 메시지 ── */}
       {isFailed && job.errorMessage ? (
         <div
-          className="flex items-start gap-2 rounded-xl bg-danger-4/60 px-4 py-3 text-sm text-danger-2"
+          className="flex items-start gap-2 rounded-lg bg-danger-4/60 px-4 py-3 text-sm text-danger-1 dark:text-danger-3"
           role="alert"
         >
           <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
           <div>
-            <span className="mr-1 font-semibold">
+            <span className="mr-1 font-medium">
               {t('errorLabel', 'copykiller.progress.error')}:
             </span>
             {job.errorMessage}

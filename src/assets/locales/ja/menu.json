@@ -11,10 +11,10 @@
   "search": {
     "label": "ツール検索",
     "placeholder": "ツール名やパスで検索",
-    "browse": "全{{count}}件のメニューをまとめて探せます。",
+    "browse": "{{count}}個のツールをまとめて探せます",
     "results": "検索結果 {{count}}件",
     "clear": "検索語をクリア",
-    "emptyTitle": "該当するツールが見つかりません。",
+    "emptyTitle": "該当するツールが見つかりません",
     "emptyDescription": "別のキーワードで検索するか、他のカテゴリを確認してください。"
   },
   "group": {

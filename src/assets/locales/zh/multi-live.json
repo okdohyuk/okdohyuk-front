@@ -10,7 +10,8 @@
   "chzzk": "Chzzk",
   "soop": "Soop",
   "kick": "Kick",
-  "input-placeholder": "请输入直播ID。",
+  "input-placeholder": "请输入直播ID",
   "add": "添加",
-  "close": "关闭"
+  "close": "关闭",
+  "go-menu": "浏览其他服务"
 }

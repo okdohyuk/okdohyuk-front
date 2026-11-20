@@ -30,11 +30,7 @@ import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL, SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 import type { PortInfo } from '~/app/api/ip-lookup/port-scan/route';
@@ -94,7 +90,7 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
   if (!value && value !== 0) return null;
   return (
     <div className="flex flex-col gap-0.5 py-2 sm:flex-row sm:items-start sm:gap-4">
-      <Text variant="c1" color="basic-5" className="min-w-[120px] shrink-0">
+      <Text variant="c1" color="basic-5" className="min-w-30 shrink-0">
         {label}
       </Text>
       <Text variant="d2" color="basic-2" className="break-all font-medium">
@@ -117,10 +113,12 @@ function SectionCard({
   className?: string;
 }) {
   return (
-    <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'p-4 md:p-5', className)}>
+    <div className={cn(SERVICE_PANEL_SOFT, 'p-4 md:p-5', className)}>
       <div className="mb-3 flex items-center gap-2">
-        <span className="text-point-fg">{icon}</span>
-        <Text variant="t3" color="basic-2" className="font-bold">
+        <span className="text-fg-4" aria-hidden="true">
+          {icon}
+        </span>
+        <Text variant="t3" color="basic-2" className="font-medium">
           {title}
         </Text>
       </div>
@@ -131,7 +129,7 @@ function SectionCard({
 
 function PortStatusBadge({ status }: { status: PortInfo['status'] }) {
   const styles = {
-    open: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400',
+    open: 'bg-success-4 text-success-1 dark:text-success-3',
     closed: 'bg-basic-2 text-fg-5',
     filtered: 'bg-warn-4 text-warn-1 dark:bg-warn-1/40 dark:text-warn-3',
     scanning: 'bg-info-4 text-info-1 dark:bg-info-1/40 dark:text-info-3',
@@ -140,7 +138,7 @@ function PortStatusBadge({ status }: { status: PortInfo['status'] }) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold',
+        'inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-medium',
         styles[status],
       )}
     >
@@ -225,13 +223,10 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
   return (
     <div className="w-full space-y-4">
       {/* Hero: IP Display */}
-      <div className={cn(SERVICE_PANEL, 'relative overflow-hidden p-6 md:p-8')}>
-        <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-point-2/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-6 left-0 h-28 w-28 rounded-full bg-point-3/15 blur-3xl" />
-
-        <div className="relative z-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className={cn(SERVICE_PANEL, 'p-6 md:p-8')}>
+        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
-            <Text variant="c1" color="basic-5" className="uppercase tracking-widest">
+            <Text variant="c1" color="basic-5" className="text-fg-4">
               {t('hero.label')}
             </Text>
             {ipLoading && (
@@ -259,7 +254,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                     className="rounded-sm shadow-sm"
                   />
                 )}
-                <h2 className="font-mono text-4xl font-black tracking-tight text-fg-1 md:text-5xl">
+                <h2 className="break-all font-mono text-4xl font-medium tabular-nums text-fg-1 md:text-5xl">
                   {ipData.ip}
                 </h2>
               </div>
@@ -290,27 +285,27 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
         </div>
 
         {ipData && !ipLoading && (
-          <div className="relative z-10 mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-2">
             {ipData.isProxy && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-warn-4 px-3 py-1 text-xs font-semibold text-warn-1 dark:bg-warn-1/40 dark:text-warn-3">
+              <span className="inline-flex items-center gap-1 rounded-sm bg-warn-4 px-2 py-1 text-xs font-medium text-warn-1 dark:bg-warn-1/40 dark:text-warn-3">
                 <ShieldAlert size={12} />
                 {t('badges.proxy')}
               </span>
             )}
             {ipData.isHosting && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-point-4 px-3 py-1 text-xs font-semibold text-point-fg dark:bg-point-1/40 dark:text-point-3">
+              <span className="inline-flex items-center gap-1 rounded-sm bg-basic-2 px-2 py-1 text-xs font-medium text-fg-3">
                 <Server size={12} />
                 {t('badges.hosting')}
               </span>
             )}
             {ipData.isMobile && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-900/40 dark:text-sky-400">
+              <span className="inline-flex items-center gap-1 rounded-sm bg-info-4 px-2 py-1 text-xs font-medium text-info-1 dark:text-info-3">
                 <Smartphone size={12} />
                 {t('badges.mobile')}
               </span>
             )}
             {!ipData.isProxy && !ipData.isHosting && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400">
+              <span className="inline-flex items-center gap-1 rounded-sm bg-success-4 px-2 py-1 text-xs font-medium text-success-1 dark:text-success-3">
                 <ShieldCheck size={12} />
                 {t('badges.clean')}
               </span>
@@ -322,7 +317,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
       {ipData && !ipLoading && (
         <>
           {/* Location */}
-          <SectionCard icon={<MapPin size={18} />} title={t('sections.location')}>
+          <SectionCard icon={<MapPin size={16} />} title={t('sections.location')}>
             <InfoRow
               label={t('fields.country')}
               value={
@@ -373,7 +368,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
           </SectionCard>
 
           {/* Network */}
-          <SectionCard icon={<Network size={18} />} title={t('sections.network')}>
+          <SectionCard icon={<Network size={16} />} title={t('sections.network')}>
             <InfoRow label={t('fields.isp')} value={ipData.isp || null} />
             <InfoRow label={t('fields.org')} value={ipData.org || null} />
             <InfoRow label={t('fields.asn')} value={ipData.as || null} />
@@ -382,14 +377,12 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
           </SectionCard>
 
           {/* Connection Type */}
-          <SectionCard icon={<Shield size={18} />} title={t('sections.connectionType')}>
+          <SectionCard icon={<Shield size={16} />} title={t('sections.connectionType')}>
             <InfoRow
               label={t('fields.proxy')}
               value={
                 <span
-                  className={
-                    ipData.isProxy ? 'text-warn-1' : 'text-emerald-600 dark:text-emerald-400'
-                  }
+                  className={ipData.isProxy ? 'text-warn-1' : 'text-success-1 dark:text-success-3'}
                 >
                   {ipData.isProxy ? t('values.yes') : t('values.no')}
                 </span>
@@ -399,9 +392,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
               label={t('fields.hosting')}
               value={
                 <span
-                  className={
-                    ipData.isHosting ? 'text-point-2' : 'text-emerald-600 dark:text-emerald-400'
-                  }
+                  className={ipData.isHosting ? 'text-fg-2' : 'text-success-1 dark:text-success-3'}
                 >
                   {ipData.isHosting ? t('values.yes') : t('values.no')}
                 </span>
@@ -410,7 +401,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
             <InfoRow
               label={t('fields.mobile')}
               value={
-                <span className={ipData.isMobile ? 'text-sky-600 dark:text-sky-400' : 'text-fg-5'}>
+                <span className={ipData.isMobile ? 'text-info-1 dark:text-info-3' : 'text-fg-5'}>
                   {ipData.isMobile ? t('values.yes') : t('values.no')}
                 </span>
               }
@@ -422,8 +413,8 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
             <div className={cn(SERVICE_PANEL_SOFT, 'overflow-hidden p-0')}>
               <div className="flex items-center justify-between px-4 py-3">
                 <div className="flex items-center gap-2">
-                  <Globe size={16} className="text-point-fg" />
-                  <Text variant="t3" color="basic-2" className="font-bold">
+                  <Globe size={16} className="text-fg-4" aria-hidden="true" />
+                  <Text variant="t3" color="basic-2" className="font-medium">
                     {t('map.title')}
                   </Text>
                 </div>
@@ -431,7 +422,7 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                   href={`https://www.google.com/maps?q=${ipData.latitude},${ipData.longitude}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-semibold text-point-fg hover:underline"
+                  className="text-xs font-medium text-point-fg hover:underline"
                 >
                   {t('map.open')}
                 </a>
@@ -457,8 +448,8 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
           <div className={cn(SERVICE_PANEL, 'space-y-4 p-4 md:p-5')}>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2">
-                <Router size={18} className="text-point-fg" />
-                <Text variant="t3" color="basic-2" className="font-bold">
+                <Router size={16} className="text-fg-4" aria-hidden="true" />
+                <Text variant="t3" color="basic-2" className="font-medium">
                   {t('sections.portScan')}
                 </Text>
               </div>
@@ -496,13 +487,13 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                   {(['open', 'closed', 'filtered'] as const).map((status) => {
                     const count = portData.ports.filter((p) => p.status === status).length;
                     const colors = {
-                      open: 'text-emerald-600 dark:text-emerald-400',
+                      open: 'text-success-1 dark:text-success-3',
                       closed: 'text-fg-5',
                       filtered: 'text-warn-1 dark:text-warn-3',
                     };
                     return (
                       <div key={status} className="flex items-center gap-1">
-                        <Text variant="d2" className={cn('font-bold', colors[status])}>
+                        <Text variant="d2" className={cn('font-medium', colors[status])}>
                           {count}
                         </Text>
                         <Text variant="c1" color="basic-5">
@@ -528,7 +519,11 @@ export default function IpLookupClient({ lng }: IpLookupClientProps) {
                     {portData.ports.map((port) => (
                       <TableRow key={port.port}>
                         <TableCell>
-                          <Text variant="d2" color="basic-2" className="font-mono font-semibold">
+                          <Text
+                            variant="d2"
+                            color="basic-2"
+                            className="font-mono font-medium tabular-nums"
+                          >
                             {port.port}
                           </Text>
                         </TableCell>

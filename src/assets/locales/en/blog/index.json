@@ -1,20 +1,40 @@
 {
   "openGraph": {
     "defaultTitle": "Developer Dohyuk You's Blog",
-    "defaultDescription": "The okdohyuk site includes a variety of posts about the web. Explore the technologies you're curious about with powerful search filters.",
-    "description": "The okdohyuk site includes a variety of posts about the web. Explore topics related to {{title}}."
+    "defaultDescription": "Posts about web development. Find a topic by category and tag.",
+    "description": "Posts about web development. Read what's here on {{title}}."
   },
   "title": "Blog",
   "searchPlaceholder": "Search posts",
-  "resultCount": "results : ",
+  "resultCount": "Results",
+  "updated": "Updated",
+  "toc": "On this page",
+  "view": {
+    "list": "List view",
+    "grid": "Grid view"
+  },
+  "sortLabel": "Sort",
   "filter": {
     "index": "Filter",
     "category": "Category",
     "tag": "Tags",
     "orderBy": {
-      "resent": "Resent",
+      "resent": "Newest",
       "title": "Title",
       "views": "Most viewed"
     }
+  },
+  "report": {
+    "title": "Report comment",
+    "reasonLabel": "Reason",
+    "reasonPlaceholder": "Choose a reason",
+    "reason": {
+      "spam": "Spam or promotion",
+      "inappropriate": "Inappropriate content",
+      "harassment": "Abuse or harassment",
+      "other": "Other"
+    },
+    "cancel": "Cancel",
+    "submit": "Report"
   }
 }

@@ -14,6 +14,11 @@ import GoogleAd from '@components/google/GoogleAd';
 const DEFAULT_FOREGROUND = '#111827';
 const DEFAULT_BACKGROUND = '#ffffff';
 
+// Pass/fail verdict text. The -1 stops are too dark on the dark card (3.2:1 / 2.7:1);
+// the -3 stops reach 9.1:1 / 6.4:1 there.
+const PASS_TEXT = 'text-success-1 dark:text-success-3';
+const FAIL_TEXT = 'text-danger-1 dark:text-danger-3';
+
 const HEX_PATTERN = /^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
 const normalizeHex = (value: string) => {
@@ -107,7 +112,6 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
     if (ratio !== null) {
       trackUse({ action_type: 'check', success: true, wcag_level: wcagLevel });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ratio, wcagLevel]);
 
   const handleSwap = () => {
@@ -169,7 +173,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
                 trackInputStarted();
                 setForeground(event.target.value);
               }}
-              className="h-10 w-10 cursor-pointer rounded border border-basic-3 dark:border-basic-4"
+              className="h-10 w-10 cursor-pointer rounded border border-basic-3 focus-ring dark:border-basic-4"
             />
             <Input
               value={foreground}
@@ -201,7 +205,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
                 trackInputStarted();
                 setBackground(event.target.value);
               }}
-              className="h-10 w-10 cursor-pointer rounded border border-basic-3 dark:border-basic-4"
+              className="h-10 w-10 cursor-pointer rounded border border-basic-3 focus-ring dark:border-basic-4"
             />
             <Input
               value={background}
@@ -222,10 +226,10 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <Button type="button" onClick={handleSwap}>
+        <Button type="button" variant="secondary" onClick={handleSwap}>
           {t('action.swap')}
         </Button>
-        <Button type="button" onClick={handleReset}>
+        <Button type="button" variant="ghost" onClick={handleReset}>
           {t('action.reset')}
         </Button>
         <Button type="button" onClick={handleCopy} disabled={!ratio}>
@@ -238,7 +242,7 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
           <button
             key={example.label}
             type="button"
-            className="rounded-full border border-basic-3 px-3 py-1 text-xs text-fg-3 transition hover:border-point-1 hover:text-point-fg"
+            className="rounded-md border border-basic-3 px-3 py-1 text-xs text-fg-3 transition-colors hover:bg-basic-2 hover:text-fg-1 focus-ring"
             onClick={() => {
               setForeground(example.foreground);
               setBackground(example.background);
@@ -251,13 +255,11 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="space-y-3">
-          <Text variant="d1" color="basic-1" className="font-semibold">
+          <Text variant="d1" color="basic-1" className="font-medium">
             {t('label.ratio')}
           </Text>
           <div className="flex items-center gap-3">
-            <Text variant="t3" color="basic-1" className="font-bold">
-              {ratioText}
-            </Text>
+            <p className="font-mono text-4xl font-medium tabular-nums text-fg-1">{ratioText}</p>
             <Text variant="d3" color="basic-4">
               {t('label.ratioUnit')}
             </Text>
@@ -268,10 +270,10 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
                 {t('label.normalText')}
               </Text>
               <div className="flex items-center gap-2">
-                <span className={normalAA ? 'text-success-1' : 'text-danger-1'}>
+                <span className={normalAA ? PASS_TEXT : FAIL_TEXT}>
                   {t(normalAA ? 'status.passAA' : 'status.failAA')}
                 </span>
-                <span className={normalAAA ? 'text-success-1' : 'text-danger-1'}>
+                <span className={normalAAA ? PASS_TEXT : FAIL_TEXT}>
                   {t(normalAAA ? 'status.passAAA' : 'status.failAAA')}
                 </span>
               </div>
@@ -281,10 +283,10 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
                 {t('label.largeText')}
               </Text>
               <div className="flex items-center gap-2">
-                <span className={largeAA ? 'text-success-1' : 'text-danger-1'}>
+                <span className={largeAA ? PASS_TEXT : FAIL_TEXT}>
                   {t(largeAA ? 'status.passAA' : 'status.failAA')}
                 </span>
-                <span className={largeAAA ? 'text-success-1' : 'text-danger-1'}>
+                <span className={largeAAA ? PASS_TEXT : FAIL_TEXT}>
                   {t(largeAAA ? 'status.passAAA' : 'status.failAAA')}
                 </span>
               </div>
@@ -302,13 +304,13 @@ function ContrastCheckerClient({ lng }: ContrastCheckerClientProps) {
             color: normalizedForeground ?? DEFAULT_FOREGROUND,
           }}
         >
-          <Text variant="t2" className="font-bold">
+          <Text variant="t2" color="inherit" className="font-medium">
             {t('preview.title')}
           </Text>
-          <Text variant="d2" className="mt-2">
+          <Text variant="d2" color="inherit" className="mt-2">
             {t('preview.subtitle')}
           </Text>
-          <Text variant="c1" className="mt-4">
+          <Text variant="c1" color="inherit" className="mt-4">
             {t('preview.body')}
           </Text>
         </div>

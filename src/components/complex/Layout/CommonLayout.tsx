@@ -47,10 +47,12 @@ function CommonLayout({ children }: CommonLayoutProps) {
       <QueryClientProvider client={queryClient}>
         {children}
         {showNav && (
-          <>
+          // Desktop dock: language select stacked on the icon nav, bottom-right.
+          // On mobile each child positions itself (fixed), so the dock is layout-neutral.
+          <div className="lg:fixed lg:bottom-6 lg:right-6 lg:z-30 lg:flex lg:flex-col lg:items-end lg:gap-2">
             <LocalesNav />
             <Nav />
-          </>
+          </div>
         )}
         {showCommandPalette && <CommandPalette />}
       </QueryClientProvider>

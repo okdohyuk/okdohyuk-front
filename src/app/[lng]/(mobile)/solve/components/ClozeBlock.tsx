@@ -85,7 +85,7 @@ function ClozeBlock({
         className={cn(
           'mx-0.5 inline-block min-w-[4ch] rounded-md border px-1.5 py-px align-baseline font-mono text-[inherit] leading-snug',
           'bg-basic-0 text-fg-1',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-point-1',
+          'focus-ring',
           !graded && 'border-point-1',
           graded && ok && 'border-success-2 bg-success-4',
           graded && ok === false && 'border-danger-2 bg-danger-4',

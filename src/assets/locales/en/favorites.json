@@ -1,8 +1,7 @@
 {
   "home": {
-    "eyebrow": "MY HOME",
-    "greeting": "Welcome back, {{name}}.",
-    "greetingFallback": "Welcome back.",
+    "greeting": "{{name}}'s favorites",
+    "greetingFallback": "Your favorites",
     "subtitle": "Open your favorite tools straight from here.",
     "count": "{{count}} favorites",
     "browseAll": "Browse all tools",
@@ -16,14 +15,14 @@
     "remove": "Remove from favorites"
   },
   "empty": {
-    "title": "No favorite tools yet.",
+    "title": "No favorite tools yet",
     "body": "Tap the star on any tool and it will show up here, one click away from home.",
     "recommendTitle": "Start with the most used tools",
     "add": "Add to favorites"
   },
   "state": {
     "loading": "Loading your favorites.",
-    "errorTitle": "Could not load your favorites.",
+    "errorTitle": "Could not load your favorites",
     "errorBody": "Please try again in a moment.",
     "retry": "Try again"
   },

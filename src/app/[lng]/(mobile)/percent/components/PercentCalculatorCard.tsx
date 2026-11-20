@@ -62,7 +62,7 @@ function PercentCalculatorCard({
           <Input
             type="text"
             inputMode="numeric"
-            className="w-1/4 text-right"
+            className="w-1/4 text-right font-mono tabular-nums"
             placeholder={placeholder[0]}
             value={calculator.primaryNumber}
             onChange={(e) => {
@@ -78,7 +78,7 @@ function PercentCalculatorCard({
           <Input
             type="text"
             inputMode="numeric"
-            className="w-1/4 text-right"
+            className="w-1/4 text-right font-mono tabular-nums"
             placeholder={placeholder[1]}
             value={calculator.secondaryNumber}
             onChange={(e) => {
@@ -120,7 +120,7 @@ function PercentCalculatorCard({
           <Input
             type="text"
             inputMode="none"
-            className="w-full text-right"
+            className="w-full text-right font-mono font-medium tabular-nums text-point-fg"
             placeholder={placeholder[2]}
             value={calculator.result.toLocaleString()}
             onChange={() => calculator.result}

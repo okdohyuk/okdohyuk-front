@@ -77,9 +77,7 @@ export default function CategorySettingPage() {
         className={cn(
           SERVICE_CARD_INTERACTIVE,
           'space-y-2 rounded-xl border p-3 transition-colors',
-          selected
-            ? 'border-point-2/70 bg-point-4/45 dark:border-point-2/55 dark:bg-point-1/15'
-            : 'border-basic-3 bg-basic-0/75',
+          selected ? 'border-point-2 bg-basic-1' : 'border-basic-3 bg-basic-0/75',
         )}
         key={category.id}
       >
@@ -94,7 +92,7 @@ export default function CategorySettingPage() {
               <div className="ml-auto flex items-center gap-2">
                 <button
                   type="button"
-                  className="inline-flex h-9 items-center justify-center rounded-lg bg-point-1 px-3 text-xs font-bold text-white transition-colors hover:bg-point-2"
+                  className="inline-flex h-9 items-center justify-center rounded-lg bg-point-1 px-3 text-xs font-semibold text-white transition-colors hover:bg-point-2"
                   onClick={patchCategory}
                 >
                   저장
@@ -117,15 +115,13 @@ export default function CategorySettingPage() {
                 type="button"
                 className={cn(
                   'inline-flex min-w-0 flex-1 items-center gap-2 rounded-lg px-2.5 py-2 text-left text-sm font-semibold transition-colors',
-                  selected
-                    ? 'bg-point-4/90 text-point-fg dark:bg-point-1/25 dark:text-point-2'
-                    : 'text-fg-3 hover:bg-basic-2',
+                  selected ? 'bg-basic-2 text-point-fg' : 'text-fg-3 hover:bg-basic-2',
                 )}
                 onClick={() => toggleParent(category)}
               >
                 <span className="truncate">{category.name}</span>
                 {childCount > 0 ? (
-                  <span className="rounded-full bg-basic-3 px-2 py-0.5 text-[10px] font-bold text-fg-4">
+                  <span className="rounded-full bg-basic-3 px-2 py-0.5 text-2xs font-semibold text-fg-4">
                     +{childCount}
                   </span>
                 ) : null}
@@ -185,8 +181,8 @@ export default function CategorySettingPage() {
 
       <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex items-center justify-between">
-          <h2 className="text-base font-bold text-fg-1">카테고리 트리</h2>
-          <span className="rounded-full bg-basic-3 px-2.5 py-1 text-[11px] font-bold text-fg-4">
+          <h2 className="text-base font-semibold text-fg-1">카테고리 트리</h2>
+          <span className="rounded-sm bg-basic-3 px-2 py-0.5 text-2xs font-medium tabular-nums text-fg-4">
             Root {categories.length}
           </span>
         </div>
@@ -202,8 +198,8 @@ export default function CategorySettingPage() {
         </div>
       </section>
 
-      <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4')}>
-        <h2 className="text-base font-bold text-fg-1">카테고리 추가</h2>
+      <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
+        <h2 className="text-base font-semibold text-fg-1">카테고리 추가</h2>
         <p className="text-xs text-fg-4">
           현재 부모:
           <span className="ml-1 font-semibold text-point-fg">
@@ -220,7 +216,7 @@ export default function CategorySettingPage() {
           />
           <button
             type="button"
-            className="inline-flex h-10 items-center justify-center gap-1 rounded-xl bg-point-1 px-4 text-sm font-bold text-white transition-colors hover:bg-point-2 disabled:cursor-not-allowed disabled:opacity-55"
+            className="inline-flex h-10 items-center justify-center gap-1 rounded-xl bg-point-1 px-4 text-sm font-semibold text-white transition-colors hover:bg-point-2 disabled:cursor-not-allowed disabled:opacity-55"
             onClick={postCategory}
             disabled={!categoryName?.trim()}
           >

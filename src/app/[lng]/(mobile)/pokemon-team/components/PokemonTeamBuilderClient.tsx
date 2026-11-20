@@ -220,7 +220,9 @@ export default function PokemonTeamBuilderClient({ lng }: PokemonTeamBuilderClie
                     <span className="truncate text-sm font-semibold text-fg-1">
                       {getName(species)}
                     </span>
-                    <span className="shrink-0 text-[11px] text-fg-6">#{species.dexId}</span>
+                    <span className="shrink-0 font-mono text-2xs tabular-nums text-fg-5">
+                      #{species.dexId}
+                    </span>
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {species.types.map((type) => (

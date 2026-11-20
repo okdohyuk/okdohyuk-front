@@ -1,32 +1,21 @@
-import { isValidElement, useEffect } from 'react';
-import { MarkdownComponent } from './type';
+import React from 'react';
 
-const Code: MarkdownComponent = function Code({ children }) {
-  useEffect(() => {
-    const highlight = async () => {
-      const Prism = (await import('prismjs')).default;
-      await import('prismjs/components/prism-typescript');
-      await import('prismjs/components/prism-jsx');
-      await import('prismjs/components/prism-tsx');
-      await Promise.all([
-        import('prismjs/components/prism-javascript'),
-        import('prismjs/components/prism-json'),
-        import('prismjs/components/prism-yaml'),
-        import('prismjs/components/prism-java'),
-        import('prismjs/components/prism-docker'),
-        import('prismjs/components/prism-sql'),
-        import('prismjs/components/prism-bash'),
-      ]);
-      Prism.highlightAll();
-    };
-    highlight();
-  }, [children]);
-
-  if (isValidElement(children)) {
-    return children;
-  }
-
-  return <span>{children}</span>;
+type CodeProps = {
+  /** Already-safe HTML from highlightCode (Prism tokens or escaped text). */
+  html: string;
+  language: string;
 };
+
+// `data-language` instead of a `language-xxx` class keeps Prism's selector-based
+// highlightAll (and any plugin) away from markup React owns.
+function Code({ html, language }: CodeProps) {
+  return (
+    <code
+      data-language={language}
+      // eslint-disable-next-line react/no-danger -- html is produced by Prism.highlight / escapeHtml
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+}
 
 export default Code;

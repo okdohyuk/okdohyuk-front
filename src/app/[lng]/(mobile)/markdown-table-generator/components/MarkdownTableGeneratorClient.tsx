@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { Clipboard, ClipboardCheck, Eraser, Sparkles } from 'lucide-react';
+import { Clipboard, ClipboardCheck, Eraser, FileText } from 'lucide-react';
 import { Button } from '@components/basic/Button';
 import { Textarea } from '@components/basic/Textarea';
 import {
@@ -15,10 +15,7 @@ import { Text } from '@components/basic/Text';
 import { cn } from '@utils/cn';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -187,7 +184,7 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
               onClick={handleExample}
               className="flex items-center gap-2 px-3 py-2 text-xs"
             >
-              <Sparkles size={16} />
+              <FileText size={16} />
               {t('button.example')}
             </Button>
             <Button
@@ -277,7 +274,7 @@ export default function MarkdownTableGeneratorClient({ lng }: MarkdownTableGener
         </div>
       </div>
 
-      <div className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'space-y-3 p-4')}>
+      <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
         <div className="flex items-center justify-between gap-3">
           <Text variant="d2" className="font-semibold text-fg-2">
             {t('label.output')}

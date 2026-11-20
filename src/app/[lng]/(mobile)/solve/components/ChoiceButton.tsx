@@ -36,15 +36,14 @@ const INDEX_BADGE: Record<ChoiceIndex, string> = {
 const choiceVariants = cva(
   cn(
     'group relative flex w-full items-center gap-3.5 rounded-2xl border p-4 text-left',
-    'min-h-[60px] shadow-sm transition-all duration-200',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-point-1 focus-visible:ring-offset-2 focus-visible:ring-offset-basic-0',
+    'min-h-[60px] shadow-sm transition-colors duration-200',
+    'focus-ring',
   ),
   {
     variants: {
       state: {
-        default:
-          'border-basic-3 bg-basic-0 text-fg-1 hover:-translate-y-0.5 hover:border-point-4 hover:shadow-md',
-        selected: 'border-point-1 bg-point-soft text-point-1',
+        default: 'border-basic-3 bg-basic-0 text-fg-1 hover:border-point-4 hover:shadow-md',
+        selected: 'border-point-1 bg-point-soft text-point-fg',
         correct: 'border-success-2 bg-success-4 text-fg-1',
         wrong: 'border-danger-2 bg-danger-4 text-fg-1',
         dimmed: 'border-basic-3 bg-basic-0 text-fg-1 opacity-45 saturate-50 shadow-none',

@@ -134,7 +134,7 @@ export default function PromptBuilder({ language, theme, className }: PromptBuil
       )}
     >
       <div className="space-y-1">
-        <h2 className="text-lg font-bold text-fg-1">
+        <h2 className="text-lg font-semibold text-fg-1">
           {isKorean ? '빈칸형 콘텐츠 생성 프롬프트' : 'Fill-in content prompt'}
         </h2>
         <p className="text-sm text-fg-5">

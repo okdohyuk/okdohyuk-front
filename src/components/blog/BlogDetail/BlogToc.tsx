@@ -3,10 +3,11 @@ import Link from '@components/basic/Link';
 import { cn } from '@utils/cn';
 import ScrollUtils from '@utils/scrollUtils';
 import { useBlogDetail } from 'components/blog/BlogDetail/BlogDetailProvider';
-import { BLOG_GLASS_PANEL_SOFT } from '@components/blog/interactiveStyles';
+import { useTranslation } from '~/app/i18n/client';
 
 function BlogToc() {
-  const { toc } = useBlogDetail();
+  const { toc, lng } = useBlogDetail();
+  const { t } = useTranslation(lng, 'blog/index');
   const [activeId, setActiveId] = useState<null | string>(null);
   const [headingTops, setHeadingTops] = useState<
     | null
@@ -31,7 +32,7 @@ function BlogToc() {
           top: top + scrollTop,
         };
       })
-      .filter((t) => t !== null) as { id: string; top: number }[];
+      .filter((heading) => heading !== null) as { id: string; top: number }[];
     setHeadingTops(calculatedHeadingTops);
   }, [toc]);
 
@@ -82,28 +83,40 @@ function BlogToc() {
 
   if (!toc || !headingTops) return null;
 
+  // Quiet outline: muted text on a hairline rail. Only the active item gets the accent
+  // (text + its rail segment); size and weight never change, so nothing shifts on scroll.
   return (
-    <ol
-      className={cn(
-        BLOG_GLASS_PANEL_SOFT,
-        'sticky top-20 mt-8 ml-4 h-fit max-h-[calc(100vh-110px)] min-w-[180px] overflow-y-auto p-3',
-      )}
+    <nav
+      aria-label={t('toc')}
+      className="sticky top-8 mx-4 mt-8 h-fit max-h-[calc(100vh-4rem)] w-full max-w-56 overflow-y-auto"
     >
-      {toc?.map((t) => (
-        <li
-          key={t.id}
-          className={cn(
-            'mb-1 cursor-pointer rounded-md px-2 py-1 transition-all hover:bg-basic-2',
-            t.level === 0 && 'text-sm font-semibold',
-            t.level === 1 && 'pl-3 text-xs',
-            t.level >= 2 && 'pl-5 text-xs',
-            activeId === t.id ? 'scale-[1.02] bg-point-4/50 font-bold text-fg-1' : 'text-fg-5',
-          )}
-        >
-          <Link href={`#${t.id}`}>{t.text}</Link>
-        </li>
-      ))}
-    </ol>
+      <p className="mb-2 text-xs text-fg-5">{t('toc')}</p>
+      <ol className="border-l border-basic-3">
+        {toc.map((item) => {
+          const isActive = activeId === item.id;
+          return (
+            <li key={item.id}>
+              <Link
+                href={`#${item.id}`}
+                aria-current={isActive ? 'location' : undefined}
+                className={cn(
+                  '-ml-px block border-l py-1 pr-2 text-sm leading-5 transition-colors duration-150',
+                  'focus-ring-inset',
+                  item.level === 0 && 'pl-3',
+                  item.level === 1 && 'pl-6 text-xs leading-4',
+                  item.level >= 2 && 'pl-9 text-xs leading-4',
+                  isActive
+                    ? 'border-point-2 text-point-fg'
+                    : 'border-transparent text-fg-5 hover:text-fg-2',
+                )}
+              >
+                {item.text}
+              </Link>
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
   );
 }
 

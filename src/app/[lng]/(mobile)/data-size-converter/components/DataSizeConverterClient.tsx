@@ -91,7 +91,7 @@ export default function DataSizeConverterClient({ lng }: DataSizeConverterClient
   return (
     <div className="w-full space-y-6">
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-4 p-4')}>
-        <label htmlFor="data-size-input" className="text-sm font-semibold text-fg-2">
+        <label htmlFor="data-size-input" className="text-sm font-medium text-fg-2">
           {t('label.input')}
         </label>
         <div className="grid gap-3 md:grid-cols-[2fr_1fr_1fr]">
@@ -136,18 +136,15 @@ export default function DataSizeConverterClient({ lng }: DataSizeConverterClient
       </div>
 
       <div className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
-        <div className="text-sm font-semibold text-fg-1">{t('result.title')}</div>
+        <div className="text-sm font-medium text-fg-1">{t('result.title')}</div>
         {results ? (
           <ul className="grid gap-3 sm:grid-cols-2">
             {results.map((entry) => (
-              <li
-                key={entry.key}
-                className="rounded-xl border border-basic-3 bg-basic-0/70 p-4 shadow-sm"
-              >
-                <p className="text-xs font-semibold uppercase text-fg-5">
+              <li key={entry.key} className="rounded-xl border border-basic-3 p-4">
+                <p className="text-xs font-medium text-fg-5">
                   {t(`units.${entry.key}`)} ({t(`unitShort.${entry.key}`)})
                 </p>
-                <p className="mt-2 text-lg font-semibold text-fg-1">
+                <p className="mt-2 font-mono text-lg font-medium tabular-nums text-fg-1">
                   {numberFormatter.format(entry.value)}{' '}
                   <span className="text-xs font-medium text-fg-5">
                     {t(`unitShort.${entry.key}`)}

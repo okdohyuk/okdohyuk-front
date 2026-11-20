@@ -1,5 +1,5 @@
 import type { ShowcaseChapterId } from '@assets/datas/landingShowcase';
-import { messageValues, type MessageTiming, type SceneValue } from './sceneEngine';
+import { messageValues, type SceneValue } from './sceneEngine';
 
 /**
  * 랜딩 씬 구성 — 인프런 애플 클론 강의의 `sceneInfo` 배열에 대응하는 **정적 정의**.
@@ -7,16 +7,6 @@ import { messageValues, type MessageTiming, type SceneValue } from './sceneEngin
  * 런타임 상태(scrollHeight, currentScene, 로드된 이미지…)는 여기 두지 않는다.
  * 타이밍이나 씬 순서를 바꾸고 싶으면 이 파일만 고치면 된다(강의의 유지보수 원칙 그대로).
  */
-
-/** 히어로 카피 3개가 순차로 등장/퇴장하는 리듬. 등장 0.1 → 유지 0.05 → 퇴장 0.05 → 쉼 0.05 */
-export const HERO_MESSAGE_TIMINGS: MessageTiming[] = [
-  { in: { start: 0.05, end: 0.15 }, out: { start: 0.2, end: 0.25 }, split: 0.18 },
-  { in: { start: 0.3, end: 0.4 }, out: { start: 0.45, end: 0.5 }, split: 0.42 },
-  { in: { start: 0.55, end: 0.65 }, out: { start: 0.7, end: 0.75 }, split: 0.67 },
-];
-
-/** 히어로 배경 워시는 씬 끝에서 걷힌다. */
-export const HERO_WASH_OPACITY: SceneValue = [1, 0, { start: 0.85, end: 1 }];
 
 /**
  * 씬 진입 페이드가 끝나는 지점 — **미끄러져 들어오는 구간(마지막 1vh)의 비율**.
@@ -121,12 +111,12 @@ export type LandingSceneSpec = {
  * 씬 순서와 높이.
  *
  * `heightNum` 은 "브라우저 높이의 N배"다. 고정 픽셀이면 기기마다 체감 속도가 달라진다.
- * - 히어로 4: 카피 3개 × 약 0.25 구간
+ * - 히어로: 일반 섹션(콘텐츠 높이). 스크럽할 카피가 없으므로 sticky 로 붙잡아 둘 이유가 없다.
  * - 도구 5: 90프레임을 5×vh 동안 재생 = 900px 창에서 프레임당 50px
  * - 블렌딩 4: 열림 0.24 + 블렌딩 0.26 + 캡션 0.14 + 여백
  */
 export const LANDING_SCENES: LandingSceneSpec[] = [
-  { id: 'hero', type: 'sticky', heightNum: 4 },
+  { id: 'hero', type: 'normal' },
   { id: 'pokemon', type: 'sticky', heightNum: 5 },
   { id: 'clock', type: 'sticky', heightNum: 5 },
   { id: 'live', type: 'sticky', heightNum: 5 },

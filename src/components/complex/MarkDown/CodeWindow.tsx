@@ -1,33 +1,24 @@
-import React, { useMemo, useRef } from 'react';
+import React from 'react';
 import CodeCopy from './CodeCopy';
 import Code from './Code';
+import { highlightCode, languageFromClassName } from './highlight';
+import { extractTextFromReactNode } from './utils';
 import { MarkdownComponent } from './type';
 
-const CodeWindow: MarkdownComponent = function CodeWindow({ children: codeDom, ...props }) {
-  const prevCodeDom = useRef<React.ReactNode>(codeDom);
-  const prevCopyString = useRef('');
+type CodeElementProps = { className?: string; children?: React.ReactNode };
 
-  const copyString = useMemo(() => {
-    if (React.isValidElement(codeDom)) {
-      const copyValue = codeDom.props.children as string;
-      prevCopyString.current = copyValue;
-      return copyValue;
-    }
-
-    return prevCopyString.current;
-  }, [codeDom]);
-
-  const memoizedCodeDom = useMemo(() => {
-    if (prevCopyString.current === copyString) {
-      return prevCodeDom.current;
-    }
-    prevCodeDom.current = codeDom;
-    return codeDom;
-  }, [codeDom, copyString]);
+// markdown-to-jsx renders a fence as <pre><code class="lang-xxx">raw text</code></pre>;
+// `pre` is overridden to this component, so `children` is that <code> element.
+const CodeWindow: MarkdownComponent = function CodeWindow({ children, className }) {
+  const codeProps: CodeElementProps = React.isValidElement<CodeElementProps>(children)
+    ? children.props
+    : { children };
+  const code = extractTextFromReactNode(codeProps.children).replace(/\n$/, '');
+  const { html, language, label } = highlightCode(code, languageFromClassName(codeProps.className));
 
   return (
-    <CodeCopy {...props} copyString={copyString}>
-      <Code {...props}>{memoizedCodeDom}</Code>
+    <CodeCopy copyString={code} label={label} className={className}>
+      <Code html={html} language={language} />
     </CodeCopy>
   );
 };

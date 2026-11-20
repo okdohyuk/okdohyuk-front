@@ -6,10 +6,7 @@ import { Button } from '@components/basic/Button';
 import { useTranslation } from '~/app/i18n/client';
 import { Language } from '~/app/i18n/settings';
 import { cn } from '@utils/cn';
-import {
-  SERVICE_CARD_INTERACTIVE,
-  SERVICE_PANEL_SOFT,
-} from '@components/complex/Service/interactiveStyles';
+import { SERVICE_PANEL_SOFT } from '@components/complex/Service/interactiveStyles';
 import GoogleAd from '@components/google/GoogleAd';
 import { useToolTracking } from '@hooks/analytics/useToolTracking';
 
@@ -109,7 +106,7 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
           </div>
 
           <div className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-3')}>
-            <p className="text-sm font-semibold text-fg-2">{t('summary.title')}</p>
+            <p className="text-sm font-medium text-fg-2">{t('summary.title')}</p>
             <div className="flex flex-wrap gap-2 text-xs font-medium text-fg-4">
               <span className="rounded-full bg-basic-2 px-2 py-1 dark:bg-basic-3">
                 {t('summary.total', { count: summary.total || safeCount })}
@@ -124,14 +121,8 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
           </div>
         </section>
 
-        <section
-          className={cn(
-            SERVICE_PANEL_SOFT,
-            SERVICE_CARD_INTERACTIVE,
-            'space-y-3 p-4 min-h-[240px]',
-          )}
-        >
-          <h3 className="text-sm font-semibold text-fg-2">{t('result.title')}</h3>
+        <section className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4 min-h-[240px]')}>
+          <h3 className="text-sm font-medium text-fg-2">{t('result.title')}</h3>
           {results.length === 0 ? (
             <p className="text-sm text-fg-5">{t('result.empty')}</p>
           ) : (
@@ -139,15 +130,13 @@ export default function CoinFlipClient({ lng }: CoinFlipClientProps) {
               {results.map((result, index) => (
                 <li
                   key={result.id}
-                  className="flex items-center justify-between rounded-xl border border-basic-3 bg-basic-0/80 px-3 py-2 text-sm text-fg-2 shadow-sm"
+                  className="flex items-center justify-between rounded-lg border border-basic-3 px-3 py-2 text-sm text-fg-2"
                 >
                   <span className="font-medium">{t('result.coinLabel', { index: index + 1 })}</span>
                   <span
                     className={cn(
-                      'rounded-full px-2 py-0.5 text-xs font-semibold',
-                      result.value === 'heads'
-                        ? 'bg-point-1/15 text-point-fg'
-                        : 'bg-point-4/40 text-fg-3',
+                      'rounded-sm px-2 py-0.5 text-xs font-medium',
+                      result.value === 'heads' ? 'bg-basic-3 text-fg-1' : 'bg-basic-2 text-fg-4',
                     )}
                   >
                     {t(`result.${result.value}`)}

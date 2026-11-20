@@ -22,12 +22,12 @@ function CodeBlock({ code, language, className }: CodeBlockProps) {
   return (
     <div
       className={cn(
-        'relative overflow-hidden rounded-2xl border border-basic-3 bg-basic-2 shadow-sm',
+        'relative overflow-hidden rounded-xl border border-basic-3 bg-basic-1',
         className,
       )}
     >
       {language && (
-        <span className="block border-b border-basic-3 px-3.5 py-1.5 text-sm font-semibold lowercase text-fg-5">
+        <span className="block border-b border-basic-3 px-4 py-1.5 font-mono text-xs lowercase text-fg-5">
           {language}
         </span>
       )}

@@ -96,7 +96,7 @@ export default function WaterIntakeClient({ lng }: Props) {
     <div className="space-y-4">
       <section className={cn(SERVICE_PANEL, 'p-4 space-y-3')}>
         <header className="space-y-1">
-          <h3 className="text-base font-bold text-fg-1">{t('inputs.title')}</h3>
+          <h3 className="text-base font-semibold text-fg-1">{t('inputs.title')}</h3>
           <p className="text-xs text-fg-5">{t('inputs.description')}</p>
         </header>
         <div className="grid gap-3 sm:grid-cols-3">
@@ -164,7 +164,7 @@ export default function WaterIntakeClient({ lng }: Props) {
               </p>
             </div>
           ) : (
-            <span className="text-fg-6">{t('result.empty')}</span>
+            <span className="text-fg-5">{t('result.empty')}</span>
           )}
         </div>
       </section>
@@ -173,7 +173,7 @@ export default function WaterIntakeClient({ lng }: Props) {
 
       <section className={cn(SERVICE_PANEL, 'p-4 space-y-3')}>
         <header className="space-y-1">
-          <h3 className="text-base font-bold text-fg-1">{t('tips.title')}</h3>
+          <h3 className="text-base font-semibold text-fg-1">{t('tips.title')}</h3>
           <p className="text-xs text-fg-5">{t('tips.description')}</p>
         </header>
         <ul className="list-disc space-y-2 pl-5 text-sm text-fg-3">

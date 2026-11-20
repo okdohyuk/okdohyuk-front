@@ -6,7 +6,7 @@
     "keywords": ["网络", "IP", "子网", "VLSM", "CIDR", "通配符", "掩码", "计算器"]
   },
   "title": "网络计算器",
-  "description": "IP子网、VLSM和通配符掩码计算，一站式解决",
+  "description": "IP子网、VLSM和通配符掩码计算，一站式解决。",
   "tabs": {
     "ipSubnet": "IP/子网",
     "vlsm": "VLSM",
@@ -111,7 +111,7 @@
     "hostsTooLarge": "所需主机数超过基础网络容量。",
     "minOneSubnet": "请至少添加一个子网。",
     "subnetOverflow": "子网空间不足。请增大基础网络或减少主机数。",
-    "copied": "已复制！"
+    "copied": "已复制"
   },
   "actions": {
     "copy": "复制"

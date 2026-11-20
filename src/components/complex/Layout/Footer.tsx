@@ -25,21 +25,21 @@ function Footer({ lng, className = '' }: FooterProps) {
   }
 
   const currentYear = new Date().getFullYear();
-  const linkClassName = 'hover:text-point-fg dark:hover:text-point-3 transition-colors';
+  const linkClassName = 'rounded-sm transition-colors hover:text-fg-1 focus-ring';
   const separatorClassName = 'mx-2 text-fg-6';
 
   return (
     <footer
       className={cn(
-        'w-full py-4 border-t border-basic-3',
-        'bg-basic-2',
-        'mb-[57px] lg:mb-0',
+        'w-full border-t border-basic-3 bg-basic-0 py-6',
+        // Reserve room for the floating mobile nav and the home indicator.
+        'mb-[var(--mobile-nav-clearance)] lg:mb-0',
         className,
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="text-center text-sm text-fg-4">
-          <p className="flex items-center justify-center">
+        <div className="text-center text-xs text-fg-5">
+          <p className="flex flex-wrap items-center justify-center tabular-nums">
             <span>
               © {currentYear} {t('footer.appName')}
             </span>

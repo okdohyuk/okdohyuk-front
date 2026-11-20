@@ -9,6 +9,25 @@ type MobileScreenWrapperProps = {
   className?: string;
 };
 
+// Static class maps so Tailwind can see every class (template strings like `text-${x}` are
+// invisible to the scanner).
+const TEXT_ALIGN = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right',
+} as const;
+
+// `left` keeps the default stretch (the old `items-left` class never existed in Tailwind).
+const ITEMS_ALIGN = {
+  left: '',
+  center: 'items-center',
+  right: 'items-end',
+} as const;
+
+/*
+ * Content column for tool and blog pages. No background of its own — the page canvas shows
+ * through, and each tool card is the only surface (unslop: one layer, no box-in-box).
+ */
 function MobileScreenWrapper({
   children,
   items = 'left',
@@ -18,11 +37,12 @@ function MobileScreenWrapper({
   return (
     <div
       className={cn(
-        'relative flex flex-col ',
-        'mx-auto mt-safe w-full md:max-w-[512px] lg:max-w-[1024px] min-h-screen p-2 md:p-4 lg:p-6 ',
-        'bg-gradient-to-br from-zinc-100 via-zinc-100 to-point-4/35 dark:from-zinc-900 dark:via-zinc-900 dark:to-point-1/15 overflow-x-hidden break-words ',
-        `text-${text}`,
-        ` items-${items}`,
+        'relative flex flex-col',
+        'mx-auto mt-safe w-full min-h-screen md:max-w-lg lg:max-w-5xl',
+        'px-4 pt-4 md:px-6 md:pt-6 lg:px-8 lg:pt-8',
+        'overflow-x-hidden break-words',
+        TEXT_ALIGN[text],
+        ITEMS_ALIGN[items],
         className,
       )}
     >

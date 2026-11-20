@@ -44,8 +44,8 @@ export default function FavoriteStarButton({
       title={label}
       disabled={disabled}
       className={cn(
-        'inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-basic-3 bg-basic-0/90 text-fg-5 transition-colors',
-        'hover:border-point-2/70 hover:text-point-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-point-2',
+        'inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-basic-3 bg-basic-0 text-fg-5 transition-colors',
+        'hover:border-basic-4 hover:text-fg-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-point-2',
         'disabled:cursor-not-allowed disabled:opacity-60',
         isFavorite && 'border-point-2/70 text-point-fg',
         className,

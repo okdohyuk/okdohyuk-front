@@ -274,7 +274,9 @@ export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProp
                   <span className="truncate text-sm font-semibold text-fg-1">
                     {getName(species)}
                   </span>
-                  <span className="shrink-0 text-[11px] text-fg-6">#{species.dexId}</span>
+                  <span className="shrink-0 font-mono text-2xs tabular-nums text-fg-5">
+                    #{species.dexId}
+                  </span>
                 </div>
                 <div className="flex flex-wrap gap-1">
                   {species.types.map((type) => (
@@ -317,7 +319,7 @@ export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProp
             unoptimized
           />
           <div className="min-w-0 flex-1 space-y-1.5">
-            <Text variant="d1" className="font-bold">
+            <Text variant="d1" className="font-semibold">
               {getName(selectedSpecies)}
             </Text>
             <Text variant="c1" color="basic-5" className="block">
@@ -450,12 +452,12 @@ export default function PokemonWeaknessClient({ lng }: PokemonWeaknessClientProp
 
       {/* Selected species + weaknesses */}
       {selectedSlug ? (
-        <section className={cn(SERVICE_PANEL_SOFT, SERVICE_CARD_INTERACTIVE, 'p-4 space-y-4')}>
+        <section className={cn(SERVICE_PANEL_SOFT, 'p-4 space-y-4')}>
           {renderSelectedBody()}
         </section>
       ) : (
         <section className={cn(SERVICE_PANEL_SOFT, 'space-y-2 p-5 text-center')}>
-          <Text variant="d2" className="block font-bold">
+          <Text variant="d2" className="block font-semibold">
             {t('empty.title')}
           </Text>
           <Text variant="c1" color="basic-5" className="block">

@@ -21,7 +21,7 @@
     "result": "結果"
   },
   "placeholder": "* * * * *",
-  "invalid": "無効な Cron 式",
+  "invalid": "無効な Cron 式です。",
   "meta": {
     "title": "Cron 生成器 | Okdohyuk Multi-Tool",
     "description": "Cron 式を簡単に生成します。"

@@ -4,7 +4,7 @@
  * solve/SubjectCard.tsx — 과목 카드 + 진행 게이지 (oksolve SubjectCard 마이그레이션).
  *
  * 클릭 시 단원 선택 화면으로 진입하는 버튼형 카드. 공통 상수
- * SERVICE_PANEL_SOFT(패널 톤) + SERVICE_CARD_INTERACTIVE(hover lift/보더)를 재사용한다.
+ * SERVICE_PANEL_SOFT(패널 톤) + SERVICE_CARD_INTERACTIVE(hover 보더/포커스 링)를 재사용한다.
  * 진행 게이지는 공통 @components/basic/ProgressBar 재사용.
  *
  * color prop(과목별 hex)은 CSS 변수(--subject-accent)로 받아 좌측 액센트 바·점에만 사용한다
@@ -62,7 +62,7 @@ function SubjectCard({
         SERVICE_PANEL_SOFT,
         SERVICE_CARD_INTERACTIVE,
         'relative flex w-full flex-col gap-2.5 overflow-hidden p-5 text-left',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-point-1 focus-visible:ring-offset-2 focus-visible:ring-offset-basic-0',
+        'focus-ring',
         inProgress && 'border-point-1 bg-point-soft',
       )}
     >

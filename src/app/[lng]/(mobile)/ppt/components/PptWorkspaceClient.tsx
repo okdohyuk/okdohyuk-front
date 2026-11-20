@@ -90,7 +90,7 @@ export default function PptWorkspaceClient({ lng }: PptWorkspaceClientProps) {
             'grid min-h-56 place-items-center space-y-3 p-8 text-center',
           )}
         >
-          <div className="grid h-14 w-14 place-items-center rounded-2xl bg-point-4 text-point-fg">
+          <div className="grid h-14 w-14 place-items-center rounded-xl border border-basic-3 bg-basic-1 text-fg-4">
             <PresentationIcon className="h-7 w-7" />
           </div>
           <div>
@@ -108,11 +108,11 @@ export default function PptWorkspaceClient({ lng }: PptWorkspaceClientProps) {
             return (
               <li key={presentation.id} className={cn(SERVICE_PANEL_SOFT, 'space-y-3 p-4')}>
                 <div className="flex items-start gap-3">
-                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-point-4 text-point-fg">
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-basic-3 bg-basic-1 text-fg-4">
                     <PresentationIcon className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h2 className="truncate font-bold text-fg-1">{presentation.title}</h2>
+                    <h2 className="truncate font-semibold text-fg-1">{presentation.title}</h2>
                     <p className="mt-1 line-clamp-2 text-sm text-fg-5">
                       {presentation.description ||
                         `${document.slides.length} slides · revision ${presentation.revision}`}

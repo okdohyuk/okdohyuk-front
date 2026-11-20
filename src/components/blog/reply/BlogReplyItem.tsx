@@ -2,6 +2,7 @@
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from 'react';
 import Image from 'next/legacy/image';
+import { format } from 'date-fns';
 import { BlogReply } from '@api/BlogReply';
 import { useDeleteBlogReply, useReportBlogReply } from '@queries/useReplyQueries';
 import UserTokenUtil from '@utils/userTokenUtil';
@@ -109,11 +110,15 @@ export default function BlogReplyItem({
   const canDelete = isAuthor || isAdmin;
 
   const actionButtonClass =
-    'rounded-md px-2 py-1 font-medium text-fg-5 transition-colors hover:bg-point-4/70 hover:text-point-fg';
+    'rounded-md px-2 py-1 text-fg-5 transition-colors duration-150 hover:bg-basic-2 hover:text-fg-1 focus-ring';
+  const dangerActionClass =
+    'rounded-md px-2 py-1 text-fg-5 transition-colors duration-150 hover:bg-danger-4 hover:text-danger-2 focus-ring dark:hover:bg-danger-1/20';
+  const createdAt = new Date(reply.createdAt);
+  const hasValidDate = !Number.isNaN(createdAt.getTime());
 
   return (
-    <div className={`mt-6 ${depth > 0 ? 'ml-6 border-l-2 border-basic-3 pl-4' : ''}`}>
-      <div className="group rounded-xl border border-basic-3/80 bg-basic-0/70 p-3 backdrop-blur-sm md:p-4">
+    <div className={depth > 0 ? 'ml-4 border-l border-basic-3 pl-4 md:ml-6' : ''}>
+      <div className="rounded-xl border border-basic-3 bg-basic-0 p-3 dark:bg-basic-1 md:p-4">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-basic-2 dark:bg-basic-3">
@@ -128,17 +133,27 @@ export default function BlogReplyItem({
                   />
                 </div>
               ) : (
-                <span className="text-xs font-bold text-fg-5">{reply.author?.name?.charAt(0)}</span>
+                <span className="text-xs font-medium text-fg-5">
+                  {reply.author?.name?.charAt(0)}
+                </span>
               )}
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-fg-1">{reply.author?.name || 'Unknown'}</span>
-              <span className="text-xs text-fg-5">
-                {new Date(reply.createdAt).toLocaleString()}
+              <span className="text-sm font-medium text-fg-1">
+                {reply.author?.name || 'Unknown'}
               </span>
+              {hasValidDate ? (
+                <time
+                  dateTime={createdAt.toISOString()}
+                  className="font-mono text-xs tabular-nums text-fg-5"
+                  suppressHydrationWarning
+                >
+                  {format(createdAt, 'yyyy-MM-dd HH:mm')}
+                </time>
+              ) : null}
             </div>
           </div>
-          <div className="flex gap-2 text-xs transition-opacity duration-200">
+          <div className="flex gap-1 text-xs">
             {depth < 1 && (
               <button type="button" onClick={handleReplyClick} className={actionButtonClass}>
                 {t('reply.action.reply')}
@@ -156,20 +171,12 @@ export default function BlogReplyItem({
             ) : null}
 
             {canDelete && (
-              <button
-                type="button"
-                onClick={handleDelete}
-                className="rounded-md px-2 py-1 font-medium text-fg-5 transition-colors hover:bg-danger-4 hover:text-danger-2"
-              >
+              <button type="button" onClick={handleDelete} className={dangerActionClass}>
                 {t('reply.action.delete')}
               </button>
             )}
 
-            <button
-              type="button"
-              onClick={handleReportClick}
-              className="rounded-md px-2 py-1 font-medium text-fg-6 transition-colors hover:bg-danger-4 hover:text-danger-3"
-            >
+            <button type="button" onClick={handleReportClick} className={dangerActionClass}>
               {t('reply.action.report')}
             </button>
           </div>
@@ -189,8 +196,8 @@ export default function BlogReplyItem({
             />
           ) : (
             <div
-              className={`whitespace-pre-wrap text-base leading-relaxed ${
-                reply.isDeleted ? 'italic text-fg-6' : 'text-fg-2'
+              className={`whitespace-pre-wrap text-sm leading-relaxed md:text-base ${
+                reply.isDeleted ? 'text-fg-5' : 'text-fg-2'
               }`}
             >
               {reply.content}
@@ -215,7 +222,7 @@ export default function BlogReplyItem({
       </div>
 
       {reply.children && reply.children.length > 0 && (
-        <div className="mt-4">
+        <div className="mt-3 space-y-3">
           {reply.children.map((child) => (
             <BlogReplyItem
               key={child.id}
@@ -233,6 +240,7 @@ export default function BlogReplyItem({
         open={reportDialogOpen}
         onOpenChange={setReportDialogOpen}
         onSubmit={handleReportSubmit}
+        lng={lng}
       />
     </div>
   );
